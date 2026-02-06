@@ -1,0 +1,69 @@
+WITH last_dose AS (
+  SELECT
+    cd_itpre_med,
+    MAX(dh_checagem) AS dh_checagem
+  FROM dbamv.PW_HORARIO_FECHADO_CHECAGEM
+  GROUP BY cd_itpre_med
+),
+atb_raw AS (
+  SELECT
+    atd.cd_atendimento,
+    pac.nm_paciente,
+    ui.ds_unid_int            AS unid_internacao,
+    lt.ds_leito               AS leito_internacao,
+    esp.ds_especialid         AS especialidade_internacao,
+    prod.ds_produto           AS antibiotico,
+    itpre.nr_dia,
+    itpre.qt_dias,
+    tf.ds_tip_fre             AS posologia,
+    itpre.qt_itpre_med        AS quantidade,
+    itpre.cd_itpre_med,
+    pre.hr_pre_med,
+    itpre.dh_registro,
+    ld.dh_checagem
+  FROM dbamv.PRE_MED       pre
+  JOIN dbamv.ITPRE_MED     itpre ON itpre.cd_pre_med    = pre.cd_pre_med
+  JOIN dbamv.TIP_PRESC     tp    ON tp.cd_tip_presc     = itpre.cd_tip_presc
+                                AND tp.cd_tip_esq       = 'ATB'
+  JOIN dbamv.PRODUTO       prod  ON prod.cd_produto     = itpre.cd_produto
+  JOIN dbamv.TIP_FRE       tf    ON tf.cd_tip_fre       = itpre.cd_tip_fre
+  JOIN dbamv.ATENDIME      atd   ON atd.cd_atendimento  = pre.cd_atendimento
+  JOIN dbamv.PACIENTE      pac   ON pac.cd_paciente     = atd.cd_paciente
+  LEFT JOIN dbamv.LEITO     lt    ON lt.cd_leito         = atd.cd_leito
+  LEFT JOIN dbamv.UNID_INT  ui    ON ui.cd_unid_int      = lt.cd_unid_int
+  LEFT JOIN dbamv.ESPECIALID esp  ON esp.cd_especialid   = atd.cd_especialid
+  LEFT JOIN last_dose      ld    ON ld.cd_itpre_med     = itpre.cd_itpre_med
+  WHERE pre.hr_pre_med      >= SYSDATE - 2
+    AND atd.hr_alta         IS NULL
+    AND atd.cd_multi_empresa = 40
+    AND ui.cd_unid_int     IN ( $UnidIntHugo$ )
+),
+atb_combined AS (
+  SELECT
+    atb_raw.*,
+    COALESCE(atb_raw.dh_checagem, atb_raw.dh_registro) AS ultima_dose_dt
+  FROM atb_raw
+),
+atb_recente AS (
+  SELECT
+    atb_combined.*,
+    ROW_NUMBER() OVER (
+      PARTITION BY atb_combined.cd_atendimento, atb_combined.antibiotico
+      ORDER BY atb_combined.ultima_dose_dt DESC
+    ) AS rn
+  FROM atb_combined
+)
+SELECT
+  nm_paciente,
+  unid_internacao,
+  leito_internacao,
+  especialidade_internacao,
+  antibiotico,
+  nr_dia,
+  qt_dias,
+  posologia,
+  quantidade,
+  TO_CHAR(ultima_dose_dt, 'DD/MM/YYYY HH24:MI') AS ultima_dose_realizada
+FROM atb_recente
+WHERE rn = 1
+ORDER BY nm_paciente, ultima_dose_dt DESC

@@ -1,0 +1,520 @@
+# Estrutura do Banco de Dados MV/DBAMV - Escalas de Avaliação (PAGU)
+## Hospital HUGO (CD_MULTI_EMPRESA = 40)
+
+**Data da Investigação:** Novembro/2025  
+**Sistema:** MV SOUL / DBAMV  
+**Objetivo:** Mapear o caminho até as escalas de avaliação (Braden, Morse, Glasgow, etc.)
+
+---
+
+## 1. VISÃO GERAL - ARQUITETURA
+
+As escalas de avaliação no MV estão armazenadas no módulo **PAGU** (Prescrição e Avaliação - Guia Unificado).
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                              ATENDIME                                        │
+│                     (Atendimentos/Internações)                               │
+│                        CD_ATENDIMENTO (PK)                                   │
+└───────────────────────────────┬─────────────────────────────────────────────┘
+                                │
+                                │ CD_ATENDIMENTO
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           PAGU_AVALIACAO                                     │
+│                    (Avaliações Realizadas)                                   │
+│  CD_AVALIACAO (PK)                                                          │
+│  CD_ATENDIMENTO (FK) ──────────────────────────────────────────────────────►│
+│  CD_FORMULA (FK) ───────────────────────┐                                   │
+│  DH_AVALIACAO                           │                                   │
+│  VL_RESULTADO                           │                                   │
+│  DS_INTERPRETACAO_RESULTADO             │                                   │
+└─────────────────────────────────────────┼───────────────────────────────────┘
+                                          │
+                                          │ CD_FORMULA
+                                          ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                            PAGU_FORMULA                                      │
+│                    (Catálogo de Escalas)                                     │
+│  CD_FORMULA (PK)                                                            │
+│  DS_FORMULA (Nome da escala)                                                │
+└───────────────────────────────┬─────────────────────────────────────────────┘
+                                │
+                                │ CD_FORMULA
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           PAGU_ITFORMULA                                     │
+│               (Itens/Perguntas de cada Escala)                               │
+│  CD_ITFORMULA (PK)                                                          │
+│  CD_FORMULA (FK)                                                            │
+│  CD_PERGUNTA (FK) ──────────────────────┐                                   │
+└─────────────────────────────────────────┼───────────────────────────────────┘
+                                          │
+                                          │ CD_PERGUNTA
+                                          ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           PAGU_PERGUNTA                                      │
+│                    (Perguntas das Escalas)                                   │
+│  CD_PERGUNTA (PK)                                                           │
+│  DS_PERGUNTA                                                                │
+└───────────────────────────────┬─────────────────────────────────────────────┘
+                                │
+                                │ CD_PERGUNTA
+                                ▼
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                           PAGU_RESPOSTA                                      │
+│              (Opções de Resposta das Perguntas)                              │
+│  CD_RESPOSTA (PK)                                                           │
+│  CD_PERGUNTA (FK)                                                           │
+│  DS_RESPOSTA                                                                │
+│  VL_RESPOSTA (valor numérico para cálculo)                                  │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+                                │
+        ┌───────────────────────┴───────────────────────┐
+        │                                               │
+        ▼                                               ▼
+┌───────────────────────┐                 ┌───────────────────────┐
+│   PAGU_ITAVALIACAO    │                 │ PAGU_FORMULA_SETOR    │
+│ (Respostas dadas em   │                 │ (Escalas por Setor)   │
+│  cada avaliação)      │                 │                       │
+└───────────────────────┘                 └───────────────────────┘
+```
+
+---
+
+## 2. TABELAS PRINCIPAIS
+
+### 2.1 PAGU_FORMULA - Catálogo de Escalas
+
+Contém todas as escalas/fórmulas cadastradas no sistema.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_FORMULA | NUMBER | PK - Código da fórmula/escala |
+| DS_FORMULA | VARCHAR2 | Nome/Descrição da escala |
+
+#### Escalas Cadastradas no HUGO:
+
+| CD_FORMULA | DS_FORMULA |
+|------------|------------|
+| 1 | APACHE II |
+| 2 | CALCULO DO PAM |
+| 3 | ESCORE SOFA |
+| 7 | ESCALA COMA GLASGOW INFANTIL |
+| 8 | ESCALA COMA DE GLASGOW ADULTO |
+| 9 | EUROSCORE |
+| 16 | REGUA DA DOR |
+| 17 | ESCALA DE RAMSAY (SEDAÇÃO) |
+| **18** | **ESCALA DE BRADEN** |
+| **19** | **ESCALA DE QUEDA DE MORSE** |
+| 20 | SCORE PRISM |
+| 23 | ESCALA DE RASS |
+| 25 | ESCALA DE FLACC |
+| 28 | ESCALA DE SEDAÇÃO BPS |
+| 29 | ESCALA DE GLASGOW ADULTO NEW |
+| 30 | ESCALA DE RASS |
+| 31 | ESCALA DE NEWS |
+| 32 | HUMPTY DUMPTY |
+| 33 | ESCALA DE PNEWS |
+| 34 | ESCALA DE PEWS |
+| 35 | GLASGOW |
+| 36 | RÉGUA DE DOR |
+| 42 | FUGULIN |
+| 43 | ESCORE TISS-28 |
+| 44 | FLEBITE |
+| 45 | ESCALA DE RANKIN |
+| 46 | ESCALA ESCANDINAVA DE AVC |
+| 47 | ESCALA DE FOIS |
+| 49 | ESCALA DE NARANJO |
+| 50 | ESCALA DE OUTCOME DE GLASGOW |
+| 52 | ESCALA DE KARNOFSKY |
+| 54 | ESCALA DE MEWS |
+| 57 | ESCALA DE PIORA CLÍNICA (EPIC) |
+| 58 | ESCALA PHQ9 |
+| 67 | ESCALA DE BRADEN Q |
+| 68 | ESCALA DE MEOWS - OBSTETRÍCIA |
+| 73 | RISCO DE LESÃO DA PELE NEONATO |
+| 74 | RISCO DE QUEDA DO RN - UCIN |
+| 75 | ESCALA DE DOR PAINAD |
+| 76 | ESCALA DE PERME |
+| 77 | ESCALA DE ELPO |
+| 80 | NIPS |
+| 81 | ESCALA FUGULIM - NEO |
+| 82 | BARTHEL |
+| 83 | LAWTON E BRODY |
+| 86 | ESCALA DE EVARUCI |
+| 87 | NEWS2 |
+| 88 | SCIM III |
+| 89 | IMC |
+| 92 | AUDIT-C MASC |
+| 94 | AUDIT-C FEM |
+| 96 | GAD7 |
+| 98 | WHO-5 |
+| 100 | ESCALA DE NIHSS |
+| 107 | RISCO VULNERABILIDADE SOCIAL |
+| 108 | ESCALA DE RASS |
+| 109 | GLASGOW |
+| 118 | FLACCR |
+
+---
+
+### 2.2 PAGU_AVALIACAO - Avaliações Realizadas
+
+Registra cada aplicação de uma escala a um paciente.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_AVALIACAO | NUMBER | PK - Código da avaliação |
+| CD_FORMULA | NUMBER | FK → PAGU_FORMULA |
+| CD_ATENDIMENTO | NUMBER | FK → ATENDIME |
+| DH_AVALIACAO | DATE | Data/hora da avaliação |
+| NM_USUARIO | VARCHAR2 | Usuário que realizou |
+| VL_RESULTADO | NUMBER | Valor/score calculado |
+| DS_INTERPRETACAO_RESULTADO | VARCHAR2 | Interpretação (ex: "Alto Risco") |
+| CD_MULTI_EMPRESA | NUMBER | Empresa (40 = HUGO) |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| CD_REGISTRO_CLINICO | NUMBER | Registro clínico |
+| CD_COLETA_SINAL_VITAL | NUMBER | FK → Coleta de sinais vitais |
+| CD_TRIAGEM_ATENDIMENTO | NUMBER | FK → Triagem |
+| SN_EXIBIR_RESULTADO | VARCHAR2 | Exibir resultado (S/N) |
+| SN_ESTADO_PREVIO | VARCHAR2 | Estado prévio (S/N) |
+
+---
+
+### 2.3 PAGU_PERGUNTA - Perguntas das Escalas
+
+Contém as perguntas/itens que compõem cada escala.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_PERGUNTA | NUMBER | PK |
+| DS_PERGUNTA | VARCHAR2 | Texto da pergunta |
+
+---
+
+### 2.4 PAGU_RESPOSTA - Opções de Resposta
+
+Contém as opções de resposta para cada pergunta.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_RESPOSTA | NUMBER | PK |
+| CD_PERGUNTA | NUMBER | FK → PAGU_PERGUNTA |
+| DS_RESPOSTA | VARCHAR2 | Texto da resposta |
+| VL_RESPOSTA | NUMBER | Valor numérico (para cálculo do score) |
+
+---
+
+### 2.5 PAGU_ITFORMULA - Itens da Fórmula
+
+Liga as perguntas às fórmulas/escalas.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_ITFORMULA | NUMBER | PK |
+| CD_FORMULA | NUMBER | FK → PAGU_FORMULA |
+| CD_PERGUNTA | NUMBER | FK → PAGU_PERGUNTA |
+
+---
+
+### 2.6 PAGU_ITAVALIACAO - Respostas da Avaliação
+
+Armazena as respostas dadas em cada avaliação realizada.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_ITAVALIACAO | NUMBER | PK |
+| CD_AVALIACAO | NUMBER | FK → PAGU_AVALIACAO |
+| CD_PERGUNTA | NUMBER | FK → PAGU_PERGUNTA |
+| CD_RESPOSTA | NUMBER | FK → PAGU_RESPOSTA |
+| VL_RESPOSTA | NUMBER | Valor da resposta |
+
+---
+
+### 2.7 PAGU_FORMULA_SETOR - Escalas por Setor
+
+Define quais escalas estão disponíveis em cada setor.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_FORMULA_SETOR | NUMBER | PK |
+| CD_FORMULA | NUMBER | FK → PAGU_FORMULA |
+| CD_SETOR | NUMBER | FK → SETOR |
+
+---
+
+### 2.8 PAGU_FORMULA_INTERPRETACAO - Interpretação dos Resultados
+
+Define as faixas de interpretação dos scores.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_INTERPRETACAO | NUMBER | PK |
+| CD_FORMULA | NUMBER | FK → PAGU_FORMULA |
+| VL_MINIMO | NUMBER | Valor mínimo da faixa |
+| VL_MAXIMO | NUMBER | Valor máximo da faixa |
+| DS_INTERPRETACAO | VARCHAR2 | Descrição (ex: "Risco Baixo") |
+
+---
+
+## 3. TABELAS DE CONFIGURAÇÃO
+
+### 3.1 CONFIG_PAGU - Configuração Geral
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_CONFIG_PAGU | NUMBER | PK |
+| DS_CONFIG | VARCHAR2 | Descrição da configuração |
+
+### 3.2 CONFIG_PAGU_SETOR - Configuração por Setor
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_CONFIG_PAGU_SETOR | NUMBER | PK |
+| CD_CONFIG_PAGU | NUMBER | FK |
+| CD_SETOR | NUMBER | FK → SETOR |
+
+### 3.3 PAGU_OBJETO - Objetos/Templates
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_OBJETO | NUMBER | PK |
+| DS_OBJETO | VARCHAR2 | Nome do objeto/template |
+
+---
+
+## 4. DIAGRAMA DE RELACIONAMENTOS COMPLETO
+
+```
+ATENDIME (Internações)
+    │
+    ├──► PAGU_AVALIACAO (Avaliações realizadas)
+    │         │
+    │         ├──► PAGU_FORMULA (Catálogo de escalas)
+    │         │         │
+    │         │         ├──► PAGU_ITFORMULA (Perguntas da escala)
+    │         │         │         │
+    │         │         │         └──► PAGU_PERGUNTA (Perguntas)
+    │         │         │                   │
+    │         │         │                   └──► PAGU_RESPOSTA (Opções)
+    │         │         │
+    │         │         ├──► PAGU_FORMULA_INTERPRETACAO (Faixas de risco)
+    │         │         │
+    │         │         └──► PAGU_FORMULA_SETOR (Escalas por setor)
+    │         │
+    │         └──► PAGU_ITAVALIACAO (Respostas dadas)
+    │                   │
+    │                   ├──► PAGU_PERGUNTA
+    │                   │
+    │                   └──► PAGU_RESPOSTA
+    │
+    └──► PW_DOCUMENTO_CLINICO (Vínculo com documento clínico)
+```
+
+---
+
+## 5. QUERIES DE EXEMPLO
+
+### 5.1 Conformidade de Braden e Morse (com filtro de período)
+
+```sql
+SELECT 
+    COUNT(DISTINCT a.CD_ATENDIMENTO) AS TOTAL_INTERNADOS,
+    COUNT(DISTINCT CASE WHEN braden.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) AS COM_BRADEN,
+    COUNT(DISTINCT CASE WHEN braden.CD_ATENDIMENTO IS NULL THEN a.CD_ATENDIMENTO END) AS SEM_BRADEN,
+    ROUND(
+        COUNT(DISTINCT CASE WHEN braden.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) * 100.0 / 
+        NULLIF(COUNT(DISTINCT a.CD_ATENDIMENTO), 0), 2
+    ) AS PERC_BRADEN,
+    COUNT(DISTINCT CASE WHEN morse.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) AS COM_MORSE,
+    COUNT(DISTINCT CASE WHEN morse.CD_ATENDIMENTO IS NULL THEN a.CD_ATENDIMENTO END) AS SEM_MORSE,
+    ROUND(
+        COUNT(DISTINCT CASE WHEN morse.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) * 100.0 / 
+        NULLIF(COUNT(DISTINCT a.CD_ATENDIMENTO), 0), 2
+    ) AS PERC_MORSE
+FROM ATENDIME a
+    LEFT JOIN (
+        SELECT DISTINCT CD_ATENDIMENTO
+        FROM PAGU_AVALIACAO
+        WHERE CD_FORMULA = 18  -- BRADEN
+    ) braden ON a.CD_ATENDIMENTO = braden.CD_ATENDIMENTO
+    LEFT JOIN (
+        SELECT DISTINCT CD_ATENDIMENTO
+        FROM PAGU_AVALIACAO
+        WHERE CD_FORMULA = 19  -- MORSE
+    ) morse ON a.CD_ATENDIMENTO = morse.CD_ATENDIMENTO
+WHERE a.CD_MULTI_EMPRESA = 40
+  AND a.TP_ATENDIMENTO = 'I'
+  AND a.DT_ATENDIMENTO >= $pgmvDataIni$
+  AND a.DT_ATENDIMENTO <= $pgmvDataFim$
+```
+
+### 5.2 Listar Avaliações de Braden de um Atendimento
+
+```sql
+SELECT 
+    pa.CD_AVALIACAO,
+    pa.DH_AVALIACAO,
+    pa.NM_USUARIO,
+    pa.VL_RESULTADO AS SCORE_BRADEN,
+    pa.DS_INTERPRETACAO_RESULTADO AS CLASSIFICACAO_RISCO
+FROM PAGU_AVALIACAO pa
+WHERE pa.CD_ATENDIMENTO = :CD_ATENDIMENTO
+  AND pa.CD_FORMULA = 18  -- BRADEN
+ORDER BY pa.DH_AVALIACAO DESC
+```
+
+### 5.3 Listar Avaliações de Morse de um Atendimento
+
+```sql
+SELECT 
+    pa.CD_AVALIACAO,
+    pa.DH_AVALIACAO,
+    pa.NM_USUARIO,
+    pa.VL_RESULTADO AS SCORE_MORSE,
+    pa.DS_INTERPRETACAO_RESULTADO AS CLASSIFICACAO_RISCO
+FROM PAGU_AVALIACAO pa
+WHERE pa.CD_ATENDIMENTO = :CD_ATENDIMENTO
+  AND pa.CD_FORMULA = 19  -- MORSE
+ORDER BY pa.DH_AVALIACAO DESC
+```
+
+### 5.4 Detalhes das Respostas de uma Avaliação
+
+```sql
+SELECT 
+    pa.CD_AVALIACAO,
+    pf.DS_FORMULA AS ESCALA,
+    pp.DS_PERGUNTA,
+    pr.DS_RESPOSTA,
+    pia.VL_RESPOSTA
+FROM PAGU_AVALIACAO pa
+    INNER JOIN PAGU_FORMULA pf ON pa.CD_FORMULA = pf.CD_FORMULA
+    INNER JOIN PAGU_ITAVALIACAO pia ON pa.CD_AVALIACAO = pia.CD_AVALIACAO
+    INNER JOIN PAGU_PERGUNTA pp ON pia.CD_PERGUNTA = pp.CD_PERGUNTA
+    LEFT JOIN PAGU_RESPOSTA pr ON pia.CD_RESPOSTA = pr.CD_RESPOSTA
+WHERE pa.CD_AVALIACAO = :CD_AVALIACAO
+ORDER BY pp.CD_PERGUNTA
+```
+
+### 5.5 Estatísticas de Uso de Escalas por Período
+
+```sql
+SELECT 
+    pf.CD_FORMULA,
+    pf.DS_FORMULA AS ESCALA,
+    COUNT(*) AS QTD_AVALIACOES,
+    COUNT(DISTINCT pa.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    ROUND(AVG(pa.VL_RESULTADO), 2) AS MEDIA_SCORE
+FROM PAGU_AVALIACAO pa
+    INNER JOIN PAGU_FORMULA pf ON pa.CD_FORMULA = pf.CD_FORMULA
+    INNER JOIN ATENDIME a ON pa.CD_ATENDIMENTO = a.CD_ATENDIMENTO
+WHERE a.CD_MULTI_EMPRESA = 40
+  AND a.TP_ATENDIMENTO = 'I'
+  AND pa.DH_AVALIACAO >= $pgmvDataIni$
+  AND pa.DH_AVALIACAO <= $pgmvDataFim$
+GROUP BY pf.CD_FORMULA, pf.DS_FORMULA
+ORDER BY QTD_AVALIACOES DESC
+```
+
+### 5.6 Listar Perguntas e Respostas de uma Escala (Configuração)
+
+```sql
+SELECT 
+    pf.DS_FORMULA AS ESCALA,
+    pp.CD_PERGUNTA,
+    pp.DS_PERGUNTA,
+    pr.CD_RESPOSTA,
+    pr.DS_RESPOSTA,
+    pr.VL_RESPOSTA
+FROM PAGU_FORMULA pf
+    INNER JOIN PAGU_ITFORMULA pif ON pf.CD_FORMULA = pif.CD_FORMULA
+    INNER JOIN PAGU_PERGUNTA pp ON pif.CD_PERGUNTA = pp.CD_PERGUNTA
+    LEFT JOIN PAGU_RESPOSTA pr ON pp.CD_PERGUNTA = pr.CD_PERGUNTA
+WHERE pf.CD_FORMULA = 18  -- BRADEN (ou 19 para MORSE)
+ORDER BY pp.CD_PERGUNTA, pr.VL_RESPOSTA
+```
+
+### 5.7 Conformidade por Unidade de Internação
+
+```sql
+SELECT 
+    ui.DS_UNID_INT AS UNIDADE,
+    COUNT(DISTINCT a.CD_ATENDIMENTO) AS TOTAL_INTERNADOS,
+    COUNT(DISTINCT CASE WHEN braden.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) AS COM_BRADEN,
+    ROUND(
+        COUNT(DISTINCT CASE WHEN braden.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) * 100.0 / 
+        NULLIF(COUNT(DISTINCT a.CD_ATENDIMENTO), 0), 2
+    ) AS PERC_BRADEN,
+    COUNT(DISTINCT CASE WHEN morse.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) AS COM_MORSE,
+    ROUND(
+        COUNT(DISTINCT CASE WHEN morse.CD_ATENDIMENTO IS NOT NULL THEN a.CD_ATENDIMENTO END) * 100.0 / 
+        NULLIF(COUNT(DISTINCT a.CD_ATENDIMENTO), 0), 2
+    ) AS PERC_MORSE
+FROM ATENDIME a
+    INNER JOIN LEITO l ON a.CD_LEITO = l.CD_LEITO
+    INNER JOIN UNID_INT ui ON l.CD_UNID_INT = ui.CD_UNID_INT
+    LEFT JOIN (
+        SELECT DISTINCT CD_ATENDIMENTO
+        FROM PAGU_AVALIACAO
+        WHERE CD_FORMULA = 18
+    ) braden ON a.CD_ATENDIMENTO = braden.CD_ATENDIMENTO
+    LEFT JOIN (
+        SELECT DISTINCT CD_ATENDIMENTO
+        FROM PAGU_AVALIACAO
+        WHERE CD_FORMULA = 19
+    ) morse ON a.CD_ATENDIMENTO = morse.CD_ATENDIMENTO
+WHERE a.CD_MULTI_EMPRESA = 40
+  AND a.TP_ATENDIMENTO = 'I'
+  AND a.DT_ATENDIMENTO >= $pgmvDataIni$
+  AND a.DT_ATENDIMENTO <= $pgmvDataFim$
+GROUP BY ui.DS_UNID_INT
+ORDER BY ui.DS_UNID_INT
+```
+
+---
+
+## 6. CÓDIGOS DE REFERÊNCIA RÁPIDA
+
+### Escalas mais Utilizadas:
+
+| CD_FORMULA | Escala | Uso |
+|------------|--------|-----|
+| 18 | ESCALA DE BRADEN | Risco de Lesão por Pressão |
+| 19 | ESCALA DE QUEDA DE MORSE | Risco de Queda |
+| 8 | ESCALA COMA DE GLASGOW ADULTO | Nível de Consciência |
+| 29 | ESCALA DE GLASGOW ADULTO NEW | Nível de Consciência (nova) |
+| 3 | ESCORE SOFA | Disfunção Orgânica (UTI) |
+| 1 | APACHE II | Gravidade (UTI) |
+| 31 | ESCALA DE NEWS | Deterioração Clínica |
+| 87 | NEWS2 | Deterioração Clínica (atualizado) |
+| 42 | FUGULIN | Classificação de Pacientes |
+| 16/36 | RÉGUA DE DOR | Avaliação da Dor |
+| 23/30/108 | ESCALA DE RASS | Sedação/Agitação |
+| 100/105/106 | ESCALA DE NIHSS | AVC |
+| 45 | ESCALA DE RANKIN | Incapacidade pós-AVC |
+| 32 | HUMPTY DUMPTY | Risco de Queda Pediátrico |
+| 67 | ESCALA DE BRADEN Q | Risco LPP Pediátrico |
+
+---
+
+## 7. OBSERVAÇÕES IMPORTANTES
+
+1. **CD_FORMULA** é a chave para identificar qual escala foi aplicada
+
+2. **VL_RESULTADO** contém o score calculado da escala
+
+3. **DS_INTERPRETACAO_RESULTADO** contém a classificação de risco textual
+
+4. **Filtro obrigatório**: `CD_MULTI_EMPRESA = 40` para dados do HUGO
+
+5. **Múltiplas avaliações**: Um mesmo atendimento pode ter várias avaliações da mesma escala (reavaliações)
+
+6. **Escalas duplicadas**: Algumas escalas têm múltiplos CD_FORMULA (versões diferentes ou duplicações)
+
+7. **Vínculo com documento clínico**: CD_DOCUMENTO_CLINICO permite rastrear a origem da avaliação
+
+---
+
+**Fim do Documento**

@@ -1,0 +1,149 @@
+-- ========================================================================
+-- PACIENTES INTERNADOS COM PARECER DE INFECTOLOGIA RESPONDIDO
+-- ========================================================================
+-- Descrição: Lista APENAS pareceres da internação ATUAL de pacientes 
+-- ainda internados, ordenados do mais recente para o mais antigo
+-- Fonte: PAR_MED, ATENDIME, PACIENTE, ESPECIALID, PRESTADOR
+-- Filtros: Apenas internados + Pareceres respondidos + Infectologia
+-- ========================================================================
+
+SELECT 
+ -- ====================================================================
+ -- IDENTIFICAÇÃO DO PACIENTE
+ -- ====================================================================
+ A.CD_ATENDIMENTO AS CodAtendimento,
+ P.CD_PACIENTE AS CodPaciente,
+ P.NM_PACIENTE AS NomePaciente,
+ TRUNC(MONTHS_BETWEEN(SYSDATE, P.DT_NASCIMENTO)/12) AS IdadePaciente,
+ CASE 
+ WHEN P.TP_SEXO = 'M' THEN 'Masculino'
+ WHEN P.TP_SEXO = 'F' THEN 'Feminino'
+ ELSE 'Nao Informado'
+ END AS Sexo,
+ 
+ -- ====================================================================
+ -- LOCALIZAÇÃO ATUAL DO PACIENTE
+ -- ====================================================================
+ L.DS_LEITO AS LeitoAtual,
+ UI.DS_UNID_INT AS UnidadeInternacao,
+ S.NM_SETOR AS SetorAtual,
+ 
+ -- ====================================================================
+ -- DADOS DA INTERNAÇÃO ATUAL
+ -- ====================================================================
+ TO_CHAR(A.HR_ATENDIMENTO, 'DD/MM/YYYY HH24:MI') AS DataInternacao,
+ TRUNC(SYSDATE - A.DT_ATENDIMENTO) AS DiasInternado,
+ 
+ -- ====================================================================
+ -- INFORMAÇÕES DO PARECER DE INFECTOLOGIA
+ -- ====================================================================
+ PM.CD_PAR_MED AS CodigoParecer,
+ ESP.DS_ESPECIALID AS EspecialidadeSolicitada,
+ 
+ -- MÉDICO SOLICITANTE
+ PREST_SOL.NM_PRESTADOR AS MedicoSolicitante,
+ ESP_SOL.DS_ESPECIALID AS EspecialidadeSolicitante,
+ TO_CHAR(PM.DT_SOLICITACAO, 'DD/MM/YYYY HH24:MI') AS DataSolicitacao,
+ PM.DS_SOLICITACAO AS TextoSolicitacao,
+ 
+ -- MÉDICO RESPONDENTE (INFECTOLOGISTA)
+ PREST_RESP.NM_PRESTADOR AS InfectologistaRespondente,
+ TO_CHAR(PM.DT_PARECER, 'DD/MM/YYYY HH24:MI') AS DataResposta,
+ PM.DS_PARECER AS TextoParecerInfectologia,
+ 
+ -- ====================================================================
+ -- ANÁLISE DE TEMPO DE RESPOSTA
+ -- ====================================================================
+ ROUND(PM.DT_PARECER - PM.DT_SOLICITACAO, 1) AS TempoRespostaDias,
+ ROUND((PM.DT_PARECER - PM.DT_SOLICITACAO) * 24, 1) AS TempoRespostaHoras,
+ 
+ TRUNC(PM.DT_PARECER - PM.DT_SOLICITACAO) || ' dias ' ||
+ TRUNC(MOD((PM.DT_PARECER - PM.DT_SOLICITACAO) * 24, 24)) || 'h ' ||
+ TRUNC(MOD((PM.DT_PARECER - PM.DT_SOLICITACAO) * 24 * 60, 60)) || 'min' 
+ AS TempoRespostaDetalhado,
+ 
+ -- ====================================================================
+ -- INDICADORES PARA REAVALIAÇÃO
+ -- ====================================================================
+ TRUNC(SYSDATE - PM.DT_PARECER) AS DiasDesdeUltimoParecer,
+ 
+ CASE 
+ WHEN TRUNC(SYSDATE - PM.DT_PARECER) > 7 THEN 'REAVALIAR'
+ WHEN TRUNC(SYSDATE - PM.DT_PARECER) > 3 THEN 'ATENCAO'
+ ELSE 'RECENTE'
+ END AS StatusReavaliacao,
+ 
+ -- CLASSIFICAÇÃO DE URGÊNCIA DA SOLICITAÇÃO ORIGINAL
+ CASE 
+ WHEN UPPER(PM.DS_SOLICITACAO) LIKE '%URGENTE%' 
+ OR UPPER(PM.DS_SOLICITACAO) LIKE '%URGENCIA%' THEN 'URGENTE'
+ WHEN UPPER(PM.DS_SOLICITACAO) LIKE '%PRIORIT%' THEN 'PRIORITARIO'
+ ELSE 'ROTINA'
+ END AS UrgenciaOriginal,
+ 
+ -- ====================================================================
+ -- INFORMAÇÕES COMPLEMENTARES
+ -- ====================================================================
+ PM.CD_DOCUMENTO_CLINICO AS CodDocumentoClin
+
+FROM PAR_MED PM
+
+-- ========================================================================
+-- JOINS PRINCIPAIS
+-- ========================================================================
+
+-- ATENDIMENTO E PACIENTE
+INNER JOIN ATENDIME A ON PM.CD_ATENDIMENTO = A.CD_ATENDIMENTO
+ AND A.CD_MULTI_EMPRESA = 40
+INNER JOIN PACIENTE P ON A.CD_PACIENTE = P.CD_PACIENTE
+
+-- ESPECIALIDADE SOLICITADA (INFECTOLOGIA)
+INNER JOIN ESPECIALID ESP ON PM.CD_ESPECIALID = ESP.CD_ESPECIALID
+ AND UPPER(ESP.DS_ESPECIALID) LIKE '%INFECT%'
+
+-- MÉDICO SOLICITANTE
+INNER JOIN PRESTADOR PREST_SOL ON PM.CD_PRESTADOR = PREST_SOL.CD_PRESTADOR
+
+-- ESPECIALIDADE DO MÉDICO SOLICITANTE
+LEFT JOIN ESP_MED EM ON PREST_SOL.CD_PRESTADOR = EM.CD_PRESTADOR
+ AND EM.SN_ESPECIAL_PRINCIPAL = 'S'
+LEFT JOIN ESPECIALID ESP_SOL ON EM.CD_ESPECIALID = ESP_SOL.CD_ESPECIALID
+
+-- MÉDICO RESPONDENTE (INFECTOLOGISTA)
+LEFT JOIN PRESTADOR PREST_RESP ON PM.CD_PRESTADOR_PARECER = PREST_RESP.CD_PRESTADOR
+
+-- LOCALIZAÇÃO ATUAL DO PACIENTE
+LEFT JOIN LEITO L ON A.CD_LEITO = L.CD_LEITO
+LEFT JOIN UNID_INT UI ON L.CD_UNID_INT = UI.CD_UNID_INT
+LEFT JOIN SETOR S ON UI.CD_SETOR = S.CD_SETOR
+
+-- ========================================================================
+-- FILTROS PRINCIPAIS
+-- ========================================================================
+WHERE 1=1
+ AND A.CD_MULTI_EMPRESA = 40
+ 
+ -- ¿ APENAS PACIENTES ATUALMENTE INTERNADOS (SEM ALTA)
+ AND A.DT_ALTA IS NULL
+ 
+ -- ¿ APENAS PARECERES DA INTERNAÇÃO ATUAL
+ -- O JOIN já garante que PM.CD_ATENDIMENTO = A.CD_ATENDIMENTO
+ -- Portanto, só traz pareceres da internação sem alta
+ 
+ -- ¿ APENAS PARECERES JÁ RESPONDIDOS PELA INFECTOLOGIA
+ AND PM.DT_PARECER IS NOT NULL
+ 
+ -- ¿ PARECERES NÃO CANCELADOS
+ AND PM.DS_CANCELAMENTO IS NULL
+ 
+ -- FILTRO DE PERÍODO (AJUSTAR CONFORME NECESSIDADE)
+ AND PM.DT_SOLICITACAO >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+
+-- ========================================================================
+-- ORDENAÇÃO: DO MAIS RECENTE PARA O MAIS ANTIGO
+-- ========================================================================
+ORDER BY 
+ -- Pareceres mais recentes primeiro (DESC)
+ PM.DT_PARECER DESC,
+ -- Em caso de empate, ordena por data de solicitação
+ PM.DT_SOLICITACAO DESC

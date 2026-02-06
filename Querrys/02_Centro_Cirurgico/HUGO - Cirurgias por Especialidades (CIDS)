@@ -1,0 +1,49 @@
+SELECT
+    ds_especialid_agrupada AS especialidade,
+    eletiva_val AS eletiva,
+    urgencia_val AS urgencia_emergencia,
+    NVL(eletiva_val, 0) + NVL(urgencia_val, 0) AS total
+FROM (
+    -- Prepara os dados com a nova classificação
+    SELECT
+        -- >>> AQUI ESTÁ A NOVA LÓGICA DE AGRUPAMENTO <<<
+        CASE
+            WHEN ESP.DS_ESPECIALID = 'NEUROCIRURGIA'
+                THEN 'NEUROCIRURGIA'
+            WHEN ESP.DS_ESPECIALID LIKE 'ORTOPEDIA%' -- Pega tudo que começa com ORTOPEDIA
+                THEN 'ORTOPEDIA/COLUNA + ORTOPEDIA/TRAUMATOLOGIA'
+            WHEN ESP.DS_ESPECIALID = 'CIRURGIA VASCULAR'
+                THEN 'CIRURGIA VASCULAR'
+            WHEN ESP.DS_ESPECIALID = 'CIRURGIA GERAL'
+                THEN 'CIRURGIA GERAL'
+            ELSE 'Outras Especialidades'
+        END AS ds_especialid_agrupada,
+        
+        CASE
+            WHEN ac.tp_cirurgias IN ('U', 'M') THEN 'Urgencia'
+            WHEN ac.tp_cirurgias IN ('E', 'X') THEN 'Eletiva'
+            ELSE 'Outros'
+        END AS tp_cirurgia,
+        
+        1 AS Qtde
+    FROM
+        AVISO_CIRURGIA ac
+    INNER JOIN
+        CIRURGIA_AVISO ca ON ac.cd_aviso_cirurgia = ca.cd_aviso_cirurgia
+    LEFT JOIN
+        ESPECIALID esp ON ca.cd_especialid = esp.cd_especialid
+    WHERE
+        ac.tp_situacao = 'R'
+        AND ac.cd_multi_empresa = 40
+        AND ac.DT_REALIZACAO BETWEEN To_Date(Concat(To_Char($pgmvDataIni$,'dd/mm/yyyy'), '00:00'), 'dd/mm/yyyy hh24:mi')
+                                 AND To_Date(Concat(To_Char($pgmvDataFim$,'dd/mm/yyyy'), '23:59'), 'dd/mm/yyyy hh24:mi')
+)
+-- Transforma as linhas de Eletiva/Urgência em colunas
+PIVOT (
+    SUM(Qtde) AS val FOR tp_cirurgia IN (
+        'Eletiva' AS eletiva,
+        'Urgencia' AS urgencia
+    )
+)
+ORDER BY
+    total DESC

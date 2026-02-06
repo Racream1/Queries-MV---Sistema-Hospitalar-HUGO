@@ -1,0 +1,1151 @@
+# ESTRUTURA DO BANCO DE DADOS MV - DBAMV
+## Documentação Completa e Atualizada
+
+---
+
+## 📌 VISÃO GERAL
+
+Este documento apresenta a estrutura completa do banco de dados **DBAMV** (MV), utilizado em sistemas hospitalares. A documentação inclui todas as tabelas principais, seus relacionamentos, tipos de dados e lógicas de negócio identificadas através da análise de queries SQL e estruturas do sistema.
+
+**Convenções:**
+- `PK` = Primary Key (Chave Primária)
+- `FK` = Foreign Key (Chave Estrangeira)
+- `N` = NOT NULL (Campo obrigatório)
+- `Y` = NULL (Campo opcional)
+
+---
+
+## 📊 MÓDULO DE ATENDIMENTO
+
+### **ATENDIME (Atendimentos)**
+Tabela central do sistema que armazena todos os atendimentos hospitalares.
+
+#### Campos Principais:
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ATENDIMENTO` | NUMBER | N | Código único do atendimento **(PK)** |
+| `CD_PACIENTE` | NUMBER | N | Código do paciente **(FK → PACIENTE)** |
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | Y | Código da unidade hospitalar (filtro comum: 40 para HUGO) **(FK → MULTI_EMPRESAS)** |
+| `TP_ATENDIMENTO` | VARCHAR2(1) | N | Tipo de atendimento |
+| `DT_ATENDIMENTO` | DATE | N | Data da chegada do paciente |
+| `HR_ATENDIMENTO` | DATE | Y | Hora da chegada do paciente |
+| `DT_ALTA` | DATE | Y | Data da alta administrativa |
+| `HR_ALTA` | DATE | Y | Hora da alta administrativa |
+| `DT_ALTA_MEDICA` | DATE | Y | Data da alta médica |
+| `HR_ALTA_MEDICA` | DATE | Y | Hora da alta médica |
+| `DH_ALTA_LANCADA` | DATE | Y | Data/hora do lançamento administrativo da alta |
+| `CD_CID` | VARCHAR2(6) | Y | Código CID principal do atendimento **(FK → CID)** |
+| `CD_LEITO` | NUMBER | Y | Leito atual do paciente **(FK → LEITO)** |
+| `CD_PRESTADOR` | NUMBER(12,0) | Y | Médico responsável **(FK → PRESTADOR)** |
+| `CD_ESPECIALID` | NUMBER | Y | Especialidade do atendimento **(FK → ESPECIALID)** |
+| `CD_MOT_ALT` | NUMBER | Y | Motivo da alta **(FK → MOT_ALT)** |
+| `CD_TIP_RES` | NUMBER | Y | Tipo de resultado/desfecho da alta **(FK → TIP_RES)** |
+| `TP_PRIORIDADE` | VARCHAR2(1) | Y | Classificação de risco do paciente |
+| `SN_OBITO` | VARCHAR2(1) | Y | Flag de óbito |
+| `CD_PROCEDIMENTO` | VARCHAR2(10) | Y | Código do procedimento SUS principal **(FK → PROCEDIMENTO_SUS)** |
+| `CD_ATENDIMENTO_PAI` | NUMBER | Y | Código do atendimento de origem (transferências) |
+
+#### Valores de Domínio:
+- **TP_ATENDIMENTO:**
+  - `'I'` = Internação
+  - `'U'` = Urgência
+  - `'A'` = Ambulatorial
+  - `'E'` = Externo
+  - `'H'` = Hospital Dia
+
+- **TP_PRIORIDADE:**
+  - `'A'` = Alta
+  - `'M'` = Média
+  - `'B'` = Baixa
+
+- **SN_OBITO:**
+  - `'S'` = Sim (Óbito)
+  - `'N'` = Não
+
+---
+
+## 👥 MÓDULO DE PACIENTES
+
+### **PACIENTE**
+Cadastro de pacientes do sistema.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PACIENTE` | NUMBER | N | Código único do paciente **(PK)** |
+| `NM_PACIENTE` | VARCHAR2 | N | Nome completo do paciente |
+| `DT_NASCIMENTO` | DATE | Y | Data de nascimento |
+| `TP_SEXO` | VARCHAR2(1) | Y | Sexo do paciente |
+
+#### Valores de Domínio:
+- **TP_SEXO:**
+  - `'M'` = Masculino
+  - `'F'` = Feminino
+
+---
+
+## 🏥 MÓDULO DE ESTRUTURA FÍSICA
+
+### **LEITO**
+Controle de leitos hospitalares.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_LEITO` | NUMBER | N | Código único do leito **(PK)** |
+| `DS_LEITO` | VARCHAR2 | N | Descrição/nome do leito |
+| `DS_RESUMO` | VARCHAR2 | Y | Descrição resumida do leito |
+| `CD_UNID_INT` | NUMBER | N | Unidade de internação **(FK → UNID_INT)** |
+| `TP_OCUPACAO` | VARCHAR2(1) | N | Status de ocupação |
+| `TP_SITUACAO` | VARCHAR2(1) | Y | Situação do leito |
+| `CD_TIP_ACOM` | NUMBER | Y | Tipo de acomodação **(FK → TIP_ACOM)** |
+
+#### Valores de Domínio:
+- **TP_OCUPACAO:**
+  - `'O'` = Ocupado
+  - `'V'` = Vago
+  - `'L'` = Limpeza
+  - `'R'` = Reserva
+  - `'M'` = Manutenção
+
+- **TP_SITUACAO:**
+  - `'I'` = Inativo
+
+---
+
+### **UNID_INT (Unidades de Internação)**
+Unidades organizacionais de internação.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_UNID_INT` | NUMBER | N | Código da unidade **(PK)** |
+| `DS_UNID_INT` | VARCHAR2 | N | Nome da unidade de internação |
+| `CD_SETOR` | NUMBER | Y | Setor vinculado **(FK → SETOR)** |
+| `SN_ATIVO` | VARCHAR2(1) | N | Flag de unidade ativa |
+
+#### Valores de Domínio:
+- **SN_ATIVO:**
+  - `'S'` = Ativo
+  - `'N'` = Inativo
+
+---
+
+### **SETOR**
+Setores do hospital.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_SETOR` | NUMBER | N | Código do setor **(PK)** |
+| `NM_SETOR` | VARCHAR2 | N | Nome do setor |
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | Y | Empresa **(FK → MULTI_EMPRESAS)** |
+
+---
+
+### **MOV_INT (Movimentações de Internação)**
+Histórico de movimentações de leitos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MOV_INT` | NUMBER | N | Código da movimentação **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_LEITO` | NUMBER | N | Leito de destino **(FK → LEITO)** |
+| `CD_LEITO_ANTERIOR` | NUMBER | Y | Leito de origem **(FK → LEITO)** |
+| `TP_MOV` | VARCHAR2(1) | N | Tipo de movimentação |
+| `DT_MOV_INT` | DATE | N | Data da movimentação/reserva |
+| `HR_MOV_INT` | DATE | Y | Hora da movimentação/reserva |
+| `DT_LIB_MOV` | DATE | Y | Data da liberação/acomodação |
+| `HR_LIB_MOV` | DATE | Y | Hora da liberação/acomodação |
+| `SN_RESERVA` | VARCHAR2(1) | Y | Flag de reserva |
+
+#### Valores de Domínio:
+- **TP_MOV:**
+  - `'I'` = Internação inicial
+  - `'O'` = Ocupação/Transferência
+
+- **SN_RESERVA:**
+  - `'S'` = Sim (É reserva)
+  - `'N'` = Não
+
+---
+
+### **TIP_ACOM (Tipos de Acomodação)**
+Classificação de acomodações.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIP_ACOM` | NUMBER | N | Código do tipo **(PK)** |
+| `TP_ACOMODACAO` | VARCHAR2(1) | Y | Tipo de acomodação |
+
+#### Valores de Domínio:
+- **TP_ACOMODACAO:**
+  - `'U'` = UTI
+  - `'I'` = Isolamento
+
+---
+
+### **SOLIC_TRANSFERENCIA_LEITO**
+Solicitações de transferência de leito.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `DH_SOLICITACAO` | DATE | Y | Data/hora da solicitação |
+
+---
+
+## 👨‍⚕️ MÓDULO DE RECURSOS HUMANOS
+
+### **PRESTADOR (Médicos/Profissionais)**
+Cadastro de profissionais de saúde.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PRESTADOR` | NUMBER(12,0) | N | Código do profissional **(PK)** |
+| `NM_PRESTADOR` | VARCHAR2 | N | Nome do profissional |
+| `SN_ATUANTE` | VARCHAR2(1) | Y | Status do profissional |
+
+---
+
+### **ESP_MED (Especialidades do Médico)**
+Relacionamento entre médicos e suas especialidades.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PRESTADOR` | NUMBER(12,0) | N | Profissional **(FK → PRESTADOR)** |
+| `CD_ESPECIALID` | NUMBER | N | Especialidade **(FK → ESPECIALID)** |
+| `SN_ESPECIAL_PRINCIPAL` | VARCHAR2(1) | Y | Flag de especialidade principal |
+
+#### Valores de Domínio:
+- **SN_ESPECIAL_PRINCIPAL:**
+  - `'S'` = Especialidade principal
+
+---
+
+### **ESPECIALID (Especialidades)**
+Cadastro de especialidades médicas.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ESPECIALID` | NUMBER | N | Código da especialidade **(PK)** |
+| `DS_ESPECIALID` | VARCHAR2 | N | Descrição da especialidade |
+
+---
+
+## 📋 MÓDULO DE DIAGNÓSTICO
+
+### **CID (Classificação Internacional de Doenças)**
+Tabela de CIDs.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_CID` | VARCHAR2(6) | N | Código CID **(PK)** |
+| `DS_CID` | VARCHAR2 | N | Descrição da doença |
+
+---
+
+## 🗓️ MÓDULO DE AGENDAMENTO
+
+### **AGENDA_CENTRAL**
+Agendas de profissionais.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_AGENDA_CENTRAL` | NUMBER | N | Código da agenda **(PK)** |
+| `CD_PRESTADOR` | NUMBER(12,0) | N | Profissional **(FK → PRESTADOR)** |
+| `DT_AGENDA` | DATE | N | Data da agenda |
+| `SN_ATIVO` | VARCHAR2(1) | N | Flag de agenda ativa |
+
+---
+
+### **IT_AGENDA_CENTRAL (Itens da Agenda)**
+Horários e pacientes agendados.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_IT_AGENDA_CENTRAL` | NUMBER | N | Código do item **(PK)** |
+| `CD_AGENDA_CENTRAL` | NUMBER | N | Agenda **(FK → AGENDA_CENTRAL)** |
+| `CD_ATENDIMENTO` | NUMBER | Y | Atendimento **(FK → ATENDIME)** |
+| `NM_PACIENTE` | VARCHAR2 | Y | Nome do paciente agendado |
+| `TP_SITUACAO` | VARCHAR2(1) | Y | Situação do agendamento |
+| `SN_ENCAIXE` | VARCHAR2(1) | Y | Flag de encaixe |
+
+#### Valores de Domínio:
+- **TP_SITUACAO:**
+  - `'C'` = Cancelado
+
+- **SN_ENCAIXE:**
+  - `'S'` = Sim (Encaixe)
+  - `'N'` = Não
+
+---
+
+## 💊 MÓDULO DE PRESCRIÇÃO E MEDICAMENTOS
+
+### **PRE_MED (Prescrições Médicas)**
+Prescrições médicas e evoluções.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PRE_MED` | NUMBER(8,0) | N | Código da prescrição **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_PRESTADOR` | NUMBER(12,0) | Y | Médico prescritor **(FK → PRESTADOR)** |
+| `DT_PRE_MED` | DATE | N | Data da prescrição |
+| `HR_PRE_MED` | DATE | Y | Hora da prescrição |
+| `DS_EVOLUCAO` | LONG | Y | Texto da evolução médica |
+| `CD_OBJETO` | NUMBER | Y | Tipo de documento |
+| `CD_DOCUMENTO_CLINICO` | NUMBER | Y | Documento clínico **(FK → PW_DOCUMENTO_CLINICO)** |
+| `TP_PRE_MED` | VARCHAR2(1) | N | Tipo de prescrição |
+| `SN_FECHADO` | VARCHAR2(1) | Y | Flag de prescrição fechada |
+| `NM_USUARIO` | VARCHAR2(30) | Y | Usuário que registrou |
+
+#### Valores de Domínio:
+- **CD_OBJETO (Tipos de Documento):**
+  - `203` = Evolução Médica
+  - `1365` = Evolução de Enfermagem
+  - `2` = Prescrição
+
+- **TP_PRE_MED:**
+  - `'M'` = Médica
+
+---
+
+### **ITPRE_MED (Itens da Prescrição)**
+Medicamentos e itens prescritos.
+
+#### Campos Principais:
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ITPRE_MED` | NUMBER(10,0) | N | Código do item **(PK)** |
+| `CD_PRE_MED` | NUMBER(8,0) | N | Prescrição **(FK → PRE_MED)** |
+| `CD_TIP_PRESC` | NUMBER(8,0) | N | Tipo de prescrição **(FK → TIP_PRESC)** |
+| `CD_TIP_ESQ` | VARCHAR2(3) | N | Esquema terapêutico **(FK → TIP_ESQ)** |
+| `CD_PRODUTO` | NUMBER | Y | Produto prescrito **(FK → PRODUTO)** |
+| `QT_ITPRE_MED` | NUMBER(10,4) | Y | Quantidade da dose |
+| `CD_UNI_PRO` | NUMBER(8,0) | Y | Unidade da dose **(FK → UNI_PRO)** |
+| `CD_FOR_APL` | VARCHAR2(4) | Y | Forma de aplicação/via **(FK → FOR_APL)** |
+| `CD_TIP_FRE` | NUMBER(4,0) | Y | Frequência **(FK → TIP_FRE)** |
+| `CD_TIP_FRE_DET` | NUMBER(2,0) | Y | Detalhamento da frequência **(FK → TIP_FRE)** |
+| `CD_TIP_FRE_APRAZAMENTO` | NUMBER(4,0) | Y | Frequência de aprazamento **(FK → TIP_FRE)** |
+| `CD_SET_EXA` | NUMBER | Y | Setor do exame **(FK → SET_EXA)** |
+| `SN_CANCELADO` | VARCHAR2(1) | Y | Flag de item cancelado |
+| `NR_DIA` | NUMBER(10,0) | Y | Dia atual do tratamento |
+| `QT_DIAS` | NUMBER(3,0) | Y | Duração total em dias |
+| `DH_INICIAL` | DATE | Y | Data/hora de início |
+| `DH_FINAL` | DATE | Y | Data/hora de fim |
+| `DH_CANCELADO` | DATE | Y | Data/hora do cancelamento |
+| `DH_REGISTRO` | DATE | Y | Data/hora do registro |
+| `DS_ITPRE_MED` | VARCHAR2(2000) | Y | Observação do item |
+| `DS_OBSERVACAO_APRAZAMENTO` | VARCHAR2(4000) | Y | Observação do aprazamento |
+| `DS_OBSERVACAO_AUTOMATICA` | VARCHAR2(4000) | Y | Observação automática |
+| `TP_SITUACAO` | VARCHAR2(1) | Y | Situação do item |
+| `SN_URGENTE` | VARCHAR2(1) | Y | Flag de urgência |
+| `SN_SOLICITA` | VARCHAR2(1) | Y | Flag de solicitação |
+| `SN_CONTINUO` | VARCHAR2(1) | Y | Flag de uso contínuo |
+| `SN_CRONICO` | VARCHAR2(1) | Y | Flag de uso crônico |
+| `NR_DIAS` | NUMBER | Y | Número de dias |
+| `NR_HORA` | NUMBER | Y | Número de horas |
+| `NR_MINUTO` | NUMBER | Y | Número de minutos |
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | Y | Empresa **(FK → MULTI_EMPRESAS)** |
+| `CD_PRESTADOR` | NUMBER(12,0) | Y | Profissional **(FK → PRESTADOR)** |
+| `CD_PREST_CANC` | NUMBER(12,0) | Y | Profissional que cancelou **(FK → PRESTADOR)** |
+| `CD_CID` | VARCHAR2(6) | Y | CID relacionado **(FK → CID)** |
+| `CD_ITPRE_MED_CANC` | NUMBER(10,0) | Y | Item que cancelou este **(FK → ITPRE_MED)** |
+| `CD_ITPRE_MED_COPIA` | NUMBER(10,0) | Y | Item original (em caso de cópia) |
+| `CD_ITPRE_MED_TRATMT` | NUMBER(10,0) | Y | Item de tratamento relacionado **(FK → ITPRE_MED)** |
+| `CD_LOCAL_ANATOMICO_COLETA` | NUMBER | Y | Local anatômico **(FK → LOCAL_ANATOMICO_COLETA)** |
+| `CD_DISPOSITIVO` | NUMBER | Y | Dispositivo **(FK → PW_DISPOSITIVO)** |
+| `QT_INFUSAO` | NUMBER(10,4) | Y | Quantidade de infusão |
+| `CD_UNI_PRO_INF` | NUMBER(8,0) | Y | Unidade de infusão |
+| `QTD_VOLUME_TOTAL` | NUMBER(10,4) | Y | Volume total |
+| `CD_UNID_VOL_TOTAL` | NUMBER(8,0) | Y | Unidade do volume total **(FK → UNI_PRO)** |
+| `CD_UNID_PRESC_VOL_TOTAL` | NUMBER | Y | Unidade de prescrição do volume **(FK → UNI_PRESC)** |
+| `NR_PERCENTUAL_REDUCAO_QUANTD` | NUMBER(4,2) | Y | Percentual de redução |
+| `SN_REDUZIR_QUANTIDADE` | VARCHAR2(1) | Y | Flag de redução de quantidade |
+| `SN_PREPARACAO` | CHAR(1) | Y | Flag de preparação |
+| `SN_HORARIO_GERADO` | VARCHAR2(1) | Y | Flag de horário gerado |
+| `SN_ALERTA_PERSISTIDO` | VARCHAR2(1) | Y | Flag de alerta persistido |
+| `SN_COPIA_IDENTICA` | VARCHAR2(1) | Y | Flag de cópia idêntica |
+| `SN_PESQUISA_CIENTIFICA` | VARCHAR2(1) | Y | Flag de pesquisa científica |
+| `SN_REAVALICAO_MEDICA` | VARCHAR2(1) | Y | Flag de reavaliação médica |
+| `DS_MATERIAL_COMPLEMENTAR` | VARCHAR2(255) | Y | Material complementar |
+
+#### Valores de Domínio:
+- **CD_TIP_ESQ:**
+  - `'ATB'` = Antibióticos
+
+- **SN_CANCELADO:**
+  - `'S'` = Cancelado
+  - `'N'` = Ativo
+
+---
+
+### **TIP_PRESC (Tipos de Prescrição)**
+Catálogo de medicamentos e procedimentos prescritíveis.
+
+#### Campos Principais:
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIP_PRESC` | NUMBER(8,0) | N | Código do tipo **(PK)** |
+| `DS_TIP_PRESC` | VARCHAR2(60) | N | Descrição (ex: "CEFAZOLINA 1G") |
+| `CD_TIP_ESQ` | VARCHAR2(3) | Y | Esquema terapêutico **(FK → TIP_ESQ)** |
+| `SN_ATIVO` | VARCHAR2(1) | N | Flag de ativo |
+| `SN_PADRONIZADO` | VARCHAR2(1) | N | Flag de padronizado |
+| `TP_PRE_MED` | VARCHAR2(1) | N | Tipo de prescrição médica |
+| `TP_TIP_PRESC` | VARCHAR2(1) | N | Tipo do tipo de prescrição |
+| `CD_PRODUTO` | NUMBER | Y | Produto **(FK → PRODUTO)** |
+| `CD_PRO_FAT` | VARCHAR2(8) | Y | Produto faturamento **(FK → PRO_FAT)** |
+| `CD_TIP_FRE` | NUMBER(4,0) | Y | Frequência padrão **(FK → TIP_FRE)** |
+| `CD_UNI_PRO` | NUMBER(8,0) | Y | Unidade do produto **(FK → UNI_PRO)** |
+| `CD_UNI_PRO_CONS` | NUMBER(8,0) | Y | Unidade de consumo **(FK → UNI_PRO)** |
+| `CD_UNI_PRO_INF` | NUMBER(8,0) | Y | Unidade de infusão **(FK → UNI_PRO)** |
+| `CD_UNI_PRO_MAXIMA` | NUMBER(8,0) | Y | Unidade máxima **(FK → UNI_PRO)** |
+| `CD_UNI_PRESC` | NUMBER(8,0) | Y | Unidade de prescrição **(FK → UNI_PRESC)** |
+| `CD_UNI_PRESC_INF` | NUMBER(10,0) | Y | Unidade de prescrição infusão **(FK → UNI_PRESC)** |
+| `CD_UNI_PRESC_MAXIMA` | NUMBER(8,0) | Y | Unidade de prescrição máxima **(FK → UNI_PRESC)** |
+| `CD_UNI_PRESC_VOL_TOTAL` | NUMBER | Y | Unidade de prescrição volume total **(FK → UNI_PRESC)** |
+| `QT_PADRAO` | NUMBER(10,4) | Y | Quantidade padrão |
+| `QT_MAXIMA_APLICACAO` | NUMBER(10,4) | Y | Quantidade máxima |
+| `QT_DOSE_PADRAO` | NUMBER(14,4) | Y | Dose padrão |
+| `QT_INFUSAO` | NUMBER(10,4) | Y | Quantidade de infusão |
+| `QTD_VOLUME_TOTAL` | NUMBER(10,4) | Y | Volume total |
+| `CD_UNID_VOL_TOTAL` | NUMBER(8,0) | Y | Unidade do volume total **(FK → UNI_PRO)** |
+| `NR_DIAS_PADRAO` | NUMBER(10,0) | Y | Dias padrão |
+| `NR_DIAS_DURACAO` | NUMBER | Y | Dias de duração |
+| `NR_HORAS_DURACAO` | NUMBER(2,0) | Y | Horas de duração |
+| `NR_MINUTOS_DURACAO` | NUMBER(2,0) | Y | Minutos de duração |
+| `HR_DURACAO` | DATE | Y | Hora de duração |
+| `CD_PROCEDIMENTO_SIA` | VARCHAR2(10) | Y | Procedimento SIA **(FK → PROCEDIMENTO_SUS)** |
+| `CD_PROCEDIMENTO_SIH` | VARCHAR2(10) | Y | Procedimento SIH **(FK → PROCEDIMENTO_SUS)** |
+| `CD_MATERIAL` | NUMBER(4,0) | Y | Material **(FK → MATERIAL)** |
+| `CD_DISPOSITIVO` | NUMBER | Y | Dispositivo **(FK → PW_DISPOSITIVO)** |
+| `CD_LOCAL_ANATOMICO_COLETA` | NUMBER | Y | Local anatômico **(FK → LOCAL_ANATOMICO_COLETA)** |
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | Y | Empresa **(FK → MULTI_EMPRESAS)** |
+| `CD_CIRURGIA` | NUMBER(4,0) | Y | Cirurgia **(FK → CIRURGIA)** |
+| `SN_FATURA` | VARCHAR2(1) | Y | Flag de faturamento |
+| `SN_JUSTIFICATIVA` | VARCHAR2(1) | N | Exige justificativa |
+| `SN_JUSTIFICATIVA_CADASTRADA` | VARCHAR2(1) | N | Justificativa cadastrada |
+| `SN_DUPLA_CHECAGEM_DADO` | VARCHAR2(1) | N | Dupla checagem com dado |
+| `SN_DUPLA_CHECAGEM_NAO_DADO` | VARCHAR2(1) | N | Dupla checagem sem dado |
+| `SN_CRONICO` | VARCHAR2(1) | N | Flag de crônico |
+| `SN_ITEM_AVULSO` | VARCHAR2(1) | N | Flag de item avulso |
+| `SN_PESQUISA_CIENTIFICA` | VARCHAR2(1) | N | Flag de pesquisa científica |
+| `DS_OBSERVACAO` | VARCHAR2(4000) | Y | Observação |
+| `DS_BLOQUEIO_PRESCRICAO` | VARCHAR2(200) | Y | Bloqueio de prescrição |
+
+---
+
+### **PRODUTO**
+Cadastro de produtos/medicamentos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PRODUTO` | NUMBER | N | Código do produto **(PK)** |
+| `DS_PRODUTO` | VARCHAR2 | N | Nome do produto/medicamento |
+
+---
+
+### **UNI_PRO (Unidades do Produto)**
+Unidades de medida dos produtos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_UNI_PRO` | NUMBER | N | Código da unidade **(PK)** |
+| `CD_PRODUTO` | NUMBER | N | Produto **(FK → PRODUTO)** |
+| `CD_UNIDADE` | VARCHAR2(6) | Y | Unidade **(FK → UNIDADE)** |
+| `DS_UNIDADE` | VARCHAR2(30) | N | Descrição da unidade |
+| `VL_FATOR` | NUMBER(20,8) | N | Fator de conversão |
+| `TP_RELATORIOS` | VARCHAR2(1) | N | Tipo para relatórios |
+| `SN_ATIVO` | VARCHAR2(1) | N | Flag de ativo |
+| `SN_PRESCRICAO` | VARCHAR2(1) | N | Habilitado para prescrição |
+| `SN_REPRESENTA_ML` | VARCHAR2(1) | N | Representa mililitros |
+| `SN_BALANCO_HIDRICO` | VARCHAR2(1) | Y | Usado em balanço hídrico |
+| `SN_SOMA_BALANCO` | VARCHAR2(1) | Y | Soma no balanço |
+
+---
+
+### **FOR_APL (Formas de Aplicação)**
+Vias de administração de medicamentos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_FOR_APL` | VARCHAR2(4) | N | Código da forma **(PK)** |
+| `DS_FOR_APL` | VARCHAR2(30) | N | Descrição da via de administração |
+| `NR_ORDEM` | NUMBER | Y | Ordem de exibição |
+
+---
+
+### **TIP_FRE (Tipos de Frequência)**
+Frequências de administração.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIP_FRE` | NUMBER(4,0) | N | Código da frequência **(PK)** |
+
+---
+
+### **PW_HORARIO_FECHADO_CHECAGEM (Checagens de Medicação)**
+Registro de administrações de medicamentos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ITPRE_MED` | NUMBER(10,0) | N | Item prescrito **(FK → ITPRE_MED)** |
+| `DH_CHECAGEM` | DATE | N | Data/hora da checagem/administração |
+
+---
+
+## 🩺 MÓDULO DE PARECERES
+
+### **PAR_MED (Pareceres Médicos)**
+Solicitações e respostas de pareceres entre especialidades.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PAR_MED` | NUMBER | N | Código do parecer **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_ESPECIALID` | NUMBER | Y | Especialidade solicitada **(FK → ESPECIALID)** |
+| `CD_PRESTADOR` | NUMBER(12,0) | Y | Médico solicitante **(FK → PRESTADOR)** |
+| `CD_PRESTADOR_PARECER` | NUMBER(12,0) | Y | Médico que respondeu **(FK → PRESTADOR)** |
+| `DT_SOLICITACAO` | DATE | Y | Data/hora da solicitação |
+| `DT_PARECER` | DATE | Y | Data/hora da resposta |
+| `DS_SOLICITACAO` | LONG | Y | Texto da solicitação |
+| `DS_PARECER` | LONG | Y | Texto do parecer |
+| `DS_SITUACAO` | VARCHAR2 | Y | Status do parecer |
+| `DS_CANCELAMENTO` | VARCHAR2 | Y | Motivo do cancelamento |
+| `CD_DOCUMENTO_CLINICO` | NUMBER | Y | Documento clínico **(FK → PW_DOCUMENTO_CLINICO)** |
+
+#### Valores de Domínio:
+- **DS_SITUACAO:**
+  - `'Solicitado'`
+  - `'Em Análise'`
+  - `'Realizado'`
+
+---
+
+## 🏥 MÓDULO CIRÚRGICO
+
+### **AVISO_CIRURGIA**
+Agendamento e controle de procedimentos cirúrgicos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_AVISO_CIRURGIA` | NUMBER | N | Código do aviso **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `DT_AVISO_CIRURGIA` | DATE | Y | Data do agendamento |
+| `DT_REALIZACAO` | DATE | Y | Data/hora de realização |
+| `DT_INICIO_CIRURGIA` | DATE | Y | Início do procedimento |
+| `DT_FIM_CIRURGIA` | DATE | Y | Fim do procedimento |
+| `DT_INICIO_ANESTESIA` | DATE | Y | Início da anestesia |
+| `DT_FIM_ANESTESIA` | DATE | Y | Fim da anestesia |
+| `DT_INICIO_LIMPEZA` | DATE | Y | Início da limpeza |
+| `DT_FIM_LIMPEZA` | DATE | Y | Fim da limpeza |
+| `TP_SITUACAO` | VARCHAR2(1) | Y | Status do aviso |
+| `TP_CIRURGIAS` | VARCHAR2(1) | Y | Tipo de cirurgia |
+| `CD_MOT_CANC` | NUMBER | Y | Motivo do cancelamento **(FK → MOT_CANC)** |
+| `CD_MOT_CANC_ATRASO` | NUMBER | Y | Motivo do atraso **(FK → MOT_CANC)** |
+| `DT_CANCELAMENTO` | DATE | Y | Data do cancelamento |
+
+#### Valores de Domínio:
+- **TP_SITUACAO:**
+  - `'A'` = Agendado
+  - `'R'` = Realizado
+  - `'C'` = Cancelado
+
+- **TP_CIRURGIAS:**
+  - `'E'` = Eletiva
+  - `'U'` = Urgência
+
+---
+
+### **CIRURGIA_AVISO**
+Relacionamento entre avisos cirúrgicos e procedimentos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_AVISO_CIRURGIA` | NUMBER | N | Aviso **(FK → AVISO_CIRURGIA)** |
+| `CD_CIRURGIA` | NUMBER | N | Cirurgia **(FK → CIRURGIA)** |
+| `SN_PRINCIPAL` | VARCHAR2(1) | Y | Flag de cirurgia principal |
+| `TP_NATUREZA` | VARCHAR2(1) | Y | Natureza da cirurgia |
+| `SN_ANTIMICROB_PROFILATICO` | VARCHAR2(1) | Y | Flag de profilaxia |
+
+#### Valores de Domínio:
+- **SN_PRINCIPAL:**
+  - `'S'` = Cirurgia principal
+  - `'N'` = Cirurgia secundária
+
+- **TP_NATUREZA:**
+  - `'L'` = Limpa
+
+---
+
+### **CIRURGIA**
+Catálogo de procedimentos cirúrgicos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_CIRURGIA` | NUMBER(4,0) | N | Código da cirurgia **(PK)** |
+| `DS_CIRURGIA` | VARCHAR2 | N | Descrição do procedimento |
+
+---
+
+### **MOT_CANC (Motivos de Cancelamento)**
+Motivos de cancelamento/atraso de cirurgias.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MOT_CANC` | NUMBER | N | Código do motivo **(PK)** |
+| `DS_MOT_CANC` | VARCHAR2 | N | Descrição do motivo |
+| `TP_MOT_CANC` | VARCHAR2(1) | Y | Tipo de motivo |
+
+#### Valores de Domínio:
+- **TP_MOT_CANC:**
+  - `'A'` = Administrativo
+  - `'P'` = Paciente
+  - `'M'` = Médico
+  - `'C'` = Cancelamento de agendamento
+  - `'T'` = Transferência
+
+---
+
+## 🚑 MÓDULO DE EMERGÊNCIA/TRIAGEM
+
+### **TRIAGEM_ATENDIMENTO**
+Registro de triagens de pacientes.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TRIAGEM_ATENDIMENTO` | NUMBER | N | Código da triagem **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_CLASSIFICACAO` | NUMBER | Y | Classificação de risco **(FK → SACR_CLASSIFICACAO)** |
+
+---
+
+### **SACR_CLASSIFICACAO (Classificação de Risco)**
+Níveis de classificação de risco (Protocolo de Manchester).
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_CLASSIFICACAO` | NUMBER | N | Código da classificação **(PK)** |
+| `DS_TIPO_RISCO` | VARCHAR2 | N | Descrição do risco |
+
+#### Valores Comuns:
+- `"Vermelho"` = Emergência
+- `"Amarelo"` = Muito Urgente
+- `"Verde"` = Urgente
+- `"Azul"` = Pouco Urgente
+- `"Branco"` = Não Urgente
+
+---
+
+### **SACR_TEMPO_PROCESSO (Tempos do Processo)**
+Timestamps de eventos durante o atendimento.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TRIAGEM_ATENDIMENTO` | NUMBER | N | Triagem **(FK → TRIAGEM_ATENDIMENTO)** |
+| `CD_TIPO_TEMPO_PROCESSO` | NUMBER | N | Tipo de evento **(FK → SACR_TIPO_TEMPO_PROCESSO)** |
+| `DH_PROCESSO` | DATE | N | Data/hora do evento |
+
+---
+
+### **SACR_TIPO_TEMPO_PROCESSO (Tipos de Evento)**
+Definição dos marcos temporais do atendimento.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIPO_TEMPO_PROCESSO` | NUMBER | N | Código do tipo **(PK)** |
+| `DS_TIPO_TEMPO_PROCESSO` | VARCHAR2 | N | Descrição do evento |
+
+#### Valores Comuns:
+| Código | Descrição |
+|--------|-----------|
+| 1 | Triagem |
+| 11 | Início Classificação |
+| 12 | Fim Classificação |
+| 20 | Chamada Administrativa |
+| 21 | Início Atendimento Administrativo |
+| 22 | Fim Atendimento Administrativo |
+| 31 | Início Atendimento Médico |
+| 32 | Fim Atendimento Médico |
+| 90 | Alta Médica |
+
+---
+
+## 📄 MÓDULO DE DOCUMENTOS CLÍNICOS
+
+### **PW_DOCUMENTO_CLINICO**
+Controle de documentos clínicos eletrônicos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_DOCUMENTO_CLINICO` | NUMBER | N | Código do documento **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_OBJETO` | NUMBER | Y | Tipo de documento |
+| `TP_STATUS` | VARCHAR2 | Y | Status do documento |
+
+#### Valores de Domínio:
+- **TP_STATUS:**
+  - `'ABERTO'`
+  - `'FECHADO'`
+  - `'CANCELADO'`
+
+---
+
+### **PW_EDITOR_CLINICO**
+Editores de formulários clínicos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_EDITOR_REGISTRO` | NUMBER | N | Código do registro **(PK)** |
+| `CD_DOCUMENTO_CLINICO` | NUMBER | N | Documento **(FK → PW_DOCUMENTO_CLINICO)** |
+| `CD_DOCUMENTO` | NUMBER | Y | Código do formulário |
+
+#### Valores Comuns de CD_DOCUMENTO:
+- `911` = Ficha de profilaxia
+- `1015` = Descrição cirúrgica
+
+---
+
+### **EDITOR_REGISTRO_CAMPO**
+Campos preenchidos em formulários.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_REGISTRO` | NUMBER(13,0) | N | Registro **(PK/FK → EDITOR_REGISTRO)** |
+| `CD_CAMPO` | NUMBER(13,0) | N | Campo **(PK/FK → EDITOR_CAMPO)** |
+| `DS_VALOR` | VARCHAR2(4000) | Y | Valor texto |
+| `LO_VALOR` | CLOB | Y | Valor longo |
+| `NM_IMAGEM` | VARCHAR2(100) | Y | Nome de imagem |
+
+**Nota:** Utilizada com a função `fnc_resp_doc_v2` para extrair dados de formulários específicos.
+
+---
+
+## 🔬 MÓDULO DE SADT (Serviço de Apoio Diagnóstico e Terapêutico)
+
+### **PED_RX (Pedido de Exame)**
+Solicitações de exames de imagem.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PED_RX` | NUMBER | N | Código do pedido **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `DT_PEDIDO` | DATE | N | Data do pedido |
+| `CD_SET_EXA` | NUMBER | Y | Setor do exame **(FK → SET_EXA)** |
+
+---
+
+### **ITPED_RX (Item do Pedido de Exame)**
+Exames solicitados no pedido.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PED_RX` | NUMBER | N | Pedido **(FK → PED_RX)** |
+| `CD_EXA_RX` | NUMBER | N | Exame **(FK → EXA_RX)** |
+| `SN_REALIZADO` | VARCHAR2(1) | Y | Flag de exame realizado |
+| `DT_REALIZADO` | DATE | Y | Data da realização |
+
+#### Valores de Domínio:
+- **SN_REALIZADO:**
+  - `'S'` = Realizado
+  - `'N'` = Não realizado
+
+---
+
+### **EXA_RX (Exame)**
+Catálogo de exames de imagem.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_EXA_RX` | NUMBER | N | Código do exame **(PK)** |
+| `DS_EXA_RX` | VARCHAR2 | N | Descrição do exame |
+| `CD_MODALIDADE_EXAME` | NUMBER | Y | Modalidade **(FK → MODALIDADE_EXAME)** |
+
+---
+
+### **MODALIDADE_EXAME**
+Modalidades de exames (tipo de equipamento).
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MODALIDADE_EXAME` | NUMBER | N | Código da modalidade **(PK)** |
+| `DS_MODALIDADE_EXAME` | VARCHAR2 | N | Descrição da modalidade |
+
+#### Exemplos:
+- `"TOMOGRAFIA COMPUTADORIZADA"`
+- `"ULTRASSONOGRAFIA"`
+- `"RESSONÂNCIA MAGNÉTICA"`
+
+---
+
+### **SET_EXA (Setor de Exame)**
+Setores que realizam exames.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_SET_EXA` | NUMBER | N | Código do setor **(PK)** |
+
+---
+
+## 🧪 MÓDULO DE LABORATÓRIO
+
+### **PED_LAB (Pedidos de Laboratório)**
+Solicitações de exames laboratoriais.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PED_LAB` | NUMBER | N | Código do pedido **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `DT_PEDIDO` | DATE | N | Data do pedido |
+| `HR_PED_LAB` | DATE | Y | Hora do pedido |
+| `CD_PRESTADOR` | NUMBER(12,0) | Y | Médico solicitante **(FK → PRESTADOR)** |
+
+---
+
+### **COLETA_MATERIAL**
+Coletas de material para exames.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_COLETA_MATERIAL` | NUMBER | N | Código da coleta **(PK)** |
+| `CD_PED_LAB` | NUMBER | N | Pedido **(FK → PED_LAB)** |
+
+---
+
+### **AMOSTRA**
+Amostras coletadas.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_COLETA_MATERIAL` | NUMBER | N | Coleta **(FK → COLETA_MATERIAL)** |
+| `SN_COLETA` | VARCHAR2(1) | Y | Flag de coleta |
+
+#### Valores de Domínio:
+- **SN_COLETA:**
+  - `'S'` = Coletado
+  - `'N'` = Pendente
+
+---
+
+## 📦 MÓDULO DE FARMÁCIA/ESTOQUE
+
+### **ENT_PRO (Entrada de Produtos)**
+Entradas de materiais no estoque.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ENT_PRO` | NUMBER | N | Código da entrada **(PK)** |
+| `CD_ESTOQUE` | NUMBER | N | Estoque **(FK → ESTOQUE)** |
+| `DT_ENTRADA` | DATE | N | Data da entrada/empréstimo |
+| `CD_TIP_DOC` | NUMBER | Y | Tipo de documento **(FK → TIP_DOC)** |
+| `CD_FORNECEDOR` | NUMBER | Y | Fornecedor **(FK → FORNECEDOR)** |
+
+---
+
+### **ITENT_PRO (Itens da Entrada de Produtos)**
+Produtos que entraram no estoque.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ITENT_PRO` | NUMBER | N | Código do item **(PK)** |
+| `CD_ENT_PRO` | NUMBER | N | Entrada **(FK → ENT_PRO)** |
+| `CD_PRODUTO` | NUMBER | N | Produto **(FK → PRODUTO)** |
+| `QT_ENTRADA` | NUMBER | Y | Quantidade |
+| `VL_UNITARIO` | NUMBER | Y | Valor unitário |
+| `VL_TOTAL` | NUMBER | Y | Valor total |
+| `SN_PENDENCIA` | VARCHAR2(1) | Y | Flag de pendência |
+
+---
+
+### **MVTO_ESTOQUE (Movimentação de Estoque)**
+Movimentações diversas de estoque.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MVTO_ESTOQUE` | NUMBER | N | Código da movimentação **(PK)** |
+| `CD_ESTOQUE` | NUMBER | N | Estoque **(FK → ESTOQUE)** |
+| `DT_MVTO_ESTOQUE` | DATE | N | Data da movimentação/empréstimo |
+| `CD_FORNECEDOR` | NUMBER | Y | Fornecedor **(FK → FORNECEDOR)** |
+| `TP_MVTO_ESTOQUE` | VARCHAR2 | Y | Tipo de movimentação |
+
+---
+
+### **ITMVTO_ESTOQUE (Itens da Movimentação)**
+Produtos movimentados.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ITMVTO_ESTOQUE` | NUMBER | N | Código do item **(PK)** |
+| `CD_MVTO_ESTOQUE` | NUMBER | N | Movimentação **(FK → MVTO_ESTOQUE)** |
+| `CD_PRODUTO` | NUMBER | N | Produto **(FK → PRODUTO)** |
+| `QT_MOVIMENTACAO` | NUMBER | Y | Quantidade |
+| `SN_PENDENCIA` | VARCHAR2(1) | Y | Flag de pendência |
+
+---
+
+### **ITMVTO_ENT**
+Relacionamento entre movimentações e entradas.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ITMVTO_ESTOQUE` | NUMBER | N | Item movimentação **(FK → ITMVTO_ESTOQUE)** |
+| `CD_ITENT_PRO` | NUMBER | N | Item entrada **(FK → ITENT_PRO)** |
+
+---
+
+### **ESTOQUE**
+Cadastro de estoques.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_ESTOQUE` | NUMBER | N | Código do estoque **(PK)** |
+| `DS_ESTOQUE` | VARCHAR2 | N | Descrição do estoque |
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | Y | Empresa **(FK → MULTI_EMPRESAS)** |
+
+---
+
+### **FORNECEDOR**
+Cadastro de fornecedores.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_FORNECEDOR` | NUMBER | N | Código do fornecedor **(PK)** |
+| `NM_FORNECEDOR` | VARCHAR2 | N | Nome do fornecedor |
+
+---
+
+### **TIP_DOC**
+Tipos de documentos de entrada.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIP_DOC` | NUMBER | N | Código do tipo **(PK)** |
+| `TP_ENTRADA` | VARCHAR2 | Y | Tipo de entrada |
+
+---
+
+## 💸 MÓDULO DE FATURAMENTO/PROCEDIMENTOS (AIH)
+
+### **PROCEDIMENTO_SUS**
+Tabela SUS de procedimentos.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_PROCEDIMENTO` | VARCHAR2(10) | N | Código do procedimento **(PK)** |
+| `DS_PROCEDIMENTO` | VARCHAR2 | N | Descrição do procedimento |
+
+---
+
+### **LAUDO_AIH (Autorização de Internação Hospitalar)**
+Laudos de AIH.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_LAUDO` | NUMBER | N | Código do laudo **(PK)** |
+| `CD_ATENDIMENTO` | NUMBER | N | Atendimento **(FK → ATENDIME)** |
+| `CD_PROCEDIMENTO` | VARCHAR2(10) | Y | Procedimento principal **(FK → PROCEDIMENTO_SUS)** |
+
+---
+
+### **LAUDO_AIH_ESPECIAL**
+Procedimentos especiais em laudos AIH.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_LAUDO` | NUMBER | N | Laudo **(FK → LAUDO_AIH)** |
+| `CD_PROCEDIMENTO_MUDANCA` | VARCHAR2(10) | Y | Procedimento alterado **(FK → PROCEDIMENTO_SUS)** |
+
+---
+
+## 🚪 MÓDULO DE ALTA
+
+### **MOT_ALT (Motivos de Alta)**
+Motivos pelos quais o paciente recebeu alta.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MOT_ALT` | NUMBER | N | Código do motivo **(PK)** |
+| `DS_MOT_ALT` | VARCHAR2 | N | Descrição do motivo |
+| `TP_MOT_ALTA` | VARCHAR2(1) | Y | Tipo de motivo |
+
+#### Valores de Domínio:
+- **TP_MOT_ALTA:**
+  - `'O'` = Óbito
+
+---
+
+### **TIP_RES (Tipos de Resultado)**
+Resultados/desfechos de alta.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_TIP_RES` | NUMBER | N | Código do tipo **(PK)** |
+| `DS_TIP_RES` | VARCHAR2 | N | Descrição do resultado |
+| `SN_OBITO` | VARCHAR2(1) | Y | Flag de óbito |
+
+#### Valores de Domínio:
+- **SN_OBITO:**
+  - `'S'` = Resultado é óbito
+  - `'N'` = Resultado não é óbito
+
+---
+
+## 🏢 MÓDULO ADMINISTRATIVO
+
+### **MULTI_EMPRESAS**
+Cadastro de unidades/empresas do grupo.
+
+| Campo | Tipo | Nulo | Descrição |
+|-------|------|------|-----------|
+| `CD_MULTI_EMPRESA` | NUMBER(4,0) | N | Código da empresa **(PK)** |
+| `DS_MULTI_EMPRESA` | VARCHAR2 | N | Nome da unidade/hospital |
+
+#### Exemplo:
+- `CD_MULTI_EMPRESA = 40` → Hospital Hugo (HUGO)
+
+---
+
+## 📊 DIAGRAMA DE RELACIONAMENTOS PRINCIPAIS
+
+```
+PACIENTE
+    ↓ 1:N
+ATENDIME ← MOV_INT (histórico de leitos)
+    ↓         ↓
+    ├─→ LEITO
+    ├─→ PRE_MED → ITPRE_MED → TIP_PRESC
+    ├─→ PAR_MED
+    ├─→ AVISO_CIRURGIA → CIRURGIA_AVISO → CIRURGIA
+    ├─→ TRIAGEM_ATENDIMENTO
+    ├─→ PED_RX → ITPED_RX → EXA_RX
+    ├─→ PED_LAB → COLETA_MATERIAL → AMOSTRA
+    └─→ PW_DOCUMENTO_CLINICO
+```
+
+---
+
+## 🔍 CONSULTAS SQL COMUNS
+
+### 1. Listar atendimentos ativos em internação
+```sql
+SELECT 
+    a.CD_ATENDIMENTO,
+    p.NM_PACIENTE,
+    l.DS_LEITO,
+    u.DS_UNID_INT,
+    a.DT_ATENDIMENTO
+FROM ATENDIME a
+INNER JOIN PACIENTE p ON a.CD_PACIENTE = p.CD_PACIENTE
+LEFT JOIN LEITO l ON a.CD_LEITO = l.CD_LEITO
+LEFT JOIN UNID_INT u ON l.CD_UNID_INT = u.CD_UNID_INT
+WHERE a.TP_ATENDIMENTO = 'I'
+  AND a.DT_ALTA IS NULL
+  AND a.CD_MULTI_EMPRESA = 40;
+```
+
+### 2. Verificar medicações prescritas ativas
+```sql
+SELECT 
+    p.CD_PRE_MED,
+    p.DT_PRE_MED,
+    i.CD_ITPRE_MED,
+    t.DS_TIP_PRESC,
+    i.QT_ITPRE_MED,
+    u.DS_UNIDADE,
+    f.DS_FOR_APL,
+    i.DH_INICIAL,
+    i.DH_FINAL
+FROM PRE_MED p
+INNER JOIN ITPRE_MED i ON p.CD_PRE_MED = i.CD_PRE_MED
+INNER JOIN TIP_PRESC t ON i.CD_TIP_PRESC = t.CD_TIP_PRESC
+LEFT JOIN UNI_PRO u ON i.CD_UNI_PRO = u.CD_UNI_PRO
+LEFT JOIN FOR_APL f ON i.CD_FOR_APL = f.CD_FOR_APL
+WHERE p.CD_ATENDIMENTO = :CD_ATENDIMENTO
+  AND i.SN_CANCELADO = 'N'
+  AND (i.DH_FINAL IS NULL OR i.DH_FINAL >= SYSDATE)
+ORDER BY p.DT_PRE_MED DESC, i.DH_INICIAL;
+```
+
+### 3. Buscar tempos de triagem/atendimento
+```sql
+SELECT 
+    t.CD_TRIAGEM_ATENDIMENTO,
+    t.CD_ATENDIMENTO,
+    c.DS_TIPO_RISCO,
+    tt.DS_TIPO_TEMPO_PROCESSO,
+    tp.DH_PROCESSO
+FROM TRIAGEM_ATENDIMENTO t
+INNER JOIN SACR_CLASSIFICACAO c ON t.CD_CLASSIFICACAO = c.CD_CLASSIFICACAO
+INNER JOIN SACR_TEMPO_PROCESSO tp ON t.CD_TRIAGEM_ATENDIMENTO = tp.CD_TRIAGEM_ATENDIMENTO
+INNER JOIN SACR_TIPO_TEMPO_PROCESSO tt ON tp.CD_TIPO_TEMPO_PROCESSO = tt.CD_TIPO_TEMPO_PROCESSO
+WHERE t.CD_ATENDIMENTO = :CD_ATENDIMENTO
+ORDER BY tp.DH_PROCESSO;
+```
+
+### 4. Consultar cirurgias agendadas
+```sql
+SELECT 
+    av.CD_AVISO_CIRURGIA,
+    av.DT_AVISO_CIRURGIA,
+    av.DT_REALIZACAO,
+    c.DS_CIRURGIA,
+    ca.SN_PRINCIPAL,
+    av.TP_SITUACAO,
+    av.TP_CIRURGIAS
+FROM AVISO_CIRURGIA av
+INNER JOIN CIRURGIA_AVISO ca ON av.CD_AVISO_CIRURGIA = ca.CD_AVISO_CIRURGIA
+INNER JOIN CIRURGIA c ON ca.CD_CIRURGIA = c.CD_CIRURGIA
+WHERE av.CD_ATENDIMENTO = :CD_ATENDIMENTO
+  AND av.TP_SITUACAO IN ('A', 'R')
+ORDER BY av.DT_REALIZACAO;
+```
+
+---
+
+## 📝 NOTAS TÉCNICAS
+
+### Funções Especiais
+- **`fnc_resp_doc_v2`**: Função utilizada para extrair valores de campos específicos de formulários eletrônicos (EDITOR_REGISTRO_CAMPO).
+
+### Tipos LONG
+Campos do tipo `LONG` (como `DS_EVOLUCAO` em `PRE_MED`) têm limitações:
+- Não podem ser usados em `WHERE`, `GROUP BY` ou `ORDER BY`
+- Requerem manipulação especial em queries
+- Considerar conversão para CLOB quando possível
+
+### Timestamps Compostos
+Muitas tabelas usam pares de campos separados para data e hora:
+- `DT_*` + `HR_*` (ex: `DT_ATENDIMENTO` + `HR_ATENDIMENTO`)
+- Algumas tabelas mais novas usam `DH_*` (DATE com hora)
+
+### Empresas Multi-Unidade
+O campo `CD_MULTI_EMPRESA` é crucial para filtrar dados por unidade:
+- **40** = Hospital Hugo (HUGO) - valor comum em queries
+- Sempre incluir este filtro em queries de produção
+
+### Flags Booleanos
+O sistema usa `VARCHAR2(1)` com `'S'`/`'N'` para flags booleanos:
+- `'S'` = Sim/Verdadeiro/Ativo
+- `'N'` = Não/Falso/Inativo
+- Alguns campos podem ter `NULL` com significado específico
+
+---
+
+## 🔒 CONSIDERAÇÕES DE SEGURANÇA
+
+1. **Dados Sensíveis**: Tabelas como `PACIENTE`, `ATENDIME`, `PRE_MED` contêm dados protegidos pela LGPD
+2. **Auditoria**: Campos `NM_USUARIO` e `DH_REGISTRO` são importantes para rastreabilidade
+3. **Integridade Referencial**: Respeitar as chaves estrangeiras para manter consistência
+4. **Performance**: Usar índices apropriados em queries com grande volume de dados
+
+---
+
+## 📚 REFERÊNCIAS
+
+- Documentação oficial MV
+- Manual do usuário MV 2000i
+- Queries SQL do sistema em produção
+- Análise de estrutura física do banco de dados
+
+---
+
+**Versão:** 2.0  
+**Última Atualização:** 2025-10-20  
+**Autor:** Documentação consolidada a partir de análise técnica

@@ -518,19 +518,157 @@ def generate_category_files(classified, df_full, output_dir):
 
 
 # ============================================================
+# GERACAO MARKDOWN (PESQUISAVEL)
+# ============================================================
+def _md_safe(val):
+    """Escapa pipes e newlines para uso em tabelas Markdown."""
+    if pd.isna(val) or val is None:
+        return ''
+    s = str(val).strip()
+    s = s.replace('|', '\\|').replace('\n', ' ').replace('\r', '')
+    return s
+
+
+def generate_markdown_index(classified, md_dir):
+    """Gera 00_INDICE.md com estatisticas e diretorio de tabelas."""
+    lines = ['# Catalogo MV - Indice Geral\n']
+
+    # Estatisticas
+    total_tabelas = classified['TABLE_NAME'].nunique()
+    total_colunas = int(classified['Qtd_Colunas'].sum())
+    total_owners = classified['OWNER'].nunique()
+    lines.append(f'- **Total de tabelas**: {total_tabelas:,}')
+    lines.append(f'- **Total de colunas**: {total_colunas:,}')
+    lines.append(f'- **Total de owners**: {total_owners:,}')
+    lines.append(f'- **Gerado em**: {datetime.now().strftime("%Y-%m-%d %H:%M:%S")}')
+    lines.append('')
+
+    # Categorias
+    lines.append('## Categorias\n')
+    lines.append('| Arquivo | Categoria | Tabelas | Descricao |')
+    lines.append('|---------|-----------|---------|-----------|')
+    for cat_id in sorted(classified['Categoria'].unique()):
+        cat_info = CATEGORIES.get(cat_id, {})
+        cat_name = cat_info.get('name', cat_id)
+        cat_desc = cat_info.get('description', '')
+        count = len(classified[classified['Categoria'] == cat_id])
+        lines.append(f'| [{cat_id}.md]({cat_id}.md) | {cat_name} | {count} | {cat_desc} |')
+    lines.append('')
+
+    # Diretorio completo de tabelas
+    lines.append('## Diretorio de Tabelas\n')
+    lines.append('| Owner | Tabela | Categoria | Comentario |')
+    lines.append('|-------|--------|-----------|------------|')
+    sorted_tables = classified.sort_values(['Categoria', 'OWNER', 'TABLE_NAME'])
+    for _, row in sorted_tables.iterrows():
+        comment = _md_safe(row.get('COMENTARIO_TABELA', ''))
+        if len(comment) > 80:
+            comment = comment[:77] + '...'
+        lines.append(
+            f'| {row["OWNER"]} | {row["TABLE_NAME"]} '
+            f'| {row["Categoria"]} | {comment} |'
+        )
+    lines.append('')
+
+    filepath = md_dir / '00_INDICE.md'
+    filepath.write_text('\n'.join(lines), encoding='utf-8')
+    return filepath
+
+
+def generate_markdown_category_files(classified, df_full, md_dir):
+    """Gera um arquivo Markdown para cada categoria com detalhes das colunas."""
+    df_with_cat = df_full.merge(
+        classified[['OWNER', 'TABLE_NAME', 'Categoria']],
+        on=['OWNER', 'TABLE_NAME'],
+        how='left',
+    )
+
+    files_created = []
+    for cat_id, group in df_with_cat.groupby('Categoria'):
+        cat_info = CATEGORIES.get(cat_id, {})
+        cat_name = cat_info.get('name', cat_id)
+        cat_desc = cat_info.get('description', '')
+        cat_tables = classified[classified['Categoria'] == cat_id]
+
+        lines = [f'# {cat_id.split("_", 1)[0]} - {cat_name}\n']
+        lines.append(f'> {cat_desc}\n')
+
+        # Resumo
+        owners = sorted(cat_tables['OWNER'].unique())
+        lines.append('## Resumo\n')
+        lines.append(f'- **Tabelas**: {len(cat_tables)}')
+        lines.append(f'- **Owners**: {", ".join(owners)}')
+        lines.append('')
+
+        # Ordenar por owner + table_name
+        if 'COLUMN_ID' in group.columns:
+            group_sorted = group.sort_values(['OWNER', 'TABLE_NAME', 'COLUMN_ID'])
+        else:
+            group_sorted = group.sort_values(['OWNER', 'TABLE_NAME'])
+
+        # Gerar detalhe para cada tabela
+        for (owner, table_name), tbl_group in group_sorted.groupby(
+            ['OWNER', 'TABLE_NAME'], sort=True
+        ):
+            # Comentario da tabela
+            comment_row = cat_tables[
+                (cat_tables['OWNER'] == owner) & (cat_tables['TABLE_NAME'] == table_name)
+            ]
+            tbl_comment = ''
+            if not comment_row.empty:
+                raw = comment_row.iloc[0].get('COMENTARIO_TABELA', '')
+                tbl_comment = _md_safe(raw)
+
+            lines.append('---\n')
+            lines.append(f'## {owner}.{table_name}')
+            if tbl_comment:
+                lines.append(f'> {tbl_comment}\n')
+            else:
+                lines.append('')
+
+            lines.append('| # | Coluna | Tipo | Nulo | Comentario |')
+            lines.append('|---|--------|------|------|------------|')
+
+            for _, col_row in tbl_group.iterrows():
+                col_id = col_row.get('COLUMN_ID', '')
+                col_id_str = str(int(col_id)) if pd.notna(col_id) else ''
+                col_name = _md_safe(col_row.get('COLUMN_NAME', ''))
+                data_type = _md_safe(col_row.get('DATA_TYPE', ''))
+                nullable = _md_safe(col_row.get('NULLABLE', ''))
+                col_comment = _md_safe(col_row.get('COMENTARIO_COLUNA', ''))
+                if len(col_comment) > 100:
+                    col_comment = col_comment[:97] + '...'
+                lines.append(
+                    f'| {col_id_str} | {col_name} | {data_type} '
+                    f'| {nullable} | {col_comment} |'
+                )
+            lines.append('')
+
+        filepath = md_dir / f'{cat_id}.md'
+        filepath.write_text('\n'.join(lines), encoding='utf-8')
+        print(f'       {filepath.name} - {len(cat_tables)} tabelas - {cat_name}')
+        files_created.append(filepath)
+
+    return files_created
+
+
+# ============================================================
 # MAIN
 # ============================================================
 def main():
     parser = argparse.ArgumentParser(description='Separa MV Tabelas.xlsx por area funcional')
     parser.add_argument('--input', default='MV Tabelas.xlsx', help='Arquivo Excel de entrada')
-    parser.add_argument('--output', default='output_mv_categorizado', help='Pasta de saida')
+    parser.add_argument('--output', default='output_mv_categorizado', help='Pasta de saida Excel')
+    parser.add_argument('--markdown', default='catalogo_mv', help='Pasta de saida Markdown')
     args = parser.parse_args()
 
     input_path = Path(args.input)
     output_dir = Path(args.output)
+    md_dir = Path(args.markdown)
     output_dir.mkdir(parents=True, exist_ok=True)
+    md_dir.mkdir(parents=True, exist_ok=True)
 
-    print(f'[1/5] Carregando {input_path}...')
+    print(f'[1/7] Carregando {input_path}...')
     df = pd.read_excel(input_path, engine='openpyxl', header=1)
 
     # Normaliza nomes das colunas
@@ -593,7 +731,7 @@ def main():
     print(f'       Carregadas {len(df):,} linhas, {df["TABLE_NAME"].nunique():,} tabelas unicas')
     print(f'       Colunas detectadas: {list(df.columns)}')
 
-    print('[2/5] Classificando tabelas...')
+    print('[2/7] Classificando tabelas...')
     classified = classify_all_tables(df)
 
     # Resumo por categoria
@@ -602,15 +740,25 @@ def main():
         cat_name = CATEGORIES.get(cat_id, {}).get('name', cat_id)
         print(f'       {cat_id}: {count:,} tabelas - {cat_name}')
 
-    print('[3/5] Gerando arquivo indice...')
+    print('[3/7] Gerando arquivo indice Excel...')
     idx_file = generate_index_file(classified, output_dir)
     print(f'       Criado: {idx_file.name}')
 
-    print('[4/5] Gerando arquivos por categoria...')
+    print('[4/7] Gerando arquivos Excel por categoria...')
     files = generate_category_files(classified, df, output_dir)
 
-    total_files = len(files) + 1  # +1 para o indice
-    print(f'[5/5] Concluido! {total_files} arquivos gerados em {output_dir}/')
+    total_xlsx = len(files) + 1
+    print(f'       {total_xlsx} arquivos Excel gerados em {output_dir}/')
+
+    print('[5/7] Gerando indice Markdown...')
+    md_idx = generate_markdown_index(classified, md_dir)
+    print(f'       Criado: {md_idx.name}')
+
+    print('[6/7] Gerando arquivos Markdown por categoria...')
+    md_files = generate_markdown_category_files(classified, df, md_dir)
+
+    total_md = len(md_files) + 1
+    print(f'[7/7] Concluido! {total_xlsx} Excel + {total_md} Markdown gerados')
 
     # Avisos
     outros = classified[classified['Categoria'] == '99_OUTROS']

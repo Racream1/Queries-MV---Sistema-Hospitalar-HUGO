@@ -1,0 +1,32 @@
+SELECT
+    MC.CD_MOT_CANC,
+    MC.DS_MOT_CANC,
+    CASE
+        WHEN MC.TP_MOT_CANC = 'A' THEN 'Administrativo'
+        WHEN MC.TP_MOT_CANC = 'P' THEN 'Paciente'
+        WHEN MC.TP_MOT_CANC = 'C' THEN 'Cancelamento de agendamento'
+        WHEN MC.TP_MOT_CANC = 'M' THEN 'Médico'
+        WHEN MC.TP_MOT_CANC = 'T' THEN 'Transferencia'
+        ELSE 'Outro'
+    END AS TP_MOT_CANC,
+    COUNT(*) AS QTD
+FROM (
+    SELECT DISTINCT
+        AC.CD_AVISO_CIRURGIA,
+        AC.CD_MOT_CANC
+    FROM AVISO_CIRURGIA AC
+    WHERE
+        AC.CD_MULTI_EMPRESA = 40
+    AND AC.TP_SITUACAO      = 'C'
+    AND TRUNC(AC.DT_CANCELAMENTO) BETWEEN
+            TO_DATE(CONCAT(TO_CHAR($pgmvDataIni$,'dd/mm/yyyy'),' 00:00'),'dd/mm/yyyy hh24:mi')
+        AND TO_DATE(CONCAT(TO_CHAR($pgmvDataFim$,'dd/mm/yyyy'),' 23:59'),'dd/mm/yyyy hh24:mi')
+    ) AC
+JOIN MOT_CANC MC
+    ON MC.CD_MOT_CANC = AC.CD_MOT_CANC
+GROUP BY
+    MC.CD_MOT_CANC,
+    MC.DS_MOT_CANC,
+    MC.TP_MOT_CANC
+ORDER BY
+    QTD DESC

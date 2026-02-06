@@ -1,0 +1,187 @@
+-- ============================================================================
+-- PORTLET: PAINEL INFECTOLOGIA - PACIENTES INTERNADOS
+-- Descrição: Visão completa de pacientes internados com foco em infectologia
+-- Fonte: DBAMV
+-- Parâmetros: '565' (Setores do HUGO)
+-- ============================================================================
+
+WITH 
+-- CTE 1: Base de pacientes internados atualmente
+BASE_PACIENTES AS (
+ SELECT DISTINCT
+ a.cd_atendimento,
+ a.cd_paciente,
+ a.hr_atendimento,
+ a.cd_cid,
+ a.cd_leito,
+ l.cd_unid_int
+ FROM dbamv.atendime a
+ INNER JOIN dbamv.leito l ON a.cd_leito = l.cd_leito
+ WHERE a.cd_multi_empresa = 40
+ AND a.tp_atendimento IN ('I', 'H')
+ AND a.hr_alta IS NULL
+ AND a.cd_leito IS NOT NULL
+ AND l.cd_unid_int IN ('565')
+),
+
+-- CTE 2: Cirurgias realizadas por atendimento (ordenadas da mais recente)
+CIRURGIAS_REALIZADAS AS (
+ SELECT
+ ac.cd_atendimento,
+ LISTAGG(
+ TO_CHAR(ac.dt_realizacao, 'DD/MM/YYYY') || ' - ' || 
+ SUBSTR(c.ds_cirurgia, 1, 50) || 
+ CASE WHEN ac.tp_cirurgias = 'E' THEN ' (Eletiva)' ELSE ' (Urgência)' END,
+ ' | '
+ ) WITHIN GROUP (ORDER BY ac.dt_realizacao DESC) AS CIRURGIAS_LISTA
+ FROM dbamv.aviso_cirurgia ac
+ INNER JOIN dbamv.cirurgia_aviso ca ON ac.cd_aviso_cirurgia = ca.cd_aviso_cirurgia
+ INNER JOIN dbamv.cirurgia c ON ca.cd_cirurgia = c.cd_cirurgia
+ WHERE ac.tp_situacao = 'R'
+ AND ac.dt_realizacao IS NOT NULL
+ GROUP BY ac.cd_atendimento
+),
+
+-- CTE 3: ATB atualmente em uso (prescrições das últimas 48h)
+ATB_ATUAL AS (
+ SELECT
+ pre.cd_atendimento,
+ LISTAGG(
+ prod.ds_produto || ' (' || 
+ itpre.nr_dia || '/' || itpre.qt_dias || 'd - ' || 
+ TO_CHAR(pre.hr_pre_med, 'DD/MM/YYYY') || ')',
+ '; '
+ ) WITHIN GROUP (ORDER BY pre.hr_pre_med DESC) AS ATB_EM_USO
+ FROM dbamv.pre_med pre
+ INNER JOIN dbamv.itpre_med itpre ON pre.cd_pre_med = itpre.cd_pre_med
+ INNER JOIN dbamv.tip_presc tp ON itpre.cd_tip_presc = tp.cd_tip_presc
+ INNER JOIN dbamv.produto prod ON itpre.cd_produto = prod.cd_produto
+ WHERE tp.cd_tip_esq = 'ATB'
+ AND pre.hr_pre_med >= SYSDATE - 2
+ AND itpre.sn_cancelado = 'N'
+ GROUP BY pre.cd_atendimento
+),
+
+-- CTE 4: Histórico completo de ATB (exceto os atuais) - DEDUPLICA ANTES DO LISTAGG
+HISTORICO_ATB_UNICO AS (
+ SELECT DISTINCT
+ pre.cd_atendimento,
+ prod.ds_produto,
+ TRUNC(pre.hr_pre_med) AS dt_prescricao,
+ itpre.nr_dia,
+ itpre.qt_dias
+ FROM dbamv.pre_med pre
+ INNER JOIN dbamv.itpre_med itpre ON pre.cd_pre_med = itpre.cd_pre_med
+ INNER JOIN dbamv.tip_presc tp ON itpre.cd_tip_presc = tp.cd_tip_presc
+ INNER JOIN dbamv.produto prod ON itpre.cd_produto = prod.cd_produto
+ WHERE tp.cd_tip_esq = 'ATB'
+ AND pre.hr_pre_med < SYSDATE - 2
+ AND itpre.sn_cancelado = 'N'
+),
+
+HISTORICO_ATB AS (
+ SELECT
+ cd_atendimento,
+ LISTAGG(
+ ds_produto || ' (' || 
+ TO_CHAR(dt_prescricao, 'DD/MM/YYYY') || ' - ' ||
+ nr_dia || '/' || qt_dias || 'd)',
+ '; '
+ ) WITHIN GROUP (ORDER BY dt_prescricao DESC) AS HISTORICO_ATB_LISTA
+ FROM historico_atb_unico
+ GROUP BY cd_atendimento
+),
+
+-- CTE 5: Procedimentos vinculados ao atendimento
+PROCEDIMENTOS AS (
+ SELECT
+ a.cd_atendimento,
+ CASE
+ WHEN aihe.cd_procedimento_mudanca IS NOT NULL THEN aihe.cd_procedimento_mudanca
+ WHEN aih.cd_procedimento IS NOT NULL THEN aih.cd_procedimento
+ ELSE a.cd_procedimento
+ END AS cd_procedimento_final
+ FROM dbamv.atendime a
+ LEFT JOIN dbamv.laudo_aih aih ON aih.cd_atendimento = a.cd_atendimento
+ AND aih.cd_laudo = (
+ SELECT MAX(cd_laudo) 
+ FROM dbamv.laudo_aih 
+ WHERE cd_atendimento = a.cd_atendimento
+ )
+ LEFT JOIN dbamv.laudo_aih_especial aihe ON aihe.cd_laudo = aih.cd_laudo
+)
+
+-- QUERY PRINCIPAL
+SELECT
+ -- Dados do Atendimento
+ TO_CHAR(bp.cd_atendimento) AS "ATENDIMENTO",
+ TO_CHAR(pac.cd_paciente) AS "COD_PACIENTE",
+ 
+ -- Leito (MOVIDO PARA ANTES DO NOME)
+ l.ds_leito AS "LEITO",
+ 
+ -- Nome do Paciente
+ pac.nm_paciente AS "PACIENTE",
+ 
+ -- Idade calculada
+ TRUNC(MONTHS_BETWEEN(SYSDATE, pac.dt_nascimento) / 12) AS "IDADE",
+ 
+ -- Data de internação
+ TO_CHAR(bp.hr_atendimento, 'DD/MM/YYYY HH24:MI') AS "DATA_INTERNACAO",
+ 
+ -- Dias de internação
+ TRUNC(SYSDATE - bp.hr_atendimento) || 'd ' ||
+ TRUNC(MOD((SYSDATE - bp.hr_atendimento) * 24, 24)) || 'h' AS "DIAS_INTERNACAO",
+ 
+ -- CID principal
+ cid.cd_cid AS "COD_CID",
+ cid.ds_cid AS "DIAGNOSTICO_CID",
+ 
+ -- Procedimento vinculado
+ psus.cd_procedimento AS "COD_PROCEDIMENTO",
+ psus.ds_procedimento AS "PROCEDIMENTO",
+ 
+ -- Cirurgias realizadas
+ COALESCE(cr.cirurgias_lista, 'Sem cirurgias') AS "CIRURGIAS_REALIZADAS",
+ 
+ -- ATB em uso atual
+ COALESCE(atb_at.atb_em_uso, 'Sem ATB em uso') AS "ATB_ATUAL",
+ 
+ -- Histórico de ATB (SEM DUPLICATAS)
+ COALESCE(hist_atb.historico_atb_lista, 'Sem histórico') AS "HISTORICO_ATB"
+
+FROM base_pacientes bp
+
+-- Dados do paciente
+INNER JOIN dbamv.paciente pac 
+ ON bp.cd_paciente = pac.cd_paciente
+
+-- Dados de leito
+INNER JOIN dbamv.leito l 
+ ON bp.cd_leito = l.cd_leito
+
+-- CID
+LEFT JOIN dbamv.cid cid 
+ ON bp.cd_cid = cid.cd_cid
+
+-- Procedimento
+LEFT JOIN procedimentos proc 
+ ON bp.cd_atendimento = proc.cd_atendimento
+LEFT JOIN dbamv.procedimento_sus psus 
+ ON proc.cd_procedimento_final = psus.cd_procedimento
+
+-- Cirurgias
+LEFT JOIN cirurgias_realizadas cr 
+ ON bp.cd_atendimento = cr.cd_atendimento
+
+-- ATB atual
+LEFT JOIN atb_atual atb_at 
+ ON bp.cd_atendimento = atb_at.cd_atendimento
+
+-- Histórico ATB (DEDUPLICA)
+LEFT JOIN historico_atb hist_atb 
+ ON bp.cd_atendimento = hist_atb.cd_atendimento
+
+ORDER BY 
+ l.ds_leito,
+ pac.nm_paciente

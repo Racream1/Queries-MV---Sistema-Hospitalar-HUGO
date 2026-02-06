@@ -1,0 +1,168 @@
+WITH params AS (
+  SELECT 
+    TO_DATE($pgmvDataIni$,'DD/MM/YYYY')                             dtini,
+    TO_DATE($pgmvDataFim$,'DD/MM/YYYY') + INTERVAL '23' HOUR 
+                                       + INTERVAL '59' MINUTE         dtfim
+  FROM dual
+),
+dias AS (
+  SELECT params.dtini + (LEVEL-1) AS d
+  FROM params
+  CONNECT BY LEVEL <= params.dtfim - params.dtini + 1
+),
+obitos_gt24 AS (
+  SELECT 
+    ui.cd_unid_int,
+    ui.ds_unid_int,
+    COUNT(*) AS total_obitos_gt24
+  FROM dias d
+  JOIN dbamv.atendime a
+    ON TRUNC(a.dt_alta)      = d.d
+   AND a.cd_multi_empresa    = 40
+   AND a.tp_atendimento     IN ('I','H','U')
+   AND a.cd_leito          IS NOT NULL
+   AND (
+     EXISTS (
+       SELECT 1 
+       FROM dbamv.mot_alt m 
+       WHERE m.cd_mot_alt  = a.cd_mot_alt
+         AND m.tp_mot_alta = 'O'
+     )
+     OR EXISTS (
+       SELECT 1
+       FROM dbamv.tip_res t
+       WHERE t.cd_tip_res = a.cd_tip_res
+         AND t.sn_obito   = 'S'
+     )
+   )
+   AND dbamv.fnc_mv_recupera_data_hora(
+         NVL(a.dt_alta_medica,a.dt_alta),
+         NVL(a.hr_alta_medica,a.hr_alta)
+       ) 
+     - dbamv.fnc_mv_recupera_data_hora(
+         a.dt_atendimento, a.hr_atendimento
+       ) > 1
+  JOIN dbamv.leito    l  ON l.cd_leito    = a.cd_leito
+  JOIN dbamv.unid_int ui ON ui.cd_unid_int = l.cd_unid_int
+  GROUP BY ui.cd_unid_int, ui.ds_unid_int
+),
+obitos_lt24 AS (
+  SELECT 
+    ui.cd_unid_int,
+    COUNT(*) AS total_obitos_lt24
+  FROM dias d
+  JOIN dbamv.atendime a
+    ON TRUNC(a.dt_alta)      = d.d
+   AND a.cd_multi_empresa    = 40
+   AND a.tp_atendimento     IN ('I','H','U')
+   AND a.cd_leito          IS NOT NULL
+   AND (
+     EXISTS (
+       SELECT 1 
+       FROM dbamv.mot_alt m 
+       WHERE m.cd_mot_alt  = a.cd_mot_alt
+         AND m.tp_mot_alta = 'O'
+     )
+     OR EXISTS (
+       SELECT 1
+       FROM dbamv.tip_res t
+       WHERE t.cd_tip_res = a.cd_tip_res
+         AND t.sn_obito   = 'S'
+     )
+   )
+   AND dbamv.fnc_mv_recupera_data_hora(
+         NVL(a.dt_alta_medica,a.dt_alta),
+         NVL(a.hr_alta_medica,a.hr_alta)
+       ) 
+     - dbamv.fnc_mv_recupera_data_hora(
+         a.dt_atendimento, a.hr_atendimento
+       ) <= 1
+  JOIN dbamv.leito    l  ON l.cd_leito    = a.cd_leito
+  JOIN dbamv.unid_int ui ON ui.cd_unid_int = l.cd_unid_int
+  GROUP BY ui.cd_unid_int
+),
+transferencias AS (
+  SELECT
+    ui_prev.cd_unid_int,
+    COUNT(*) AS total_transferencias
+  FROM params
+  JOIN dbamv.mov_int mi
+    ON TRUNC(mi.dt_mov_int) BETWEEN params.dtini AND params.dtfim
+   AND mi.tp_mov = 'O'
+  JOIN dbamv.leito prev      ON prev.cd_leito = mi.cd_leito_anterior
+  JOIN dbamv.leito curr      ON curr.cd_leito = mi.cd_leito
+  JOIN dbamv.unid_int ui_prev ON ui_prev.cd_unid_int = prev.cd_unid_int
+  JOIN dbamv.atendime a      ON a.cd_atendimento = mi.cd_atendimento
+  WHERE prev.cd_unid_int <> curr.cd_unid_int
+    AND a.cd_multi_empresa  = 40
+    AND a.cd_atendimento_pai IS NULL
+  GROUP BY ui_prev.cd_unid_int
+),
+saidas AS (
+  SELECT
+    ui.cd_unid_int,
+    COUNT(*) AS total_saidas
+  FROM params
+  JOIN dbamv.atendime a
+    ON TRUNC(a.dt_alta) BETWEEN params.dtini AND params.dtfim
+   AND a.tp_atendimento     IN ('I','H')
+   AND a.dt_alta           IS NOT NULL
+   AND a.cd_multi_empresa  = 40
+   AND a.cd_atendimento_pai IS NULL
+  JOIN dbamv.leito    l  ON l.cd_leito    = a.cd_leito
+  JOIN dbamv.unid_int ui ON ui.cd_unid_int = l.cd_unid_int
+  GROUP BY ui.cd_unid_int
+),
+joined AS (
+  SELECT
+    COALESCE(o.cd_unid_int, lt.cd_unid_int, t.cd_unid_int, s.cd_unid_int) AS cd_unid_int,
+    COALESCE(o.ds_unid_int, ui.ds_unid_int)                           AS ds_unid_int,
+    NVL(o.total_obitos_gt24,0)     AS total_obitos_gt24,
+    NVL(lt.total_obitos_lt24,0)    AS total_obitos_lt24,
+    NVL(t.total_transferencias,0)  AS total_transferencias,
+    NVL(s.total_saidas,0)          AS total_saidas
+  FROM obitos_gt24 o
+  FULL JOIN obitos_lt24 lt ON lt.cd_unid_int        = o.cd_unid_int
+  FULL JOIN transferencias t ON t.cd_unid_int       = COALESCE(o.cd_unid_int, lt.cd_unid_int)
+  FULL JOIN saidas s         ON s.cd_unid_int       = COALESCE(o.cd_unid_int, lt.cd_unid_int, t.cd_unid_int)
+  LEFT JOIN dbamv.unid_int ui ON ui.cd_unid_int      = COALESCE(o.cd_unid_int, lt.cd_unid_int, t.cd_unid_int, s.cd_unid_int)
+),
+all_rows AS (
+  SELECT
+    cd_unid_int,
+    ds_unid_int,
+    total_obitos_gt24,
+    total_obitos_lt24,
+    total_transferencias,
+    total_saidas,
+    ROUND(
+      (total_obitos_gt24+total_obitos_lt24)*100
+      / NULLIF(total_saidas+total_transferencias,0)
+    ,2) AS taxa_mortalidade,
+    0 AS ord
+  FROM joined
+  UNION ALL
+  SELECT
+    NULL,
+    'TOTAL',
+    SUM(total_obitos_gt24),
+    SUM(total_obitos_lt24),
+    SUM(total_transferencias),
+    SUM(total_saidas),
+    ROUND(
+      SUM(total_obitos_gt24+total_obitos_lt24)*100
+      / NULLIF(SUM(total_saidas+total_transferencias),0)
+    ,2),
+    1
+  FROM joined
+)
+SELECT
+  cd_unid_int,
+  ds_unid_int,
+  total_obitos_gt24,
+  total_obitos_lt24,
+  total_transferencias,
+  total_saidas,
+  taxa_mortalidade
+FROM all_rows
+ORDER BY ord, ds_unid_int

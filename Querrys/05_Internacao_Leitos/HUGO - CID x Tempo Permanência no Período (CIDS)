@@ -1,0 +1,53 @@
+WITH params AS (
+  SELECT
+    $pgmvDataIni$ AS dtini,   -- DataHora inicial do picker
+    $pgmvDataFim$ AS dtfim    -- DataHora final do picker
+  FROM dual
+)
+SELECT
+  A.CD_ATENDIMENTO,
+  A.CD_PACIENTE,
+  A.CD_CID,
+  C.DS_CID,
+  U.DS_UNID_INT                      AS AREA_INTERNACAO,
+  TO_CHAR(A.DT_ATENDIMENTO, 'DD/MM/YYYY HH24:MI') AS DATA_ENTRADA,
+  CASE 
+    WHEN A.DT_ALTA IS NULL 
+         OR A.DT_ALTA > p.dtfim THEN NULL
+    ELSE TO_CHAR(A.DT_ALTA, 'DD/MM/YYYY HH24:MI')
+  END                                 AS DATA_ALTA,
+  (
+    LEAST(
+      NVL(A.DT_ALTA, p.dtfim),
+      p.dtfim
+    )
+    -
+    GREATEST(
+      A.DT_ATENDIMENTO,
+      p.dtini
+    )
+  )                                   AS DIAS_INTERNADOS_PERIODO,
+  (
+    NVL(A.DT_ALTA, p.dtfim)
+    -
+    A.DT_ATENDIMENTO
+  )                                   AS TEMPO_TOTAL_INTERNACAO
+FROM
+  DBAMV.ATENDIME  A,
+  DBAMV.PACIENTE  P,
+  DBAMV.CID       C,
+  DBAMV.LEITO     L,
+  DBAMV.UNID_INT  U,
+  params p
+WHERE
+  A.CD_PACIENTE        = P.CD_PACIENTE
+  AND A.CD_CID          = C.CD_CID
+  AND A.CD_LEITO        = L.CD_LEITO
+  AND L.CD_UNID_INT     = U.CD_UNID_INT
+  AND A.TP_ATENDIMENTO  = 'I'
+  AND A.CD_MULTI_EMPRESA = 40
+  AND A.CD_CID          = $cdCid$
+  AND A.DT_ATENDIMENTO  <= p.dtfim
+  AND NVL(A.DT_ALTA, p.dtfim) >= p.dtini
+ORDER BY
+  A.DT_ATENDIMENTO

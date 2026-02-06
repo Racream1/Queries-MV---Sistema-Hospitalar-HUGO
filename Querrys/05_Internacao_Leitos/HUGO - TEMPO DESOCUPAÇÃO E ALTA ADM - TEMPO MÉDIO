@@ -1,0 +1,93 @@
+-- =====================================================
+-- PORTLET: Tempo Médio Mensal entre Desocupação e Alta
+-- Objetivo: Calcular média mensal do tempo desde junho/2024
+-- Fonte: DBAMV
+-- Período: Junho/2024 até presente
+-- =====================================================
+
+WITH movimentacoes_desocupacao AS (
+    SELECT 
+        mi.cd_atendimento,
+        MAX(mi.dt_mov_int + (mi.hr_mov_int - TRUNC(mi.hr_mov_int))) AS dh_desocupacao
+    FROM 
+        DBAMV.MOV_INT mi
+    INNER JOIN 
+        DBAMV.ATENDIME a ON mi.cd_atendimento = a.cd_atendimento
+    WHERE 
+        mi.tp_mov = 'O'
+        AND a.tp_atendimento = 'I'
+        AND a.cd_multi_empresa = 40
+        AND a.hr_alta IS NOT NULL
+        AND a.hr_alta >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+    GROUP BY 
+        mi.cd_atendimento
+),
+
+dados_individuais AS (
+    SELECT
+        a.cd_atendimento,
+        TO_CHAR(a.hr_alta, 'MM/YYYY') AS mes_ano,
+        TO_DATE(TO_CHAR(a.hr_alta, 'MM/YYYY'), 'MM/YYYY') AS data_ordenacao,
+        ui.ds_unid_int,
+        md.dh_desocupacao,
+        a.hr_alta,
+        ROUND((a.hr_alta - md.dh_desocupacao) * 24 * 60, 2) AS tempo_minutos
+    FROM 
+        DBAMV.ATENDIME a
+    INNER JOIN 
+        movimentacoes_desocupacao md ON a.cd_atendimento = md.cd_atendimento
+    LEFT JOIN 
+        DBAMV.LEITO l ON a.cd_leito = l.cd_leito
+    LEFT JOIN 
+        DBAMV.UNID_INT ui ON l.cd_unid_int = ui.cd_unid_int
+    WHERE 
+        a.cd_multi_empresa = 40
+        AND a.tp_atendimento = 'I'
+        AND a.hr_alta >= TO_DATE('01/06/2024', 'DD/MM/YYYY')
+        AND a.hr_alta IS NOT NULL
+        AND (a.hr_alta - md.dh_desocupacao) >= 0
+),
+
+agregacao_mensal AS (
+    SELECT
+        mes_ano,
+        data_ordenacao,
+        COUNT(*) AS total_casos,
+        ROUND(AVG(tempo_minutos), 2) AS tempo_medio_minutos,
+        ROUND(MEDIAN(tempo_minutos), 2) AS tempo_mediano_minutos,
+        ROUND(MIN(tempo_minutos), 2) AS tempo_minimo_minutos,
+        ROUND(MAX(tempo_minutos), 2) AS tempo_maximo_minutos,
+        ROUND(STDDEV(tempo_minutos), 2) AS desvio_padrao_minutos
+    FROM 
+        dados_individuais
+    GROUP BY 
+        mes_ano, data_ordenacao
+)
+
+SELECT
+    mes_ano AS MES_ANO,
+    total_casos AS TOTAL_CASOS,
+    
+    TRUNC(tempo_medio_minutos / 1440) || 'D ' || 
+    TRUNC(MOD(tempo_medio_minutos, 1440) / 60) || 'H ' ||
+    TRUNC(MOD(tempo_medio_minutos, 60)) || 'MIN' AS TEMPO_MEDIO,
+    
+    TRUNC(tempo_mediano_minutos / 1440) || 'D ' || 
+    TRUNC(MOD(tempo_mediano_minutos, 1440) / 60) || 'H ' ||
+    TRUNC(MOD(tempo_mediano_minutos, 60)) || 'MIN' AS TEMPO_MEDIANO,
+    
+    TRUNC(tempo_minimo_minutos / 1440) || 'D ' || 
+    TRUNC(MOD(tempo_minimo_minutos, 1440) / 60) || 'H ' ||
+    TRUNC(MOD(tempo_minimo_minutos, 60)) || 'MIN' AS TEMPO_MINIMO,
+    
+    TRUNC(tempo_maximo_minutos / 1440) || 'D ' || 
+    TRUNC(MOD(tempo_maximo_minutos, 1440) / 60) || 'H ' ||
+    TRUNC(MOD(tempo_maximo_minutos, 60)) || 'MIN' AS TEMPO_MAXIMO,
+    
+    tempo_medio_minutos AS MEDIA_MINUTOS,
+    tempo_mediano_minutos AS MEDIANA_MINUTOS
+    
+FROM 
+    agregacao_mensal
+ORDER BY 
+    data_ordenacao ASC

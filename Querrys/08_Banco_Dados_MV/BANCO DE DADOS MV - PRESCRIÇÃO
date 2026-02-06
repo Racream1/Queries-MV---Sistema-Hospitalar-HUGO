@@ -1,0 +1,209 @@
+🧩 Catálogo Expandido — Banco de Dados MV (Prescrição e Auditoria de Antimicrobianos)
+🗂️ 1. Tabela PACIENTE
+
+Função: armazena os dados cadastrais dos pacientes.
+
+Campo	Tipo	Descrição
+CD_PACIENTE	NUMBER(10)	Identificador único do paciente (PK).
+NM_PACIENTE	VARCHAR2(120)	Nome completo do paciente.
+DT_NASCIMENTO	DATE	Data de nascimento.
+TP_SEXO	CHAR(1)	Sexo: 'M' (masculino) ou 'F' (feminino).
+NR_PRONTUARIO	VARCHAR2(20)	Número do prontuário hospitalar.
+CD_CONVENIO	NUMBER	Convênio associado.
+CD_PESSOA_FISICA	NUMBER	Relacionamento com cadastro geral de pessoas.
+
+🔗 Relacionamentos:
+
+1:N com ATENDIME → (PACIENTE.CD_PACIENTE = ATENDIME.CD_PACIENTE)
+
+🏥 2. Tabela ATENDIME
+
+Função: identifica cada internação, pronto-atendimento ou episódio de cuidado.
+
+Campo	Tipo	Descrição
+CD_ATENDIMENTO	NUMBER(10)	Código único do atendimento (PK).
+CD_PACIENTE	NUMBER(10)	FK para PACIENTE.
+HR_ATENDIMENTO	DATE	Data/hora da admissão.
+DT_ALTA	DATE	Data de alta médica.
+CD_UNID_INT	NUMBER	Unidade de internação.
+CD_LEITO	NUMBER	Código do leito ocupado.
+CD_CID	VARCHAR2(10)	CID principal do episódio.
+CD_ESPECIALID	NUMBER	Especialidade médica responsável.
+
+🔗 Relacionamentos:
+
+1:N com PRESCRICAO
+
+1:1 com UNID_INT
+
+1:N com ITPRE_MED (via prescrição)
+
+💊 3. Tabela PRESCRICAO
+
+Função: representa o conjunto de medicamentos e condutas prescritas em determinado momento.
+
+Campo	Tipo	Descrição
+CD_PRESCRICAO	NUMBER(10)	Identificador da prescrição (PK).
+CD_ATENDIMENTO	NUMBER(10)	FK para ATENDIME.
+DT_PRESCRICAO	DATE	Data e hora da prescrição.
+CD_USUARIO	NUMBER(10)	FK para o médico prescritor.
+SN_LIBERADA	CHAR(1)	Indica se a prescrição foi liberada ('S'/'N').
+CD_TIP_PRESC	NUMBER	Tipo da prescrição (inicial, evolução, suspensão).
+OBS_PRESCRICAO	VARCHAR2(500)	Observações gerais do médico.
+
+🔗 Relacionamentos:
+
+1:N com ITPRE_MED
+
+1:1 com USU_MEDICO
+
+1:N com PRES_MED_AUDIT (indiretamente, via itens)
+
+💉 4. Tabela ITPRE_MED
+
+Função: armazena cada item da prescrição (medicamentos, soluções, etc.).
+
+Campo	Tipo	Descrição
+CD_ITPRE_MED	NUMBER(10)	Identificador único do item (PK).
+CD_PRESCRICAO	NUMBER(10)	FK para PRESCRICAO.
+CD_PRODUTO	NUMBER(10)	FK para PRODUTO.
+DOSE	NUMBER(10,2)	Dose numérica.
+CD_UNID_DOSE	VARCHAR2(10)	Unidade de dose (mg, g, mL).
+FREQUENCIA	VARCHAR2(20)	Intervalo entre administrações (ex: “8/8h”).
+CD_VIA	NUMBER	FK para via de administração (VO, EV, IM, etc.).
+SN_SUSPENSO	CHAR(1)	‘S’ se o item foi suspenso.
+DT_INICIO	DATE	Início do uso.
+DT_FIM	DATE	Fim do uso (se suspenso).
+
+🔗 Relacionamentos:
+
+N:1 com PRESCRICAO
+
+1:1 com PRODUTO
+
+1:1 com ITPRE_MED_HIST
+
+1:1 com PRES_MED_AUDIT
+
+🧬 5. Tabela PRODUTO
+
+Função: catálogo mestre de medicamentos e insumos.
+
+Campo	Tipo	Descrição
+CD_PRODUTO	NUMBER(10)	Código do produto (PK).
+DS_PRODUTO	VARCHAR2(200)	Nome comercial ou genérico do medicamento.
+CD_GRUPO	NUMBER	Grupo terapêutico.
+CD_SUBGRUPO	NUMBER	Subcategoria.
+CD_CLASSE_TERAPEUTICA	NUMBER	Classe farmacológica.
+DS_FORMA_FARMACEUTICA	VARCHAR2(100)	Forma farmacêutica (EV, VO, PO, etc.).
+SN_ANTIMICROBIANO	CHAR(1)	Indica se é antimicrobiano (custom).
+
+🔗 Relacionamentos:
+
+1:N com ITPRE_MED
+
+🧾 6. Tabela PRES_MED_AUDIT (ou AUDIT_ATB)
+
+Função: registra auditorias realizadas sobre antimicrobianos.
+
+Campo	Tipo	Descrição
+CD_AUDITORIA	NUMBER(10)	Identificador (PK).
+CD_ITPRE_MED	NUMBER(10)	FK para item auditado.
+DT_AUDITORIA	DATE	Data e hora da auditoria.
+CD_AUDITOR	NUMBER	Infectologista responsável.
+JUSTIFICATIVA	VARCHAR2(500)	Motivo do uso do antimicrobiano.
+PARECER_INFECTO	VARCHAR2(100)	Parecer do infectologista (“Aprovado”, “Suspender”, etc.).
+DURACAO_SUGERIDA	NUMBER(3)	Número de dias de tratamento sugerido.
+CD_STATUS	NUMBER	Status (em análise, aprovado, suspenso).
+
+🔗 Relacionamentos:
+
+1:1 com ITPRE_MED
+
+1:1 com USU_MEDICO (via CD_AUDITOR)
+
+🧑‍⚕️ 7. Tabela USU_MEDICO
+
+Função: cadastro de médicos e prescritores.
+
+Campo	Tipo	Descrição
+CD_USUARIO	NUMBER(10)	Identificador do médico (PK).
+NM_USUARIO	VARCHAR2(100)	Nome completo.
+CRM	VARCHAR2(20)	Registro no CRM.
+CD_ESPECIALID	NUMBER	Especialidade médica.
+SN_ATIVO	CHAR(1)	Se está ativo no sistema.
+
+🔗 Relacionamentos:
+
+1:N com PRESCRICAO
+
+1:N com PRES_MED_AUDIT
+
+🏨 8. Tabela UNID_INT
+
+Função: descreve unidades hospitalares (UTI, enfermaria, etc.)
+
+Campo	Tipo	Descrição
+CD_UNID_INT	NUMBER(10)	Código da unidade (PK).
+DS_UNID_INT	VARCHAR2(100)	Nome da unidade (UTI Térreo 1, UTI G1 etc.).
+TP_UNIDADE	VARCHAR2(20)	Tipo (UTI, ENF, PS).
+SN_ATIVO	CHAR(1)	Indica se a unidade está ativa.
+
+🔗 Relacionamentos:
+
+1:N com ATENDIME
+
+🔗 9. Diagrama Relacional Simplificado (texto)
+PACIENTE (1)───(N) ATENDIME (1)───(N) PRESCRICAO (1)───(N) ITPRE_MED (1)───(1) PRODUTO
+                                                        │
+                                                        ├──(1) ITPRE_MED_HIST
+                                                        └──(1) PRES_MED_AUDIT ──(1) USU_MEDICO
+                                                                 │
+                                                                 └──(1) ATENDIME → UNID_INT
+
+⚙️ 10. Fluxo de Dados — Processo de Prescrição e Auditoria
+
+O paciente é admitido → registro em ATENDIME.
+
+O médico prescreve → nova linha em PRESCRICAO.
+
+Cada item prescrito → armazenado em ITPRE_MED (um para cada medicamento).
+
+O sistema vincula o produto → PRODUTO, permitindo identificar antimicrobianos.
+
+Infectologia audita → registro em PRES_MED_AUDIT.
+
+Histórico de alterações → controlado por ITPRE_MED_HIST.
+
+Consultas e dashboards cruzam PACIENTE, ATENDIME, PRESCRICAO, ITPRE_MED, PRODUTO, PRES_MED_AUDIT e UNID_INT.
+
+📊 11. Sugestão de Query-Matriz para Auditoria de Antimicrobianos
+
+Consulta consolidada (usada em dashboards, Power BI ou portlet MV):
+
+SELECT
+    p.nm_paciente,
+    TRUNC(MONTHS_BETWEEN(SYSDATE, p.dt_nascimento) / 12) AS idade,
+    a.cd_atendimento,
+    ui.ds_unid_int AS unidade,
+    pr.dt_prescricao,
+    u.nm_usuario AS prescritor,
+    prod.ds_produto AS antimicrobiano,
+    itm.dose || ' ' || itm.cd_unid_dose AS dose,
+    itm.frequencia,
+    itm.dt_inicio,
+    itm.dt_fim,
+    aud.parecer_infecto,
+    aud.justificativa,
+    aud.duracao_sugerida
+FROM dbamv.itpre_med itm
+JOIN dbamv.prescricao pr ON itm.cd_prescricao = pr.cd_prescricao
+JOIN dbamv.atendime a ON pr.cd_atendimento = a.cd_atendimento
+JOIN dbamv.paciente p ON a.cd_paciente = p.cd_paciente
+JOIN dbamv.produto prod ON itm.cd_produto = prod.cd_produto
+LEFT JOIN dbamv.pres_med_audit aud ON itm.cd_itpre_med = aud.cd_itpre_med
+JOIN dbamv.usu_medico u ON pr.cd_usuario = u.cd_usuario
+JOIN dbamv.unid_int ui ON a.cd_unid_int = ui.cd_unid_int
+WHERE prod.ds_produto IN ('MEROPENEM', 'VANCOMICINA', 'CEFEPIME', 'LINEZOLIDA')
+AND pr.dt_prescricao >= TRUNC(SYSDATE - 3)
+ORDER BY a.cd_atendimento, pr.dt_prescricao DESC;

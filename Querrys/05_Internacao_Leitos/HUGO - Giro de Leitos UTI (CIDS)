@@ -1,0 +1,89 @@
+WITH
+params AS (
+  SELECT
+    TRUNC(ADD_MONTHS(SYSDATE, -6), 'MM') AS dh_inicio,
+    SYSDATE AS dh_fim
+  FROM DUAL
+),
+uti_unidades AS (
+  SELECT COLUMN_VALUE AS cd_unid_int FROM TABLE(SYS.ODCINUMBERLIST(564, 565, 566, 567))
+),
+eventos_de_saida_com_destino AS (
+  SELECT
+    m.cd_leito_anterior AS CD_LEITO_UTI_QUE_VAGOU,
+    l_anterior.ds_leito AS DS_LEITO_UTI,
+    m.hr_mov_int AS DH_EVENTO_SAIDA,
+    m.cd_atendimento AS CD_ATENDIMENTO_QUE_SAIU,
+    p.nm_paciente AS NM_PACIENTE_QUE_SAIU,
+    'TRANSFERENCIA' as TIPO_EVENTO,
+    u_atual.ds_unid_int AS DESTINO
+  FROM dbamv.mov_int m
+  JOIN dbamv.leito l_anterior ON m.cd_leito_anterior = l_anterior.cd_leito
+  JOIN dbamv.leito l_atual ON m.cd_leito = l_atual.cd_leito
+  JOIN dbamv.unid_int u_atual ON l_atual.cd_unid_int = u_atual.cd_unid_int
+  JOIN dbamv.atendime a ON m.cd_atendimento = a.cd_atendimento
+  JOIN dbamv.paciente p ON a.cd_paciente = p.cd_paciente
+  WHERE
+    l_anterior.cd_unid_int IN (SELECT cd_unid_int FROM uti_unidades)
+    AND m.tp_mov = 'O'
+    AND m.hr_mov_int BETWEEN (SELECT dh_inicio FROM params) AND (SELECT dh_fim FROM params)
+
+  UNION ALL
+
+  SELECT
+    a.cd_leito AS CD_LEITO_UTI_QUE_VAGOU,
+    l.ds_leito AS DS_LEITO_UTI,
+    a.hr_alta AS DH_EVENTO_SAIDA,
+    a.cd_atendimento AS CD_ATENDIMENTO_QUE_SAIU,
+    p.nm_paciente AS NM_PACIENTE_QUE_SAIU,
+    'ALTA_OBITO' as TIPO_EVENTO,
+    ma.ds_mot_alt AS DESTINO
+  FROM dbamv.atendime a
+  JOIN dbamv.paciente p ON a.cd_paciente = p.cd_paciente
+  JOIN dbamv.leito l ON a.cd_leito = l.cd_leito
+  LEFT JOIN dbamv.mot_alt ma ON a.cd_mot_alt = ma.cd_mot_alt
+  WHERE
+    a.dt_alta IS NOT NULL
+    AND a.hr_alta BETWEEN (SELECT dh_inicio FROM params) AND (SELECT dh_fim FROM params)
+    AND l.cd_unid_int IN (SELECT cd_unid_int FROM uti_unidades)
+),
+jornada_do_leito AS (
+  SELECT
+    evt.*,
+    CASE
+      WHEN evt.TIPO_EVENTO = 'TRANSFERENCIA' THEN
+        (
+          SELECT MAX(stl.DH_SOLICITACAO)
+          FROM DBAMV.SOLIC_TRANSFERENCIA_LEITO stl
+          WHERE stl.CD_ATENDIMENTO = evt.CD_ATENDIMENTO_QUE_SAIU
+            AND stl.DH_SOLICITACAO < evt.DH_EVENTO_SAIDA
+        )
+      ELSE NULL
+    END AS dh_ultima_solicitacao,
+    (
+      SELECT MIN(nova_mov.HR_MOV_INT)
+      FROM DBAMV.MOV_INT nova_mov
+      WHERE nova_mov.CD_LEITO = evt.CD_LEITO_UTI_QUE_VAGOU
+        AND nova_mov.HR_MOV_INT > evt.DH_EVENTO_SAIDA
+        AND nova_mov.TP_MOV = 'O'
+    ) AS dh_nova_admissao_uti
+  FROM eventos_de_saida_com_destino evt
+)
+-- Apresentação Final com todos os campos e cálculos
+SELECT
+  jl.DS_LEITO_UTI AS LEITO,
+  jl.NM_PACIENTE_QUE_SAIU AS PACIENTE_ANTERIOR,
+  jl.TIPO_EVENTO,
+  jl.DESTINO,
+  TO_CHAR(jl.dh_ultima_solicitacao, 'DD/MM/YY HH24:MI') AS DH_ULTIMA_SOLICITACAO,
+  TO_CHAR(jl.DH_EVENTO_SAIDA, 'DD/MM/YY HH24:MI') AS DH_SAIDA_DA_UTI,
+  TO_CHAR(jl.dh_nova_admissao_uti, 'DD/MM/YY HH24:MI') AS DH_CHEGADA_NOVO_PACIENTE,
+  
+  ROUND((jl.DH_EVENTO_SAIDA - jl.dh_ultima_solicitacao) * 24, 1) AS H_SOLICITACAO_ATE_SAIDA,
+  ROUND((jl.dh_nova_admissao_uti - jl.DH_EVENTO_SAIDA) * 24, 1) AS H_LEITO_VAGO_ATE_OCUPAR,
+  ROUND((jl.dh_nova_admissao_uti - jl.dh_ultima_solicitacao) * 24, 1) AS H_TEMPO_TOTAL_GIRO
+
+FROM jornada_do_leito jl
+ORDER BY
+  jl.DS_LEITO_UTI,
+  jl.DH_EVENTO_SAIDA DESC

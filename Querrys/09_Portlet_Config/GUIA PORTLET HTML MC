@@ -1,0 +1,50 @@
+
+Acesso rápido
+
+Opções de conteúdo, Código HTML, Design da portlet, Visualização da portlet, Segurança da portlet, Detalhamento, Consulta de portlets HTML
+
+ Localizações
+ Pré-requisitos
+Função da tela 
+Cadastrar, consultar, editar e/ou remover as portlets do tipo HTML. Além disso, utilizando essa tela, é possível exportar e/ou importar uma portlet.
+
+Como usar 
+Cadastrando portlets HTML
+As portlets HTML poderão apresentar páginas da WEB, links para consulta etc. Para iniciar o cadastro de uma portlet HTML, o usuário deverá acionar o botão . Serão apresentados os campos para o registro da nova portlet, neles o usuário deverá: 
+
+Informar o título da portlet;
+Selecionar o grupo de portlet ao qual a portlet a ser cadastrada será vinculada;
+Informar a descrição da portlet;
+Marcar o check box "Publicado" para informar que a portlet ficará disponível para ser adicionada às pastas. 
+Aba "Opções de Conteúdo"
+Aba "HTML"
+Nessa aba, é possível informar os códigos, em HTML, que formarão a portlet. Além disso, é possível selecionar os parâmetros globais que farão parte da sua composição. No entanto, somente serão listados no bloco "Variáveis do Sistema" os parâmetros globais do tipo lista correspondentes a fonte de dados selecionada no campo "Grupo". 
+
+Aba "Design"
+Nessa aba, é possível visualizar o resultado do que foi construído com base na aba "HTML". No entanto, nela é possível realizar customizações como: inserção de imagens, fonte em negrito etc. 
+
+Aba "Visualização"
+Essa aba apresenta o resultado das informações registradas nas abas "Design" e "HTML". Nela, não é possível realizar alterações; apenas será apresentado o resultado da portlet cadastrada. 
+
+Aba "Segurança"
+Nessa aba serão apresentados todos os papéis cadastrados, para que seja possível definir quais terão acesso à portlet e qual o tipo desse acesso, se somente leitura ou leitura e alteração. Para vincular um papel à portlet, basta arrastar o papel desejado para o bloco ao qual ele terá acesso. Dessa forma, todos os usuários configurados com aquele papel terão acesso as informações da portlet. Para removê-los, basta arrastá-los de volta para o bloco "Papéis Existentes".
+
+Além dos usuários configurados, o criador da portlet também poderá acessá-la e realizar alterações, inclusive cadastrando novos papéis, mesmo que ele (o criador) não tenha acesso a nenhum dos papéis vinculados à portlet. 
+
+Aba "Detalhamento"
+Cadastrar as observações necessárias sobre a portlet. 
+Para salvar as informações cadastradas, o usuário deverá acionar o botão ;
+Caso deseje realizar uma cópia da portlet cadastrada, o usuário deverá acionar o botão ;
+Para retornar a tela inicial de cadastro das portlets, o usuário deverá acionar o botão  .
+Consultando as portlets cadastradas
+Ao acessar a tela "Módulo de Portlet HTML", serão apresentadas todas as portlets HTML cadastradas. Para uma consulta mais específica, o usuário poderá utilizar os campos "Código", "Título", "Grupo de Portlet", "Fonte de Dados" e/ou "Papéis" como parâmetros de pesquisa.
+
+Caso deseje executar uma portlet, o usuário deverá acionar o botão  . Será apresentada uma janela para que o usuário possa visualizar a portlet desejada.
+
+Caso deseje editar uma portlet, o usuário deverá acionar o botão  . Será apresentada a tela com as informações da portlet para que sejam realizadas as alterações necessárias.
+
+Caso seja necessário realizar a exclusão de um parâmetro, basta acionar o botão .
+
+As opções apresentadas somente estarão habilitadas caso o usuário possua permissão para visualizar e editar a portlet.
+
+ 

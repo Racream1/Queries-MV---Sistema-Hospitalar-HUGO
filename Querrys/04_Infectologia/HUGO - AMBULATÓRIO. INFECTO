@@ -1,0 +1,45 @@
+-- ========================================
+-- PORTLET: Consultas Ambulatoriais Infectologia - Serie Historica
+-- Descricao: Contagem mensal de atendimentos desde Janeiro/2025
+-- Fonte de Dados: DBAMV
+-- Sem filtro de periodo - Exibe todos os dados disponiveis
+-- ========================================
+
+SELECT
+ TO_CHAR(A.DT_ATENDIMENTO, 'MM/YYYY') AS MES_ANO,
+ E.DS_ESPECIALID AS ESPECIALIDADE,
+ COUNT(A.CD_ATENDIMENTO) AS TOTAL_CONSULTAS,
+ 100 AS META_MENSAL,
+ ROUND((COUNT(A.CD_ATENDIMENTO) * 100.0 / 100), 2) AS PERCENTUAL_META
+ 
+FROM 
+ DBAMV.ATENDIME A
+ 
+ INNER JOIN DBAMV.ESPECIALID E 
+ ON A.CD_ESPECIALID = E.CD_ESPECIALID
+ 
+ LEFT JOIN DBAMV.PRESTADOR P
+ ON A.CD_PRESTADOR = P.CD_PRESTADOR
+ 
+WHERE 
+ -- Filtro de Unidade
+ A.CD_MULTI_EMPRESA = 40
+ 
+ -- Tipo de Atendimento: Ambulatorial
+ AND A.TP_ATENDIMENTO = 'A'
+ 
+ -- Especialidade: Infectologia
+ AND UPPER(E.DS_ESPECIALID) LIKE '%INFECTO%'
+ 
+ -- Data minima: Janeiro/2025 (conforme requisito original)
+ AND A.HR_ATENDIMENTO >= TO_DATE('01/01/2025 00:00', 'DD/MM/YYYY HH24:MI')
+ 
+ -- Apenas atendimentos efetivados
+ AND A.DT_ATENDIMENTO IS NOT NULL
+ 
+GROUP BY
+ TO_CHAR(A.DT_ATENDIMENTO, 'MM/YYYY'),
+ E.DS_ESPECIALID
+ 
+ORDER BY
+ TO_DATE('01/' || TO_CHAR(A.DT_ATENDIMENTO, 'MM/YYYY'), 'DD/MM/YYYY') ASC

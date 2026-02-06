@@ -1,0 +1,437 @@
+# Estrutura de Banco de Dados - Evoluções no MV/DBAMV
+## Hospital HUGO (CD_MULTI_EMPRESA = 40)
+
+**Data da Investigação:** Novembro/2025  
+**Sistema:** MV/DBAMV  
+**Objetivo:** Mapear as tabelas de evoluções médicas e multiprofissionais
+
+---
+
+## 1. VISÃO GERAL
+
+As evoluções no MV estão distribuídas em múltiplas tabelas, organizadas por tipo de profissional e formato do documento. A tabela **PW_DOCUMENTO_CLINICO** funciona como índice central, enquanto o conteúdo fica em tabelas específicas.
+
+```
+┌─────────────────────────────┐
+│   PW_DOCUMENTO_CLINICO      │  ← Índice Central
+│   (metadados do documento)  │
+└─────────────┬───────────────┘
+              │
+              │ CD_TIPO_DOCUMENTO
+              ▼
+┌─────────────────────────────┐
+│    PW_TIPO_DOCUMENTO        │  ← Define qual tabela tem o conteúdo
+│    (NM_TABELA)              │
+└─────────────┬───────────────┘
+              │
+    ┌─────────┼─────────┬──────────────┐
+    ▼         ▼         ▼              ▼
+ PRE_MED   EVO_ENF   PW_SOAP    EDITOR_REGISTRO
+```
+
+---
+
+## 2. TABELA CENTRAL: PW_DOCUMENTO_CLINICO
+
+Tabela índice de todos os documentos clínicos do prontuário eletrônico.
+
+### Estrutura:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_DOCUMENTO_CLINICO | NUMBER | PK - Código do documento |
+| CD_TIPO_DOCUMENTO | NUMBER | FK → PW_TIPO_DOCUMENTO |
+| CD_DOCUMENTO_DIGITAL | NUMBER | Referência documento digital |
+| CD_PACIENTE | NUMBER | FK → Paciente |
+| CD_ATENDIMENTO | NUMBER | FK → Atendimento |
+| CD_USUARIO | VARCHAR2 | Usuário que criou |
+| CD_PRESTADOR | NUMBER | FK → Prestador/Profissional |
+| TP_STATUS | VARCHAR2 | Status do documento |
+| DH_REFERENCIA | DATE | Data de referência |
+| DH_CRIACAO | DATE | Data de criação |
+| DH_FECHAMENTO | DATE | Data de fechamento |
+| DH_IMPRESSO | DATE | Data de impressão |
+| TP_EXTENSAO | VARCHAR2 | Extensão do arquivo |
+| CD_SETOR | NUMBER | FK → Setor |
+| CD_OBJETO | NUMBER | Referência ao objeto |
+| CD_DOCUMENTO_CANCELADO | NUMBER | Documento que cancelou |
+| NM_DOCUMENTO | VARCHAR2 | Nome do documento |
+| NM_VERSAO_DOCUMENTO | VARCHAR2 | Versão |
+| DH_DOCUMENTO | DATE | Data/hora do documento |
+| CD_DOCUMENTO_CLINICO_NOVO | NUMBER | Novo documento (se alterado) |
+| CD_DOC_CLINICO_REFERENCIA | NUMBER | Documento de referência |
+| CD_USUARIO_AUTORIZADOR | VARCHAR2 | Usuário autorizador |
+| SN_INTEGRA_GREEN | VARCHAR2 | Flag integração Green |
+| CD_MULTI_EMPRESA | NUMBER | **Código da empresa (40 = HUGO)** |
+| SN_CONFIDENCIAL | VARCHAR2 | Flag confidencial |
+| QT_VIAS_IMPRESSAS | NUMBER | Quantidade de vias impressas |
+| CD_DOCUMENTO_CLINICO_ANTERIOR | NUMBER | Documento anterior |
+| CD_ESPECIALIDADE_PRESTADOR | NUMBER | Especialidade do prestador |
+
+---
+
+## 3. TABELA DE TIPOS: PW_TIPO_DOCUMENTO
+
+Define os tipos de documentos e aponta para a tabela de conteúdo.
+
+### Estrutura:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_TIPO_DOCUMENTO | NUMBER | PK - Código do tipo |
+| DS_TIPO_DOCUMENTO | VARCHAR2 | Descrição/Nome do tipo |
+| NM_TABELA | VARCHAR2 | **Tabela onde fica o conteúdo** |
+| SN_ASSINATURA_DIGITAL | VARCHAR2 | Requer assinatura digital |
+| SN_PRONTUARIO | VARCHAR2 | Faz parte do prontuário |
+| TP_DOCUMENTO | VARCHAR2 | Tipo do documento |
+| SN_PENDENCIAS_ALERTAS | VARCHAR2 | Gera pendências/alertas |
+| DH_PENDENCIAS_ALERTAS | DATE | Data pendências |
+| SN_ATIVO | VARCHAR2 | Ativo (S/N) |
+| TP_SUB_DOCUMENTO | VARCHAR2 | Subtipo |
+| SN_OBJETO | VARCHAR2 | É objeto |
+| SN_PENDENCIA_IMPEDITIVA_ALTA | VARCHAR2 | Impede alta |
+| TP_GERA_PENDENCIA_FECHAMENTO | VARCHAR2 | Tipo pendência fechamento |
+| DT_INICIO_PENDENCIA_FECHAMENTO | DATE | Data início pendência |
+
+### Tipos de Documento Relacionados a Evoluções:
+| CD | Descrição | Tabela de Conteúdo |
+|----|-----------|-------------------|
+| 36 | Evolução | PRE_MED |
+| 27 | Anotação | EVO_ENF |
+| 43 | Anotação de Enfermagem | EVO_ENF |
+| 74 | SOAP | PW_SOAP |
+| 75 | SOAP Médico | PW_SOAP |
+| 76 | SOAP Enfermeiro | PW_SOAP |
+| 31 | Documento Eletrônico | PW_EDITOR_CLINICO |
+| 21 | Parecer Médico | PAR_MED |
+| 14 | Resposta de Parecer Médico | PAR_MED |
+
+---
+
+## 4. TABELAS DE CONTEÚDO
+
+### 4.1 PRE_MED (Prescrição Médica / Evolução Médica)
+
+Contém as evoluções médicas e prescrições.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_PRE_MED | NUMBER | PK |
+| CD_ATENDIMENTO | NUMBER | FK → Atendimento |
+| CD_PRESTADOR | NUMBER | FK → Prestador |
+| CD_UNID_INT | NUMBER | Unidade de internação |
+| DT_PRE_MED | DATE | Data |
+| HR_PRE_MED | DATE | Hora |
+| **DS_EVOLUCAO** | **LONG** | **TEXTO DA EVOLUÇÃO** |
+| CD_ID_USUARIO | NUMBER | ID do usuário |
+| CD_SOLSAI_PRO | NUMBER | Solicitação saída |
+| SN_FECHADO | VARCHAR2 | Fechado (S/N) |
+| SN_RN | VARCHAR2 | Recém-nascido |
+| DT_VALIDADE | DATE | Validade |
+| FL_PRINCIPAL | VARCHAR2 | É principal |
+| FL_IMPRESSO | VARCHAR2 | Foi impresso |
+| TP_PRE_MED | VARCHAR2 | Tipo (E=Evolução, P=Prescrição, etc.) |
+| NM_USUARIO | VARCHAR2 | Nome do usuário |
+| CD_SETOR | NUMBER | Setor |
+| DT_REFERENCIA | DATE | Data de referência |
+| SN_TRANSCRICAO | VARCHAR2 | É transcrição |
+| DH_CRIACAO | DATE | Data/hora criação |
+| DH_IMPRESSAO | DATE | Data/hora impressão |
+| CD_OBJETO | NUMBER | Objeto |
+| NM_USUARIO_AUTORIZADOR | VARCHAR2 | Autorizador |
+| CD_REGISTRO_CLINICO | NUMBER | Registro clínico |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| NM_PRESCRICAO | VARCHAR2 | Nome da prescrição |
+| CD_TRATAMENTO | NUMBER | Tratamento |
+
+**Filtro para Evoluções:** `TP_PRE_MED = 'E'` ou via `CD_TIPO_DOCUMENTO = 36`
+
+---
+
+### 4.2 EVO_ENF (Evolução/Anotação de Enfermagem)
+
+Contém as anotações e evoluções de enfermagem.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_EVO_ENF | NUMBER | PK |
+| CD_ATENDIMENTO | NUMBER | FK → Atendimento |
+| CD_PRESTADOR | NUMBER | FK → Prestador |
+| **DS_EVO_ENF** | **LONG** | **TEXTO DA EVOLUÇÃO** |
+| DT_EVO_ENF | DATE | Data |
+| HR_EVO_ENF | DATE | Hora |
+| CD_PRE_MED | NUMBER | FK → PRE_MED (se vinculada) |
+| DT_IMPRESSAO | DATE | Data impressão |
+| NM_USUARIO | VARCHAR2 | Nome do usuário |
+| CD_REGISTRO_CLINICO | NUMBER | Registro clínico |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| TP_SITUACAO | VARCHAR2 | Situação |
+
+---
+
+### 4.3 PW_SOAP (Evolução SOAP)
+
+Estrutura SOAP (Subjetivo, Objetivo, Avaliação, Plano).
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_SOAP | NUMBER | PK |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| CD_CRITICIDADE_CONFIG | NUMBER | Configuração criticidade |
+| CD_SUBJETIVO | NUMBER | FK → EDITOR_REGISTRO (S) |
+| CD_OBJETIVO | NUMBER | FK → EDITOR_REGISTRO (O) |
+| CD_AVALIACAO | NUMBER | FK → EDITOR_REGISTRO (A) |
+| CD_PLANO | NUMBER | FK → EDITOR_REGISTRO (P) |
+| TP_SOAP | VARCHAR2 | Tipo SOAP |
+
+**Nota:** Os campos CD_SUBJETIVO, CD_OBJETIVO, CD_AVALIACAO e CD_PLANO apontam para registros na tabela EDITOR_REGISTRO onde está o conteúdo de cada seção.
+
+---
+
+### 4.4 EDITOR_REGISTRO (Documentos Eletrônicos)
+
+Armazena o conteúdo de documentos eletrônicos estruturados.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_REGISTRO | NUMBER | PK |
+| CD_LAYOUT | NUMBER | FK → Layout do documento |
+| SN_FECHADO | VARCHAR2/NUMBER | Fechado |
+| **CONTEUDO_CORPO** | **CLOB** | **CONTEÚDO PRINCIPAL** |
+| CONTEUDO_RODAPE | CLOB | Rodapé |
+| CONTEUDO_CABECALHO | CLOB | Cabeçalho |
+| CD_SISTEMA | NUMBER | Sistema |
+
+---
+
+### 4.5 PW_EDITOR_CLINICO (Ligação Editor Clínico)
+
+Tabela de ligação entre PW_DOCUMENTO_CLINICO e EDITOR_REGISTRO.
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_EDITOR_CLINICO | NUMBER | PK |
+| CD_EDITOR_REGISTRO | NUMBER | FK → EDITOR_REGISTRO |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| CD_EDITOR_CLINICO_MODULO | NUMBER | Módulo |
+| CD_DOCUMENTO | NUMBER | Documento |
+| CD_USUARIO_AUTORIZADOR | VARCHAR2 | Autorizador |
+| CD_VERSAO | NUMBER | Versão |
+
+---
+
+## 5. OUTRAS TABELAS RELACIONADAS
+
+### 5.1 EVOLUCAO (Tabela Legada)
+| Coluna | Tipo |
+|--------|------|
+| ID | NUMBER |
+| IDATENDIMENTO | NUMBER |
+| IDPROFISSIONAL | NUMBER |
+| DATAREGISTRO | TIMESTAMP(6) |
+| DATAEVOLUCAO | TIMESTAMP(6) |
+| TEXTO | CLOB |
+| DATAALTERACAO | TIMESTAMP(6) |
+| CODIGO | VARCHAR2 |
+
+### 5.2 EVOLUCAO_MEDICA (Ambulatório/Regulação)
+| Coluna | Tipo |
+|--------|------|
+| CD_EVOLUCAO_MEDICA | NUMBER |
+| NM_USUARIO | VARCHAR2 |
+| DS_EVOLUCAO_MEDICA | VARCHAR2 |
+| DT_EVOLUCAO_MEDICA | DATE |
+| HR_EVOLUCAO_MEDICA | DATE |
+| TP_FLUXO | VARCHAR2 |
+| CD_SOLICITACAO_ATENDIMENTO | NUMBER |
+| CD_MULTI_EMPRESA | NUMBER |
+| CD_SEQ_INTEGRA | NUMBER |
+| DT_INTEGRA | DATE |
+
+---
+
+## 6. QUERIES DE EXEMPLO
+
+### 6.1 Evoluções Médicas de um Atendimento
+```sql
+SELECT 
+    pm.CD_PRE_MED,
+    pm.CD_ATENDIMENTO,
+    pm.DT_PRE_MED,
+    pm.HR_PRE_MED,
+    pm.DS_EVOLUCAO,
+    pm.NM_USUARIO,
+    pr.NM_PRESTADOR
+FROM PRE_MED pm
+LEFT JOIN PRESTADOR pr ON pm.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE pm.CD_ATENDIMENTO = :cd_atendimento
+  AND pm.TP_PRE_MED = 'E'  -- Tipo Evolução
+ORDER BY pm.DT_PRE_MED DESC, pm.HR_PRE_MED DESC;
+```
+
+### 6.2 Anotações de Enfermagem de um Atendimento
+```sql
+SELECT 
+    ee.CD_EVO_ENF,
+    ee.CD_ATENDIMENTO,
+    ee.DT_EVO_ENF,
+    ee.HR_EVO_ENF,
+    ee.DS_EVO_ENF,
+    ee.NM_USUARIO,
+    pr.NM_PRESTADOR
+FROM EVO_ENF ee
+LEFT JOIN PRESTADOR pr ON ee.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE ee.CD_ATENDIMENTO = :cd_atendimento
+ORDER BY ee.DT_EVO_ENF DESC, ee.HR_EVO_ENF DESC;
+```
+
+### 6.3 Todos os Documentos Clínicos de um Atendimento
+```sql
+SELECT 
+    dc.CD_DOCUMENTO_CLINICO,
+    dc.CD_ATENDIMENTO,
+    dc.DH_CRIACAO,
+    dc.DH_DOCUMENTO,
+    td.DS_TIPO_DOCUMENTO,
+    td.NM_TABELA,
+    dc.NM_DOCUMENTO,
+    dc.TP_STATUS,
+    pr.NM_PRESTADOR
+FROM PW_DOCUMENTO_CLINICO dc
+JOIN PW_TIPO_DOCUMENTO td ON dc.CD_TIPO_DOCUMENTO = td.CD_TIPO_DOCUMENTO
+LEFT JOIN PRESTADOR pr ON dc.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE dc.CD_ATENDIMENTO = :cd_atendimento
+  AND dc.CD_MULTI_EMPRESA = 40  -- HUGO
+  AND dc.TP_STATUS <> 'CA'  -- Não cancelados
+ORDER BY dc.DH_DOCUMENTO DESC;
+```
+
+### 6.4 Query Unificada de Evoluções (Médica + Enfermagem)
+```sql
+-- Evoluções Médicas
+SELECT 
+    'MEDICA' AS TIPO_EVOLUCAO,
+    pm.CD_PRE_MED AS CD_REGISTRO,
+    pm.CD_ATENDIMENTO,
+    pm.DT_PRE_MED AS DT_EVOLUCAO,
+    pm.HR_PRE_MED AS HR_EVOLUCAO,
+    pm.DS_EVOLUCAO AS DS_TEXTO,
+    pm.NM_USUARIO,
+    pr.NM_PRESTADOR
+FROM PRE_MED pm
+LEFT JOIN PRESTADOR pr ON pm.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE pm.CD_ATENDIMENTO = :cd_atendimento
+  AND pm.TP_PRE_MED = 'E'
+
+UNION ALL
+
+-- Evoluções de Enfermagem
+SELECT 
+    'ENFERMAGEM' AS TIPO_EVOLUCAO,
+    ee.CD_EVO_ENF AS CD_REGISTRO,
+    ee.CD_ATENDIMENTO,
+    ee.DT_EVO_ENF AS DT_EVOLUCAO,
+    ee.HR_EVO_ENF AS HR_EVOLUCAO,
+    TO_CLOB(ee.DS_EVO_ENF) AS DS_TEXTO,
+    ee.NM_USUARIO,
+    pr.NM_PRESTADOR
+FROM EVO_ENF ee
+LEFT JOIN PRESTADOR pr ON ee.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE ee.CD_ATENDIMENTO = :cd_atendimento
+
+ORDER BY DT_EVOLUCAO DESC, HR_EVOLUCAO DESC;
+```
+
+### 6.5 Documentos SOAP de um Atendimento
+```sql
+SELECT 
+    s.CD_SOAP,
+    dc.CD_ATENDIMENTO,
+    dc.DH_DOCUMENTO,
+    s.TP_SOAP,
+    er_s.CONTEUDO_CORPO AS SUBJETIVO,
+    er_o.CONTEUDO_CORPO AS OBJETIVO,
+    er_a.CONTEUDO_CORPO AS AVALIACAO,
+    er_p.CONTEUDO_CORPO AS PLANO,
+    pr.NM_PRESTADOR
+FROM PW_SOAP s
+JOIN PW_DOCUMENTO_CLINICO dc ON s.CD_DOCUMENTO_CLINICO = dc.CD_DOCUMENTO_CLINICO
+LEFT JOIN EDITOR_REGISTRO er_s ON s.CD_SUBJETIVO = er_s.CD_REGISTRO
+LEFT JOIN EDITOR_REGISTRO er_o ON s.CD_OBJETIVO = er_o.CD_REGISTRO
+LEFT JOIN EDITOR_REGISTRO er_a ON s.CD_AVALIACAO = er_a.CD_REGISTRO
+LEFT JOIN EDITOR_REGISTRO er_p ON s.CD_PLANO = er_p.CD_REGISTRO
+LEFT JOIN PRESTADOR pr ON dc.CD_PRESTADOR = pr.CD_PRESTADOR
+WHERE dc.CD_ATENDIMENTO = :cd_atendimento
+  AND dc.CD_MULTI_EMPRESA = 40
+ORDER BY dc.DH_DOCUMENTO DESC;
+```
+
+---
+
+## 7. DIAGRAMA DE RELACIONAMENTOS
+
+```
+┌──────────────┐     ┌─────────────────────┐     ┌──────────────────┐
+│   PACIENTE   │────▶│     ATENDIME        │◀────│    PRESTADOR     │
+└──────────────┘     └──────────┬──────────┘     └────────┬─────────┘
+                                │                         │
+                                │                         │
+        ┌───────────────────────┼─────────────────────────┤
+        │                       │                         │
+        ▼                       ▼                         ▼
+┌───────────────┐     ┌─────────────────────┐     ┌───────────────┐
+│   PRE_MED     │     │ PW_DOCUMENTO_CLINICO│     │   EVO_ENF     │
+│ (Evol.Médica) │     │   (Índice Central)  │     │ (Evol.Enf.)   │
+│               │     │                     │     │               │
+│ DS_EVOLUCAO   │     │ CD_TIPO_DOCUMENTO ──┼──▶  │ DS_EVO_ENF    │
+└───────────────┘     └──────────┬──────────┘     └───────────────┘
+                                 │
+                                 │
+                    ┌────────────┼────────────┐
+                    │            │            │
+                    ▼            ▼            ▼
+            ┌───────────┐ ┌───────────┐ ┌─────────────────┐
+            │  PW_SOAP  │ │PW_EDITOR_ │ │ PW_TIPO_        │
+            │           │ │ CLINICO   │ │ DOCUMENTO       │
+            │ CD_SUBJET │ │           │ │                 │
+            │ CD_OBJETO │ │CD_EDITOR_ │ │ NM_TABELA       │
+            │ CD_AVALIA │ │ REGISTRO  │ │ DS_TIPO_DOC     │
+            │ CD_PLANO  │ │           │ │                 │
+            └─────┬─────┘ └─────┬─────┘ └─────────────────┘
+                  │             │
+                  └──────┬──────┘
+                         │
+                         ▼
+               ┌─────────────────┐
+               │ EDITOR_REGISTRO │
+               │                 │
+               │ CONTEUDO_CORPO  │
+               │ CONTEUDO_RODAPE │
+               │ CONTEUDO_CABEC  │
+               └─────────────────┘
+```
+
+---
+
+## 8. OBSERVAÇÕES IMPORTANTES
+
+1. **CD_MULTI_EMPRESA = 40** é o código do HUGO em todas as tabelas que possuem esse campo.
+
+2. **Campos LONG vs CLOB:** 
+   - PRE_MED.DS_EVOLUCAO é tipo LONG (legado)
+   - EVO_ENF.DS_EVO_ENF é tipo LONG (legado)
+   - EDITOR_REGISTRO.CONTEUDO_CORPO é tipo CLOB (moderno)
+
+3. **Cuidado com campos LONG:** Oracle tem limitações para manipular campos LONG em queries (não pode usar em WHERE, não pode fazer UNION diretamente, etc.). Considere usar TO_LOB() quando necessário.
+
+4. **Status dos Documentos:** Filtrar `TP_STATUS <> 'CA'` para excluir cancelados.
+
+5. **Tipos de Prescrição/Evolução (TP_PRE_MED):**
+   - 'E' = Evolução
+   - 'P' = Prescrição
+   - 'T' = Transcrição
+   - Outros valores podem existir conforme configuração
+
+6. **Tabelas de Auditoria:** LOG_DOCUMENTO_CLINICO e PW_LOG_DOCUMENTO_CLINICO contêm histórico de alterações.
+
+---
+
+*Documento gerado a partir de investigação exploratória do banco MV/DBAMV*

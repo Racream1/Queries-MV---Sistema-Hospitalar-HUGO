@@ -1,0 +1,25 @@
+SELECT
+    S.NM_SETOR AS SETOR,
+    UI.DS_UNID_INT AS UNIDADE_INTERNACAO,
+    COUNT(A.CD_ATENDIMENTO) AS QT_PACIENTES_INTERNADOS
+FROM
+    ATENDIME A
+INNER JOIN
+    LEITO L ON L.CD_LEITO = A.CD_LEITO
+INNER JOIN
+    UNID_INT UI ON UI.CD_UNID_INT = L.CD_UNID_INT
+INNER JOIN
+    SETOR S ON S.CD_SETOR = UI.CD_SETOR
+WHERE
+    A.CD_MULTI_EMPRESA = 40
+    AND A.TP_ATENDIMENTO IN ('I', 'U')
+    AND A.HR_ALTA IS NULL
+    AND L.TP_OCUPACAO = 'O'
+GROUP BY
+    S.NM_SETOR,
+    UI.DS_UNID_INT
+ORDER BY
+    QT_PACIENTES_INTERNADOS DESC,
+    S.NM_SETOR
+-- Retire o ponto e vírgula (;) se estiver executando a query em um bloco ou script.
+-- Adicione o ponto e vírgula (;) APENAS se estiver executando o comando individualmente.

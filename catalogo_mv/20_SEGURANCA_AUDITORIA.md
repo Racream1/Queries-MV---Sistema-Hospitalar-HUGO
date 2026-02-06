@@ -1,0 +1,15492 @@
+# 20 - Seguranca e Auditoria
+
+> Usuarios, permissoes, logs, audit trail (DBASGU)
+
+## Resumo
+
+- **Tabelas**: 791
+- **Owners**: ACESSOMV, ACESSOPRD, AUDIT_DBAMV, AUDIT_DBAPS, AUDIT_DBASGU, DBAMV, DBASGU, MVONEPASS
+
+---
+
+## ACESSOMV.HT_CONFIG_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_MVPEP_CONFIG_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_MVPEP_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_ALERGIA_PAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_ASSOC_TIP_PRESC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_FAVORITO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_FAVORITO_CID
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_FAVORITO_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_FAVORITO_PRESCRICAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOMV.HT_PW_PROBLEMA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.BKP_ITMVTO_ENT_25509
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITENT_PRO | NUMBER | N |  |
+| 2 | CD_ITMVTO_ESTOQUE | NUMBER | N |  |
+| 3 | TP_EMPRESTIMO | VARCHAR2 | Y |  |
+| 4 | DT_FECHAMENTO_EMPRESTIMO | DATE | Y |  |
+
+---
+
+## ACESSOPRD.BKP_ITMVTO_ENT_3944
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITENT_PRO | NUMBER | N |  |
+| 2 | CD_ITMVTO_ESTOQUE | NUMBER | N |  |
+| 3 | TP_EMPRESTIMO | VARCHAR2 | Y |  |
+| 4 | DT_FECHAMENTO_EMPRESTIMO | DATE | Y |  |
+
+---
+
+## ACESSOPRD.DBAMVVW_RECRIA_CUSTO_MEDIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITENT_PRO | NUMBER | Y |  |
+| 2 | CD_PRODUTO | NUMBER | Y |  |
+| 3 | CD_PRODUTO_TEM | NUMBER | Y |  |
+| 4 | DT_ENTRADA | DATE | Y |  |
+| 5 | HR_ENTRADA | DATE | Y |  |
+| 6 | HR_MOVIMENTO | DATE | Y |  |
+| 7 | VL_TOTAL | NUMBER | Y |  |
+| 8 | VL_UNI | NUMBER | Y |  |
+| 9 | SN_ATUALIZA_PRECO | VARCHAR2 | Y |  |
+| 10 | SN_CONTAGEM | CHAR | Y |  |
+| 11 | SN_MESTRE | CHAR | Y |  |
+| 12 | CD_ESTOQUE | NUMBER | Y |  |
+| 13 | TP_ENTRADA | VARCHAR2 | Y |  |
+| 14 | SN_CONSIGNADO | VARCHAR2 | Y |  |
+| 15 | TP_DOCUMENTO_ENTRADA | VARCHAR2 | Y |  |
+| 16 | VL_UNITARIO | NUMBER | Y |  |
+| 17 | VL_FATOR | NUMBER | Y |  |
+| 18 | CD_ITMVTO_ESTOQUE | NUMBER | Y |  |
+
+---
+
+## ACESSOPRD.HT_CONFIG_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_MVPEP_CONFIG_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_MVPEP_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_NOTIFICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_ALERGIA_PAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_ASSOC_TIP_PRESC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_FAVORITO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_FAVORITO_CID
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_FAVORITO_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_FAVORITO_PRESCRICAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAVORITO | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.HT_PW_PROBLEMA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROBLEMA | NUMBER | N |  |
+
+---
+
+## ACESSOPRD.VDIC_ETIQUE_PACIENTE_SAA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | N |  |
+| 2 | NM_PACIENTE | VARCHAR2 | N |  |
+| 3 | DT_NASCIMENTO | DATE | Y |  |
+| 4 | CD_ATENDIMENTO | VARCHAR2 | Y |  |
+| 5 | DT_ATENDIMENTO | DATE | N |  |
+| 6 | NM_PRESTADOR | VARCHAR2 | N |  |
+
+---
+
+## ACESSOPRD.VDIC_PRESTADORES_SE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRESTADOR | NUMBER | N |  |
+| 2 | CD_IDENTIFICACAO | NUMBER | Y |  |
+| 3 | TIPO_PRESTA | NUMBER | N |  |
+| 4 | NM_PRESTADOR | VARCHAR2 | N |  |
+| 5 | NM_MNEMONICO | VARCHAR2 | N |  |
+| 6 | DS_ESPECIALID | VARCHAR2 | Y |  |
+| 7 | DS_CODIGO_CONSELHO | VARCHAR2 | Y |  |
+| 8 | NR_CPF_CGC | VARCHAR2 | Y |  |
+| 9 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 10 | TP_CORPO_CLINICO | VARCHAR2 | Y |  |
+| 11 | SN_ATUANTE | VARCHAR2 | Y |  |
+| 12 | NR_PISPASEP | NUMBER | Y |  |
+| 13 | INSCR_AUTONOMO | NUMBER | Y |  |
+| 14 | CONTA_BANCARIA | VARCHAR2 | Y |  |
+| 15 | DT_NASCIMENTO | DATE | Y |  |
+| 16 | NR_DOCUMENTO | VARCHAR2 | Y |  |
+
+---
+
+## ACESSOPRD.VW_DATA_INICIAL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DATA | DATE | Y |  |
+
+---
+
+## ACESSOPRD.VW_RECRIA_CUSTO_MEDIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITENT_PRO | NUMBER | Y |  |
+| 2 | CD_PRODUTO | NUMBER | Y |  |
+| 3 | CD_PRODUTO_TEM | NUMBER | Y |  |
+| 4 | DT_ENTRADA | DATE | Y |  |
+| 5 | HR_ENTRADA | DATE | Y |  |
+| 6 | HR_MOVIMENTO | DATE | Y |  |
+| 7 | VL_TOTAL | NUMBER | Y |  |
+| 8 | VL_UNI | NUMBER | Y |  |
+| 9 | SN_ATUALIZA_PRECO | VARCHAR2 | Y |  |
+| 10 | SN_CONTAGEM | CHAR | Y |  |
+| 11 | SN_MESTRE | CHAR | Y |  |
+| 12 | CD_ESTOQUE | NUMBER | Y |  |
+| 13 | TP_ENTRADA | VARCHAR2 | Y |  |
+| 14 | SN_CONSIGNADO | VARCHAR2 | Y |  |
+| 15 | TP_DOCUMENTO_ENTRADA | VARCHAR2 | Y |  |
+| 16 | VL_UNITARIO | NUMBER | Y |  |
+| 17 | VL_FATOR | NUMBER | Y |  |
+| 18 | CD_ITMVTO_ESTOQUE | NUMBER | Y |  |
+
+---
+
+## ACESSOPRD.V_FNRM_PRODUCAO_CONVENIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | TIPO | CHAR | Y |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | DT_COMPETENCIA | DATE | Y |  |
+| 4 | CD_FATURA | NUMBER | Y |  |
+| 5 | CD_REMESSA | NUMBER | Y |  |
+| 6 | CD_CONTA | NUMBER | Y |  |
+| 7 | CD_LANCAMENTO | NUMBER | Y |  |
+| 8 | CD_ATI_MED | VARCHAR2 | Y |  |
+| 9 | CD_PRESTADOR | NUMBER | Y |  |
+| 10 | CD_PROCEDIMENTO | VARCHAR2 | Y |  |
+| 11 | QT_LANCAMENTO | NUMBER | Y |  |
+| 12 | DS_PROCEDIMENTO | VARCHAR2 | Y |  |
+| 13 | CD_GRU_PRO | NUMBER | Y |  |
+| 14 | CD_GRU_FAT | NUMBER | Y |  |
+| 15 | DT_ENTREGA_DA_FATURA | DATE | Y |  |
+| 16 | SN_PERTENCE_PACOTE | VARCHAR2 | Y |  |
+| 17 | CD_SETOR | NUMBER | Y |  |
+| 18 | FILME | NUMBER | Y |  |
+| 19 | QT_CH_UNITARIO | NUMBER | Y |  |
+| 20 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 21 | DT_LANCAMENTO | DATE | Y |  |
+| 22 | CD_SERVICO | NUMBER | Y |  |
+| 23 | CD_CONVENIO | NUMBER | Y |  |
+| 24 | NM_CONVENIO | VARCHAR2 | Y |  |
+| 25 | VL_PERCENTUAL_PAGO | NUMBER | Y |  |
+| 26 | CD_ORI_ATE | NUMBER | Y |  |
+| 27 | CD_TIP_ACOM | NUMBER | Y |  |
+| 28 | VL_TOTAL_CONTA | NUMBER | Y |  |
+| 29 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 30 | HR_LANCAMENTO | DATE | Y |  |
+| 31 | SN_PAGA | VARCHAR2 | Y |  |
+| 32 | TP_CONVENIO | VARCHAR2 | Y |  |
+| 33 | TP_PAGAMENTO | VARCHAR2 | Y |  |
+| 34 | SN_REPASSADO | VARCHAR2 | Y |  |
+| 35 | SN_PACOTE | VARCHAR2 | Y |  |
+| 36 | SN_REMESSA_FECHADA | VARCHAR2 | Y |  |
+| 37 | SN_CONTA_FECHADA | VARCHAR2 | Y |  |
+| 38 | CD_PRESTADOR_REPASSE | NUMBER | Y |  |
+| 39 | CD_ESPECIALID | NUMBER | Y |  |
+| 40 | CD_CON_PLA | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.AGENDA_FILA_ESPERA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_AGENDA_FILA_ESPERA | NUMBER | Y |  |
+| 8 | CD_AGENDA_CENTRAL | NUMBER | Y |  |
+| 9 | DT_FILA_ESPERA | DATE | Y |  |
+| 10 | HR_FILA_ESPERA | DATE | Y |  |
+| 11 | TP_ESPERA | VARCHAR2 | Y |  |
+| 12 | NR_FONE | VARCHAR2 | Y |  |
+| 13 | DS_EMAIL | VARCHAR2 | Y |  |
+| 14 | DT_NASCIMENTO | DATE | Y |  |
+| 15 | TP_SEXO | VARCHAR2 | Y |  |
+| 16 | CD_ITEM_AGENDAMENTO | NUMBER | Y |  |
+| 17 | CD_RECURSO_CENTRAL | NUMBER | Y |  |
+| 18 | TP_STATUS | VARCHAR2 | Y |  |
+| 19 | CD_UNIDADE_ATENDIMENTO | NUMBER | Y |  |
+| 20 | CD_PACIENTE | NUMBER | Y |  |
+| 21 | NM_PACIENTE | VARCHAR2 | Y |  |
+| 22 | CD_PRESTADOR | NUMBER | Y |  |
+| 23 | CD_SER_DIS | NUMBER | Y |  |
+| 24 | CD_TIP_MAR | NUMBER | Y |  |
+| 25 | CD_CONVENIO | NUMBER | Y |  |
+| 26 | CD_CON_PLA | NUMBER | Y |  |
+| 27 | CD_SETOR | NUMBER | Y |  |
+| 28 | CD_USUARIO_CADASTRO | VARCHAR2 | Y |  |
+| 29 | DT_CADASTRO | DATE | Y |  |
+| 30 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 31 | TP_INTERVALO | VARCHAR2 | Y |  |
+| 32 | NR_INTERVALO | NUMBER | Y |  |
+| 33 | CD_PRIORIDADE | NUMBER | Y |  |
+| 34 | CD_PATOLOGIA_GES | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.ATENDIME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 8 | CD_ORI_ATE | NUMBER | Y |  |
+| 9 | CD_PACIENTE | NUMBER | Y |  |
+| 10 | CD_CONVENIO | NUMBER | Y |  |
+| 11 | CD_PRO_INT | VARCHAR2 | Y |  |
+| 12 | CD_PRO_INT_PROCEDIMENTO_ENTRAD | VARCHAR2 | Y |  |
+| 13 | DT_ATENDIMENTO | DATE | Y |  |
+| 14 | HR_ATENDIMENTO | DATE | Y |  |
+| 15 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 16 | CD_PRESTADOR | NUMBER | Y |  |
+| 17 | CD_LEITO | NUMBER | Y |  |
+| 18 | CD_LOC_TRANS | NUMBER | Y |  |
+| 19 | CD_MOT_ALT | NUMBER | Y |  |
+| 20 | CD_CID | VARCHAR2 | Y |  |
+| 21 | CD_SERVICO | NUMBER | Y |  |
+| 22 | DS_ATENDIMENTO | VARCHAR2 | Y |  |
+| 23 | DT_DIAG | DATE | Y |  |
+| 24 | DT_ALTA | DATE | Y |  |
+| 25 | DS_OBS_ALTA | VARCHAR2 | Y |  |
+| 26 | DT_ENTRADA_SAME | DATE | Y |  |
+| 27 | DT_PREVISTA_ALTA | DATE | Y |  |
+| 28 | CD_TIP_RES | NUMBER | Y |  |
+| 29 | CD_TIP_ACOM | NUMBER | Y |  |
+| 30 | DT_VAL_GUIA | DATE | Y |  |
+| 31 | NR_GUIA | VARCHAR2 | Y |  |
+| 32 | HR_ALTA | DATE | Y |  |
+| 33 | CD_SER_DIS | NUMBER | Y |  |
+| 34 | CD_DES_ATE | NUMBER | Y |  |
+| 35 | DS_ATE_OCO | VARCHAR2 | Y |  |
+| 36 | CD_ULTIMO_MOV_INT | NUMBER | Y |  |
+| 37 | CD_CASOS_ATD | NUMBER | Y |  |
+| 38 | DS_DESTINO_TRANSFERENCIA | VARCHAR2 | Y |  |
+| 39 | NM_USUARIO | VARCHAR2 | Y |  |
+| 40 | CD_CON_PLA | NUMBER | Y |  |
+| 41 | NM_USUARIO_ALTA | VARCHAR2 | Y |  |
+| 42 | CD_TIPO_INTERNACAO | NUMBER | Y |  |
+| 43 | CD_LOG_EXPORT_ATENDIME | NUMBER | Y |  |
+| 44 | CD_LOC_PROCED | NUMBER | Y |  |
+| 45 | CD_LOG_EXPORT_ALTA | NUMBER | Y |  |
+| 46 | SN_ACOMPANHANTE | VARCHAR2 | Y |  |
+| 47 | SN_INFECCAO | VARCHAR2 | Y |  |
+| 48 | SN_RETORNO | VARCHAR2 | Y |  |
+| 49 | CD_SSM_CIH | VARCHAR2 | Y |  |
+| 50 | CD_CONVENIO_SECUNDARIO | NUMBER | Y |  |
+| 51 | CD_CON_PLA_SECUNDARIO | NUMBER | Y |  |
+| 52 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 53 | CD_ESPECIALID | NUMBER | Y |  |
+| 54 | CD_TIP_MAR | NUMBER | Y |  |
+| 55 | DT_REVISAO | DATE | Y |  |
+| 56 | DT_RETORNO | DATE | Y |  |
+| 57 | CD_ATENDIMENTO_PAI | NUMBER | Y |  |
+| 58 | QT_SESSOES | NUMBER | Y |  |
+| 59 | DT_ALTA_MEDICA | DATE | Y |  |
+| 60 | NM_USUARIO_ALTA_MEDICA | VARCHAR2 | Y |  |
+| 61 | HR_ALTA_MEDICA | DATE | Y |  |
+| 62 | CD_SERVICO_SAIDA | NUMBER | Y |  |
+| 63 | CD_ESPECIALID_SAIDA | NUMBER | Y |  |
+| 64 | CD_LOC_TRANS_SAIDA | NUMBER | Y |  |
+| 65 | CD_MOT_TRANS_SAIDA | NUMBER | Y |  |
+| 66 | DS_OBS_PSIH | VARCHAR2 | Y |  |
+| 67 | DT_AVISO_MEDICO | DATE | Y |  |
+| 68 | HR_AVISO_MEDICO | DATE | Y |  |
+| 69 | DS_AVISO_TP_CONTATO | VARCHAR2 | Y |  |
+| 70 | DS_AVISO_OBS | VARCHAR2 | Y |  |
+| 71 | NM_AVISO_USUARIO | VARCHAR2 | Y |  |
+| 72 | TP_PROGRAMA_ALTA_UNIDADE | VARCHAR2 | Y |  |
+| 73 | DS_PROGRAMA_ALTA | VARCHAR2 | Y |  |
+| 74 | DT_PROGRAMA_ALTA | DATE | Y |  |
+| 75 | NM_USUARIO_PROG_ALTA | VARCHAR2 | Y |  |
+| 76 | DT_LIBERACAO | DATE | Y |  |
+| 77 | SN_IMPORTA_AUTO | VARCHAR2 | Y |  |
+| 78 | CD_SUB_PLANO | VARCHAR2 | Y |  |
+| 79 | SN_BUSCA_ATIVA | VARCHAR2 | Y |  |
+| 80 | TP_BUSCA_ATIVA | VARCHAR2 | Y |  |
+| 81 | SN_OBITO | VARCHAR2 | Y |  |
+| 82 | SN_EM_ATENDIMENTO | VARCHAR2 | Y |  |
+| 83 | CD_TIP_SITUACAO | NUMBER | Y |  |
+| 84 | TP_PRIORIDADE | VARCHAR2 | Y |  |
+| 85 | CD_SSM_SIA | VARCHAR2 | Y |  |
+| 86 | CD_GRU_ATE | NUMBER | Y |  |
+| 87 | SN_CONSULTA_SIASUS | VARCHAR2 | Y |  |
+| 88 | NM_USUARIO_RETORNO | VARCHAR2 | Y |  |
+| 89 | DT_USUARIO_RETORNO | DATE | Y |  |
+| 90 | SN_RECEBE_VISITA | VARCHAR2 | Y |  |
+| 91 | NR_CHAMADA_PAINEL | VARCHAR2 | Y |  |
+| 92 | NR_LAUDO | NUMBER | Y |  |
+| 93 | NR_LAUDO_ALTO_CUSTO | NUMBER | Y |  |
+| 94 | CD_USUARIO_DIAG | VARCHAR2 | Y |  |
+| 95 | CD_USUARIO_UPD_DIAG | VARCHAR2 | Y |  |
+| 96 | DT_ULTIMA_UPD_DIAG | DATE | Y |  |
+| 97 | NR_PEDIDO_LAUDO | NUMBER | Y |  |
+| 98 | CD_ESCALA_DIA | NUMBER | Y |  |
+| 99 | HR_AGENDA | DATE | Y |  |
+| 100 | CD_TIP_ACOM_COBERTURA | NUMBER | Y |  |
+| 101 | CD_SETOR_OBITO | NUMBER | Y |  |
+| 102 | DT_SOLIC_MEDICA | DATE | Y |  |
+| 103 | NR_SEQ_PREIMPRE | NUMBER | Y |  |
+| 104 | SN_ATENDIMENTO_APAC | VARCHAR2 | Y |  |
+| 105 | SN_OBITO_INFEC | VARCHAR2 | Y |  |
+| 106 | DT_CHEGADA_PACIENTE | DATE | Y |  |
+| 107 | NR_CARTEIRA | VARCHAR2 | Y |  |
+| 108 | DT_VALIDADE | DATE | Y |  |
+| 109 | NM_EMPRESA | VARCHAR2 | Y |  |
+| 110 | NR_CARTEIRA_ACOPLAMENTO | VARCHAR2 | Y |  |
+| 111 | DT_VALIDADE_ACOPLAMENTO | DATE | Y |  |
+| 112 | NM_EMPRESA_ACOPLAMENTO | VARCHAR2 | Y |  |
+| 113 | NR_DECLARACAO_OBITO | VARCHAR2 | Y |  |
+| 114 | SENHA_SUS | VARCHAR2 | Y |  |
+| 115 | HR_ATENDIMENTO_MEDICO | DATE | Y |  |
+| 116 | CD_SEQ_INTEGRA | VARCHAR2 | Y |  |
+| 117 | DT_INTEGRA | DATE | Y |  |
+| 118 | SN_PACIENTE_PAGA_DIF_DIARIA | VARCHAR2 | Y |  |
+| 119 | CD_GUIA | NUMBER | Y |  |
+| 120 | CD_LAUDO_APAC | NUMBER | Y |  |
+| 121 | TP_DOENCA | VARCHAR2 | Y |  |
+| 122 | NR_TEMPO_DOENCA | NUMBER | Y |  |
+| 123 | TP_TEMPO_DOENCA | VARCHAR2 | Y |  |
+| 124 | TP_CARATER_INTERNACAO | VARCHAR2 | Y |  |
+| 125 | TP_OBITO_MULHER | NUMBER | Y |  |
+| 126 | TP_ACIDENTE_TISS | NUMBER | Y |  |
+| 127 | CD_ATENDIMENTO_SUS_VINCULADO | NUMBER | Y |  |
+| 128 | TP_ATENDIMENTO_TISS | NUMBER | Y |  |
+| 129 | SN_GESTACAO_TISS | VARCHAR2 | Y |  |
+| 130 | SN_ABORTO_TISS | VARCHAR2 | Y |  |
+| 131 | SN_TRANSTORNO_TISS | VARCHAR2 | Y |  |
+| 132 | SN_COMPLICACAO_TISS | VARCHAR2 | Y |  |
+| 133 | SN_ATEND_NEO_TISS | VARCHAR2 | Y |  |
+| 134 | SN_COMPLICACAO_NEO_TISS | VARCHAR2 | Y |  |
+| 135 | SN_BAIXO_PESO_TISS | VARCHAR2 | Y |  |
+| 136 | SN_CESARIO_TISS | VARCHAR2 | Y |  |
+| 137 | SN_RECEM_NATO | VARCHAR2 | Y |  |
+| 138 | SN_NOTIFICAR_POLICIA | VARCHAR2 | Y |  |
+| 139 | SN_CUSTODIA_POLICIAL | VARCHAR2 | Y |  |
+| 140 | CD_CID_OBITO | VARCHAR2 | Y |  |
+| 141 | SN_NORMAL_TISS | VARCHAR2 | Y |  |
+| 142 | SN_PAGA_ACOMPANHANTE | VARCHAR2 | Y |  |
+| 143 | CD_SETOR_LOCAL_FSCC | NUMBER | Y |  |
+| 144 | SN_PACOTE | VARCHAR2 | Y |  |
+| 145 | SN_PACOTE_DAY_CLINIC | VARCHAR2 | Y |  |
+| 146 | NR_GUIA_ENVIO_PRINCIPAL | VARCHAR2 | Y |  |
+| 147 | CD_PROCEDIMENTO | VARCHAR2 | Y |  |
+| 148 | CD_CBO_PRESTADOR | VARCHAR2 | Y |  |
+| 149 | CD_CARATER_ATENDIMENTO | NUMBER | Y |  |
+| 150 | CD_ATENDIMENTO_INTEGRA | VARCHAR2 | Y |  |
+| 151 | CD_PROCEDIMENTO_ALTA | VARCHAR2 | Y |  |
+| 152 | CD_PRESTADOR_EM_ATENDIMENTO | VARCHAR2 | Y |  |
+| 153 | SN_RELACAO_TRABALHO | VARCHAR2 | Y |  |
+| 154 | SN_SUSPEITA_EPIDEMIA | VARCHAR2 | Y |  |
+| 155 | SN_REAVALIACAO | VARCHAR2 | Y |  |
+| 156 | NR_TAG_ATENDIMENTO | VARCHAR2 | Y |  |
+| 157 | SN_INTERNADO | VARCHAR2 | Y |  |
+| 158 | NR_PRE_NATAL | VARCHAR2 | Y |  |
+| 159 | NR_AUTORIZACAO_GESTOR | VARCHAR2 | Y |  |
+| 160 | TP_ENCAMINHAMENTO_OBITO | VARCHAR2 | Y |  |
+| 161 | CD_PROTOCOLO | NUMBER | Y |  |
+| 162 | CD_SINTOMA_AVALIACAO | NUMBER | Y |  |
+| 163 | VL_ESCORE | NUMBER | Y |  |
+| 164 | CD_COR_REFERENCIA | NUMBER | Y |  |
+| 165 | CD_RES_LEI_REGULACAO | NUMBER | Y |  |
+| 166 | CD_MEIO_TRANSPORTE | NUMBER | Y |  |
+| 167 | DH_ALTA_MEDICA_LANCADA | DATE | Y |  |
+| 168 | DH_ALTA_LANCADA | DATE | Y |  |
+| 169 | NM_USUARIO_AUTORIZADOR | VARCHAR2 | Y |  |
+| 170 | CD_ATENDIMENTO_ORIGINAL | NUMBER | Y |  |
+| 171 | SN_SEGURO_COMPLEMENTAR | VARCHAR2 | Y |  |
+| 172 | SN_RETENCAO_JUDICIAL | VARCHAR2 | Y |  |
+| 173 | CD_SISTEMA | VARCHAR2 | Y |  |
+| 174 | CD_PRESTADOR_INDICACAO | NUMBER | Y |  |
+| 175 | CD_SENHA_AUTORIZACAO | NUMBER | Y |  |
+| 176 | CD_PROGRAMAS_HOMECARE | NUMBER | Y |  |
+| 177 | CD_ATENDIMENTO_TISS | NUMBER | Y |  |
+| 178 | TP_COBERTURA_ESPECIAL | VARCHAR2 | Y |  |
+| 179 | TP_REGIME_ATENDIMENTO | VARCHAR2 | Y |  |
+| 180 | TP_SAUDE_OCUPACIONAL | VARCHAR2 | Y |  |
+| 181 | DS_OPME | VARCHAR2 | Y |  |
+| 182 | DS_CRM_PRESTADOR_OPME | VARCHAR2 | Y |  |
+| 183 | DT_INICIO_USO_OPME | DATE | Y |  |
+| 184 | TP_LIBERA_PAC_CON | VARCHAR2 | Y |  |
+| 185 | NM_PRESTADOR_OPME | VARCHAR2 | Y |  |
+| 186 | DT_MES_ANO_INICIO_USO_OPME | DATE | Y |  |
+| 187 | CD_PRODUTO_OPME | NUMBER | Y |  |
+| 188 | NM_PRODUTO_OPME | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.CAD_SAME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_CAD_SAME | NUMBER | Y |  |
+| 8 | DS_CAD_SAME | VARCHAR2 | Y |  |
+| 9 | DS_CAD_SAME_LOCAL | VARCHAR2 | Y |  |
+| 10 | NR_PROXIMA_MATRICULA | NUMBER | Y |  |
+| 11 | SN_NUMERA_AUTO | VARCHAR2 | Y |  |
+| 12 | SN_ATENDIMENTO_OBRIGATORIO | VARCHAR2 | Y |  |
+| 13 | TP_NUMERACAO | VARCHAR2 | Y |  |
+| 14 | SN_GERAR_MATRICULA_AUTO | VARCHAR2 | Y |  |
+| 15 | SN_REPLICACAO | VARCHAR2 | Y |  |
+| 16 | SN_ATEND_SEM_DIAGNO | VARCHAR2 | Y |  |
+| 17 | SN_INTERNACAO_SEM_ALTA | VARCHAR2 | Y |  |
+| 18 | SN_MATRICULA_POR_PROCED | VARCHAR2 | Y |  |
+| 19 | DS_IMPRESSORA | VARCHAR2 | Y |  |
+| 20 | DS_REPORT_AVISO_ATENDE | VARCHAR2 | Y |  |
+| 21 | DS_REPORT_AVISO_AGENDA | VARCHAR2 | Y |  |
+| 22 | TP_NAVEGACAO_ENTRA_SAI_DOC | VARCHAR2 | Y |  |
+| 23 | CD_PORTADOR_PADRAO | NUMBER | Y |  |
+| 24 | SN_GERA_MATRICULA_ANUAL | VARCHAR2 | Y |  |
+| 25 | SN_CONFIRMA_RECEB_AUTOMATICO | VARCHAR2 | Y |  |
+| 26 | CD_SETOR | NUMBER | Y |  |
+| 27 | DS_REPORT_AVISO_AGENDA_SCMA | VARCHAR2 | Y |  |
+| 28 | SN_SOLICITAR_DOC_SAME | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.CFOP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_CFOP | NUMBER | Y |  |
+| 8 | NR_CFOP | VARCHAR2 | Y |  |
+| 9 | DS_CFOP | VARCHAR2 | Y |  |
+| 10 | TP_CFOP | VARCHAR2 | Y |  |
+| 11 | DT_VIGENCIA | DATE | Y |  |
+
+---
+
+## AUDIT_DBAMV.CMP3$699633
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_LOT_PRO | NUMBER | Y |  |
+| 8 | CD_ESTOQUE | NUMBER | Y |  |
+| 9 | CD_PRODUTO | NUMBER | Y |  |
+| 10 | DT_VALIDADE | DATE | Y |  |
+| 11 | QT_ESTOQUE_ATUAL | NUMBER | Y |  |
+| 12 | CD_LOTE | VARCHAR2 | Y |  |
+| 13 | SN_BLOQUEIO | VARCHAR2 | Y |  |
+| 14 | QT_ESTOQUE_DOADO | NUMBER | Y |  |
+| 15 | DS_MARCA | VARCHAR2 | Y |  |
+| 16 | QT_ORCAMENTARIO | NUMBER | Y |  |
+| 17 | QT_EXTRA_ORCAMENTARIO | NUMBER | Y |  |
+| 18 | QT_KIT | NUMBER | Y |  |
+| 19 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 20 | DS_ENDERECO_OLD | VARCHAR2 | Y |  |
+| 21 | DS_MOTIVO_BLOQUEIO | VARCHAR2 | Y |  |
+| 22 | QT_EST_CONSIG | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.CON_PAG
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_CON_PAG | NUMBER | Y |  |
+| 8 | NR_DOCUMENTO | VARCHAR2 | Y |  |
+| 9 | DT_LANCAMENTO | DATE | Y |  |
+| 10 | DT_EMISSAO | DATE | Y |  |
+| 11 | SN_CONTABILIZA | VARCHAR2 | Y |  |
+| 12 | TP_VENCIMENTO | VARCHAR2 | Y |  |
+| 13 | DS_CON_PAG | VARCHAR2 | Y |  |
+| 14 | CD_FORNECEDOR | NUMBER | Y |  |
+| 15 | CD_TIP_DOC | NUMBER | Y |  |
+| 16 | CD_PORTADOR | NUMBER | Y |  |
+| 17 | CD_PREVISAO | NUMBER | Y |  |
+| 18 | CD_ESTOQUE | NUMBER | Y |  |
+| 19 | VL_BRUTO_CONTA | NUMBER | Y |  |
+| 20 | DS_FORNECEDOR | VARCHAR2 | Y |  |
+| 21 | CD_HISTORICO_PADRAO | NUMBER | Y |  |
+| 22 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 23 | CD_REDUZIDO | NUMBER | Y |  |
+| 24 | NR_SERIE | VARCHAR2 | Y |  |
+| 25 | TP_ADIANTAMENTO | VARCHAR2 | Y |  |
+| 26 | SN_PRESTACAO_REALIZADA | VARCHAR2 | Y |  |
+| 27 | CD_CON_PAG_PREST | NUMBER | Y |  |
+| 28 | CD_CON_REC_PREST | NUMBER | Y |  |
+| 29 | CD_EXP_CONTABILIDADE | NUMBER | Y |  |
+| 30 | VL_BASE_IRRF | NUMBER | Y |  |
+| 31 | VL_BASE_INSS | NUMBER | Y |  |
+| 32 | CD_CON_PAG_DEV | NUMBER | Y |  |
+| 33 | CD_CON_PAG_PREVISAO | NUMBER | Y |  |
+| 34 | DT_IMPORTACAO_MGES | DATE | Y |  |
+| 35 | DT_CON_PAG_ALT_DADOS_ORA_APP | DATE | Y |  |
+| 36 | SN_IMPORT_AUT_ESTOQUE | VARCHAR2 | Y |  |
+| 37 | CD_DEVOLUCAO | NUMBER | Y |  |
+| 38 | CD_COTA | NUMBER | Y |  |
+| 39 | SN_AUTORIZADO | VARCHAR2 | Y |  |
+| 40 | CD_DESCONTO | NUMBER | Y |  |
+| 41 | VL_DESCONTO | NUMBER | Y |  |
+| 42 | CD_ACRESCIMO | NUMBER | Y |  |
+| 43 | VL_ACRESCIMO | NUMBER | Y |  |
+| 44 | DT_CON_PAG_SAP | DATE | Y |  |
+| 45 | VL_MOEDA | NUMBER | Y |  |
+| 46 | VL_MOEDA_DESC | NUMBER | Y |  |
+| 47 | VL_MOEDA_ACRES | NUMBER | Y |  |
+| 48 | CD_MOEDA | VARCHAR2 | Y |  |
+| 49 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 50 | TP_CON_PAG | VARCHAR2 | Y |  |
+| 51 | CD_PROCESSO | NUMBER | Y |  |
+| 52 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 53 | CD_SERVICO_PRESTADO | NUMBER | Y |  |
+| 54 | CD_SERVICO | NUMBER | Y |  |
+| 55 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y |  |
+| 56 | CD_CONTRATO_ADIANT | NUMBER | Y |  |
+| 57 | CD_CON_PAG_INTEGRA | VARCHAR2 | Y |  |
+| 58 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 59 | DT_INTEGRA | DATE | Y |  |
+| 60 | CD_CONDICAO_PAGAMENTO | NUMBER | Y |  |
+| 61 | CD_IMPORTACAO_REPASSE | NUMBER | Y |  |
+| 62 | CD_OCORRENCIA | NUMBER | Y |  |
+| 63 | DT_IMPORTACAO_MVSAUDE | DATE | Y |  |
+| 64 | CD_SITUACAO_ESPECIAL_RESPONSA | VARCHAR2 | Y |  |
+| 65 | CD_MOTIVO_NAO_RETENCAO | VARCHAR2 | Y |  |
+| 66 | VL_CAMBIO | NUMBER | Y |  |
+| 67 | SN_CAMBIO_SUGERIDO | VARCHAR2 | Y |  |
+| 68 | VL_ALIQ_IVA | NUMBER | Y |  |
+| 69 | VL_IVA | NUMBER | Y |  |
+| 70 | CD_REDUZIDO_IVA | NUMBER | Y |  |
+| 71 | VL_BASE_ISS | NUMBER | Y |  |
+| 72 | CD_CAUCAO | NUMBER | Y |  |
+| 73 | NR_NCF | VARCHAR2 | Y |  |
+| 74 | CD_PAGCON_PAG_CARTAO | NUMBER | Y |  |
+| 75 | NR_QTD_PARCELA | NUMBER | Y |  |
+| 76 | CD_FIN_CAR | NUMBER | Y |  |
+| 77 | CD_CONTA_FINANCEIRA | NUMBER | Y |  |
+| 78 | CD_USUARIO_INS | VARCHAR2 | Y |  |
+| 79 | CD_LCTO_MOVIMENTO | NUMBER | Y |  |
+| 80 | CD_LCTO_MOVIMENTO_CANC | NUMBER | Y |  |
+| 81 | NR_DOCUMENTO_AUXILIAR | VARCHAR2 | Y |  |
+| 82 | VL_DESCONTO_COMERCIAL | NUMBER | Y |  |
+| 83 | CD_CLASS_CONTA_FNFI | NUMBER | Y |  |
+| 84 | TP_STATUS | VARCHAR2 | Y |  |
+| 85 | DT_REF_REINF | DATE | Y |  |
+| 86 | NM_SOCIAL | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.EMPRESA_HABILITACOES_SUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 8 | CD_HABILITACAO | VARCHAR2 | Y |  |
+| 9 | DT_VALIDADE_FINAL | DATE | Y |  |
+| 10 | DT_VALIDADE_INICIAL | DATE | Y |  |
+
+---
+
+## AUDIT_DBAMV.EMPRESA_PRODUTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PRODUTO | NUMBER | Y |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 9 | QT_ESTOQUE_ATUAL | NUMBER | Y |  |
+| 10 | DT_ULTIMA_ENTRADA | DATE | Y |  |
+| 11 | VL_CUSTO_MEDIO | NUMBER | Y |  |
+| 12 | VL_MARGEM_LUCRO | NUMBER | Y |  |
+| 13 | VL_PRECO_DE_VENDA | NUMBER | Y |  |
+| 14 | VL_TEMPO_DE_REPOSICAO | NUMBER | Y |  |
+| 15 | HR_ULTIMA_ENTRADA | DATE | Y |  |
+| 16 | TP_CLASSIFICACAO_XYZ | VARCHAR2 | Y |  |
+| 17 | VL_ULTIMA_ENTRADA | NUMBER | Y |  |
+| 18 | CD_ULTIMO_FORNECEDOR | NUMBER | Y |  |
+| 19 | QT_ULTIMA_ENTRADA | NUMBER | Y |  |
+| 20 | VL_ULTIMA_CUSTO_REAL | NUMBER | Y |  |
+| 21 | CD_FORNECEDOR_PRINCIPAL | NUMBER | Y |  |
+| 22 | VL_ULTIMA_COMPRA_IPI | NUMBER | Y |  |
+| 23 | TP_CLASSIFICACAO_ABC | VARCHAR2 | Y |  |
+| 24 | QT_ESTOQUE_MAXIMO | NUMBER | Y |  |
+| 25 | QT_ESTOQUE_MINIMO | NUMBER | Y |  |
+| 26 | QT_PONTO_DE_PEDIDO | NUMBER | Y |  |
+| 27 | QT_CONSUMO_MES | NUMBER | Y |  |
+| 28 | SN_ATIVO | VARCHAR2 | Y |  |
+| 29 | NR_CRF_HOSPITAL | VARCHAR2 | Y |  |
+| 30 | SN_LOTE | VARCHAR2 | Y |  |
+| 31 | SN_CONTROLE_VALIDADE | VARCHAR2 | Y |  |
+| 32 | SN_PADRONIZADO | VARCHAR2 | Y |  |
+| 33 | SN_ALTA_VIGILANCIA | VARCHAR2 | Y |  |
+| 34 | SN_BLOQUEIO_DE_COMPRA | VARCHAR2 | Y |  |
+| 35 | SN_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 36 | SN_MANIPULADO | VARCHAR2 | Y |  |
+| 37 | SN_IMPRIME_ETIQUETA_DOSE | VARCHAR2 | Y |  |
+| 38 | SN_IMPRIME_ETIQUETA_LACTARIO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.ESPECIALID
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ESPECIALID | NUMBER | Y |  |
+| 8 | DS_ESPECIALID | VARCHAR2 | Y |  |
+| 9 | SN_ATIVO | VARCHAR2 | Y |  |
+| 10 | VL_CUSTO_VARIAVEL | NUMBER | Y |  |
+| 11 | CD_CBOS | VARCHAR2 | Y |  |
+| 12 | CD_ESPECIALID_INTEGRA | VARCHAR2 | Y |  |
+| 13 | DT_INTEGRA | DATE | Y |  |
+| 14 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 15 | SN_CLASSIFICACAO_RISCO | VARCHAR2 | Y |  |
+| 16 | SN_ATIVO_ENCAMINHAMENTO | VARCHAR2 | Y |  |
+| 17 | CD_ESPECIALID_MEDICO_EXT | VARCHAR2 | Y |  |
+| 18 | CD_ESPECIALID_RESIDENTE_EXT | VARCHAR2 | Y |  |
+| 19 | TP_ESPECIALID | VARCHAR2 | Y |  |
+| 20 | NR_DIAS_CONSULT_ANS | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.ESP_MED
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ESPECIALID | NUMBER | Y |  |
+| 8 | CD_PRESTADOR | NUMBER | Y |  |
+| 9 | SN_ESPECIAL_PRINCIPAL | VARCHAR2 | Y |  |
+| 10 | CD_ESP_MED_INTEGRA | VARCHAR2 | Y |  |
+| 11 | DT_INTEGRA | DATE | Y |  |
+| 12 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 13 | NR_CARGA_HORARIA | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.ESTOQUE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ESTOQUE | NUMBER | Y |  |
+| 8 | DS_ESTOQUE | VARCHAR2 | Y |  |
+| 9 | SN_CODIGO_DE_BARRAS | VARCHAR2 | Y |  |
+| 10 | SN_IMPRIME_DIRETO | VARCHAR2 | Y |  |
+| 11 | DS_CAMINHO_IMPRESSORA | VARCHAR2 | Y |  |
+| 12 | DS_ETIQUETA_ENTRADA | VARCHAR2 | Y |  |
+| 13 | DS_ETIQUETA_SAIDA | VARCHAR2 | Y |  |
+| 14 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 15 | CD_REDUZIDO_DEBITO | NUMBER | Y |  |
+| 16 | CD_REDUZIDO_CREDITO | NUMBER | Y |  |
+| 17 | CD_SETOR | NUMBER | Y |  |
+| 18 | TP_ESTOQUE | VARCHAR2 | Y |  |
+| 19 | CD_OS | NUMBER | Y |  |
+| 20 | DS_COMPRO_SAIDA_PACIENTE | VARCHAR2 | Y |  |
+| 21 | DS_COMPRO_SAIDA_SETOR | VARCHAR2 | Y |  |
+| 22 | DS_COMPRO_DEVOLUCAO_PACIENTE | VARCHAR2 | Y |  |
+| 23 | DS_COMPRO_DEVOLUCAO_SETOR | VARCHAR2 | Y |  |
+| 24 | DS_TRANSFERENCIA_ESTOQUE | VARCHAR2 | Y |  |
+| 25 | SN_ESTOQUE_CUSTO_MEDIO | VARCHAR2 | Y |  |
+| 26 | SN_PERMITIR_DIGITAR_PRODUTO | VARCHAR2 | Y |  |
+| 27 | TP_REPOSICAO_ESTOQUE | VARCHAR2 | Y |  |
+| 28 | NR_COPIA_ETIQUETA_SAIDA | NUMBER | Y |  |
+| 29 | DS_RELATORIO_ETIQUETA_SAIDA | VARCHAR2 | Y |  |
+| 30 | SN_LIM_TRANS_COTA | VARCHAR2 | Y |  |
+| 31 | SN_LOGON | VARCHAR2 | Y |  |
+| 32 | SN_CHECA_SALDO_EST | VARCHAR2 | Y |  |
+| 33 | SN_CALC_DEMANDA_EMP | VARCHAR2 | Y |  |
+| 34 | TP_IMPRESSAO_ESTOQUE | VARCHAR2 | Y |  |
+| 35 | NR_HORAS_BAIXA_AUTOMATICA | NUMBER | Y |  |
+| 36 | SN_IMPRIME_ZEBRA | VARCHAR2 | Y |  |
+| 37 | CD_ETIQUETA | NUMBER | Y |  |
+| 38 | SN_KIT_PRODUZIDO | VARCHAR2 | Y |  |
+| 39 | SN_APENAS_URGENTE | VARCHAR2 | Y |  |
+| 40 | TP_FORMA_ENVIO | VARCHAR2 | Y |  |
+| 41 | DS_FORMA_ENVIO | VARCHAR2 | Y |  |
+| 42 | CD_ESTOQUE_ORIGEM | NUMBER | Y |  |
+| 43 | SN_GERA_SUGESTAO_COMPRA | VARCHAR2 | Y |  |
+| 44 | SN_VINCULA_PROD_ATEND | VARCHAR2 | Y |  |
+| 45 | SN_IMPRIME_PRESCRICAO | VARCHAR2 | Y |  |
+| 46 | CD_ESTOQUE_DEVOLUCAO | NUMBER | Y |  |
+| 47 | SN_PERMITE_LOTE_VAL_NULO | VARCHAR2 | Y |  |
+| 48 | NR_FECHAMENTO_AUTOMATICO | NUMBER | Y |  |
+| 49 | SN_IMP_SOL_PAC | VARCHAR2 | Y |  |
+| 50 | SN_IMP_SOL_SET | VARCHAR2 | Y |  |
+| 51 | SN_IMP_SOL_EST | VARCHAR2 | Y |  |
+| 52 | SN_IMP_DEV_PAC | VARCHAR2 | Y |  |
+| 53 | SN_IMP_DEV_SET | VARCHAR2 | Y |  |
+| 54 | CD_SETOR_MOV_PADRAO | NUMBER | Y |  |
+| 55 | DS_CAMINHO_IMPRESSORA_URGENTE | VARCHAR2 | Y |  |
+| 56 | SN_SOLIC_DEV_FATURAMENTO | VARCHAR2 | Y |  |
+| 57 | CD_MOTIVO_BAIXA_PADRAO | NUMBER | Y |  |
+| 58 | CD_ESTOQUE_INTEGRA | VARCHAR2 | Y |  |
+| 59 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 60 | DT_INTEGRA | DATE | Y |  |
+| 61 | TP_SOLICITACAO | VARCHAR2 | Y |  |
+| 62 | SN_ATENDER_SOL_PAC | VARCHAR2 | Y |  |
+| 63 | SN_ATENDER_SOL_SETOR | VARCHAR2 | Y |  |
+| 64 | SN_ATENDER_SOL_TRANS_EST | VARCHAR2 | Y |  |
+| 65 | NR_HORAS_ANTECEDENCIA_ATD | NUMBER | Y |  |
+| 66 | SN_FILTRO_USUARIO | VARCHAR2 | Y |  |
+| 67 | SN_OUTROS_FILTROS | VARCHAR2 | Y |  |
+| 68 | SN_URGENCIA_TURNO | VARCHAR2 | Y |  |
+| 69 | SN_FECHAR_AUTOMATICO | VARCHAR2 | Y |  |
+| 70 | SN_ATENDER_PARCIAL | VARCHAR2 | Y |  |
+| 71 | SN_UTILIZAR_TURNOS | VARCHAR2 | Y |  |
+| 72 | SN_CONTAGEM | VARCHAR2 | Y |  |
+| 73 | CD_ETIQUETA_CONTROLE_IMPRESSAO | NUMBER | Y |  |
+| 74 | NR_HORAS_INCL_MOV_DEV_APO_ALTA | NUMBER | Y |  |
+| 75 | TP_COTA_ESTOQUE | VARCHAR2 | Y |  |
+| 76 | SN_CONFIRMA_CONS | VARCHAR2 | Y |  |
+| 77 | SN_MOV_CONSUMO_TRANSF | VARCHAR2 | Y |  |
+| 78 | CD_REDUZIDO_CREDITO_CONSIGNADO | NUMBER | Y |  |
+| 79 | CD_REDUZIDO_DEBITO_CONSIGNADO | NUMBER | Y |  |
+| 80 | SN_ENDERECAMENTO_PRODUTO | VARCHAR2 | Y |  |
+| 81 | TP_MOTIVO_DIVERGENCIA_ATENDIME | VARCHAR2 | Y |  |
+| 82 | SN_IMPRI_COMPRO_DEVOL_PACIENTE | VARCHAR2 | Y |  |
+| 83 | DS_EMAIL_RECEBIMENTO | VARCHAR2 | Y |  |
+| 84 | DS_EMAIL_ENVIO | VARCHAR2 | Y |  |
+| 85 | DS_CONTEUDO_EMAIL | VARCHAR2 | Y |  |
+| 86 | SN_ESTOQUE_PRINCIPAL | VARCHAR2 | Y |  |
+| 87 | SN_ENVIO_EMAIL_NOTA | VARCHAR2 | Y |  |
+| 88 | DS_TRANSFERENCIA_EMPRESA | VARCHAR2 | Y |  |
+| 89 | DS_SOLICITACAO_AVULSA | VARCHAR2 | Y |  |
+| 90 | SN_PERMITIR_ITENS_DEVOLVER_KIT | VARCHAR2 | Y |  |
+| 91 | SN_PERMITIR_ITENS_CONSUMO_KIT | VARCHAR2 | Y |  |
+| 92 | SN_PERMITIR_DEVOL_KIT_FECHADO | VARCHAR2 | Y |  |
+| 93 | TP_CONSUMO_KIT_INICIAL | VARCHAR2 | Y |  |
+| 94 | SN_PERMITIR_PRODUTO_PROD_KIT | VARCHAR2 | Y |  |
+| 95 | SN_PERMITIR_CARREGAR_PROD_KIT | VARCHAR2 | Y |  |
+| 96 | SN_ATENDER_MAIOR_PALM | VARCHAR2 | Y |  |
+| 97 | SN_CONTROLA_BARRAS_DEVOLKIT | VARCHAR2 | Y |  |
+| 98 | SN_IMPRESSAO_TERMICA | VARCHAR2 | Y |  |
+| 99 | DS_COMPRO_SOL_TERMICO | VARCHAR2 | Y |  |
+| 100 | SN_TERMICA_CENTRALIZADOR | VARCHAR2 | Y |  |
+| 101 | DS_URG_SOL_TERMICO | VARCHAR2 | Y |  |
+| 102 | DS_PRESC_SOL_TERMICO | VARCHAR2 | Y |  |
+| 103 | SN_EXIGE_CHANCELA | VARCHAR2 | Y |  |
+| 104 | SN_CONSIDERA_TRANSF_CONSUMO | VARCHAR2 | Y |  |
+| 105 | SN_RESTINGE_QTD_ITEM | VARCHAR2 | Y |  |
+| 106 | CD_FORMULA | NUMBER | Y |  |
+| 107 | SN_INFORMA_ULTIMA_DISPERSAO | VARCHAR2 | Y |  |
+| 108 | SN_USA_CONFERENCIA_ENTRADA | VARCHAR2 | Y |  |
+| 109 | SN_DISPENSARIO_ELETRONICO | VARCHAR2 | Y |  |
+| 110 | SN_MANIPULA_PRODUTO | VARCHAR2 | Y |  |
+| 111 | DS_CAMINHO_IMPRESSORA_MANIPULA | VARCHAR2 | Y |  |
+| 112 | SN_CONTROLAR_ROUPARIA | VARCHAR2 | Y |  |
+| 113 | SN_FRACIONAR_PRODUTO | VARCHAR2 | Y |  |
+| 114 | TP_ESTOQUE_SUBSTITUTO | VARCHAR2 | Y |  |
+| 115 | SN_IDENTIFICADOR_UNI_PRD_EST | VARCHAR2 | Y |  |
+| 116 | SN_CONTROLA_LOTE_PRODUCAO | VARCHAR2 | Y |  |
+| 117 | SN_ALTERA_FRETE | VARCHAR2 | Y |  |
+| 118 | NM_REPORT_ETIQUETA | VARCHAR2 | Y |  |
+| 119 | SN_PRODUTO_PROD_SO_FORMULA | VARCHAR2 | Y |  |
+| 120 | SN_CONTR_VAL_COMP_VAL_FORMULA | VARCHAR2 | Y |  |
+| 121 | SN_SAIDA_DIRE_SETOR_PROD_PRODU | VARCHAR2 | Y |  |
+| 122 | SN_SAIDA_DIRE_PACI_PROD_PRODU | VARCHAR2 | Y |  |
+| 123 | SN_CENTRAL_KIT | VARCHAR2 | Y |  |
+| 124 | SN_HAB_ESTDEST_QTDDIAS_SOL_PRD | VARCHAR2 | Y |  |
+| 125 | SN_HAB_SET_DEST_COT_RESSUP_EMP | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.ETIQUETA_PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ETIQUETA | NUMBER | Y |  |
+| 8 | DS_ETIQUETA | VARCHAR2 | Y |  |
+| 9 | TP_DRIVER | VARCHAR2 | Y |  |
+| 10 | QT_COLUNA | NUMBER | Y |  |
+| 11 | LARGURA | NUMBER | Y |  |
+| 12 | ALTURA | NUMBER | Y |  |
+| 13 | MARGEM_ESQUERDA | NUMBER | Y |  |
+| 14 | MARGEM_SUPERIOR | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.EXA_LAB
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_EXA_LAB | NUMBER | Y |  |
+| 8 | NM_EXA_LAB | VARCHAR2 | Y |  |
+| 9 | SN_CULTURA | VARCHAR2 | Y |  |
+| 10 | SN_CONTAGIOSO | VARCHAR2 | Y |  |
+| 11 | TP_SEXO | VARCHAR2 | Y |  |
+| 12 | VL_CUSTO | NUMBER | Y |  |
+| 13 | CD_VERSAO_ATUAL | NUMBER | Y |  |
+| 14 | DS_ORIENTACAO | VARCHAR2 | Y |  |
+| 15 | NR_DIAS_PERIODO | NUMBER | Y |  |
+| 16 | NR_ORDEM_DE_IMPRESAO | NUMBER | Y |  |
+| 17 | NR_SOLICITACOES_PERIODO | NUMBER | Y |  |
+| 18 | NR_ORDEM_DE_IMPRESSAO | NUMBER | Y |  |
+| 19 | DS_ESPELHO | VARCHAR2 | Y |  |
+| 20 | VL_TEMPO_MEDIO | DATE | Y |  |
+| 21 | CD_SIH_SUS | VARCHAR2 | Y |  |
+| 22 | CD_SSM | VARCHAR2 | Y |  |
+| 23 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 24 | CD_PRO_FAT_SUS | VARCHAR2 | Y |  |
+| 25 | PAG_UNIC_EXAME | VARCHAR2 | Y |  |
+| 26 | NM_MNEMONICO | VARCHAR2 | Y |  |
+| 27 | TP_RESULTADO | VARCHAR2 | Y |  |
+| 28 | CD_TEX_PAD | NUMBER | Y |  |
+| 29 | SN_IMP_ULT_RESULTADO | VARCHAR2 | Y |  |
+| 30 | SN_CONSULTA_RESULTADO | VARCHAR2 | Y |  |
+| 31 | NR_ETIQUETA | NUMBER | Y |  |
+| 32 | SN_ANTIBIOGRAMA | VARCHAR2 | Y |  |
+| 33 | SN_ASSOCIA_LOTE_BANCADA | VARCHAR2 | Y |  |
+| 34 | SN_LANCA_EXAME_PRINCIPAL | VARCHAR2 | Y |  |
+| 35 | SN_REALIZA_DOMINGO | VARCHAR2 | Y |  |
+| 36 | SN_REALIZA_SEGUNDA | VARCHAR2 | Y |  |
+| 37 | SN_REALIZA_TERCA | VARCHAR2 | Y |  |
+| 38 | SN_REALIZA_QUARTA | VARCHAR2 | Y |  |
+| 39 | SN_REALIZA_QUINTA | VARCHAR2 | Y |  |
+| 40 | SN_REALIZA_SEXTA | VARCHAR2 | Y |  |
+| 41 | SN_REALIZA_SABADO | VARCHAR2 | Y |  |
+| 42 | SN_ATIVO | VARCHAR2 | Y |  |
+| 43 | CD_USUARIO_DESATIVACAO | VARCHAR2 | Y |  |
+| 44 | DT_DESATIVACAO | DATE | Y |  |
+| 45 | CD_EXA_LAB_INTEGRA | VARCHAR2 | Y |  |
+| 46 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 47 | DT_INTEGRA | DATE | Y |  |
+| 48 | CD_CODIGO_EXTERNO | VARCHAR2 | Y |  |
+| 49 | CD_PROCEDIMENTO_SIA | VARCHAR2 | Y |  |
+| 50 | CD_PROCEDIMENTO_SIH | VARCHAR2 | Y |  |
+| 51 | NR_PCE | NUMBER | Y |  |
+| 52 | SN_PERMITE_VARIOS_TUBOS | VARCHAR2 | Y |  |
+| 53 | SN_PRIORIDADE | VARCHAR2 | Y |  |
+| 54 | SN_RESTRITO | VARCHAR2 | Y |  |
+| 55 | SN_OBRIGA_PESO_ALTURA_COLETA | VARCHAR2 | Y |  |
+| 56 | SN_OBRIGA_LOCAL_ANATOMICO_COL | VARCHAR2 | Y |  |
+| 57 | SN_CAMPOS_VERSAO_ESPELHO | VARCHAR2 | Y |  |
+| 58 | SN_CURVA_DINAMICA | VARCHAR2 | Y |  |
+| 59 | SN_EXAME_EXCLUSIVO_SECUNDARIO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.FECHAMENTO_DO_MES
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | DT_COMPETENCIA | DATE | Y |  |
+| 8 | DH_REALIZACAO_FECHAMENTO_MES | DATE | Y |  |
+| 9 | CD_USUARIO_FECHAMENTO_DO_MES | VARCHAR2 | Y |  |
+| 10 | SN_FECHAMENTO_DO_MES | VARCHAR2 | Y |  |
+| 11 | DH_REALIZACAO_CONSOLIDACAO | DATE | Y |  |
+| 12 | CD_USUARIO_CONSOLIDACAO | VARCHAR2 | Y |  |
+| 13 | SN_CONSOLIDACAO | VARCHAR2 | Y |  |
+| 14 | SID | NUMBER | Y |  |
+| 15 | SERIAL | NUMBER | Y |  |
+| 16 | AUDSID | NUMBER | Y |  |
+| 17 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 18 | TP_PROCESSO_CONSIG_CONSO | VARCHAR2 | Y |  |
+| 19 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 20 | DT_INTEGRA | DATE | Y |  |
+| 21 | TP_PROCESSO_CUSTO_MEDIO | VARCHAR2 | Y |  |
+| 22 | TP_CUSTO_TRANSF_EMP | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.FORNECEDOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_FORNECEDOR | NUMBER | Y |  |
+| 8 | NM_FORNECEDOR | VARCHAR2 | Y |  |
+| 9 | NM_FANTASIA | VARCHAR2 | Y |  |
+| 10 | TP_FORNECEDOR | VARCHAR2 | Y |  |
+| 11 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 12 | NR_CGC_CPF | NUMBER | Y |  |
+| 13 | DS_AGENCIA | VARCHAR2 | Y |  |
+| 14 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 15 | NR_CEP | VARCHAR2 | Y |  |
+| 16 | NR_CONTA | VARCHAR2 | Y |  |
+| 17 | NM_CONTATO | VARCHAR2 | Y |  |
+| 18 | CD_BANCO | NUMBER | Y |  |
+| 19 | CD_CIDADE | NUMBER | Y |  |
+| 20 | NR_INSC_EST | VARCHAR2 | Y |  |
+| 21 | CD_AGENCIA | VARCHAR2 | Y |  |
+| 22 | SN_ATIVO | VARCHAR2 | Y |  |
+| 23 | TP_CLIENTE_FORN | VARCHAR2 | Y |  |
+| 24 | TP_PAGAMENTO | VARCHAR2 | Y |  |
+| 25 | CD_SETOR | NUMBER | Y |  |
+| 26 | SN_UTILIZA_INTERNET | VARCHAR2 | Y |  |
+| 27 | DS_ANEXO_DOCUMENTO | LONG RAW | Y |  |
+| 28 | DS_SENHA_INTERNET | VARCHAR2 | Y |  |
+| 29 | DS_ENDERECO_EMAIL | VARCHAR2 | Y |  |
+| 30 | DS_USERNAME_INTERNET | VARCHAR2 | Y |  |
+| 31 | SN_ALT_DADOS_ORA_APP | VARCHAR2 | Y |  |
+| 32 | CD_RANKING | NUMBER | Y |  |
+| 33 | DS_ATRIBUTO1 | VARCHAR2 | Y |  |
+| 34 | QT_DIAS_AVALIACAO | NUMBER | Y |  |
+| 35 | SN_FORNECE_OPM | VARCHAR2 | Y |  |
+| 36 | SN_COBRANCA_FORNEC | VARCHAR2 | Y |  |
+| 37 | DT_IMPORTACAO_SAP | DATE | Y |  |
+| 38 | TP_CALCULO_IPI | VARCHAR2 | Y |  |
+| 39 | CD_SISTEMA_INTEGRADO | VARCHAR2 | Y |  |
+| 40 | SN_OPERADOR | VARCHAR2 | Y |  |
+| 41 | NR_MATRICULA | VARCHAR2 | Y |  |
+| 42 | CD_FORNECEDOR_INTEGRA | VARCHAR2 | Y |  |
+| 43 | DT_INTEGRA | DATE | Y |  |
+| 44 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 45 | NR_INSCRICAO_INSS | NUMBER | Y |  |
+| 46 | NR_PIS_PASEP | NUMBER | Y |  |
+| 47 | NR_INSC_MUN | VARCHAR2 | Y |  |
+| 48 | DS_RUA | VARCHAR2 | Y |  |
+| 49 | NR_ENDERECO | VARCHAR2 | Y |  |
+| 50 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 51 | QT_DEPENDENTES | NUMBER | Y |  |
+| 52 | DS_CBO | VARCHAR2 | Y |  |
+| 53 | CD_CONSTITUICAO_EMPRESA | NUMBER | Y |  |
+| 54 | SN_CESSAO_CREDITO | VARCHAR2 | Y |  |
+| 55 | SN_VALOR_ACORDADO | VARCHAR2 | Y |  |
+| 56 | DV_AGENCIA | VARCHAR2 | Y |  |
+| 57 | DV_CONTA_CORRENTE | VARCHAR2 | Y |  |
+| 58 | DT_INCLUSAO | DATE | Y |  |
+| 59 | NR_REGISTRO_ANVISA | NUMBER | Y |  |
+| 60 | DS_DOCUMENTO | VARCHAR2 | Y |  |
+| 61 | SN_SIMPLES | VARCHAR2 | Y |  |
+| 62 | CD_ENDERECO_POSTAL | VARCHAR2 | Y |  |
+| 63 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 64 | CD_ESTADO_FORNECEDOR | VARCHAR2 | Y |  |
+| 65 | CD_SIMPLES_NACIONAL | VARCHAR2 | Y |  |
+| 66 | NR_CONTRIBUINTE | VARCHAR2 | Y |  |
+| 67 | CD_AFE | VARCHAR2 | Y |  |
+| 68 | NR_CNES | VARCHAR2 | Y |  |
+| 69 | SN_PERMITE_INTO | VARCHAR2 | Y |  |
+| 70 | TP_STATUS_UNIFICADO | VARCHAR2 | Y |  |
+| 71 | CD_FORNECEDOR_NOVO | NUMBER | Y |  |
+| 72 | DS_LOGRADOURO | VARCHAR2 | Y |  |
+| 73 | DT_NASCIMENTO | DATE | Y |  |
+| 74 | NR_CCM | VARCHAR2 | Y |  |
+| 75 | NR_REGISTRO | VARCHAR2 | Y |  |
+| 76 | CD_CNAE | NUMBER | Y |  |
+| 77 | CD_MOTIVO_NAO_RETENCAO | VARCHAR2 | Y |  |
+| 78 | CD_PAIS | NUMBER | Y |  |
+| 79 | CD_PAIS_BACEN | VARCHAR2 | Y |  |
+| 80 | CD_SITUACAO_ESPECIAL_RESPONSA | VARCHAR2 | Y |  |
+| 81 | DS_CHAVE_PIX | VARCHAR2 | Y |  |
+| 82 | NM_SOCIAL_FORNECEDOR | VARCHAR2 | Y |  |
+| 83 | NR_CGC_CPF_MATRIZ | NUMBER | Y |  |
+| 84 | NR_NACIONALIDADE | VARCHAR2 | Y |  |
+| 85 | SN_DEDUCAO_SIMP | VARCHAR2 | Y |  |
+| 86 | STATUS_FORNECEDOR | VARCHAR2 | Y |  |
+| 87 | TP_CONTRIBUICAO_REINF | VARCHAR2 | Y |  |
+| 88 | TP_IND_AQUISICAO_REINF | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.ITSOLSAI_PRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ITSOLSAI_PRO | NUMBER | Y |  |
+| 8 | CD_SOLSAI_PRO | NUMBER | Y |  |
+| 9 | CD_PRODUTO | NUMBER | Y |  |
+| 10 | CD_UNI_PRO | NUMBER | Y |  |
+| 11 | QT_SOLICITADO | NUMBER | Y |  |
+| 12 | CD_TIP_PRESC | NUMBER | Y |  |
+| 13 | CD_TIP_FRE | NUMBER | Y |  |
+| 14 | SN_ATENDIDO | VARCHAR2 | Y |  |
+| 15 | CD_UNIDADE | VARCHAR2 | Y |  |
+| 16 | CD_KIT_ESTOQUE | VARCHAR2 | Y |  |
+| 17 | CD_TIP_PRESC_KIT | NUMBER | Y |  |
+| 18 | CD_LOTE | VARCHAR2 | Y |  |
+| 19 | DT_VALIDADE | DATE | Y |  |
+| 20 | QT_PRESCRITA | NUMBER | Y |  |
+| 21 | NR_DIAS | NUMBER | Y |  |
+| 22 | TP_USO_PRODUTO | VARCHAR2 | Y |  |
+| 23 | CD_PRODUTO_KIT | NUMBER | Y |  |
+| 24 | CD_FORMULA_KIT | NUMBER | Y |  |
+| 25 | QT_KIT | NUMBER | Y |  |
+| 26 | CD_MOT_DEV | NUMBER | Y |  |
+| 27 | SN_FATURA | VARCHAR2 | Y |  |
+| 28 | CD_ITPRE_MED | NUMBER | Y |  |
+| 29 | QT_ATENDIDA | NUMBER | Y |  |
+| 30 | DS_NPADRONIZADO | VARCHAR2 | Y |  |
+| 31 | CD_ITDEV_PRE | NUMBER | Y |  |
+| 32 | DS_OBS_ITPRE_MED | VARCHAR2 | Y |  |
+| 33 | SN_CONF_DETERM_USU | VARCHAR2 | Y |  |
+| 34 | DT_GRAVACAO | DATE | Y |  |
+| 35 | DSP_CODIGO_DE_BARRAS | VARCHAR2 | Y |  |
+| 36 | DS_ALERTA_AUTOMATICO | VARCHAR2 | Y |  |
+| 37 | CD_ITSOLSAI_PRO_INTEGRA | VARCHAR2 | Y |  |
+| 38 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 39 | DT_INTEGRA | DATE | Y |  |
+| 40 | DT_ESTORNO_FFCV | DATE | Y |  |
+| 41 | CD_ITENT_PRO | NUMBER | Y |  |
+| 42 | CD_MOTIVO_DIVERG_ATEND | NUMBER | Y |  |
+| 43 | SN_IMPRIME_ETQ_DOSE | CHAR | Y |  |
+| 44 | SN_COMPONENTE | VARCHAR2 | Y |  |
+| 45 | SN_CONF_REC_SEM_ATENDIMENTO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.LABORATOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_LABORATOR | VARCHAR2 | Y |  |
+| 8 | NM_LABORATOR | VARCHAR2 | Y |  |
+| 9 | CD_FORNECEDOR | NUMBER | Y |  |
+| 10 | TP_ORIGEM | VARCHAR2 | Y |  |
+| 11 | DS_PAIS_ORIGEM | VARCHAR2 | Y |  |
+| 12 | CD_LABORATOR_INTEGRA | VARCHAR2 | Y |  |
+| 13 | DT_INTEGRA | DATE | Y |  |
+| 14 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 15 | CD_CORPORATIVO_ME | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.LAUDO_AIH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 8 | DT_EMISSAO | DATE | Y |  |
+| 9 | CD_PRESTADOR_SOL | NUMBER | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | DS_SINAIS_SINT_CLINICOS | VARCHAR2 | Y |  |
+| 12 | DS_COND_JUST_INTERNACAO | VARCHAR2 | Y |  |
+| 13 | DS_RESULT_PROV_DIAG | VARCHAR2 | Y |  |
+| 14 | DS_DIAGNOSTICO | VARCHAR2 | Y |  |
+| 15 | CD_CARATER_INTERNACAO | NUMBER | Y |  |
+| 16 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 17 | CD_CID_PRINCIPAL | VARCHAR2 | Y |  |
+| 18 | CD_CID_SECUNDARIO | VARCHAR2 | Y |  |
+| 19 | CD_CARATER_ATENDIMENTO | NUMBER | Y |  |
+| 20 | CD_ESPEC_SUS | VARCHAR2 | Y |  |
+| 21 | CD_PROCEDIMENTO | VARCHAR2 | Y |  |
+| 22 | CD_ESTABELECIMENTO | NUMBER | Y |  |
+| 23 | CD_LAUDO_AIH_INTEGRA | VARCHAR2 | Y |  |
+| 24 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 25 | DT_INTEGRA | DATE | Y |  |
+| 26 | SN_IMPRESSO | VARCHAR2 | Y |  |
+| 27 | DT_IMPRESSAO | DATE | Y |  |
+| 28 | CD_CID_CAUSAS_ASSOCIADAS | VARCHAR2 | Y |  |
+| 29 | CD_LAUDO | NUMBER | Y |  |
+| 30 | CD_PACIENTE | NUMBER | Y |  |
+| 31 | NR_AIH | NUMBER | Y |  |
+| 32 | DT_SETOR | DATE | Y |  |
+| 33 | DT_SECRETARIA | DATE | Y |  |
+| 34 | DT_ENVIO | DATE | Y |  |
+| 35 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 36 | NR_PEDIDO_LAUDO | NUMBER | Y |  |
+| 37 | NR_LAUDO | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.LOTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_LOTE | NUMBER | Y |  |
+| 8 | DS_LOTE | VARCHAR2 | Y |  |
+| 9 | DT_INICIAL_LCTO | DATE | Y |  |
+| 10 | DT_FINAL_LCTO | DATE | Y |  |
+| 11 | VL_LOTE | NUMBER | Y |  |
+| 12 | DT_LIBERADO | DATE | Y |  |
+| 13 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 14 | DT_CRIACAO | DATE | Y |  |
+| 15 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y |  |
+| 16 | CD_LOTE_PAI | NUMBER | Y |  |
+| 17 | SN_LOTE_APURACAO_RESULTADO | VARCHAR2 | Y |  |
+| 18 | CD_LOTE_INTEGRA | VARCHAR2 | Y |  |
+| 19 | DT_INTEGRA | DATE | Y |  |
+| 20 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 21 | TP_ORIGEM_LOTE | VARCHAR2 | Y |  |
+| 22 | SN_LOTE_VARIACAO_CAMBIAL | VARCHAR2 | Y |  |
+| 23 | SN_IMPORTADO | VARCHAR2 | Y |  |
+| 24 | CD_TELA | VARCHAR2 | Y |  |
+| 25 | TP_LANCAMENTO | VARCHAR2 | Y |  |
+| 26 | CD_LOTE_EXT | NUMBER | Y |  |
+| 27 | CD_LCTO_MOV_EXT | NUMBER | Y |  |
+| 28 | DT_LCTO_EXT | DATE | Y |  |
+| 29 | DS_NOTA_EXPLICATIVA | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.LOT_PRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_LOT_PRO | NUMBER | Y |  |
+| 8 | CD_ESTOQUE | NUMBER | Y |  |
+| 9 | CD_PRODUTO | NUMBER | Y |  |
+| 10 | DT_VALIDADE | DATE | Y |  |
+| 11 | QT_ESTOQUE_ATUAL | NUMBER | Y |  |
+| 12 | CD_LOTE | VARCHAR2 | Y |  |
+| 13 | SN_BLOQUEIO | VARCHAR2 | Y |  |
+| 14 | QT_ESTOQUE_DOADO | NUMBER | Y |  |
+| 15 | DS_MARCA | VARCHAR2 | Y |  |
+| 16 | QT_ORCAMENTARIO | NUMBER | Y |  |
+| 17 | QT_EXTRA_ORCAMENTARIO | NUMBER | Y |  |
+| 18 | QT_KIT | NUMBER | Y |  |
+| 19 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 20 | DS_ENDERECO_OLD | VARCHAR2 | Y |  |
+| 21 | DS_MOTIVO_BLOQUEIO | VARCHAR2 | Y |  |
+| 22 | QT_EST_CONSIG | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.MOT_ALT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_MOT_ALT | NUMBER | Y |  |
+| 8 | DS_MOT_ALT | VARCHAR2 | Y |  |
+| 9 | TP_MOT_ALTA | VARCHAR2 | Y |  |
+| 10 | CD_ALTA_SUS | NUMBER | Y |  |
+| 11 | SN_ATIVO | VARCHAR2 | Y |  |
+| 12 | CD_MOT_ALT_EXTERNO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.MOV_CONCOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_MOV_CONCOR | NUMBER | Y |  |
+| 8 | DS_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 9 | VL_MOVIMENTACAO | NUMBER | Y |  |
+| 10 | DT_MOVIMENTACAO | DATE | Y |  |
+| 11 | NR_DOCUMENTO_IDENTIFICACAO | VARCHAR2 | Y |  |
+| 12 | SN_LANCAMENTO_DEVOLVIDO | VARCHAR2 | Y |  |
+| 13 | CD_APLICACAO | NUMBER | Y |  |
+| 14 | CD_CON_COR | NUMBER | Y |  |
+| 15 | CD_CON_COR_TRANSFERENCIA | NUMBER | Y |  |
+| 16 | CD_LAN_CONCOR | NUMBER | Y |  |
+| 17 | CD_CHEQUE | NUMBER | Y |  |
+| 18 | CD_BORDERO | NUMBER | Y |  |
+| 19 | CD_MOV_CONCOR_TRANSFERENCIA | NUMBER | Y |  |
+| 20 | CD_SAI_CAI | NUMBER | Y |  |
+| 21 | SN_COMPENSADO | VARCHAR2 | Y |  |
+| 22 | DT_DEPOSITO | DATE | Y |  |
+| 23 | CD_CON_REC | NUMBER | Y |  |
+| 24 | VL_ACRESCIMO_REC | NUMBER | Y |  |
+| 25 | VL_DESCONTO_REC | NUMBER | Y |  |
+| 26 | SN_CONCILIADO | VARCHAR2 | Y |  |
+| 27 | TP_TRANSFERENCIA | VARCHAR2 | Y |  |
+| 28 | CD_REDUZIDO | NUMBER | Y |  |
+| 29 | CD_SETOR | NUMBER | Y |  |
+| 30 | CD_DESCONTO | NUMBER | Y |  |
+| 31 | CD_ACRESCIMO | NUMBER | Y |  |
+| 32 | CD_EXP_CONTABILIDADE | NUMBER | Y |  |
+| 33 | CD_PAGCON_PAG | NUMBER | Y |  |
+| 34 | SN_GLOSA | VARCHAR2 | Y |  |
+| 35 | VL_ESTORNO | NUMBER | Y |  |
+| 36 | DT_ESTORNO | DATE | Y |  |
+| 37 | SN_ESTORNO | VARCHAR2 | Y |  |
+| 38 | CD_MOTIVO_CANC | NUMBER | Y |  |
+| 39 | CD_USUARIO | VARCHAR2 | Y |  |
+| 40 | CD_ITCON_PAG | NUMBER | Y |  |
+| 41 | SN_RECURSO | VARCHAR2 | Y |  |
+| 42 | CD_ITCON_REC | NUMBER | Y |  |
+| 43 | CD_RECCON_REC | NUMBER | Y |  |
+| 44 | CD_MOV_CAIXA | VARCHAR2 | Y |  |
+| 45 | CD_MOEDA | VARCHAR2 | Y |  |
+| 46 | VL_MOEDA | NUMBER | Y |  |
+| 47 | MOT_CANC_CONC | VARCHAR2 | Y |  |
+| 48 | CD_CONVENIO | NUMBER | Y |  |
+| 49 | VL_CONCILIADO | NUMBER | Y |  |
+| 50 | CD_FORNECEDOR | NUMBER | Y |  |
+| 51 | CD_MOV_PAI | NUMBER | Y |  |
+| 52 | CD_PROCESSO | NUMBER | Y |  |
+| 53 | CD_MOV_DEPOSITO_AGRUP | NUMBER | Y |  |
+| 54 | DS_MOVIMENTACAO_PADRAO | VARCHAR2 | Y |  |
+| 55 | DS_MOVIMENTACAO_PROCESSO | VARCHAR2 | Y |  |
+| 56 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 57 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y |  |
+| 58 | CD_MULTI_EMPRESA_DESTINO | NUMBER | Y |  |
+| 59 | VL_CAMBIO | NUMBER | Y |  |
+| 60 | SN_CAMBIO_SUGERIDO | VARCHAR2 | Y |  |
+| 61 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 62 | DT_INTEGRA | DATE | Y |  |
+| 63 | CD_LCTO_MOVIMENTO | NUMBER | Y |  |
+| 64 | VL_IMPOSTO | NUMBER | Y |  |
+| 65 | VL_BRUTO_MOV | NUMBER | Y |  |
+| 66 | VL_ACORDO | NUMBER | Y |  |
+| 67 | CD_RECCON_REC_PREST | NUMBER | Y |  |
+| 68 | CD_OCORRENCIA_LAY_ARQ | NUMBER | Y |  |
+| 69 | CD_EXP_CONTAB_PREDAT | NUMBER | Y |  |
+| 70 | DT_PREDATADA | DATE | Y |  |
+| 71 | CD_CAUCAO | NUMBER | Y |  |
+| 72 | DS_CHAVE_PIX | VARCHAR2 | Y |  |
+| 73 | DS_CHAVE_PIX_TRANSFERENCIA | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.MOV_PRESTADOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 8 | DT_INI_TRANSF | DATE | Y |  |
+| 9 | DT_FIM_TRANSF | DATE | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 12 | NM_USUARIO | VARCHAR2 | Y |  |
+| 13 | CD_SERVICO | NUMBER | Y |  |
+| 14 | CD_ESPECIALID | NUMBER | Y |  |
+| 15 | CD_SER_DIS | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.MULTI_EMPRESAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 8 | DS_MULTI_EMPRESA | VARCHAR2 | Y |  |
+| 9 | DS_NOME_CONTADOR | VARCHAR2 | Y |  |
+| 10 | CD_CPF_CONTADOR | NUMBER | Y |  |
+| 11 | CD_ATIVO | NUMBER | Y |  |
+| 12 | CD_PASSIVO | NUMBER | Y |  |
+| 13 | CD_RECEITA | NUMBER | Y |  |
+| 14 | CD_DESPESA | NUMBER | Y |  |
+| 15 | SN_ATIVO | VARCHAR2 | Y |  |
+| 16 | SN_UTILIZA_CUSTOS | VARCHAR2 | Y |  |
+| 17 | CD_CGC | NUMBER | Y |  |
+| 18 | CD_IEST | VARCHAR2 | Y |  |
+| 19 | CD_IMUN | VARCHAR2 | Y |  |
+| 20 | CD_IJUNTA | VARCHAR2 | Y |  |
+| 21 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 22 | CD_UF | VARCHAR2 | Y |  |
+| 23 | CD_CIDADE | NUMBER | Y |  |
+| 24 | CD_CRC_CONTADOR | VARCHAR2 | Y |  |
+| 25 | DS_TERMO_ABERTURA | VARCHAR2 | Y |  |
+| 26 | DS_TERMO_FECHAMENTO | VARCHAR2 | Y |  |
+| 27 | NR_CEP | VARCHAR2 | Y |  |
+| 28 | NM_BAIRRO | VARCHAR2 | Y |  |
+| 29 | AIH_INICIAL | NUMBER | Y |  |
+| 30 | AIH_FINAL | NUMBER | Y |  |
+| 31 | DT_ATUALIZACAO_DATASUS | DATE | Y |  |
+| 32 | VERSAO_ATUALIZACAO | VARCHAR2 | Y |  |
+| 33 | VERSAO_TABELAS | VARCHAR2 | Y |  |
+| 34 | SN_INTERCORRENCIA_IGUAL | VARCHAR2 | Y |  |
+| 35 | CD_PRESTADOR_DIR_ADMIN | NUMBER | Y |  |
+| 36 | CD_PRESTADOR_AIH | NUMBER | Y |  |
+| 37 | SN_NR_AIH | VARCHAR2 | Y |  |
+| 38 | SN_PERMANENCIA_IDADE | VARCHAR2 | Y |  |
+| 39 | SN_PSICO_AUTO_VIRADA_MES | VARCHAR2 | Y |  |
+| 40 | CD_NATUREZA_HOSPITALAR | NUMBER | Y |  |
+| 41 | CD_PRESTADOR_DIR_CLINICO | NUMBER | Y |  |
+| 42 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 43 | CD_ORGAO_LOCAL | VARCHAR2 | Y |  |
+| 44 | QT_UTI | NUMBER | Y |  |
+| 45 | QT_UTI_2_ADULTA | NUMBER | Y |  |
+| 46 | QT_UTI_2_NEO | NUMBER | Y |  |
+| 47 | QT_UTI_2_PEDIATRICA | NUMBER | Y |  |
+| 48 | QT_UTI_3_ADULTA | NUMBER | Y |  |
+| 49 | QT_UTI_3_NEO | NUMBER | Y |  |
+| 50 | QT_UTI_3_PEDIATRICA | NUMBER | Y |  |
+| 51 | VL_FIDEPS | NUMBER | Y |  |
+| 52 | VL_IVHE | NUMBER | Y |  |
+| 53 | VL_URGENCIA | NUMBER | Y |  |
+| 54 | VL_FIXO_FIDEPS | NUMBER | Y |  |
+| 55 | VL_FIXO_IAPI | NUMBER | Y |  |
+| 56 | SN_AUDITOR_DIR_CLINICO | VARCHAR2 | Y |  |
+| 57 | DS_RAZAO_SOCIAL | VARCHAR2 | Y |  |
+| 58 | SN_COTAS | VARCHAR2 | Y |  |
+| 59 | SN_CONTABILIDADE_CUSTOS | VARCHAR2 | Y |  |
+| 60 | IP_SERVER_JAVA | VARCHAR2 | Y |  |
+| 61 | NM_TESOUREIRO | VARCHAR2 | Y |  |
+| 62 | NM_DIRETOR_GERAL | VARCHAR2 | Y |  |
+| 63 | SN_IMPORTA_EXA_RX | VARCHAR2 | Y |  |
+| 64 | SN_IMPORTA_EXA_LAB | VARCHAR2 | Y |  |
+| 65 | SN_IMPORTA_INFECCAO | VARCHAR2 | Y |  |
+| 66 | SN_IMPORTA_ATEND | VARCHAR2 | Y |  |
+| 67 | NR_TELEFONE_FNFI | VARCHAR2 | Y |  |
+| 68 | SN_IMPORTA_ESTOQUE | VARCHAR2 | Y |  |
+| 69 | SN_IMPORTA_PRESCRICAO | VARCHAR2 | Y |  |
+| 70 | SN_CI_AUTO | VARCHAR2 | Y |  |
+| 71 | CD_FORMULARIO_NF | NUMBER | Y |  |
+| 72 | TP_IMPORTA_EXA_LAB | VARCHAR2 | Y |  |
+| 73 | TP_IMPORTA_EXA_RX | VARCHAR2 | Y |  |
+| 74 | SN_IMPORTA_FINANCEIRO | VARCHAR2 | Y |  |
+| 75 | DS_EMAIL_RESPONSAVEL | VARCHAR2 | Y |  |
+| 76 | DS_EMAIL_CONTATO | VARCHAR2 | Y |  |
+| 77 | NR_DDD_FNFI | VARCHAR2 | Y |  |
+| 78 | NR_FAX | VARCHAR2 | Y |  |
+| 79 | NR_DDD_FAX | VARCHAR2 | Y |  |
+| 80 | NR_DDD_EMPRESA | VARCHAR2 | Y |  |
+| 81 | NR_TELEFONE_EMPRESA | VARCHAR2 | Y |  |
+| 82 | CD_MOEDA | VARCHAR2 | Y |  |
+| 83 | SN_UTILIZA_MOEDA | VARCHAR2 | Y |  |
+| 84 | TP_SET_PRES_PSDI | VARCHAR2 | Y |  |
+| 85 | TP_SET_PRES_PSSD | VARCHAR2 | Y |  |
+| 86 | CD_EMPRESA_ANS | VARCHAR2 | Y |  |
+| 87 | CD_IMPOSTOS | NUMBER | Y |  |
+| 88 | NR_TELEFONE_FCCT | VARCHAR2 | Y |  |
+| 89 | NM_GESTOR | VARCHAR2 | Y |  |
+| 90 | NR_TELEFONE_GESTOR | VARCHAR2 | Y |  |
+| 91 | SN_REMESSA_OBRIGATORIA | VARCHAR2 | Y |  |
+| 92 | VL_UTI | NUMBER | Y |  |
+| 93 | VL_ENFERMARIA | NUMBER | Y |  |
+| 94 | VL_PCT_ANALISE_SUS | NUMBER | Y |  |
+| 95 | CD_EMPRESA_SMS | VARCHAR2 | Y |  |
+| 96 | SN_OBRIGA_COMPAT | VARCHAR2 | Y |  |
+| 97 | NR_ENDERECO | NUMBER | Y |  |
+| 98 | NR_CNES | NUMBER | Y |  |
+| 99 | NR_CGC_MANTENEDORA | NUMBER | Y |  |
+| 100 | NR_CGC_TRABALHO_FFIS | NUMBER | Y |  |
+| 101 | NR_AIH_INICIAL_CNRAC | NUMBER | Y |  |
+| 102 | NR_AIH_FINAL_CNRAC | NUMBER | Y |  |
+| 103 | TP_FORM_IMPRESSAO_FFIS | VARCHAR2 | Y |  |
+| 104 | SN_INTEGRA_MV_SAUDE | VARCHAR2 | Y |  |
+| 105 | TP_PRES_PSDI_FFIS | VARCHAR2 | Y |  |
+| 106 | SN_UTILIZA_PROCESSO_ME | VARCHAR2 | Y |  |
+| 107 | SN_IMPORTA_CENTRO_CIRURGICO | VARCHAR2 | Y |  |
+| 108 | CD_CNAE | VARCHAR2 | Y |  |
+| 109 | SN_LAUDOS_SUS | VARCHAR2 | Y |  |
+| 110 | TP_LAUDO_AIH | VARCHAR2 | Y |  |
+| 111 | DS_MENSAGEM_NOTA_FISCAL | VARCHAR2 | Y |  |
+| 112 | SN_RELACIONA_USUARIOS_ATENDIME | VARCHAR2 | Y |  |
+| 113 | SN_COMPAT_CID_INTERNACAO | VARCHAR2 | Y |  |
+| 114 | CD_ORGAO_EMISSOR_AIH | VARCHAR2 | Y |  |
+| 115 | NR_INICIAL_AIH_ESPECIFICA | NUMBER | Y |  |
+| 116 | NR_FINAL_AIH_ESPECIFICA | NUMBER | Y |  |
+| 117 | NR_APAC_INICIAL | NUMBER | Y |  |
+| 118 | NR_APAC_FINAL | NUMBER | Y |  |
+| 119 | NR_APAC_INICIAL_CNRAC | NUMBER | Y |  |
+| 120 | NR_APAC_FINAL_CNRAC | NUMBER | Y |  |
+| 121 | DS_IP_EMAIL_AUTOMATICO | VARCHAR2 | Y |  |
+| 122 | DS_REMETENTE_EMAIL_AUTOMATICO | VARCHAR2 | Y |  |
+| 123 | SN_GERA_DISQUETE_PERIODO | VARCHAR2 | Y |  |
+| 124 | CD_FORNECEDOR | NUMBER | Y |  |
+| 125 | SN_EMPRESA_RELACIONADA | VARCHAR2 | Y |  |
+| 126 | SN_CRM_MV | VARCHAR2 | Y |  |
+| 127 | SN_CRM_MV_NEWS | VARCHAR2 | Y |  |
+| 128 | SN_CRM_MV_PROMOCAO | VARCHAR2 | Y |  |
+| 129 | SN_CENTRAL_COMPRAS | VARCHAR2 | Y |  |
+| 130 | CD_ESTOQUE | NUMBER | Y |  |
+| 131 | CD_TIPO_LOGRADOURO | NUMBER | Y |  |
+| 132 | CD_UNIDADE_ACH | NUMBER | Y |  |
+| 133 | SN_GERA_ACH | VARCHAR2 | Y |  |
+| 134 | CD_TIPO_EMPRESA | NUMBER | Y |  |
+| 135 | SN_EMPRESA_CONSOL | VARCHAR2 | Y |  |
+| 136 | CD_MULTI_EMPRESA_CONSOL | NUMBER | Y |  |
+| 137 | SN_PL_CONTAS_EMP_CONSOL | VARCHAR2 | Y |  |
+| 138 | CD_REDUZIDO_PG_EMP_TRANS | NUMBER | Y |  |
+| 139 | CD_REDUZIDO_RC_EMP_TRANS | NUMBER | Y |  |
+| 140 | SN_UTILIZA_CT_TRANSITORIA | VARCHAR2 | Y |  |
+| 141 | SN_GERAR_NR_PROCESSO | VARCHAR2 | Y |  |
+| 142 | CD_REDUZIDO_PG_EMP_TRANS_BXCTB | NUMBER | Y |  |
+| 143 | CD_REDUZIDO_RC_EMP_TRANS_BXCTB | NUMBER | Y |  |
+| 144 | CD_REDUZIDO_PG_TREMP_BXCTB_DES | NUMBER | Y |  |
+| 145 | CD_REDUZIDO_PG_TREMP_BXCTB_ASC | NUMBER | Y |  |
+| 146 | CD_REDUZIDO_RC_TREMP_BXCTB_DES | NUMBER | Y |  |
+| 147 | CD_REDUZIDO_RC_TREMP_BXCTB_ASC | NUMBER | Y |  |
+| 148 | CD_REDUZIDO_PG_TREMP_BXCTB_IMP | NUMBER | Y |  |
+| 149 | CD_REDUZIDO_RC_TREMP_BXCTB_IMP | NUMBER | Y |  |
+| 150 | CD_TIPO_PREST_SIA | VARCHAR2 | Y |  |
+| 151 | CD_MULTI_EMPRESA_INTEGRA | VARCHAR2 | Y |  |
+| 152 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 153 | DT_INTEGRA | DATE | Y |  |
+| 154 | CD_NIRE | VARCHAR2 | Y |  |
+| 155 | NR_APAC_INICIAL_C_ELETIVA | NUMBER | Y |  |
+| 156 | NR_APAC_FINAL_C_ELETIVA | NUMBER | Y |  |
+| 157 | SN_CALC_AIH_INCREMENTO | VARCHAR2 | Y |  |
+| 158 | NR_NIRE | VARCHAR2 | Y |  |
+| 159 | NR_SUFRAMA | VARCHAR2 | Y |  |
+| 160 | NR_ESCRITURACAO | VARCHAR2 | Y |  |
+| 161 | DS_NAT_LIVRO | VARCHAR2 | Y |  |
+| 162 | DT_ATOS_CONSTITUTIVOS | DATE | Y |  |
+| 163 | DT_ATO_CONVERSAO | DATE | Y |  |
+| 164 | NR_TIPO_RELACIONAMENTO | VARCHAR2 | Y |  |
+| 165 | DT_INICIO_RELACIONAMENTO | DATE | Y |  |
+| 166 | DT_TERMINO_RELACIONAMENTO | DATE | Y |  |
+| 167 | NR_PLANO_CONTAS | VARCHAR2 | Y |  |
+| 168 | NR_SIT_ESPECIAL | VARCHAR2 | Y |  |
+| 169 | SN_CENTRALIZADORA | NUMBER | Y |  |
+| 170 | NR_CNPJCPF_REPRES_LEGAL | NUMBER | Y |  |
+| 171 | DS_REPRES_LEGAL | VARCHAR2 | Y |  |
+| 172 | CD_QUALIFICACAO_ASSIN | NUMBER | Y |  |
+| 173 | SN_INCENTIVADOR_CULTURAL | VARCHAR2 | Y |  |
+| 174 | SN_OPTANTE_PELO_SIMPLES | VARCHAR2 | Y |  |
+| 175 | TP_NATUREZA_OPERACAO | VARCHAR2 | Y |  |
+| 176 | TP_REGIME_ESPECIAL_TRIBUTACAO | VARCHAR2 | Y |  |
+| 177 | TP_GERACAO | VARCHAR2 | Y |  |
+| 178 | TP_PADRAO_UTILIZADO | VARCHAR2 | Y |  |
+| 179 | DS_ITEM_LISTA_SERVICO | VARCHAR2 | Y |  |
+| 180 | CD_TRIBUTACAO_MUNICIPAL | VARCHAR2 | Y |  |
+| 181 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 182 | CD_IDENTIFICADOR_EMPRESA | VARCHAR2 | Y |  |
+| 183 | TP_IMPORTA_CUSTOS | VARCHAR2 | Y |  |
+| 184 | DS_OBS_ORDCOM | VARCHAR2 | Y |  |
+| 185 | CD_INSTITUICAO_EXTERNO | VARCHAR2 | Y |  |
+| 186 | CD_DIS_SAN | NUMBER | Y |  |
+| 187 | SN_CONS_EST_CORP | VARCHAR2 | Y |  |
+| 188 | SN_CENTRAL_DISTRIBUICAO | VARCHAR2 | Y |  |
+| 189 | CD_CPF_CNPJ_TECNICO | NUMBER | Y |  |
+| 190 | DS_NOME_TECNICO | VARCHAR2 | Y |  |
+| 191 | DS_EMAIL_TECNICO | VARCHAR2 | Y |  |
+| 192 | NR_FAX_TECNICO | VARCHAR2 | Y |  |
+| 193 | NR_TELEFONE_TECNICO | VARCHAR2 | Y |  |
+| 194 | CD_NAT_JURIDICA_SPED_REINF | VARCHAR2 | Y |  |
+| 195 | SN_UTILIZA_SPED | VARCHAR2 | Y |  |
+| 196 | DS_EMAIL_CONTADOR | VARCHAR2 | Y |  |
+| 197 | CD_SEGMENTO_MERCADO | NUMBER | Y |  |
+| 198 | CD_MULTI_EMPRESA_PL_CONTAS | NUMBER | Y |  |
+| 199 | CD_MULTI_EMPRESA_SCP | NUMBER | Y |  |
+| 200 | CD_CGC_SCP | NUMBER | Y |  |
+| 201 | CD_PRESTADOR | NUMBER | Y |  |
+| 202 | CD_TIPO_ESTABELECIMENTO_SAUDE | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PACIENTE | NUMBER | Y |  |
+| 8 | CD_CIDADE | NUMBER | Y |  |
+| 9 | CD_DIS_SAN | NUMBER | Y |  |
+| 10 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 11 | NM_MNEMONICO | VARCHAR2 | Y |  |
+| 12 | NM_PACIENTE | VARCHAR2 | Y |  |
+| 13 | TP_SEXO | VARCHAR2 | Y |  |
+| 14 | TP_ESTADO_CIVIL | VARCHAR2 | Y |  |
+| 15 | CD_CIDADE_TEM | NUMBER | Y |  |
+| 16 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 17 | DT_CADASTRO | DATE | Y |  |
+| 18 | DT_NASCIMENTO | DATE | Y |  |
+| 19 | TP_COR | VARCHAR2 | Y |  |
+| 20 | NM_MAE | VARCHAR2 | Y |  |
+| 21 | CD_CLA_ECO | NUMBER | Y |  |
+| 22 | CD_CIDADANIA | NUMBER | Y |  |
+| 23 | CD_TIP_MOR | NUMBER | Y |  |
+| 24 | CD_TIP_RES | NUMBER | Y |  |
+| 25 | CD_GRAU_INS | NUMBER | Y |  |
+| 26 | CD_RELIGIAO | NUMBER | Y |  |
+| 27 | CD_PROFISSAO | NUMBER | Y |  |
+| 28 | NR_CEP | VARCHAR2 | Y |  |
+| 29 | NR_DOCUMENTO | VARCHAR2 | Y |  |
+| 30 | HR_CADASTRO | DATE | Y |  |
+| 31 | NR_FONE | VARCHAR2 | Y |  |
+| 32 | NM_BAIRRO | VARCHAR2 | Y |  |
+| 33 | NM_PAI | VARCHAR2 | Y |  |
+| 34 | CD_DIS_SAN_MUITOS | NUMBER | Y |  |
+| 35 | DS_TRABALHO | VARCHAR2 | Y |  |
+| 36 | NM_CONJUGE | VARCHAR2 | Y |  |
+| 37 | TP_SANGUINEO | VARCHAR2 | Y |  |
+| 38 | SN_DOADOR | VARCHAR2 | Y |  |
+| 39 | DS_CHECAPAC | VARCHAR2 | Y |  |
+| 40 | NM_USUARIO | VARCHAR2 | Y |  |
+| 41 | CD_CNS | VARCHAR2 | Y |  |
+| 42 | NR_CNS | VARCHAR2 | Y |  |
+| 43 | NR_CPF | VARCHAR2 | Y |  |
+| 44 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 45 | NR_ENDERECO | NUMBER | Y |  |
+| 46 | NR_RG_NASC | NUMBER | Y |  |
+| 47 | NR_IDENTIDADE | VARCHAR2 | Y |  |
+| 48 | DS_OM_IDENTIDADE | VARCHAR2 | Y |  |
+| 49 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 50 | CD_PACIENTE_ANTIGO | VARCHAR2 | Y |  |
+| 51 | DT_ULTIMA_ATUALIZACAO | DATE | Y |  |
+| 52 | CD_NATURALIDADE | NUMBER | Y |  |
+| 53 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 54 | DS_ATRIBUTO1 | VARCHAR2 | Y |  |
+| 55 | SN_ALT_DADOS_ORA_APP | VARCHAR2 | Y |  |
+| 56 | EMAIL | VARCHAR2 | Y |  |
+| 57 | CD_PACIENTE_INTEGRA | VARCHAR2 | Y |  |
+| 58 | DT_INTEGRA | DATE | Y |  |
+| 59 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 60 | DT_INATIVO | DATE | Y |  |
+| 61 | CD_PIS_PASEP | VARCHAR2 | Y |  |
+| 62 | TP_CERTIDAO | VARCHAR2 | Y |  |
+| 63 | NM_CARTORIO | VARCHAR2 | Y |  |
+| 64 | DS_LIVRO | VARCHAR2 | Y |  |
+| 65 | DS_FOLHA | VARCHAR2 | Y |  |
+| 66 | DT_EMISSAO_CERTIDAO | DATE | Y |  |
+| 67 | DT_EMISSAO_IDENTIDADE | DATE | Y |  |
+| 68 | CD_UF_EMISSAO_IDENTIDADE | VARCHAR2 | Y |  |
+| 69 | DT_ENTRADA_ESTRANGEIRO | DATE | Y |  |
+| 70 | NR_CTPS | VARCHAR2 | Y |  |
+| 71 | NR_SERIE_CTPS | VARCHAR2 | Y |  |
+| 72 | DT_EMISSAO_CTPS | DATE | Y |  |
+| 73 | CD_UF_EMISSAO_CTPS | VARCHAR2 | Y |  |
+| 74 | NR_TITULO_ELEITORAL | VARCHAR2 | Y |  |
+| 75 | NR_ZONA_TITULO_ELEITORAL | VARCHAR2 | Y |  |
+| 76 | NR_SECAO_TITULO_ELEITORAL | VARCHAR2 | Y |  |
+| 77 | SN_RECEBE_CONTATO | VARCHAR2 | Y |  |
+| 78 | CD_TIPO_LOGRADOURO | NUMBER | Y |  |
+| 79 | SN_PERMITE_AGENDAR_PARA_SUS | VARCHAR2 | Y |  |
+| 80 | CD_CATEGORIA_OPINIAO | NUMBER | Y |  |
+| 81 | SN_VIP | VARCHAR2 | Y |  |
+| 82 | CD_PAIS | NUMBER | Y |  |
+| 83 | CD_PACIENTE_EXTERNO | VARCHAR2 | Y |  |
+| 84 | CD_ETNIA | NUMBER | Y |  |
+| 85 | DS_HASH | VARCHAR2 | Y |  |
+| 86 | NR_DDD_FONE | NUMBER | Y |  |
+| 87 | NR_DDD_CELULAR | NUMBER | Y |  |
+| 88 | NR_CELULAR | VARCHAR2 | Y |  |
+| 89 | SN_NOTIFICACAO_SMS | VARCHAR2 | Y |  |
+| 90 | NM_PACIENTE_FONETIZADO | VARCHAR2 | Y |  |
+| 91 | CD_SITUACAO_FAMILIAR | NUMBER | Y |  |
+| 92 | DT_CADASTRO_MANUAL | DATE | Y |  |
+| 93 | NR_DOCUMENTO_ESTRANGEIRO | VARCHAR2 | Y |  |
+| 94 | DT_ENTRADA_BRASIL | DATE | Y |  |
+| 95 | DT_NATURALIZACAO | DATE | Y |  |
+| 96 | NR_PORTARIA_NATURALIZACAO | VARCHAR2 | Y |  |
+| 97 | DS_PRIMEIRO_NOME | VARCHAR2 | Y |  |
+| 98 | DS_PRIMEIRO_SOBRENOME | VARCHAR2 | Y |  |
+| 99 | DS_SEGUNDO_SOBRENOME | VARCHAR2 | Y |  |
+| 100 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 101 | CD_ENDERECO_POSTAL | VARCHAR2 | Y |  |
+| 102 | NR_DDI_FONE | NUMBER | Y |  |
+| 103 | NR_DDI_CELULAR | NUMBER | Y |  |
+| 104 | NR_DDI_FONE_COMERCIAL | NUMBER | Y |  |
+| 105 | NR_DDD_FONE_COMERCIAL | NUMBER | Y |  |
+| 106 | NR_FONE_COMERCIAL | NUMBER | Y |  |
+| 107 | SN_ATIVO | VARCHAR2 | Y |  |
+| 108 | DS_COAGULOPATIA | VARCHAR2 | Y |  |
+| 109 | NR_SAME | VARCHAR2 | Y |  |
+| 110 | SN_UTILIZA_NOME_SOCIAL | VARCHAR2 | Y |  |
+| 111 | NM_SOCIAL_PACIENTE | VARCHAR2 | Y |  |
+| 112 | SN_ENDERECO_SEM_NUMERO | VARCHAR2 | Y |  |
+| 113 | SN_ENDERECO_EXTERNO | VARCHAR2 | Y |  |
+| 114 | CD_BANCO | NUMBER | Y |  |
+| 115 | NR_AGENCIA | VARCHAR2 | Y |  |
+| 116 | DS_AGENCIA | VARCHAR2 | Y |  |
+| 117 | NR_CONTA | VARCHAR2 | Y |  |
+| 118 | SN_FREQUENTA_ESCOLA | VARCHAR2 | Y |  |
+| 119 | DS_CARGO_TRABALHO | VARCHAR2 | Y |  |
+| 120 | NR_REGISTRO_FUNCIONAL_TRABALHO | VARCHAR2 | Y |  |
+| 121 | DS_VINCLULO_TRABALHO | VARCHAR2 | Y |  |
+| 122 | DS_HORARIO_TRABALHO | VARCHAR2 | Y |  |
+| 123 | TP_PACIENTE | VARCHAR2 | Y |  |
+| 124 | CD_TIP_PAREN | NUMBER | Y |  |
+| 125 | DS_COMPLEMENTO_TUTOR | VARCHAR2 | Y |  |
+| 126 | NM_TUTOR | VARCHAR2 | Y |  |
+| 127 | DT_NASCIMENTO_TUTOR | DATE | Y |  |
+| 128 | TP_SEXO_TUTOR | VARCHAR2 | Y |  |
+| 129 | NR_CPF_TUTOR | VARCHAR2 | Y |  |
+| 130 | NR_DECLARACAO_NASCIDO_VIVO | VARCHAR2 | Y |  |
+| 131 | CD_TIPO_BENEFICIARIO | VARCHAR2 | Y |  |
+| 132 | CD_IDENTIFICADOR_CONVENIO | VARCHAR2 | Y |  |
+| 133 | CD_IDENTIFICADOR_CONVENIO_PAI | VARCHAR2 | Y |  |
+| 134 | CD_TIP_PAREN_CONVENIO | NUMBER | Y |  |
+| 135 | SN_PLANO_ODONTOLOGICO | VARCHAR2 | Y |  |
+| 136 | CD_USUARIO_PERMISSAO | VARCHAR2 | Y |  |
+| 137 | CD_MOT_AUSENCIA_DOC_OBRG | NUMBER | Y |  |
+| 138 | CD_LOCAL_TRABALHO_CHILE | NUMBER | Y |  |
+| 139 | CD_CONDICAO_ESPECIAL | NUMBER | Y |  |
+| 140 | CD_COR_AREA_FAMILIA | NUMBER | Y |  |
+| 141 | SN_RUT_FICTICIO | VARCHAR2 | Y |  |
+| 142 | DT_VALIDADE | DATE | Y |  |
+| 143 | CD_FORCA_MILITAR | NUMBER | Y |  |
+| 144 | CD_POSTO_MILITAR | NUMBER | Y |  |
+| 145 | CD_LOG_LOGRADOURO | NUMBER | Y |  |
+| 146 | NM_USUARIO_ULTIMA_ATUALIZACAO | VARCHAR2 | Y |  |
+| 147 | NR_NIF | VARCHAR2 | Y |  |
+| 148 | CD_PRESTADOR_REFERENCIA | NUMBER | Y |  |
+| 149 | SN_ONCOLOGICO | VARCHAR2 | Y |  |
+| 150 | DT_CLASSIFICACAO_ONCOLOGICO | DATE | Y |  |
+| 151 | CD_TIPO_CELULAR | VARCHAR2 | Y |  |
+| 152 | CD_TIPO_FONE_COMERCIAL | VARCHAR2 | Y |  |
+| 153 | CD_TIPO_FONE | VARCHAR2 | Y |  |
+| 154 | CD_PAIS_EMISSAO_PAS | NUMBER | Y |  |
+| 155 | SN_AUSENCIA_MAE | VARCHAR2 | Y |  |
+| 156 | TP_ZONA_MORADIA | VARCHAR2 | Y |  |
+| 157 | SN_SITUACAO_RUA | VARCHAR2 | Y |  |
+| 158 | CD_VULNERABILIDADE_SOCIAL | NUMBER | Y |  |
+| 159 | CD_ORIENTACAO_SEXUAL | NUMBER | Y |  |
+| 160 | SN_UTIL_IDENTIDADE_GENERO | VARCHAR2 | Y |  |
+| 161 | SN_UTIL_ORIENTACAO_SEXUAL | VARCHAR2 | Y |  |
+| 162 | CD_IDENTIDADE_GENERO | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.PERFIL_AMBULATORIAL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PERFIL_AMBULATORIAL | NUMBER | Y |  |
+| 8 | DS_PERFIL_AMBULATORIAL | VARCHAR2 | Y |  |
+| 9 | TP_CONVENIO | VARCHAR2 | Y |  |
+| 10 | CD_CONVENIO | NUMBER | Y |  |
+| 11 | CD_SETOR | NUMBER | Y |  |
+| 12 | CD_ESPECIALIDADE | NUMBER | Y |  |
+| 13 | CD_PRESTADOR | NUMBER | Y |  |
+| 14 | SN_ATIVO | VARCHAR2 | Y |  |
+| 15 | TP_SEXO | VARCHAR2 | Y |  |
+| 16 | VL_IDADE_MAX | NUMBER | Y |  |
+| 17 | VL_IDADE_MIN | NUMBER | Y |  |
+| 18 | CD_TIP_PRESTA | NUMBER | Y |  |
+| 19 | CD_SISTEMA | VARCHAR2 | Y |  |
+| 20 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 21 | TP_GRUPO_SETOR | VARCHAR2 | Y |  |
+| 22 | TP_PERFIL | VARCHAR2 | Y |  |
+| 23 | TP_PORTA_ENTRADA | VARCHAR2 | Y |  |
+| 24 | TP_ALTA | VARCHAR2 | Y |  |
+| 25 | TP_OPCAO_ACESSO | VARCHAR2 | Y |  |
+| 26 | CD_ESPECIALIDADE_MEDICA | NUMBER | Y |  |
+| 27 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 28 | TP_ACESSO | VARCHAR2 | Y |  |
+| 29 | SN_PERFIL_SEM_ATENDIMENTO | VARCHAR2 | Y |  |
+| 30 | CD_SERVICO | NUMBER | Y |  |
+| 31 | CD_ORI_ATE | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.PLANO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PLANO | VARCHAR2 | Y |  |
+| 8 | DS_PLANO | VARCHAR2 | Y |  |
+| 9 | TP_PLANO | VARCHAR2 | Y |  |
+| 10 | DS_MASCARA | VARCHAR2 | Y |  |
+| 11 | SN_ATIVO | VARCHAR2 | Y |  |
+| 12 | DT_CRIACAO | DATE | Y |  |
+
+---
+
+## AUDIT_DBAMV.PLANO_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PLANO | VARCHAR2 | Y |  |
+| 8 | CD_EMPRESA | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.PLANO_ESTR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PLANO_ESTR | NUMBER | Y |  |
+| 8 | CD_PLANO | VARCHAR2 | Y |  |
+| 9 | CD_CONTABIL | VARCHAR2 | Y |  |
+| 10 | DS_CONTA | VARCHAR2 | Y |  |
+| 11 | CD_REDUZIDO | VARCHAR2 | Y |  |
+| 12 | TP_CONTA | VARCHAR2 | Y |  |
+| 13 | TP_APRESENTACAO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.PRESTADOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PRESTADOR | NUMBER | Y |  |
+| 8 | CD_BANCO | NUMBER | Y |  |
+| 9 | CD_CONSELHO | NUMBER | Y |  |
+| 10 | CD_TIP_PRESTA | NUMBER | Y |  |
+| 11 | NR_CPF_CGC | VARCHAR2 | Y |  |
+| 12 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 13 | NM_PRESTADOR | VARCHAR2 | Y |  |
+| 14 | NM_MNEMONICO | VARCHAR2 | Y |  |
+| 15 | TP_CORPO_CLINICO | VARCHAR2 | Y |  |
+| 16 | CD_PRESTADOR_MUITOS | NUMBER | Y |  |
+| 17 | DS_EMAIL | VARCHAR2 | Y |  |
+| 18 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 19 | DS_CODIGO_CONSELHO | VARCHAR2 | Y |  |
+| 20 | DS_FACULDADE | VARCHAR2 | Y |  |
+| 21 | DT_CADASTRO | DATE | Y |  |
+| 22 | DT_NASCIMENTO | DATE | Y |  |
+| 23 | NR_FONE_COMERCIAL | VARCHAR2 | Y |  |
+| 24 | NR_FONE_CONTATO | VARCHAR2 | Y |  |
+| 25 | NR_CEP | VARCHAR2 | Y |  |
+| 26 | NR_AGENCIA | VARCHAR2 | Y |  |
+| 27 | NM_AGENCIA | VARCHAR2 | Y |  |
+| 28 | NR_CONTA | VARCHAR2 | Y |  |
+| 29 | CD_CIDADE | NUMBER | Y |  |
+| 30 | SN_REPASSE_FATURA_AMB_SUS | VARCHAR2 | Y |  |
+| 31 | SN_ANESTESISTA | VARCHAR2 | Y |  |
+| 32 | SN_AUXILIAR | VARCHAR2 | Y |  |
+| 33 | SN_CIRURGIAO | VARCHAR2 | Y |  |
+| 34 | SN_OUTROS | VARCHAR2 | Y |  |
+| 35 | CD_REG_REPASSE | NUMBER | Y |  |
+| 36 | CD_PRESTADOR_REPASSE | NUMBER | Y |  |
+| 37 | DS_OBS | VARCHAR2 | Y |  |
+| 38 | TP_VINCULO | VARCHAR2 | Y |  |
+| 39 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 40 | NR_INSS | NUMBER | Y |  |
+| 41 | NR_CCM | NUMBER | Y |  |
+| 42 | CD_REG_REPASSE_SIA | NUMBER | Y |  |
+| 43 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 44 | NR_DOCUMENTO | VARCHAR2 | Y |  |
+| 45 | DS_ENDERECO_COMERCIAL | VARCHAR2 | Y |  |
+| 46 | DS_BAIRRO_COMERCIAL | VARCHAR2 | Y |  |
+| 47 | CD_CIDADE_COMERCIAL | NUMBER | Y |  |
+| 48 | DS_COMPLEMENTO_COMERCIAL | VARCHAR2 | Y |  |
+| 49 | DS_CEP_COMERCIAL | VARCHAR2 | Y |  |
+| 50 | FOTO | LONG RAW | Y |  |
+| 51 | SN_ATUANTE | VARCHAR2 | Y |  |
+| 52 | TP_DOCUMENTACAO | VARCHAR2 | Y |  |
+| 53 | DS_ATRIBUTO1 | VARCHAR2 | Y |  |
+| 54 | SN_ALT_DADOS_ORA_APP | VARCHAR2 | Y |  |
+| 55 | NR_PISPASEP | NUMBER | Y |  |
+| 56 | INSCR_AUTONOMO | NUMBER | Y |  |
+| 57 | NM_MAE | VARCHAR2 | Y |  |
+| 58 | NM_PAI | VARCHAR2 | Y |  |
+| 59 | CD_FORNECEDOR | NUMBER | Y |  |
+| 60 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 61 | CD_INDICE | NUMBER | Y |  |
+| 62 | DS_SENHA_PRE_INTERNACAO | VARCHAR2 | Y |  |
+| 63 | SN_ADMINISTRADOR_PRESTADOR | VARCHAR2 | Y |  |
+| 64 | DS_CARGO | VARCHAR2 | Y |  |
+| 65 | CD_PRESTADOR_INTEGRA | VARCHAR2 | Y |  |
+| 66 | DT_INTEGRA | DATE | Y |  |
+| 67 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 68 | DT_INATIVACAO | DATE | Y |  |
+| 69 | CD_IDENTIFICACAO | NUMBER | Y |  |
+| 70 | NR_CNS | VARCHAR2 | Y |  |
+| 71 | DT_CAD_COOPERATIVA | DATE | Y |  |
+| 72 | NR_MATRICULA_COOPERATIVA | VARCHAR2 | Y |  |
+| 73 | CD_REG_REPASSE_SIH | NUMBER | Y |  |
+| 74 | TP_CAT_PRE_SUS | NUMBER | Y |  |
+| 75 | NR_CAT_PRE_SUS | VARCHAR2 | Y |  |
+| 76 | SN_CESSAO_CREDITO | VARCHAR2 | Y |  |
+| 77 | SN_AUDITOR_SUS | VARCHAR2 | Y |  |
+| 78 | DT_INICIO_ATUACAO | DATE | Y |  |
+| 79 | CD_SETOR | NUMBER | Y |  |
+| 80 | TP_PRESTADOR | VARCHAR2 | Y |  |
+| 81 | CD_TIPO_LOGRADOURO | NUMBER | Y |  |
+| 82 | NR_ENDERECO | VARCHAR2 | Y |  |
+| 83 | CD_TIPO_LOGRADOURO_COMERCIAL | NUMBER | Y |  |
+| 84 | NR_ENDERECO_COMERCIAL | VARCHAR2 | Y |  |
+| 85 | NR_CNES | VARCHAR2 | Y |  |
+| 86 | CD_CBOS | VARCHAR2 | Y |  |
+| 87 | TP_ACESSO_DIAGNOSTICO | VARCHAR2 | Y |  |
+| 88 | DS_ORIENTACAO_AGENDAMENTO | VARCHAR2 | Y |  |
+| 89 | SN_MOSTRA_ENDERECO | VARCHAR2 | Y |  |
+| 90 | SN_MOSTRA_ENDERECO_COM | VARCHAR2 | Y |  |
+| 91 | TP_REMESSA | VARCHAR2 | Y |  |
+| 92 | DS_SIGLA_AGENDAMENTO | VARCHAR2 | Y |  |
+| 93 | DV_AGENCIA | VARCHAR2 | Y |  |
+| 94 | DV_CONTA_CORRENTE | VARCHAR2 | Y |  |
+| 95 | NR_PONTUACAO_OCORRENCIA | NUMBER | Y |  |
+| 96 | CD_SITUACAO_FAMILIAR | NUMBER | Y |  |
+| 97 | TP_SEXO | VARCHAR2 | Y |  |
+| 98 | TP_COR | VARCHAR2 | Y |  |
+| 99 | TP_CERTIDAO | VARCHAR2 | Y |  |
+| 100 | DS_OM_IDENTIDADE | VARCHAR2 | Y |  |
+| 101 | CD_CIDADANIA | NUMBER | Y |  |
+| 102 | CD_GRAU_INS | NUMBER | Y |  |
+| 103 | DT_CADASTRO_MANUAL | DATE | Y |  |
+| 104 | CD_NATURALIDADE | NUMBER | Y |  |
+| 105 | CD_UF_ORGAO_EMISSOR | VARCHAR2 | Y |  |
+| 106 | DT_EXPEDICAO_ORGAO_EMISSOR | DATE | Y |  |
+| 107 | DT_INICIO_CONTRATO | DATE | Y |  |
+| 108 | DT_FINAL_CONTRATO | DATE | Y |  |
+| 109 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 110 | CD_ENDERECO_POSTA | VARCHAR2 | Y |  |
+| 111 | CD_ENDERECO_POSTA_COM | VARCHAR2 | Y |  |
+| 112 | CD_INSTITUICAO_EXTERNA | VARCHAR2 | Y |  |
+| 113 | CD_ATIVIDADE_PRINCIPAL | VARCHAR2 | Y |  |
+| 114 | CD_AREA_ATUACAO | VARCHAR2 | Y |  |
+| 115 | CD_CLUE_CONTRATO_NOMINA | VARCHAR2 | Y |  |
+| 116 | CD_CLUE_CONTRATO_REAL | VARCHAR2 | Y |  |
+| 117 | CD_JORNADA | NUMBER | Y |  |
+| 118 | SN_RESIDENCIA_MEDICA | VARCHAR2 | Y |  |
+| 119 | CD_ANO_RESIDENCIA | NUMBER | Y |  |
+| 120 | CD_ESPECIALID_RESIDENTE | NUMBER | Y |  |
+| 121 | TIPO_MODALIDADE_CONTRATO | NUMBER | Y |  |
+| 122 | SN_FIEL | VARCHAR2 | Y |  |
+| 123 | SN_VIGENCIA_FIEL | VARCHAR2 | Y |  |
+| 124 | VL_SALARIO | NUMBER | Y |  |
+| 125 | TP_CONTRATO_EXTERNO | NUMBER | Y |  |
+| 126 | CD_ESTADO_FORMACAO | NUMBER | Y |  |
+| 127 | DS_ORIENTACAO_AGENDAMENTO_WEB | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.PW_PERFIL_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PERFIL_MODULO | NUMBER | Y |  |
+| 8 | CD_PERFIL_AMBULATORIAL | NUMBER | Y |  |
+| 9 | CD_MODULO | VARCHAR2 | Y |  |
+| 10 | NR_ORDEM | NUMBER | Y |  |
+| 11 | CD_PERFIL_MODULO_PAI | NUMBER | Y |  |
+| 12 | DS_CAMINHO | VARCHAR2 | Y |  |
+| 13 | LO_ICONE | BLOB | Y |  |
+| 14 | NM_TITULO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.PW_PERFIL_MODULO_PARAMETRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PERFIL_MODULO_PARAMETRO | NUMBER | Y |  |
+| 8 | CD_MODULO | VARCHAR2 | Y |  |
+| 9 | CD_PARAMETRO | VARCHAR2 | Y |  |
+| 10 | CD_PERFIL_MODULO | NUMBER | Y |  |
+| 11 | NM_VALOR | VARCHAR2 | Y |  |
+| 12 | DS_VALOR | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.REMESSA_BPA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_FAT_SIA | NUMBER | Y |  |
+| 8 | CD_REMESSA | NUMBER | Y |  |
+| 9 | DS_REMESSA | VARCHAR2 | Y |  |
+| 10 | TP_INSTRUMENTO_REGISTRO | VARCHAR2 | Y |  |
+| 11 | TP_REMESSA | VARCHAR2 | Y |  |
+| 12 | SN_FECHADA | VARCHAR2 | Y |  |
+| 13 | SN_COBRADA | VARCHAR2 | Y |  |
+| 14 | DT_COMPETENCIA_APRESENTACAO | DATE | Y |  |
+| 15 | DT_ABERTURA | DATE | Y |  |
+| 16 | DT_FECHAMENTO | DATE | Y |  |
+| 17 | SN_TEMPORARIA | VARCHAR2 | Y |  |
+| 18 | CD_SETOR_RESPONSAVEL | NUMBER | Y |  |
+| 19 | SN_TRANSFERIDO_CENTRAL | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.SACR_ESPECIALIDADE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ESPECIALIDADE | NUMBER | Y |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.SACR_SINTOMA_ESPECIALIDADE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ESPECIALIDADE | NUMBER | Y |  |
+| 8 | CD_SINTOMA_AVALIACAO | NUMBER | Y |  |
+| 9 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 10 | CD_SINTOMA_ESPECIALIDADE | NUMBER | Y |  |
+
+---
+
+## AUDIT_DBAMV.SAME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_CAD_SAME | NUMBER | Y |  |
+| 8 | NR_MATRICULA_SAME | NUMBER | Y |  |
+| 9 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 10 | CD_PACIENTE | NUMBER | Y |  |
+| 11 | CD_ARMARIO_SAME | NUMBER | Y |  |
+| 12 | DS_LINHA | VARCHAR2 | Y |  |
+| 13 | DS_COLUNA | VARCHAR2 | Y |  |
+| 14 | SN_NO_LOCAL | VARCHAR2 | Y |  |
+| 15 | CD_PROTOCOLO_DE_SAIDA | NUMBER | Y |  |
+| 16 | DT_CADASTRO | DATE | Y |  |
+| 17 | CD_PORTADOR_ATUAL | NUMBER | Y |  |
+| 18 | NR_VOLUME | NUMBER | Y |  |
+| 19 | NR_MATRICULA_VOLUME | VARCHAR2 | Y |  |
+| 20 | DT_HISTORICO_INICIAL | DATE | Y |  |
+| 21 | DT_HISTORICO_FINAL | DATE | Y |  |
+| 22 | DS_ID_ENVOLUCRO_EXTERNO | VARCHAR2 | Y |  |
+| 23 | DT_ENVIO_SAME_EXTERNO | DATE | Y |  |
+| 24 | CD_USUARIO_ENVIO | VARCHAR2 | Y |  |
+| 25 | SN_ARQUIVO_PERDIDO | VARCHAR2 | Y |  |
+| 26 | DT_ARQUIVO_PERDIDO | DATE | Y |  |
+| 27 | CD_USUARIO_ARQUIVO_PERDIDO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.SOLSAI_PRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_SOLSAI_PRO | NUMBER | Y |  |
+| 8 | TP_SOLSAI_PRO | VARCHAR2 | Y |  |
+| 9 | CD_SETOR | NUMBER | Y |  |
+| 10 | CD_ESTOQUE | NUMBER | Y |  |
+| 11 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 12 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 13 | CD_PRESTADOR | NUMBER | Y |  |
+| 14 | DT_SOLSAI_PRO | DATE | Y |  |
+| 15 | SN_EMITIDO | VARCHAR2 | Y |  |
+| 16 | CD_UNID_INT | NUMBER | Y |  |
+| 17 | HR_SOLSAI_PRO | DATE | Y |  |
+| 18 | CD_PRE_MED | NUMBER | Y |  |
+| 19 | CD_ESTOQUE_SOLICITANTE | NUMBER | Y |  |
+| 20 | CD_USUARIO | VARCHAR2 | Y |  |
+| 21 | CD_SOLICITACAO_PRODUTO | NUMBER | Y |  |
+| 22 | DS_OBS | VARCHAR2 | Y |  |
+| 23 | CD_TP_SOLICITACAO | NUMBER | Y |  |
+| 24 | CD_MOT_DEV | NUMBER | Y |  |
+| 25 | DT_IMPRESSAO | DATE | Y |  |
+| 26 | CD_AGRUPAMENTO | NUMBER | Y |  |
+| 27 | CD_OS | NUMBER | Y |  |
+| 28 | CD_DEV_PRE | NUMBER | Y |  |
+| 29 | CD_AVISO_CIRURGIA | NUMBER | Y |  |
+| 30 | DT_GRAVACAO | DATE | Y |  |
+| 31 | CD_TURNO | NUMBER | Y |  |
+| 32 | DT_IMPRESSAO_AGRUP | DATE | Y |  |
+| 33 | DT_CONSUMO_INICIAL | DATE | Y |  |
+| 34 | DT_CONSUMO_FINAL | DATE | Y |  |
+| 35 | SN_URGENTE | VARCHAR2 | Y |  |
+| 36 | CD_FECHAMENTO | NUMBER | Y |  |
+| 37 | TP_ORIGEM_SOLICITACAO | VARCHAR2 | Y |  |
+| 38 | CD_SOLSAI_PRO_INTEGRA | VARCHAR2 | Y |  |
+| 39 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 40 | DT_INTEGRA | DATE | Y |  |
+| 41 | CD_PACIENTE_INTEGRA | VARCHAR2 | Y |  |
+| 42 | NM_PACIENTE_INTEGRA | VARCHAR2 | Y |  |
+| 43 | SN_CONTROLA_ATEND_DEVOL | VARCHAR2 | Y |  |
+| 44 | CD_ENT_PRO | NUMBER | Y |  |
+| 45 | CD_ATENDIMENTO_INTEGRA | VARCHAR2 | Y |  |
+| 46 | CD_REQUISICAO | NUMBER | Y |  |
+| 47 | CD_MUNICIPIO | NUMBER | Y |  |
+| 48 | DS_MUNICIPIO | VARCHAR2 | Y |  |
+| 49 | CD_MUNICIPIO_INTEGRA | VARCHAR2 | Y |  |
+| 50 | CD_CLINICA | NUMBER | Y |  |
+| 51 | DS_CLINICA | VARCHAR2 | Y |  |
+| 52 | CD_CLINICA_INTEGRA | NUMBER | Y |  |
+| 53 | CD_MOTIVO_CANC | NUMBER | Y |  |
+| 54 | DT_CANCELAMENTO | DATE | Y |  |
+| 55 | DS_JUSTIFICATIVA_CANCELAMENTO | VARCHAR2 | Y |  |
+| 56 | SN_SOLIC_PADRAO | VARCHAR2 | Y |  |
+| 57 | SN_ATIVO_SOLIC_PADRAO | VARCHAR2 | Y |  |
+| 58 | DS_SOLIC_PADRAO | VARCHAR2 | Y |  |
+| 59 | CD_EMPRESA_DESTINO | NUMBER | Y |  |
+| 60 | CD_AVISO_CIRURGIA_PROD_ROUPA | NUMBER | Y |  |
+| 61 | CD_MOVIMENTACAO_EST_RCBM_PARCI | NUMBER | Y |  |
+| 62 | TP_STATUS_ROMANEIO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.TIPO_ENTRADA_CFOP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_CFOP | NUMBER | Y |  |
+| 8 | TP_ENTRADA | VARCHAR2 | Y |  |
+| 9 | SN_ATIVO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.TIP_PRESC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_TIP_PRESC | NUMBER | Y |  |
+| 8 | CD_TIP_ESQ | VARCHAR2 | Y |  |
+| 9 | DS_TIP_PRESC | VARCHAR2 | Y |  |
+| 10 | CD_EXA_LAB | NUMBER | Y |  |
+| 11 | CD_EXA_RX | NUMBER | Y |  |
+| 12 | CD_PRODUTO | NUMBER | Y |  |
+| 13 | CD_UNI_PRO | NUMBER | Y |  |
+| 14 | SN_SOLICITACAO | VARCHAR2 | Y |  |
+| 15 | CD_FOR_APL | VARCHAR2 | Y |  |
+| 16 | CD_ESTOQUE | NUMBER | Y |  |
+| 17 | CD_UNIDADE | VARCHAR2 | Y |  |
+| 18 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 19 | SN_FATURA | VARCHAR2 | Y |  |
+| 20 | SN_ATIVO | VARCHAR2 | Y |  |
+| 21 | CD_TIP_FRE | NUMBER | Y |  |
+| 22 | CD_TIPO_DIETA | VARCHAR2 | Y |  |
+| 23 | SN_PADRONIZADO | VARCHAR2 | Y |  |
+| 24 | TP_PRE_MED | VARCHAR2 | Y |  |
+| 25 | CD_UNI_PRO_CONS | NUMBER | Y |  |
+| 26 | NR_DIAS_ABERTO | NUMBER | Y |  |
+| 27 | NR_HORAS_ABERTO | NUMBER | Y |  |
+| 28 | CD_SANGUE_DERIVADOS | NUMBER | Y |  |
+| 29 | SN_LIGA_DESLIGAR | VARCHAR2 | Y |  |
+| 30 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 31 | NR_ORDEM_IMPRESSAO | NUMBER | Y |  |
+| 32 | QT_MAXIMA_APLICACAO | NUMBER | Y |  |
+| 33 | QT_PADRAO | NUMBER | Y |  |
+| 34 | CD_PRESTADOR | NUMBER | Y |  |
+| 35 | SN_ENTUBADO | VARCHAR2 | Y |  |
+| 36 | SN_USO_SIMULTANEO | VARCHAR2 | Y |  |
+| 37 | TP_TIP_PRESC | VARCHAR2 | Y |  |
+| 38 | TP_MODO_VERIFICA | VARCHAR2 | Y |  |
+| 39 | SN_USO_CONTINUO | VARCHAR2 | Y |  |
+| 40 | TP_BALANCO | VARCHAR2 | Y |  |
+| 41 | SN_IMPRIME_HORARIO | VARCHAR2 | Y |  |
+| 42 | SN_JUSTIFICATIVA | VARCHAR2 | Y |  |
+| 43 | SN_DIA_APLICACAO | VARCHAR2 | Y |  |
+| 44 | SN_ALERTA_DUPLICIDADE | VARCHAR2 | Y |  |
+| 45 | DS_JUSTIFICATIVA | VARCHAR2 | Y |  |
+| 46 | CD_UNI_PRO_INF | NUMBER | Y |  |
+| 47 | TP_TEMPO | VARCHAR2 | Y |  |
+| 48 | CD_SUS | VARCHAR2 | Y |  |
+| 49 | CD_SSM | VARCHAR2 | Y |  |
+| 50 | SN_COPIA_JUSTIFICATIVA | VARCHAR2 | Y |  |
+| 51 | QT_TEMPO_ASSISTENCIA | NUMBER | Y |  |
+| 52 | HR_EXAME | DATE | Y |  |
+| 53 | CD_ITEM_AGENDAMENTO | NUMBER | Y |  |
+| 54 | DS_OBS_ADICIONAL | VARCHAR2 | Y |  |
+| 55 | CD_UNI_PRESC_INF | NUMBER | Y |  |
+| 56 | HR_DURACAO | DATE | Y |  |
+| 57 | DS_BLOQUEIO_PRESCRICAO | VARCHAR2 | Y |  |
+| 58 | CD_UNI_PRESC | NUMBER | Y |  |
+| 59 | CD_UNI_FAT | NUMBER | Y |  |
+| 60 | CD_PROCEDIMENTO_SIA | VARCHAR2 | Y |  |
+| 61 | CD_PROCEDIMENTO_SIH | VARCHAR2 | Y |  |
+| 62 | SN_SOLIC_COMP_MESMO_ESTOQUE | VARCHAR2 | Y |  |
+| 63 | SN_BLOQUEIO_PRESCRICAO | VARCHAR2 | Y |  |
+| 64 | CD_UNI_PRESC_MAXIMA | NUMBER | Y |  |
+| 65 | CD_UNI_PRO_MAXIMA | NUMBER | Y |  |
+| 66 | SN_JUSTIFICATIVA_CADASTRADA | VARCHAR2 | Y |  |
+| 67 | SN_FRACIONAR | VARCHAR2 | Y |  |
+| 68 | SN_LANCA_CONTA_CHECAGEM | VARCHAR2 | Y |  |
+| 69 | SN_OBRIGA_MATERIAL | VARCHAR2 | Y |  |
+| 70 | CD_MATERIAL | NUMBER | Y |  |
+| 71 | NR_DIAS_PADRAO | NUMBER | Y |  |
+| 72 | QT_DOSE_PADRAO | NUMBER | Y |  |
+| 73 | CD_PADRAO_FORMULA | NUMBER | Y |  |
+| 74 | SN_DUPLA_CHECAGEM_DADO | VARCHAR2 | Y |  |
+| 75 | SN_DUPLA_CHECAGEM_NAO_DADO | VARCHAR2 | Y |  |
+| 76 | TP_PERMISSAO_INCLUSAO_COMPON | VARCHAR2 | Y |  |
+| 77 | SN_EXIGE_DILUENTE | VARCHAR2 | Y |  |
+| 78 | SN_DILUENTE | VARCHAR2 | Y |  |
+| 79 | SN_RECONSTITUINTE | VARCHAR2 | Y |  |
+| 80 | CD_OBSERVACAO_PREDEFINIDA | NUMBER | Y |  |
+| 81 | SN_QTD_EDITAVEL | VARCHAR2 | Y |  |
+| 82 | CD_DISPOSITIVO | NUMBER | Y |  |
+| 83 | CD_LOCAL_ANATOMICO_COLETA | NUMBER | Y |  |
+| 84 | TP_VALIDA_CHECAGEM_DUPLICIDADE | VARCHAR2 | Y |  |
+| 85 | NR_DIAS_CHECAGEM_DUPLICIDADE | NUMBER | Y |  |
+| 86 | NR_HORAS_CHECAGEM_DUPLICIDADE | NUMBER | Y |  |
+| 87 | QT_INFUSAO | NUMBER | Y |  |
+| 88 | SN_SOMA_TOTAL_BALANCO | VARCHAR2 | Y |  |
+| 89 | SN_HAB_LANC_UNIDADE | VARCHAR2 | Y |  |
+| 90 | SN_TRAZER_COMPONENTE_RECOLHIDO | VARCHAR2 | Y |  |
+| 91 | CD_CONFIG_EXIBICAO_ITEM_PRESC | NUMBER | Y |  |
+| 92 | CD_NOME_EXIBICAO_COMPONENTES | NUMBER | Y |  |
+| 93 | QTD_VOLUME_TOTAL | NUMBER | Y |  |
+| 94 | CD_UNID_VOL_TOTAL | NUMBER | Y |  |
+| 95 | TP_ISOLAMENTO_PACIENTE | VARCHAR2 | Y |  |
+| 96 | CD_UNID_PRESC_VOL_TOTAL | NUMBER | Y |  |
+| 97 | SN_CRONICO | VARCHAR2 | Y |  |
+| 98 | NR_DIAS_DURACAO | NUMBER | Y |  |
+| 99 | NR_HORAS_DURACAO | NUMBER | Y |  |
+| 100 | NR_MINUTOS_DURACAO | NUMBER | Y |  |
+| 101 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 102 | SN_ITEM_AVULSO | VARCHAR2 | Y |  |
+| 103 | CD_CIRURGIA | NUMBER | Y |  |
+| 104 | TP_VISUALIZACAO | VARCHAR2 | Y |  |
+| 105 | SN_PESQUISA_CIENTIFICA | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.TIP_PRESC_SETOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_TIP_PRESC | NUMBER | Y |  |
+| 8 | CD_SETOR | NUMBER | Y |  |
+| 9 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 10 | SN_PADRONIZADO | VARCHAR2 | Y |  |
+| 11 | SN_PARTICULAR | VARCHAR2 | Y |  |
+| 12 | SN_CONVENIO | VARCHAR2 | Y |  |
+| 13 | SN_PROCEDIMENTO_INTERNACAO | VARCHAR2 | Y |  |
+| 14 | SN_PROCEDIMENTO_AMBULATORIAL | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAMV.USUARIO_MULTI_EMPRESA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 8 | CD_ID_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBAPS.PRESTADOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PRESTADOR | NUMBER | Y |  |
+| 8 | CD_PRESTADOR_TEM | NUMBER | Y |  |
+| 9 | CD_BANCO | NUMBER | Y |  |
+| 10 | NM_PRESTADOR | VARCHAR2 | Y |  |
+| 11 | NM_GUERRA | VARCHAR2 | Y |  |
+| 12 | NR_CPF_CGC | VARCHAR2 | Y |  |
+| 13 | DS_COD_CONSELHO | VARCHAR2 | Y |  |
+| 14 | DS_CONSELHO | VARCHAR2 | Y |  |
+| 15 | DS_NR_AGENCIA | VARCHAR2 | Y |  |
+| 16 | DS_NM_AGENCIA | VARCHAR2 | Y |  |
+| 17 | NR_CONTA | VARCHAR2 | Y |  |
+| 18 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 19 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 20 | DS_CIDADE | VARCHAR2 | Y |  |
+| 21 | NR_FONE | VARCHAR2 | Y |  |
+| 22 | DS_INFORMATIVO | VARCHAR2 | Y |  |
+| 23 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 24 | CD_TIP_PRESTADOR | NUMBER | Y |  |
+| 25 | NM_UF | VARCHAR2 | Y |  |
+| 26 | NR_CEP | NUMBER | Y |  |
+| 27 | TP_PRESTADOR | VARCHAR2 | Y |  |
+| 28 | CD_ZONA | NUMBER | Y |  |
+| 29 | DT_CADASTRO | DATE | Y |  |
+| 30 | DT_INATIVACAO | DATE | Y |  |
+| 31 | NR_FAX | VARCHAR2 | Y |  |
+| 32 | NR_INSCRICAO_INSS | VARCHAR2 | Y |  |
+| 33 | SN_ISENTO_EMISSAO_NF | VARCHAR2 | Y |  |
+| 34 | SN_ISENTO_IR | VARCHAR2 | Y |  |
+| 35 | TP_FORMA_PAGAMENTO | VARCHAR2 | Y |  |
+| 36 | VL_DIA_VENCIMENTO | NUMBER | Y |  |
+| 37 | SN_PAGA_ISS | VARCHAR2 | Y |  |
+| 38 | CD_CONTRATO | NUMBER | Y |  |
+| 39 | DS_BAIRRO_ADM | VARCHAR2 | Y |  |
+| 40 | DS_CIDADE_ADM | VARCHAR2 | Y |  |
+| 41 | DS_ENDERECO_ADM | VARCHAR2 | Y |  |
+| 42 | NM_UF_ADM | VARCHAR2 | Y |  |
+| 43 | NR_CEP_ADM | NUMBER | Y |  |
+| 44 | NR_FAX_ADM | VARCHAR2 | Y |  |
+| 45 | NR_FONE_ADM | VARCHAR2 | Y |  |
+| 46 | VL_SALDO | NUMBER | Y |  |
+| 47 | NM_FANTASIA | VARCHAR2 | Y |  |
+| 48 | SN_PAGA_INSS | VARCHAR2 | Y |  |
+| 49 | SN_REC_MINIMO | VARCHAR2 | Y |  |
+| 50 | VL_REC_MINIMO | NUMBER | Y |  |
+| 51 | SN_PREFERENCIAL | VARCHAR2 | Y |  |
+| 52 | CD_CIDADE | NUMBER | Y |  |
+| 53 | CD_CIDADE_ADM | NUMBER | Y |  |
+| 54 | NR_ENDERECO | NUMBER | Y |  |
+| 55 | NR_ENDERECO_ADM | NUMBER | Y |  |
+| 56 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 57 | DS_COMPLEMENTO_ADM | VARCHAR2 | Y |  |
+| 58 | CD_AUTORIZADOR | NUMBER | Y |  |
+| 59 | TP_CREDENCIAMENTO | VARCHAR2 | Y |  |
+| 60 | DT_NASCIMENTO | DATE | Y |  |
+| 61 | NR_DIA_PAGAMENTO | NUMBER | Y |  |
+| 62 | CD_FORNECEDOR | NUMBER | Y |  |
+| 63 | DS_EMAIL | VARCHAR2 | Y |  |
+| 64 | UF_CONSELHO | VARCHAR2 | Y |  |
+| 65 | SN_ISENTO_CSLL | VARCHAR2 | Y |  |
+| 66 | SN_ISENTO_PIS | VARCHAR2 | Y |  |
+| 67 | SN_ISENTO_COFINS | VARCHAR2 | Y |  |
+| 68 | NR_DIAS_VENCIMENTO | NUMBER | Y |  |
+| 69 | CD_CONSELHO_PROFISSIONAL | NUMBER | Y |  |
+| 70 | CD_REGRA | NUMBER | Y |  |
+| 71 | SN_OBRIGA_MEDICO_PF_GUIA | VARCHAR2 | Y |  |
+| 72 | CD_INTERNO | VARCHAR2 | Y |  |
+| 73 | CD_CNES | VARCHAR2 | Y |  |
+| 74 | SN_EXECUTOR | VARCHAR2 | Y |  |
+| 75 | CD_MULTI_EMPRESA_MV | NUMBER | Y |  |
+| 76 | DS_SENHA_WEB | VARCHAR2 | Y |  |
+| 77 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 78 | SN_REGRA_EXECUTOR | VARCHAR2 | Y |  |
+| 79 | SN_CONTA_PAGAR | VARCHAR2 | Y |  |
+| 80 | SN_INSTANCIA_MV2000 | VARCHAR2 | Y |  |
+| 81 | CD_PRESTADOR_MV2000 | NUMBER | Y |  |
+| 82 | CD_REDUZIDO_CP_DESP_IND | NUMBER | Y |  |
+| 83 | CD_REDUZIDO_CP_DESP_COL | NUMBER | Y |  |
+| 84 | CD_GRUPO_PRESTADOR | NUMBER | Y |  |
+| 85 | CD_USUARIO_INCLUSAO | VARCHAR2 | Y |  |
+| 86 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y |  |
+| 87 | DT_ULTIMA_ALTERACAO | VARCHAR2 | Y |  |
+| 88 | CD_PRESTADOR_GUIA_WEB | NUMBER | Y |  |
+| 89 | SN_IMPRIME_ENDERECO | VARCHAR2 | Y |  |
+| 90 | DS_WEB_PAGE | VARCHAR2 | Y |  |
+| 91 | NR_CNS | VARCHAR2 | Y |  |
+| 92 | SN_DIVULGA | VARCHAR2 | Y |  |
+| 93 | QT_GUIA_REMESSA | NUMBER | Y |  |
+| 94 | SN_REMESSA_AMB_ESPECIALIDADE | VARCHAR2 | Y |  |
+| 95 | CD_CLASSIFICACAO | NUMBER | Y |  |
+| 96 | SN_URGENCIA_EMERGENCIA | VARCHAR2 | Y |  |
+| 97 | TP_CONTRATUALIZACAO | VARCHAR2 | Y |  |
+| 98 | CD_REGISTRO_ANS_INTERMED | VARCHAR2 | Y |  |
+| 99 | TP_DISPONIBILIDADE | VARCHAR2 | Y |  |
+| 100 | CD_PTU_PERFIL_ASSISTENCIAL | VARCHAR2 | Y |  |
+| 101 | CD_PTU_REDE_MANUAL_INTERCAMBIO | NUMBER | Y |  |
+| 102 | CD_PTU_TIPO_VINCULO | NUMBER | Y |  |
+| 103 | CD_PRESTADOR_DIR_TEC | NUMBER | Y |  |
+| 104 | SN_ALTO_CUSTO | VARCHAR2 | Y |  |
+| 105 | SN_ACIDENTE_TRABALHO | VARCHAR2 | Y |  |
+| 106 | SN_TABELA_PROPRIA | VARCHAR2 | Y |  |
+| 107 | SN_PRESTADOR_ACREDITADO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.AUT_MOD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | Y |  |
+| 8 | CD_MODULO | VARCHAR2 | Y |  |
+| 9 | SN_CONSULTAR | VARCHAR2 | Y |  |
+| 10 | SN_ALTERAR | VARCHAR2 | Y |  |
+| 11 | SN_EXCLUIR | VARCHAR2 | Y |  |
+| 12 | SN_INCLUIR | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.LOG_ACESSO_MV2000
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_ACESSO | NUMBER | Y |  |
+| 8 | CD_SISTEMA_ORIGEM | VARCHAR2 | Y |  |
+| 9 | CD_USUARIO | VARCHAR2 | Y |  |
+| 10 | MAQUINA | VARCHAR2 | Y |  |
+| 11 | CD_USUARIO_REDE | VARCHAR2 | Y |  |
+| 12 | DT_CONEXAO | DATE | Y |  |
+| 13 | DT_DESCONEXAO | DATE | Y |  |
+| 14 | CD_EMPRESA_CONEXAO | NUMBER | Y |  |
+| 15 | TP_CONEXAO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.PAPEL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PAPEL | NUMBER | Y |  |
+| 8 | DS_PAPEL | VARCHAR2 | Y |  |
+| 9 | TP_PAPEL | VARCHAR2 | Y |  |
+| 10 | CD_PRODUTO | VARCHAR2 | Y |  |
+| 11 | SN_ATIVO | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.PAPEL_MOD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_PAPEL | NUMBER | Y |  |
+| 8 | CD_MODULO | VARCHAR2 | Y |  |
+| 9 | SN_CONSULTAR | VARCHAR2 | Y |  |
+| 10 | SN_ALTERAR | VARCHAR2 | Y |  |
+| 11 | SN_EXCLUIR | VARCHAR2 | Y |  |
+| 12 | SN_INCLUIR | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.PAPEL_USUARIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | Y |  |
+| 8 | CD_PAPEL | NUMBER | Y |  |
+| 9 | TP_PAPEL | VARCHAR2 | Y |  |
+| 10 | SN_USUARIO_MASTER | VARCHAR2 | Y |  |
+
+---
+
+## AUDIT_DBASGU.USUARIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | AUDIT_DT_REGISTRO | DATE | Y |  |
+| 2 | AUDIT_CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | AUDIT_TP_ACAO | VARCHAR2 | Y |  |
+| 4 | AUDIT_TP_REGISTRO | VARCHAR2 | Y |  |
+| 5 | AUDIT_CD_SISTEMA | VARCHAR2 | Y |  |
+| 6 | AUDIT_CD_MODULO | VARCHAR2 | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | Y |  |
+| 8 | NM_USUARIO | VARCHAR2 | Y |  |
+| 9 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 10 | RAMAL | VARCHAR2 | Y |  |
+| 11 | TP_PRIVILEGIO | VARCHAR2 | Y |  |
+| 12 | NR_ID_USUARIO | NUMBER | Y |  |
+| 13 | CD_SENHA | VARCHAR2 | Y |  |
+| 14 | CD_PAPEL | NUMBER | Y |  |
+| 15 | TP_STATUS | VARCHAR2 | Y |  |
+| 16 | CD_PRESTADOR | NUMBER | Y |  |
+| 17 | USER_ID_ORA_APP | NUMBER | Y |  |
+| 18 | SN_ATIVO | VARCHAR2 | Y |  |
+| 19 | SN_SENHA_PLOGIN | VARCHAR2 | Y |  |
+| 20 | SN_ABRE_FECHA_CONTA | VARCHAR2 | Y |  |
+| 21 | CPF | VARCHAR2 | Y |  |
+| 22 | SN_RECEBE_MSG_EXPIRA_CHAVE | VARCHAR2 | Y |  |
+| 23 | SN_ALTERA_AUDITORIA_IN_LOCO | VARCHAR2 | Y |  |
+| 24 | SN_CADASTRA_PACIENTE | VARCHAR2 | Y |  |
+| 25 | SN_ALTERA_CADASTRO_PACIENTE | VARCHAR2 | Y |  |
+| 26 | DT_NASCIMENTO | DATE | Y |  |
+| 27 | CD_MATRICULA | VARCHAR2 | Y |  |
+| 28 | DS_EMAIL | VARCHAR2 | Y |  |
+| 29 | CD_IDIOMA | VARCHAR2 | Y |  |
+| 30 | SN_CERTIFICADO_DIGITAL | VARCHAR2 | Y |  |
+| 31 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 32 | DS_CIDADE | VARCHAR2 | Y |  |
+| 33 | DS_ESTADO | VARCHAR2 | Y |  |
+| 34 | DS_PAIS | VARCHAR2 | Y |  |
+| 35 | NR_CEP | NUMBER | Y |  |
+| 36 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 37 | NR_ENDERECO | NUMBER | Y |  |
+| 38 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 39 | SN_AUDITOR_TABELA | VARCHAR2 | Y |  |
+| 40 | SN_CRIA_USUARIO | VARCHAR2 | Y |  |
+| 41 | SN_PERMITE_DESVINCULO_PACOTE | VARCHAR2 | Y |  |
+| 42 | SN_ALTERA_PACIENTE_SEM_CPF | VARCHAR2 | Y |  |
+| 43 | NR_DDI | NUMBER | Y |  |
+| 44 | NR_DDD | NUMBER | Y |  |
+| 45 | NR_CELULAR | NUMBER | Y |  |
+| 46 | DH_GRAVACAO_USUARIO | DATE | Y |  |
+| 47 | CD_USUARIO_GRAVACAO | VARCHAR2 | Y |  |
+| 48 | DH_ALTERACAO_USUARIO | DATE | Y |  |
+| 49 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y |  |
+| 50 | NR_TENTATIVA_LOGIN | NUMBER | Y |  |
+| 51 | SN_ALTERA_OBSERVACAO_GUIA | VARCHAR2 | Y |  |
+| 52 | CD_SENHA_INTEGRA | VARCHAR2 | Y |  |
+| 53 | CD_CBO | VARCHAR2 | Y |  |
+| 54 | NR_MATRICULA | VARCHAR2 | Y |  |
+| 55 | CD_CRACHA | VARCHAR2 | Y |  |
+| 56 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 57 | CD_PROFISSAO | NUMBER | Y |  |
+| 58 | SN_TERMO_USO_PROFISSIONAL | CHAR | Y |  |
+| 59 | TS_TERMO_USO_PROFISSIONAL | TIMESTAMP(6) | Y |  |
+| 60 | SN_PERMITE_FECHA_CNT_ANATOMIA | VARCHAR2 | Y |  |
+| 61 | SN_PERMITE_DUPLICIDADE_CPF | VARCHAR2 | Y |  |
+| 62 | SN_UTILIZA_PROCESSO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.ACAO_REGISTRO_FLUXO_ONCOLOGIA
+> Tabela de Cadastro das Ac?es para o Registro de Fluxo da Oncologia
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ACAO | VARCHAR2 | N | Chave primaria das ac?es do registro de fluxo da oncologia |
+| 2 | DS_ACAO | VARCHAR2 | N | Descric?o da Ac?o |
+| 3 | SN_SELECIONAVEL | VARCHAR2 | N | Indica se a ac?o pode, ou n?o, ser selecionada pelo usuario ao lancar um registro de fluxo no pai... |
+| 4 | TP_SOMENTE_EXCETO_TIPO_PRESTAD | VARCHAR2 | N | Indica se a ac?o pode, ou n?o, ser selecionada pelo tipo de prestador ao lancar um registro de fl... |
+
+---
+
+## DBAMV.ACESSO_DOCUMENTO
+> Tabela que armazena os documentos acesso do MVPEP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ACESSO_DOCUMENTO | NUMBER | N | Identificador do vinculo do acesso documento. |
+| 2 | NM_ARQUIVO_FISICO | VARCHAR2 | Y | Nome do arquivo que ira representar o documento fisico salvo no disco. |
+| 3 | NR_TOTAL_PAGINAS | NUMBER | Y | Numero total de paginas do arquivo. |
+| 4 | DS_MIME | VARCHAR2 | Y | Extens?o para o formato do arquivo(application/pdf, text/plain) |
+| 5 | NM_ARQUIVO | VARCHAR2 | Y | Nome do documento que foi criado como arquivo. |
+| 6 | DT_CRIACAO | DATE | Y | Data da criac?o do arquivo. |
+| 7 | DT_ULTIMO_ACESSO | DATE | Y | Data do ultimo acesso ao arquivo, servira para o JOB remover os mais antigos |
+| 8 | LO_DOCUMENTO | BLOB | Y | Conteudo do arquivo |
+
+---
+
+## DBAMV.ACESSO_PAGINA
+> Tabela que armazena as paginas dos acesso documento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_PAGINA | NUMBER | N | Numero da pagina no arquivo (Acesso Documento). |
+| 2 | CD_ACESSO_DOCUMENTO | NUMBER | N | Codigo do acesso documento qual a pagina pertence. |
+| 3 | LO_PAGINA | BLOB | Y | Conteudo da pagina |
+
+---
+
+## DBAMV.APROVADOR_RESPONSAVEL_OS
+> Tabela responsável pelo relacionamento entre um usuário que vai aprovar O.S. e um usuário que realizou O.S
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USU_APROVADOR_OS | VARCHAR2 | N | Código do usuário que realizará a aprovação da O.S. |
+| 2 | CD_USU_RESPONSAVEL_OS | VARCHAR2 | N | Código do usuário que realizou a O.S. |
+| 3 | SN_ATIVO | VARCHAR2 | N | Indica se a relação entre o aprovador e responsável pela O.S. está ativa. S-Sim ou N-Não |
+
+---
+
+## DBAMV.ASSOCIACAO_CONFIG_USU_SET
+> Tabela associativa, associa uma ConfiguracaoUsuarioSetor a diversos Setores.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N | Identifica o Setor ao qual o ConfiguracaoUsuarioSetor esta relacionado ? FK |
+| 2 | CD_CONFIGURACAO_USUARIO_SETOR | NUMBER | N | Identifica a qual ConfiguracaoUsuarioSetor o Setor  esta relacionado ? FK |
+
+---
+
+## DBAMV.AUDITORIA_CHEC_PRESC_USUARIOS
+> Registra os usuários que terá permissão para habilitar o campo configurados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Identificador do usuário |
+
+---
+
+## DBAMV.AUDITORIA_CONFIG
+> Tabela de Auditoria das Configurac?es
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_TABELA | VARCHAR2 | Y | Nome da tabela de configurac?o auditada |
+| 2 | NM_COLUNA | VARCHAR2 | Y | Nome da coluna de configurac?o auditada |
+| 3 | VL_ANTERIOR | VARCHAR2 | Y | Valor anterior a modificac?o que existia na coluna |
+| 4 | VL_ATUAL | VARCHAR2 | Y | Valor que foi modificado para a coluna |
+| 5 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario que realizou a modificac?o |
+| 6 | NM_MAQUINA | VARCHAR2 | Y | Nome da maquina que foi feita a alterac?o |
+| 7 | DH_AUDITORIA | DATE | Y | Data e hora em que foi realizada a modificac?o |
+
+---
+
+## DBAMV.AUDITORIA_CONTA_INTEGRACAO
+> Tabela de Auditorias da Green.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | N | Código do atendimento da conta da auditoria Green. |
+| 2 | CD_CONTA | NUMBER | N | Código da conta da auditoria Green. |
+| 3 | DT_INICIO_AUDIT | DATE | Y | Data inicial da auditoria Green. |
+| 4 | DT_FINAL_AUDIT | DATE | Y | Data final da auditoria Green. |
+
+---
+
+## DBAMV.AUDITORIA_IN_LOCO
+> Tabela para gravac?o dos travamentos da auditoria in-loco realizadas para conferencia de contas hospitalares - internac?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDITORIA_IN_LOCO | NUMBER | N | Sequencial para controle da chave primarias da auditoria in-loco |
+| 2 | CD_REG_FAT | NUMBER | N | Codigo da Conta Hospitalar |
+| 3 | DT_INICIO | DATE | N | Data de inicio do travamento da conta para auditoria in-loco |
+| 4 | DT_TERMINO | DATE | N | Data de termino do travamento da conta para auditoria in-loco |
+| 5 | DT_CANCELADO | DATE | Y | Data e hora de cancelamento do travamento da conta para auditoria in-loco |
+| 6 | CD_USUARIO_AUDITOU | VARCHAR2 | N | Usuario responsavel pelo travamento da conta para auditoria in-loco |
+| 7 | CD_USUARIO_CANCELOU | VARCHAR2 | Y | Usuario responsavel pelo cancelamento do travamento da conta para auditoria in-loco |
+| 8 | HR_INICIO | DATE | N | Hora de inicio do travamento da conta para auditoria in-loco |
+| 9 | HR_TERMINO | DATE | N | Hora de termino do travamento da conta para auditoria in-loco |
+
+---
+
+## DBAMV.AUDITORIA_PARCIAL
+> Tabela para armazenar as auditorias parciais feitas no Assistencial Mobile, tela de checagem
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDITORIA_PARCIAL | NUMBER | N | Código identificador |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código identificador do usuário |
+| 3 | CD_ATENDIMENTO | NUMBER | N | Código identificador do atendimento |
+| 4 | TP_RESULTADO | VARCHAR2 | N | Resultado da auditoria S - Sucesso ou F - Falha |
+| 5 | DT_ACAO | DATE | Y | Data da ação |
+
+---
+
+## DBAMV.AUDIT_ANTIMICROBIANO
+> Tabela de Avaliac?o de antimicrobianos prescritos para cirurgias
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AVISO_CIRURGIA | NUMBER | N | Codigo do aviso de cirurgia |
+| 2 | CD_CIRURGIA_AVISO | NUMBER | N | Codigo da cirurgia |
+| 3 | CD_ANTIMICROB | VARCHAR2 | N | Codido do produto antimicrobiano |
+| 4 | DT_AVALIACAO | DATE | Y | Data da avaliac?o de antimicrobiano |
+| 5 | CD_USUARIO_AVALIACAO | VARCHAR2 | Y | Usuario que registrou a avaliac?o |
+| 6 | CD_ITPRE_MED_JUSTIFICATIVA | NUMBER | Y | Codigo da justificativa do item. |
+| 7 | SN_AVALIAVEL | VARCHAR2 | N | Flag que identifica se o produto e avaliavel. S-Sim  N-N?o |
+| 8 | TP_DROGA | VARCHAR2 | N | Tipo droga. A-Adequado  I-Inadequado |
+| 9 | TP_DOSE | VARCHAR2 | N | Tipo dose. A-Adequado  I-Inadequado |
+| 10 | TP_TEMPO | VARCHAR2 | N | Tipo tempo. A-Adequado  I-Inadequado |
+| 11 | TP_VIA | VARCHAR2 | N | Tipo via. A-Adequado  I-Inadequado |
+| 12 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Justificativa da avaliac?o |
+
+---
+
+## DBAMV.AUDIT_AUTO_PSIH
+> Cadastro de Auditoria predefinida para o Antimicrobiano
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_AUTO_PSIH | NUMBER | N | Identificac?o da Auditoria |
+| 2 | DS_AUDIT_AUTO_PSIH | VARCHAR2 | N | Descric?o da auditoria |
+| 3 | CD_ANTIMICROB | VARCHAR2 | Y | Antimicrobiano envolvido na Auditoria |
+| 4 | NM_USUARIO | VARCHAR2 | N | Usuario responsavel por criar/alterar a auditoria |
+| 5 | SN_ATIVO | VARCHAR2 | N | Indica se a Auditoria esta Ativa |
+| 6 | TP_PERMITE_PRORROGACAO | VARCHAR2 | N | Tipos de Permissão de Prorrogação: (S) - Sim / (N) - Nao / (D) A Definir |
+
+---
+
+## DBAMV.AUDIT_AUTO_PSIH_EMPRESA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_AUTO_PSIH | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 3 | SN_ATIVO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.AUDIT_COLUNA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_TABELA | NUMBER | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+| 3 | COLUNA | VARCHAR2 | N |  |
+| 4 | DADO_ANTERIOR | VARCHAR2 | Y |  |
+| 5 | DADO_ATUAL | VARCHAR2 | Y |  |
+| 6 | CHAVE_PRIMARIA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.AUDIT_COLUNA_AUDITORIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_TABELA_AUDITORIA | NUMBER | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+| 3 | COLUNA | VARCHAR2 | N |  |
+| 4 | DADO_ANTERIOR | VARCHAR2 | Y |  |
+| 5 | DADO_ATUAL | VARCHAR2 | Y |  |
+| 6 | CHAVE_PRIMARIA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.AUDIT_SUPRIMENTOS
+> Tabela que armazenará os registros da auditoria
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_SUPRIMENTOS | NUMBER | N |  |
+| 2 | NM_PROCESSO | VARCHAR2 | Y |  |
+| 3 | NM_TELA_PROCESSO | VARCHAR2 | Y |  |
+| 4 | NM_TABELA | VARCHAR2 | Y |  |
+| 5 | TP_OPERACAO_PROCESSO | VARCHAR2 | Y |  |
+| 6 | TP_MOVIMENTO | VARCHAR2 | Y |  |
+| 7 | CD_USUARIO_LOGADO | VARCHAR2 | Y |  |
+| 8 | DS_USUARIO_PROCESSO | VARCHAR2 | Y |  |
+| 9 | DT_AUDIT_SUPRIMENTOS | DATE | Y |  |
+| 10 | DT_MOVIMENTO | DATE | Y |  |
+| 11 | HR_MOVIMENTO | DATE | Y |  |
+| 12 | CD_ESTOQUE | NUMBER | Y |  |
+| 13 | CD_MOVIMENTO | NUMBER | Y |  |
+| 14 | CD_ITMOVIMENTO | NUMBER | Y |  |
+| 15 | CD_ITLOT_ENT | NUMBER | Y |  |
+| 16 | CD_PRODUTO | NUMBER | Y |  |
+| 17 | CD_LOTE_ANTES | VARCHAR2 | Y |  |
+| 18 | CD_LOTE_DEPOIS | VARCHAR2 | Y |  |
+| 19 | CD_FORNECEDOR | NUMBER | Y |  |
+| 20 | DT_VALIDADE_ANTES | DATE | Y |  |
+| 21 | DT_VALIDADE_DEPOIS | DATE | Y |  |
+| 22 | CD_UNI_PRO | NUMBER | Y |  |
+| 23 | QT_MOVIMENTO | NUMBER | Y |  |
+| 24 | DS_HOST_PROCESSO | VARCHAR2 | Y |  |
+| 25 | DS_OPERACAO_REALIZADA | CLOB | Y |  |
+| 26 | DS_COMANDO | VARCHAR2 | Y |  |
+| 27 | CD_SID | NUMBER | Y |  |
+| 28 | CD_ORD_COM | NUMBER | Y |  |
+| 29 | CD_SOLSAI_PRO | NUMBER | Y |  |
+| 30 | CD_ITSOLSAI_PRO | NUMBER | Y |  |
+| 31 | CD_INVENTARIO | NUMBER | Y |  |
+| 32 | CD_COPIA_ESTOQUE | NUMBER | Y |  |
+| 33 | CD_ESTOQUE_DESTINO | NUMBER | Y |  |
+| 34 | CD_PRODUTO_KIT | NUMBER | Y |  |
+| 35 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 36 | CD_EMPRESA_DESTINO | NUMBER | Y |  |
+| 37 | CD_UNID_INT | NUMBER | Y |  |
+| 38 | CD_SETOR | NUMBER | Y |  |
+| 39 | CD_AVISO_CIRURGIA | NUMBER | Y |  |
+| 40 | DS_CODIGO_DE_BARRAS | VARCHAR2 | Y |  |
+| 41 | VL_UNITARIO | NUMBER | Y |  |
+| 42 | VL_CUSTO_REAL | NUMBER | Y |  |
+| 43 | VL_TOTAL | NUMBER | Y |  |
+| 44 | TP_RETROATIVO | VARCHAR2 | Y |  |
+| 45 | CD_MVTO_FILHA | NUMBER | Y |  |
+| 46 | TP_STATUS_CONFIRMACAO | VARCHAR2 | Y |  |
+| 47 | SN_ABERTO | VARCHAR2 | Y |  |
+| 48 | TP_CONTAGEM | VARCHAR2 | Y |  |
+| 49 | CD_TIP_DOC | NUMBER | Y |  |
+| 50 | DT_ENTRADA | DATE | Y |  |
+| 51 | CD_DOCUMENTO | VARCHAR2 | Y |  |
+| 52 | CD_SERIE | VARCHAR2 | Y |  |
+| 53 | TP_FRETE | VARCHAR2 | Y |  |
+| 54 | SN_ATUALIZA_PRECO | VARCHAR2 | Y |  |
+| 55 | VL_FRETE | NUMBER | Y |  |
+| 56 | VL_DESCONTO | NUMBER | Y |  |
+| 57 | VL_IMPOSTO_ICMS | NUMBER | Y |  |
+| 58 | TP_DOCUMENTO_ENTRADA | VARCHAR2 | Y |  |
+| 59 | SN_IMPORT_FINAN | VARCHAR2 | Y |  |
+| 60 | SN_INCLUSAO_NOTA | VARCHAR2 | Y |  |
+| 61 | SN_CONSIGNADO_ANTES | VARCHAR2 | Y |  |
+| 62 | SN_CONSIGNADO_DEPOIS | VARCHAR2 | Y |  |
+| 63 | SN_CONTABILIZA | VARCHAR2 | Y |  |
+| 64 | VL_OUTROS | NUMBER | Y |  |
+| 65 | QT_ATENDIDA | NUMBER | Y |  |
+| 66 | QT_TOMBADO | NUMBER | Y |  |
+| 67 | SN_PENDENCIA | VARCHAR2 | Y |  |
+| 68 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 69 | VL_IMPOSTO | NUMBER | Y |  |
+| 70 | QT_DEVOLVIDO | NUMBER | Y |  |
+| 71 | SN_ATUALIZA_PRECO_PROD | VARCHAR2 | Y |  |
+| 72 | TP_STATUS | VARCHAR2 | Y |  |
+| 73 | SN_BLOQUEIO | VARCHAR2 | Y |  |
+| 74 | CD_LINHA | NUMBER | Y |  |
+| 75 | QT_KIT_ANTES | NUMBER | Y |  |
+| 76 | QT_KIT_DEPOIS | NUMBER | Y |  |
+| 77 | QT_ESTOQUE_ANTES | NUMBER | Y |  |
+| 78 | QT_ESTOQUE_DEPOIS | NUMBER | Y |  |
+| 79 | QT_ESTOQUE_DOADO_ANTES | NUMBER | Y |  |
+| 80 | QT_ESTOQUE_DOADO_DEPOIS | NUMBER | Y |  |
+| 81 | TP_SITUACAO | VARCHAR2 | Y |  |
+| 82 | DT_FECHAMENTO_EMPRESTIMO | DATE | Y |  |
+| 83 | TP_EMPRESTIMO | VARCHAR2 | Y |  |
+| 84 | CD_KIT | NUMBER | Y |  |
+| 85 | SN_KIT_ARMAZENADO | VARCHAR2 | Y |  |
+| 86 | DS_PRODUTO | VARCHAR2 | Y |  |
+| 87 | SN_VALIDADE_ANTES | VARCHAR2 | Y |  |
+| 88 | SN_VALIDADE_DEPOIS | VARCHAR2 | Y |  |
+| 89 | SN_MESTRE_ANTES | VARCHAR2 | Y |  |
+| 90 | SN_MESTRE_DEPOIS | VARCHAR2 | Y |  |
+| 91 | SN_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 92 | SN_LOTE_ANTES | VARCHAR2 | Y |  |
+| 93 | SN_LOTE_DEPOIS | VARCHAR2 | Y |  |
+| 94 | SN_KIT | VARCHAR2 | Y |  |
+| 95 | CD_ESPECIE_ANTES | NUMBER | Y |  |
+| 96 | CD_ESPECIE_DEPOIS | NUMBER | Y |  |
+| 97 | CD_CLASSE | NUMBER | Y |  |
+| 98 | CD_SUB_CLA | NUMBER | Y |  |
+| 99 | CD_PRODUTO_TEM_ANTES | NUMBER | Y |  |
+| 100 | CD_PRODUTO_TEM_DEPOIS | NUMBER | Y |  |
+| 101 | DS_UNIDADE_ANTES | VARCHAR2 | Y |  |
+| 102 | DS_UNIDADE_DEPOIS | VARCHAR2 | Y |  |
+| 103 | VL_FATOR_ANTES | NUMBER | Y |  |
+| 104 | VL_FATOR_DEPOIS | NUMBER | Y |  |
+| 105 | TP_RELATORIOS | VARCHAR2 | Y |  |
+| 106 | SN_ATIVO | VARCHAR2 | Y |  |
+| 107 | CD_LOTE_FRACIONADO | VARCHAR2 | Y |  |
+| 108 | DT_VALIDADE_FRAC | DATE | Y |  |
+| 109 | QT_DESCARTE_PROD_FRAC | NUMBER | Y |  |
+| 110 | CD_PRE_MED | NUMBER | Y |  |
+| 111 | CD_MOTIVO_CANC | NUMBER | Y |  |
+| 112 | DT_CANCELAMENTO | DATE | Y |  |
+| 113 | TP_PRODUTO | VARCHAR2 | Y |  |
+| 114 | CD_FORMULA | NUMBER | Y |  |
+| 115 | SN_CONF_DETERM_USU | VARCHAR2 | Y |  |
+| 116 | SN_ATENDIDO | VARCHAR2 | Y |  |
+| 117 | CD_PRODUTO_ATENDIDO | NUMBER | Y |  |
+| 118 | SN_CONSOLIDADO | VARCHAR2 | Y |  |
+| 119 | SN_FECHADO | VARCHAR2 | Y |  |
+| 120 | DS_HASH | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.AUDIT_TABELA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_TABELA | NUMBER | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+| 3 | TP_TRANSACAO | VARCHAR2 | N |  |
+| 4 | DT_TRANSACAO | DATE | N |  |
+| 5 | USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.AUDIT_TABELA_AUDITORIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AUDIT_TABELA_AUDITORIA | NUMBER | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+| 3 | TP_TRANSACAO | VARCHAR2 | N |  |
+| 4 | DT_TRANSACAO | DATE | N |  |
+| 5 | USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_BANCADA_NOVA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SET_EXA | NUMBER | N |  |
+| 2 | CD_BANCADA | NUMBER | N |  |
+| 3 | DS_BANCADA | VARCHAR2 | N |  |
+| 4 | SN_ATIVO | VARCHAR2 | N |  |
+| 5 | DT_CADASTRO | DATE | N |  |
+| 6 | CD_USUARIO_CADASTRO | VARCHAR2 | N |  |
+| 7 | SN_INTEGRA_EQUIPAMENTO | VARCHAR2 | N |  |
+| 8 | CD_RECEPCAO_AMOSTRA | NUMBER | Y |  |
+| 9 | CD_SET_EXA_ANTIGO | NUMBER | N |  |
+| 10 | CD_BANCADA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_BENS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_BEM | NUMBER | N |  |
+| 2 | SN_NATUREZA_PERMANENTE | VARCHAR2 | N |  |
+| 3 | DT_ULT_DEPRE | DATE | Y |  |
+| 4 | CD_ESPECIE | NUMBER | N |  |
+| 5 | CD_CLASSE | NUMBER | N |  |
+| 6 | DS_BEM | VARCHAR2 | N |  |
+| 7 | DS_ESPECIFICACOES | VARCHAR2 | Y |  |
+| 8 | DS_MARCA | VARCHAR2 | Y |  |
+| 9 | DS_MODELO | VARCHAR2 | Y |  |
+| 10 | NR_SERIE | VARCHAR2 | Y |  |
+| 11 | NR_ANOS_UTIL | NUMBER | N |  |
+| 12 | DS_PLAQUETA | VARCHAR2 | Y |  |
+| 13 | DT_BAIXA | DATE | Y |  |
+| 14 | DT_COMPRA | DATE | N |  |
+| 15 | DT_ULTIMA_PREVENTIVA | DATE | Y |  |
+| 16 | DT_VCTO_GARANTIA | DATE | Y |  |
+| 17 | NR_NOTAFISCAL | VARCHAR2 | Y |  |
+| 18 | DT_TOMBAMENTO | DATE | Y |  |
+| 19 | VL_HISTORICO | NUMBER | N |  |
+| 20 | VL_REFERENCIA | NUMBER | Y |  |
+| 21 | VL_INDEXADO | NUMBER | Y |  |
+| 22 | NR_DIAS_PREVENTIVA | NUMBER | Y |  |
+| 23 | VL_COMPRA | NUMBER | N |  |
+| 24 | HR_BAIXA | DATE | Y |  |
+| 25 | CD_MOTIVO | NUMBER | Y |  |
+| 26 | CD_FORNECEDOR | NUMBER | Y |  |
+| 27 | CD_LOCALIDADE | NUMBER | Y |  |
+| 28 | CD_SETOR | NUMBER | Y |  |
+| 29 | CD_SUB_CLA | NUMBER | N |  |
+| 30 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 31 | CD_ENT_PRO | NUMBER | Y |  |
+| 32 | BENS_CD_MOV_BEM | NUMBER | Y |  |
+| 33 | CD_CAPITULO | NUMBER | N |  |
+| 34 | CD_SUB_CAP | NUMBER | N |  |
+| 35 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 36 | CD_CHECK_LIST | NUMBER | Y |  |
+| 37 | CD_ITENTPRO | NUMBER | Y |  |
+| 38 | TP_DEPRECIACAO | VARCHAR2 | Y |  |
+| 39 | NR_MESANO_DEPREC_ANUAL | NUMBER | Y |  |
+| 40 | DS_OBSERVACAO_AGREGADOR | VARCHAR2 | Y |  |
+| 41 | TP_DEPREC_AGREGADOS | VARCHAR2 | Y |  |
+| 42 | SN_BEM_AGREGADOR | VARCHAR2 | Y |  |
+| 43 | VL_DEPRECIACAO_HISTORICA | NUMBER | Y |  |
+| 44 | TX_DEPRE | NUMBER | N |  |
+| 45 | CD_TIPO_AQUISICAO | NUMBER | Y |  |
+| 46 | SN_IMOB_AND_BEM | VARCHAR2 | N |  |
+| 47 | SN_DESP_OPERACIONAL | VARCHAR2 | N |  |
+| 48 | NR_DIAS_PERIODO_CALIBRAGEM | NUMBER | Y |  |
+| 49 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y |  |
+| 50 | CD_REDUZIDO_ATIVO | NUMBER | Y |  |
+| 51 | SN_GARANTIA_PENHORA | VARCHAR2 | Y |  |
+| 52 | DS_GARANTIA_PENHORA | VARCHAR2 | Y |  |
+| 53 | CD_FUNC | NUMBER | Y |  |
+| 54 | DT_CANCELAMENTO_BAIXA | DATE | Y |  |
+| 55 | CD_BEM_INTEGRA | VARCHAR2 | Y |  |
+| 56 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 57 | DT_INTEGRA | DATE | Y |  |
+| 58 | NR_CODIGO_BARRA | VARCHAR2 | Y |  |
+| 59 | SOFRE_DEPRECIACAO | VARCHAR2 | Y |  |
+| 60 | SN_CODIGO_BARRA | VARCHAR2 | N |  |
+| 61 | CD_ANVISA | VARCHAR2 | Y |  |
+| 62 | DS_ACESSORIOS | VARCHAR2 | Y |  |
+| 63 | TP_VIDA_UTIL | VARCHAR2 | Y |  |
+| 64 | NR_MES_UTIL | NUMBER | Y |  |
+| 65 | TX_DEPRE_MES | NUMBER | Y |  |
+| 66 | TP_ORIGEM | VARCHAR2 | Y |  |
+| 67 | VL_RESIDUAL_POS_DEPREC | NUMBER | Y |  |
+| 68 | TX_APLICADA | NUMBER | N |  |
+| 69 | VL_RECUPERAVEL | NUMBER | N |  |
+| 70 | NR_VIDA_UTIL_APLIC | NUMBER | N |  |
+| 71 | SN_BEM_LAUDADO | CHAR | Y |  |
+| 72 | VL_RESIDUAL_LAUDO | NUMBER | Y |  |
+| 73 | VL_DEPREC_ACUM_FISCAL | NUMBER | Y |  |
+| 74 | VL_DEPREC_ACUM_ECO | NUMBER | Y |  |
+| 75 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 76 | CD_LOCALIDADE_ANTIGA | NUMBER | Y |  |
+| 77 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 78 | CD_REDUZIDO_ATIVO_ANTIGO | NUMBER | Y |  |
+| 79 | CD_BEM_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CAD_SAME_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAD_SAME | NUMBER | N |  |
+| 2 | DS_CAD_SAME | VARCHAR2 | N |  |
+| 3 | DS_CAD_SAME_LOCAL | VARCHAR2 | Y |  |
+| 4 | NR_PROXIMA_MATRICULA | NUMBER | Y |  |
+| 5 | SN_NUMERA_AUTO | VARCHAR2 | N |  |
+| 6 | SN_ATENDIMENTO_OBRIGATORIO | VARCHAR2 | N |  |
+| 7 | TP_NUMERACAO | VARCHAR2 | Y |  |
+| 8 | SN_GERAR_MATRICULA_AUTO | VARCHAR2 | Y |  |
+| 9 | SN_REPLICACAO | VARCHAR2 | Y |  |
+| 10 | SN_ATEND_SEM_DIAGNO | VARCHAR2 | N |  |
+| 11 | SN_INTERNACAO_SEM_ALTA | VARCHAR2 | N |  |
+| 12 | SN_MATRICULA_POR_PROCED | VARCHAR2 | N |  |
+| 13 | DS_IMPRESSORA | VARCHAR2 | Y |  |
+| 14 | DS_REPORT_AVISO_ATENDE | VARCHAR2 | Y |  |
+| 15 | DS_REPORT_AVISO_AGENDA | VARCHAR2 | Y |  |
+| 16 | TP_NAVEGACAO_ENTRA_SAI_DOC | VARCHAR2 | N |  |
+| 17 | CD_PORTADOR_PADRAO | NUMBER | Y |  |
+| 18 | SN_GERA_MATRICULA_ANUAL | VARCHAR2 | N |  |
+| 19 | SN_CONFIRMA_RECEB_AUTOMATICO | VARCHAR2 | N |  |
+| 20 | CD_SETOR | NUMBER | Y |  |
+| 21 | DS_REPORT_AVISO_AGENDA_SCMA | VARCHAR2 | Y |  |
+| 22 | SN_SOLICITAR_DOC_SAME | VARCHAR2 | Y |  |
+| 23 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+| 24 | NR_PROXIMA_MATRICULA_ANTIGO | NUMBER | Y |  |
+| 25 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 26 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 27 | CD_CAD_SAME_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CAIXA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAIXA | NUMBER | N |  |
+| 2 | DS_CAIXA | VARCHAR2 | N |  |
+| 3 | VL_SALDO | NUMBER | N |  |
+| 4 | VL_INICIO_SALDO | NUMBER | Y |  |
+| 5 | VL_SALDO_PRE_DATADOS | NUMBER | Y |  |
+| 6 | VL_SALDO_CARTAO | NUMBER | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 8 | SN_CENTRAL | VARCHAR2 | N |  |
+| 9 | SN_RECEBIMENTO | VARCHAR2 | N |  |
+| 10 | SN_PAGAMENTO | VARCHAR2 | N |  |
+| 11 | SN_DEPOSITO | VARCHAR2 | N |  |
+| 12 | SN_TRANSFERENCIA | VARCHAR2 | N |  |
+| 13 | SN_RECEITA_DIRETA | VARCHAR2 | N |  |
+| 14 | SN_DESPESA_DIRETA | VARCHAR2 | N |  |
+| 15 | CD_REDUZIDO | NUMBER | Y |  |
+| 16 | CD_REDUZIDO_PRE_DATADO | NUMBER | Y |  |
+| 17 | CD_REDUZIDO_CUSTODIADO | NUMBER | Y |  |
+| 18 | CD_REDUZIDO_DEVOLVIDO | NUMBER | Y |  |
+| 19 | SN_MULTI_USUARIO | VARCHAR2 | N |  |
+| 20 | SN_CAUCAO | VARCHAR2 | N |  |
+| 21 | SN_CONTROLA_DT_LOTE | VARCHAR2 | N |  |
+| 22 | CD_CAIXA_INTEGRA | VARCHAR2 | Y |  |
+| 23 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 24 | DT_INTEGRA | DATE | Y |  |
+| 25 | SN_CONTROLA_REABERTURA | VARCHAR2 | Y |  |
+| 26 | CD_MOEDA | VARCHAR2 | Y |  |
+| 27 | SN_FLUXO_CAIXA | VARCHAR2 | N |  |
+| 28 | SN_LOTE_ZERADO | VARCHAR2 | N |  |
+| 29 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+| 30 | CD_REDUZIDO_PRE_DATADO_A | NUMBER | Y |  |
+| 31 | CD_REDUZIDO_CUSTODIADO_A | NUMBER | Y |  |
+| 32 | CD_REDUZIDO_DEVOLVIDO_A | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_CEN_CIR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CEN_CIR | NUMBER | Y |  |
+| 2 | DS_CEN_CIR | VARCHAR2 | N |  |
+| 3 | CD_ESTOQUE | NUMBER | Y |  |
+| 4 | HR_INICIAL | DATE | Y |  |
+| 5 | NR_FREQUENCIA | NUMBER | Y |  |
+| 6 | DS_CAMINHO_IMPRESSAO | VARCHAR2 | Y |  |
+| 7 | QT_DIARIAS_RESERVADA | NUMBER | Y |  |
+| 8 | SN_SOMENTE_ADVERTIR | VARCHAR2 | N |  |
+| 9 | SN_EXIGE_ANESTESIA | VARCHAR2 | N |  |
+| 10 | CD_CEN_CIR_ANTIGO | NUMBER | N |  |
+| 11 | CD_ESTOQUE_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CONFIG_ESTOQUE_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | Y |  |
+| 2 | CD_UNID_INT | NUMBER | Y |  |
+| 3 | CD_ESPECIE | NUMBER | Y |  |
+| 4 | CD_SUB_CLA | NUMBER | Y |  |
+| 5 | CD_CLASSE | NUMBER | Y |  |
+| 6 | CD_PRODUTO | NUMBER | Y |  |
+| 7 | CD_SETOR | NUMBER | Y |  |
+| 8 | CD_ESTOQUE_SN | NUMBER | Y |  |
+| 9 | CD_ESTOQUE_EI | NUMBER | Y |  |
+| 10 | CD_CONFIG_ESTOQUE | NUMBER | N |  |
+| 11 | CD_ESTOQUE_ANTIGO | NUMBER | N |  |
+| 12 | CD_UNID_INT_ANTIGA | NUMBER | Y |  |
+| 13 | CD_ESTOQUE_SN_ANTIGO | NUMBER | Y |  |
+| 14 | CD_ESTOQUE_EI_ANTIGO | NUMBER | Y |  |
+| 15 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CONFIG_PAGU_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | TP_AVALIACAO_MED | VARCHAR2 | N |  |
+| 3 | TP_AVALIACAO_ENF | VARCHAR2 | N |  |
+| 4 | HR_PRESC_MED | DATE | Y |  |
+| 5 | HR_PRESC_ENF | DATE | Y |  |
+| 6 | HR_INICIO_BALANCO_HIDRICO | DATE | Y |  |
+| 7 | QT_ATRASO_CHECAGEM | NUMBER | Y |  |
+| 8 | QT_JUSTIFICA_CHECAGEM | NUMBER | Y |  |
+| 9 | SN_ENVIAR_MSG_PARECER | VARCHAR2 | Y |  |
+| 10 | TP_ENVIO_MSG_PARECER | VARCHAR2 | Y |  |
+| 11 | ID_USER_ENVIO_MSG_PARECER | VARCHAR2 | Y |  |
+| 12 | SN_ENVIAR_MSG_ITENS_PRESC | VARCHAR2 | Y |  |
+| 13 | ID_USER_ENVIO_MSG_ITENS_PRESC | VARCHAR2 | Y |  |
+| 14 | SN_GERAR_DEV_ITENS_SUSP | VARCHAR2 | N |  |
+| 15 | TP_APRAZAMENTO | VARCHAR2 | N |  |
+| 16 | QT_MIN_ADICIONAIS_MED | NUMBER | Y |  |
+| 17 | QT_MIN_ADICIONAIS_ENF | NUMBER | Y |  |
+| 18 | HR_PRESC_LIMITE_MED | DATE | Y |  |
+| 19 | HR_PRESC_LIMITE_ENF | DATE | Y |  |
+| 20 | TP_ADMISSAO_MEDICA | VARCHAR2 | Y |  |
+| 21 | SN_RETROATIVO | VARCHAR2 | Y |  |
+| 22 | SN_PRESC_INTERNADO | VARCHAR2 | Y |  |
+| 23 | TP_TRATA_URGENTE | VARCHAR2 | Y |  |
+| 24 | SN_IMP_EVO_MED | VARCHAR2 | Y |  |
+| 25 | SN_IMP_EVO_ENF | VARCHAR2 | Y |  |
+| 26 | SN_OBRIGA_EVO_MED | VARCHAR2 | Y |  |
+| 27 | SN_OBRIGA_EVO_ENF | VARCHAR2 | Y |  |
+| 28 | SN_PREVISAO_ALTA | VARCHAR2 | N |  |
+| 29 | SN_ABRIR_JUSTIFICATIVA | VARCHAR2 | N |  |
+| 30 | SN_ABRIR_DOCUMENTO_OBRIGATORIO | VARCHAR2 | N |  |
+| 31 | SN_VALIDA_ESTOQUE_CHECAGEM | VARCHAR2 | N |  |
+| 32 | SN_LEITURA_OBRIGATORIA | VARCHAR2 | Y |  |
+| 33 | SN_CRIAR_PROXIMO_HORARIO | VARCHAR2 | Y |  |
+| 34 | NM_USU_ENV_MENSAG_PNEL_ONCOLG | VARCHAR2 | Y |  |
+| 35 | SN_ENVIAR_MENSAG_PNEL_ONCOLG | VARCHAR2 | Y |  |
+| 36 | NR_HORAS_CONVERSAO_PRESCRICAO | NUMBER | Y |  |
+| 37 | SN_CHECA_COMPONENTES | VARCHAR2 | Y |  |
+| 38 | SN_NAVEGA_HORARIOS | VARCHAR2 | Y |  |
+| 39 | QT_ADIANTA_CHECAGEM | NUMBER | Y |  |
+| 40 | TP_OBRIGA_EVO_MED | VARCHAR2 | Y |  |
+| 41 | TP_OBRIGA_EVO_ENF | VARCHAR2 | Y |  |
+| 42 | SN_OBRIGA_CHECAGEM_ANTERIOR | VARCHAR2 | Y |  |
+| 43 | SN_AGENDAR_HORARIOS_EXAME | VARCHAR2 | Y |  |
+| 44 | TP_CHECAGEM | VARCHAR2 | Y |  |
+| 45 | HR_INICIO_BALANCO_HIDRICO_PEP | DATE | Y |  |
+| 46 | TP_AVALIACAO_FARMACEUTICA | VARCHAR2 | Y |  |
+| 47 | TP_EXIBICAO_MEDICO_PRESTADOR | VARCHAR2 | Y |  |
+| 48 | CD_OBJETO_AVAL_AUTO | NUMBER | Y |  |
+| 49 | SN_LISTAR_ITEM_SEM_HORARIO | VARCHAR2 | Y |  |
+| 50 | SN_AGRUPAR_ITEM | VARCHAR2 | Y |  |
+| 51 | SN_AVAL_HABILITA_LIBERAR_TODOS | VARCHAR2 | N |  |
+| 52 | SN_CONFERIR_ADMINISTRACAO | VARCHAR2 | N |  |
+| 53 | SN_DATA_REFERENCIA_CHECAGEM | VARCHAR2 | N |  |
+| 54 | HR_FINAL_PRESC_MED | DATE | Y |  |
+| 55 | HR_FINAL_PRESC_ENF | DATE | Y |  |
+| 56 | HR_TOLERANCIA_PRESC_MED | DATE | Y |  |
+| 57 | HR_TOLERANCIA_PRESC_ENF | DATE | Y |  |
+| 58 | HR_IMPRESSAO_PRESC_MED | DATE | Y |  |
+| 59 | HR_IMPRESSAO_PRESC_ENF | DATE | Y |  |
+| 60 | QT_DIAS_PRESC_MED | NUMBER | N |  |
+| 61 | QT_DIAS_PRESC_ENF | NUMBER | N |  |
+| 62 | SN_UTILIZA_HR_ATUAL_PRESC_MED | VARCHAR2 | N |  |
+| 63 | SN_UTILIZA_HR_ATUAL_PRESC_ENF | VARCHAR2 | N |  |
+| 64 | SN_SUSPENDE_SOL_FARM_PRESC_MED | VARCHAR2 | N |  |
+| 65 | SN_SUSPENDE_SOL_FARM_PRESC_ENF | VARCHAR2 | N |  |
+| 66 | SN_HAB_DT_REFERENCIA_PRESC_MED | VARCHAR2 | N |  |
+| 67 | SN_HAB_DT_REFERENCIA_PRESC_ENF | VARCHAR2 | N |  |
+| 68 | SN_HAB_DT_INICIAL_PRESC_MED | VARCHAR2 | N |  |
+| 69 | SN_HAB_DT_INICIAL_PRESC_ENF | VARCHAR2 | N |  |
+| 70 | SN_HAB_HR_INICIAL_PRESC_MED | VARCHAR2 | N |  |
+| 71 | SN_HAB_HR_INICIAL_PRESC_ENF | VARCHAR2 | N |  |
+| 72 | SN_HAB_DT_VALIDADE_PRESC_MED | VARCHAR2 | N |  |
+| 73 | SN_HAB_DT_VALIDADE_PRESC_ENF | VARCHAR2 | N |  |
+| 74 | SN_HAB_HR_VALIDADE_PRESC_MED | VARCHAR2 | N |  |
+| 75 | SN_HAB_HR_VALIDADE_PRESC_ENF | VARCHAR2 | N |  |
+| 76 | SN_HAB_UNID_INTERN_PRESC_MED | VARCHAR2 | N |  |
+| 77 | SN_HAB_UNID_INTERN_PRESC_ENF | VARCHAR2 | N |  |
+| 78 | SN_HAB_SETOR_PRESC_MED | VARCHAR2 | N |  |
+| 79 | SN_HAB_SETOR_PRESC_ENF | VARCHAR2 | N |  |
+| 80 | SN_CONSIDERA_SIGLA_INTERPRE | VARCHAR2 | Y |  |
+| 81 | SN_PREPARACAO | CHAR | N |  |
+| 82 | TP_CHECAGEM_MEDICAMENTO | VARCHAR2 | N |  |
+| 83 | DS_IMPRESSORA_PEQUENA | VARCHAR2 | Y |  |
+| 84 | DS_IMPRESSORA_GRANDE | VARCHAR2 | Y |  |
+| 85 | TP_SUSPENDE_SOL_FARM_PRESC_ENF | VARCHAR2 | Y |  |
+| 86 | TP_SUSPENDE_SOL_FARM_PRESC_MED | VARCHAR2 | Y |  |
+| 87 | SN_CRIAR_HORARIO | VARCHAR2 | Y |  |
+| 88 | SN_AVAL_HABILITA_BLOQUEAR_TODO | VARCHAR2 | N |  |
+| 89 | SN_LISTAR_ATENDIM_SEM_PRESC | VARCHAR2 | N |  |
+| 90 | SN_LISTAR_UNI_PRO_DOSE_MAIOR | VARCHAR2 | N |  |
+| 91 | QT_HR_LISTA_CHECG_INICIAL | NUMBER | Y |  |
+| 92 | QT_HR_LISTA_CHECG_FINAL | NUMBER | Y |  |
+| 93 | QT_HR_LISTA_CHECG_ATRASADOS | NUMBER | Y |  |
+| 94 | SN_LEITURA_BOLSA_SANGUE | VARCHAR2 | Y |  |
+| 95 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_CONFIG_PAGU_PRESC_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OBJETO | NUMBER | N |  |
+| 2 | CD_SETOR_CONFIG | NUMBER | Y |  |
+| 3 | SN_PRESC_FUTURA | VARCHAR2 | N |  |
+| 4 | TP_CENTRO_CUSTO | VARCHAR2 | N |  |
+| 5 | CD_UNID_INT | NUMBER | Y |  |
+| 6 | CD_SETOR | NUMBER | Y |  |
+| 7 | CD_CONFIGURACAO_PAGU_PRESC | NUMBER | N |  |
+| 8 | TP_PRESCRICAO_PADRAO | VARCHAR2 | Y |  |
+| 9 | SN_DIA_SEGUINTE | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.BACKUP_CONF_IMP_GRU_FAT_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESPECIE | NUMBER | N |  |
+| 2 | CD_CLASSE | NUMBER | N |  |
+| 3 | CD_GRU_FAT | NUMBER | N |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_ESTOQUE | NUMBER | Y |  |
+| 6 | CD_CONF_IMPORT | NUMBER | Y |  |
+| 7 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 8 | CD_ESTOQUE_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_CONF_TIP_PRESC_SET_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_TIP_PRESCRIC_SET | NUMBER | N |  |
+| 2 | CD_TIP_PRESC | NUMBER | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | NR_DIAS_SETOR | NUMBER | Y |  |
+| 5 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_CONF_TRANSF_LEITO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | CD_SETOR_DESTINO | NUMBER | Y |  |
+| 3 | TP_PROCESSO | VARCHAR2 | N |  |
+| 4 | TP_SUBSTITUICAO | VARCHAR2 | N |  |
+| 5 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 6 | CD_SETOR_DESTINO_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CONF_USU_HOR_SAL_CIR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_USU_SAL_CIR | NUMBER | N |  |
+| 2 | CD_SAL_CIR | NUMBER | N |  |
+| 3 | NR_DIA_SEMANA | NUMBER | N |  |
+| 4 | HR_INICIAL | DATE | N |  |
+| 5 | HR_FINAL | DATE | N |  |
+| 6 | CD_SAL_CIR_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_CONTAGEM_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTAGEM | NUMBER | Y |  |
+| 2 | CD_ESTOQUE | NUMBER | N |  |
+| 3 | DT_CONTAGEM | DATE | Y |  |
+| 4 | SN_ABERTO | CHAR | Y |  |
+| 5 | TP_CONTAGEM | CHAR | Y |  |
+| 6 | HR_CONTAGEM | DATE | Y |  |
+| 7 | SN_CONSOLIDADA | CHAR | Y |  |
+| 8 | SN_ETAPA_CONTAGEM | CHAR | Y |  |
+
+---
+
+## DBAMV.BACKUP_COPA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_COPA | NUMBER | Y |  |
+| 2 | DS_COPA | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | DS_CAMINHO_IMPRESSORA | VARCHAR2 | Y |  |
+| 5 | DS_REPORT_AVISO | VARCHAR2 | Y |  |
+| 6 | CD_COPA_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_COTA_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | CD_PRODUTO | NUMBER | N |  |
+| 3 | CD_UNI_PRO | NUMBER | N |  |
+| 4 | QT_COTA | NUMBER | N |  |
+| 5 | NR_DIAS | NUMBER | Y |  |
+| 6 | DT_VIGENCIA | DATE | Y |  |
+| 7 | CD_ESTOQUE | NUMBER | Y |  |
+| 8 | SN_BLOQUEIA | VARCHAR2 | Y |  |
+| 9 | CD_GABARITO_COTA | NUMBER | Y |  |
+| 10 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_DESC_ACRES_CONTA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_DESC_ACRES | NUMBER | N |  |
+| 3 | CD_REDUZIDO | NUMBER | Y |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_ITEM_RES | NUMBER | Y |  |
+| 6 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 7 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+| 8 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_DES_ACR_CONTA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_DESC_ACRES | NUMBER | N |  |
+| 3 | CD_REDUZIDO | NUMBER | Y |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_ITEM_RES | NUMBER | Y |  |
+| 6 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+| 7 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+| 8 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_DOC_ELET_OBRIGAT_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DOCUMENTO | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | CD_CONVENIO | NUMBER | Y |  |
+| 5 | CD_TIP_ESQ | VARCHAR2 | Y |  |
+| 6 | CD_TIP_PRESC | NUMBER | Y |  |
+| 7 | CD_PROCESSO | VARCHAR2 | Y |  |
+| 8 | CD_DET_PROCESSO | VARCHAR2 | Y |  |
+| 9 | TP_FORMA_PREENCHIMENTO | VARCHAR2 | Y |  |
+| 10 | SN_OBRIGATORIO | VARCHAR2 | N |  |
+| 11 | CD_OBJETO | NUMBER | Y |  |
+| 12 | TP_EDITOR | VARCHAR2 | Y |  |
+| 13 | CD_MOT_ALT | NUMBER | Y |  |
+| 14 | CD_TIP_RES | NUMBER | Y |  |
+| 15 | QT_INTERVALO_DIAS | NUMBER | Y |  |
+| 16 | CD_ESPECIALID | NUMBER | Y |  |
+| 17 | SN_VALIDA_COMPONENTE | VARCHAR2 | Y |  |
+| 18 | TP_SEXO | VARCHAR2 | Y |  |
+| 19 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 20 | NR_DIAS_DOCUMENTO_OBRIGATORIO | NUMBER | Y |  |
+| 21 | NR_HORAS_DOCUMENTO_OBRIGATORIO | NUMBER | Y |  |
+| 22 | NR_MINUTOS_DOCUMENTO_OBRIG | NUMBER | Y |  |
+| 23 | CD_TIP_PRESTA | NUMBER | Y |  |
+| 24 | CD_MULTI_EMPRESA_ANTIGO | NUMBER | Y |  |
+| 25 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_DOC_ELET_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DOCUMENTO_PROT | NUMBER | N |  |
+| 2 | CD_SETOR | NUMBER | Y |  |
+| 3 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_ESTOQUE_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | Y |  |
+| 2 | DS_ESTOQUE | VARCHAR2 | N |  |
+| 3 | SN_CODIGO_DE_BARRAS | VARCHAR2 | N |  |
+| 4 | SN_IMPRIME_DIRETO | VARCHAR2 | N |  |
+| 5 | DS_CAMINHO_IMPRESSORA | VARCHAR2 | Y |  |
+| 6 | DS_ETIQUETA_ENTRADA | VARCHAR2 | Y |  |
+| 7 | DS_ETIQUETA_SAIDA | VARCHAR2 | Y |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 9 | CD_REDUZIDO_DEBITO | NUMBER | Y |  |
+| 10 | CD_REDUZIDO_CREDITO | NUMBER | Y |  |
+| 11 | CD_SETOR | NUMBER | N |  |
+| 12 | TP_ESTOQUE | VARCHAR2 | N |  |
+| 13 | CD_OS | NUMBER | Y |  |
+| 14 | DS_COMPRO_SAIDA_PACIENTE | VARCHAR2 | Y |  |
+| 15 | DS_COMPRO_SAIDA_SETOR | VARCHAR2 | Y |  |
+| 16 | DS_COMPRO_DEVOLUCAO_PACIENTE | VARCHAR2 | Y |  |
+| 17 | DS_COMPRO_DEVOLUCAO_SETOR | VARCHAR2 | Y |  |
+| 18 | DS_TRANSFERENCIA_ESTOQUE | VARCHAR2 | Y |  |
+| 19 | SN_ESTOQUE_CUSTO_MEDIO | VARCHAR2 | Y |  |
+| 20 | SN_PERMITIR_DIGITAR_PRODUTO | VARCHAR2 | N |  |
+| 21 | TP_REPOSICAO_ESTOQUE | VARCHAR2 | Y |  |
+| 22 | NR_COPIA_ETIQUETA_SAIDA | NUMBER | Y |  |
+| 23 | DS_RELATORIO_ETIQUETA_SAIDA | VARCHAR2 | Y |  |
+| 24 | SN_LIM_TRANS_COTA | VARCHAR2 | N |  |
+| 25 | SN_LOGON | VARCHAR2 | Y |  |
+| 26 | SN_CHECA_SALDO_EST | VARCHAR2 | N |  |
+| 27 | SN_CALC_DEMANDA_EMP | VARCHAR2 | Y |  |
+| 28 | TP_IMPRESSAO_ESTOQUE | VARCHAR2 | Y |  |
+| 29 | NR_HORAS_BAIXA_AUTOMATICA | NUMBER | Y |  |
+| 30 | SN_IMPRIME_ZEBRA | VARCHAR2 | Y |  |
+| 31 | CD_ETIQUETA | NUMBER | Y |  |
+| 32 | SN_KIT_PRODUZIDO | VARCHAR2 | Y |  |
+| 33 | SN_APENAS_URGENTE | VARCHAR2 | Y |  |
+| 34 | TP_FORMA_ENVIO | VARCHAR2 | Y |  |
+| 35 | DS_FORMA_ENVIO | VARCHAR2 | Y |  |
+| 36 | CD_ESTOQUE_ORIGEM | NUMBER | Y |  |
+| 37 | SN_GERA_SUGESTAO_COMPRA | VARCHAR2 | Y |  |
+| 38 | SN_VINCULA_PROD_ATEND | VARCHAR2 | Y |  |
+| 39 | SN_IMPRIME_PRESCRICAO | VARCHAR2 | N |  |
+| 40 | CD_ESTOQUE_DEVOLUCAO | NUMBER | Y |  |
+| 41 | SN_PERMITE_LOTE_VAL_NULO | VARCHAR2 | Y |  |
+| 42 | NR_FECHAMENTO_AUTOMATICO | NUMBER | Y |  |
+| 43 | SN_IMP_SOL_PAC | VARCHAR2 | Y |  |
+| 44 | SN_IMP_SOL_SET | VARCHAR2 | Y |  |
+| 45 | SN_IMP_SOL_EST | VARCHAR2 | Y |  |
+| 46 | SN_IMP_DEV_PAC | VARCHAR2 | Y |  |
+| 47 | SN_IMP_DEV_SET | VARCHAR2 | Y |  |
+| 48 | CD_SETOR_MOV_PADRAO | NUMBER | Y |  |
+| 49 | DS_CAMINHO_IMPRESSORA_URGENTE | VARCHAR2 | Y |  |
+| 50 | SN_SOLIC_DEV_FATURAMENTO | VARCHAR2 | Y |  |
+| 51 | CD_MOTIVO_BAIXA_PADRAO | NUMBER | Y |  |
+| 52 | CD_ESTOQUE_INTEGRA | VARCHAR2 | Y |  |
+| 53 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 54 | DT_INTEGRA | DATE | Y |  |
+| 55 | TP_SOLICITACAO | VARCHAR2 | Y |  |
+| 56 | SN_ATENDER_SOL_PAC | VARCHAR2 | Y |  |
+| 57 | SN_ATENDER_SOL_SETOR | VARCHAR2 | Y |  |
+| 58 | SN_ATENDER_SOL_TRANS_EST | VARCHAR2 | Y |  |
+| 59 | NR_HORAS_ANTECEDENCIA_ATD | NUMBER | Y |  |
+| 60 | SN_FILTRO_USUARIO | VARCHAR2 | Y |  |
+| 61 | SN_OUTROS_FILTROS | VARCHAR2 | Y |  |
+| 62 | SN_URGENCIA_TURNO | VARCHAR2 | Y |  |
+| 63 | SN_FECHAR_AUTOMATICO | VARCHAR2 | Y |  |
+| 64 | SN_ATENDER_PARCIAL | VARCHAR2 | Y |  |
+| 65 | SN_UTILIZAR_TURNOS | VARCHAR2 | Y |  |
+| 66 | SN_CONTAGEM | VARCHAR2 | N |  |
+| 67 | CD_ETIQUETA_CONTROLE_IMPRESSAO | NUMBER | Y |  |
+| 68 | NR_HORAS_INCL_MOV_DEV_APO_ALTA | NUMBER | Y |  |
+| 69 | TP_COTA_ESTOQUE | VARCHAR2 | N |  |
+| 70 | SN_CONFIRMA_CONS | VARCHAR2 | N |  |
+| 71 | SN_MOV_CONSUMO_TRANSF | VARCHAR2 | N |  |
+| 72 | CD_REDUZIDO_CREDITO_CONSIGNADO | NUMBER | Y |  |
+| 73 | CD_REDUZIDO_DEBITO_CONSIGNADO | NUMBER | Y |  |
+| 74 | SN_ENDERECAMENTO_PRODUTO | VARCHAR2 | Y |  |
+| 75 | TP_MOTIVO_DIVERGENCIA_ATENDIME | VARCHAR2 | N |  |
+| 76 | SN_IMPRI_COMPRO_DEVOL_PACIENTE | VARCHAR2 | Y |  |
+| 77 | DS_EMAIL_RECEBIMENTO | VARCHAR2 | Y |  |
+| 78 | DS_EMAIL_ENVIO | VARCHAR2 | Y |  |
+| 79 | DS_CONTEUDO_EMAIL | VARCHAR2 | Y |  |
+| 80 | SN_ESTOQUE_PRINCIPAL | VARCHAR2 | N |  |
+| 81 | SN_ENVIO_EMAIL_NOTA | VARCHAR2 | N |  |
+| 82 | DS_TRANSFERENCIA_EMPRESA | VARCHAR2 | Y |  |
+| 83 | DS_SOLICITACAO_AVULSA | VARCHAR2 | Y |  |
+| 84 | SN_PERMITIR_ITENS_DEVOLVER_KIT | VARCHAR2 | N |  |
+| 85 | SN_PERMITIR_ITENS_CONSUMO_KIT | VARCHAR2 | N |  |
+| 86 | SN_PERMITIR_DEVOL_KIT_FECHADO | VARCHAR2 | N |  |
+| 87 | TP_CONSUMO_KIT_INICIAL | VARCHAR2 | N |  |
+| 88 | SN_PERMITIR_PRODUTO_PROD_KIT | VARCHAR2 | N |  |
+| 89 | SN_PERMITIR_CARREGAR_PROD_KIT | VARCHAR2 | N |  |
+| 90 | SN_ATENDER_MAIOR_PALM | VARCHAR2 | N |  |
+| 91 | SN_CONTROLA_BARRAS_DEVOLKIT | VARCHAR2 | N |  |
+| 92 | SN_IMPRESSAO_TERMICA | VARCHAR2 | N |  |
+| 93 | DS_COMPRO_SOL_TERMICO | VARCHAR2 | Y |  |
+| 94 | SN_TERMICA_CENTRALIZADOR | VARCHAR2 | N |  |
+| 95 | DS_URG_SOL_TERMICO | VARCHAR2 | Y |  |
+| 96 | DS_PRESC_SOL_TERMICO | VARCHAR2 | Y |  |
+| 97 | SN_EXIGE_CHANCELA | VARCHAR2 | Y |  |
+| 98 | SN_CONSIDERA_TRANSF_CONSUMO | VARCHAR2 | N |  |
+| 99 | SN_RESTINGE_QTD_ITEM | VARCHAR2 | N |  |
+| 100 | CD_FORMULA | NUMBER | Y |  |
+| 101 | SN_INFORMA_ULTIMA_DISPERSAO | VARCHAR2 | N |  |
+| 102 | SN_USA_CONFERENCIA_ENTRADA | VARCHAR2 | N |  |
+| 103 | SN_DISPENSARIO_ELETRONICO | VARCHAR2 | N |  |
+| 104 | SN_MANIPULA_PRODUTO | VARCHAR2 | Y |  |
+| 105 | DS_CAMINHO_IMPRESSORA_MANIPULA | VARCHAR2 | Y |  |
+| 106 | SN_CONTROLAR_ROUPARIA | VARCHAR2 | N |  |
+| 107 | SN_FRACIONAR_PRODUTO | VARCHAR2 | N |  |
+| 108 | CD_ESTOQUE_ANTIGO | NUMBER | N |  |
+| 109 | CD_REDUZIDO_DEBITO_A | NUMBER | Y |  |
+| 110 | CD_REDUZIDO_CREDITO_A | NUMBER | Y |  |
+| 111 | CD_SETOR_A | NUMBER | N |  |
+| 112 | CD_OS_A | NUMBER | Y |  |
+| 113 | CD_ESTOQUE_ORIGEM_A | NUMBER | Y |  |
+| 114 | CD_ESTOQUE_DEVOLUCAO_A | NUMBER | Y |  |
+| 115 | CD_SETOR_MOV_PADRAO_A | NUMBER | Y |  |
+| 116 | CD_REDUZIDO_CREDITO_CONSIG_A | NUMBER | Y |  |
+| 117 | CD_REDUZIDO_DEBITO_CONSIG_A | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_EST_PL_CONTAS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REDUZIDO | NUMBER | N |  |
+| 2 | CD_REDUZIDO_DESPESA | NUMBER | N |  |
+| 3 | CD_ESTOQUE | NUMBER | Y |  |
+| 4 | CD_ESPECIE | NUMBER | N |  |
+| 5 | CD_REDUZIDO_RECEITA | NUMBER | Y |  |
+| 6 | CD_SETOR | NUMBER | Y |  |
+| 7 | CD_RED_EMP_RECEBIDO | NUMBER | Y |  |
+| 8 | CD_RED_EMP_CONCEDIDO | NUMBER | Y |  |
+| 9 | CD_RED_PAG_EMP_RECEBIDO | NUMBER | Y |  |
+| 10 | CD_RED_PAG_EMP_CONCEDIDO | NUMBER | Y |  |
+| 11 | CD_REDUZIDO_DEBITO_BAIXA | NUMBER | Y |  |
+| 12 | CD_RED_MANIPULACAO_DEBITO | NUMBER | Y |  |
+| 13 | CD_RED_MANIPULACAO_CREDITO | NUMBER | Y |  |
+| 14 | CD_RED_AJUSTE_DEBITO | NUMBER | Y |  |
+| 15 | CD_RED_AJUSTE_CREDITO | NUMBER | Y |  |
+| 16 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 17 | DT_INTEGRA | DATE | Y |  |
+| 18 | CD_RED_INVENT_DEBITO | NUMBER | Y |  |
+| 19 | CD_RED_INVENT_CREDITO | NUMBER | Y |  |
+| 20 | CD_ID_ITEM_PRESUPOSTARIO | NUMBER | Y |  |
+| 21 | CD_ITEM_PRESUPOSTARIO | NUMBER | Y |  |
+| 22 | CD_REDUZIDO_ANTIGO | NUMBER | N |  |
+| 23 | CD_REDUZIDO_DESPESA_ANTIGO | NUMBER | N |  |
+| 24 | CD_ESTOQUE_ANTIGO | NUMBER | N |  |
+| 25 | CD_REDUZIDO_RECEITA_ANTIGO | NUMBER | Y |  |
+| 26 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+| 27 | CD_RED_EMP_RECEBIDO_ANTIGO | NUMBER | Y |  |
+| 28 | CD_RED_EMP_CONCEDIDO_ANTIGO | NUMBER | Y |  |
+| 29 | CD_RED_PAG_EMP_RECEBIDO_ANTIGO | NUMBER | Y |  |
+| 30 | CD_RED_PAG_EMP_CONC_ANTIGO | NUMBER | Y |  |
+| 31 | CD_RED_DEB_BAIXA_ANTIGO | NUMBER | Y |  |
+| 32 | CD_RED_MANIP_DEBITO_ANTIGO | NUMBER | Y |  |
+| 33 | CD_RED_MANIP_CREDITO_ANTIGO | NUMBER | Y |  |
+| 34 | CD_RED_AJUSTE_DEBITO_ANTIGO | NUMBER | Y |  |
+| 35 | CD_RED_AJUSTE_CREDITO_ANTIGO | NUMBER | Y |  |
+| 36 | CD_RED_INVENT_DEBITO_ANTIGO | NUMBER | Y |  |
+| 37 | CD_RED_INVENT_CREDITO_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_EXA_LAB_SET_EXA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EXA_LAB | NUMBER | N |  |
+| 2 | CD_SET_EXA | NUMBER | N |  |
+| 3 | CD_BANCADA | NUMBER | N |  |
+| 4 | SN_INTEGRACAO | VARCHAR2 | Y |  |
+| 5 | SN_ATIVO | VARCHAR2 | N |  |
+| 6 | DS_RESTRICAO_HORARIO | VARCHAR2 | Y |  |
+| 7 | SN_ATENDE_FERIADO | VARCHAR2 | N |  |
+| 8 | CD_SET_EXA_ANTIGO | NUMBER | N |  |
+| 9 | CD_BANCADA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_FILA_SENHA_NOVA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FILA_SENHA | NUMBER | N |  |
+| 2 | DS_FILA | VARCHAR2 | N |  |
+| 3 | DS_IDENTIFICADOR_FILA | VARCHAR2 | Y |  |
+| 4 | NR_SEQUENCIA_INICIAL | NUMBER | N |  |
+| 5 | NR_MAX_SENHA | NUMBER | Y |  |
+| 6 | TP_PERIODICIDADE_SEQUENCIA | VARCHAR2 | N |  |
+| 7 | NR_PERIODICIDADE_SEQUENCIA | NUMBER | Y |  |
+| 8 | TP_GERA_SENHA | VARCHAR2 | N |  |
+| 9 | NR_INICIO_SEMANA | NUMBER | Y |  |
+| 10 | SN_UTILIZA_FLUXO_SACR | VARCHAR2 | N |  |
+| 11 | DS_SEQUENCIA_FILA | VARCHAR2 | N |  |
+| 12 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 13 | DT_CONFIG | DATE | N |  |
+| 14 | SN_EMISSAO_DIRETA | CHAR | Y |  |
+| 15 | SN_UTILIZA_LEIT_COD_BARRAS | VARCHAR2 | Y |  |
+| 16 | CD_FILA_SENHA_ANTIGA | NUMBER | N |  |
+| 17 | CD_MULTI_EMPRESAANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_FLUXO_DOC_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FLUXO_DOCUMENTO | NUMBER | N |  |
+| 2 | CD_DOCUMENTO | NUMBER | N |  |
+| 3 | CD_SETOR_ORIG | NUMBER | Y |  |
+| 4 | CD_SETOR_DEST | NUMBER | Y |  |
+| 5 | SN_MOV_AMB_FECHADA | VARCHAR2 | N |  |
+| 6 | CD_SETOR_ORIG_ANTIGO | NUMBER | N |  |
+| 7 | CD_SETOR_DEST_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_FORN_CONTA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FORNECEDOR | NUMBER | N |  |
+| 2 | CD_REDUZIDO | NUMBER | Y |  |
+| 3 | TP_CONTA | VARCHAR2 | N |  |
+| 4 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 5 | CD_REDUZIDO_ANTIGO | NUMBER | N |  |
+| 6 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_GLOB_PL_CONTAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_GLOBAL_PL_CONTAS | NUMBER | N |  |
+| 2 | TP_CONFIGURACAO | VARCHAR2 | N |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 4 | CD_REDUZIDO | NUMBER | Y |  |
+| 5 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 6 | CD_GRU_PRO | NUMBER | Y |  |
+| 7 | CD_CONVENIO | NUMBER | Y |  |
+| 8 | CD_GRU_FAT | NUMBER | Y |  |
+| 9 | CD_SETOR | NUMBER | Y |  |
+| 10 | CD_REDUZIDO_RECEITA | NUMBER | Y |  |
+| 11 | CD_TIPO_INTERNACAO | NUMBER | Y |  |
+| 12 | CD_REDUZIDO_PREV | NUMBER | Y |  |
+| 13 | CD_REDUZIDO_GLOSA | NUMBER | Y |  |
+| 14 | CD_REDUZIDO_RECUP_GLOSA | NUMBER | Y |  |
+| 15 | CD_REDUZIDO_GLOSA_ACEITA | NUMBER | Y |  |
+| 16 | SN_HONORARIO_PASSIVO | VARCHAR2 | Y |  |
+| 17 | CD_REDUZIDO_TRANS_CLIENTE | NUMBER | Y |  |
+| 18 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 19 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 20 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+| 21 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+| 22 | CD_REDUZIDO_RECEITA_ANTIGO | NUMBER | Y |  |
+| 23 | CD_REDUZIDO_PREV_ANTIGO | NUMBER | Y |  |
+| 24 | CD_REDUZIDO_GLOSA_ANTIGO | NUMBER | Y |  |
+| 25 | CD_REDUZIDO_RECUP_GLOSA_A | NUMBER | Y |  |
+| 26 | CD_REDUZIDO_GLOSA_ACEITA_A | NUMBER | Y |  |
+| 27 | CD_REDUZIDO_TRANS_CLIENTE_A | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_IDENT_ETIQUETA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IDENTIFICADOR | VARCHAR2 | N |  |
+| 2 | CD_PRODUTO | NUMBER | N |  |
+| 3 | CD_LOTE | VARCHAR2 | Y |  |
+| 4 | CD_UNI_PRO | NUMBER | Y |  |
+| 5 | DT_VALIDADE | DATE | Y |  |
+| 6 | SN_ATIVO | VARCHAR2 | N |  |
+| 7 | CD_FORNECEDOR | NUMBER | Y |  |
+| 8 | DS_MARCA | VARCHAR2 | Y |  |
+| 9 | NR_DOCUMENTO | VARCHAR2 | Y |  |
+| 10 | NR_RECEBIMENTO | VARCHAR2 | Y |  |
+| 11 | DS_NATUREZA_OPERACAO | VARCHAR2 | Y |  |
+| 12 | CD_MVTO_ESTOQUE | NUMBER | Y |  |
+| 13 | NR_CRF_HOSPITAL | VARCHAR2 | Y |  |
+| 14 | NR_CRF_LABORATORIO | VARCHAR2 | Y |  |
+| 15 | DS_MESTRE | VARCHAR2 | Y |  |
+| 16 | QTD_PADRAO | NUMBER | Y |  |
+| 17 | CD_USUARIO | VARCHAR2 | Y |  |
+| 18 | CD_FARMACEUTICO_RESP | NUMBER | Y |  |
+| 19 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 20 | CD_PRODUTO_ANTIGO | NUMBER | Y |  |
+| 21 | CD_UNI_PRO_ANTIGO | NUMBER | Y |  |
+| 22 | CD_IDENTIFICADOR_ETIQUETA_TEM | VARCHAR2 | Y |  |
+| 23 | CD_ITSOLSAI_PRO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_IMPORT_ATEND_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORT_ATEND | NUMBER | N |  |
+| 2 | TP_ATENDIMENTO | VARCHAR2 | N |  |
+| 3 | CD_CON_PLA | NUMBER | Y |  |
+| 4 | CD_CONVENIO | NUMBER | Y |  |
+| 5 | CD_ORI_ATE | NUMBER | Y |  |
+| 6 | CD_UNID_INT | NUMBER | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 8 | CD_ORI_ATE_ANTIGA | NUMBER | Y |  |
+| 9 | CD_UNID_INT_ANTIGA | NUMBER | Y |  |
+| 10 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_ITAGRUPAMENTO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AGRUPAMENTO | NUMBER | N |  |
+| 2 | CD_CONVENIO | NUMBER | N |  |
+| 3 | CD_ORI_ATE | NUMBER | Y |  |
+| 4 | TP_AGRUPAMENTO | VARCHAR2 | N |  |
+| 5 | CD_ORI_ATE_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_ITCONTAGEM_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTAGEM | NUMBER | Y |  |
+| 2 | CD_LINHA | NUMBER | Y |  |
+| 3 | CD_PRODUTO | NUMBER | N |  |
+| 4 | CD_UNI_PRO | NUMBER | N |  |
+| 5 | QT_ESTOQUE | NUMBER | Y |  |
+| 6 | DT_VALIDADE | DATE | Y |  |
+| 7 | CD_LOTE | VARCHAR2 | Y |  |
+| 8 | VL_CUSTO_MEDIO | NUMBER | Y |  |
+| 9 | DT_GRAVACAO | DATE | Y |  |
+| 10 | SN_ATUALIZA_PRECO_PROD | CHAR | Y |  |
+| 11 | VL_CUSTO_MEDIO_HIST | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_LAN_CONCOR_EMP_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LAN_CONCOR | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_ITEM_RES | NUMBER | Y |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_REDUZIDO | NUMBER | Y |  |
+| 6 | CD_ID_ITEM_PRESUPOSTARIO | NUMBER | Y |  |
+| 7 | CD_ITEM_PRESUPOSTARIO | NUMBER | Y |  |
+| 8 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_LAVANDERIA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LAVANDERIA | NUMBER | N |  |
+| 2 | DS_LAVANDERIA | VARCHAR2 | N |  |
+| 3 | SN_ATIVO | VARCHAR2 | N |  |
+| 4 | TP_LAVANDERIA | VARCHAR2 | N |  |
+| 5 | CD_SETOR | NUMBER | Y |  |
+| 6 | DT_CADASTRO | DATE | N |  |
+| 7 | CD_USUARIO_CAD | VARCHAR2 | N |  |
+| 8 | DT_ALTERACAO | DATE | Y |  |
+| 9 | CD_USUARIO_ALT | VARCHAR2 | Y |  |
+| 10 | CD_LAVANDERIA_ANTIGO | NUMBER | N |  |
+| 11 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_LEITO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LEITO | NUMBER | N |  |
+| 2 | CD_TIP_ACOM | NUMBER | N |  |
+| 3 | CD_UNID_INT | NUMBER | N |  |
+| 4 | DS_ENFERMARIA | VARCHAR2 | N |  |
+| 5 | DS_LEITO | VARCHAR2 | N |  |
+| 6 | TP_SEXO | VARCHAR2 | N |  |
+| 7 | TP_OCUPACAO | CHAR | Y |  |
+| 8 | TP_SITUACAO | CHAR | Y |  |
+| 9 | DS_RESUMO | VARCHAR2 | Y |  |
+| 10 | CD_LEITO_AIH | NUMBER | Y |  |
+| 11 | CD_COPA | NUMBER | Y |  |
+| 12 | SN_EXTRA | VARCHAR2 | Y |  |
+| 13 | SN_ALTA_MEDICA | VARCHAR2 | Y |  |
+| 14 | DT_ATIVACAO | DATE | N |  |
+| 15 | DT_DESATIVACAO | DATE | Y |  |
+| 16 | CD_TIP_ACOM_UTI_SUS | VARCHAR2 | Y |  |
+| 17 | NR_RAMAL | VARCHAR2 | Y |  |
+| 18 | CD_LEITO_INTEGRA | VARCHAR2 | Y |  |
+| 19 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 20 | DT_INTEGRA | DATE | Y |  |
+| 21 | CD_LEITO_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_LOCALIDADE_NOVA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOCALIDADE | NUMBER | N |  |
+| 2 | DS_LOCALIDADE | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | NM_RESPONSAVEL | VARCHAR2 | Y |  |
+| 5 | CD_LOCALIDADE_INTEGRA | VARCHAR2 | Y |  |
+| 6 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 7 | DT_INTEGRA | DATE | Y |  |
+| 8 | NR_CODIGO_BARRA | VARCHAR2 | Y |  |
+| 9 | CD_LOCALIDADE_ANTIGA | NUMBER | N |  |
+| 10 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_MANU_SERV_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SERVICO | NUMBER | N |  |
+| 2 | NM_SERVICO | VARCHAR2 | N |  |
+| 3 | PESO | NUMBER | Y |  |
+| 4 | QTD_HORA_MIN | NUMBER | Y |  |
+| 5 | QTD_HORA_MAX | NUMBER | Y |  |
+| 6 | QT_MINUTO_MIN | NUMBER | Y |  |
+| 7 | QT_MINUTO_MAX | NUMBER | Y |  |
+| 8 | TP_CATEGORIA | VARCHAR2 | Y |  |
+| 9 | DS_UNIDADE_MEDIDA | VARCHAR2 | Y |  |
+| 10 | CD_REDUZIDO | NUMBER | Y |  |
+| 11 | CD_ITEM_RES | NUMBER | Y |  |
+| 12 | CD_SERV_DMS | NUMBER | Y |  |
+| 13 | SN_TRIBUTA | VARCHAR2 | Y |  |
+| 14 | CD_SERVICO_INTEGRA | VARCHAR2 | Y |  |
+| 15 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 16 | DT_INTEGRA | DATE | Y |  |
+| 17 | CD_UNIDADE | VARCHAR2 | Y |  |
+| 18 | CD_ESPECIE | NUMBER | Y |  |
+| 19 | CD_CLASSE | NUMBER | Y |  |
+| 20 | CD_SUB_CLA | NUMBER | Y |  |
+| 21 | CD_CONTA_SIGFE | NUMBER | Y |  |
+| 22 | VL_SERVICO | NUMBER | Y |  |
+| 23 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_MOT_BAIXA_EMP_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MOTIVO | NUMBER | Y |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_REDUZIDO_BAIXA | NUMBER | Y |  |
+| 4 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+| 5 | CD_REDUZIDO_BAIXA_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_OCOR_LAY_ARQ_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OCORRENCIA_LAY_ARQ | NUMBER | N |  |
+| 2 | CD_LAYOUT_ARQUIVO | NUMBER | N |  |
+| 3 | TP_OCORRENCIA | VARCHAR2 | N |  |
+| 4 | TP_ACAO | VARCHAR2 | N |  |
+| 5 | DS_OCORRENCIA_LAY_ARQ | VARCHAR2 | N |  |
+| 6 | CD_LAN_CONCOR | NUMBER | N |  |
+| 7 | CD_LAN_CONCOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_OFICINA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OFICINA | NUMBER | Y |  |
+| 2 | DS_OFICINA | VARCHAR2 | N |  |
+| 3 | DS_CAMINHO_IMPRESSORA | VARCHAR2 | Y |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 6 | CD_OFICINA_INTEGRA | VARCHAR2 | Y |  |
+| 7 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 8 | DT_INTEGRA | DATE | Y |  |
+| 9 | DS_EMAIL | VARCHAR2 | Y |  |
+| 10 | SN_EMAIL | VARCHAR2 | N |  |
+| 11 | SN_AVALIACAO | VARCHAR2 | N |  |
+| 12 | SN_TERCEIRIZADA | VARCHAR2 | N |  |
+| 13 | CD_OFICINA_ANTIGA | NUMBER | N |  |
+| 14 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_ORI_ATE_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORI_ATE | NUMBER | Y |  |
+| 2 | DS_ORI_ATE | VARCHAR2 | N |  |
+| 3 | TP_ORIGEM | VARCHAR2 | N |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | SN_ATIVO | VARCHAR2 | N |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 7 | CD_COPA | NUMBER | Y |  |
+| 8 | CD_ORI_ATE_INTEGRA | VARCHAR2 | Y |  |
+| 9 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 10 | DT_INTEGRA | DATE | Y |  |
+| 11 | SN_PADRAO | VARCHAR2 | N |  |
+| 12 | CD_ORI_ATE_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_ORI_SAME_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORI_ATE | NUMBER | Y |  |
+| 2 | CD_CAD_SAME | NUMBER | Y |  |
+| 3 | CD_CAD_SAME_ANTIGO | NUMBER | N |  |
+| 4 | CD_ORI_ATE_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PACOTE_EXCECAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACOTE_EXCECAO | NUMBER | Y |  |
+| 2 | CD_PACOTE | NUMBER | Y |  |
+| 3 | CD_GRU_PRO | NUMBER | Y |  |
+| 4 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 5 | CD_SETOR | NUMBER | Y |  |
+| 6 | CD_TIP_ACOM | NUMBER | Y |  |
+| 7 | CD_PACOTE_EXCECAO_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PACOTE_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACOTE | NUMBER | Y |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_CONVENIO | NUMBER | Y |  |
+| 4 | CD_CON_PLA | NUMBER | Y |  |
+| 5 | CD_PRO_FAT | VARCHAR2 | N |  |
+| 6 | CD_PRO_FAT_PACOTE | VARCHAR2 | N |  |
+| 7 | DT_VIGENCIA | DATE | N |  |
+| 8 | CD_TIP_ACOM | NUMBER | Y |  |
+| 9 | CD_SETOR | NUMBER | Y |  |
+| 10 | TP_ATENDIMENTO | VARCHAR2 | N |  |
+| 11 | QT_DIARIAS | NUMBER | N |  |
+| 12 | VL_PERC_PAC_SECUND | NUMBER | N |  |
+| 13 | TP_EXTRA | VARCHAR2 | Y |  |
+| 14 | SN_GUIA | VARCHAR2 | N |  |
+| 15 | QT_PARCELAS | NUMBER | N |  |
+| 16 | SN_AUTOMATICO | VARCHAR2 | N |  |
+| 17 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 18 | DT_VIGENCIA_FINAL | DATE | Y |  |
+| 19 | NR_IDADE_MAXIMA | NUMBER | Y |  |
+| 20 | TP_COBRANCA_PAC_SECUND | VARCHAR2 | N |  |
+| 21 | VL_PERC_PAC_SECUND_2 | NUMBER | Y |  |
+| 22 | VL_PERC_PAC_SECUND_3 | NUMBER | Y |  |
+| 23 | VL_PERC_PAC_SECUND_4 | NUMBER | Y |  |
+| 24 | CD_TIPO_INTERNACAO | NUMBER | Y |  |
+| 25 | SN_VALIDA_AUTORIZACAO | VARCHAR2 | N |  |
+| 26 | SN_DAY_CLINIC | VARCHAR2 | N |  |
+| 27 | VL_PERC_ACRES_GEMELARES | NUMBER | Y |  |
+| 28 | VL_PERC_DESC_RN_UTI | NUMBER | Y |  |
+| 29 | SN_CONSIDERA_HORA | VARCHAR2 | Y |  |
+| 30 | SN_PROTOCOLO_DE_PACOTE | VARCHAR2 | N |  |
+| 31 | NR_IMC_INICIAL | NUMBER | Y |  |
+| 32 | NR_IMC_FINAL | NUMBER | Y |  |
+| 33 | SN_OBITO | VARCHAR2 | N |  |
+| 34 | SN_GEMELAR | VARCHAR2 | N |  |
+| 35 | SN_DIARIA_GABARITO | VARCHAR2 | N |  |
+| 36 | TP_DISPERCAO | VARCHAR2 | N |  |
+| 37 | SN_NAO_INTERVENCIONISTA | VARCHAR2 | N |  |
+| 38 | SN_LANCA_NO_FECHAMENTO | VARCHAR2 | N |  |
+| 39 | SN_PACOTE_PRO_FAT | VARCHAR2 | N |  |
+| 40 | SN_PROFAT_DESCARACTERIZA | VARCHAR2 | N |  |
+| 41 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 42 | CD_PACOTE_ANTIGO | NUMBER | N |  |
+| 43 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_PAGU_FORMULA_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | CD_FORMULA | NUMBER | N |  |
+| 3 | TP_AVALIACAO | VARCHAR2 | N |  |
+| 4 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PAPEL_CENCIR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL_CENTRO_CIRURGICO | NUMBER | N |  |
+| 2 | DS_PAPEL_CENTRO_CIRURGICO | VARCHAR2 | N |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 4 | SN_CRIAR_PRE_AGENDAMENTO | VARCHAR2 | N |  |
+| 5 | SN_ALTERAR_PRE_AGENDAMENTO | VARCHAR2 | N |  |
+| 6 | SN_LIBERAR_INTERNACAO | VARCHAR2 | N |  |
+| 7 | SN_LIBERAR_OPME | VARCHAR2 | N |  |
+| 8 | SN_RESERVAR_SALA | VARCHAR2 | N |  |
+| 9 | SN_CANCELAR_AGENDAMENTO | VARCHAR2 | N |  |
+| 10 | SN_LIBERAR_CIRURGIA | VARCHAR2 | Y |  |
+| 11 | SN_LIBERAR_ESTERILIZACAO | VARCHAR2 | Y |  |
+| 12 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 13 | CD_PAPEL_CENTRO_CIR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PERFIL_AMB_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N |  |
+| 2 | CD_SETOR | NUMBER | Y |  |
+| 3 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PREST_VINCULO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIPO_VINCULO | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | TP_VINCULO | VARCHAR2 | N |  |
+| 4 | CD_PRESTADOR | NUMBER | N |  |
+| 5 | TP_VINCULO_CONV | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.BACKUP_PROIBICAO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRO_FAT | VARCHAR2 | N |  |
+| 2 | CD_CON_PLA | NUMBER | N |  |
+| 3 | CD_CONVENIO | NUMBER | N |  |
+| 4 | DS_PROIBICAO | VARCHAR2 | Y |  |
+| 5 | TP_PROIBICAO | VARCHAR2 | N |  |
+| 6 | TP_ATENDIMENTO | VARCHAR2 | N |  |
+| 7 | DT_INICIAL_PROIBICAO | DATE | Y |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 9 | CD_SETOR | NUMBER | Y |  |
+| 10 | CD_REGRA_PROIBICAO_VALOR | NUMBER | Y |  |
+| 11 | DT_FIM_PROIBICAO | DATE | Y |  |
+| 12 | CD_MULTI_EMPRESA_ANTIGO | NUMBER | Y |  |
+| 13 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_PSDI_SET_EXA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SET_EXA | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_SET_EXA_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_PT_PORTARIA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PORTARIA | NUMBER | Y |  |
+| 2 | DS_PORTARIA | VARCHAR2 | N |  |
+| 3 | DS_MAQUINA | VARCHAR2 | Y |  |
+| 4 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 5 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 6 | CD_PORTARIA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_PW_ITEM_AFER_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITEM_AFERICAO_SETOR | NUMBER | Y |  |
+| 2 | CD_SINAL_VITAL | NUMBER | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | SN_VISUALIZAR | VARCHAR2 | N |  |
+| 5 | NR_ORDEM | NUMBER | Y |  |
+| 6 | SN_OBRIGATORIO | VARCHAR2 | Y |  |
+| 7 | CD_GRUPO_ITENS_AFERICAO | NUMBER | Y |  |
+| 8 | SN_EXIBE_LOCAL_AFERICAO | VARCHAR2 | N |  |
+| 9 | SN_EXIBE_POSICAO_PACIENTE | VARCHAR2 | N |  |
+| 10 | SN_OBRIGA_LOCAL_AFERICAO | VARCHAR2 | N |  |
+| 11 | SN_OBRIGA_POSICAO_PACIENTE | VARCHAR2 | N |  |
+| 12 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_REGRA_SUBST_PROCED_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REGRA_SUBSTITUICAO_PROCED | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | CD_PRO_FAT | VARCHAR2 | N |  |
+| 5 | CD_PRO_FAT_SUBSTITUTO | VARCHAR2 | N |  |
+| 6 | DT_VIGENCIA | DATE | N |  |
+| 7 | TP_ATENDIMENTO | VARCHAR2 | N |  |
+| 8 | VL_FATOR_MULTIPLICACAO | NUMBER | N |  |
+| 9 | VL_FATOR_DIVISAO | NUMBER | N |  |
+| 10 | TP_FATOR | VARCHAR2 | N |  |
+| 11 | CD_CONVENIO | NUMBER | Y |  |
+| 12 | CD_CON_PLA | NUMBER | Y |  |
+| 13 | CD_REGRA | NUMBER | Y |  |
+| 14 | DS_UNIDADE_XML | VARCHAR2 | Y |  |
+| 15 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+| 16 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_SACR_MAQUINA_FILA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MAQUINA_FILA | NUMBER | N |  |
+| 2 | CD_FILA_SENHA | NUMBER | N |  |
+| 3 | DS_MAQUINA | VARCHAR2 | N |  |
+| 4 | CD_SISTEMA | VARCHAR2 | N |  |
+| 5 | SN_FILA_PRINCIPAL | VARCHAR2 | Y |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 7 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+| 8 | CD_FILA_SENHA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_SAC_RECEPTOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_RECEPTOR | NUMBER | N |  |
+| 2 | NM_RECEPTOR | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+| 4 | E_MAIL_RECEPTOR | VARCHAR2 | Y |  |
+| 5 | CD_USUARIO | VARCHAR2 | Y |  |
+| 6 | SN_VISUALIZA_SETORES | VARCHAR2 | N |  |
+| 7 | SN_VISUALIZA_CONFIDENCIAL | VARCHAR2 | N |  |
+| 8 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 9 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_SAL_CIR_NOVA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SAL_CIR | NUMBER | N |  |
+| 2 | DS_SAL_CIR | VARCHAR2 | N |  |
+| 3 | NR_TEMPO_PREPARO | DATE | N |  |
+| 4 | NR_TEMPO_MINIMO | DATE | N |  |
+| 5 | CD_CEN_CIR | NUMBER | N |  |
+| 6 | CD_SETOR | NUMBER | Y |  |
+| 7 | DS_RESUMIDA | VARCHAR2 | N |  |
+| 8 | NR_INTERVALO_MINIMO | DATE | Y |  |
+| 9 | CD_SAL_CIR_ANTIGA | NUMBER | N |  |
+| 10 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 11 | CD_CEN_CIR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_SETOR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | NM_SETOR | VARCHAR2 | N |  |
+| 3 | CD_CEN_CUS | VARCHAR2 | Y |  |
+| 4 | SN_PODE_SOLICITAR_EXAMES | VARCHAR2 | N |  |
+| 5 | CD_FATOR | NUMBER | Y |  |
+| 6 | CD_GRUPO_DE_CUSTO | NUMBER | Y |  |
+| 7 | CD_SETOR_CUSTO | NUMBER | Y |  |
+| 8 | NR_ORDEM_RATEIO | NUMBER | Y |  |
+| 9 | SN_CENTRO_DE_CUSTO | VARCHAR2 | N |  |
+| 10 | CLASSIFICACAO | VARCHAR2 | Y |  |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 12 | TP_RAT_MAT_DIRETOS | VARCHAR2 | Y |  |
+| 13 | SN_ACEITA_LANCAMENTO | VARCHAR2 | N |  |
+| 14 | CD_ROTINA | VARCHAR2 | Y |  |
+| 15 | SN_PRODUCAO_FATURADA | VARCHAR2 | Y |  |
+| 16 | SN_CALCULO_EVENTO | VARCHAR2 | N |  |
+| 17 | TP_COMPOSICAO_CALCULO | VARCHAR2 | Y |  |
+| 18 | CD_ROTINA_MAT_DIRETOS | VARCHAR2 | Y |  |
+| 19 | CD_SEQ_RESUMO | NUMBER | Y |  |
+| 20 | CD_SEQ_DETALHE | NUMBER | Y |  |
+| 21 | SN_DEDUCAO_HONORARIO | VARCHAR2 | Y |  |
+| 22 | SN_EXPORTA_FFIS | VARCHAR2 | Y |  |
+| 23 | SN_ATIVO | VARCHAR2 | N |  |
+| 24 | DS_CAMINHO_IMPRESSORA | VARCHAR2 | Y |  |
+| 25 | CD_SETOR_EXPORTACAO | NUMBER | Y |  |
+| 26 | TP_CALCULO_HONORARIO | VARCHAR2 | Y |  |
+| 27 | SN_IMPRIME_LAUDO_LOCAL | VARCHAR2 | N |  |
+| 28 | DS_IMPRESSORA_ETIQ_COLETA | VARCHAR2 | Y |  |
+| 29 | TP_SETOR | VARCHAR2 | Y |  |
+| 30 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y |  |
+| 31 | SN_VER_EXAME_N_LIBERADO | VARCHAR2 | N |  |
+| 32 | CD_SETOR_INTEGRA | VARCHAR2 | Y |  |
+| 33 | DS_SIGLA_AGENDAMENTO | VARCHAR2 | Y |  |
+| 34 | TP_GRUPO_SETOR | VARCHAR2 | Y |  |
+| 35 | TP_ORIPEDIDO_FFCH | VARCHAR2 | Y |  |
+| 36 | CD_PRESTADOR_RESPONSAVEL | NUMBER | Y |  |
+| 37 | SN_OBRIGA_PRESTADOR | VARCHAR2 | N |  |
+| 38 | SN_OBRIGA_RECURSO | VARCHAR2 | N |  |
+| 39 | SN_OBRIGA_UNIDADE | VARCHAR2 | N |  |
+| 40 | SN_VER_EXAME_IMG_N_LIB | VARCHAR2 | N |  |
+| 41 | DS_OBSERVACAO_AGENDAMENTO | VARCHAR2 | Y |  |
+| 42 | SN_EXIBE_TIPO_HORARIO | VARCHAR2 | Y |  |
+| 43 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 44 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_SETOR_SET_EXA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR_SET_EXA | NUMBER | N |  |
+| 2 | CD_SETOR | NUMBER | Y |  |
+| 3 | CD_SET_EXA | NUMBER | N |  |
+| 4 | CD_EXA_LAB | NUMBER | Y |  |
+| 5 | CD_EXA_RX | NUMBER | Y |  |
+| 6 | CD_SANGUE_DERIVADOS | NUMBER | Y |  |
+| 7 | SN_PADRAO | VARCHAR2 | N |  |
+| 8 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 9 | CD_SET_EXA_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_SETOR_USU_FAT_SUS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+| 3 | DT_VALIDADE_INICIAL | DATE | N |  |
+| 4 | DT_VALIDADE_FINAL | DATE | Y |  |
+| 5 | TP_PERMISSAO | VARCHAR2 | N |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_SET_EXA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SET_EXA | NUMBER | N |  |
+| 2 | NM_SET_EXA | VARCHAR2 | N |  |
+| 3 | TP_SETOR | VARCHAR2 | N |  |
+| 4 | NM_ATUAL_CONTROLE | NUMBER | Y |  |
+| 5 | SN_NUMERA_AUTO | VARCHAR2 | N |  |
+| 6 | CD_SETOR | NUMBER | Y |  |
+| 7 | DS_CABECALHO | VARCHAR2 | Y |  |
+| 8 | DS_RODAPE | VARCHAR2 | Y |  |
+| 9 | DS_CAMINHO_IMPRESSAO_EXAME | VARCHAR2 | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | TP_LAUDO | VARCHAR2 | Y |  |
+| 12 | ORDEM_TEXTO | VARCHAR2 | N |  |
+| 13 | SN_LISTA_EXAMES | VARCHAR2 | N |  |
+| 14 | SN_CD_TECNICO | VARCHAR2 | N |  |
+| 15 | SN_IMPRIME_TEXTO_PADRAO | VARCHAR2 | N |  |
+| 16 | CLOB_CABECALHO | CLOB | Y |  |
+| 17 | CLOB_RODAPE | CLOB | Y |  |
+| 18 | CD_CABECALHO_GED_DOCUMENTO | NUMBER | Y |  |
+| 19 | CD_RODAPE_GED_DOCUMENTO | NUMBER | Y |  |
+| 20 | SN_ATIVO | VARCHAR2 | N |  |
+| 21 | CD_USUARIO_DESATIVACAO | VARCHAR2 | Y |  |
+| 22 | DT_DESATIVACAO | DATE | Y |  |
+| 23 | CD_SET_EXA_INTEGRA | VARCHAR2 | Y |  |
+| 24 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 25 | DT_INTEGRA | DATE | Y |  |
+| 26 | TP_ORIGEM_PREST_FAT | VARCHAR2 | N |  |
+| 27 | CD_PRESTADOR_SUS | NUMBER | Y |  |
+| 28 | TP_NOTIFICACAO | VARCHAR2 | Y |  |
+| 29 | DS_REMETENTE_SMS | VARCHAR2 | Y |  |
+| 30 | DS_TEXTO_SMS | VARCHAR2 | Y |  |
+| 31 | DS_EMAIL_SETOR | VARCHAR2 | Y |  |
+| 32 | DS_CABECALHO_EMAIL | VARCHAR2 | Y |  |
+| 33 | DS_CORPO_EMAIL | VARCHAR2 | Y |  |
+| 34 | DS_RODAPE_EMAIL | VARCHAR2 | Y |  |
+| 35 | DS_URL_SOULMV | VARCHAR2 | Y |  |
+| 36 | DS_URL_PEP | VARCHAR2 | Y |  |
+| 37 | SN_IMPRIME_REMESSA_AMOSTRA | VARCHAR2 | N |  |
+| 38 | CD_SET_EXA_ANTIGO | NUMBER | N |  |
+| 39 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 40 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_SUB_IOB_EMP_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAPITULO | NUMBER | Y |  |
+| 2 | CD_SUB_CAP | NUMBER | Y |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 4 | CD_REDUZIDO_BEM | NUMBER | Y |  |
+| 5 | CD_REDUZIDO_BEM_DEP | NUMBER | Y |  |
+| 6 | CD_RED_BENSDEPRECACUM | NUMBER | Y |  |
+| 7 | CD_RED_BENSREAVALIACAO | NUMBER | Y |  |
+| 8 | CD_REDUZIDO_IMOB_AND_BEM | NUMBER | Y |  |
+| 9 | CD_REDUZIDO_DESP_OPERACIONAL | NUMBER | Y |  |
+| 10 | CD_REDUZIDO_ATIVO_REAVALIACAO | NUMBER | Y |  |
+| 11 | CD_REDUZIDO_DEPACUM_REAVA | NUMBER | Y |  |
+| 12 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_TIPO_REFEICAO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIPO_REFEICAO | VARCHAR2 | Y |  |
+| 2 | DS_TIPO_REFEICAO | VARCHAR2 | N |  |
+| 3 | TR_CD_FUNCIONARIO | NUMBER | Y |  |
+| 4 | VL_PESO | NUMBER | Y |  |
+| 5 | TIPO_REFEICAO | VARCHAR2 | Y |  |
+| 6 | VL_REFEICAO | NUMBER | Y |  |
+| 7 | HR_INICIO_REFEICAO | DATE | Y |  |
+| 8 | HR_TERMINO_REFEICAO | DATE | Y |  |
+| 9 | TP_STATUS_REFEICAO | VARCHAR2 | N |  |
+| 10 | CD_TIPO_REFEICAO_INTEGRA | VARCHAR2 | Y |  |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 12 | CD_TIPO_REFEICAO_ANTIGO | VARCHAR2 | N |  |
+| 13 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_TIP_DET_CONTA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_DETALHAMENTO | NUMBER | N |  |
+| 3 | CD_REDUZIDO | NUMBER | Y |  |
+| 4 | CD_REDUZIDO_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_TIP_PRESC_SETOR_NOVA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIP_PRESC | NUMBER | Y |  |
+| 2 | CD_SETOR | NUMBER | Y |  |
+| 3 | CD_MULTI_EMPRESA | CHAR | Y |  |
+| 4 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+| 5 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_TUSS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIP_TUSS | NUMBER | N |  |
+| 2 | CD_TUSS | VARCHAR2 | N |  |
+| 3 | DS_TUSS | VARCHAR2 | N |  |
+| 4 | DT_INICIO_VIGENCIA | DATE | N |  |
+| 5 | DT_FIM_VIGENCIA | DATE | Y |  |
+| 6 | DT_FIM_IMPLANTACAO | DATE | Y |  |
+| 7 | DS_EDICAO_NORMA_OBSERVACOES | VARCHAR2 | Y |  |
+| 8 | DS_DESCRICAO_DETALHADA | VARCHAR2 | Y |  |
+| 9 | DS_APRESENTACAO | VARCHAR2 | Y |  |
+| 10 | NM_FABRICANTE | VARCHAR2 | Y |  |
+| 11 | CD_REF_FABRICANTE | VARCHAR2 | Y |  |
+| 12 | NM_LABORATORIO | VARCHAR2 | Y |  |
+| 13 | DS_SIGLA | VARCHAR2 | Y |  |
+| 14 | CD_SEQ_TUSS | NUMBER | N |  |
+| 15 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 16 | CD_CONVENIO | NUMBER | Y |  |
+| 17 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 18 | CD_ESPECIALIDADE | NUMBER | Y |  |
+| 19 | CD_TIP_ACOM | NUMBER | Y |  |
+| 20 | CD_MOT_ALT | NUMBER | Y |  |
+| 21 | TP_SEXO | VARCHAR2 | Y |  |
+| 22 | CD_SERVICO | NUMBER | Y |  |
+| 23 | TP_GRU_PRO | VARCHAR2 | Y |  |
+| 24 | CD_GRU_PRO | NUMBER | Y |  |
+| 25 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 26 | CD_ATI_MED | VARCHAR2 | Y |  |
+| 27 | TP_SERVICO_HOSPITALAR | VARCHAR2 | Y |  |
+| 28 | CD_CONSELHO | NUMBER | Y |  |
+| 29 | CD_MOTIVO_GLOSA | NUMBER | Y |  |
+| 30 | CD_REFERENCIA | VARCHAR2 | Y |  |
+| 31 | CD_SETOR | NUMBER | Y |  |
+| 32 | CD_MULTI_EMPRESA_ANTIGA | NUMBER | Y |  |
+| 33 | CD_SETOR_ANTIGO | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_UNID_INT_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNID_INT | NUMBER | N |  |
+| 2 | CD_CEN_CUS | VARCHAR2 | Y |  |
+| 3 | DS_UNID_INT | VARCHAR2 | N |  |
+| 4 | DS_LOCALIZACAO | VARCHAR2 | Y |  |
+| 5 | CD_SETOR | NUMBER | Y |  |
+| 6 | CD_GRU_FAT | NUMBER | Y |  |
+| 7 | SN_CODIGO_DE_BARRAS | VARCHAR2 | N |  |
+| 8 | SN_ATIVO | VARCHAR2 | N |  |
+| 9 | SN_PROG_ALTA | VARCHAR2 | N |  |
+| 10 | TP_UNID_INT | VARCHAR2 | N |  |
+| 11 | SN_HOSPITAL_DIA | VARCHAR2 | N |  |
+| 12 | SN_SEMI_UTI | VARCHAR2 | Y |  |
+| 13 | VL_CUSTO_VARIAVEL | NUMBER | Y |  |
+| 14 | VL_CUSTO_VAR_ACOMP | NUMBER | Y |  |
+| 15 | CD_UNID_INT_INTEGRA | VARCHAR2 | Y |  |
+| 16 | CD_SEQ_INTEGRA | NUMBER | Y |  |
+| 17 | DT_INTEGRA | DATE | Y |  |
+| 18 | SN_TRANSF_LEITO_VAGO | VARCHAR2 | Y |  |
+| 19 | CD_UNID_INT_ANTIGA | NUMBER | N |  |
+| 20 | CD_SETOR_ANTIGO | NUMBER | N |  |
+| 21 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USUARIO_SETOR_SAC_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_SETOR | NUMBER | Y |  |
+| 3 | CD_SETOR_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_AUTOR_SOL_CPR_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID | NUMBER | N |  |
+| 2 | CD_ID_USU | VARCHAR2 | N |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 4 | CD_SETOR | NUMBER | Y |  |
+| 5 | CD_ESPECIE | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_AUTOT_SOLIC_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USU | VARCHAR2 | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | VL_AUTZD_AUTOMATICA | NUMBER | N |  |
+| 4 | VL_LIM_AUTZD | NUMBER | N |  |
+| 5 | SN_USU_SUPERIOR | VARCHAR2 | N |  |
+| 6 | CD_NIVEL_AUTORIZADOR | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_AUTO_OC_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | VL_AUT_AUTOMATICA | NUMBER | N |  |
+| 3 | VL_LIM_AUT | NUMBER | N |  |
+| 4 | SN_USUARIO_SUPERIOR | VARCHAR2 | N |  |
+| 5 | CD_NIVEL_AUTORIZADOR | NUMBER | Y |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_AUTO_SOLIC_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USU_SOLIC | VARCHAR2 | N |  |
+| 2 | VL_LIM_AUT_SOLIC | NUMBER | N |  |
+| 3 | VL_AUTOMATICO_SOLIC | NUMBER | N |  |
+| 4 | SN_USUARIO_SUPERIOR | VARCHAR2 | N |  |
+| 5 | CD_NIVEL_AUT_SOLIC | NUMBER | Y |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_CEN_CIR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CEN_CIR | NUMBER | Y |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_CEN_CIR_MOV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CEN_CIR | NUMBER | Y |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_EXPURGO | VARCHAR2 | N |  |
+| 4 | SN_DESINFECCAO | VARCHAR2 | N |  |
+| 5 | SN_PREPARO | VARCHAR2 | N |  |
+| 6 | SN_ESTERILIZACAO | VARCHAR2 | N |  |
+| 7 | SN_ARSENAL_ENTRADA | VARCHAR2 | N |  |
+| 8 | SN_ARSENAL_SAIDA | VARCHAR2 | N |  |
+| 9 | SN_ARSENAL_DEVOLUCAO | VARCHAR2 | N |  |
+| 10 | SN_ARSENAL_TRANSFERENCIA | VARCHAR2 | N |  |
+| 11 | SN_TERCEIRIZACAO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_ENCERRAMENTO_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_ESTOQUE_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MULTI_EMPRE_ESTOQ | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_ESTOQUE | NUMBER | Y |  |
+| 4 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_ESTOQUE_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | N |  |
+| 2 | CD_ID_DO_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_AUTORIZA_EXCL_SOLICITACAO | VARCHAR2 | N |  |
+| 4 | SN_AUTORIZA_ALTE_SOLICITACAO | VARCHAR2 | Y |  |
+| 5 | TP_USUARIO | VARCHAR2 | N |  |
+| 6 | SN_PERMITE_ALT_ORD_COMPRAS | VARCHAR2 | N |  |
+| 7 | SN_ALT_VL_UNIT_OC | VARCHAR2 | N |  |
+| 8 | VL_PERC_VAR_VL_UNIT | NUMBER | N |  |
+| 9 | SN_TRANS_QUANT_COTA | VARCHAR2 | N |  |
+| 10 | SN_AUTORIZA_ALTE_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 11 | SN_AUTORIZA_EXCL_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 12 | SN_ALTERA_UNIDADE | VARCHAR2 | Y |  |
+| 13 | TP_UNID_TRANSF | VARCHAR2 | Y |  |
+| 14 | SN_PODE_ABRIR_CONFERENCIA_ENTR | VARCHAR2 | N |  |
+| 15 | SN_PODE_CONFERIR_CONFE_ENTR | VARCHAR2 | N |  |
+| 16 | SN_PODE_VALIDAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 17 | SN_PODE_CANCELAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 18 | SN_PODE_GERAR_ENTRAD_CNFR_ENTR | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_LOCALIZACAO_PRODUTO | VARCHAR2 | N |  |
+| 20 | SN_INFORMA_DATA_FATURAMENTO | VARCHAR2 | N |  |
+| 21 | SN_AUTORIZA_DESC_COMERCIAL | VARCHAR2 | N |  |
+| 22 | SN_EXIGE_AUTENTICACAO_ATND_SOL | VARCHAR2 | N |  |
+| 23 | CD_ESTOQUE_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_EST_EMP_ESP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | Y |  |
+| 2 | CD_ESPECIE | NUMBER | Y |  |
+| 3 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 4 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_MODIFICA_OS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | SN_MODIFICA_CABECALHO | VARCHAR2 | N |  |
+| 4 | SN_MODIFICA_DETALHE | VARCHAR2 | N |  |
+| 5 | SN_REABRE_OS | VARCHAR2 | N |  |
+| 6 | SN_EXCLUI_OS | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_OFICINAS_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_OFICINA | NUMBER | N |  |
+| 3 | SN_ATIVO | VARCHAR2 | N |  |
+| 4 | CD_OFICINA_ANTIGA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_ORIGEM_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORI_ATE | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_ORI_ATE_ANTIGA | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_PAPEL_CIR_CIR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL_CENTRO_CIRURGICO | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_PERFIL_AGENDA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_PERFIL_AGENDAMENTO | NUMBER | N |  |
+| 3 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_PERMITE_AGENDA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_PLANO_EMPRESA_NOVO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 3 | CD_REDUZIDO | NUMBER | Y |  |
+| 4 | CD_REDUZIDO_ANTIGO | NUMBER | N |  |
+
+---
+
+## DBAMV.BACKUP_USU_SERVICO_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | CD_SERVICO | NUMBER | Y |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_SETOR_ESP_EMP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | Y |  |
+| 2 | CD_ESPECIE | NUMBER | Y |  |
+| 3 | CD_ID_USU_SOLIC | VARCHAR2 | N |  |
+| 4 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.BACKUP_USU_UNID_INT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNID_INT | NUMBER | Y |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | Y |  |
+
+---
+
+## DBAMV.BAIRRO_LOGRADOURO_SA04_SUS
+> Tabela de auxilio da CEP_LOGRADOURO do SA04
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_BAIRRO | NUMBER | N | Código do bairro no SA04 |
+| 2 | CD_LOGRADOURO | NUMBER | N | Código do logradouro no SA04 |
+| 3 | TP_LADO | VARCHAR2 | N | P- lado par I-lado impar |
+| 4 | NR_TRECHO_INI | NUMBER | N | Número inicial do trecho |
+| 5 | NR_TRECHO_FIM | NUMBER | N | Número final do trecho |
+
+---
+
+## DBAMV.CANC_ITREG_AMB
+> Tabela de Log ambulatorial referente regras de lancamento e cancelamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_AMB | NUMBER | N | Código do lote |
+| 2 | CD_LANCAMENTO | NUMBER | N | Código lançamento |
+| 3 | HR_LANCAMENTO | DATE | N | Hora de lançamento |
+| 4 | QT_LANCAMENTO | NUMBER | N | Quantidade de lançamento |
+| 5 | VL_UNITARIO | NUMBER | Y | Valor unitário |
+| 6 | VL_ACRESCIMO | NUMBER | Y | Valor acrescimo |
+| 7 | VL_DESCONTO | NUMBER | Y | Valor desconto |
+| 8 | CD_GRU_FAT | NUMBER | N | Código do grupo de faturamento |
+| 9 | CD_PRO_FAT | VARCHAR2 | N | Código procedimento |
+| 10 | CD_ATENDIMENTO | NUMBER | N | Código do atendimento |
+| 11 | CD_PRESTADOR | NUMBER | Y | Código do prestador |
+| 12 | CD_CON_PLA | NUMBER | N | Código do plano |
+| 13 | CD_CONVENIO | NUMBER | N | Código do convenio |
+| 14 | VL_HONORARIO_UNITARIO | NUMBER | Y | Valor de honorário unitário |
+| 15 | VL_OPERACIONAL_UNITARIO | NUMBER | Y | Valor operacional unitário |
+| 16 | CD_ATI_MED | VARCHAR2 | Y | Código atividade médica |
+| 17 | CD_PRES_CON | NUMBER | Y | Código pres_con |
+| 18 | VL_PERCENTUAL_PACIENTE | NUMBER | Y | Valor percentual do paciente |
+| 19 | VL_FILME_UNITARIO | NUMBER | Y | Valor filme unitário |
+| 20 | VL_TOTAL_CONTA | NUMBER | Y | Valor total do item |
+| 21 | SN_FATURA_IMPRESSA | VARCHAR2 | N | Fatura impressa(s/n)? |
+| 22 | SN_FECHADA | VARCHAR2 | N | Conta fechada(s/n)? |
+| 23 | CD_IMPORTA_REG_AMB | NUMBER | Y | Código importacao do lote |
+| 24 | SN_CONTA_CALCULADA | VARCHAR2 | N | Pertence a pacote(s/n)? |
+| 25 | CD_GUIA | NUMBER | Y | Código da guia |
+| 26 | SN_PERTENCE_PACOTE | VARCHAR2 | N | Pertence pacote? S/N |
+| 27 | DT_FECHAMENTO | DATE | Y | Data fechamento |
+| 28 | NM_USUARIO_FECHOU | VARCHAR2 | Y | Usuário que fechou a conta |
+| 29 | VL_DESCONTO_FECHAMENTO | NUMBER | Y | Valor desconto no fechamento da conta |
+| 30 | VL_ACRESCIMO_FECHAMENTO | NUMBER | Y | Valor acréscimo no fechamento da conta |
+| 31 | VL_CONTA_NO_FECHAMENTO | NUMBER | Y | Valor do item no fechamento da conta |
+| 32 | VL_BASE_REPASSADO | NUMBER | Y | Valor base repassado |
+| 33 | CD_MOTIVO_GLOSA | NUMBER | Y | Código motivo de glosa |
+| 34 | QT_CH_UNITARIO | NUMBER | Y | Quantidade CH unitario |
+| 35 | VL_PERCENTUAL_MULTIPLA | NUMBER | Y | Valor percentual do procedimento |
+| 36 | TP_PAGAMENTO | VARCHAR2 | Y | Tipo de pagamento |
+| 37 | CD_SETOR_PRODUZIU | NUMBER | Y | Código do setor que produziu |
+| 38 | CD_SETOR | NUMBER | Y | Código do setor |
+| 39 | CD_PADRAO | NUMBER | Y | Código do padrão |
+| 40 | SN_HORARIO_ESPECIAL | VARCHAR2 | N | Horário especial(s/n)? |
+| 41 | CD_REG_AMB_PAI | NUMBER | Y | Código do lote pai |
+| 42 | CD_LANCAMENTO_PAI | NUMBER | Y | Código do lancamento pai |
+| 43 | CD_FRANQUIA | NUMBER | Y | Código da franquia |
+| 44 | CD_REGRA_ACOPLAMENTO | NUMBER | Y | Código da regra acoplamento |
+| 45 | VL_PERC_ACOPLAMENTO | NUMBER | Y | Valor percentual do acoplamento |
+| 46 | SN_PACIENTE_PAGA | VARCHAR2 | N | Paciente paga(s/n)? |
+| 47 | CD_REGRA_ATENDIMENTO | NUMBER | Y | Código da regra de atendimento |
+| 48 | CD_REGRA_ATENDIMENTO_PRO_FAT | NUMBER | Y | Código da regra de atendimento procedimento |
+| 49 | CD_FRANQUIA_VALOR_TOTAL | NUMBER | Y | Código franquia Valor total |
+| 50 | CD_REG_AMB_REL | NUMBER | Y | Código lote relacionado |
+| 51 | CD_LANCAMENTO_REL | NUMBER | Y | Código lançamento relacionado |
+| 52 | CD_USUARIO | VARCHAR2 | Y | Código do Usuário |
+| 53 | CD_MVTO | NUMBER | Y | Código de movimentação |
+| 54 | TP_MVTO | VARCHAR2 | Y | Tipo de movimentação |
+| 55 | HR_LANCAMENTO_FINAL | DATE | Y | Hora lançamento final |
+| 56 | CD_ITMVTO | NUMBER | Y | Item em movimentação |
+| 57 | SN_REPASSOU_VIRTUAL | VARCHAR2 | N | Repassou virtual(s/n)? |
+| 58 | SN_PRONTA | VARCHAR2 | N | Pronta?(s/n)? |
+| 59 | VL_DESCONTO_CONTA | NUMBER | Y | Valor desconto conta |
+| 60 | DT_SESSAO | DATE | Y | Data de sessão |
+| 61 | TP_MVTO_DESCONTO | VARCHAR2 | Y | Tipo movimentação de desconto |
+| 62 | TP_DESCONTO | VARCHAR2 | Y | Código sequencial da movimentação de kit na conta de faturamento |
+| 63 | VL_NOTA | NUMBER | Y | Valor nota |
+| 64 | SN_REPASSADO | VARCHAR2 | N | Repassado?(s/n)? |
+| 65 | FATOR_RELACIONADO | NUMBER | Y | Quantidade fator relacionado da regra |
+| 66 | SN_LIBERADO | CHAR | N | Liberado= S / Não Liberado= N |
+| 67 | NR_SEQ_PREIMPRE | NUMBER | Y | Sequencial do relatorio pre-impresso do convenio |
+| 68 | CD_CONTA_KIT | NUMBER | Y | Código sequencial da movimentação de kit na conta de faturamento. |
+| 69 | DS_OBSERVACAO_FRANQUIA | VARCHAR2 | Y | Observação franquia |
+| 70 | CD_LANCAMENTO_REG_LANC | NUMBER | Y | Código  lancamento  que utilizou a regra de lançamento |
+| 71 | CD_REGRA_LANCAMENTO | NUMBER | Y | Código regra de lacamento |
+| 72 | CD_CONTA_PACOTE | NUMBER | Y | Código da conta pacote |
+| 73 | SN_REGRA_LANCAMENTO | VARCHAR2 | N | Indica se a conta tem regra de lanccamento aplicada |
+| 74 | NR_DIFEP | VARCHAR2 | Y | Número de controle estadual de bolsas de sangue por Hemocentros. |
+| 75 | CD_IT_AGENDA_CENTRAL | NUMBER | Y | Código dos itens da agenda central |
+| 76 | NR_GUIA_ENVIO | VARCHAR2 | Y |  |
+| 77 | ID_IT_ENVIO | NUMBER | Y | Envio |
+| 78 | NM_INSTANCIA | VARCHAR2 | Y | Instância da tabela gv$session, para auxiliar no processo de regra de lançamento |
+| 79 | NM_SESSAO | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 80 | NM_USUARIO | VARCHAR2 | Y | Usuário que realizou o processo de regra de lançamento |
+| 81 | INSTANC | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lançamento |
+| 82 | SID | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 83 | USERNAME | VARCHAR2 | Y | Usuário que realizou o processo de regra de lancamento |
+| 84 | VL_DESCONTO_PREST_DISTRIBUICAO | NUMBER | Y | Desconto de prestador de distribuição |
+| 85 | VL_HONORARIO_PREST_DISTRIBUI | NUMBER | Y | Valor honorário do prestador de distribuição |
+| 86 | VL_TOTAL_DISTRIBUIDO | NUMBER | Y | Valor do total distribuído |
+| 87 | VL_BASE_HONOR_REPASSE | NUMBER | Y | Valor da base honoraria do repasse |
+| 88 | VL_HONOR_DISTRIBUIDO | NUMBER | Y | Valor honorário distribuído |
+| 89 | DT_PRODUCAO | DATE | Y | Data de produção |
+| 90 | CD_REGRA_SUBSTITUICAO_PROCED | NUMBER | Y | Código da regra de substituição do procedimento |
+
+---
+
+## DBAMV.CANC_ITREG_FAT
+> Tabela de Log hospitalar referente regras de lancamento e cancelamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | N | Código da conta. |
+| 2 | CD_LANCAMENTO | NUMBER | N | Código do lancamento. |
+| 3 | DT_LANCAMENTO | DATE | N | Data do lancamento. |
+| 4 | HR_LANCAMENTO | DATE | Y | Hora do lancamento. |
+| 5 | QT_LANCAMENTO | NUMBER | N | Quantidade do lancamento. |
+| 6 | VL_PERCENTUAL_MULTIPLA | NUMBER | N | Valor percentual do procedimento. |
+| 7 | VL_UNITARIO | NUMBER | Y | Valor unitario do procedimento. |
+| 8 | VL_FILME_UNITARIO | NUMBER | Y | Valor do filme. |
+| 9 | VL_ACRESCIMO | NUMBER | Y | Valor acrescimo. |
+| 10 | VL_DESCONTO | NUMBER | Y | Valor desconto. |
+| 11 | CD_GRU_FAT | NUMBER | N | Código do grupo de faturamento. |
+| 12 | CD_PRO_FAT | VARCHAR2 | N | Código do procedimento. |
+| 13 | CD_PRESTADOR | NUMBER | Y | Código do prestador. |
+| 14 | NR_PADRAO | NUMBER | Y | Número padrão. |
+| 15 | VL_HONORARIO_UNITARIO | NUMBER | Y | Valor de honorário unitário. |
+| 16 | VL_OPERACIONAL_UNITARIO | NUMBER | Y | Valor de honorário unitário. |
+| 17 | CD_PRES_CON | NUMBER | Y | Código prestador do convênio |
+| 18 | VL_PERCENTUAL_PACIENTE | NUMBER | Y | Valor percentual do paciente. |
+| 19 | VL_TOTAL_CONTA | NUMBER | Y | Valor total do procedimento. |
+| 20 | CD_IMPORTA_REG_FAT | NUMBER | Y | Código importação da reg_fat. |
+| 21 | CD_GUIA | NUMBER | Y | Código guia. |
+| 22 | SN_PERTENCE_PACOTE | VARCHAR2 | N | Pertence a pacote(s/n)?. |
+| 23 | VL_BASE_REPASSADO | NUMBER | Y | Valor base repassado. |
+| 24 | CD_MOTIVO_GLOSA | NUMBER | Y | Código motivo da glosa. |
+| 25 | QT_CH_UNITARIO | NUMBER | Y | Quantidade CH unitário. |
+| 26 | TP_PAGAMENTO | VARCHAR2 | Y | Tipo pagamento. |
+| 27 | CD_SETOR_PRODUZIU | NUMBER | Y | Código setor produziu. |
+| 28 | CD_SETOR | NUMBER | Y | Código setor. |
+| 29 | CD_PADRAO | NUMBER | Y | Código padrão. |
+| 30 | SN_HORARIO_ESPECIAL | VARCHAR2 | N | Horario especial(s/n)? |
+| 31 | QT_PONTOS | NUMBER | Y | Quantidade pontos? |
+| 32 | SN_PROCED_AUTORIZADO | VARCHAR2 | N | Procedimento autorizado? |
+| 33 | TP_ALTA_UTI_NEO | VARCHAR2 | Y | Tipo alta UTI NEO |
+| 34 | QT_PESO_RN | NUMBER | Y | Quantidade do peso do RN |
+| 35 | QT_MES_GESTACAO | NUMBER | Y | Qauntidade de mes da gestação |
+| 36 | CD_SUS | VARCHAR2 | Y | Código SUS |
+| 37 | CD_TIPO_VINCULO | NUMBER | Y | Código SUS |
+| 38 | CD_ATI_MED | VARCHAR2 | Y | Código atividade médica |
+| 39 | VL_SP | NUMBER | Y | Valor SP |
+| 40 | VL_SH | NUMBER | Y | Valor SH |
+| 41 | VL_SD | NUMBER | Y | Valor SD |
+| 42 | VL_ATO | NUMBER | Y | Valor ATO |
+| 43 | CD_SUS_AUXILIAR | VARCHAR2 | Y | Código SUS auxiliar. |
+| 44 | CD_REG_FAT_PAI | NUMBER | Y | Código da conta pai. |
+| 45 | CD_LANCAMENTO_PAI | NUMBER | Y | Código do lançamento da conta pai para este item. |
+| 46 | SN_PROCED_REALIZADO | VARCHAR2 | N | Procedimento realizado?(s/n) |
+| 47 | CD_FRANQUIA | NUMBER | Y | Código da franquia. |
+| 48 | CD_REGRA_ACOPLAMENTO | NUMBER | Y | Código da regra de acoplamento. |
+| 49 | VL_PERC_ACOPLAMENTO | NUMBER | Y | Valor percentual acoplamento. |
+| 50 | SN_PACIENTE_PAGA | VARCHAR2 | N | Paciente paga(s/n)? |
+| 51 | CD_REGRA_ATENDIMENTO | NUMBER | Y | Código da regra atendimento |
+| 52 | CD_REGRA_ATENDIMENTO_PRO_FAT | NUMBER | Y | Código regra atendimento procedimento |
+| 53 | CD_REG_FAT_REL | NUMBER | Y | Código da conta do relacionado |
+| 54 | CD_LANCAMENTO_REL | NUMBER | Y | Código do lançamento do relacionado |
+| 55 | CD_USUARIO | VARCHAR2 | Y | Código do usuario |
+| 56 | CD_MVTO | NUMBER | Y | Código de movimentação |
+| 57 | TP_MVTO | VARCHAR2 | Y | Tipo de movimentação |
+| 58 | HR_LANCAMENTO_FINAL | DATE | Y | Hora lançamento final |
+| 59 | VL_DESCONTO_CONTA | NUMBER | Y | Valor desconto conta |
+| 60 | SN_REPASSOU_VIRTUAL | VARCHAR2 | N | Repasse virtual(s/n)? |
+| 61 | VL_NOTA | NUMBER | Y | Valor nota |
+| 62 | SN_IMP_LAUDO_ALTERACAO | VARCHAR2 | N | sn_imp_laudo_alteracao? |
+| 63 | VL_PONTO_REPASSADO | NUMBER | Y | Valor ponto repassado |
+| 64 | CD_ITMVTO | NUMBER | Y | Item em movimentação |
+| 65 | SN_REPASSADO | VARCHAR2 | N | Repassado(s/n)? |
+| 66 | FATOR_RELACIONADO | NUMBER | Y | Número do fator relacionado |
+| 67 | NR_SEQ_PREIMPRE | NUMBER | Y | Sequencial do relatorio pre-impresso do convenio |
+| 68 | CD_CONTA_PAI | NUMBER | Y | Código da conta pai para relacionamento deste item. |
+| 69 | CD_MULTI_EMPRESA | NUMBER | Y | Código da empresa logada ao gerar a conta |
+| 70 | CD_CONTA_KIT | NUMBER | Y | Código sequencial da movimentação de kit na conta de faturamento. |
+| 71 | TP_RESULTADO_EXAME_ACH | VARCHAR2 | Y | Resultado do exame ACH |
+| 72 | TP_SITUACAO_ACH | VARCHAR2 | Y | Tipo de situação ACH(s/n)? |
+| 73 | CD_GERACAO_ACH_AUTORIZADO | NUMBER | Y | Código geração ACH autorizado |
+| 74 | CD_LANCAMENTO_REG_LANC | NUMBER | Y | Código lançamento referente regra lançamento |
+| 75 | CD_REGRA_LANCAMENTO | NUMBER | Y | Código regra lançamento |
+| 76 | CD_CONTA_PACOTE | NUMBER | Y | Código conta de pacote |
+| 77 | SN_CALC_DIFERENCA_ACOMODACAO | VARCHAR2 | N | Identifica se havera ou não, o calculo da diferenca entre o valor da acomodação coberta pelo conv... |
+| 78 | NR_DIFEP | VARCHAR2 | Y | Numero de controle estadual de bolsas de sangue por Hemocentros. |
+| 79 | NR_GUIA_ENVIO | VARCHAR2 | Y | Número da guia de envio |
+| 80 | CD_CBO_PRESTADOR | VARCHAR2 | Y | Código do CBO do prestador |
+| 81 | CD_PROCEDIMENTO | VARCHAR2 | Y | Código do procedimento |
+| 82 | TP_APURAR_VALOR | NUMBER | Y | Tipo de apuração de valor |
+| 83 | TP_APURAR_VALOR_ORIGEM | VARCHAR2 | Y | Tipo de valor apurado na origem |
+| 84 | ID_IT_ENVIO | NUMBER | Y | Envio |
+| 85 | NM_INSTANCIA | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 86 | NM_SESSAO | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 87 | NM_USUARIO | VARCHAR2 | Y | Usuario que realizou o processo de regra de lancamento |
+| 88 | INSTANC | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 89 | SID | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lançamento |
+| 90 | USERNAME | VARCHAR2 | Y | Usuário que realizou o processo de regra de lancamento |
+| 91 | CD_PRIORIDADE_AIH | VARCHAR2 | Y | Código de prioridade AIH |
+| 92 | CD_SEQ_INTEGRA | NUMBER | Y | Código sequencial integra |
+| 93 | DT_INTEGRA | DATE | Y | Data da integração |
+| 94 | CD_SERVICO_SUS | VARCHAR2 | Y | Código serviço SUS |
+| 95 | CD_CLASSIFICACAO_SUS | VARCHAR2 | Y | Código da Classificação SUS |
+| 96 | SN_INTERCORRENCIA | VARCHAR2 | N | Intercorrência S/N? |
+| 97 | VL_DESCONTO_PREST_DISTRIBUICAO | NUMBER | Y | Desconto de prestador de distribuição |
+| 98 | VL_HONORARIO_PREST_DISTRIBUI | NUMBER | Y | Valor honorário do prestador de distribuição |
+| 99 | VL_TOTAL_DISTRIBUIDO | NUMBER | Y | Valor do total distribuído |
+| 100 | VL_BASE_HONOR_REPASSE | NUMBER | Y | Valor da base honoraria do repasse |
+| 101 | VL_HONOR_DISTRIBUIDO | NUMBER | Y | Valor honorário distribuído |
+| 102 | DT_PRODUCAO | DATE | Y | Data de produção |
+| 103 | CD_REGRA_SUBSTITUICAO_PROCED | NUMBER | Y | Código da regra de substituição do procedimento |
+
+---
+
+## DBAMV.CATMOTEGRESO
+> Catálogo para a norma 24
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CATMOTEGRESO | NUMBER | N | Chave primária da tabela |
+| 2 | DS_CATMOTEGRESO | VARCHAR2 | N | Descrição do atributo da tabela |
+
+---
+
+## DBAMV.CATTIPONAC
+> Catálogo para a norma 24
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CATTIPONAC | NUMBER | N | Chave primária da tabela |
+| 2 | DS_CATTIPONAC | VARCHAR2 | N | Descrição do atributo da tabela |
+
+---
+
+## DBAMV.CATTIPOPROCED
+> Catálogo para a norma 24
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CATTIPOPROCED | NUMBER | N | Chave primária da tabela |
+| 2 | DS_CATTIPOPROCED | VARCHAR2 | N | Descrição do atributo da tabela |
+
+---
+
+## DBAMV.CEP_LOGRADOURO_SA04_SUS
+> Tabela de auxilio da CEP_LOGRADOURO do SA04
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_CEP | NUMBER | N | Número do CEP |
+| 2 | CD_LOGRADOURO | NUMBER | N | Código do logradouro no SA04 |
+| 3 | TP_LADO | VARCHAR2 | N | P- lado par I-lado impar |
+| 4 | NR_TRECHO_INI | NUMBER | N | Número Inicial do Trecho |
+| 5 | NR_TRECHO_FIM | NUMBER | N | Número Final do Trecho |
+
+---
+
+## DBAMV.CONF_HORARIO_SALA_CIR_USUARIO
+> Liga os usuários que podem reservar salas cirúrgicas ao horário e dia da semana permitidos.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_USU_SAL_CIR | NUMBER | N | Código da tabela com os horários e dias da semana permitidos para reservar sala cirúrgica. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário que pode reservar a sala no período indicado na tabela config_usuario_horario_s... |
+
+---
+
+## DBAMV.DESTINATARIO_UNIFICADO
+> Tabela para cadastrar os E-mails e as permiss?es dos usuarios que ser?o notificados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DESTINATARIO_UNIFICADO | NUMBER | N | Codigo do destinatario unificado |
+| 2 | NM_DESTINATARIO_UNIFICADO | VARCHAR2 | N | Nome do destinatario unificado |
+| 3 | EMAIL_DESTINATARIO_UNIFICADO | VARCHAR2 | N | E-mail do destinatario unificado |
+| 4 | SN_PRODUTO_CADASTRADO | VARCHAR2 | N | Recebe E-mail caso um produto seja cadastro |
+| 5 | SN_PRODUTO_ALTERADO | VARCHAR2 | N | Recebe E-mail caso um produto seja alterado |
+| 6 | SN_FORNECEDOR_CADASTRADO | VARCHAR2 | N | Recebe E-mail caso um fornecedor seja cadastro |
+| 7 | SN_FORNECEDOR_ALTERADO | VARCHAR2 | N | Recebe E-mail caso um fornecedor seja cadastro |
+
+---
+
+## DBAMV.DET_LOG_IMP_CUSTOS
+> Tabela para logger de importacao de custos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DET_LOG_IMP_CUSTOS | NUMBER | N | Codigo do detalhe de importacao Custos |
+| 2 | CD_LOG | NUMBER | N | Codigo do log de geracao da importacao da importacao Custos |
+| 3 | NR_LINHA | NUMBER | Y | Numero da Linha do registro de Importacao Custos |
+| 4 | DS_LINHA | VARCHAR2 | Y | Descricao da Linha Original do arquivo de impotacao da Importacao Custos |
+| 5 | CD_CRITICA | VARCHAR2 | Y | Codigo do erro na importacao Custos |
+| 6 | DS_CRITICA | VARCHAR2 | Y | Codigo do erro na importacao Custos |
+
+---
+
+## DBAMV.DIRETIVA_SEGURANCA
+> Tabela de Valores de Diretivas de Seguranca
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DIRETIVA | VARCHAR2 | N | Codigo da Diretiva |
+| 2 | TP_DIRETIVA | VARCHAR2 | N | Tipo de Diretiva 1-Diretivas de Contas; 2-Diretivas de Acesso; 3-Diretivas de Inatividade |
+| 3 | VL_LIMITE | NUMBER | N | Valor Limite da Diretiva |
+| 4 | DS_DIRETIVA | VARCHAR2 | N | Descric?o da Diretiva |
+| 5 | DT_REGISTRO | DATE | Y | Data de Registro |
+| 6 | NR_ORDEM | NUMBER | N | Número de Ordenação (usado para ordernar as diretivas na tela) |
+
+---
+
+## DBAMV.DISPOSITIVO_USUARIO
+> Tabela que armazena os dispositivos de um usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DISPOSITIVO_USUARIO | NUMBER | N | Código sequencial único. |
+| 2 | DS_TOKEN | VARCHAR2 | Y | Token |
+| 3 | CD_USUARIO | VARCHAR2 | N | Código do usuário |
+| 4 | DT_ULTIMO_ACESSO | DATE | N | Data do último acesso |
+| 5 | DT_INCLUSAO | DATE | N | Data de inclusão |
+| 6 | TP_PLATAFORMA | VARCHAR2 | Y | Plataforma |
+| 7 | CD_SISTEMA | VARCHAR2 | N | Código do sistema |
+| 8 | CD_IDENTIFICADOR_DISPOSITIVO | VARCHAR2 | N |  |
+| 9 | NM_DISPOSITIVO | VARCHAR2 | N | Nome do dispositivo |
+| 10 | TP_DISPOSITIVO | VARCHAR2 | N | Tipo do dispositivo |
+| 11 | SN_ATIVO | VARCHAR2 | N | Indicador do status do dispositivo |
+
+---
+
+## DBAMV.ECT_LOG_GRANDES_USUARIOS
+> NOMES OFICIAIS DE GRANDES USUARIOS DOS CORREIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_GU_NUMERO_DNE | NUMBER | N | CHAVE DO GRANDE USUARIO NO DNE |
+| 2 | DS_GU_SIGLA_UF | VARCHAR2 | N | SIGLA DA UF |
+| 3 | DS_GU_CHAVE_LOC_DNE | NUMBER | N | CHAVE DA LOCALIDADE NO DNE |
+| 4 | CD_GU_CHAVE_BAI_DNE | NUMBER | N | CHAVE DO BAIRRO NO DNE |
+| 5 | NM_GU_OFICIAL | VARCHAR2 | Y | NOME OFICIAL DO GRANDE USUARIO |
+| 6 | DS_GU_CEP | VARCHAR2 | N | CEP DO GRANDE USUARIO |
+| 7 | DS_GU_ABREV_REC_ECT | VARCHAR2 | Y | ABREVIATURA DO GRANDE USUARIO RECOMENDADA PELA ECT |
+| 8 | TP_GU_OFI_LOGRADOURO | VARCHAR2 | Y | TIPO OFICIAL DO LOGRADOURO |
+| 9 | DS_GU_PREPOSICAO | VARCHAR2 | Y | PREPOSIC?O |
+| 10 | DS_GU_TIT_PAT_OFI_LOG | VARCHAR2 | Y | TITULO OU PATENTE OFICIAL DO LOGRADOURO |
+| 11 | DS_GU_CHAVE_LOG_DNE | NUMBER | Y | CHAVE DO LOGRADOURO NO DNE |
+| 12 | NM_GU_OFI_LOG | VARCHAR2 | Y | NOME OFICIAL DO LOGRADOURO |
+| 13 | NR_GU_LOTE | VARCHAR2 | Y | NUMERO DO LOTE |
+| 14 | NM_GU_COMPL1 | VARCHAR2 | Y | NOME DO COMPLEMENTO 1 |
+| 15 | DS_GU_NUM_LETRA_COMPL1 | VARCHAR2 | Y | NUMERO OU LETRA DO COMPLEMENTO 1 |
+| 16 | NM_GU_COMPL2 | VARCHAR2 | Y | NOME DO COMPLEMENTO 2 |
+| 17 | DS_GU_NUM_LETRA_COMPL2 | VARCHAR2 | Y | NUMERO OU LETRA DO COMPLEMENTO 2 |
+| 18 | TP_GU_OFI_UNID_OCUP | VARCHAR2 | Y | TIPO OFICIAL DA UNIDADE DE OCUPAC?O |
+| 19 | DS_GU_NUM_LETR_UNID_OCUP | VARCHAR2 | Y | NUMERO OU LETRA DA UNIDADE DE OCUPAC?O |
+| 20 | SN_GU_INTEGRADO | VARCHAR2 | Y | INDICA SE FOI IMPORTADOR |
+| 21 | TP_OPERACAO | VARCHAR2 | Y | Tipo da Operac?o. (I) Incluir, (U) Alterar, (D)Deletar |
+| 22 | CD_CEP_ANTERIOR | VARCHAR2 | Y | Codigo Anterior do CEP |
+| 23 | NM_GU_OFI_LOCALIDADE | VARCHAR2 | Y | Nome Oficial da Localidade |
+
+---
+
+## DBAMV.ECT_LOG_LOGRADOURO
+> Logradouros
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOGRADOURO | NUMBER | Y | chave do logradouro - CD_LOGRADOURO MV2000 |
+| 2 | CD_LOGRADOURO_DNE | NUMBER | N | chave do logradouro DNE - CD_LOGRADOURO MV2000 |
+| 3 | CD_UF | VARCHAR2 | N | sigla da UF |
+| 4 | CD_LOCALIDADE | NUMBER | Y | chave da localidade - CD_LOCALIDADE MV2000 |
+| 5 | CD_LOCALIDADE_DNE | NUMBER | N | chave da localidade DNE - CD_LOCALIDADE MV2000 |
+| 6 | CD_BAIRRO_INI | NUMBER | Y | chave do bairro inicial do logradouro - CD_BAIRRO MV2000 |
+| 7 | CD_BAIRRO_FIM | NUMBER | Y | chave do bairro final do logradouro (opcional) - CD_BAIRRO MV2000 |
+| 8 | CD_BAIRRO_INI_DNE | NUMBER | Y | chave do bairro inicial do logradouro DNE - CD_BAIRRO MV2000 |
+| 9 | CD_BAIRRO_FIM_DNE | NUMBER | Y | chave do bairro final do logradouro DNE (opcional) - CD_BAIRRO MV2000 |
+| 10 | NM_OFICIAL_LOGRADOURO | VARCHAR2 | Y | nome do logradouro |
+| 11 | DS_COMPLEMENTO_LOG | VARCHAR2 | Y | complemento do logradouro (opcional) |
+| 12 | CD_CEP | VARCHAR2 | N | CEP do logradouro |
+| 13 | TP_LOGRADOURO | VARCHAR2 | Y | tipo de logradouro |
+| 14 | DS_PREPOSICAO | VARCHAR2 | Y | proposic?o de junc?o dos nomes |
+| 15 | SN_TIPO_LOGRADOURO | VARCHAR2 | Y | indicador de utilizac?o do tipo de logradouro (S ou N) (opcional) |
+| 16 | NM_ABREVIADO_LOGRADOURO | VARCHAR2 | Y | abreviatura do nome do logradouro (opcional) |
+| 17 | DS_TITULO_PATENTE_LOG | VARCHAR2 | Y | Titulo ou Patente Oficial do Logradouro |
+| 18 | SN_INTEGRADO | VARCHAR2 | Y | Se ja houve importac?o? (Sim/N?o) |
+| 19 | TP_OPERACAO | VARCHAR2 | N | Tipo da Operac?o. (I) Incluir, (U) Alterar, (D)Deletar |
+| 20 | CD_CEP_ANTERIOR | VARCHAR2 | Y | Codigo Anterior do CEP |
+| 21 | DS_SIGLA | VARCHAR2 | Y | Abreviatura do Tipo do Logradouro |
+| 22 | CD_UNIDADE_OPERACIONAL | NUMBER | Y | Codigo da Unidade Operacional DNE |
+| 23 | NM_OFICIAL_LOGRADOURO_SUS | VARCHAR2 | Y | Descric?o do logradouro aceitavel pela secretaria |
+| 24 | NR_TRECHO_INICIO | NUMBER | Y | Numero Inicial do Trecho |
+| 25 | NR_TRECHO_FIM | NUMBER | Y | Numero Final do Trecho |
+
+---
+
+## DBAMV.ECT_LOG_TIPO_LOGRADOURO
+> Tabela de Tipos de Logradouros
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIPO_LOGRADOURO_DNE | NUMBER | N | Codigo unico do identificador do tipo de logradouro |
+| 2 | DS_TIPO_LOGRADOURO | VARCHAR2 | Y | Descric?o para o tipo de logradouro |
+| 3 | DS_SIGLA | VARCHAR2 | Y | Descric?o para a sigla conforme DNE |
+| 4 | SN_INTEGRADO | VARCHAR2 | Y | Informa se o item ja foi importado |
+
+---
+
+## DBAMV.ESPELHO_AUDITORIA_PRESCRICAO
+> Tabela espelho para o relatorio de Auditoria de Prescric?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_ID | NUMBER | N | Identificac?o da Transac?o |
+| 2 | CD_USUARIO | VARCHAR2 | N | Identificac?o da usuario da transac?o |
+| 3 | NR_LINHA | NUMBER | N | Codigo do registro corrente da transac?o |
+| 4 | CD_ATENDIMENTO | NUMBER | Y | Codigo do Atendimento |
+| 5 | DT_ALTA | DATE | Y | Data da alta do paciente |
+| 6 | HR_ALTA | DATE | Y | Hora da alta do paciente |
+| 7 | NR_TIPO | NUMBER | Y | Tipo da Movimentac?o |
+| 8 | CD_PRODUTO | NUMBER | Y | Codigo do produto/antimicrobiano da Movimentac?o |
+| 9 | DS_PRODUTO | VARCHAR2 | Y | Descric?o do produto/antimicrobiano da Movimentac?o |
+| 10 | NM_ANTIMICROB | VARCHAR2 | Y | Descric?o do Antimicrobiano da Movimentac?o |
+| 11 | DS_TIP_PRESC | VARCHAR2 | Y | Descric?o do tipo de prescric?o |
+| 12 | CD_LEITO | NUMBER | Y | Codigo do Leito |
+| 13 | CD_UNID_INT | NUMBER | Y | Codigo da Unidade de Internac?o |
+| 14 | CD_CONVENIO | NUMBER | Y | Codigo do Convenio |
+| 15 | CD_PACIENTE | NUMBER | Y | Codigo do paciente na Movimentac?o |
+| 16 | DT_HR_PRE_MED | DATE | Y | Data e Hora da prescric?o |
+| 17 | CD_ANTIMICROB | VARCHAR2 | Y | Codigo do Antimicrobiano da Movimentacao |
+| 18 | CD_PRESTADOR | NUMBER | Y | Codigo do prestador |
+| 19 | NM_PRESTADOR | VARCHAR2 | Y | Nome do prestador |
+| 20 | NM_PACIENTE | VARCHAR2 | Y | Nome do paciente da Movimentac?o |
+| 21 | DT_PREVISTA_ALTA | DATE | Y | Data de previs?o de alta do paciente |
+| 22 | CD_CID | VARCHAR2 | Y | Codigo Internacional de Doenca |
+| 23 | DS_CID | VARCHAR2 | Y | Descric?o do codigo internacional de doenca |
+| 24 | DH_ALTA | DATE | Y | Data e Hora da alta do paciente |
+| 25 | CD_SOLSAI_PRO | NUMBER | Y | Codigo da solicitac?o de produto |
+| 26 | CD_PRE_MED | NUMBER | Y | Codigo da prescric?o |
+| 27 | CD_ITPRE_MED | NUMBER | Y | Codigo do item da prescric?o |
+| 28 | CD_ITPRE_MED_JUSTIFICATIVA | NUMBER | Y | Codigo da justificativa do item de prescric?o |
+| 29 | QT_DIAS | NUMBER | Y | Quantidade de dias do ciclo de antimicrobianos |
+| 30 | NR_DIAS | NUMBER | Y | Numero de dias do clico de antimicrobianos |
+| 31 | NR_DOSE | NUMBER | Y | Dose do medicamento |
+| 32 | DT_PRE_MED | DATE | Y | Data da prescric?o |
+| 33 | HR_PRE_MED | DATE | Y | Hora da prescric?o |
+| 34 | CD_TIP_PRESC | NUMBER | Y | Codigo do tipo de prescric?o |
+| 35 | CD_MVTO_ESTOQUE | VARCHAR2 | Y | Codigo da movimentac?o de estoque |
+| 36 | CD_ITMVTO_ESTOQUE | VARCHAR2 | Y | Codigo do item de movimentac?o de estoque |
+
+---
+
+## DBAMV.ESTABELECIMENTO_USUARIO_SIDRA
+> Tabela de Estabelecimentos X Usuários SIDRA.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTABELECIMENTO_USUARIO | NUMBER | N | Código sequencial, para o relacionamento entre Estabelecimento de Saúde e Usuários. |
+| 2 | CD_ESTABELECIMENTO_SAUDE | NUMBER | N | Código do Estabelecimento de Saúde. |
+| 3 | CD_USUARIO | VARCHAR2 | N | Código do Usuário. |
+
+---
+
+## DBAMV.FSCC_CF_WORKFLOW_GUIA_ALRT
+> Tabela com os dados para envio aos usuarios responsaveis por cada fase no workflow guia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONVENIO | NUMBER | N | Codigo do convenio, PK na tabela. |
+| 2 | TP_PROCESSO_GUIAS | VARCHAR2 | N | O tipo do processo, PK na tabela |
+| 3 | DS_REMETENTE_SMS | VARCHAR2 | Y | O remetente do SMS |
+| 4 | DS_TEXTO_SMS | VARCHAR2 | Y | O texto que sera enviado via SMS |
+| 5 | DS_REMETENTE_EMAIL | VARCHAR2 | Y | O remetente do email |
+| 6 | DS_CORPO_EMAIL | VARCHAR2 | Y | O texto do email |
+
+---
+
+## DBAMV.FSCC_CONFIG_FUNCIONALIDADE_USU
+> Tabela de ligac?o entre as funcionalidades e os usuarios com permiss?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | TP_FUNCIONALIDADE | VARCHAR2 | N | Identifiador da funcionalidade |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario com permissao para a funcionalidade |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBAMV.FSCC_CONFIG_WORKFLOW_ALERTA
+> Tabela com os dados para envio aos usuarios responsaveis por cada fase no workflow.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_ORDEM_WORKFLOW | NUMBER | N | Fk da tabela fscc_config_workflow e pk na tabela. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa e pk na tabela |
+| 3 | DS_REMETENTE_SMS | VARCHAR2 | Y | O remetente do SMS |
+| 4 | DS_TEXTO_SMS | VARCHAR2 | Y | O texto que sera enviado via SMS |
+| 5 | DS_REMETENTE_EMAIL | VARCHAR2 | Y | O remetente do email |
+| 6 | DS_CORPO_EMAIL | VARCHAR2 | Y | O texto do email |
+| 7 | TP_PROCESSO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.FSCC_CONFIG_WORKFLOW_GUIA_USU
+> Tabela que define quais usuarios receber?o alerta.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONVENIO | NUMBER | N | Codigo do convenio, PK na tabela. |
+| 2 | TP_PROCESSO_GUIAS | VARCHAR2 | N | O tipo do processo, PK na tabela |
+| 3 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario, FK na tabela |
+| 4 | SN_RECEBE_SMS | VARCHAR2 | N | Se o usuario recebe sms |
+| 5 | SN_RECEBE_EMAIL | VARCHAR2 | N | Se o usuario recebe email |
+| 6 | SN_FINAL_VERDE | VARCHAR2 | N | Se o usuario e alertado no final verde |
+| 7 | SN_FINAL_AMARELO | VARCHAR2 | N | Se o usuario e alertado no final amarelo |
+| 8 | SN_FINAL_VERMELHO | VARCHAR2 | N | Se o usuario e alertado no final vermelho |
+| 9 | SN_INICIO_VERDE | VARCHAR2 | N |  |
+| 10 | SN_INICIO_AMARELO | VARCHAR2 | N |  |
+| 11 | SN_INICIO_VERMELHO | VARCHAR2 | N |  |
+| 12 | CD_MULTI_EMPRESA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.FSCC_CONFIG_WORKFLOW_USUARIO
+> Tabela que define quais alertas o usuário deverá receber.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_ORDEM_WORKFLOW | NUMBER | N | Fk da tabela fscc_config_workflow e pk na tabela. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário, FK na tabela |
+| 3 | SN_RECEBE_SMS | VARCHAR2 | N | Se o usuário recebe sms |
+| 4 | SN_RECEBE_EMAIL | VARCHAR2 | N | Se o usuário recebe email |
+| 5 | SN_INICIO_VERDE | VARCHAR2 | N | Se o usuário é alertado no inicio da fase |
+| 6 | SN_INICIO_AMARELO | VARCHAR2 | N | Se o usuário é alertado no inicio da fase da fase amarela |
+| 7 | SN_INICIO_VERMELHO | VARCHAR2 | N | Se o usuário é alertado no inicio da fase vermelha |
+| 8 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa e pk na tabela |
+| 9 | TP_PROCESSO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.FUNCIONALIDADE_FNFI_USU
+> TABELA DE CADASTRO DE FUNÇÕES DO USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FUNCIONALIDADE_FNFI_USU | NUMBER | N | CHAVE PRIMARIA DA TABELA |
+| 2 | CD_USUARIO | VARCHAR2 | N | USUARIO |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N | CÓDIGO DA EMPRESA |
+| 4 | SN_CONSULTA_PIX | VARCHAR2 | N | PERMITE CONSULTAR? |
+| 5 | SN_INSERE_PIX | VARCHAR2 | N | PERMITE INSERE? |
+| 6 | SN_ALTERA_PIX | VARCHAR2 | N | PERMITE ALTERAR? |
+| 7 | SN_EXCLUI_PIX | VARCHAR2 | N | PERMITE EXCLUI? |
+| 8 | CD_MODULO | VARCHAR2 | N | CÓDIGO DO MODULO |
+
+---
+
+## DBAMV.GF_LOG_EXPORTACAO_DADOS
+> TABELA DE CONTROLE DE LOGS DOS DADOS EXPORTADOS DENTRO DO PROJETO MVGESTORFLUXO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | CODIGO DO LOG |
+| 2 | DS_ANO_MES | VARCHAR2 | Y | ANO E MES EXPORTADOS |
+| 3 | NR_REGISTROS | NUMBER | Y | TOTAL DE REGISTROS EXPORTADOS |
+| 4 | DH_LOG | DATE | Y | DATA E HORA DA EXPORTAC?O |
+| 5 | NM_USUARIO | VARCHAR2 | Y | USUARIO QUE EFETUOU A EXPORTACAO |
+
+---
+
+## DBAMV.GF_USUARIO_ALERTA
+> TABELA COM O CADASTRO DOS USUARIOS QUE RECEBER?O ALERTAS NO PROJETO MVGESTORFLUXO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | CODIGO DO USUARIO |
+| 2 | NM_USUARIO | VARCHAR2 | N | NOME DO USUARIO |
+| 3 | DS_EMAIL | VARCHAR2 | Y | EMAIL DO USUARIO |
+| 4 | DS_CELULAR | VARCHAR2 | Y | NUMERO DO TELEFONE CELULAR DO USUARIO |
+| 5 | DH_UPDATE | DATE | N | DATA E HORA QUE O REGISTRO FOI ALTERADO |
+
+---
+
+## DBAMV.GUIAS_LOG_BLOCO
+> Tabela de Log de Alterações de Guias (Cabeçalho, itens e valorização)
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TABELA | VARCHAR2 | Y | Tabela onde foi realizada a alteração |
+| 2 | CD_GUIA | NUMBER | Y | Código do Guia |
+| 3 | TP_GUIA | VARCHAR2 | Y | Tipo da Guia |
+| 4 | CD_ATENDIMENTO | NUMBER | Y | Código do Atendimento |
+| 5 | CD_AVISO_CIRURGIA | NUMBER | Y | Código do Aviso de Cirurgia |
+| 6 | CD_RES_LEI | NUMBER | Y | Código da Reserva do Leito |
+| 7 | CD_MOTIVO_AGENDAMENTO | NUMBER | Y | Código do Motivo do Agendamento |
+| 8 | CD_CAMPO_ALTERADO | VARCHAR2 | Y | Nome da Coluna Alterada |
+| 9 | DS_CAMPO_ALTERADO | VARCHAR2 | Y | Descrição Detalhada da Coluna Alterada |
+| 10 | VL_ANTERIOR | VARCHAR2 | Y | Valor Anterior à Alteração |
+| 11 | VL_ATUAL | VARCHAR2 | Y | Valor Atual da Coluna |
+| 12 | TP_ACAO | VARCHAR2 | Y | Indica a Ação do Usuário (Inserção, Alteração ou Exclusão de Registro) |
+| 13 | DH_ALTERACAO | DATE | Y | Data e Hora Da Alteração |
+| 14 | CD_USUARIO | VARCHAR2 | Y | Usuário Responsável pela Alteração |
+| 15 | DS_FORMULARIO | VARCHAR2 | Y | Formulário Por Meio Do Qual a Alteração foi Realizada |
+
+---
+
+## DBAMV.HIST_ADIT_CONTR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORD_COM | NUMBER | N |  |
+| 2 | CD_PRODUTO | NUMBER | N |  |
+| 3 | DT_VIGENCIA | DATE | N |  |
+| 4 | CD_UNI_PRO | NUMBER | N |  |
+| 5 | QT_COMPRADA | NUMBER | N |  |
+| 6 | VL_UNITARIO | NUMBER | N |  |
+| 7 | VL_PERC_DESCONTO | NUMBER | Y |  |
+| 8 | VL_DESCONTO | NUMBER | Y |  |
+| 9 | VL_PERC_IMPOSTO | NUMBER | Y |  |
+| 10 | VL_IMPOSTO | NUMBER | Y |  |
+| 11 | VL_TOTAL | NUMBER | Y |  |
+| 12 | CD_PRODUTO_ATENDE | NUMBER | N |  |
+| 13 | DS_MARCA | VARCHAR2 | Y |  |
+| 14 | DT_CANCEL | DATE | Y |  |
+| 15 | CD_MOT_CANCEL | NUMBER | Y |  |
+| 16 | VL_CUSTO_REAL | NUMBER | Y |  |
+| 17 | VL_TOTAL_CUSTO_REAL | NUMBER | Y |  |
+| 18 | CD_JUSTIFICA | NUMBER | Y |  |
+| 19 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.HIST_AUDIT_PSIH
+> Tabela de cadastro dos historico da auditoria sobre o produto x atendimento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATEND_ANT_PRO | NUMBER | N |  |
+| 2 | CD_HIST_AUDIT_PSIH | NUMBER | N | Identificac?o do registro na tabela |
+| 3 | DT_HIST_AUDIT_PSIH | DATE | N | Data de inclus?o do historico |
+| 4 | HR_HIST_AUDIT_PSIH | DATE | N | Horario de inclus?o do historico |
+| 5 | CD_REGRA | NUMBER | N |  |
+| 6 | CD_TP_AUDIT_PSIH | NUMBER | N |  |
+| 7 | CD_ITPRE_MED | NUMBER | Y |  |
+| 8 | CD_ITMVTO_ESTOQUE | NUMBER | Y |  |
+| 9 | SN_SUSPENSO | VARCHAR2 | N | Indica se o produto foi suspenso para o atendimento |
+| 10 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es da auditoria |
+| 11 | NM_USUARIO | VARCHAR2 | N | Usuario responsavel pelo registro do historico |
+
+---
+
+## DBAMV.HIST_AUTORIZADOR_ORDEM_COMPRA
+> TABELA DE LOG CRIADA PARA REGISTRAR A AÇÃO FEITA PELO USUARIO AO CONFIRMAR, EXCLUIR OU DESCONFIRMAR UMA AUTORIZAÇÃO DE ORDEM DE COMPRA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AUTO | NUMBER | N |  |
+| 2 | CD_ORD_COM | NUMBER | N | CÓDIGO DA ORDEM DE COMPRA |
+| 3 | CD_USUARIO | VARCHAR2 | N | CÓDIGO DO USUÃRIO AUTORIZADOR |
+| 4 | DT_AUTORIZACAO | DATE | N | DATA DA AUTORIZAÇÃO |
+| 5 | CD_NIVEL_AUTORIZADOR | NUMBER | Y |  |
+| 6 | TP_ACAO | VARCHAR2 | N | AÇÃO DO USUÃRIO REFERENTE A ORDEM DE COMPRA: AUTORIZOU, NÃO AUTORIZOU, EXLCLUIU A AUTORIZAÇÃO |
+| 7 | CD_ULTIMO_USUARIO | VARCHAR2 | Y |  |
+| 8 | DT_ULTIMO_USUARIO | DATE | Y |  |
+| 9 | DT_MODIFICACAO | DATE | Y | DATA DA MODIFICACAO |
+
+---
+
+## DBAMV.HIST_CONFIG_FCCT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HIST_CONFIG_FCCT | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | DT_MOVIMENTACAO | DATE | N |  |
+| 4 | SN_MOVIMENTACAO | VARCHAR2 | N |  |
+| 5 | TP_MOVIMENTACAO | VARCHAR2 | N |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBAMV.HIST_DADOS_DEMOGRAFICOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HIST_DADOS_DEMOGRAFICOS | NUMBER | N | Chave primária da tabela (PK) |
+| 2 | CD_PACIENTE | NUMBER | N | Código do Paciente |
+| 3 | NM_PACIENTE | VARCHAR2 | N | Nome do Paciente |
+| 4 | TP_SEXO | VARCHAR2 | N | Sexo do Paciente |
+| 5 | DT_NASCIMENTO | DATE | Y | Data de Nascimento do Paciente |
+| 6 | TP_COR | VARCHAR2 | Y | Raça/Cor do Paciente |
+| 7 | NM_MAE | VARCHAR2 | Y | Nome da Mãe do Paciente |
+| 8 | NM_PAI | VARCHAR2 | Y | Nome do Pai do Paciente |
+| 9 | CD_CIDADANIA | NUMBER | Y | Nacionalidade do Paciente |
+| 10 | CD_NATURALIDADE | NUMBER | Y | Naturalidade do Paciente |
+| 11 | TP_ESTADO_CIVIL | VARCHAR2 | Y | Estado Civil do Paciente |
+| 12 | CD_GRAU_INS | NUMBER | Y | Grau de Ensino do Paciente |
+| 13 | CD_PROFISSAO | NUMBER | Y | Profissão do Paciente |
+| 14 | CD_RELIGIAO | NUMBER | Y | Religião do Paciente |
+| 15 | CD_TIP_MOR | NUMBER | Y | Tipo de Moradia do Paciente |
+| 16 | CD_SITUACAO_FAMILIAR | NUMBER | Y | Situação Familiar do Paciente |
+| 17 | NR_IDENTIDADE | VARCHAR2 | Y | Identidade do Paciente |
+| 18 | NR_CPF | VARCHAR2 | Y | CPF do Paciente |
+| 19 | NR_SAME | VARCHAR2 | Y | SAME do Paciente |
+| 20 | NR_CNS | VARCHAR2 | Y | CNS do Paciente |
+| 21 | NR_CEP | VARCHAR2 | Y | CEP do Paciente |
+| 22 | CD_TIPO_LOGRADOURO | NUMBER | Y | Tipo de Logradouro do Endereço do Paciente |
+| 23 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 24 | NR_ENDERECO | NUMBER | Y | Número do Endereço |
+| 25 | DS_COMPLEMENTO | VARCHAR2 | Y | Complemento do Endereço do Paciente |
+| 26 | NM_BAIRRO | VARCHAR2 | Y | Nome do Bairro do Endereço do Paciente |
+| 27 | CD_CIDADE | NUMBER | Y | Cidade do Endereço do Paciente |
+| 28 | DH_CADASTRO | DATE | N | Data de Cadastro do Registro |
+| 29 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a modificação no registro |
+| 30 | NR_FONE | VARCHAR2 | Y | Telefone do Paciente |
+| 31 | CD_MULTI_EMPRESA | NUMBER | N | Código da Multiempresa |
+| 32 | CD_DOCUMENTO_CLINICO | NUMBER | N | O código do documento clínico |
+| 33 | SN_FECHADO | VARCHAR2 | N | Documento fechado |
+
+---
+
+## DBAMV.HIST_LOTE_VALIDADE
+> Histórico de alterações de lote e validade dos produtos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HIST_LOTE_VALIDADE | NUMBER | N | Código sequencial da tabela |
+| 2 | CD_PRODUTO | NUMBER | N | Código do produto que sofreu alteração de lote e validade |
+| 3 | CD_ESTOQUE | NUMBER | N | Código do estoque do produto que sofreu alteração de lote e validade |
+| 4 | CD_LOTE_ANTIGO | VARCHAR2 | Y | Código antigo do lote do produto que sofreu alteração |
+| 5 | DT_VALIDADE_ANTIGA | DATE | Y | Data de validade antiga do produto que sofreu alteração |
+| 6 | CD_LOTE_NOVO | VARCHAR2 | Y | Código novo do lote do produto que sofreu alteração |
+| 7 | DT_VALIDADE_NOVA | DATE | Y | Data de validade nova do produto que sofreu alteração |
+| 8 | CD_USUARIO | VARCHAR2 | N | Código do usuário que realizou a alteração |
+| 9 | DT_ALTERACAO | DATE | N | Data da alteração do lote e validade do produto |
+
+---
+
+## DBAMV.HIST_PACIENTE_PROGRAMA_SAUDE
+> TABELA DE HISTÓRICO DO PACIENTE EM PROGRAMAS DE SAUDE. ESTÁ TABELA É UM ESPELHO DA CICLO DE VIDA DO PACIENTE NO PROGRAMA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HIST_PACIENTE_PROG_SAUDE | NUMBER | N | CHAVE DA TABELA |
+| 2 | CD_PACIENTE | NUMBER | N | CÓDIGO DO PACIENTE DO HISTÓRICO |
+| 3 | CD_PROGRAMA_SAUDE | NUMBER | N | CÓDIGO DO PROGRAMA DE SAÚDE DO HISTÓRICO |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | CÓDIGO DA EMPRESA DO HISTÓRICO |
+| 5 | SN_PROGRAMA_SAUDE_ATIVO | VARCHAR2 | N | SITUAÇÃO ATUAL DO PACIENTE. |
+| 6 | CD_USUARIO | VARCHAR2 | Y | CÓDIGO DO USUÁRIO DA OPERAÇÃO EFETUADA |
+| 7 | DT_HR_OPERACAO | DATE | N | DATA E HORA DA OPERAÇÃO EFETUADA |
+| 8 | CD_ESTADO_PACIENTE_PROG_SAUDE | NUMBER | Y | CÓDIGO DO ESTADO DO PACIENTE DA OPERAÇÃO EFETUADA. |
+| 9 | DT_INICIO_VIGENCIA | DATE | Y | DATA DE INICIO DA PARTICIPAÇÃO DO PACIENTE NO PROGRAMA. QUANDO VAZIO INDICA QUE O PACIENTE NÃO TE... |
+| 10 | DT_FIM_VIGENCIA | DATE | Y | DATA DE TERMINO DA PARTICIPAÇÃO DO PACIENTE NO PROGRAMA.QUANDO VAZIO INDICA QUE O PACIENTE NÃO TE... |
+
+---
+
+## DBAMV.HIST_REN_CONTR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORD_COM | NUMBER | N |  |
+| 2 | DT_NOVO_INICIO | DATE | N |  |
+| 3 | DT_NOVO_FINAL | DATE | N |  |
+| 4 | CD_JUSTIFICA | NUMBER | Y |  |
+| 5 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.HIST_SUBS_PAC
+> Tabela para guardar o historico das alergias
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HIST_SUBS_PAC | NUMBER | N | Código da Sequence da tabela |
+| 2 | CD_SUBSTANCIA | NUMBER | Y | Código da Substancia |
+| 3 | CD_PACIENTE | NUMBER | N | Código do Paciente |
+| 4 | DS_AVISO | VARCHAR2 | Y | Observação para inserção da substância |
+| 5 | DH_CRIACAO | DATE | Y | Data/hora da criacao do registro |
+| 6 | DH_CANCELAMENTO | DATE | Y | Data/hora do cancelamento do registro |
+| 7 | CD_USUARIO_CRIACAO | VARCHAR2 | Y | Codigo do usuario que criou o registro |
+| 8 | CD_USUARIO_CANCELAMENTO | VARCHAR2 | Y | Codigo do usuario que cancelou o registro |
+| 9 | DS_JUSTIFICATIVA_CANC | VARCHAR2 | Y | Descricao da justificativa do cancelamento do registro |
+| 10 | SN_ATIVO | VARCHAR2 | Y | Validacao de registro ativo |
+| 11 | CD_HIST_SUBS_PAC_CANC | NUMBER | Y | Referência para o registro de alergia que foi inativado |
+| 12 | DS_ALERGIA | VARCHAR2 | Y | Descrição da substancia do tipo outras que o paciente é alergico |
+| 13 | TP_ALERGIA | VARCHAR2 | N | Tipo da alergia. Tipos possíveis: Medicamento ¿M¿, Alimentar ¿A¿, Outros ¿O¿. |
+| 14 | TP_SEVERIDADE | VARCHAR2 | Y | Tipo da Severidade da alergia. Tipos possíveis: Leve "L", Moderada "M", Grave "G" e Desconhecida ... |
+| 15 | TP_IMPORTACAO | VARCHAR2 | Y | Indica o resultado da importacao da alergia para o modulo MVPEP_ALERGIAS_EVENTOS. |
+
+---
+
+## DBAMV.HORARIO_PAINEL_ATENDIMENTO
+> Monitoramento de sess?es de oncologia
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HORARIO_PAINEL_ATENDIMENTO | NUMBER | N | Primary key do monitoramento de sess?es de oncologia |
+| 2 | CD_PRE_MED | NUMBER | N | Codigo da prescric?o |
+| 3 | TP_HORARIO | VARCHAR2 | N | Tipo de horario PAF = Horario da pre-avaliac?o na farmacia RSF = Horario de retirada de senha na ... |
+| 4 | HR_PROCEDIMENTO | DATE | N | Horario do procedimento |
+| 5 | TP_OPERACAO | VARCHAR2 | N | I=Inclus?o A=Alterac?o E=Exclus?o |
+| 6 | DH_OPERACAO | DATE | N | Data e horario da operac?o |
+| 7 | CD_USUARIO | VARCHAR2 | N | Usuario responsavel pela operac?o |
+| 8 | CD_IT_AGENDA_CENTRAL | NUMBER | Y | Item da Agenda Central no Painel de Atendimento da Quimioterapia |
+
+---
+
+## DBAMV.IMPRESSORA_TERMINAL_USUARIO
+> Tabela de Associação da Impressora/Terminal com o usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPRESSORA_TERMINAL_USUARIO | NUMBER | N | Código da associação do usuário com a impressora/terminal |
+| 2 | CD_IMPRESSORA_TERMINAL | NUMBER | N | Código da Impressora / Terminal |
+| 3 | CD_USUARIO | VARCHAR2 | N | Usuário associado a Impressora/terminal |
+| 4 | SN_PADRAO | VARCHAR2 | N | Indica se é a impressora Padrão do usuário |
+
+---
+
+## DBAMV.INSTRUMENTAL_MEDICO
+> Tabela da Norma 24 com os INSTRUMENTAIS MÉDICOS do CATÁLOGO INSTRUMENTAIS EQUIPO MÉDICOS Da Norma 24 do México
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_INSTRUMENTAL_MEDICO | NUMBER | N | Chave primária da tabela |
+| 2 | TP_INSTRUMENTAL_MEDICO | VARCHAR2 | Y | Tipo de Instrumental Médico(OSTEOSÍNTESIS "O",ENDOPRÓTESIS "E") no CATÁLOGO INSTRUMENTAIS EQUIPO ... |
+| 3 | CD_EXTERNO_INSTRUMENTAL_MEDICO | VARCHAR2 | N | Desrcriçao de Instrumental Médico no CATÁLOGO INSTRUMENTAIS EQUIPO MÉDICOS  Da Norma 24 do México |
+| 4 | DS_INSTRUMENTAL_MEDICO | VARCHAR2 | N | Descrição do Instrumental Médico no CATÁLOGO INSTRUMENTAIS EQUIPO MÉDICOS  Da Norma 24 do México |
+| 5 | DS_ANO_EDICAO | VARCHAR2 | Y | Ano de edição do Instrumental Médico no CATÁLOGO INSTRUMENTAIS EQUIPO MÉDICOS  Da Norma 24 do México |
+
+---
+
+## DBAMV.INTERDICAO_AGEND_PRESTADOR
+> Tabela de interdição de horarios do prestador oncologico
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_INTERDICAO | NUMBER | N | CHAVE DAS INTERDIÇÕES |
+| 2 | DH_INICIAL | DATE | N | DATA E HORA INICIAL DA INTERDIÇÃO |
+| 3 | DH_FINAL | DATE | N | DATA E HORA FINAL DA INTERDIÇÃO |
+| 4 | DS_INTERDICAO | VARCHAR2 | N | DESCRIÇÃO DA INTERDIÇÃO |
+| 5 | CD_PRESTADOR | NUMBER | N | CÓDIGO DO PRESTADOR ONCOLOGICO |
+| 6 | CD_USUARIO_INTERDICAO | VARCHAR2 | Y | CODIGO DO USUARIO QUE CADASTROU A INTERDICAO |
+
+---
+
+## DBAMV.ITCOB_PRE_AMBU_ESPELHO
+> Tabela de Log da Itcob_pre_amb para regras de lancamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_AMB | NUMBER | N | Codigo do lote |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento |
+| 3 | CD_FORNECEDOR | NUMBER | N | Codigo do fornecedor |
+| 4 | NR_DOCUMENTO | VARCHAR2 | Y | Numero do documento |
+| 5 | VL_PRECO_UNITARIO | NUMBER | Y | Valor unitario |
+| 6 | VL_PRECO_TOTAL | NUMBER | Y | Valor total |
+| 7 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es |
+
+---
+
+## DBAMV.ITCOB_PRE_ESPELHO
+> Tabela de Log da Itcob_pre para regras de lancamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | N | Codigo da conta |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento |
+| 3 | NR_DOCUMENTO | VARCHAR2 | Y | Numero do documento |
+| 4 | VL_PRECO_UNITARIO | NUMBER | N | Valor unitario |
+| 5 | VL_PRECO_TOTAL | NUMBER | N | Valor total |
+| 6 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es |
+| 7 | CD_FORNECEDOR | NUMBER | N | Codigo do fornecedor |
+| 8 | NR_LOTE | VARCHAR2 | Y | Numero do Lote. |
+| 9 | NR_SERIE | VARCHAR2 | Y | Numero de serie |
+| 10 | NR_CNPJ_FABRICANTE | NUMBER | Y | Numero do cnpj do fabricante |
+| 11 | NR_REGISTRO_ANVISA | VARCHAR2 | Y | Numero do registro anvisa |
+
+---
+
+## DBAMV.LOG_ACAO_CARGA_SUS_REGRA
+> LOG das ações aplicadas na carga de regra de negócios
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VERSAO | NUMBER | N | Versão da carga importada. |
+| 2 | NR_LINHA | NUMBER | N | Número da linha criada para ordenar. |
+| 3 | DH_ACAO | DATE | N | Data da ação. |
+| 4 | TP_ACAO | VARCHAR2 | N | Ação: (I)Inclusão (A)Alteração (E)Exclusão. |
+| 5 | DS_ASSUNTO | VARCHAR2 | Y | Descrição do assunto. |
+| 6 | DS_ACAO | VARCHAR2 | Y | Descrição da ação tomada. |
+
+---
+
+## DBAMV.LOG_ACAO_CARGA_SUS_SIGTAP
+> Tabela de LOG das ações aplicadas em uma carga SIGTAP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VERSAO | VARCHAR2 | N | Versão da carga importada. |
+| 2 | NR_LINHA | NUMBER | N | Número da linha criada para ordenar. |
+| 3 | DH_ACAO | DATE | N | Data da ação. |
+| 4 | TP_ACAO | VARCHAR2 | N | Ação: (I)Inclusão (A)Alteração (E)Exclusão. |
+| 5 | DS_ASSUNTO | VARCHAR2 | N | Descrição do assunto. |
+| 6 | DS_ACAO | VARCHAR2 | N | Descrição da ação tomada. |
+
+---
+
+## DBAMV.LOG_ACESSO_PEP
+> Tabela que registra todos os acessos aos prontuarios do paciente
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ACESSO_PEP | NUMBER | N | Codigo Sequencial do log de acesso ao PEP do Paciente |
+| 2 | CD_PACIENTE | NUMBER | N | Codigo do Paciente |
+| 3 | DH_LOG_ACESSO_PEP | DATE | N | Hora de acesso ao PEP do Paciente |
+| 4 | NM_USUARIO_LOG_ACESSO_PEP | VARCHAR2 | N | Nome do Usuario de acesso ao PEP |
+
+---
+
+## DBAMV.LOG_ACOMPANHANTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | N |  |
+| 2 | DT_LANCAMENTO | DATE | N |  |
+| 3 | NM_USUARIO | VARCHAR2 | Y |  |
+| 4 | SN_ACOMPANHANTE | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_ACOMP_CARGA_SUS_EQUIPE_SF
+> Tabela de LOG de acompanhamento da última carga EQUIPE SAÚDE FAMÍLIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LINHA | NUMBER | N | usado para ordenar a tabela |
+| 2 | DH_ACAO | DATE | N | Data e hora da ação realizada. |
+| 3 | TP_ACAO | VARCHAR2 | N | Tipo da ação (N)ormal (E)rro. |
+| 4 | DS_ACAO | VARCHAR2 | N | Descrição da ação realizada. |
+
+---
+
+## DBAMV.LOG_ACOMP_CARGA_SUS_REGRA
+> Tabela de LOG de acompanhamento da última carga regra de negócio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LINHA | NUMBER | N | usado para ordenar a tabela |
+| 2 | DH_ACAO | DATE | N | Data e hora da ação realizada. |
+| 3 | TP_ACAO | VARCHAR2 | N | Tipo da ação (N)ormal (E)rro. |
+| 4 | DS_ACAO | VARCHAR2 | Y | Descrição da ação realizada. |
+
+---
+
+## DBAMV.LOG_ACOMP_CARGA_SUS_SIGTAP
+> Tabela de LOG de acompanhamento da ultima carga SIGTAP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LINHA | NUMBER | N | usado para ordenar a tabela |
+| 2 | DH_ACAO | DATE | N | Data e hora da ac?o realizada. |
+| 3 | TP_ACAO | VARCHAR2 | N | Tipo da ac?o (N)ormal (E)rro. |
+| 4 | DS_ACAO | VARCHAR2 | N | Descric?o da ac?o realizada. |
+
+---
+
+## DBAMV.LOG_ACOMP_VALIDA_AIH
+> Tabela de acompanhamento das validações de remessas AIH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FATURA | NUMBER | N | Código da fatura validada |
+| 2 | CD_REMESSA | NUMBER | N | Código da remessa validada |
+| 3 | NR_LINHA | NUMBER | N | Número da linha |
+| 4 | DH_GERACAO | DATE | N | Data e hora de geração da validação |
+| 5 | CD_MULTI_EMPRESA | NUMBER | Y | Código da empresa |
+| 6 | DS_ACOMP | VARCHAR2 | Y | Descrição do acompanhamento |
+
+---
+
+## DBAMV.LOG_AGENDAMENTO_RESERVA_NF
+> Tabela para registrar o log do processamento do agendamento de reservas de nf.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AGENDAMENTO_RESERVA_NF | NUMBER | N | Chave sequencial da tabela. |
+| 2 | CD_AGENDAMENTO_RESERVA_NF | NUMBER | N | Codigo do agendamento processado. |
+| 3 | DT_PROCESSAMENTO | DATE | N | Data e Hora do processamento. |
+| 4 | DS_RESULTADO | VARCHAR2 | N | Resultado do processamento. |
+
+---
+
+## DBAMV.LOG_AJUSTES_REMESSAS
+> Log de últimos ajustes das datas na remessa
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Usuário logado no sistema |
+| 2 | CD_REMESSA | NUMBER | N | Remessa que sofreu ajuste |
+| 3 | DH_AJUSTE | DATE | N | Data e hora que o ajuste ocorreu |
+| 4 | DS_LOG | VARCHAR2 | Y | Descrição do que se foi ajustado na remessa. |
+
+---
+
+## DBAMV.LOG_ALTA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTA | NUMBER | N |  |
+| 2 | DT_CANCELA_ALTA | DATE | N |  |
+| 3 | HR_CANCELA_ALTA | DATE | N |  |
+| 4 | CD_USUARIO_CANCEL | VARCHAR2 | N |  |
+| 5 | CD_ATENDIMENTO | NUMBER | N |  |
+| 6 | TP_MODULO_CANCEL | VARCHAR2 | N |  |
+| 7 | TP_ALTA | VARCHAR2 | N |  |
+| 8 | DT_ALTA | DATE | N |  |
+| 9 | HR_ALTA | DATE | N |  |
+| 10 | CD_PRO_INT_PROCEDIMENTO_ENTRAD | VARCHAR2 | Y |  |
+| 11 | CD_MOT_ALT | VARCHAR2 | Y |  |
+| 12 | DS_OBS_ALTA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ALTERACAO_IT_COMPS_SOL_CME
+> [MGCE] Tabela de cadastro do Log de Alteração do Item de Composição da Solicitação de Esterilização.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERACAO_SOL_CME | NUMBER | N | Código sequencial único doLog de Alteração do Item de Composição da Solicitação de Esterilização. |
+| 2 | CD_ITEM_COMPOSICAO_SOL_CME | NUMBER | N | Código do Item de Composição de Solicitação CME. Tabela ITEM_COMPOSICAO_SOLICIT_CME. |
+| 3 | CD_USUARIO_CADASTRO | VARCHAR2 | N | Código do Usuário que fez o cadastro. |
+| 4 | DH_CADASTRO | DATE | N | Data e hora do cadastro |
+| 5 | CD_LOCALIDADE | NUMBER | N | Código da Localidade. Tabela LOCALIDADE. |
+| 6 | TP_SITUACAO | NUMBER | N | Situação que se encontra a solicitação de esterilização. 0 = SOLICITADA, 1 = RECEBIDA PARA EXPURG... |
+
+---
+
+## DBAMV.LOG_ALTERA_CTRL_PROD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo sequencial do LOG |
+| 2 | CD_PRODUTO | NUMBER | N | Codigo do produto que sofreu alterac?o. |
+| 3 | SN_LOTE_ANTERIOR | VARCHAR2 | N | Estado do controle de lote anterior a alterac?o. |
+| 4 | SN_LOTE_ATUAL | VARCHAR2 | N | Estado do controle de lote apos a alterac?o. |
+| 5 | SN_VALIDADE_ANTERIOR | VARCHAR2 | N | Estado do controle de validade anterior a alterac?o. |
+| 6 | SN_VALIDADE_ATUAL | VARCHAR2 | N | Estado do controle de validade apos a alterac?o. |
+| 7 | CD_USUARIO_ALTERACAO | VARCHAR2 | N | Usuario que realizou a alterac?o das configurac?es do produto. |
+| 8 | DT_ALTERACAO | DATE | N | Data da alterac?o. |
+| 9 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ALTERA_PRODUTO
+> Tabela que guarda o log das alterac?es do campo sn_consignado, quando alterado para Reprocessado.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRODUTO | NUMBER | N | Codigo do Produto |
+| 2 | SN_CONSIGNADO_OLD | VARCHAR2 | N | Valor antigo do campo SN_CONSIGNADO |
+| 3 | SN_CONSIGNADO_NEW | VARCHAR2 | N | Novo valor do campo SN_CONSIGNADO |
+| 4 | CD_USUARIO | VARCHAR2 | N | Usuario que realizou a alterac?o |
+| 5 | DT_ALTERACAO | DATE | N | Data da alterac?o |
+
+---
+
+## DBAMV.LOG_ALTERA_PRODUTO_LOTE_VALID
+> Registro de LOG do processo de correc?es de lote e validade de produtos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA | NUMBER | N | Codigo da operac?o de correc?o |
+| 2 | CD_SEQUENCIA | NUMBER | N | Item sequencial da correc?o |
+| 3 | CD_PRODUTO | NUMBER | N | Produto corrigido |
+| 4 | CD_ESTOQUE | NUMBER | N | Estoque do produto corrigido |
+| 5 | CD_LOTE_ORIGINAL | VARCHAR2 | N | Codigo do Lote original antes da correc?o |
+| 6 | DT_VALIDADE_ORIGINAL | DATE | N | Datade validade original antes da correc?o |
+| 7 | CD_LOTE_FINAL | VARCHAR2 | N | Codigo do Lote apos a correc?o |
+| 8 | DT_VALIDADE_FINAL | DATE | N | Data de validade apos a correc?o |
+| 9 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que realizou a correc?o |
+| 10 | DH_ALTERACAO | DATE | N | Data/hora da realizac?o da correc?o |
+
+---
+
+## DBAMV.LOG_ALTERA_PROD_LOTE_VALIDADE
+> Registro de LOG do processo de correc?es de lote e validade de produtos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA | NUMBER | N | Codigo da operac?o de correc?o |
+| 2 | CD_SEQUENCIA | NUMBER | N | Item sequencial da correc?o |
+| 3 | CD_PRODUTO | NUMBER | N | Produto corrigido |
+| 4 | CD_ESTOQUE | NUMBER | N | Estoque do produto corrigido |
+| 5 | CD_LOTE_ORIGINAL | VARCHAR2 | N | Codigo do Lote original antes da correc?o |
+| 6 | DT_VALIDADE_ORIGINAL | DATE | N | Datade validade original antes da correc?o |
+| 7 | CD_LOTE_FINAL | VARCHAR2 | N | Codigo do Lote apos a correc?o |
+| 8 | DT_VALIDADE_FINAL | DATE | N | Data de validade apos a correc?o |
+| 9 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que realizou a correc?o |
+| 10 | DH_ALTERACAO | DATE | N | Data/hora da realizac?o da correc?o |
+
+---
+
+## DBAMV.LOG_ALTERA_REPASSE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA_REPASSE | NUMBER | N |  |
+| 2 | CD_IT_REPASSE | NUMBER | Y |  |
+| 3 | CD_REG_FAT | NUMBER | Y |  |
+| 4 | CD_LANCAMENTO_FAT | NUMBER | Y |  |
+| 5 | CD_REG_AMB | NUMBER | Y |  |
+| 6 | CD_LANCAMENTO_AMB | NUMBER | Y |  |
+| 7 | DT_ALTERADO | DATE | N |  |
+| 8 | NM_USUARIO_ALTEROU | VARCHAR2 | N |  |
+| 9 | TP_ALTERACAO | VARCHAR2 | N |  |
+| 10 | CD_PRESTADOR_ANTERIOR | NUMBER | Y |  |
+| 11 | VL_REPASSE_ANTERIOR | NUMBER | Y |  |
+| 12 | VL_GLOSA_ANTERIOR | NUMBER | Y |  |
+| 13 | CD_GLOSAS | NUMBER | Y | Codigo da glosa do repasse |
+
+---
+
+## DBAMV.LOG_ALTERA_REPASSE_SIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA_REPASSE_SIA | NUMBER | N |  |
+| 2 | CD_IT_REPASSE_SIA | NUMBER | Y |  |
+| 3 | CD_EVENTOS | NUMBER | Y |  |
+| 4 | DT_ALTERADO | DATE | N |  |
+| 5 | NM_USUARIO_ALTEROU | VARCHAR2 | N |  |
+| 6 | TP_ALTERACAO | VARCHAR2 | N |  |
+| 7 | CD_PRESTADOR_ANTERIOR | NUMBER | Y |  |
+| 8 | VL_REPASSE_ANTERIOR | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ALTERA_REPASSE_SIH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA_REPASSE_SIH | NUMBER | N |  |
+| 2 | CD_IT_REPASSE_SIH | NUMBER | Y |  |
+| 3 | CD_REG_FAT | NUMBER | Y |  |
+| 4 | CD_LANCAMENTO | NUMBER | Y |  |
+| 5 | DT_ALTERADO | DATE | N |  |
+| 6 | NM_USUARIO_ALTEROU | VARCHAR2 | N |  |
+| 7 | TP_ALTERACAO | VARCHAR2 | N |  |
+| 8 | CD_PRESTADOR_ANTERIOR | NUMBER | Y |  |
+| 9 | VL_REPASSE_ANTERIOR | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ALTERA_VIGENCIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALTERA_VIGENCIA | NUMBER | N |  |
+| 2 | DT_ALTERA | DATE | Y |  |
+| 3 | CD_USUARIO | VARCHAR2 | Y |  |
+| 4 | DT_VIGENCIA | DATE | Y |  |
+| 5 | TP_ALTERACAO | VARCHAR2 | Y |  |
+| 6 | DS_ALTERACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ALT_CAD_TRANSPLAN_RGCT
+> Tabela para logar alterac?es no cadastro de registro RGCT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALT_CAD_RGCT | NUMBER | N | Codigo sequencial da tabela |
+| 2 | CD_TRANSPLANTE_RGCT | NUMBER | Y | Codigo sequencial da tabela de registro RGCT |
+| 3 | CD_RGCT | VARCHAR2 | Y | Codigo do Registro RGCT |
+| 4 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario |
+| 5 | CD_ORGAO | NUMBER | Y | Codigo do Org?o |
+| 6 | SN_APTO | VARCHAR2 | Y | Informa se o paciente esta apto para o transplante |
+| 7 | STATUS_DOACAO | VARCHAR2 | Y | Status da Doac?o |
+| 8 | DS_MOTIVO_APTO | VARCHAR2 | Y | Motivo da Alterac?o |
+| 9 | DT_ALTERACAO_RGCT | DATE | Y | Data de alterac?o do registro |
+
+---
+
+## DBAMV.LOG_ALT_CONTA_MOV
+> Tabela de log da troca de contas.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALT_CONTA_MOV | NUMBER | N | Sequencial do log de alteração da troca de contas. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa. |
+| 3 | CD_REDUZIDO_ORIGEM | NUMBER | Y | Conta de origem. |
+| 4 | CD_REDUZIDO_DESTINO | NUMBER | Y | Conta de destino. |
+| 5 | DT_MOVIMENTACAO | DATE | Y | Data de registro do log. |
+| 6 | CD_USUARIO | VARCHAR2 | Y | Usuário de registro do log. |
+
+---
+
+## DBAMV.LOG_ALT_VINCULO_DOADOR
+> Esta tabela é responsável por armazenar log para alterações no vínculo do doador.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ALT_VINCULO_DOADOR | NUMBER | N | Código do log de alteração no vínculo do doador. |
+| 2 | CD_RGCT_DOADOR | VARCHAR2 | Y | Código RGCT do doador. |
+| 3 | CD_TRANSPLANTE_RGCT | NUMBER | Y | Código do transplante RGCT. |
+| 4 | CD_VINCULO_DOADOR | NUMBER | Y | Código do vínculo do doador. |
+| 5 | CD_USUARIO | VARCHAR2 | Y | Código do usuário. |
+| 6 | NM_PACIENTE | VARCHAR2 | Y | Nome do paciente. |
+| 7 | CD_PACIENTE | NUMBER | Y | Código do paciente. |
+| 8 | CD_ORGAO | NUMBER | Y | Código do órgão. |
+| 9 | NM_ORGAO | VARCHAR2 | Y | Nome do órgão. |
+| 10 | SN_PARENTE | VARCHAR2 | Y | Sinalizador de parente. |
+| 11 | CD_GRAU_PARENTESCO | NUMBER | Y | Código do grau de parentesco. |
+| 12 | NM_GRAU_PARENTESCO | VARCHAR2 | Y | Nome do grau de parentesco. |
+| 13 | TP_STATUS_DOACAO | VARCHAR2 | Y | Status da doação. |
+| 14 | DS_OBSERVACAO | VARCHAR2 | Y | Descrição das observações. |
+| 15 | DT_CADASTRO | DATE | Y | Data de cadastro. |
+| 16 | DT_ALTERACAO | DATE | Y | Data de alteração. |
+
+---
+
+## DBAMV.LOG_APURACAO_DAC_FINANCEIRO
+> Tabela responsável por grava algum logue de erro no processo da nova apuração pela tela de importação de XML
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MSG_LOTE | NUMBER | N | ID da TISS_MENSAGEM do serviço de ENVIO_LOTE_GUIAS |
+| 2 | CD_MSG_DAC | NUMBER | N | ID da TISS_MENSAGEM do serviço de DEMONSTRATIVO_ANALISE_CONTA |
+| 3 | DT_EXECUCAO | DATE | N | Data em que gravou o registro na tabela |
+| 4 | NM_USER | VARCHAR2 | Y | Nome do usuário que realizou o processo |
+| 5 | CD_FINAN_RECEB | NUMBER | Y | Código da tabela FINAN_RECEB |
+| 6 | CD_REMESSA | NUMBER | Y | Código da remessa do XML importado |
+| 7 | NR_LOTE | VARCHAR2 | Y | Código do lote do XML importado |
+| 8 | NR_PROTOCOLO | VARCHAR2 | Y | Código do protocolo do XML importado |
+| 9 | DS_DETALHE | VARCHAR2 | Y | Detalhe da importação do XML |
+| 10 | QT_FALHA | NUMBER | Y | Quantidade de falhar que houve no momento da importação do XML |
+
+---
+
+## DBAMV.LOG_ATUALIZACAO
+> Tabela de Log de Atualização do CID
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ATUALIZACAO | NUMBER | N | Código do Grupo do CID |
+| 2 | CD_USUARIO | VARCHAR2 | Y | Nome do Usuário |
+| 3 | DH_INICIAL | DATE | Y | Data Inicial da Importação |
+| 4 | DH_FINAL | DATE | Y | Data Final da Importação |
+
+---
+
+## DBAMV.LOG_ATUALIZA_CEP
+> Tabela de Log de Atualizac?o do CEP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ATUALIZA_CEP | NUMBER | N | Codigo do log do CEP |
+| 2 | CD_USUARIO | VARCHAR2 | Y | Nome do Usuario |
+| 3 | DH_INICIAL | DATE | Y | Data Inicial da Importac?o |
+| 4 | DH_FINAL | DATE | Y | Data Final da Importac?o |
+| 5 | SN_ATUALIZACAO | VARCHAR2 | Y | Importac?o ou Atualizac?o |
+| 6 | SN_DADOS_SUS | VARCHAR2 | N | Identifica se os dados necessarios ao SUS foram importados de forma correta.  S = Sim, N = N?o |
+| 7 | DS_VERSAO | VARCHAR2 | Y | Numero da vers?o da tela |
+
+---
+
+## DBAMV.LOG_AUDITORIA_TABELA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AUDITORIA_TABELA | NUMBER | N | Chave Primaria da Tabela de LOG AUDITORIA TABELA. |
+| 2 | OWNER | VARCHAR2 | N | Owner da TabelaAuditada. |
+| 3 | CD_TABELA | VARCHAR2 | N | Codigo da Tabela Auditada. |
+| 4 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que fez a modificac?o da Auditoria. |
+| 5 | DS_MAQUINA | VARCHAR2 | Y | Descric?o da Maquina/Terminal de onde foi feita a solicitac?o. |
+| 6 | DH_REGISTRO | DATE | Y | Data e Hora do Registro da modificac?o da Auditoria. |
+| 7 | CD_COLUNA | VARCHAR2 | N | Coluna da tabela DBAMV.COLUNAS que foi modificada. |
+| 8 | NM_COLUNA_TABELA_AUDITADA | VARCHAR2 | Y | Nome da Coluna que esta sendo auditada. |
+| 9 | DS_VALOR_ANTIGO | VARCHAR2 | Y | Valor da Coluna Antes da Modificac?o. |
+| 10 | DS_VALOR_NOVO | VARCHAR2 | Y | Valor da Coluna apos alterac?o. |
+
+---
+
+## DBAMV.LOG_AUDIT_PIX
+> TABELA PARA REGISTRO DE LOG DO PIX
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AUDIT_PIX | NUMBER | N | CODIGO LOG |
+| 2 | CD_MODULO | VARCHAR2 | N | CODIGO MODULO |
+| 3 | CD_USUARIO | VARCHAR2 | N | CODIGO USUARIO |
+| 4 | TP_ATUALIZACAO | VARCHAR2 | N | TIPO ATUALIZACAO |
+| 5 | DT_ATUALIZACAO | DATE | N | DATA ATUALIZACAO |
+| 6 | DS_ATUALIZACAO | VARCHAR2 | N | DESCRICAO ATUALIZACAO |
+| 7 | CD_FORNECEDOR | NUMBER | Y | CODIGO DO FORNECEDOR |
+| 8 | CD_CON_COR | NUMBER | Y | CODIGO CONTA CORRENTE |
+| 9 | CD_MULTI_EMPRESA | NUMBER | Y | CODIGO MULTI EMPRESA |
+
+---
+
+## DBAMV.LOG_AUTORIZADOR_SOLIC_COMPRA
+> tabela de log criada para registrar a açao feita pelo usuario ao confirmar, excluir ou desconfirmar uma autorizaçao de solicitação de compra
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AUTO | NUMBER | N |  |
+| 2 | CD_SOL_COM | NUMBER | N | Código da solicitacao de compra |
+| 3 | CD_USUARIO | VARCHAR2 | N | Código do usuário autorizador da solicitacao de compra |
+| 4 | DT_AUTORIZACAO | DATE | N | Data da autorização |
+| 5 | CD_NIVEL_AUTORIZADOR | NUMBER | Y |  |
+| 6 | TP_ACAO | VARCHAR2 | N | Ação do usuário referente a ordem de compra: Autorizou, Não Autorizou, Exlcluiu a autorização |
+
+---
+
+## DBAMV.LOG_AVISO_CIRURGIA
+> Registro (Log) sobre alterac?es de Avisos de Cirurgia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AVI_CIR_LOG | NUMBER | N | Codigo de identificac?o do log de alterac?es do Aviso de Cirurgia. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo de identificac?o Multi Empresa a ser utilizado em caso de exclusao do aviso. |
+| 3 | CD_AVISO_CIRURGIA | NUMBER | N | Codigo de identificac?o do Aviso de Cirurgia |
+| 4 | CD_CIRURGIA_AVISO | NUMBER | Y | Codigo da cirurgia do aviso de cirurgia. |
+| 5 | CD_CHAVE_PRIMARIA | VARCHAR2 | Y | Chave primaria da tabela auditada. |
+| 6 | NM_TABELA | VARCHAR2 | N | Nome da tabela auditada. |
+| 7 | NM_COLUNA | VARCHAR2 | N | Nome da coluna auditada. |
+| 8 | DS_DADO_ANTERIOR | LONG | Y | Dados da coluna antes da alterac?o. |
+| 9 | DS_DADO_ATUAL | VARCHAR2 | Y | Dados da coluna depois da alterac?o. |
+| 10 | CD_USUARIO_ALTERACAO | VARCHAR2 | N | Usuario que realizou a evoluc?o do Aviso. |
+| 11 | DT_ALTERACAO | DATE | N | Data e hora de registro do Log. |
+| 12 | CD_MENSAGEM | NUMBER | Y | Codigo da mensagem de email enviada. |
+| 13 | TP_SITUACAO_AVI_CIR | VARCHAR2 | Y | Situac?o do Aviso de Cururgia (A - Em Aviso / R - Realizada / C - Cancelada / G - Agendada / T - ... |
+
+---
+
+## DBAMV.LOG_AVISO_CIRURGIA_EVOLUCAO
+> Registro de Evoluc?o (Log) sobre alterac?es de Avisos de Cirurgia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AVI_CIR_EVO_LOG | NUMBER | N | Codigo de identificac?o do log de evoluc?o do Aviso de Cirurgia. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo de identificac?o Multi Empresa a ser utilizado em caso de exclusao do aviso. |
+| 3 | CD_AVISO_CIRURGIA | NUMBER | N | Codigo de identificac?o do Aviso de Cirurgia |
+| 4 | TP_SITUACAO_ANTERIOR_AVI_CIR | VARCHAR2 | Y | Situac?o do Aviso de Cirurgia anterior a alterac?o. |
+| 5 | TP_SITUACAO_ATUAL_AVI_CIR | VARCHAR2 | N | Situac?o do Aviso de Cirurgia apos a alterac?o. |
+| 6 | DT_REVISAO_CIRURGIA | DATE | Y | Data de Revis?o do Aviso de Cirurgia. |
+| 7 | SN_REVISADO | VARCHAR2 | N | Registra se houve Revis?o do Aviso de Cirurgia. |
+| 8 | CD_USUARIO_ALTERACAO | VARCHAR2 | N | Usuario que realizou a evoluc?o do Aviso. |
+| 9 | DT_ALTERACAO | DATE | N | Data e hora de registro do Log. |
+
+---
+
+## DBAMV.LOG_AVISO_CIRURGIA_SUSPENSAO
+> Histórico de suspensão do aviso de cirurgia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AVI_CIR_SUSPENSAO | NUMBER | N | PK da Tabela de Histórico de suspensão do aviso de cirurgia. |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | N | Código do aviso de cirurgia. |
+| 3 | CD_MOTIVO_SUSPENSAO | NUMBER | N | Código do motivo de suspensão da cirurgia. |
+| 4 | CD_USUARIO_SUSPENSAO | VARCHAR2 | N | Usuário que realizou a suspensão. |
+| 5 | DT_HR_SUSPENSAO | DATE | N | Data/Hora que o usuário realizou a suspensao. |
+| 6 | CD_USUARIO_RET_SUSPENSAO | VARCHAR2 | Y | Usuário de retirada da suspensão. |
+| 7 | DT_HR_RET_SUSPENSAO | DATE | Y | Data/Hora que o usuário realizou a retirada da suspensão. |
+| 8 | DT_AGENDAMENTO | DATE | Y | Data/Hora do agendamento do aviso de cirurgia. |
+| 9 | DT_CANCELAMENTO | DATE | Y | Data/Hora do cancelamento quando o aviso estava suspenso. |
+| 10 | CD_MOT_CANC | NUMBER | Y | Código do motivo de cancelamento quando o aviso estava suspenso. |
+| 11 | CD_USUARIO_CANCELAMENTO | VARCHAR2 | Y | Usuário que realizou o cancelamento do aviso de cirurgia quando o aviso estava suspenso. |
+| 12 | DS_OBS_SUSPENSAO | VARCHAR2 | Y | Observação da suspenção do aviso |
+
+---
+
+## DBAMV.LOG_BAIXA_REJEITADA_RET_COB
+> Mensalidades rejeitadas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_BAIXA_REJEITADA_RET_COB | NUMBER | N | Chave primária |
+| 2 | CD_LOG_BAIXA_RET_COB | NUMBER | N | Log de baixa cobrança bancária |
+| 3 | CD_MOV_CONCOR | NUMBER | Y | Lançamento de extrato |
+| 4 | NR_NOSSO_NUMERO | VARCHAR2 | N | Nosso número |
+| 5 | DT_VENCIMENTO | DATE | Y | Vencimento |
+| 6 | DT_PAGAMENTO | DATE | Y | Pagamento |
+| 7 | DT_CREDITO | DATE | Y | Crédito |
+| 8 | VL_RECEBIDO | NUMBER | N | Valor recebido |
+| 9 | DS_OBSERVACAO | VARCHAR2 | Y | Observação |
+| 10 | DT_REJEICAO | DATE | N | Data de rejeição |
+| 11 | CD_USUARIO | VARCHAR2 | Y | Usuário que rejeitou |
+
+---
+
+## DBAMV.LOG_BAIXA_RET_COB
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_BAIXA_RET_COB | NUMBER | N |  |
+| 2 | CD_USUARIO_LOGON | VARCHAR2 | N |  |
+| 3 | NR_BANCO | NUMBER | Y |  |
+| 4 | TP_PROCESSAMENTO | VARCHAR2 | Y |  |
+| 5 | CD_LEIAUTE_RET_COB | VARCHAR2 | Y |  |
+| 6 | DT_BAIXA_RET_COB | DATE | N |  |
+| 7 | HR_BAIXA_RET_COB | DATE | N |  |
+| 8 | DS_PATH | VARCHAR2 | Y |  |
+| 9 | DS_FILE | VARCHAR2 | Y |  |
+| 10 | DS_FILE_LOG | VARCHAR2 | Y |  |
+| 11 | QT_REGISTROS | NUMBER | N |  |
+| 12 | QT_REG_REJEITADOS | NUMBER | N |  |
+| 13 | DT_GRAVACAO_BANCO | DATE | Y |  |
+| 14 | VL_TOTAL | NUMBER | N |  |
+| 15 | VL_TOTAL_REJEITADO | NUMBER | N |  |
+| 16 | TP_BAIXA | VARCHAR2 | N | Tipo de Baixa |
+| 17 | CD_MULTI_EMPRESA | NUMBER | N | Operadora |
+| 18 | CD_CONTA_CORRENTE | NUMBER | Y | Conta corrente |
+| 19 | CD_RECCON_REC | NUMBER | Y | Código Pai do Log de Baixa |
+| 20 | CD_LOG_BAIXA_COB_BAN_PAI | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_BIOCLINICO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_BIOCLINICO | NUMBER | N |  |
+| 2 | DT_LOG_BIOCLINICO | DATE | N |  |
+| 3 | HR_LOG_BIOCLINICO | DATE | N |  |
+| 4 | DS_LOG_BIOCLINICO | VARCHAR2 | N |  |
+| 5 | NR_LINHA | NUMBER | Y |  |
+| 6 | NM_USUARIO | VARCHAR2 | Y |  |
+| 7 | TP_LOG_BIOCLINICO | VARCHAR2 | N |  |
+| 8 | NM_ARQUIVO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_BRASINDICE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORT | NUMBER | N |  |
+| 2 | DT_IMPORTACAO | DATE | N |  |
+| 3 | HR_IMPORTACAO | DATE | N |  |
+| 4 | DT_VIGENCIA | DATE | N |  |
+| 5 | NM_ARQUIVO | VARCHAR2 | N |  |
+| 6 | CD_ID_USUARIO | NUMBER | Y |  |
+| 7 | PERC_FABRICA | NUMBER | Y |  |
+| 8 | PERC_CONSUMIDOR | NUMBER | Y |  |
+| 9 | DS_EDICAO | VARCHAR2 | Y |  |
+| 10 | CD_USUARIO | VARCHAR2 | N |  |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y | Empresa correspondente a importac?o feita. Sera usada apenas com a restric?o por empresa ativa no... |
+
+---
+
+## DBAMV.LOG_CAD_DESC_ACRES_REP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CAD_DESC_ACRES_REP | NUMBER | N |  |
+| 2 | NM_USUARIO_EXCLUSAO | VARCHAR2 | N |  |
+| 3 | DT_EXCLUSAO | DATE | N |  |
+| 4 | CD_REG_REP_DESC | NUMBER | N |  |
+| 5 | CD_REG_REPASSE | NUMBER | Y |  |
+| 6 | DS_REG_REP_DESC | VARCHAR2 | Y |  |
+| 7 | VL_FAIXA_INICIAL | NUMBER | Y |  |
+| 8 | VL_FAIXA_FINAL | NUMBER | Y |  |
+| 9 | VL_DESCONTO | NUMBER | Y |  |
+| 10 | VL_PERC_DESCONTO | NUMBER | Y |  |
+| 11 | VL_ACRESCIMO | NUMBER | Y |  |
+| 12 | VL_PERC_ACRESCIMO | NUMBER | Y |  |
+| 13 | CD_PRESTADOR | NUMBER | Y |  |
+| 14 | CD_REG_REPASSE_SIA | NUMBER | Y |  |
+| 15 | CD_REG_REPASSE_SIH | NUMBER | Y |  |
+| 16 | SN_INCIDE_BASE_IMPOSTO | VARCHAR2 | Y |  |
+| 17 | CD_DESC_ACRES | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_CALC_CUSTO
+> Tabela de Logger de calculos de custos.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | CODIGO SEQUENCIAL |
+| 2 | NM_USUARIO | VARCHAR2 | Y | NOME DO USUARIO |
+| 3 | DS_MACHINE | VARCHAR2 | Y | DESCRICAO DA MAQUINA |
+| 4 | NM_OSUSER | VARCHAR2 | Y | NOME DO USER DA MAQUINA |
+| 5 | DS_TERMINAL | VARCHAR2 | Y | DESCRICAO DO TERMINAL |
+| 6 | DT_GERACAO | DATE | Y | DATA GERACAO DO LOG |
+| 7 | DT_COMPETENCIA | DATE | Y | DATA COMPETENCIA DO CALCULO |
+| 8 | TP_CALCULO | VARCHAR2 | Y | TIPO DO CALCULO |
+| 9 | HR_INICIO | DATE | Y | DATA HORA INICIO |
+| 10 | HR_FINAL | DATE | Y | DATA HORA FINAL |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y | CODIGO MULTI_EMPRESA |
+
+---
+
+## DBAMV.LOG_CAPACIDADE_UTI_SUS
+> Histórico de alterações Capacidade instalada de leitos uti sus
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CAPACIDADE_UTI | NUMBER | N | Código do log competência + empresa + sequencia |
+| 2 | TP_ACAO | VARCHAR2 | N | I- Inclusão, A- Alteração, E- Exclusão |
+| 3 | DH_ACAO | DATE | N | Data e hora da ação |
+| 4 | NM_USUARIO | VARCHAR2 | Y | Usuário que executou a ação |
+| 5 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa |
+| 6 | DT_COMPETENCIA | DATE | N | Competência da capacidade |
+| 7 | CD_ESPECIALIDADE_UTI | NUMBER | N | Código da especialidade uti sus |
+| 8 | QT_LEITOS | NUMBER | N | Quantidade de leitos da especialidade na competência |
+| 9 | SN_LIBERA_CRITICA | VARCHAR2 | N | Libera faturar mais do que a capacidade, Sim ou Não |
+
+---
+
+## DBAMV.LOG_CAPTADOR_PLANSERV
+> Tabela de LOG do Protocolo do Captador Planserv. Será usada numa View.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CAPTADOR_PLANSERV | NUMBER | N | Sequencial da tabela. |
+| 2 | CD_REMESSA | NUMBER | Y | Número da nossa remessa. |
+| 3 | DH_PROCESSAMENTO | DATE | Y | Data e Hora do Processamento. |
+| 4 | QT_CONTAS | NUMBER | Y | Quantidade de Contas Processadas. |
+| 5 | VL_INFORMADO | NUMBER | Y | Valor informado. |
+| 6 | VL_GLOSADO | NUMBER | Y | Valor glosado. |
+| 7 | VL_APROVADO | NUMBER | Y | Valor aprovado. |
+| 8 | DS_EXTRA | VARCHAR2 | Y | Campo extra, caso haja necessidade. |
+| 9 | CD_ATENDIMENTO | NUMBER | Y | Código do Atendimento (apenas ambulatoriais). |
+| 10 | CD_CONTA | NUMBER | Y | Código da Conta (apenas internação). |
+| 11 | TP_ATENDIMENTO | VARCHAR2 | Y | Tipo do Atendimento ( A=ambulatoriais, I=internação). |
+
+---
+
+## DBAMV.LOG_CARGA_REP_ATEND
+> Tabela de Itens de Logger de calculos de custos. Itens->LOG_CALC_CUSTOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | CODIGO SEQUENCIAL DO LOG |
+| 2 | CD_LOG_ITREP_ATEND | NUMBER | N | CODIGO SEQUENCIAL DO ITEM |
+| 3 | TP_MENSAGEM | VARCHAR2 | Y | TIPO DA MENSAGEM |
+| 4 | DS_MENSAGEM | VARCHAR2 | Y | MENSAGEM DE LOG |
+| 5 | DT_MENSAGEM | DATE | Y | DATA E HORA MENSAGEM |
+
+---
+
+## DBAMV.LOG_CARGA_SUS_EQUIPE_SAUDE_FAM
+> Tabela de LOG da carga EQUIPE SAÚDE FAMÍLIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_COMPETENCIA | DATE | N | Competência importada. |
+| 2 | DH_CARGA | DATE | N | Data e hora da importação. |
+| 3 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a importação. |
+
+---
+
+## DBAMV.LOG_CARGA_SUS_REGRA
+> Tabela de LOG da carga Regra de Negocio MV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VERSAO | VARCHAR2 | N | Versão da carga importada |
+| 2 | DT_CARGA | DATE | N | Data da importação. |
+| 3 | DT_COMPETENCIA | DATE | N | Competência importada. |
+| 4 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a importação. |
+| 5 | DS_SITUACAO | VARCHAR2 | Y | Situação da carga |
+
+---
+
+## DBAMV.LOG_CARGA_SUS_SIGTAP
+> Tabela de LOG da carga SIGTAP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VERSAO | VARCHAR2 | N | Vers?o da carga importada |
+| 2 | DT_CARGA | DATE | N | Data da importac?o. |
+| 3 | DT_COMPETENCIA | DATE | N | Competencia importada. |
+| 4 | NM_TABELA | VARCHAR2 | N | Tabela da carga que foi importada |
+| 5 | NM_USUARIO | VARCHAR2 | N | Usuario que realizou a importac?o. |
+
+---
+
+## DBAMV.LOG_CATEGORIA
+> Tabela que ira armazenar o registro de log das inclus?es, exclus?es e alterac?es realizadas na tabela DBAMV.CATEGORIA_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CATEGORIA | NUMBER | N | Codigo sequencial, pk |
+| 2 | CD_CATEGORIA | NUMBER | Y | Codigo da categoria atual do paciente (a ultima selecionada pelo usuario) |
+| 3 | DH_OPERACAO | DATE | N | Data/hora da alterac?o/inclus?o/exclus?o |
+| 4 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que realizou a operac?o |
+| 5 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: ALT=Alterac?o EXC=Exclus?o INC=Inclus?o |
+| 6 | CD_PACIENTE | NUMBER | N | O paciente ao qual o log se refere (fk) |
+
+---
+
+## DBAMV.LOG_CBHPM
+> TABELA DE AUXILIO PARA O PROCESSO DE IMPORTACAO DA CBHPM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DATAIMPORTACAO | DATE | Y | coluna para gravar a data de imortac?o do arquivo |
+| 2 | CD_PRO_FAT_HIERARQUIZADO | VARCHAR2 | Y | coluna para gravar o codigo pro_fat hierarquizado |
+| 3 | CD_PRO_FAT | VARCHAR2 | Y | coluna para gravar o codigo pro_fat |
+| 4 | DS_PRO_FAT | VARCHAR2 | Y | coluna para gravar a descricao do procedimento |
+| 5 | MENSAGEM | VARCHAR2 | Y | coluna para gravar a mensagem a ser exibida |
+| 6 | CD_LOG_CBHPM | NUMBER | N |  |
+
+---
+
+## DBAMV.LOG_CID
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CID | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | N |  |
+| 3 | CD_CID | VARCHAR2 | N |  |
+| 4 | DH_LOG | DATE | N |  |
+| 5 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_CIRURGIA_EXAME_HEMO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CIRURGIA_EXAME_HEMO | NUMBER | N |  |
+| 2 | CD_CIRURGIA | NUMBER | N |  |
+| 3 | CD_CIRURGIA_EXAME_HEMODINAMICA | NUMBER | N |  |
+| 4 | TP_ACAO | VARCHAR2 | N |  |
+| 5 | DS_CAMPO_MODIFICADO | VARCHAR2 | N |  |
+| 6 | DS_VALOR_ANTERIOR | VARCHAR2 | Y |  |
+| 7 | DS_NOVO_VALOR | VARCHAR2 | Y |  |
+| 8 | DH_CADASTRO | DATE | N |  |
+| 9 | CD_USUARIO_MODIFICACAO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_CITPRE_MED_TRATAMENTO
+> Log dos componentes dos itens das prescric?es de tratamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CITPRE_MED_TRATAMENTO | NUMBER | N | Codigo do log dos componentes dos itens de prescric?es de tratamento |
+| 2 | CD_PRE_MED_TRATMT | NUMBER | N | Codigo da prescric?o de tratamento |
+| 3 | DH_OPERACAO | DATE | N | Data da operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: Alt=Alterac?o Exc=Exclus?o Inc=Inclus?o |
+| 5 | CD_PRESTADOR | NUMBER | N | Codigo do prestador |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 7 | DS_OBSERVACOES | VARCHAR2 | Y | Observac?es |
+| 8 | CD_ITPRE_MED | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 9 | CD_TIP_PRESC | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 10 | QT_COMPONENTE | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 11 | TP_COMPONENTE | VARCHAR2 | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 12 | CD_UNIDADE | VARCHAR2 | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 13 | CD_UNI_PRO | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 14 | CD_PRODUTO | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 15 | SN_FATURA | VARCHAR2 | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 16 | DS_CITPRE_MED | VARCHAR2 | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 17 | DS_NPADRONIZADO | VARCHAR2 | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 18 | CD_PRE_MED_SUSP | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 19 | CD_PRE_MED | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 20 | CD_UNI_PRESC | NUMBER | Y | Informac?o original dos componentes dos itens da prescric?o de tratamento |
+| 21 | NR_ORDEM | NUMBER | Y | Indica qual sera a ordem anterior do item dentro da prescricao medica |
+
+---
+
+## DBAMV.LOG_COMPETENCIA_FATURAMENTO
+> Tabela de log das movimentac?o nas competencias do faturamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_COMPETENCIA | DATE | Y | Data da competencia do faturamento |
+| 2 | CD_CONVENIO | NUMBER | Y | Codigo do convenio da movimentac?o |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario da movimentac?o |
+| 4 | DH_MOVIMENTO | DATE | Y | Data/Hora da movimentac?o |
+| 5 | DS_MOVIMENTO | VARCHAR2 | Y | Descric?o da movimentac?o |
+
+---
+
+## DBAMV.LOG_CONCILIACAO_OPME
+> Registro de LOG do processo de Conciliac?o OPME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONCILIACAO | NUMBER | N | Codigo da operac?o de Conciliac?o |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | Y | Codigo do Aviso de Cirurgia |
+| 3 | CD_GUIA | NUMBER | Y | Codigo da Guia |
+| 4 | CD_ATENDIMENTO | NUMBER | Y | Codigo do Atendimento do Paciente |
+| 5 | DT_CONCILIACAO | DATE | N | Data da Conciliac?o |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que a Conciliac?o |
+| 7 | TP_ACAO | VARCHAR2 | Y | Tipo da Ac?o |
+
+---
+
+## DBAMV.LOG_CONFIG_FECHA_CONTA_AUT
+> Tabela de Log para a tela M_CONFIG_FECHA_CONTA_AUT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONFIG_FECHA_CONTA_AUT | NUMBER | Y | Código sequencial da tabela |
+| 2 | DT_LOG | DATE | Y | Data em que a ação foi realizada |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Usuário que realizou a ação |
+| 4 | DS_ACAO | VARCHAR2 | Y | Descrição da ação |
+
+---
+
+## DBAMV.LOG_CONFIG_FFAS
+> Tabela de registro de alterac?es realizadas na tabela de configurac?o do FFAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONFIG_FFAS | NUMBER | N | Codigo sequencia de registro gerado |
+| 2 | ID | VARCHAR2 | Y | Codigo de identificador para cada hospital cadastrado |
+| 3 | SN_IMPORTA_PSDI | VARCHAR2 | N | Indica se a importac?o do PSDI com o faturamento esta ligada |
+| 4 | SN_IMPORTA_PSSD | VARCHAR2 | N | Indica se a importac?o do PSSD com o faturamento esta ligada |
+| 5 | SN_IMPORTA_FSCC | VARCHAR2 | N | Indica se a importac?o do FSCC com o faturamento esta ligada |
+| 6 | TP_IMPORT_PRESTADOR_PSDI | VARCHAR2 | N | Indica se sera importado o prestador do PSDI |
+| 7 | SN_FATURA_MENOR_24H | VARCHAR2 | N | Indica se o cliente podera faturamento na mesma data atendimentos do tipo A e H |
+| 8 | TP_IMPORTA_EXAME | VARCHAR2 | N | Indica se a importac?o do pedido de exame do PSSD e pedido ou resultado |
+| 9 | TP_IMPORTA_RX | VARCHAR2 | N | Indica se a importac?o do pedido de exame do PSDI e pedido ou resultado |
+| 10 | SN_FATURA_ATEND | VARCHAR2 | N | Indica se o cliente realizara a digitac?o informando o codigo do atendimento |
+| 11 | SN_LANCA_SERVICO | VARCHAR2 | N | Indica se o cliente realizara a digitac?o informando o codigo do servico |
+| 12 | SN_LANCA_CIDADE | VARCHAR2 | N | Indica se o cliente realizara a digitac?o informando o codigo da cidade |
+| 13 | TP_GERA_FATURA_BPA | VARCHAR2 | N | Indica se o cliente gera o arquivo do BPA por Fatura ou Periodo |
+| 14 | SN_INTEGRA_SISCOLO | VARCHAR2 | Y | Indica se o faturamento esta integrado com o SISCOLO |
+| 15 | SN_SMS | VARCHAR2 | Y | Indica se o usuario informara o codigo do SMS no lancamento do BPA |
+| 16 | SN_GUERRA | VARCHAR2 | Y | Indica se o usuario utilizara o nome de guerra para pequisar no momento do lancamento |
+| 17 | SN_LANCA_ALTA | VARCHAR2 | Y | Indica se o usuario informara o codigo de alta na tela de lancamento |
+| 18 | SN_GERA_ATEND | VARCHAR2 | Y | Indica se o cliente gera o arquivo BPA por atendimento |
+| 19 | SN_INTEGRA_PARA | VARCHAR2 | N | Indica se o cliente esta integrado com o atendimento |
+| 20 | TP_ENTREGA_COMP | VARCHAR2 | N | Indica se o cliente entrega o arquivo BPA com a competencia da data inicial ou final |
+| 21 | TP_IMPORT_PRESTADOR_PSSD | VARCHAR2 | Y | Indica qual o prestador sera importado (Pedido ou Resultado) |
+| 22 | TP_CONTROLE_TETO | VARCHAR2 | N | Indica se o cliente esta controlando o teto ou n?o |
+| 23 | TP_MENSAGEM_TETO | VARCHAR2 | N | Indica se o cliente recebera a mensagem na tela quando ultrapassar o teto orcamentario |
+| 24 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da multi-empresa |
+| 25 | SN_IMPORTA_PAGU | VARCHAR2 | Y | Indica se o faturamento esta integrado com o PAGU |
+| 26 | SN_INTEGRA_REPASSE | VARCHAR2 | Y | Indica se o faturamento esta integrado com o repasse |
+| 27 | SN_INFORMA_UNIDADE_REGIONAL | VARCHAR2 | Y | Indica se o usuario informara o codigo da unidade regional nas telas de lancamento |
+| 28 | SN_AREA_IRRADIADA | VARCHAR2 | Y | Indica se o usuario informara o codigo de area irradiada na tela de cadastro do laudo APAC |
+| 29 | SN_LANCA_PACIENTE_BPA | VARCHAR2 | Y | Indica se sera lancado o codigo do paciente no lancamento do BPA Individualizado |
+| 30 | SN_VALIDA_CBO_PSDI | VARCHAR2 | Y | Indica se sera validado CBO na importac?o do PSDI |
+| 31 | SN_VALIDA_CBO_PSSD | VARCHAR2 | Y | Indica se sera validado CBO na importac?o do PSSD |
+| 32 | SN_VALIDA_CBO_PAGU | VARCHAR2 | Y | Indica se sera validado CBO na importac?o do PAGU |
+| 33 | SN_VALIDA_CBO_FSCC | VARCHAR2 | Y | Indica se sera validado CBO na importac?o do FSCC |
+| 34 | NM_USUARIO | VARCHAR2 | N | Nome do Usuario realizou a alterac?o da configurac?o |
+| 35 | DT_ATUALIZACAO | DATE | Y | Data que os dados da integrac?o foram alterados |
+| 36 | SN_INTEGRA_PSDI_APAC_LAUDO | VARCHAR2 | N | Realiza integração PSDI x Laudo APAC, Sim ou Não |
+| 37 | TP_INTEGRA_PSSD_APAC_PRESTADOR | VARCHAR2 | N | Prestador pra ser importado, do Laudo ou Setor |
+| 38 | TP_INTEGRA_PSDI_APAC_PRESTADOR | VARCHAR2 | N | Prestador pra ser importado, do Laudo, Setor ou Executante |
+| 39 | SN_VALIDA_CBO_PRES_PSSD_APAC | VARCHAR2 | N | Valida CBO x Prestador na integração PSSD x APAC, Sim ou Não |
+| 40 | SN_VALIDA_CBO_PRES_PSDI_APAC | VARCHAR2 | N | Valida CBO x Prestador na integração PSDI x APAC, Sim ou Não |
+| 41 | SN_VALIDA_CBO_PRES_MGES_APAC | VARCHAR2 | N | Valida CBO x Prestador na integração MGES x APAC, Sim ou Não |
+| 42 | TP_INTEGRA_PARA_APAC | VARCHAR2 | Y | N-Não integra L-Integra com Laudo C-Integra com conta T-Integra com laudo e conta. |
+| 43 | SN_INTEGRA_PSSD_APAC_LAUDO | VARCHAR2 | N | Define se o laudo APAC receberá dados do PSSD via integração. |
+| 44 | SN_INTEGRA_MGES_APAC_CONTA | VARCHAR2 | N | Define se a conta APAC receberá dados do MGES via integração. |
+| 45 | TP_INTEGRA_PSSD_APAC_CONTA | VARCHAR2 | N | N-Não integra P-Integra no pedido do exame R-Integra no resultado do exame. |
+| 46 | TP_INTEGRA_PSDI_APAC_CONTA | VARCHAR2 | N | N-Não integra P-Integra no pedido do exame R-Integra no resultado do exame. |
+| 47 | TP_DEFINE_COMPETENCIA_PAGU | VARCHAR2 | Y |  |
+| 48 | TP_FONTE_INTEGRA_APAC_ONCO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_CONFIG_RECEITA_FFCH
+> Log de configurac?o da ultima gerac?o.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_COMPETENCIA | DATE | N | Data de competencia gerada pelo relatorio. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Empresa que realizou a operac?o. |
+| 3 | DT_GERACAO | DATE | Y | Data da ultima gerac?o. |
+| 4 | SN_RECEITA_AMB_SUS | VARCHAR2 | Y | Indica se o calculo da receita Ambulatorial SUS encontra-se habilitado |
+| 5 | SN_RECEITA_HOS_SUS | VARCHAR2 | Y | Indica se o calculo da receita Hospitalar SUS encontra-se habilitado |
+| 6 | TP_CALCULO_RECEITA_AMB_SUS | VARCHAR2 | Y | Indica o tipo da receita Ambulatorial SUS |
+| 7 | TP_CALCULO_RECEITA_HOS_SUS | VARCHAR2 | Y | Indica o tipo da receita Hospitalar SUS |
+| 8 | TP_METODO_RECEITA_AMB_SUS | VARCHAR2 | Y | Indica o metodo da receita Ambulatorial SUS |
+| 9 | TP_METODO_RECEITA_HOS_SUS | VARCHAR2 | Y | Indica o metodo da receita Hospitalar SUS |
+| 10 | SN_RECEITA_AMB_CONV | VARCHAR2 | Y | Indica se o calculo da receita Ambulatorial CONVENIO/PARTICULAR encontra-se habilitado |
+| 11 | SN_RECEITA_HOS_CONV | VARCHAR2 | Y | Indica se o calculo da receita Hospitalar CONVENIO/PARTICULAR encontra-se habilitado |
+| 12 | TP_CALCULO_RECEITA_AMB_CONV | VARCHAR2 | Y | Indica o tipo da receita Ambulatorial CONVENIO/PARTICULAR |
+| 13 | TP_CALCULO_RECEITA_HOS_CONV | VARCHAR2 | Y | Indica o tipo da receita Hospitalar CONVENIO/PARTICULAR |
+| 14 | TP_METODO_RECEITA_AMB_CONV | VARCHAR2 | Y | Indica o metodo da receita Ambulatorial CONVENIO/PARTICULAR |
+| 15 | TP_METODO_RECEITA_HOS_CONV | VARCHAR2 | Y | Indica o metodo da receita Hospitalar CONVENIO/PARTICULAR |
+
+---
+
+## DBAMV.LOG_CONFIG_TELA_OBR_LOT_VLD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | DT_OPERACAO | DATE | Y |  |
+| 3 | NM_COLUNA_ALTERADA | VARCHAR2 | Y |  |
+| 4 | DS_VL_ANTIGO | VARCHAR2 | Y |  |
+| 5 | DS_VL_NOVO | VARCHAR2 | Y |  |
+| 6 | DS_OPERACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_CONF_CONS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONF_CONS | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que realizou a confirmac?o de consumo. |
+| 3 | DT_CONFIRMACAO | DATE | N | Data da confirmac?o do consumo. |
+| 4 | CD_ITMVTO_ESTOQUE | NUMBER | Y | Codigo da movimentac?o confirmada. |
+| 5 | CD_PRODUTO | NUMBER | N | Codigo do produto |
+| 6 | CD_ORD_COM | NUMBER | Y | Codigo da ordem de compra |
+| 7 | CD_UNI_PRO | NUMBER | Y | Codigo da unidade do produto |
+| 8 | CD_ESTOQUE | NUMBER | Y | Codigo do estoque |
+| 9 | CD_FORNECEDOR | NUMBER | Y | Codigo do fornecedor. |
+| 10 | CD_SETOR | NUMBER | Y | Codigo do setor |
+| 11 | CD_AVISO_CIRURGIA | NUMBER | Y | Codigo do aviso cirurgia |
+| 12 | CD_LOTE | VARCHAR2 | Y |  |
+| 13 | DT_VALIDADE | DATE | Y |  |
+| 14 | QT_CONSUMO | NUMBER | Y |  |
+| 15 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 16 | CD_CONSUMO_PACIENTE | NUMBER | Y | Código da confirmacao de consumo |
+
+---
+
+## DBAMV.LOG_CONF_CONS_REPLICA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONF_CONS_REPLICA | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário que realizou a confirmação de consumo. |
+| 3 | DT_CONFIRMACAO | DATE | N | Data da confirmação do consumo. |
+| 4 | CD_PRODUTO | NUMBER | N | Código do produto |
+| 5 | CD_UNI_PRO | NUMBER | Y | Código da unidade do produto |
+| 6 | CD_ESTOQUE | NUMBER | Y | Código do estoque |
+| 7 | CD_FORNECEDOR | NUMBER | Y | Código do fornecedor. |
+| 8 | CD_SETOR | NUMBER | Y | Código do setor |
+| 9 | CD_AVISO_CIRURGIA | NUMBER | Y | Código do aviso cirurgia |
+| 10 | CD_LOTE | VARCHAR2 | Y |  |
+| 11 | DT_VALIDADE | DATE | Y |  |
+| 12 | QT_CONSUMO | NUMBER | Y |  |
+| 13 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 14 | CD_CONSUMO_PACIENTE | NUMBER | N | Código da confirmacao de consumo |
+| 15 | TP_ACAO | VARCHAR2 | N | I - Inserção / E - Exclusão |
+
+---
+
+## DBAMV.LOG_CONTABIL
+> Tabela de Logger do sistema de Contabilidade.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | CODIGO SEQUENCIAL |
+| 2 | NM_USUARIO | VARCHAR2 | Y | NOME DO USUARIO |
+| 3 | DS_MACHINE | VARCHAR2 | Y | DESCRICAO DA MAQUINA |
+| 4 | NM_OSUSER | VARCHAR2 | Y | NOME DO USER DA MAQUINA |
+| 5 | DS_TERMINAL | VARCHAR2 | Y | DESCRICAO DO TERMINAL |
+| 6 | DT_GERACAO | DATE | Y | DATA GERACAO DO LOG |
+| 7 | DT_COMPETENCIA | DATE | Y | DATA COMPETENCIA |
+| 8 | TP_EVENTO | VARCHAR2 | Y | TIPO DE OPERAC?O |
+| 9 | HR_INICIO | DATE | Y | DATA HORA INICIO |
+| 10 | HR_FINAL | DATE | Y | DATA HORA FINAL |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y | CODIGO MULTI_EMPRESA |
+| 12 | DT_PERIODO_INICIAL | DATE | Y | Período inicial de geração |
+| 13 | DT_PERIODO_FINAL | DATE | Y | Período final de geração |
+| 14 | CD_PLANO | VARCHAR2 | Y | Código do plano |
+
+---
+
+## DBAMV.LOG_CONTABIL_CONTA
+> TABELA PARA LOG CONTABIL DE CONTAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTABIL_CONTA | NUMBER | N | CÓDIGO DE LOG CHAVE |
+| 2 | CD_LOTE | NUMBER | Y | CODIGO DE LOTE |
+| 3 | CD_LCTO_MOVIMENTO | NUMBER | Y | CÓDIGO LANÇAMENTO DE MOVIMENTAÇÃO |
+| 4 | CD_ITEM_LOG_CONTABIL | NUMBER | N |  |
+| 5 | CD_REDUZIDO | VARCHAR2 | Y | CÓDIGO REDUZIDO |
+
+---
+
+## DBAMV.LOG_CONTABIL_LCTO
+> TABELA PARA LOG DE LANÇAMENTO CONTÁBIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTABIL_CONTA | NUMBER | N | CÓDIGO DO LOG CONTA |
+| 2 | CD_LOG_CONTABIL_LCTO | NUMBER | N | CÓDIGO DO LOG LANÇAMENTO |
+| 3 | CD_REDUZIDO_DEBITO | NUMBER | Y | CÓDIGO DA CONTA DE DÉBITO |
+| 4 | CD_REDUZIDO_CREDITO | NUMBER | Y | CÓDIGO DA CONTA DE CRÉDITO |
+| 5 | VL_LANCADO | NUMBER | N | VALOR LANÇADO |
+| 6 | VL_SETOR_DEB | NUMBER | Y | VALOR DE DÉBITO POR SETOR |
+| 7 | VL_SETOR_CRE | NUMBER | Y | VALOR DE CRÉDITO POR SETOR |
+| 8 | CD_MULTI_EMPRESA | NUMBER | N | CÓDIGO DA EMPRESA |
+| 9 | VL_SALDO | NUMBER | Y | VALOR DE SALDO MENSAL |
+
+---
+
+## DBAMV.LOG_CONTAGEM_USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTAGEM | NUMBER | Y |  |
+| 2 | CD_PRODUTO | NUMBER | Y |  |
+| 3 | CD_USUARIO | VARCHAR2 | Y |  |
+| 4 | SN_ZERAR | VARCHAR2 | Y |  |
+| 5 | DT_OPERACAO | DATE | Y |  |
+
+---
+
+## DBAMV.LOG_CONTA_CANCELADA
+> Tabela de log de movimentação de conta
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REGISTRO | NUMBER | N | Regsitro de contas canceladas |
+| 2 | DH_LOG | DATE | N | Data e hora de registro da conta cancelada |
+| 3 | CD_REG_AMB | NUMBER | Y | Codigo da conta ambulatorial |
+| 4 | CD_REG_FAT | NUMBER | Y | Codigo da conta hospitalar |
+| 5 | CD_MOT_CAN_CONTA | NUMBER | N | Codigo do motivo de cancelamento da conta |
+| 6 | DS_JUSTIFICATIVA | VARCHAR2 | N | Justificativa para o cancelamento da conta |
+| 7 | SITUACAO | VARCHAR2 | N | Situação:   CANCELADA=conta cancelada / REABERTA= conta reaberta |
+| 8 | CD_USUARIO | VARCHAR2 | N | Usuário logado que realizou o cancelamento ou a reabertura da conta |
+
+---
+
+## DBAMV.LOG_CONTA_COMPET
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTA_COMPET | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 3 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 4 | CD_CONTA | NUMBER | Y |  |
+| 5 | CD_CONTA_NOVA | NUMBER | Y |  |
+| 6 | CD_REMESSA | NUMBER | Y |  |
+| 7 | CD_REMESSA_NOVA | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_CONTA_FINAN
+> ARMAZENA TODAS AS AÇÕES DO CLIENTE EM RELAÇÃO A CONTA FINANCEIRA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTA_FINAN | NUMBER | N | C?IGO DO LOG |
+| 2 | CD_CONTA_FINANC | NUMBER | N | C?IGO DA CONTA FINANCEIRA ASSOCIADA |
+| 3 | TP_MOVIMENTO | VARCHAR2 | Y | ARMAZENA O TIPO DE MOVIMENTAÇÃO EFETUADA(INSERÇÃO,DELEÇÃO,ATUALIZAÇÃO) |
+| 4 | DT_MOVIMENTO | DATE | N | ARMAZENA A DATA NA QUAL A MOVIMENTAÇÃO FOI EFETUADA |
+| 5 | DS_MOVIMENTO | VARCHAR2 | Y | ARMAZENA A DESCRIÇÃO DA MOVIMENTAÇÃO |
+
+---
+
+## DBAMV.LOG_CONTROLE_EMAIL
+> TABELA DE CONTROLE DE ENVIO DE EMAIL DE ORDEM DE COMPRAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTROLE_EMAIL | NUMBER | N |  |
+| 2 | CD_ORD_COM | NUMBER | N | Informa o código da ordem de compras que foi encaminado o e-mail. |
+| 3 | CD_FORNECEDOR | NUMBER | N | Informa o código do Fornecedor que foi encaminhado o e-mail. |
+| 4 | DT_ENVIO | DATE | Y | Informa a data em que o e-mail foi encaminhado para o Fornecedor . |
+| 5 | DS_TIPO_ENVIO | CHAR | Y | Informa o tipo de email que foi encaminhado para o Fornecedor. Se "AN-" Antes, "DP-" Depois, "RC-... |
+
+---
+
+## DBAMV.LOG_CONTROLE_IMPRESSAO_ETIQU
+> Registro (LOG) das impress?es etiquetas de codigo de barras controladas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTROLE_IMPRESSAO_ETQ | NUMBER | N | Codigo da operac?o de impress?o ou reimpress?o da etiqueta |
+| 2 | CD_PRODUTO | NUMBER | N | Produto da etiqueta impressa |
+| 3 | CD_ESTOQUE | NUMBER | N | Estoque do produto para a etiqueta impressa |
+| 4 | CD_LOTE | VARCHAR2 | Y | Lote do Produto para a etiqueta impressa |
+| 5 | DT_VALIDADE | DATE | Y | Data de validade do produto para a etiqueta impressa |
+| 6 | CD_UNI_PRO | NUMBER | N | Unidade do produto da etiqueta impressa |
+| 7 | CD_IDENTIFICADOR | VARCHAR2 | N | Identificado de codigo de barras da etiqueta impressa |
+| 8 | QT_IMPRESSA | NUMBER | N | Quantidade de etiquetas impressas na operac?o |
+| 9 | DH_IMPRESSAO | DATE | N | Data e hora em que foi realizada a impress?o de etiquetas |
+| 10 | CD_USUARIO | VARCHAR2 | Y | Usuario que realizou a operac?o de impress?o |
+| 11 | SN_IMPRESSAO_CONTROLE | VARCHAR2 | N | Indica se a impress?o do LOG foi realizada ou n?o |
+| 12 | DT_IMPRESSAO_CONTROLE | DATE | Y | Data em que foi realizada a impress?o do LOG |
+| 13 | TP_IMPRESSAO | VARCHAR2 | N | Indica se a etiqueta foi impressa em modo Normal ou Reimpress?o |
+| 14 | DS_COMERCIAL | VARCHAR2 | Y | Campo de descric?o comercial referente ao produto |
+| 15 | DS_ESPECIE | VARCHAR2 | Y | Campo de descric?o da especie referente ao produto |
+| 16 | DS_CLASSE | VARCHAR2 | Y | Campo de descric?o da classe referente ao produto |
+| 17 | DS_SUB_CLAS | VARCHAR2 | Y | Campo de descric?o da subclasse referente ao produto |
+
+---
+
+## DBAMV.LOG_CONTROLE_IMPRESSAO_ETIQU2
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CONTROLE_IMPRESSAO_ETQ | VARCHAR2 | Y |  |
+| 2 | CD_PRODUTO | VARCHAR2 | Y |  |
+| 3 | CD_ESTOQUE | VARCHAR2 | Y |  |
+| 4 | CD_LOTE | VARCHAR2 | Y |  |
+| 5 | DT_VALIDADE | VARCHAR2 | Y |  |
+| 6 | CD_UNI_PRO | VARCHAR2 | Y |  |
+| 7 | CD_IDENTIFICADOR | VARCHAR2 | Y |  |
+| 8 | QT_IMPRESSA | VARCHAR2 | Y |  |
+| 9 | DH_IMPRESSAO | VARCHAR2 | Y |  |
+| 10 | CD_USUARIO | VARCHAR2 | Y |  |
+| 11 | SN_IMPRESSAO_CONTROLE | VARCHAR2 | Y |  |
+| 12 | DT_IMPRESSAO_CONTROLE | VARCHAR2 | Y |  |
+| 13 | TP_IMPRESSAO | VARCHAR2 | Y |  |
+| 14 | DS_COMERCIAL | VARCHAR2 | Y |  |
+| 15 | DS_ESPECIE | VARCHAR2 | Y |  |
+| 16 | DS_CLASSE | VARCHAR2 | Y |  |
+| 17 | DS_SUB_CLAS | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_CONVENIO_ESTADO
+> Tabela de log para armazenar os dados do arquivo txt de importac?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DATA_IMPORTACAO | DATE | N | coluna para gravar a data de imortac?o do arquivo |
+| 2 | CD_PRO_FAT | VARCHAR2 | N | coluna para gravar o codigo pro_fat |
+| 3 | CD_PRO_FAT_REAL | VARCHAR2 | N | coluna para gravar o codigo real do procedimento |
+| 4 | DS_PRO_FAT | VARCHAR2 | Y | coluna para gravar a descricao do procedimento |
+| 5 | MENSAGEM | VARCHAR2 | Y | coluna para gravar a mensagem a ser exibida |
+
+---
+
+## DBAMV.LOG_CON_PAG_CON_REC
+> Tabela de LOG do contas a receber e a pagar.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CON_PAG_CON_REC | NUMBER | N | Sequencial. |
+| 2 | DT_MODIFICACAO | DATE | Y | Data da modificação. |
+| 3 | TP_MODIFICACAO | VARCHAR2 | Y | Tipo da modificação: I-Insert, U-Update ou D-Delete. |
+| 4 | CD_USUARIO | VARCHAR2 | Y | Usuário que modificou os dados. |
+| 5 | CD_MULTI_EMPRESA | NUMBER | Y | Empresa que o usuário estava logado no momento da modificação do registro. |
+| 6 | CD_CONTA | NUMBER | Y | Código da conta. Pode ser da conta a receber ou a cont a pagar. |
+| 7 | TP_CONTA | VARCHAR2 | Y | Tipo de conta: R-Conta a Receber ou P-Conta a Pagar. |
+| 8 | CAMPOS_MODIFICADOS | VARCHAR2 | Y | Sequencial. |
+
+---
+
+## DBAMV.LOG_COPIA_AGENDA
+> Tabela onde ser?o armazenadas as operac?es de copia
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_COPIA_AGENDA | NUMBER | N | Chave primaria |
+| 2 | DT_BASE_INICIAL | DATE | Y | Data base inicial informada na tela de copia |
+| 3 | DT_BASE_FINAL | DATE | Y | Data base final informada na tela de copia |
+| 4 | TP_COPIA | VARCHAR2 | Y | Tipo da copia: (D)ias; (S)emanas; (M)eses ;(A)nos |
+| 5 | QT_COPIA | NUMBER | Y | Quantidade de copias. Exemplo: 2 Dias, Semanas, Meses ou Anos, dependendo do Tipo de Copia. |
+| 6 | DT_INICIO_COPIA | DATE | Y | As agendas ser?o copiadas apenas a partir desta data. |
+| 7 | DT_FIM_COPIA | DATE | Y | As agendas ser?o copiadas apenas ate esta data. |
+| 8 | CD_AGENDA_CENTRAL | NUMBER | Y | Codigo da agenda informada como filtro na tela de copia |
+| 9 | CD_PRESTADOR | NUMBER | Y | Codigo do prestador informado como filtro na tela de copia |
+| 10 | CD_RECURSO_CENTRAL | NUMBER | Y | Codigo do Recurso informado como filtro na tela de copia |
+| 11 | CD_UNIDADE_ATENDIMENTO | NUMBER | Y | Codigo da Unidade de Atendimento informada como filtro na tela de copia |
+| 12 | CD_SETOR | NUMBER | Y | Codigo do setor informado como filtro na tela de copia |
+| 13 | CD_TIP_MAR | NUMBER | Y | Codigo do Tipo de Atendimento informado como filtro na tela de copia |
+| 14 | DT_OPERACAO | DATE | N | Data de gravac?o da operac?o de copia |
+| 15 | CD_USUARIO | VARCHAR2 | N | Usuario que realizou a operac?o de copia |
+
+---
+
+## DBAMV.LOG_COTA_RESSUPRIMENTO
+> Tabela que guarda o log da alteração das cotas de ressuprimento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_COTA | NUMBER | N | Guarda o código identificador do log da cota de ressuprimento. Alimentada pela SEQ_LOG_COTA_RESSU... |
+| 2 | TP_OPERACAO | VARCHAR2 | N | Guarda o indicador da operação que gerou o registro. Valores possíveis: I - Inclusão; U - Alteraç... |
+| 3 | CD_USUARIO | VARCHAR2 | N | Guarda o usuário que realizou a operação. |
+| 4 | DT_OPERACAO | DATE | N | Guarda a data em que a operação foi realizada. |
+| 5 | CD_COTA | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 6 | DS_COTA | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 7 | CD_ESTOQUE_ORIGEM | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 8 | CD_EMPRESA_DESTINO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 9 | CD_ESTOQUE_DESTINO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 10 | CD_SETOR_DESTINO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 11 | SN_INATIVA | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 12 | SN_ATIVA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 13 | DS_EMAIL_RESP_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 14 | SN_DOMINGO_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 15 | NR_HORA_DOMINGO_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 16 | VL_PERCENT_APLC_DOM_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 17 | SN_SEGUNDA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 18 | NR_HORA_SEGUNDA_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 19 | VL_PERCENT_APLC_SEG_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 20 | SN_TERCA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 21 | NR_HORA_TERCA_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 22 | VL_PERCENT_APLC_TER_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 23 | SN_QUARTA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 24 | NR_HORA_QUARTA_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 25 | VL_PERCENT_APLC_QUA_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 26 | SN_QUINTA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 27 | NR_HORA_QUINTA_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 28 | VL_PERCENT_APLC_QUI_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 29 | SN_SEXTA_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 30 | NR_HORA_SEXTA_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 31 | VL_PERCENT_APLC_SEX_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 32 | SN_SABADO_RESSUPRIMENTO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 33 | NR_HORA_SABADO_RESSUPRIMENTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 34 | VL_PERCENT_APLC_SAB_RESSUPRI | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 35 | SN_ATIVA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 36 | DS_EMAIL_RESP_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 37 | TP_SALDO_BASE_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 38 | SN_DOMINGO_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 39 | NR_HORA_DOMINGO_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 40 | SN_SEGUNDA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 41 | NR_HORA_SEGUNDA_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 42 | SN_TERCA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 43 | NR_HORA_TERCA_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 44 | SN_QUARTA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 45 | NR_HORA_QUARTA_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 46 | SN_QUINTA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 47 | NR_HORA_QUINTA_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 48 | SN_SEXTA_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 49 | NR_HORA_SEXTA_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 50 | SN_SABADO_RETORNO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+| 51 | NR_HORA_SABADO_RETORNO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela COTA_RESSUPRIMENTO. |
+
+---
+
+## DBAMV.LOG_CREDENCIADO
+> Tabela para registar alterações de ativação/inavitação de um credenciado ao hospital.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Código do log. |
+| 2 | CD_CREDENCIADO | NUMBER | N | Código do credenciado. |
+| 3 | TP_SITUACAO | VARCHAR2 | N | Situação Ativo/Inativo. |
+| 4 | DT_OPERACAO | DATE | N | Data que ocorreu a operação. |
+| 5 | CD_USUARIO | VARCHAR2 | N | Usuário que realizou a operação. |
+
+---
+
+## DBAMV.LOG_CRITICA_CONTAS_FORMACAO
+> TABELA PARA REGISTRO DAS CRITICAS IDENTIFICADA NO PROCESSO DE CONTABILIZAÇÃO DAS CONTAS EM FORMACAO.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CRITICA | NUMBER | N | CÓDIGO DO LOG DA CRITICA DA CONTAS EM FORMACAO. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y | CÓDIGO DA EMPRESA. |
+| 3 | CRITICA | VARCHAR2 | Y | NOME DA CRITICA. |
+| 4 | DS_CRITICA | VARCHAR2 | Y | DESCRICAO DA CRITICA. |
+| 5 | DS_SOLUCAO | VARCHAR2 | Y | DESCRICAO DA SOLUÇÃO. |
+
+---
+
+## DBAMV.LOG_CULTURA
+> Tabela de Log de Resultados de Cultura
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CULTURA | NUMBER | N | Codigo do Log do Exame |
+| 2 | DT_LOG | DATE | N | Data do Log |
+| 3 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario responsavel pelo LOG |
+| 4 | DS_ORIGEM | VARCHAR2 | N | Origem do LOG |
+| 5 | CD_ITPED_LAB | NUMBER | N | Codigo do Item do Pedido |
+| 6 | DT_EXAME | DATE | N | Data da analise |
+| 7 | DS_COLONIAS | VARCHAR2 | Y | Identificac?o de Colonias |
+| 8 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es gerais |
+| 9 | CD_MATERIAL | NUMBER | N | Material analisado |
+| 10 | TP_RESULTADO | VARCHAR2 | Y | Tipo de resultado |
+| 11 | CD_REG_INF | NUMBER | Y | Codigo do Registro de infecc?o |
+| 12 | TP_STATUS | VARCHAR2 | Y |  |
+| 13 | CD_MODULO | VARCHAR2 | Y | Código do modulo que cadastrou o log |
+| 14 | CD_TIPO_RESULTADO_CULTURA | NUMBER | Y | Codigo do tipo de resultado de cultura. |
+| 15 | DS_MOTIVO_RETIFICACAO | VARCHAR2 | Y | Motivo da Retificação. |
+| 16 | CD_MEDICO_EXEC | NUMBER | Y | Código do médico executante. |
+| 17 | CD_AMOSTRA | NUMBER | Y | Código da amostra que foi utilizada para o laudo na tela de microbiologia. |
+| 18 | CD_COLETA_MATERIAL | NUMBER | Y | Código utilizado para a PK da amostra |
+| 19 | CD_SEQ_ANDAMENTO | NUMBER | Y | Sequencia da analise |
+| 20 | DS_OBSERVACAO_EXAME | VARCHAR2 | Y | Descricao da Observacao |
+| 21 | DS_METODO_CULTURA | VARCHAR2 | Y | Descricao do metodo de cultura associado ao resultado do exame |
+| 22 | DS_VALOR_REFERENCIA_CULTURA | VARCHAR2 | Y | Valor de referencia de cultura associado ao resultado do exame |
+| 23 | CD_MOTIVO_RETIFICACAO_EXAME | NUMBER | Y | Indica o motivo de retificação do exame |
+
+---
+
+## DBAMV.LOG_DADOS_NOTA
+> Tabela pai com o cabecalho do log da rastreabilidade.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo sequencial da rastreabilidade. |
+| 2 | DT_LOG | DATE | Y | Data que a informac?o do log foi gerada. |
+| 3 | DS_ROTINA | VARCHAR2 | Y | Nome da tela que esta sendo gravada. |
+| 4 | NM_USUARIO | VARCHAR2 | Y | Usuario que gerou a informac?o do log. |
+| 5 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa para qual o log foi gerado. |
+| 6 | CD_REG_FAT | NUMBER | N | Codigo da conta que esta sendo inserida no log. |
+| 7 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento da conta que esta sendo inserida no log. |
+| 8 | CD_FORNECEDOR | NUMBER | Y | Codigo do fornecador conta que esta sendo inserida no log. |
+| 9 | VL_PRECO_UNITARIO | NUMBER | Y | Valor unitario que esta sendo inserida no log. |
+| 10 | VL_PRECO_TOTAL | NUMBER | Y | Valor total que esta sendo inserida no log. |
+| 11 | DS_OBSERVACAO | VARCHAR2 | Y | Campo livre para demais configurac?es. |
+| 12 | DS_RESERVA | VARCHAR2 | Y | Campo livre . |
+
+---
+
+## DBAMV.LOG_DANFE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_DANFE | NUMBER | N | Código sequencial |
+| 2 | NR_IDE_NFE | VARCHAR2 | N | Chave de Acesso da NFE. |
+
+---
+
+## DBAMV.LOG_DESATIVACAO_REGULACAO
+> Tabela de log de desativação da regulação
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_DESATIVACAO_REGULACAO | NUMBER | N | Código de registro do log de desativação da regulação |
+| 2 | CD_USUARIO | VARCHAR2 | Y | Usuário que realizou a desativação |
+| 3 | DH_DESATIVACAO | DATE | Y | Data da desativação da regulação |
+| 4 | DS_DESATIVACAO | VARCHAR2 | Y | Motivo da desativação da regulação |
+
+---
+
+## DBAMV.LOG_DESCARACTERIZACAO_PACO
+> Tabela que definira os logs dos pacotes descaracterizados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_DESCARACTERIZACAO_PACO | NUMBER | N | Codigo do log do pacote descaracterizado |
+| 2 | CD_MOTIVO_DESCARCT_PACO | NUMBER | N | Codigo do motivo que descaracterizou o pacote |
+| 3 | NM_USUARIO_LOG_DESCARCT_PACO | VARCHAR2 | N | Usuario que descaracterizou o pacote |
+| 4 | DT_LOG_DESCARACTERIZACAO_PACO | DATE | N | Data da descaracterizac?o do pacote |
+| 5 | CD_REG_FAT | NUMBER | Y | Codigo da conta Hospitalar que originou o LOG |
+| 6 | CD_REG_AMB | NUMBER | Y | Codigo da conta Ambulatorial que originou o LOG |
+| 7 | CD_ATENDIMENTO | NUMBER | Y | Codigo do Atendimento que originou o LOG |
+
+---
+
+## DBAMV.LOG_DESCRICAO_CIRURGIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LOG | NUMBER | N |  |
+| 2 | CD_DESCRICAO_AVISO_CIRURGIA | NUMBER | Y |  |
+| 3 | CD_AVISO_CIRURGIA | NUMBER | Y |  |
+| 4 | DS_OLD | CLOB | Y |  |
+| 5 | DS_NEW | CLOB | Y |  |
+| 6 | DT_LOG | DATE | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_DESTINO_ROMANEIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DESTINO_ROMANEIO | NUMBER | Y |  |
+| 2 | DS_LOG | VARCHAR2 | Y |  |
+| 3 | DATA_LOG | DATE | Y |  |
+
+---
+
+## DBAMV.LOG_DIARIA_ACOMPANHANTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | N |  |
+| 2 | CD_MOV_INT | NUMBER | N |  |
+| 3 | DT_TRANSACAO | DATE | N |  |
+| 4 | TP_TRANSACAO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_DIARIA_AUTOMATICA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | N |  |
+| 2 | CD_MOV_INT | NUMBER | N |  |
+| 3 | CD_REG_FAT | NUMBER | N |  |
+| 4 | CD_LANCAMENTO | NUMBER | N |  |
+| 5 | CD_PRO_FAT | VARCHAR2 | N |  |
+| 6 | DT_IMPORTACAO | DATE | N |  |
+| 7 | HR_IMPORTACAO | DATE | N |  |
+| 8 | QT_IMPORTADA | NUMBER | N |  |
+| 9 | DS_ERRO_CALCULO | VARCHAR2 | Y |  |
+| 10 | SN_INTEGRA_MVSAUDE | VARCHAR2 | Y | Diaria da co-participac?o da integrac?o com MVSAUDE |
+
+---
+
+## DBAMV.LOG_DIARIA_UTI_SUS
+> Histórico de alterações Capacidade instalada de leitos uti sus
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_DIARIA_UTI | NUMBER | N | Código do log competência + empresa + sequencia |
+| 2 | CD_REG_FAT | NUMBER | N | Código da conta |
+| 3 | CD_LANCAMENTO | NUMBER | N | Código do lançamento |
+| 4 | DT_COMPETENCIA | DATE | N | Competência da diária |
+| 5 | TP_ACAO | VARCHAR2 | N | I- Inclusão, A- Alteração, E- Exclusão |
+| 6 | DH_ACAO | DATE | N | Data e hora da ação |
+| 7 | NM_USUARIO | VARCHAR2 | Y | Usuário que executou a ação |
+| 8 | CD_PROCEDIMENTO | VARCHAR2 | N | Código do procedimento uti sus |
+| 9 | QT_LANCADA | NUMBER | N | Quantidade diária lançada |
+| 10 | QT_LANCADA_OLD | NUMBER | Y | Quantidade diária lançada antiga |
+
+---
+
+## DBAMV.LOG_DOCUMENTO_CLINICO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_DOCUMENTO_CLINICO | NUMBER | N | Código do Log da Aplicação |
+| 2 | CD_DOCUMENTO_CLINICO | NUMBER | N | Código do Documento Clínico |
+| 3 | TP_STATUS | VARCHAR2 | N | Status do Documento Clínico |
+| 4 | DH_CRIACAO | DATE | N | Data de criação do Log |
+| 5 | CD_USUARIO | VARCHAR2 | N | Usuário que realizou a ação do log |
+
+---
+
+## DBAMV.LOG_DOC_ORFAO_PACIENTE
+> Tabela para logar quantos registros foram excluídos de um paciente com documentos orfaos.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | Y | Codigo do Paciente |
+| 2 | CD_DOCUMENTO_MENOR | NUMBER | Y | Menor codigo de documento processado. |
+| 3 | CD_DOCUMENTO_MAIOR | NUMBER | Y | Maior codigo de documento processado |
+
+---
+
+## DBAMV.LOG_ENVIO_EMAIL_SMS_PRE_AGE
+> Tabela de LOG para controle de envio de SMS e Email no Pre-Agendamento Cirúrgico
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ENVIO_EMAIL_SMS | NUMBER | N | Código do Log gerado do Envio do email/sms |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | N | Código do Aviso de Cirurgia do Log |
+| 3 | TP_ENVIO | VARCHAR2 | N | Indica o tipo de Envio do Log: (S) - SMS / (E) - Email |
+| 4 | DS_LOG | VARCHAR2 | N | Descrição do Log de envio do SMS/Email |
+| 5 | DH_ENVIO | DATE | N | Data de Envio do SMS/Email |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa ligada ao Aviso de Cirurgia |
+
+---
+
+## DBAMV.LOG_ENVIO_PLANSERV
+> Tabela de LOG dos envios do convênio Planserv, para utilizar ao receber o arquivo de retorno.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ENVIO_PLANSERV | NUMBER | N | Sequencial da tabela. |
+| 2 | CD_REMESSA | NUMBER | N | Número da nossa remessa. |
+| 3 | SEQ_REMESSA | NUMBER | N | Sequencial de remessa do convênio. |
+| 4 | NR_CONTA | VARCHAR2 | N | Número da conta no envio. |
+| 5 | NR_ITEM | NUMBER | N | Sequencial do item na conta. |
+| 6 | CD_CONTA | NUMBER | Y | Número da conta no sistema da MV (Hospitalar ou Ambulatorial). |
+| 7 | TP_CONTA | VARCHAR2 | Y | Tipo da conta (Hospitalar ou Ambulatorial). |
+| 8 | COD_SERVICO | VARCHAR2 | Y | Código do procedimento no envio (com ou sem de/para). |
+| 9 | CD_PRO_FAT | VARCHAR2 | Y | Código AMB do procedimento. |
+| 10 | VL_TOTAL_ITEM | NUMBER | Y | Valor total enviado para esse item. |
+| 11 | DT_LOG_PLANSERV | DATE | Y | Data de geração do arquivo. |
+| 12 | USUARIO | VARCHAR2 | Y | Usuário que gerou o arquivo. |
+
+---
+
+## DBAMV.LOG_ENVIO_UNITARIZACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID_LOG | NUMBER | Y |  |
+| 2 | DT_LOG | DATE | Y |  |
+| 3 | IP_EQUIPAMENTO | VARCHAR2 | Y |  |
+| 4 | PORTA | NUMBER | Y |  |
+| 5 | TIPO_EQUIPAMENTO | VARCHAR2 | Y |  |
+| 6 | ID_ETIQUETA | VARCHAR2 | Y |  |
+| 7 | COMANDO | CLOB | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID_LOG_ERRO | NUMBER | N |  |
+| 2 | FORMS | VARCHAR2 | Y |  |
+| 3 | BLOCO | VARCHAR2 | Y |  |
+| 4 | ITEM | VARCHAR2 | Y |  |
+| 5 | USUARIO | VARCHAR2 | Y |  |
+| 6 | DT_ERRO | DATE | Y |  |
+| 7 | DS_ERRO | VARCHAR2 | Y |  |
+| 8 | CD_ERRO | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO_ARQMAG_CONTA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ERRO_ARQMAG_CONTA | NUMBER | N |  |
+| 2 | CD_LOG_ERRO_ARQMAG_REMESSA | NUMBER | N |  |
+| 3 | CD_CONTA | NUMBER | Y |  |
+| 4 | TP_CONTA | VARCHAR2 | Y |  |
+| 5 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 6 | DS_ERRO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO_ARQMAG_ITEM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ERRO_ARQMAG_ITEM | NUMBER | N |  |
+| 2 | CD_LOG_ERRO_ARQMAG_CONTA | NUMBER | N |  |
+| 3 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 4 | CD_LANCAMENTO | NUMBER | Y |  |
+| 5 | DS_ERRO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO_ARQMAG_REMESSA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ERRO_ARQMAG_REMESSA | NUMBER | N |  |
+| 2 | CD_REMESSA | NUMBER | Y |  |
+| 3 | DT_GERACAO | DATE | Y |  |
+| 4 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO_ASSINATURA
+> Tabela responsavel em guardar os logs de erros de assinatura digital
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_DOCUMENTO_CLINICO | NUMBER | N |  |
+| 2 | DS_ERRO_ASSINATURA | VARCHAR2 | Y |  |
+| 3 | SN_RESOLVIDO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ERRO_ENT_PRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ENT_PRO | NUMBER | Y |  |
+| 2 | DT_LOG | DATE | Y |  |
+| 3 | DS_EXEC_PROCESSO | VARCHAR2 | Y |  |
+| 4 | DS_LOG | VARCHAR2 | Y |  |
+| 5 | TP_ERRO | VARCHAR2 | Y | Indica o tipo de erro se foi ocasionado na Entrada ou na Custo Medio |
+| 6 | CD_PRODUTO | NUMBER | Y | Indica o codigo do produto que ocasionou erro |
+
+---
+
+## DBAMV.LOG_ERRO_MGCE
+> Tabela do MGCE - ira  guardar os numeros gerados de guias de envio.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID_LOG_ERRO_MGCE | NUMBER | N | Indica o codigo do log de erro |
+| 2 | CD_KIT | NUMBER | Y | Indica o codigo do kit do produto que ocasionou erro |
+| 3 | CD_LOTE | NUMBER | Y | Indica o codigo do lote do produto que ocasionou erro |
+| 4 | CD_ESTERILIZA | NUMBER | Y | Indica o codigo da esterilizac?o que ocasionou erro |
+| 5 | DS_EXEC_PROCESSO | VARCHAR2 | Y | Indica o processo que ocasionou erro |
+| 6 | DS_LOG | VARCHAR2 | Y | Descritivo do erro ocorrido |
+| 7 | CD_USUARIO | VARCHAR2 | Y | Indica o codigo do usuario que ocasionou erro |
+| 8 | DT_LOG | DATE | Y | Indica a data que ocorreu o erro |
+
+---
+
+## DBAMV.LOG_ERRO_TUSS
+> Tabela para auxiliar no processamento da atualizac?o da TUSS.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LINHA | NUMBER | N | Sequencial da linha |
+| 2 | DS_LINHA | VARCHAR2 | Y | Texto da Linha. |
+| 3 | CD_LOG_ERRO_TUSS | NUMBER | Y | Sequencial da Sec?o. |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL
+> Log do Cadastro de Escalas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL | NUMBER | N | Codigo do Log |
+| 2 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 3 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario do Log |
+| 5 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da Escala |
+| 6 | TP_ESCALA_NEW | VARCHAR2 | Y | Classificac?o do Tipo de Escala: Imagem, laboratorio ou Ambulatorio |
+| 7 | HR_INICIO_NEW | DATE | Y | Horario de Inicio da Escala |
+| 8 | HR_FIM_NEW | DATE | Y | Horario final da Escala |
+| 9 | TP_DIA_SEMANA_NEW | NUMBER | Y | Tipo de Dia da semana para gerac?o da Agenda (Domingo, Segunda-feira, Terca-feira, Quarta-feira, ... |
+| 10 | QT_ENCAIXE_NEW | NUMBER | Y | Quantidade de Encaixes permitidos para a Escala |
+| 11 | QT_ATENDIMENTO_NEW | NUMBER | Y | Quantidade de Atendimentos maxima para a Escala |
+| 12 | SN_AGENDA_DINAMICA_NEW | VARCHAR2 | Y | Indicado de Agenda dinamica: Sim/N?o (agenda se ajusta ao tempo de realizac?o do Item) |
+| 13 | SN_AGENDA_PUBLICA_NEW | VARCHAR2 | Y | Indica se a visibilidade da agenda no Sistema: Publica (S) ou Privada (N) |
+| 14 | SN_ATENDE_FERIADO_NEW | VARCHAR2 | Y | Informa ao Sistema se a Escala gera ou n?o plant?o quando o dia for Feriado |
+| 15 | SN_SIA_NEW | VARCHAR2 | Y | Indica se a Escala permite ou n?o atendimento pelo SUS |
+| 16 | CD_RECURSO_CENTRAL_NEW | NUMBER | Y | Codigo do Recurso associado a Escala |
+| 17 | CD_PRESTADOR_NEW | NUMBER | Y | Codigo do Prestador a que se destina a agenda |
+| 18 | CD_UNIDADE_ATENDIMENTO_NEW | NUMBER | Y | Codigo da Unidade de Atendimento associada a Escala |
+| 19 | CD_SETOR_NEW | NUMBER | Y | Codigo do Setor que se destina a Agenda |
+| 20 | SN_SERVICO_LIVRE_NEW | VARCHAR2 | Y | Indica se o agendamento sera controlado ou n?o pela quantidade definida pelo Servico |
+| 21 | SN_TIPO_LIVRE_NEW | VARCHAR2 | Y | Indica se o agendamento sera controlado ou n?o pela quantidade definida pelo Tipo |
+| 22 | TP_PRODUCAO_NEW | VARCHAR2 | Y | Indica o tipo de recebimento do prestador na consulta: Contrato ou Produc?o |
+| 23 | DS_CONSULTORIO_NEW | VARCHAR2 | Y | Identifica um consultorio para a gerac?o de Agendas |
+| 24 | CD_MULTI_EMPRESA_NEW | NUMBER | Y | Codigo da Multi-empresa da escala |
+| 25 | SN_ATIVO_NEW | VARCHAR2 | Y | Indica se a Escala esta ativa ou n?o |
+| 26 | SN_PERMITE_ENCAIXE_EXTRA_NEW | VARCHAR2 | Y | Indica se a escala permite a criac?o de encaixes alem do numero maximo permitido |
+| 27 | SN_SOLICITA_SENHA_ENCAIXE_NEW | VARCHAR2 | Y | Indica se as agendas geradas solicitar?o informar senha para a realizac?o de encaixes ate a quant... |
+| 28 | TP_ESCALA_OLD | VARCHAR2 | Y | Classificac?o do Tipo de Escala: Imagem, laboratorio ou Ambulatorio |
+| 29 | HR_INICIO_OLD | DATE | Y | Horario de Inicio da Escala |
+| 30 | HR_FIM_OLD | DATE | Y | Horario final da Escala |
+| 31 | TP_DIA_SEMANA_OLD | NUMBER | Y | Tipo de Dia da semana para gerac?o da Agenda (Domingo, Segunda-feira, Terca-feira, Quarta-feira, ... |
+| 32 | QT_ENCAIXE_OLD | NUMBER | Y | Quantidade de Encaixes permitidos para a Escala |
+| 33 | QT_ATENDIMENTO_OLD | NUMBER | Y | Quantidade de Atendimentos maxima para a Escala |
+| 34 | SN_AGENDA_DINAMICA_OLD | VARCHAR2 | Y | Indicado de Agenda dinamica: Sim/N?o (agenda se ajusta ao tempo de realizac?o do Item) |
+| 35 | SN_AGENDA_PUBLICA_OLD | VARCHAR2 | Y | Indica se a visibilidade da agenda no Sistema: Publica (S) ou Privada (N) |
+| 36 | SN_ATENDE_FERIADO_OLD | VARCHAR2 | Y | Informa ao Sistema se a Escala gera ou n?o plant?o quando o dia for Feriado |
+| 37 | SN_SIA_OLD | VARCHAR2 | Y | Indica se a Escala permite ou n?o atendimento pelo SUS |
+| 38 | CD_RECURSO_CENTRAL_OLD | NUMBER | Y | Codigo do Recurso associado a Escala |
+| 39 | CD_PRESTADOR_OLD | NUMBER | Y | Codigo do Prestador a que se destina a agenda |
+| 40 | CD_UNIDADE_ATENDIMENTO_OLD | NUMBER | Y | Codigo da Unidade de Atendimento associada a Escala |
+| 41 | CD_SETOR_OLD | NUMBER | Y | Codigo do Setor que se destina a Agenda |
+| 42 | SN_SERVICO_LIVRE_OLD | VARCHAR2 | Y | Indica se o agendamento sera controlado ou n?o pela quantidade definida pelo Servico |
+| 43 | SN_TIPO_LIVRE_OLD | VARCHAR2 | Y | Indica se o agendamento sera controlado ou n?o pela quantidade definida pelo Tipo |
+| 44 | TP_PRODUCAO_OLD | VARCHAR2 | Y | Indica o tipo de recebimento do prestador na consulta: Contrato ou Produc?o |
+| 45 | DS_CONSULTORIO_OLD | VARCHAR2 | Y | Identifica um consultorio para a gerac?o de Agendas |
+| 46 | CD_MULTI_EMPRESA_OLD | NUMBER | Y | Codigo da Multi-empresa da escala |
+| 47 | SN_ATIVO_OLD | VARCHAR2 | Y | Indica se a Escala esta ativa ou n?o |
+| 48 | SN_PERMITE_ENCAIXE_EXTRA_OLD | VARCHAR2 | Y | Indica se a escala permite a criac?o de encaixes alem do numero maximo permitido |
+| 49 | SN_SOLICITA_SENHA_ENCAIXE_OLD | VARCHAR2 | Y | Indica se as agendas geradas solicitar?o informar senha para a realizac?o de encaixes ate a quant... |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL_CONVENIO
+> Log do Cadastro de Escalas por Convenio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL_CONVENIO | NUMBER | N | Codigo do Log |
+| 2 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 3 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario do Log |
+| 5 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da Escala relacionada |
+| 6 | CD_CONVENIO_NEW | NUMBER | Y | Codigo do Conenio da Escala |
+| 7 | QT_ATENDIMENTO_NEW | NUMBER | Y | Quantidade maxima de atendimentos para o convenio |
+| 8 | CD_CONVENIO_OLD | NUMBER | Y | Codigo do Conenio da Escala |
+| 9 | QT_ATENDIMENTO_OLD | NUMBER | Y | Quantidade maxima de atendimentos para o convenio |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL_HORARIO
+> Log de Horários/Vagas de escalas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL_HORARIO | NUMBER | N | Código do Log |
+| 2 | CD_ESCALA_CENTRAL | NUMBER | Y | Código da Escala relacionada |
+| 3 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 4 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 5 | CD_USUARIO_LOG | VARCHAR2 | N | Usuário do Log |
+| 6 | HR_HORARIO_OLD | DATE | Y | Horário cadastrado antes de alteração/insercao/exclusao |
+| 7 | QT_VAGAS_OLD | NUMBER | Y | Quantidade de vagas cadastrada antes de alteração/insercao/exclusao |
+| 8 | CD_SER_DIS_OLD | NUMBER | Y | Código do serviço cadastrado antes de alteração/insercao/exclusao |
+| 9 | CD_TIP_MAR_OLD | NUMBER | Y | Código do tipo de marcação cadastrado antes de alteração/insercao/exclusao |
+| 10 | TP_VISUALIZACAO_OLD | VARCHAR2 | Y | Tipo de visualização cadastrado antes de alteração/insercao/exclusao |
+| 11 | HR_HORARIO_NEW | DATE | Y | Horário cadastrado depois de alteração/insercao/exclusao |
+| 12 | QT_VAGAS_NEW | NUMBER | Y | Quantidade de vagas cadastrada depois de alteração/insercao/exclusao |
+| 13 | CD_SER_DIS_NEW | NUMBER | Y | Código do serviço cadastrado depois de alteração/insercao/exclusao |
+| 14 | CD_TIP_MAR_NEW | NUMBER | Y | Código do tipo de marcação cadastrado depois de alteração/insercao/exclusao |
+| 15 | TP_VISUALIZACAO_NEW | VARCHAR2 | Y | Tipo de visualização cadastrado depois de alteração/insercao/exclusao |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL_ITEM_AGENDA
+> Log do Cadastro de Escalas por Item de Agendamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL_ITEM_AGD | NUMBER | N | Codigo do Log |
+| 2 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 3 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario do Log |
+| 5 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da Escala |
+| 6 | CD_ITEM_AGENDAMENTO_NEW | NUMBER | Y | Codigo do item de agendamento da Escala |
+| 7 | CD_ITEM_AGENDAMENTO_OLD | NUMBER | Y | Codigo do item de agendamento da Escala |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL_SER_TIPO
+> Log dos Servicos e Tipos de Atendimentos permitidos para a Escala
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL_SER_TIPO | NUMBER | N | Codigo do Log |
+| 2 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 3 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario do Log |
+| 5 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da Escala associada |
+| 6 | CD_SER_DIS_NEW | NUMBER | Y | Codigo do Servico da Escala |
+| 7 | CD_TIP_MAR_NEW | NUMBER | Y | Codigo do Tipo de Atendimento (Marcac?o) da Escala |
+| 8 | QT_ATENDIMENTO_NEW | NUMBER | Y | Quantidade maxima de atendimentos permitida por Servico e Tipo |
+| 9 | CD_SER_DIS_OLD | NUMBER | Y | Codigo do Servico da Escala |
+| 10 | CD_TIP_MAR_OLD | NUMBER | Y | Codigo do Tipo de Atendimento (Marcac?o) da Escala |
+| 11 | QT_ATENDIMENTO_OLD | NUMBER | Y | Quantidade maxima de atendimentos permitida por Servico e Tipo |
+
+---
+
+## DBAMV.LOG_ESCALA_CENTRAL_USUARIO
+> Log de Usuarios configurados para acessar Agendas tipo "Particular"
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ESCALA_CENTRAL_USUARIO | NUMBER | N | Codigo do Log |
+| 2 | TP_LOG | VARCHAR2 | N | Tipo do Log |
+| 3 | DT_CADASTRO_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario do Log |
+| 5 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da Escala relacionada |
+| 6 | CD_USUARIO_NEW | VARCHAR2 | Y | Usuario com permiss?o para acessar agenda particular |
+| 7 | CD_USUARIO_OLD | VARCHAR2 | Y | Usuario com permiss?o para acessar agenda particular |
+
+---
+
+## DBAMV.LOG_ESTORNO_PAGTO_IMP_FCCT
+> Tabela que registra informac?es das contas a pagar de impostos que foram geradas em pagamentos, e posteriomente os mesmos foram estornados.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAGCON_PAG | NUMBER | N | Codigo do pagamento estornado que possue impostos gerados a  partir do mesmo. |
+| 2 | CD_DETALHAMENTO | NUMBER | N | Codigo do detalhamento cujo pagamento foi estornado. |
+| 3 | DT_LANCAMENTO_IMP | DATE | N | Data de lancamento  da conta a pagar de imposto gerada no pagamento estornado. |
+| 4 | DT_VENCIMENTO_IMP | DATE | N | Data de vencimento da conta a pagar de imposto gerada no pagamento estornado. |
+| 5 | VL_BRUTO_CONTA_IMP | NUMBER | N | Valor bruto da conta a pagar de imposto gerada no pagamento estornado. |
+| 6 | CD_REDUZIDO_IMP | NUMBER | Y | Codigo reduzido da conta a pagar de imposto gerada no pagamento estornado. |
+| 7 | CD_HISTORICO_PADRAO_IMP | NUMBER | Y | Codigo do historico padr?o  da conta a pagar de imposto gerada no pagamento estornado. |
+| 8 | DS_CON_PAG_IMP | VARCHAR2 | Y | Descric?o  da conta a pagar de imposto gerada no pagamento estornado. |
+| 9 | CD_PROCESSO_IMP | NUMBER | N | Codigo do Processo  da conta a pagar de imposto gerada no pagamento estornado. |
+| 10 | DT_MOVIMENTACAO_ESTORNO | DATE | N | Data da movimentac?o na conta corrente  da conta a pagar de imposto gerada no pagamento estornado. |
+| 11 | CD_PROCESSO_ESTORNO | NUMBER | N | Codigo do processo do pagamento estornado. |
+| 12 | DS_MOVIMENTACAO_ESTORNO | VARCHAR2 | Y | Descric?o da movimentac?o gerada no pagamento estornado. |
+| 13 | CD_EXP_CONTABILIDADE_ESTORNO | NUMBER | Y | Codigo contabil cujo estorno foi importado. |
+| 14 | CD_CON_PAG | NUMBER | Y | Codigo do da conta a pagar do imposto. |
+| 15 | CD_LCTO_MOVIMENTO | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ETIQUETA_CME
+> [MGCE] Tabela de log das etiquetas.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ETIQUETA_CME | NUMBER | N | Código sequencial do log |
+| 2 | CD_SOLICITACAO_CME | NUMBER | N | Código da Composição de Solicitação CME. Tabela COMPOSICAO_SOLICITACAO_CME. |
+| 3 | DS_CD_BARRAS | VARCHAR2 | Y | Código de barras da etiqueta. |
+| 4 | CD_KIT | NUMBER | Y | Código do Bem. |
+| 5 | CD_BEM | NUMBER | Y | Código do Bem. Tabela |
+| 6 | CD_BEM_TERCEIRO | NUMBER | Y | Código do bem de terceiro. |
+| 7 | CD_ESTERILIZA | NUMBER | Y | Código da esterilização. |
+| 8 | CD_PRODUTO_ROUPARIA | NUMBER | Y | Código do Produto de Rouparia. |
+| 9 | CD_PRODUTO_REPROCESSADO | NUMBER | Y | Código do Produto de Reprocessado. |
+| 10 | TP_ETIQUETA | VARCHAR2 | N | Tipo da etiqueta. D = DESINFECTADO, P = PREPARO, E = ESTERILIZAÇÃO |
+
+---
+
+## DBAMV.LOG_EVENTOS
+> Tabela para gravar log de eventos da aplicação, idieia inicial gravar mensagens apresentadas ao usuário para estatísticas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Usuário ao qual foi apresentado a mensagem |
+| 2 | DH_LOG_EVENTOS | DATE | Y | Data/Hora do evento obtida do banco |
+| 3 | CD_IDENTIFICADOR | VARCHAR2 | N | Identificador do erro |
+| 4 | CD_ATENDIMENTO | NUMBER | Y | Identificador do atendimento |
+| 5 | CD_SISTEMA | VARCHAR2 | N | Identificador do sistema |
+| 6 | DS_OBSERVACAO | VARCHAR2 | Y | Observações gerais sobre o evento |
+| 7 | CD_LOG_EVENTOS | NUMBER | N | CODIGO DO LOG EVENTO |
+
+---
+
+## DBAMV.LOG_EVE_SIASUS
+> Tabela de log de eventos da EVE_SIASUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EVE_SIASUS | NUMBER | N | Codigo sequencial. |
+| 2 | CD_ATENDIMENTO | NUMBER | N | Codigo do Atendimento. |
+| 3 | CD_SSM | VARCHAR2 | Y | Codigo do Procedimento Ambulatorial |
+| 4 | CD_ESPECIALID | NUMBER | Y | Codigo da Especialidade |
+| 5 | CD_PRESTADOR | NUMBER | Y | Codigo do Prestador |
+| 6 | CD_FAT_SIA | NUMBER | N | Codigo da Fatura Ambulatorial |
+| 7 | NM_USUARIO | VARCHAR2 | Y | Nome do Usuario |
+| 8 | TP_ACAO | VARCHAR2 | Y | Tipo da ac?o efetuada no registro A-utorizac?o ou E-xclus?o. |
+| 9 | CD_ITPED_RX | NUMBER | Y | Codigo do item de pedido do PSDI n?o importado. |
+| 10 | DS_MSG_ERRO | VARCHAR2 | Y | Mensagem de justificativa para o item n?o importado. |
+| 11 | CD_CBO_PRESTADOR | VARCHAR2 | Y | Codigo do CBO do prestador no SUS portaria 321 |
+| 12 | CD_PROCEDIMENTO | VARCHAR2 | Y | Codigo do procedimento SUS da portaria 321 |
+| 13 | QT_LANCADA | NUMBER | Y | Quantidade Lancada. |
+| 14 | DT_ACAO | DATE | Y | Data da ac?o efetuada no registro. |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_AGENDAMENTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXCLUSAO_AGENDAMENTO | NUMBER | N |  |
+| 2 | CD_IT_MARCACAO | NUMBER | Y |  |
+| 3 | CD_MARCACAO | NUMBER | Y |  |
+| 4 | DT_AGENDADO | DATE | Y |  |
+| 5 | HR_AGENDADO | DATE | Y |  |
+| 6 | CD_PACIENTE | NUMBER | Y |  |
+| 7 | NM_PACIENTE | VARCHAR2 | Y |  |
+| 8 | DT_NASCIMENTO | DATE | Y |  |
+| 9 | DS_REFERENCIADO | VARCHAR2 | Y |  |
+| 10 | CD_TIP_MAR | NUMBER | Y |  |
+| 11 | CD_SER_DIS | NUMBER | Y |  |
+| 12 | NM_USUARIO_CADASTRO | VARCHAR2 | Y |  |
+| 13 | NM_USUARIO_EXCLUSAO | VARCHAR2 | Y |  |
+| 14 | DT_EXCLUSAO | DATE | Y |  |
+| 15 | CD_PACIENTE_ANTIGO | VARCHAR2 | Y |  |
+| 16 | CD_MOT_CANC | NUMBER | Y |  |
+| 17 | CD_ESCALA_DIA | NUMBER | Y |  |
+| 18 | HR_AGENDA | DATE | Y |  |
+| 19 | CD_CONVENIO | NUMBER | Y |  |
+| 20 | CD_CON_PLA | VARCHAR2 | Y |  |
+| 21 | NR_TELEFONE | VARCHAR2 | Y |  |
+| 22 | CD_SISTEMA | VARCHAR2 | N |  |
+| 23 | CD_UNIDADE_REGIONAL | VARCHAR2 | Y |  |
+| 24 | NR_PESO | NUMBER | Y |  |
+| 25 | NR_ALTURA | NUMBER | Y |  |
+| 26 | NR_IDADE | NUMBER | Y |  |
+| 27 | DT_MARCACAO | DATE | Y |  |
+| 28 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_EXA_LAB
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXCLUSAO_EXA_LAB | NUMBER | N |  |
+| 2 | CD_LOG_EXCLUSAO_AGENDAMENTO | NUMBER | Y |  |
+| 3 | CD_ESCALA_DIA | NUMBER | Y |  |
+| 4 | HR_AGENDA | DATE | Y |  |
+| 5 | CD_EXA_LAB | NUMBER | Y |  |
+| 6 | CD_LABORATORIO | NUMBER | Y |  |
+| 7 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_EXA_RX
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXCLUSAO_EXA_RX | NUMBER | N |  |
+| 2 | CD_LOG_EXCLUSAO_AGENDAMENTO | NUMBER | Y |  |
+| 3 | CD_ESCALA_DIA | NUMBER | Y |  |
+| 4 | HR_AGENDA | DATE | Y |  |
+| 5 | DS_REGIAO | VARCHAR2 | Y |  |
+| 6 | CD_EXA_RX | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_PACIENTE
+> Tabela de Log de Exclus?o do Cadastro de Paciente
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXCLUSAO_PACIENTE | NUMBER | N | Sequencial do registro - Chave primaria da tabela |
+| 2 | CD_PACIENTE | NUMBER | N | Codigo do Paciente excluido |
+| 3 | NM_PACIENTE | VARCHAR2 | N | Nome do Paciente excluido |
+| 4 | DS_COLUNA | VARCHAR2 | N | Nome da coluna que foi alterada no Cadastro de Paciente |
+| 5 | DS_DADO_ANTERIOR | VARCHAR2 | Y | Informac?o anterior a alterac?o que foi realizada na coluna |
+| 6 | DS_DADO_ATUAL | VARCHAR2 | Y | Nova informac?o encontrada na coluna |
+| 7 | DT_CADASTRO | DATE | Y | Data em que foi realizado o Cadastro do Paciente excluido |
+| 8 | DT_NASCIMENTO | DATE | Y | Data de nascimento do paciente excluido |
+| 9 | NM_MAE | VARCHAR2 | Y | Nome da m?e do paciente excluido |
+| 10 | CD_MOTIVO | NUMBER | Y | Codigo do Motivo da exclus?o do Cadastro de Paciente |
+| 11 | DT_TRANSACAO | DATE | Y | Date e hora que foi realizada a exclus?o ou alterac?o do Cadastro de Paciente |
+| 12 | CD_USUARIO | VARCHAR2 | Y | Usuario que realizou a exclus?o do Cadastro de Paciente |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXC_PSSD | NUMBER | N |  |
+| 2 | CD_ITPED_LAB | NUMBER | N |  |
+| 3 | TP_EXCLUSAO | VARCHAR2 | N |  |
+| 4 | DT_EXCLUSAO | DATE | N |  |
+| 5 | HR_EXCLUSAO | DATE | N |  |
+| 6 | CD_USUARIO_EXCLUSAO | VARCHAR2 | N |  |
+| 7 | DT_OPERACAO | DATE | N |  |
+| 8 | CD_USUARIO_OPERACAO | VARCHAR2 | Y |  |
+| 9 | DS_MOTIVO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_EXCLUSAO_SAC_SOLIC
+> Log de Exclus?o dos Chamados do SAC.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SOLICITACAO | NUMBER | N | Codigo da Solicitac?o (Numero do Chamado). |
+| 2 | CD_ORIGEM | NUMBER | Y | Codigo da Origem da Solicitac?o |
+| 3 | CD_CHAMADO | NUMBER | Y | Codigo do Tipo do Chamado |
+| 4 | CD_NIVEL | NUMBER | Y | Codigo do Nivel do Chamado |
+| 5 | DT_SOLICITACAO | DATE | Y | Data em que foi realziado o Chamado. |
+| 6 | HR_SOLICITACAO | DATE | Y | Hora em que foi realizado o Chamado. |
+| 7 | NM_ORIGEM | VARCHAR2 | Y | Nome do responsavel pela solicitac?o de abertura do Chamado. |
+| 8 | NR_IDENT | VARCHAR2 | Y | Numero do Documento da pessoa que solicitou abertura do Chamado. |
+| 9 | DESCR_CHAMADO | VARCHAR2 | Y | Texto descritivo do Chamado. |
+| 10 | DT_EXCLUSAO | DATE | Y | Data de exclus?o do chamado. |
+| 11 | HR_EXCLUSAO | DATE | Y | Hora de exclus?o do Chamado. |
+| 12 | DS_MOTIVO_EXCLUSAO | VARCHAR2 | Y | Descric?o do Motivo do Chamado. |
+| 13 | CD_USUARIO_EXCLUSAO | VARCHAR2 | Y | Usuario responsavel pela exclus?o do registro. |
+| 14 | CD_MULTI_EMPRESA | NUMBER | Y | Adiciona o campo Código da Empresa logada. |
+
+---
+
+## DBAMV.LOG_EXCL_ATENDIME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | N |  |
+| 2 | CD_PACIENTE | NUMBER | N |  |
+| 3 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 4 | DT_LOG_EXCL_ATENDIME | DATE | Y |  |
+| 5 | HR_LOG_EXCL_ATENDIME | DATE | Y |  |
+| 6 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 7 | NM_USUARIO | VARCHAR2 | Y |  |
+| 8 | DT_ATENDIMENTO | DATE | Y |  |
+| 9 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBAMV.LOG_EXCL_MOV_INT
+> Tabela que guarda os logs do cancelamento da movimentac?o do atendimento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 2 | CD_MOV_INT | NUMBER | N |  |
+| 3 | CD_CONVENIO | NUMBER | Y |  |
+| 4 | CD_PRESTADOR | NUMBER | Y |  |
+| 5 | CD_LEITO | NUMBER | Y |  |
+| 6 | DT_MOV_INT | DATE | N |  |
+| 7 | HR_MOV_INT | DATE | N |  |
+| 8 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 9 | SN_RESERVA | VARCHAR2 | Y |  |
+| 10 | CD_LEITO_ANTERIOR | NUMBER | Y |  |
+| 11 | CD_TIP_ACOM | NUMBER | Y |  |
+| 12 | TP_MOV | VARCHAR2 | N |  |
+| 13 | NM_USUARIO | VARCHAR2 | Y |  |
+| 14 | DT_LIB_MOV | DATE | Y |  |
+| 15 | HR_LIB_MOV | DATE | Y |  |
+| 16 | CD_MOTIVO_TRANSF_LEITO | NUMBER | Y | Codigo identificador do registro na tabela dbamv.motivo_transf_leito |
+| 17 | CD_MOV_INT_INTEGRA | VARCHAR2 | Y | Codigo da movimentac?o do leito |
+| 18 | CD_SEQ_INTEGRA | NUMBER | Y | Codigo sequencial da integrac?o |
+| 19 | DT_INTEGRA | DATE | Y | Data da integrac?o |
+| 20 | DS_LOCAL | VARCHAR2 | Y | Indica o local (Tela ou Objeto) que realizou a manipulac?o na Movimentac?o do leito |
+| 21 | NR_NUMERACAO_ACESSO | VARCHAR2 | Y | Numerac?o para controle das ac?es realizadas na Movimentac?o de leito |
+| 22 | DS_MOTIVO_CANCELAMENTO | VARCHAR2 | N | Motivo do cancelamento da movimentac?o do atendimento |
+| 23 | CD_USUARIO_CANCELAMENTO | VARCHAR2 | N | Usuario que cancelou a movimentac?o |
+| 24 | DT_HR_CANC_MOV_INT | DATE | N | Data e hora do cancelamento da movimentac?o |
+
+---
+
+## DBAMV.LOG_EXC_EXA_RX
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXA_RX | NUMBER | N |  |
+| 2 | CD_EXA_RX | NUMBER | N |  |
+| 3 | CD_PED_RX | NUMBER | N |  |
+| 4 | DS_REGIAO | VARCHAR2 | Y |  |
+| 5 | CD_ITPED_RX | NUMBER | Y | Codigo do Item do Pedido |
+| 6 | DT_EXCLUSAO | DATE | Y | Data em que o item do pedido foi excluido |
+| 7 | CD_USUARIO_EXCLUSAO | VARCHAR2 | Y | Codigo do usuario responsavel pela exclus?o do item do pedido |
+
+---
+
+## DBAMV.LOG_EXC_ITPED_RX
+> Tabela de log de exclusão de itens de pedidos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PED_RX | NUMBER | N |  |
+| 2 | CD_ITPED_RX | NUMBER | N |  |
+| 3 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 4 | CD_PACIENTE | NUMBER | Y |  |
+| 5 | TP_ATENDIMENTO | VARCHAR2 | N |  |
+| 6 | DT_LOG_EXC_ITPED_RX | DATE | Y |  |
+| 7 | HR_LOG_EXC_ITPED_RX | DATE | Y |  |
+| 8 | NM_USUARIO | VARCHAR2 | Y |  |
+| 9 | CD_MOT_EXC | NUMBER | Y |  |
+| 10 | CD_EXA_RX | NUMBER | Y |  |
+| 11 | DS_MOTIVO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_EXC_LAUDO_RX
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LAUDO | NUMBER | N |  |
+| 2 | CD_PED_RX | NUMBER | N |  |
+| 3 | CD_PACIENTE | NUMBER | N |  |
+| 4 | CD_ATENDIMENTO | NUMBER | N |  |
+| 5 | DT_LOG_EXC_LAUDO | DATE | Y |  |
+| 6 | HR_LOG_EXC_LAUDO | DATE | Y |  |
+| 7 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 8 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_EXC_PED_LAB
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PED_LAB | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | N |  |
+| 3 | CD_PACIENTE | NUMBER | N |  |
+| 4 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 5 | DT_LOG_EXC_PED_LAB | DATE | Y |  |
+| 6 | HR_LOG_EXC_PED_LAB | DATE | Y |  |
+| 7 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 8 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_EXC_PED_RX
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PED_RX | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | N |  |
+| 3 | CD_PACIENTE | NUMBER | N |  |
+| 4 | TP_ATENDIMENTO | VARCHAR2 | Y |  |
+| 5 | DT_LOG_EXC_PED_RX | DATE | Y |  |
+| 6 | HR_LOG_EXC_PED_RX | DATE | Y |  |
+| 7 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 8 | NM_USUARIO | VARCHAR2 | Y |  |
+| 9 | CD_MOT_EXC | NUMBER | Y | Código do motivo de exclusão de exames |
+
+---
+
+## DBAMV.LOG_EXECUCAO_COTA_RESSUPRIMEN
+> Tabela que guarda o registro das execuções do ressuprimento/retorno do excesso de suprimento automático.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXECUCAO_COTA | NUMBER | N | Guarda o código identificador do log da execução do ressuprimento/retorno do excesso de supriment... |
+| 2 | SN_RESSUPRIMENTO | VARCHAR2 | N | Guarda o indicador da operação que gerou o registro. Valores possíveis: S - Ressuprimento; N - Re... |
+| 3 | DT_OPERACAO | DATE | N | Guarda a data em que a operação foi realizada. |
+| 4 | CD_COTA | NUMBER | N | Guarda o código da cota que gerou o registro. |
+| 5 | DS_OBSERVACAO | VARCHAR2 | Y | Guarda um texto indicando o erro ou o documento que foi gerado pela execução da rotina. |
+
+---
+
+## DBAMV.LOG_EXECUCAO_SCRIPT
+> Tabela de log de execução de script
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXECUCAO_SCRIPT | NUMBER | N | PRIMARY KEY DO LOG DE SCRIPTS |
+| 2 | NM_USUARIO | VARCHAR2 | N | USUÁRIO QUE EXECUTOU O SCRIPT |
+| 3 | CD_SCRIPT | NUMBER | N | CÓDIGO DO SCRIPT APLICADO |
+| 4 | DURACAO | NUMBER | N | TEMPO EM SEGUNDOS DA APLICAÇÃO DO SCRIPT |
+| 5 | DT_EXECUCAO | DATE | N | DATA DE EXECUÇÃO DO SCRIPT |
+| 6 | QT_REGISTROS_AFETADOS | NUMBER | N | QUANTIDADE DE REGISTROS AFETADOS PELO SCRIPT |
+
+---
+
+## DBAMV.LOG_EXEC_GUIA_EXAMES
+> Tabela ser? respons?vel por gerar as informa??es da integra??o e recebimento das informa??es da guia fruto
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXEC_EXAME | NUMBER | N | C?digo gerado por sequence |
+| 2 | CD_EXEC_EXAME | NUMBER | N | FK da tabela pai |
+| 3 | CD_PRO_FAT | VARCHAR2 | N | C?digo do procedimento |
+| 4 | DS_LOG_ERRO | VARCHAR2 | N | Campo responsável para guardar o log do erro |
+
+---
+
+## DBAMV.LOG_EXPORTACAO_LAUDO_SUS
+> Tabela com as falhas de exportação dos laudos do SUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | TP_LOG | VARCHAR2 | N | Tipo de log E- Erros S-Sucessos |
+| 2 | NR_LOTE | NUMBER | N | Número do lote controle de laudos SUS |
+| 3 | NR_SEQ | NUMBER | N | Número sequencial do erro |
+| 4 | CD_ATENDIMENTO | NUMBER | N |  |
+| 5 | CD_REG_FAT | NUMBER | N | Identificação da conta |
+| 6 | NR_LAUDO | NUMBER | Y | Número do laudo |
+| 7 | DH_GERACAO | DATE | N | Data e hora de geração do log |
+| 8 | DS_FALHA | VARCHAR2 | Y | Descrição do erro na exportação |
+
+---
+
+## DBAMV.LOG_EXPORT_ATENDIME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_EXPORT_ATENDIME | NUMBER | N |  |
+| 2 | DT_LOG_EXPORT_ATENDIME | DATE | N |  |
+| 3 | NR_REG | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_FALHA_ARQMAG
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FALHA_ARQMAG | NUMBER | N |  |
+| 2 | DS_FALHA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_FALHA_ARQMAG_RPS
+> Tabela de log de erro da gerac?o de RPS em meio magnetico
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FALHA_ARQMAG_RPS | NUMBER | Y | Sequencial de gerac?o do log de erro |
+| 2 | DT_FALHA | DATE | Y | Data de gerac?o do log de erro |
+| 3 | DS_FALHA | VARCHAR2 | Y | Descric?o do log de erro |
+| 4 | NR_RPS | NUMBER | Y | Numero do RPS que gerou o log de erro |
+| 5 | CD_SERIE_RPS | VARCHAR2 | Y | Serie do RPS que gerou o log de erro |
+| 6 | DT_EMISSAO_RPS | DATE | Y | Data de emiss?o do RPS que gerou o log de erro |
+| 7 | NM_CLIENTE_RPS | VARCHAR2 | Y | Nome/Raz?o do cliente do RPS que gerou o log de erro |
+| 8 | VL_TOTAL_RPS | NUMBER | Y | Valor do RPS que gerou o log de erro |
+| 9 | TP_MENSAGEM | VARCHAR2 | N | Informa o tipo de mensagem no log de falha (I = Informativo e E = Erro) |
+
+---
+
+## DBAMV.LOG_FALHA_COMUNICACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_LOG_FALHA | DATE | Y |  |
+| 2 | HR_LOG_FALHA | DATE | Y |  |
+| 3 | CD_PACIENTE | NUMBER | Y |  |
+| 4 | DT_MARCACAO | DATE | Y |  |
+| 5 | ERRO_ORA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_FALHA_EXPORTACAO_LAUDO_SUS
+> Tabela com as falhas de exportação dos laudos do SUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_LOTE | NUMBER | N | Número do lote controle de laudos SUS |
+| 2 | NR_SEQ | NUMBER | N | Número sequencial do erro |
+| 3 | CD_ATENDIMENTO | NUMBER | N |  |
+| 4 | CD_REG_FAT | NUMBER | N | Identificação da conta |
+| 5 | NR_LAUDO | NUMBER | Y | Número do laudo |
+| 6 | DH_GERACAO | DATE | N | Data e hora de geração do log |
+| 7 | DS_FALHA | VARCHAR2 | N | Descrição do erro na exportação |
+
+---
+
+## DBAMV.LOG_FALHA_IMPORTACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | Y |  |
+| 2 | CD_MVTO_FALHA | NUMBER | Y |  |
+| 3 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 4 | CD_ITEM_FALHA | NUMBER | Y |  |
+| 5 | DT_IMPORTACAO | DATE | Y |  |
+| 6 | TP_IMPORTACAO | VARCHAR2 | Y |  |
+| 7 | TP_ERRO | VARCHAR2 | Y | Indica o tipo de erro. |
+| 8 | NM_USUARIO_GEROU | VARCHAR2 | Y |  |
+| 9 | NM_USUARIO_BAIXOU | VARCHAR2 | Y |  |
+| 10 | DS_MSG_ERRO | VARCHAR2 | Y |  |
+| 11 | CD_LOG_FALHA_IMPORTACAO | NUMBER | N |  |
+| 12 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 13 | CD_REG_AMB | NUMBER | Y |  |
+| 14 | NM_USUARIO_EXCLUIU | VARCHAR2 | Y | Armazena o usuario que excluiu o registro do consumo n?o lancado |
+| 15 | CD_INTEGRACAO | NUMBER | Y | Codigo da integrac?o de entrada para lancamentos externos, quando o tipo de erro for 12 |
+| 16 | CD_PROCEDIMENTO | VARCHAR2 | Y | Codigo do procedimento P321. |
+
+---
+
+## DBAMV.LOG_FALHA_IMPORTACAO_FFAS
+> Tabela que guarda informac?es de registros que n?o foram importados.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo sequencial do log. |
+| 2 | CD_CHAVE | NUMBER | Y | Codigo sequencial do item que esta sendo integrado FK (CD_ITPED_LAB) por exemplo. |
+| 3 | DT_LOG | DATE | Y | Data de gravacao do log. |
+| 4 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario da transac?o no momento da falha na importac?o. |
+| 5 | TP_INSTRUMENTO_REGISTRO | VARCHAR2 | Y | Informac?o que indica o tipo de instrumento SUS Ambulatorial APAC, BPA, SISCO, SISMAMA. |
+| 6 | DS_ORIGEM | VARCHAR2 | Y | Informac?o da origem do movimento para ser importado (PSSD, PSDI, PAGU, PARA, PAEU, FSCC ou PAGU). |
+| 7 | DS_MSG_FALHA_IMPORTACAO | VARCHAR2 | Y | Mensagem que indica a falha na importac?o do movimento |
+
+---
+
+## DBAMV.LOG_FALHA_IMP_TROCA_CHAVE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FALHA_IMPORTACAO | NUMBER | Y |  |
+| 2 | DT_REALIZACAO | DATE | Y |  |
+| 3 | CD_ITEM_FALHA_ANT | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_FATURA_CEDIMAT
+> Tabela de log para guardar os usuarios que imprimiram a fatura cedimat
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FATURA_CEDIMAT | NUMBER | N |  |
+| 2 | CD_REG_FAT | NUMBER | Y |  |
+| 3 | CD_REG_AMB | NUMBER | Y |  |
+| 4 | CD_ATENIMENTO | NUMBER | Y |  |
+| 5 | CD_USUARIO | VARCHAR2 | Y |  |
+| 6 | DATA_IMPRESSAO | DATE | Y |  |
+
+---
+
+## DBAMV.LOG_FECHAMENTO_MASSIVO
+> Tabela responsável por guardar os logs das contas que tiveram alguem tipo de problema no momento do fechamento automático
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FEC_MASSIVO | NUMBER | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa da conta |
+| 3 | CD_CONTA | NUMBER | N | Código da conta ambulatorial ou hospitalar |
+| 4 | TP_CONTA | VARCHAR2 | N | Tipo de conta |
+| 5 | CD_ATENDIMENTO | NUMBER | N | Código do atendimento da conta |
+| 6 | NM_PACIENTE | VARCHAR2 | N | Nome do paciente da conta |
+| 7 | CD_RUT | VARCHAR2 | Y | Código RUT do paciente |
+| 8 | DT_ATENDIMENTO | DATE | N | Data do atendimento |
+| 9 | CD_CONVENIO | NUMBER | N | Código do convênio da conta |
+| 10 | CD_CON_PLA | NUMBER | N | Código do plano da conta |
+| 11 | CD_ORI_ATE | NUMBER | N | Código da origem do atendimento |
+| 12 | DT_CRIACAO | DATE | N | Data de criação do registro da conta no log |
+| 13 | DS_ERRO | VARCHAR2 | N | Descrição do erro ocorrido no momento do fechamento automático da conta |
+
+---
+
+## DBAMV.LOG_FECHAMENTO_MGES
+> Tabela para auxiliar no novo processo de consolidação unificada
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FECHAMENTO | NUMBER | N | Código identificador do registro |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa |
+| 3 | SN_RESOLVIDO | VARCHAR2 | N | Indicador de resolução (N - Não; S - Sim) |
+| 4 | DT_COMPETENCIA | DATE | N | Competência consolidada |
+| 5 | TP_PROCESSO | VARCHAR2 | N | Indica o processo que gerou o registro (AV - Aviso de Cirurgia Pendente; TE - Transferência entre... |
+| 6 | CD_CONTAGEM | NUMBER | Y | Código da contagem que gerou o registro |
+| 7 | CD_PRODUTO | NUMBER | Y | Código do produto |
+| 8 | CD_ESTOQUE | NUMBER | Y | Código do estoque |
+| 9 | CD_MVTO_ESTOQUE | NUMBER | Y | Código da movimentação que gerou o registro |
+| 10 | CD_MOVIMENTACAO | NUMBER | Y | Código genérico de documento para auxiliar no processo |
+| 11 | CD_ENT_PRO | NUMBER | Y | Código da entrada que gerou o registro |
+| 12 | DT_LOG_FECHAMENTO | DATE | N | Data de registro do log |
+| 13 | DS_PENDENCIA | VARCHAR2 | Y | Descriçao da pendência |
+| 14 | TP_LOG | VARCHAR2 | N | Indica o tipo de registro do log (A - Advertência; E - Erro) |
+
+---
+
+## DBAMV.LOG_FFAS_CANCEL_GLOSA_BPA
+> Tabela de LOG dos cancelamentos de glosa BPA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EVENTO_REAPRESENTADO | NUMBER | N | Evento reapresentado que foi excluído |
+| 2 | CD_FAT_SIA_REAPRESENTADO | NUMBER | N | Fatura do evento reapresentado que foi excluído |
+| 3 | CD_REMESSA_REAPRESENTADO | NUMBER | N | Remessa do evento reapresentado que foi excluído |
+| 4 | CD_EVENTO_GLOSADO | NUMBER | N | Evento que teve a glosa cancelada |
+| 5 | DH_CANCELAMENTO | DATE | N | Data e hora do cancelamento |
+| 6 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou o cancelamento |
+| 7 | CD_MULTI_EMPRESA | NUMBER | N | Número da empresa |
+
+---
+
+## DBAMV.LOG_FFAS_FALHA_IMPORTACAO_APAC
+> Tabela de LOG das falhas ocorridas na integração com o laudo ou a conta APAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DH_IMPORTACAO | DATE | N | Data e hora da importação |
+| 2 | CD_CHAVE | NUMBER | N | Chave para acessar o registro a ser importado |
+| 3 | CD_ATENDIMENTO | NUMBER | Y | Código do atendimento da importação |
+| 4 | TP_ORIGEM_IMPORTACAO | VARCHAR2 | N | Módulo de origem da importação, ex: PARA, PSSD ... |
+| 5 | TP_DESTINO_IMPORTACAO | VARCHAR2 | N | Destino da importação: L-Laudo APAC  C-Conta APAC |
+| 6 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a importação |
+| 7 | DS_FALHA | VARCHAR2 | N | Descrição do erro na importação |
+| 8 | CD_MULTI_EMPRESA | NUMBER | N | Número da empresa |
+
+---
+
+## DBAMV.LOG_FFAS_FALHA_IMPORTACAO_BPA
+> Tabela de LOG das falhas ocorridas na integração BPA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DH_IMPORTACAO | DATE | N | Data e hora da importação |
+| 2 | CD_CHAVE | NUMBER | N | Chave para acessar o registro a ser importado |
+| 3 | CD_ATENDIMENTO | NUMBER | Y | Código do atendimento da importação |
+| 4 | TP_ORIGEM_IMPORTACAO | VARCHAR2 | N | Módulo de origem da importação, ex: PARA, PSSD ... |
+| 5 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a importação |
+| 6 | DS_FALHA | VARCHAR2 | N | Descrição do erro na importação |
+| 7 | CD_MULTI_EMPRESA | NUMBER | N | Número da empresa |
+
+---
+
+## DBAMV.LOG_FFAS_GRAVA_CAMPOS
+> Tabela que grava registro de alteracac?o na Eve_siasus
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo de identificac?o |
+| 2 | TP_LOG | NUMBER | N | Codigo de identificac?o do tipo de alterac?o 1(setor) |
+| 3 | DT_REGISTRO | DATE | N | Data de alterac?o |
+| 4 | NM_USUARIO | VARCHAR2 | N | Usuario logado no sistema |
+| 5 | CD_EVENTOS | NUMBER | N |  |
+| 6 | CD_SETOR_OLD | NUMBER | Y | cd_setor antigo |
+| 7 | CD_SETOR_PRODUZIU_OLD | NUMBER | Y | cd_setor_produziu antigo |
+| 8 | CD_SETOR_NEW | NUMBER | Y | cd_setor novo |
+| 9 | CD_SETOR_PRODUZIU_NEW | NUMBER | Y | cd_setor_produziu novo |
+| 10 | CD_CID_OLD | VARCHAR2 | Y | Codigo antigo do Cid |
+| 11 | CD_CID_NEW | VARCHAR2 | Y | Codigo novo do Cid |
+| 12 | CD_MODULO | VARCHAR2 | Y | Modulo proveniente da alteracao |
+
+---
+
+## DBAMV.LOG_FFCV_POPULA_CAMPOS
+> Tabela de Log para a func?o FNC_FFCV_POPULA_CAMPOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | Y | Codigo sequencial da tabela |
+| 2 | DT_LOG | DATE | Y | Data em que o registro foi criado |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Usuario que gerou o log |
+| 4 | NM_FORMULARIO | VARCHAR2 | Y | Nome da tela ou rotina que disparou a func?o |
+| 5 | NM_TITULO | VARCHAR2 | Y | Titulo definido para identificac?o |
+| 6 | NM_TABELA | VARCHAR2 | Y | Tabela que foi alterada |
+| 7 | NM_COLUNA | VARCHAR2 | Y | Coluna que foi alterada |
+| 8 | DS_LOG | VARCHAR2 | Y | Descric?o do processo |
+| 9 | TP_VERIFICACAO | VARCHAR2 | Y | Tipo de verificac?o ou atualizac?o (uso variado) |
+| 10 | CD_MULTI_EMPRESA | NUMBER | Y | Numero da empresa do registro atualizado |
+
+---
+
+## DBAMV.LOG_FICHA_PRE_ANEST
+> Log das alterac?es da ficha pre-anestesica
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FICHA_PRE_ANEST | NUMBER | N | Codigo do Log da Ficha pre-anestesica |
+| 2 | CD_FICHA_PRE_ANESTESICA | NUMBER | Y | Codigo da Ficha pre-anestesica alterada |
+| 3 | TP_OPERACAO | VARCHAR2 | Y | Tipo de operac?o na ficha: Exclus?o ou Alterac?o |
+| 4 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario que efetuou a alterac?o |
+| 5 | DT_ALTERACAO | DATE | Y | data em que a ficha foi alterada |
+| 6 | SN_APTO_ANTIGO | VARCHAR2 | Y | Valor anterior a alterac?o para o campo Sn_Apto |
+| 7 | DT_VALIDADE_ANTIGA | DATE | Y | Data de validade antes da alterac?o da ficha |
+| 8 | CD_PACIENTE_ANTIGO | NUMBER | Y | Codigo do paciente antes da alterac?o |
+| 9 | DT_FICHA_ANTIGA | DATE | Y | data da ficha, antes da alterac?o |
+
+---
+
+## DBAMV.LOG_FILA_ESPERA_FSCC
+> Tabela de log de operações da fila de espera.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FILA_ESPERA_FSCC | NUMBER | N | Chave da tabela. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuário responsável pelo registro do log. |
+| 3 | CD_AVISO_CIRURGIA | NUMBER | N |  |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Operação efetuada. AI- aprovação de internação, AO - aprovação de opme, RI - reprovação de intern... |
+| 5 | DT_OPERACAO | DATE | N | Data da operação. |
+
+---
+
+## DBAMV.LOG_FINANCEIRO
+> Log de erro finan_receb_item
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_LOG | NUMBER | N | Codigo sequencial da tabela |
+| 2 | DS_TELA | VARCHAR2 | Y | Nome da tela que está sendo gerado o log |
+| 3 | DT_ERRO | DATE | Y | Data da insercao |
+| 4 | DS_ERRO | VARCHAR2 | Y | Descricao do erro |
+
+---
+
+## DBAMV.LOG_FNFI
+> Tabela de Log de Alterac?es no Financeiro
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FNFI | NUMBER | N | Codigo Sequencial do Log no Financeiro |
+| 2 | CD_IDENTIFICACAO | NUMBER | N | Codigo de Identificac?o da Tabela que originou o Registro de Log |
+| 3 | CD_ORIGEM | NUMBER | N | Codigo do Lancamento que sofreu modificac?o |
+| 4 | DS_COLUNA | VARCHAR2 | Y | Qual a Coluna que sofreu alterac?o |
+| 5 | VL_ANTERIOR | VARCHAR2 | Y | Valor do Registro anterior a alterac?o |
+| 6 | VL_ATUAL | VARCHAR2 | Y | Valor do Registro posterior a alterac?o |
+| 7 | DT_ATUALIZACAO | DATE | Y | Data da Alterac?o |
+
+---
+
+## DBAMV.LOG_FORNEC
+> Tabela de Log do Fornecedor
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FORNEC | NUMBER | N | Cdigo do Log |
+| 2 | CD_FORNECEDOR | NUMBER | N | Cdigo do Fornecedor |
+| 3 | DT_ALTERACAO | DATE | N | Data da  alterao |
+| 4 | CD_USUARIO | VARCHAR2 | N | Cdigo do Susurio |
+| 5 | NM_CAMPO_ALTERADO | VARCHAR2 | N | Nome do Campo Alterado. |
+| 6 | DS_CONTEUDO_ANTERIOR_CAMPO | VARCHAR2 | Y | Contedo anterior do campo |
+| 7 | DS_CONTEUDO_ATUAL_CAMPO | VARCHAR2 | Y | Contedo atual do campo |
+
+---
+
+## DBAMV.LOG_FOTO_PESSOA
+> Tabela que armazena histórico de mudança de foto de paciente.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | N | Código do paciente. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário que alterou a foto do paciente. |
+| 3 | DT_ALTERACAO | DATE | N | Data da alteração. |
+| 4 | TP_ALTERACAO | VARCHAR2 | N | Tipos de alteração: A - Adicionada / L - Alterada / E - Excluída |
+
+---
+
+## DBAMV.LOG_FPO
+> Tabela de LOGs LOG_FPO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FPO | NUMBER | N | CODIGO SEQUENCIAL DA OCORRENCIA DE LOG |
+| 2 | NM_USUARIO | VARCHAR2 | N | USUARIO LOGADO NA DATA DE OCORRENCIA |
+| 3 | DT_LOG_FPO | DATE | Y | DATA DA OCORRENCIA |
+| 4 | CD_IMPORTACAO | NUMBER | Y | CODIGO SEQUENCIAL DE IMPORTACAO DO ARQUIVO FPO MAGNETICO |
+| 5 | NR_LINHAS | NUMBER | Y | NUMERO DE LINHAS DO ARQUIVO IMPORTADO |
+| 6 | DT_COMPETENCIA | DATE | Y | DATA DE COMETENCIA DO ARQUIVO IMPORTADO |
+| 7 | NM_FILE | VARCHAR2 | Y | NOME DO ARQUIVO IMPORTADO |
+| 8 | CD_CNES | VARCHAR2 | Y | CNES DO HOSPITAL MANTENEDOR |
+| 9 | DS_CRITICAS | VARCHAR2 | Y | CRITICAS ENCONTRADAS E IDENTIFICADAS NO PROCESSO |
+
+---
+
+## DBAMV.LOG_FRACIONAMENTO
+> Tabela que armazena o Log do Fracionamento por Atendimento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FRACIONAMENTO | NUMBER | N | Sequencia para armazenar o fracionamento |
+| 2 | CD_ATENDIMENTO | NUMBER | N | Codigo do Atendimento |
+| 3 | CD_TIP_PRESC | NUMBER | N | Codigo do Item da Prescric?o |
+| 4 | QT_SOBRA | NUMBER | N | Quantidade que sobrou do fracionamento |
+| 5 | DH_ABERTURA | DATE | N | Data de abertura do item fracionado |
+| 6 | CD_ITSOLSAI_PRO | NUMBER | Y | Codigo do produto solicitado ao estoque |
+
+---
+
+## DBAMV.LOG_FSCC_WORKFLOW
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_AVISO_CIRURGIA | NUMBER | N |  |
+| 2 | TP_PROCESSO | VARCHAR2 | N | PA - Pré-agendamento cirúrgico,                                                            RE - R... |
+| 3 | NM_USUARIO | VARCHAR2 | Y |  |
+| 4 | DT_INI_PROCESSO | DATE | N |  |
+| 5 | DS_PENDENCIA | VARCHAR2 | Y |  |
+| 6 | TP_COR_COMP_ENVIADO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_FUNC_FNFI_USU
+> LOG DA TELA DE FUNÇÕES
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_FUNC_FNFI_USU | NUMBER | N | CHAVE PRIMARIA DA TABELA |
+| 2 | CD_USUARIO | VARCHAR2 | N | USUARIO |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N | CÓDIGO DA EMPRESA |
+| 4 | SN_CONSULTA_PIX | VARCHAR2 | N | PERMITE CONSULTAR? |
+| 5 | SN_INSERE_PIX | VARCHAR2 | N | PERMITE INSERE? |
+| 6 | SN_ALTERA_PIX | VARCHAR2 | N | PERMITE ALTERAR? |
+| 7 | SN_EXCLUI_PIX | VARCHAR2 | N | PERMITE EXCLUI? |
+| 8 | CD_MODULO | VARCHAR2 | N | CÓDIGO DO MODULO |
+| 9 | DT_LOG | DATE | N |  |
+
+---
+
+## DBAMV.LOG_GERACAO_CIHA
+> Tabela de log da gerac?o da CIHA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_GERACAO | NUMBER | N | Codigo de controle da gerac?o ciha |
+| 2 | DT_GERACAO | DATE | N | Data da gerac?o ciha |
+| 3 | NM_USUARIO | VARCHAR2 | N | Nome do usuario da gerac?o ciha |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa |
+| 5 | DT_COMPETENCIA | DATE | N | Data da competencia |
+| 6 | DS_LISTA_CONVENIO | VARCHAR2 | N | Armazena lista dos convenios |
+| 7 | DS_LISTA_UNID_INT | VARCHAR2 | N | Armazena a lista com as Unidades de internac?o |
+| 8 | SN_PACIENTE_DIA | VARCHAR2 | N | Indica se ser?o gerados os atendimentos de internac?o de paciente dia |
+| 9 | QT_REGISTRO_TIPO_2 | NUMBER | Y | Indica a quantidade de registro do tipo internac?o |
+| 10 | QT_REGISTRO_CRITICA_TIPO_2 | NUMBER | Y | Indica a quantidade de critica do tipo internac?o |
+| 11 | QT_REGISTRO_TIPO_4 | NUMBER | Y | Indica a quantidade de registro do tipo ambulatorio individualizado |
+| 12 | QT_REGISTRO_CRITICA_TIPO_4 | NUMBER | Y | Indica a quantidade de critica do tipo ambulatorio individualizado |
+| 13 | QT_REGISTRO_CRITICA_TIPO_5 | NUMBER | Y | Indica a quantidade de registro do tipo ambulatorio consolidado |
+| 14 | QT_REGISTRO_TIPO_5 | NUMBER | Y | Indica a quantidade de critica do tipo ambulatorio consolidado |
+| 15 | NM_ARQUIVO | VARCHAR2 | Y | Nome do arquivo gerado da CIHA |
+| 16 | TP_RESTRICAO_CONVENIO | VARCHAR2 | Y | Tipo da restric?o na selec?o de convenios. S-Selec?o ou E-Exclus?o |
+| 17 | TP_RESTRICAO_UNIDADE | VARCHAR2 | Y | Tipo da restric?o na selec?o de unidade de internac?o. S-Selec?o ou E-Exclus?o |
+| 18 | CD_LOG_GERACAO_CIHA | NUMBER | N | Codigo do log da gerac?o ciha |
+| 19 | DS_LISTA_ORI_ATE_AMB | VARCHAR2 | N | ARMAZENA A LISTA DAS ORIGENS AMBULATORIAIS |
+| 20 | DS_LISTA_ORI_ATE_INT | VARCHAR2 | N | ARMAZENA A LISTA DAS ORIGENS DE INTERNACAO |
+| 21 | TP_RESTRICAO_ORIGEM_AMB | VARCHAR2 | N | INDICA O TIPO DE RESTRICAO NA SELECAO DE ORIGENS AMBULATORIAIS. S-SELECAO OU E-EXCLUSAO |
+| 22 | TP_RESTRICAO_ORIGEM_INT | VARCHAR2 | Y | INDICA O TIPO DE RESTRICAO NA SELECAO DE ORIGENS DE INTERNACAO. S-SELECAO OU E-EXCLUSAO |
+
+---
+
+## DBAMV.LOG_GERACAO_MAPA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_GERACAO_MAPA | DATE | N | Data de geração |
+| 2 | HR_GERACAO_MAPA | DATE | N | Hora de geração |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuário |
+| 4 | CD_SOLSAI_PRO | NUMBER | N | Código da solicitação |
+| 5 | CD_ITSOLSAI_PRO | NUMBER | N | Código do item da solicitação |
+| 6 | CD_PRODUTO | NUMBER | N | Código do produto |
+
+---
+
+## DBAMV.LOG_GERACAO_REPASSE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GERACAO | NUMBER | N |  |
+| 2 | CD_GERACAO | NUMBER | Y |  |
+| 3 | DT_GERACAO | DATE | Y |  |
+| 4 | TIPO | VARCHAR2 | Y |  |
+| 5 | CD_CONVENIO | NUMBER | Y |  |
+| 6 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 7 | CD_CONTA | NUMBER | Y |  |
+| 8 | CD_LANCAMENTO | NUMBER | Y |  |
+| 9 | CD_PRESTADOR | NUMBER | Y |  |
+| 10 | CD_ATI_MED | VARCHAR2 | Y |  |
+| 11 | CD_USUARIO | VARCHAR2 | Y |  |
+| 12 | DS_LOG_GERACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_GERAL_FCCT
+> registro geral das ac?es do modulo do FCCT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | codigo sequencial do log pai |
+| 2 | NM_USUARIO | VARCHAR2 | Y | nome (login) do usuario que realizou a ac?o |
+| 3 | DT_COMPETENCIA | DATE | Y | competencia de referencia, para ac?es que necessitam dessa referencia |
+| 4 | TP_LOG | VARCHAR2 | Y | o tipo da ac?o realizada |
+| 5 | DH_INICIO | DATE | Y | data e hora que iniciou a ac?o, momento que for criado |
+| 6 | DH_FINAL | DATE | Y | data e hora que ela foi finalizada, alterada pela ultimo filho |
+| 7 | CD_MULTI_EMPRESA | NUMBER | Y | codigo da empresa que realizou a ac?o |
+
+---
+
+## DBAMV.LOG_GERA_PSND
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GERA_PSND | NUMBER | N |  |
+| 2 | DS_LOG | VARCHAR2 | N |  |
+| 3 | DT_LOG | DATE | N |  |
+| 4 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 5 | DT_MOV_CARDAPIO | DATE | Y |  |
+| 6 | TP_CARDAPIO | VARCHAR2 | Y |  |
+| 7 | CD_TIPO_REFEICAO | VARCHAR2 | Y |  |
+| 8 | CD_TIPO_DIETA | VARCHAR2 | Y |  |
+| 9 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 10 | CD_SETOR | NUMBER | Y |  |
+| 11 | CD_COPA | NUMBER | Y |  |
+| 12 | CD_PRE_MED | NUMBER | Y |  |
+| 13 | CD_ITPRE_MED | NUMBER | Y |  |
+| 14 | CD_FUNC | NUMBER | Y |  |
+| 15 | SN_CONFIRMADO | VARCHAR2 | Y |  |
+| 16 | CD_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_GERA_SOLICITACAO
+> Tabela que guarda informações de solicitações.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Código sequêncial do log. |
+| 2 | DT_LOG | DATE | Y | Data de gravacao do log. |
+| 3 | CD_ATENDIMENTO | NUMBER | Y | Código do Atendimento para a solicitação. |
+| 4 | CD_ATENDIMENTO_PAI | NUMBER | Y | Código do Atendimento pai para a solicitação. |
+| 5 | CD_LEITO | NUMBER | Y | Código do Leito para a solicitação. |
+| 6 | CD_EMPRESA | NUMBER | Y | Código da empresa para a solicitação. |
+| 7 | SN_IMP_SOLIC_ZELADORIA | VARCHAR2 | Y | Chave para impressão de solicitação. |
+| 8 | DS_MENSAGEM_IMPORTACAO | VARCHAR2 | Y | Texto para identificar o caminho da geração de solicitação. |
+
+---
+
+## DBAMV.LOG_GERA_SOLIC_TURNO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GERA_SOLIC_TURNO | NUMBER | N |  |
+| 2 | CD_TURNO | NUMBER | N |  |
+| 3 | CD_UNID_INT | NUMBER | Y |  |
+| 4 | CD_SETOR | NUMBER | N |  |
+| 5 | DH_GERACAO_TURNO | DATE | N |  |
+| 6 | DT_TURNO_GERADO | DATE | N |  |
+| 7 | CD_USUARIO_GERACAO | VARCHAR2 | N |  |
+| 8 | QTD_GERADO | NUMBER | N |  |
+| 9 | CD_ATENDIMENTO | NUMBER | Y | Código do atendimento |
+
+---
+
+## DBAMV.LOG_GERMES_CULTURA
+> Tabela de Log de Microorganismos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_CULTURA | NUMBER | N | Codigo da Cultura |
+| 2 | CD_LOG_GERMES_CULTURA | NUMBER | N | Codigo do Microorganismo associado a Cultura |
+| 3 | CD_GERMES | NUMBER | N | Codigo do Microorganismo |
+| 4 | DS_COLONIA | VARCHAR2 | Y | Colonias |
+| 5 | CD_AGRUPAMENTO | NUMBER | Y | Agrupamento de antibiogramas |
+| 6 | CD_EXA_LAB_FATURA | NUMBER | Y | Codigo a Faturar. |
+| 7 | CD_INCIDENCIA_CULTURA | NUMBER | N | Identicador do numero de vezes em que o Germe apareceu no respectivo exame de Cultura |
+| 8 | DS_OBSERVACAO_GERME | VARCHAR2 | Y | Descric?o da Observac?o do Germe |
+| 9 | SN_IND_BETALACTAMASE | VARCHAR2 | Y | Indica se o germe e produtor da enzima Betalactamase. |
+| 10 | DT_CADASTRO | DATE | Y | Data do cadastro do germe. |
+| 11 | CD_USUARIO_CADASTRO | VARCHAR2 | Y | Usuario que cadastrou o germe. |
+| 12 | CD_SEQ_ANDAMENTO | NUMBER | Y | Sequencia da analise |
+
+---
+
+## DBAMV.LOG_GLOSA_AIH
+> Tabela log da glosa SUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GLOSA_AIH | NUMBER | N | Codigo de controle do log da glosa AIH |
+| 2 | CD_GLOSAS_SUS | NUMBER | N | Codigo da glosa |
+| 3 | CD_REG_FAT | NUMBER | N | Codigo da conta |
+| 4 | NR_GUIA | VARCHAR2 | Y | Numero da guia AIH |
+| 5 | CD_MOTIVO_GLOSA_SUS | VARCHAR2 | N | Codigo do motivo da glosa SUS |
+| 6 | VL_GLOSA | NUMBER | Y | Valor da glosa |
+| 7 | VL_REAPRESENTADO | NUMBER | Y | Valor da reapresentac?o |
+| 8 | CD_JUSTIFICA_GLOSA_SUS | NUMBER | N | Codigo da justificativa da glosa |
+| 9 | CD_REMESSA_GLOSADA | NUMBER | N | Codigo da remessa da glosa |
+| 10 | CD_REMESSA_REAPRESENTADA | NUMBER | Y | Codigo da remessa da reapresentac?o |
+| 11 | CD_ATENDIMENTO | NUMBER | N | Codigo do atendimento |
+| 12 | DT_GLOSA | DATE | Y | Data da glosa |
+| 13 | DT_CANCELAMENTO | DATE | Y | Data do cancelamento da glosa |
+| 14 | NM_USUARIO_GLOSA | VARCHAR2 | Y | Usuario da glosa |
+| 15 | NM_USUARIO_CANCELAMENTO | VARCHAR2 | Y | Usuario do cancelamento da glosa |
+
+---
+
+## DBAMV.LOG_GUIA
+> Tabela de Log da Guia. Vai guardar apenas a informac?o de troca na Situac?o da Guia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GUIA | NUMBER | N | Sequencial da tabela (seq_log_guia). |
+| 2 | CD_GUIA | NUMBER | N | Codigo da guia. |
+| 3 | TP_GUIA | VARCHAR2 | N | Tipo da guia. |
+| 4 | DT_MOVIMENTO | DATE | N | Data da movimentac?o. |
+| 5 | CD_USU_MOVIMENTO | VARCHAR2 | N | Nome do usuario que movimentou. |
+| 6 | TP_MOVIMENTO | VARCHAR2 | N | Tipo de Movimento (Insert, Update, Delete). |
+| 7 | TP_SITUACAO_ANTERIOR | VARCHAR2 | Y | Tipo da Situac?o Anterior. |
+| 8 | TP_SITUACAO_MOVIMENTO | VARCHAR2 | Y | Tipo da Situac?o Atual. |
+
+---
+
+## DBAMV.LOG_GUIA_OBS
+> Tabela de Log de Observações da Guia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GUIA | NUMBER | N | Sequencial da tabela (seq_log_guia_obs). |
+| 2 | CD_GUIA | NUMBER | N | Código da guia. |
+| 3 | TP_GUIA | VARCHAR2 | N | Tipo da guia. |
+| 4 | DT_MOVIMENTO | DATE | N | Data da movimentação. |
+| 5 | CD_USU_MOVIMENTO | VARCHAR2 | N | Nome do usuário que movimentou. |
+| 6 | TP_MOVIMENTO | VARCHAR2 | N | Tipo de Movimento (Insert, Update, Delete). |
+| 7 | DS_OBSERVACAO_ANT | VARCHAR2 | Y | Observação anterior. |
+| 8 | DS_OBSERVACAO_ATU | VARCHAR2 | Y | Observação atual. |
+
+---
+
+## DBAMV.LOG_HGG_TB_SOLIC_LIMPEZA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SOLIC_LIMPEZA | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 3 | CD_MOV_INT | NUMBER | Y |  |
+| 4 | CD_LEITO | NUMBER | N |  |
+| 5 | CD_SETOR | NUMBER | N |  |
+| 6 | CD_FUNC | NUMBER | Y |  |
+| 7 | CD_TIPO_LIMPEZA | NUMBER | Y |  |
+| 8 | DT_SOLIC_LIMPEZA | DATE | N |  |
+| 9 | HR_SOLIC_LIMPEZA | DATE | N |  |
+| 10 | NM_USUARIO | VARCHAR2 | N |  |
+| 11 | TP_SOLICITACAO | VARCHAR2 | N |  |
+| 12 | TP_SITUACAO | VARCHAR2 | N |  |
+| 13 | SN_REALIZADO | VARCHAR2 | N |  |
+| 14 | DT_REALIZADO | DATE | Y |  |
+| 15 | HR_REALIZADO | DATE | Y |  |
+| 16 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 17 | DT_CANCELAMENTO | DATE | Y |  |
+| 18 | HR_CANCELAMENTO | DATE | Y |  |
+| 19 | DS_MOTIVO | VARCHAR2 | Y |  |
+| 20 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 21 | NM_USUARIO_CANCEL | VARCHAR2 | Y |  |
+| 22 | DT_INICIO_HIGIENIZA | DATE | Y |  |
+| 23 | HR_INICIO_HIGIENIZA | DATE | Y |  |
+| 24 | SN_LIB_LIMPEZA_AUTO | VARCHAR2 | N |  |
+| 25 | DT_HR_FIM_AG_HIGIENIZA | DATE | Y |  |
+| 26 | DT_HR_INI_ROUPARIA | DATE | Y |  |
+| 27 | DT_HR_FIM_ROUPARIA | DATE | Y |  |
+| 28 | DT_HR_FIM_HIGIENIZA | DATE | Y |  |
+| 29 | DT_HR_INI_POS_HIGIENIZA | DATE | Y |  |
+| 30 | DT_HR_FIM_POS_HIGIENIZA | DATE | Y |  |
+| 31 | DH_REGISTRO | DATE | Y |  |
+| 32 | CD_USUARIO_REGISTRO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_HRITPRE_MED
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_HRITPRE_MED | NUMBER | N |  |
+| 2 | CD_ITPRE_MED | NUMBER | N |  |
+| 3 | DH_MEDICACAO | DATE | N |  |
+| 4 | DH_MEDICACAO_NOVA | DATE | N |  |
+| 5 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 6 | TP_CHECAGEM | VARCHAR2 | Y | I - Iniciado/Suspenso, C - Checado, P - Prescrito e não checado |
+| 7 | TP_ACAO | VARCHAR2 | Y | IC - Insert checagem, DC - Deleção checagem, UC - Update checagem, IH - Inserção de horário, DH -... |
+| 8 | DH_MODIFICACAO | DATE | Y | Data e Hora de Modificac?o. |
+| 9 | CD_FECHAMENTO | NUMBER | Y | Codigo do Fechamento. |
+| 10 | ROWID_HRITPRE_MED | ROWID | Y | Rowid do registro da HrItPre_Med, que gerou o registro de log. |
+| 11 | DS_ORIGEM_REGISTRO | VARCHAR2 | Y | Informa qual a origem "tela" que criou o registro de log. |
+| 12 | CD_IDENTIFICADOR | NUMBER | Y | Código identificador do horário |
+
+---
+
+## DBAMV.LOG_HRITPRE_MED_PREPARO_COMP
+> Tabela responsavél cadastrar as justificativas de medicação
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_HRITPRE_MED_PREPARO | NUMBER | N | Código gerado por sequence |
+| 2 | CD_ITPRE_MED | NUMBER | N | Código do item da prescrição |
+| 3 | CD_TIP_PRESC | NUMBER | N | Código do tipo de item da prescrição |
+| 4 | CD_USUARIO | VARCHAR2 | Y | Código do Usuário |
+| 5 | DH_CHECADO | DATE | Y | Data e hora que item foi checado |
+| 6 | SN_ITEM_PRINCIPAL | VARCHAR2 | Y | Se é item principal ou Componente |
+| 7 | SN_LIDO_CODIGO_BARRAS | VARCHAR2 | Y | Se o item foi lido por Código de barras ou não |
+| 8 | CD_PREPARO_JUSTIFICATIVA | NUMBER | Y | Código da Justificativa |
+| 9 | DS_TEXTO_PADRAO | VARCHAR2 | Y | Descrição da Justificativa |
+| 10 | QT_ITEM | NUMBER | Y | Quantidade do item |
+| 11 | CD_UNI_PRO | NUMBER | Y | Código da unidade |
+
+---
+
+## DBAMV.LOG_HRITPRE_MED_TRATAMENTO
+> Log dos horarios das prescric?es de tratamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_HRITPRE_MED_TRATAMENTO | NUMBER | N | Codigo do log dos horarios de prescric?es de tratamento |
+| 2 | CD_PRE_MED_TRATMT | NUMBER | N | Codigo da prescric?o de tratamento |
+| 3 | DH_OPERACAO | DATE | N | Data da operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: Alt=Alterac?o Exc=Exclus?o Inc=Inclus?o |
+| 5 | CD_PRESTADOR | NUMBER | N | Codigo do prestador |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 7 | DS_OBSERVACOES | VARCHAR2 | Y | Observac?es |
+| 8 | CD_ITPRE_MED | NUMBER | Y | Informac?o original do horario da prescric?o de tratamento |
+| 9 | DH_MEDICACAO | DATE | Y | Informac?o original do horario da prescric?o de tratamento |
+| 10 | CD_ATENDIMENTO | NUMBER | Y | Informac?o original do horario da prescric?o de tratamento |
+| 11 | DH_CANCELADO | DATE | Y | Informac?o original do horario da prescric?o de tratamento |
+| 12 | CD_PREST_CANC | NUMBER | Y | Informac?o original do horario da prescric?o de tratamento |
+| 13 | CD_FECHAMENTO | NUMBER | Y | Informac?o original do horario da prescric?o de tratamento |
+| 14 | DS_HORARIO | VARCHAR2 | Y | Informac?o original do horario da prescric?o de tratamento |
+| 15 | DH_LIMITE | DATE | Y | Informac?o original do horario da prescric?o de tratamento |
+| 16 | NR_DIA | NUMBER | Y | Informac?o original do horario da prescric?o de tratamento |
+| 17 | NM_USUARIO | VARCHAR2 | Y | Informac?o original do horario da prescric?o de tratamento |
+| 18 | DH_CRIACAO | DATE | Y | Informac?o original do horario da prescric?o de tratamento |
+| 19 | NM_FORMULARIO | VARCHAR2 | Y | Informac?o original do horario da prescric?o de tratamento |
+| 20 | SN_ALTERADO_PRESTADOR | VARCHAR2 | Y | Informac?o original do horario da prescric?o de tratamento |
+
+---
+
+## DBAMV.LOG_HRITPRE_VOL_TRATAMENTO
+> Log dos volumes dos itens das prescric?es de tratamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_HRITPRE_VOL_TRATAMENTO | NUMBER | N | Codigo do log dos volumes dos itens de prescric?es de tratamento |
+| 2 | CD_PRE_MED_TRATMT | NUMBER | N | Codigo da prescric?o de tratamento |
+| 3 | DH_OPERACAO | DATE | N | Data da operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: Alt=Alterac?o Exc=Exclus?o Inc=Inclus?o |
+| 5 | CD_PRESTADOR | NUMBER | N | Codigo do prestador |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 7 | DS_OBSERVACOES | VARCHAR2 | Y | Observac?es |
+| 8 | CD_ITPRE_MED | NUMBER | Y | Informac?o original do volume dos itens da prescric?o de tratamento |
+| 9 | DH_MEDICACAO | DATE | Y | Informac?o original do volume dos itens da prescric?o de tratamento |
+| 10 | CD_TIP_PRESC | NUMBER | Y | Informac?o original do volume dos itens da prescric?o de tratamento |
+| 11 | QT_PRESCRITO | NUMBER | Y | Informac?o original do volume dos itens da prescric?o de tratamento |
+| 12 | CD_HRITPRE_VOL | NUMBER | Y | Informac?o original do volume dos itens da prescric?o de tratamento |
+
+---
+
+## DBAMV.LOG_IMPORTACAO_CONTABIL
+> Contem problemas encontrados no momento da importac?o contabil
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_IMPORTACAO_CONTABIL | NUMBER | N | Pk da tabela a partir da sequence dbamv.seq_log_importacao_contabil |
+| 2 | CD_PROCESSO | NUMBER | Y | Codigo do Processo que ocasionou o erro. |
+| 3 | CD_ORIGEM | NUMBER | Y | Codigo da Origem da importac?o. |
+| 4 | DT_INICIAL_IMPORTACAO | DATE | N | Data Inicial do periodo de Importac?o. |
+| 5 | DT_FINAL_IMPORTACAO | DATE | N | Data Inicial do periodo de Importac?o. |
+| 6 | DS_MSG_ERRO | VARCHAR2 | Y | Indica qual o erro que foi detectado |
+| 7 | DS_CORRECAO | VARCHAR2 | Y | Indica qual medida deve ser tomada para solucionar o problema |
+| 8 | NM_USUARIO_IMPORTOU | VARCHAR2 | Y | Usuario que realizou a importac?o. |
+| 9 | NM_USUARIO_BAIXOU | VARCHAR2 | Y | Usuario que baixou o log de erro. |
+| 10 | DS_IMPORTACAO | VARCHAR2 | Y | Indica qual foi a importac?o que gerou o LOG. |
+| 11 | DT_BAIXA_LOG | DATE | Y | Data de baixa do log. |
+| 12 | DT_CRIACAO_LOG | DATE | N | Data de criac?o do log |
+| 13 | CD_MULTI_EMPRESA | NUMBER | Y | Indica qual empresa importou o lancamento. |
+| 14 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y | Indica qual empresa o lancamento teve origem. |
+
+---
+
+## DBAMV.LOG_IMPORTACAO_CUSTOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N |  |
+| 2 | DT_COMPETENCIA | DATE | N |  |
+| 3 | NM_USUARIO | VARCHAR2 | N |  |
+| 4 | NR_REGISTRO | NUMBER | Y |  |
+| 5 | TP_ARQUIVO | VARCHAR2 | N |  |
+| 6 | NM_ORIGEM_ARQUIVO | VARCHAR2 | Y |  |
+| 7 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 8 | DS_AVISO | LONG | Y |  |
+
+---
+
+## DBAMV.LOG_IMPORTACAO_LAUDO_SUS
+> Tabela com relação da importação dos laudos do SUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_ARQUIVO | VARCHAR2 | N | Nome do arquivo importado |
+| 2 | NR_SEQ | NUMBER | N | Número sequencial |
+| 3 | DH_GERACAO | DATE | N | Data e hora de geração do log |
+| 4 | NR_LAUDO | NUMBER | N | Número do laudo |
+| 5 | NR_GUIA | VARCHAR2 | Y | Número da autorização |
+| 6 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 7 | CD_REG_FAT | NUMBER | Y | Identificação da conta |
+| 8 | DS_ACAO | VARCHAR2 | Y | Descrição da ação realizada |
+
+---
+
+## DBAMV.LOG_IMPORTADA_RET_COB
+> Contas Importadas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_IMPORTADA_RET_COB | NUMBER | N | Chave primária |
+| 2 | CD_LOG_BAIXA_RET_COB | NUMBER | N | Log de baixa cobrança bancária |
+| 3 | NR_NOSSO_NUMERO | VARCHAR2 | N | Nosso número |
+| 4 | CD_RECCON_REC | NUMBER | Y | Recebimento |
+| 5 | CD_MOV_CONCOR | NUMBER | Y | Lançamento de extrato |
+| 6 | CD_OCORRENCIA | VARCHAR2 | Y | código de ocorrência |
+| 7 | DT_VENCIMENTO | DATE | Y | Vencimento |
+| 8 | DT_PAGAMENTO | DATE | Y | Pagamento |
+| 9 | DT_CREDITO | DATE | Y | Crédito |
+| 10 | VL_RECEBIDO | NUMBER | N | Valor recebido |
+| 11 | CD_USUARIO | VARCHAR2 | Y | Usuário que rejeitou |
+
+---
+
+## DBAMV.LOG_IMPRESSAO_ETIQUETA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SOLSAI_PRO | NUMBER | Y |  |
+| 2 | DS_CONTEUDO_ETIQUETA | VARCHAR2 | Y |  |
+| 3 | DS_IMPRESSORA | VARCHAR2 | Y |  |
+| 4 | DT_IMPRESSAO | DATE | Y |  |
+| 5 | CD_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_IMPRESSAO_LAUDO_AMOSTRA
+> Tabela de Log de Impress?es dos Laudos das Amostras.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_IMPRESSAO_LAUDO_AMOSTRA | NUMBER | N | Codigo do Log de Impress?o (PK). |
+| 2 | DT_LOG_IMPRESSAO_LAUDO_AMOSTRA | DATE | N | Data da Gerac?o do Log. |
+| 3 | CD_USUARIO_IMPRESSAO_LAUDO | VARCHAR2 | N | Usuario Responsavel pela Gerac?o do Log. |
+| 4 | CD_AMOSTRA | NUMBER | N | Codigo da Amostra do Laudo Impresso. |
+
+---
+
+## DBAMV.LOG_INATIVA_REGRA_QUEBRA_CONTA
+> Tabela de Log de inativação de regra para a tela M_REGRA_CRIA_CONTA_FFCV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_INATIVA_REGRA | NUMBER | Y | Código sequencial da tabela |
+| 2 | DT_LOG | DATE | Y | Data em que o usuário inativou a regra |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Usuário que inativou a regra |
+
+---
+
+## DBAMV.LOG_INTEGRA_BENNER
+> Tabela de Log Integrac?o Benner
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_ARQ_INTEGRA | VARCHAR2 | N | Nome do arquivo gerado pela integrac?o |
+| 2 | DT_INTEGRA | DATE | N | Data da ocorrencia |
+| 3 | DS_LOG_INTEGRA | VARCHAR2 | Y | Armazena o Log de Erro |
+
+---
+
+## DBAMV.LOG_INTEGRA_CENTRAL_TELEFONICA
+> Registro dos arquivos de textos interfaceados entre o PARI  e a central telefonica - PDA 184748
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_INTEGRA | NUMBER | N | Identificador do registro na tabela |
+| 2 | CD_ATENDIMENTO | NUMBER | Y | Codigo do atendimento |
+| 3 | CD_LEITO | NUMBER | Y | Codigo do leito |
+| 4 | TP_SITUACAO | VARCHAR2 | N | C = confirmado / E = erro |
+| 5 | DT_LOG_INTEGRA | DATE | N | Data e hora em que o arquivo foi integrado |
+| 6 | DS_ERRO | VARCHAR2 | Y | Descric?o dos erros encontrados durante o processo de leitura |
+| 7 | NM_ARQUIVO | VARCHAR2 | Y | Nome do arquivo lido |
+
+---
+
+## DBAMV.LOG_INTEGRA_CONTAB
+> Tabela de com os logs da integrac?o dos lancamentos contabeis
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_INTEGRA_CONTAB | NUMBER | N | Codigo do Log de Integrac?o com a Contabilidade |
+| 2 | CD_ARQUIVO | NUMBER | Y | Codigo do Arquivo |
+| 3 | DT_GERACAO | DATE | Y | Data de gerac?o do arquivo de integrac?o |
+| 4 | DT_IMPORTACAO | DATE | Y | Data de importac?o do arquivo de integrac?o |
+| 5 | CD_USUARIO_GERA | VARCHAR2 | Y | Codigo do usuario de gerac?o |
+| 6 | CD_USUARIO_IMP | VARCHAR2 | Y | Codigo do usuario de Importac?o |
+| 7 | VL_TOTAL | NUMBER | Y | Valor total |
+| 8 | TP_ARQUIVO | VARCHAR2 | Y | Tipo do Arquivo |
+| 9 | DT_PERIODO | DATE | Y | Periodo de gerac?o |
+| 10 | CD_CGC | NUMBER | Y | CNPJ da empresa importadora |
+| 11 | TP_STATUS | VARCHAR2 | Y | Status da Importac?o |
+| 12 | CD_MULTI_EMPRESA | NUMBER | Y | Codigo da Empresa |
+| 13 | CD_LOTE | NUMBER | Y | Codigo do Lote de Importac?o |
+| 14 | NM_ARQUIVO | VARCHAR2 | Y | Nome do arquivo de importac?o |
+
+---
+
+## DBAMV.LOG_INTEGRA_FFAS
+> Tabela para registrar os item que n?o foram importados por falta de procedimento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_INTEGRA | NUMBER | N | Codigo de controle de entrada. |
+| 2 | CD_ITPED_RX | NUMBER | Y | Codigo unico quando vindo do psdi. |
+| 3 | CD_ITPED_LAB | NUMBER | Y |  |
+| 4 | DT_EVENTO | DATE | N | Data de entrada. |
+| 5 | NM_USUARIO | VARCHAR2 | N | Usuario logado. |
+| 6 | DS_DESCRICAO | VARCHAR2 | Y | Descric?o da operac?o a ser realizada. |
+| 7 | CD_CID_PRINCIPAL | VARCHAR2 | Y | Descric?o do cid principal. |
+
+---
+
+## DBAMV.LOG_IPASGO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORT_IPASGO | NUMBER | N |  |
+| 2 | DT_IMPORTACAO | DATE | N |  |
+| 3 | DT_VIGENCIA | DATE | N |  |
+| 4 | NM_ARQUIVO | VARCHAR2 | N |  |
+| 5 | CD_ID_USUARIO | NUMBER | Y |  |
+| 6 | CD_TAB_FAT | NUMBER | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | N |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y | Empresa correspondente a importac?o feita. Sera usada apenas com a restric?o por empresa ativa no... |
+
+---
+
+## DBAMV.LOG_IPE_MM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_IPE_MM | NUMBER | N |  |
+| 2 | CD_REMESSA | NUMBER | N |  |
+| 3 | CD_ATENDIMENTO | NUMBER | N |  |
+| 4 | TP_LOG | VARCHAR2 | N |  |
+| 5 | CD_REG_FAT | NUMBER | Y |  |
+| 6 | CD_LANCAMENTO_FAT | NUMBER | Y |  |
+| 7 | CD_REG_AMB | NUMBER | Y |  |
+| 8 | CD_LANCAMENTO_AMB | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ITCALC_CUSTO
+> Tabela de Itens de Logger de calculos de custos.itens->LOG_CALC_CUSTOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | CODIGO SEQUENCIAL DO LOG |
+| 2 | CD_LOG_ITCALC_CUSTO | NUMBER | N | CODIGO SEQUENCIAL DO ITEM |
+| 3 | TP_MENSAGEM | VARCHAR2 | Y | TIPO DA MENSAGEM |
+| 4 | DS_MENSAGEM | VARCHAR2 | Y | MENSAGEM DE LOG |
+| 5 | DT_MENSAGEM | DATE | Y | DATA E HORA MENSAGEM |
+
+---
+
+## DBAMV.LOG_ITCOB_PRE_AMBU_REG_LANC
+> Tabela de Log da Itcob_pre_amb para regras de lancamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_AMB | NUMBER | N | Codigo do lote |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento |
+| 3 | CD_FORNECEDOR | NUMBER | N | Codigo do fornecedor |
+| 4 | NR_DOCUMENTO | VARCHAR2 | Y | Numero do documento |
+| 5 | VL_PRECO_UNITARIO | NUMBER | Y | Valor unitario |
+| 6 | VL_PRECO_TOTAL | NUMBER | Y | Valor total |
+| 7 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es |
+
+---
+
+## DBAMV.LOG_ITCOB_PRE_REG_LANC
+> Tabela de Log da Itcob_pre para regras de lancamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | N | Codigo da conta |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento |
+| 3 | CD_FORNECEDOR | NUMBER | N | Codigo do fornecedor |
+| 4 | NR_DOCUMENTO | VARCHAR2 | Y | Numero do documento |
+| 5 | VL_PRECO_UNITARIO | NUMBER | Y | Valor unitario |
+| 6 | VL_PRECO_TOTAL | NUMBER | Y | Valor total |
+| 7 | DS_OBSERVACAO | VARCHAR2 | Y | Observac?es |
+
+---
+
+## DBAMV.LOG_ITCULTURA
+> Tabela de Log de Microorganismos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ITCULTURA | NUMBER | N | Codigos dos antibiogramas |
+| 2 | CD_LOG_GERMES_CULTURA | NUMBER | N | Microorganismo |
+| 3 | CD_ANTIMICROB | VARCHAR2 | N | Codigo do Antibiograma |
+| 4 | TP_RESULTADO | VARCHAR2 | N | Tipos de resultado dos Antibiogramas: N - N?o testado, R - Resistente, M - Intermediario, S - Sen... |
+| 5 | NR_MIC | VARCHAR2 | Y | Numero do MIC |
+| 6 | DT_CADASTRO | DATE | Y | Data do cadastro do antimicrobiano. |
+| 7 | CD_USUARIO_CADASTRO | VARCHAR2 | Y | Usuario que cadastrou o antimicrobiano. |
+| 8 | CD_SEQ_ANDAMENTO | NUMBER | Y | Sequencia da analise |
+
+---
+
+## DBAMV.LOG_ITEM_AGENDA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_AGENDA | NUMBER | N |  |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | N |  |
+| 3 | CD_EXA_LAB | NUMBER | Y |  |
+| 4 | CD_EXA_RX | NUMBER | Y |  |
+| 5 | CD_SET_EXA | NUMBER | Y |  |
+| 6 | CD_PRODUTO | NUMBER | Y |  |
+| 7 | DS_PRODUTO | VARCHAR2 | Y |  |
+| 8 | CD_ESTOQUE | NUMBER | Y |  |
+| 9 | QT_SOLICITADA | NUMBER | Y |  |
+| 10 | DT_LOG_ITEM_AGENDA | DATE | Y |  |
+| 11 | CD_USUARIO | VARCHAR2 | Y |  |
+| 12 | CD_SANGUE_DERIVADOS | NUMBER | Y |  |
+| 13 | CD_USUARIO_CANCEL | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ITEM_CONTRATO_SUS
+> Tabela de log de itens de contratualizac?o.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTRATO_SUS | NUMBER | N | Codigo do Contrato. |
+| 2 | CD_PROCEDIMENTO | VARCHAR2 | Y | Codigo do procedimento. |
+| 3 | DT_ATUALIZACAO | DATE | N | Data de atualizac?o. |
+| 4 | TP_ATUALIZACAO | VARCHAR2 | N | Tipo de atualizac?o. I= Inclus?o, A = Alterac?o e E = Exclus?o. |
+| 5 | NM_USUARIO | VARCHAR2 | N | Nome do usuario que executou a alterac?o. |
+| 6 | QT_INTERNACAO_CONTRATO_NEW | NUMBER | Y |  |
+| 7 | VL_INTERNACAO_CONTRATO_NEW | NUMBER | Y |  |
+| 8 | QT_AMBULATORIAL_CONTRATO_NEW | NUMBER | Y |  |
+| 9 | VL_AMBULATORIAL_CONTRATO_NEW | NUMBER | Y |  |
+| 10 | QT_INTERNACAO_META_HOSP_NEW | NUMBER | Y |  |
+| 11 | VL_INTERNACAO_META_HOSP_NEW | NUMBER | Y |  |
+| 12 | QT_AMBULATORIAL_META_HOSP_NEW | NUMBER | Y |  |
+| 13 | VL_AMBULATORIAL_META_HOSP_NEW | NUMBER | Y |  |
+| 14 | CD_ITEM | NUMBER | N | Codigo do item do Contrato. |
+| 15 | CD_GRUPO_CONTRATO_SUS | NUMBER | Y | Codigo do Grupo de Contrato. |
+
+---
+
+## DBAMV.LOG_ITEM_COTA_RESSUPRIMENTO
+> Tabela que guarda os produtos da cota de ressuprimento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ITEM_COTA | NUMBER | N | Guarda o código identificador do log do item da cota de ressuprimento. Alimentada pela SEQ_LOG_IT... |
+| 2 | TP_OPERACAO | VARCHAR2 | N | Guarda o indicador da operação que gerou o registro. Valores possíveis: I - Inclusão; U - Alteraç... |
+| 3 | CD_USUARIO | VARCHAR2 | N | Guarda o usuário que realizou a operação. |
+| 4 | DT_OPERACAO | DATE | N | Guarda a data em que a operação foi realizada. |
+| 5 | CD_COTA | NUMBER | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 6 | CD_PRODUTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 7 | DT_VIGENCIA | DATE | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 8 | CD_UNIDADE_PRODUTO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 9 | QT_COTA | NUMBER | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 10 | CD_GABARITO | NUMBER | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+| 11 | SN_INATIVO | VARCHAR2 | Y | Guarda a cópia do campo homônimo da tabela ITEM_COTA_RESSUPRIMENTO. |
+
+---
+
+## DBAMV.LOG_ITEM_FCCT
+> registro dos itens das ac?es do modulo do FCCT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITEM | NUMBER | N | codigo sequencial dos itens do log pai |
+| 2 | CD_LOG | NUMBER | N |  |
+| 3 | TP_ITEM | VARCHAR2 | Y | codigo sequencial do log pai |
+| 4 | DS_ITEM | VARCHAR2 | Y | descric?o da ac?o realizada |
+| 5 | DT_ITEM | DATE | Y | data da realizac?o da ac?o |
+| 6 | CD_REFERENCIA | NUMBER | Y | coluna utilizada para inserir codigos de informac?es extras, como codigos de erros |
+
+---
+
+## DBAMV.LOG_ITEM_GUIA_OPME
+> Tabela de LOG, referente a tabela dbamv.log_item_guia_opme, de valorizac?o dos itens da guia OPME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ITEM_GUIA_OPME | NUMBER | N | Chave primaria sequencial da tabela |
+| 2 | CD_GUIA | NUMBER | Y | Codigo da Guia relacionada |
+| 3 | CD_IT_GUIA | NUMBER | Y | Codigo do item da guia relacionada |
+| 4 | DT_VIGENCIA | DATE | Y | Data de vigencia do valor cotado |
+| 5 | CD_LABORATOR | VARCHAR2 | Y | Codigo do fabricante do produto |
+| 6 | CD_FORNECEDOR | NUMBER | Y | Codigo do fornecedor do produto |
+| 7 | VL_PERC_FRACAO | NUMBER | Y | Percentual da frac?o utilizavel |
+| 8 | VL_UNITARIO | NUMBER | Y | Valor unitario Cotado |
+| 9 | VL_TOTAL | NUMBER | Y | Valor total do produto cotado |
+| 10 | VL_TOTAL_AUTORIZADO | NUMBER | Y | Valor total autorizado pelo Convenio |
+| 11 | CD_USU_AUT_ENVIO | VARCHAR2 | Y | Codigo do usuario que autorizou o envio do orcamento da guia |
+| 12 | CD_RMS | VARCHAR2 | Y | Registro no Ministerio da Saude - RMS |
+| 13 | SN_TAXA_COMERCIALIZACAO | VARCHAR2 | N | Se utiliza a taxa de comercializac?o no calculo de valorizac?o |
+| 14 | SN_FORNECEDOR_AUTORIZADO | VARCHAR2 | N | Indica qual Fornecedor foi autorizado pelo Convenio. |
+| 15 | SN_AUTORIZADO | VARCHAR2 | N | Indica se o preco do precedimento foi autorizado pelo convenio |
+| 16 | VL_TAXA_COMERCIALIZACAO | NUMBER | Y | Valor da Taxa de Comercializac?o. |
+| 17 | CD_OPME_FORN | VARCHAR2 | Y | Indica o codigo do produto OPME no fornecedor |
+| 18 | DT_VALIDADE_REGISTRO | DATE | Y | Informa a data do registro do produto no Ministerio da Saude |
+| 19 | TP_VALORIZACAO | VARCHAR2 | Y | Informa por qual metodo a valorizac?o foi obtida, L = listarCarrinho \| R = listarRespostasPedido... |
+| 20 | SN_ENVIADO_OPMENEXO | VARCHAR2 | N | Informa se o item foi enviado para a Opmenexo |
+| 21 | TP_FRETE | VARCHAR2 | Y |  |
+| 22 | CD_CONDICAO_PAGAMENTO | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_ITLAN_MED_REG_LANC
+> Tabela que guarda os itens de equipe medica antes de aplicar regras de lancamento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | N | Codigo da conta hospitalar. |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento da conta hospitalar. |
+| 3 | CD_ATI_MED | VARCHAR2 | N | Codigo da atividade medica. |
+| 4 | CD_PRESTADOR | NUMBER | N | Codigo do prestador. |
+| 5 | VL_ATO | NUMBER | Y | Valor bruto. |
+| 6 | CD_PRES_CON | NUMBER | Y | cod pres_con. |
+| 7 | VL_BASE_REPASSADO | NUMBER | Y | Valor base repassado. |
+| 8 | TP_PAGAMENTO | VARCHAR2 | Y |  |
+| 9 | QT_PONTOS | NUMBER | Y | Qtd pontos. |
+| 10 | CD_TIPO_VINCULO | NUMBER | Y | codigo tipo de  vinculo. |
+| 11 | SN_PACIENTE_PAGA | VARCHAR2 | Y | Paciente paga(s/n)?. |
+| 12 | SN_REPASSOU_VIRTUAL | VARCHAR2 | N | Repasse virtual(s/n)?. |
+| 13 | CD_ITMVTO | NUMBER | Y | Cod movimentac?o do item. |
+| 14 | VL_DESCONTO | NUMBER | Y | valor desconto. |
+| 15 | VL_ACRESCIMO | NUMBER | Y | valor acrescimo. |
+| 16 | VL_LIQUIDO | NUMBER | Y | valor liquido |
+| 17 | VL_NOTA | NUMBER | Y | valor nota. |
+| 18 | VL_DESCONTO_CONTA | NUMBER | Y | valor desconto conta da equipe. |
+| 19 | SN_REPASSADO | VARCHAR2 | Y | Repassado(s/n)?. |
+
+---
+
+## DBAMV.LOG_ITPRE_FAT
+> Log Item Prescrito Faturado
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_USUARIO | VARCHAR2 | N | Nome do usuario que alterou |
+| 2 | DH_REGISTRO | DATE | N | Data que ocorreu registro do log |
+| 3 | CD_ITPRE_MED | NUMBER | N | Codigo Item de prescric?o |
+| 4 | QT_LANCAMENTO | NUMBER | Y | Quantidade a ser faturada |
+| 5 | CD_FECHAMENTO | NUMBER | Y | Codigo do fechamento |
+| 6 | CD_PRO_FAT | VARCHAR2 | Y | Codigo do Produto Faturado |
+| 7 | CD_SSM | VARCHAR2 | Y | Codigo do procedimento Sia-sus |
+
+---
+
+## DBAMV.LOG_ITPRE_MED_TRATAMENTO
+> Log dos itens prescritos das prescric?es de tratamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ITPRE_MED_TRATAMENTO | NUMBER | N | Codigo do log dos itens prescritos de prescric?es de tratamento |
+| 2 | CD_PRE_MED_TRATMT | NUMBER | N | Codigo da prescric?o de tratamento |
+| 3 | DH_OPERACAO | DATE | N | Data da operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: Alt=Alterac?o Exc=Exclus?o Inc=Inclus?o Sus=Suspens?o |
+| 5 | CD_PRESTADOR_OPERACAO | NUMBER | N | Codigo do prestador da operac?o |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 7 | DS_OBSERVACOES | VARCHAR2 | Y | Observac?es |
+| 8 | CD_ITPRE_MED | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 9 | CD_TIP_ESQ | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 10 | CD_TIP_PRESC | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 11 | CD_PRE_MED | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 12 | CD_SET_EXA | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 13 | CD_TIP_FRE | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 14 | CD_FOR_APL | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 15 | QT_ITPRE_MED | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 16 | DS_ITPRE_MED | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 17 | TP_SITUACAO | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 18 | DH_INICIAL | DATE | Y | Informac?o original do item da prescric?o de tratamento |
+| 19 | TP_LOCAL_EXAME | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 20 | SN_COPIA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 21 | SN_CANCELADO | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 22 | CD_UNIDADE | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 23 | CD_PRODUTO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 24 | CD_UNI_PRO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 25 | CD_IMPORTA_REG_FAT | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 26 | CD_IMPORTA_REG_AMB | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 27 | CD_PRESTADOR | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 28 | DH_FINAL | DATE | Y | Informac?o original do item da prescric?o de tratamento |
+| 29 | DH_CANCELADO | DATE | Y | Informac?o original do item da prescric?o de tratamento |
+| 30 | CD_PREST_CANC | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 31 | CD_PRE_USO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 32 | DS_NPADRONIZADO | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 33 | CD_NPADRONIZADO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 34 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 35 | CD_ITPRE_MED_CANC | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 36 | NR_AGRUPAMENTO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 37 | QT_INFUSAO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 38 | CD_UNI_PRO_INF | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 39 | TP_TEMPO | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 40 | QT_DIAS | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 41 | NR_DIA | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 42 | CD_ITPRE_PAD | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 43 | TP_JUSTIFICATIVA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 44 | TP_DET_JUSTIFICATIVA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 45 | SN_URGENTE | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 46 | CD_TIP_FRE_DET | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 47 | SN_SOLICITA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 48 | CD_ITPRE_MED_COPIA | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 49 | QT_ITPRE_MED_CALCULADO | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 50 | SN_SOMENTE_HOJE | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 51 | CD_FORMULA | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 52 | CD_UNI_PRESC | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 53 | HR_DURACAO | DATE | Y | Informac?o original do item da prescric?o de tratamento |
+| 54 | CD_UNI_PRESC_INF | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 55 | CD_ITPRE_MED_JUSTIFICATIVA | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 56 | NR_GUIA | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 57 | SN_ATM_PRORROGACAO | VARCHAR2 | Y | Informac?o original do item da prescric?o de tratamento |
+| 58 | CD_ITPRE_MED_TRATMT | NUMBER | Y | Informac?o original do item da prescric?o de tratamento |
+| 59 | NR_ORDEM | NUMBER | Y | Indica qual era a ordem anterior do item dentro da prescricao medica |
+
+---
+
+## DBAMV.LOG_ITREG_AMB_REG_LANC
+> Tabela de Log ambulatorial referente regras de lancamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_AMB | NUMBER | N | Codigo do lote |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo lancamento |
+| 3 | HR_LANCAMENTO | DATE | N | Hora de lancamento |
+| 4 | QT_LANCAMENTO | NUMBER | N | Quantidade de lancamento |
+| 5 | VL_UNITARIO | NUMBER | Y | valor unitario |
+| 6 | VL_ACRESCIMO | NUMBER | Y | valor acrescimo |
+| 7 | VL_DESCONTO | NUMBER | Y | valor desconto |
+| 8 | CD_GRU_FAT | NUMBER | N | Codigo do grupo de faturamento |
+| 9 | CD_PRO_FAT | VARCHAR2 | N | Codigo procedimento |
+| 10 | CD_ATENDIMENTO | NUMBER | N | Codigo do atendimento |
+| 11 | CD_PRESTADOR | NUMBER | Y | codigo do prestador |
+| 12 | CD_CON_PLA | NUMBER | N | codigo do plano |
+| 13 | CD_CONVENIO | NUMBER | N | codigo do convenio |
+| 14 | VL_HONORARIO_UNITARIO | NUMBER | Y | valor de honorario unitario |
+| 15 | VL_OPERACIONAL_UNITARIO | NUMBER | Y | valor operacional unitario |
+| 16 | CD_ATI_MED | VARCHAR2 | Y | Codigo atividade medica |
+| 17 | CD_PRES_CON | NUMBER | Y | Codigo pres_con |
+| 18 | VL_PERCENTUAL_PACIENTE | NUMBER | Y | valor percentual do paciente |
+| 19 | VL_FILME_UNITARIO | NUMBER | Y | valor filme unitario |
+| 20 | VL_TOTAL_CONTA | NUMBER | Y | Valor total do item |
+| 21 | SN_FATURA_IMPRESSA | VARCHAR2 | N | Fatura impressa(s/n)? |
+| 22 | SN_FECHADA | VARCHAR2 | N | conta fechada(s/n)? |
+| 23 | CD_IMPORTA_REG_AMB | NUMBER | Y | codigo importacao do lote |
+| 24 | SN_CONTA_CALCULADA | VARCHAR2 | N | Pertence a pacote(s/n)? |
+| 25 | CD_GUIA | NUMBER | Y | codigo da guia |
+| 26 | SN_PERTENCE_PACOTE | VARCHAR2 | N |  |
+| 27 | DT_FECHAMENTO | DATE | Y | data fechamento |
+| 28 | NM_USUARIO_FECHOU | VARCHAR2 | Y | Usuario que fechou a conta |
+| 29 | VL_DESCONTO_FECHAMENTO | NUMBER | Y | valor desconto no fechamento da conta |
+| 30 | VL_ACRESCIMO_FECHAMENTO | NUMBER | Y | valor acrescimo no fechamento da conta |
+| 31 | VL_CONTA_NO_FECHAMENTO | NUMBER | Y | Valor do item no fechamento da conta |
+| 32 | VL_BASE_REPASSADO | NUMBER | Y | Valor base repassado |
+| 33 | CD_MOTIVO_GLOSA | NUMBER | Y | codigo motivo de glosa |
+| 34 | QT_CH_UNITARIO | NUMBER | Y | qtd CH unitario |
+| 35 | VL_PERCENTUAL_MULTIPLA | NUMBER | Y | valor percentual do procedimento |
+| 36 | TP_PAGAMENTO | VARCHAR2 | Y | tipo de pagamento |
+| 37 | CD_SETOR_PRODUZIU | NUMBER | Y | codigo do setor que produziu |
+| 38 | CD_SETOR | NUMBER | Y | codigo do setor |
+| 39 | CD_PADRAO | NUMBER | Y | codigo do padr?o |
+| 40 | SN_HORARIO_ESPECIAL | VARCHAR2 | Y | Horario especial(s/n)? |
+| 41 | CD_REG_AMB_PAI | NUMBER | Y | codigo do lote pai |
+| 42 | CD_LANCAMENTO_PAI | NUMBER | Y | codigo do lancamento pai |
+| 43 | CD_FRANQUIA | NUMBER | Y | codigo da franquia |
+| 44 | CD_REGRA_ACOPLAMENTO | NUMBER | Y | codigo da regra acoplamento |
+| 45 | VL_PERC_ACOPLAMENTO | NUMBER | Y | valor percentual do acoplamento |
+| 46 | SN_PACIENTE_PAGA | VARCHAR2 | Y | Paciente paga(s/n)? |
+| 47 | CD_REGRA_ATENDIMENTO | NUMBER | Y | codigo da regra de atendimento |
+| 48 | CD_REGRA_ATENDIMENTO_PRO_FAT | NUMBER | Y | codigo da regra de atendimento procedimento |
+| 49 | CD_FRANQUIA_VALOR_TOTAL | NUMBER | Y | codigo franquia valor total |
+| 50 | CD_REG_AMB_REL | NUMBER | Y | codigo lote relacionado |
+| 51 | CD_LANCAMENTO_REL | NUMBER | Y | codigo lancamento relacionado |
+| 52 | CD_ITMVTO | NUMBER | Y | codigo do item de movimentac?o |
+| 53 | CD_USUARIO | VARCHAR2 | Y | codigo do usuario |
+| 54 | CD_MVTO | NUMBER | Y | codigo de movimentac?o |
+| 55 | TP_MVTO | VARCHAR2 | Y | tipo de movimentac?o |
+| 56 | HR_LANCAMENTO_FINAL | DATE | Y | hora lancamento final |
+| 57 | SN_REPASSOU_VIRTUAL | VARCHAR2 | N | Repassou virtual(s/n)? |
+| 58 | SN_PRONTA | VARCHAR2 | N | Pronta?(s/n)? |
+| 59 | VL_DESCONTO_CONTA | NUMBER | Y | Valor desconto conta |
+| 60 | DT_SESSAO | DATE | Y | data de sess?o |
+| 61 | TP_MVTO_DESCONTO | VARCHAR2 | Y | tipo movimentac?o de desconto |
+| 62 | TP_DESCONTO | VARCHAR2 | Y | Codigo sequencial da movimentac?o de kit na conta de faturamento |
+| 63 | VL_NOTA | NUMBER | Y | valor nota |
+| 64 | SN_REPASSADO | VARCHAR2 | Y | Repassado?(s/n)? |
+| 65 | FATOR_RELACIONADO | NUMBER | Y | qtd fator relacionado da regra |
+| 66 | NR_SEQ_PREIMPRE | NUMBER | Y | Sequencial do relatorio pre-impresso do convenio |
+| 67 | CD_CONTA_KIT | NUMBER | Y |  |
+| 68 | DS_OBSERVACAO_FRANQUIA | VARCHAR2 | Y | observac?o franquia |
+| 69 | CD_LANCAMENTO_REG_LANC | NUMBER | Y | codigo  lancamento  que utilizou a regra de lancamento |
+| 70 | CD_REGRA_LANCAMENTO | NUMBER | Y | codigo regra de lacamento |
+| 71 | CD_CONTA_PACOTE | NUMBER | Y | codigo da conta pacote |
+| 72 | SN_REGRA_LANCAMENTO | VARCHAR2 | Y | Indica se a conta tem regra de lanccamento aplicada |
+| 73 | NR_DIFEP | VARCHAR2 | Y | Numero de controle estadual de bolsas de sangue por Hemocentros. |
+| 74 | NM_INSTANCIA | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 75 | NM_SESSAO | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 76 | NM_USUARIO | VARCHAR2 | Y | Usuario que realizou o processo de regra de lancamento |
+| 77 | INSTANC | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 78 | SID | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 79 | USERNAME | VARCHAR2 | Y | Usuario que realizou o processo de regra de lancamento |
+
+---
+
+## DBAMV.LOG_ITREG_FAT_REG_LANC
+> tabela de log dos itens hospitalares
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REG_FAT | NUMBER | N | Codigo da conta. |
+| 2 | CD_LANCAMENTO | NUMBER | N | Codigo do lancamento. |
+| 3 | DT_LANCAMENTO | DATE | N | Data do lancamento. |
+| 4 | HR_LANCAMENTO | DATE | Y | Hora do lancamento. |
+| 5 | QT_LANCAMENTO | NUMBER | N | Quantidade do lancamento. |
+| 6 | VL_PERCENTUAL_MULTIPLA | NUMBER | N | valor percentual do procedimento. |
+| 7 | VL_UNITARIO | NUMBER | Y | valor unitario do procedimento. |
+| 8 | VL_FILME_UNITARIO | NUMBER | Y | valor do filme. |
+| 9 | VL_ACRESCIMO | NUMBER | Y | valor acrescimo. |
+| 10 | VL_DESCONTO | NUMBER | Y | valor desconto. |
+| 11 | CD_GRU_FAT | NUMBER | N | codigo do grupo de faturamento. |
+| 12 | CD_PRO_FAT | VARCHAR2 | N | codigo do procedimento. |
+| 13 | CD_PRESTADOR | NUMBER | Y | codigo do prestador. |
+| 14 | NR_PADRAO | NUMBER | Y | numero padrao. |
+| 15 | VL_HONORARIO_UNITARIO | NUMBER | Y | valor de honorario unitario. |
+| 16 | VL_OPERACIONAL_UNITARIO | NUMBER | Y | valor de honorario unitario. |
+| 17 | CD_PRES_CON | NUMBER | Y | codigo pres_con |
+| 18 | VL_PERCENTUAL_PACIENTE | NUMBER | Y | valor percentual do paciente. |
+| 19 | VL_TOTAL_CONTA | NUMBER | Y | valor total do procedimento. |
+| 20 | CD_IMPORTA_REG_FAT | NUMBER | Y | codigo importac?o da reg_fat. |
+| 21 | CD_GUIA | NUMBER | Y | codigo guia. |
+| 22 | SN_PERTENCE_PACOTE | VARCHAR2 | N | Pertence a pacote(s/n)?. |
+| 23 | VL_BASE_REPASSADO | NUMBER | Y | valor base repassado. |
+| 24 | CD_MOTIVO_GLOSA | NUMBER | Y | codigo motivo da glosa. |
+| 25 | QT_CH_UNITARIO | NUMBER | Y | qtd CH unitario. |
+| 26 | TP_PAGAMENTO | VARCHAR2 | Y | tipo pagamento. |
+| 27 | CD_SETOR_PRODUZIU | NUMBER | Y | codigo setor produziu. |
+| 28 | CD_SETOR | NUMBER | Y | codigo setor. |
+| 29 | CD_PADRAO | NUMBER | Y | codigo padr?o. |
+| 30 | SN_HORARIO_ESPECIAL | VARCHAR2 | Y | Horario especial(s/n)? |
+| 31 | QT_PONTOS | NUMBER | Y | Quantidade pontos? |
+| 32 | SN_PROCED_AUTORIZADO | VARCHAR2 | Y | Procedimento autorizado? |
+| 33 | TP_ALTA_UTI_NEO | VARCHAR2 | Y | tipo alta uti_neo |
+| 34 | QT_PESO_RN | NUMBER | Y | qtd peso rn |
+| 35 | QT_MES_GESTACAO | NUMBER | Y | qtd mes gestac?o |
+| 36 | CD_SUS | VARCHAR2 | Y | codigo SUS |
+| 37 | CD_TIPO_VINCULO | NUMBER | Y | codigo SUS |
+| 38 | CD_ATI_MED | VARCHAR2 | Y | codigo atividade medica |
+| 39 | VL_SP | NUMBER | Y | valor SH |
+| 40 | VL_SH | NUMBER | Y |  |
+| 41 | VL_SD | NUMBER | Y | valor SD |
+| 42 | VL_ATO | NUMBER | Y | valor ATO |
+| 43 | CD_SUS_AUXILIAR | VARCHAR2 | Y | Codigo da conta pai SUS auxiliar. |
+| 44 | CD_REG_FAT_PAI | NUMBER | Y |  |
+| 45 | CD_LANCAMENTO_PAI | NUMBER | Y | Codigo do lancamento conta pai para este item. |
+| 46 | SN_PROCED_REALIZADO | VARCHAR2 | Y | Procedimento realizado?(s/n) |
+| 47 | CD_FRANQUIA | NUMBER | Y | Codigo da franquia. |
+| 48 | CD_REGRA_ACOPLAMENTO | NUMBER | Y | Codigo da regra de acoplamento. |
+| 49 | VL_PERC_ACOPLAMENTO | NUMBER | Y | valor percentual acoplamento. |
+| 50 | SN_PACIENTE_PAGA | VARCHAR2 | Y | Paciente paga(s/n)? |
+| 51 | CD_REGRA_ATENDIMENTO | NUMBER | Y | Codigo regra atendimento |
+| 52 | CD_REGRA_ATENDIMENTO_PRO_FAT | NUMBER | Y | Codigo regra atendimento procedimento |
+| 53 | CD_REG_FAT_REL | NUMBER | Y | Codigo da conta do relacionado |
+| 54 | CD_LANCAMENTO_REL | NUMBER | Y | Codigo do lancamento do relacionado |
+| 55 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario |
+| 56 | CD_MVTO | NUMBER | Y | Codigo de movimentac?o |
+| 57 | TP_MVTO | VARCHAR2 | Y | Tipo de movimentac?o |
+| 58 | HR_LANCAMENTO_FINAL | DATE | Y | Hora lancamento final |
+| 59 | VL_DESCONTO_CONTA | NUMBER | Y | Valor desconto conta |
+| 60 | SN_REPASSOU_VIRTUAL | VARCHAR2 | N | Repasse virtual(s/n)? |
+| 61 | VL_NOTA | NUMBER | Y | Valor nota |
+| 62 | SN_IMP_LAUDO_ALTERACAO | VARCHAR2 | Y | sn_imp_laudo_alteracao? |
+| 63 | VL_PONTO_REPASSADO | NUMBER | Y | Valor ponto repassado |
+| 64 | CD_ITMVTO | NUMBER | Y |  |
+| 65 | SN_REPASSADO | VARCHAR2 | Y | Repassado(s/n)? |
+| 66 | FATOR_RELACIONADO | NUMBER | Y |  |
+| 67 | NR_SEQ_PREIMPRE | NUMBER | Y | Sequencial do relatorio pre-impresso do convenio |
+| 68 | CD_CONTA_PAI | NUMBER | Y | Codigo da conta pai para relacionamento deste item. |
+| 69 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 70 | CD_CONTA_KIT | NUMBER | Y | Codigo sequencial da movimentac?o de kit na conta de faturamento. |
+| 71 | TP_RESULTADO_EXAME_ACH | VARCHAR2 | Y |  |
+| 72 | TP_SITUACAO_ACH | VARCHAR2 | Y |  |
+| 73 | CD_GERACAO_ACH_AUTORIZADO | NUMBER | Y | Cod gerac?o ACH autorizado |
+| 74 | CD_LANCAMENTO_REG_LANC | NUMBER | Y | Cod lancamento referente regra lancamento |
+| 75 | CD_REGRA_LANCAMENTO | NUMBER | Y | Cod regra lancamento |
+| 76 | CD_CONTA_PACOTE | NUMBER | Y | Cod conta de pacote |
+| 77 | SN_CALC_DIFERENCA_ACOMODACAO | VARCHAR2 | N | Identifica se havera ou n?o, o calculo da diferenca entre o valor da acomodac?o coberta pelo conv... |
+| 78 | NR_DIFEP | VARCHAR2 | Y | Numero de controle estadual de bolsas de sangue por Hemocentros. |
+| 79 | NM_INSTANCIA | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 80 | NM_SESSAO | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 81 | NM_USUARIO | VARCHAR2 | Y | Usuario que realizou o processo de regra de lancamento |
+| 82 | INSTANC | VARCHAR2 | Y | Instancia da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 83 | SID | VARCHAR2 | Y | SID da tabela gv$session, para auxiliar no processo de regra de lancamento |
+| 84 | USERNAME | VARCHAR2 | Y | Usuario que realizou o processo de regra de lancamento |
+
+---
+
+## DBAMV.LOG_ITREPASSE_MEDICO_CD
+> Tabela que ira guardar os logs de importac?o/alterac?o da tabela DBAMV.ITREPASSE_MEDICO_CD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ITREP_CD | NUMBER | N | Sequencial da tabela |
+| 2 | DT_COMPETENCIA | DATE | Y | Competencia do faturamento |
+| 3 | TP_LOG_ITREP_CD | VARCHAR2 | Y | Tipo da transac?o => I-Importacao/ A-Alteracao |
+| 4 | DT_LOG_ITREP_CD | DATE | Y | Data da transacao |
+| 5 | HR_LOG_ITREP_CD | DATE | Y | Hora da transacao |
+| 6 | NM_USUARIO | VARCHAR2 | Y | Usuario que efetuou a transacao |
+| 7 | CD_ATENDIMENTO | NUMBER | Y | Codigo do atendimento |
+| 8 | CD_REG_FAT | NUMBER | Y | Conta hospitalar |
+| 9 | CD_REG_AMB | NUMBER | Y | Conta ambulatorial |
+| 10 | CD_LANCAMENTO | NUMBER | Y | Codigo do lancamento |
+| 11 | CD_MVTO | NUMBER | Y | Codigo da movimentac?o do pedido |
+| 12 | CD_ITMVTO | NUMBER | Y | Codigo da movimentac?o do item pedido |
+| 13 | DS_CAMPO | VARCHAR2 | Y | Descricao do campo que foi alterado |
+| 14 | DS_VALOR_ANTIGO | VARCHAR2 | Y | Valor do campo antes da alteracao |
+| 15 | DS_VALOR_NOVO | VARCHAR2 | Y | Valor do campo depois da alteracao |
+| 16 | TP_ATENDIMENTO | VARCHAR2 | Y | Tipo do atendimento |
+
+---
+
+## DBAMV.LOG_IT_AV_PRODUTOS
+> LOG de alteracao da tabela IT_AV_PRODUTOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo da chave primaria - Sequencial |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | Y | Codigo do aviso de cirurgia |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario que realizou a ac?o de alterar, incluir ou excluir o item |
+| 4 | DT_LOG | DATE | Y | Data da transacao |
+| 5 | TP_ACAO | VARCHAR2 | Y | Tipo da ac?o: Inclusao, Alteracao, Exclusao |
+| 6 | CD_PRODUTO | NUMBER | Y | Codigo do produto |
+| 7 | DS_PRODUTO | VARCHAR2 | Y | Descricao do produto |
+| 8 | QT_SOLICITADA_ANT | NUMBER | Y | Quantidade antes da alteracao |
+| 9 | QT_SOLICITADA_ATUAL | NUMBER | Y | Quantidade atual apos alteracao |
+| 10 | CD_FORNECEDOR_ANT | NUMBER | Y | Codigo do fornecedor antes da altecao |
+| 11 | CD_FORNECEDOR_ATUAL | NUMBER | Y | Codigo do fornecedor apos altecao |
+| 12 | DS_OBSERVACAO_ANT | VARCHAR2 | Y | Descric?o da observacao apos altercao |
+| 13 | DS_OBSERVACAO_ATUAL | VARCHAR2 | Y |  |
+| 14 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Descric?o da justificativa do item - Texto livre |
+
+---
+
+## DBAMV.LOG_IT_SAME_PROTOCOLOS
+> TABELA LOG PROTOCOLO SAME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAD_SAME | NUMBER | N |  |
+| 2 | NR_MATRICULA_SAME | NUMBER | N |  |
+| 3 | CD_PROTOCOLO | NUMBER | N |  |
+| 4 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 5 | NR_SEQUENCIA | NUMBER | N |  |
+| 6 | CD_PROTOCOLO_DEVOLUCAO | NUMBER | Y |  |
+| 7 | DT_RECEBIMENTO | DATE | Y |  |
+| 8 | HR_RECEBIMENTO | DATE | Y |  |
+| 9 | CD_USUARIO_RECEBIMENTO | VARCHAR2 | Y |  |
+| 10 | SN_RECEBIMENTO_AUTOMATICO | VARCHAR2 | N |  |
+| 11 | NR_VOLUME | NUMBER | N |  |
+| 12 | DT_EXCLUSAO | DATE | Y |  |
+| 13 | HR_EXCLUSAO | DATE | Y |  |
+| 14 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_LABORATOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_LOG_LABORATOR | NUMBER | N | INDICA CODIGO DO LOG. |
+| 2 | CD_USUARIO | VARCHAR2 | N | INDICA QUAL USUARIO DESATIVOU O FABRICANTE. |
+| 3 | TP_ALTERACAO | VARCHAR2 | N | INDICA QUAL O TIPO DE ALTERAÇÃO FOI REALIZADA NO CADASTRO DE FABRICANTE. "INSERÇÃO", "EXCLUSÃO", ... |
+| 4 | CD_LABORATOR | VARCHAR2 | N | INDICA CÓDIGO DO FABRICANTE. |
+| 5 | NM_LABORATOR | VARCHAR2 | N | INDICA DESCRIÇÃO DO FABRICANTE. |
+| 6 | TP_ORIGEM | VARCHAR2 | Y | TIPO DA ORIGEM DO FORNECEDOR - NACIONAL OU IMPORTADO |
+| 7 | DS_PAIS_ORIGEM | VARCHAR2 | Y | PAIS DE ORIGEM DO FORNECEDOR |
+| 8 | SN_ATIVO | VARCHAR2 | N | INDICA SE O FABRICANTE ESTA OU NÃO ATIVO. |
+| 9 | DT_ALTERACAO | DATE | Y | INDICA EM QUE DATA O FABRICANTE FOI INATIVADO. |
+| 10 | DS_MOT_INATIVACAO | VARCHAR2 | Y | INDICA O MOTIVO NO QUAL O FABRICANTE FOI INATIVADO. |
+| 11 | NR_LABORATOR | NUMBER | N | Indica o Sequencial do Laboratorio. |
+
+---
+
+## DBAMV.LOG_LAUDO_SIA_APAC
+> Laudos para integração com o GERPAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_LAUDO | NUMBER | N | Código do log |
+| 2 | DH_LOG | DATE | Y | Data e hora da criação do registro |
+| 3 | CD_LAUDO_APAC | NUMBER | Y | Código do laudo apac |
+| 4 | CD_TIP_ATE | NUMBER | Y | Código do tipo de tratamento APAC |
+| 5 | NR_PROTOCOLO_SOLICITACAO | VARCHAR2 | Y | Número do protocolo de solicitação |
+| 6 | DT_SOLICITACAO | DATE | Y | Data de solicitação |
+| 7 | NR_AUTORIZACAO | VARCHAR2 | Y | Número da APAC Autorizada |
+| 8 | DT_AUTORIZACAO | DATE | Y | Data de autorização |
+| 9 | QT_AUTORIZADA | NUMBER | Y | Quantidade autorizada |
+| 10 | QT_EXECUTADA | NUMBER | Y | Quantidade executada |
+| 11 | DT_EXECUCAO | DATE | Y | Data de execução |
+| 12 | TP_SITUACAO | VARCHAR2 | Y | Situação do laudo |
+| 13 | DS_MENSAGEM | VARCHAR2 | Y | Descrição |
+| 14 | CD_PROCEDIMENTO_PRINCIPAL | VARCHAR2 | Y | Código do procedimento sus |
+| 15 | DS_PROCEDIMENTO_PRINCIPAL | VARCHAR2 | Y | Descrição do procedimento sus |
+| 16 | NR_SEQUENCIA_EXECUCAO | NUMBER | Y | Sequência de execução |
+| 17 | NM_PACIENTE | VARCHAR2 | Y | Nome do paciente |
+| 18 | DT_INTEGRA | DATE | Y | Data de integração |
+| 19 | CD_SEQ_INTEGRA | NUMBER | Y | Código de sequência de integração |
+
+---
+
+## DBAMV.LOG_LEITURA_AMOSTRA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Numero Sequencial do Registro de Log |
+| 2 | CD_AMOSTRA | NUMBER | Y | Codigo da Amostra contida no arquivo |
+| 3 | TP_SITUACAO | VARCHAR2 | N | Identificador do resultado apos leitura do arquivo: C - Confirmado / E - Erro. |
+| 4 | DT_LEITURA | DATE | N | Data e hora em que o arquivo foi lido |
+| 5 | DS_ERRO | LONG | Y | Descric?o dos erros encontrados durante o processo de leitura |
+| 6 | DS_ARQUIVO_ERRO | VARCHAR2 | Y | Descric?o do arquivo que gerou erro. |
+| 7 | CD_BANCADA | NUMBER | Y | Coluna que contém o código da bancada configurada para o Robo. Caso não tenha o robo está funcion... |
+
+---
+
+## DBAMV.LOG_LEITURA_PEDIDO
+> Tabela de Log de exportac?o de pedido
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Numero Sequencial do Registro de Log |
+| 2 | CD_ITPED_LAB | NUMBER | N | Codigo do Item de Pedido |
+| 3 | TP_SITUACAO | VARCHAR2 | N | Identificador do resultado apos leitura do arquivo: C - Confirmado / E - Erro. |
+| 4 | DT_LEITURA | DATE | N | Data e hora em que o arquivo foi lido |
+| 5 | DS_ERRO | VARCHAR2 | Y | Descric?o dos erros encontrados durante o processo de leitura |
+
+---
+
+## DBAMV.LOG_MEIO_MAG
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MEIO_MAG | NUMBER | N |  |
+| 2 | CD_REMESSA | NUMBER | N |  |
+| 3 | CD_REG_FAT | NUMBER | Y |  |
+| 4 | CD_REG_AMB | NUMBER | Y |  |
+| 5 | CD_ATENDIMENTO | NUMBER | N |  |
+| 6 | VL_SH | NUMBER | Y |  |
+| 7 | VL_SP | NUMBER | Y |  |
+| 8 | VL_SD | NUMBER | Y |  |
+| 9 | NR_NOTA | NUMBER | Y |  |
+| 10 | TP_NOTA | VARCHAR2 | Y |  |
+| 11 | DT_GERACAO | DATE | N |  |
+| 12 | NM_USUARIO | VARCHAR2 | N |  |
+| 13 | SEQ_NOTA | NUMBER | Y |  |
+| 14 | QTD_REFERENCIA | NUMBER | Y |  |
+| 15 | DT_COMPETENCIA | DATE | Y |  |
+| 16 | SEQ_REMESSA | NUMBER | Y |  |
+| 17 | VL_MD | NUMBER | Y | Valor p/ Medicamentos |
+| 18 | VL_MT | NUMBER | Y | Valor p/ Materiais |
+| 19 | VL_OP | NUMBER | Y | Valor p/ Orteses e Proteses |
+| 20 | CD_MULTI_EMPRESA | NUMBER | Y | Codigo da empresa a qual pertence a numerac?o de nota |
+
+---
+
+## DBAMV.LOG_MEIO_MAGNETICO_APAC
+> Tabela de Log do Arquivo de Meio Magnetico das Remessas de Contas APAC.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_GERACAO | NUMBER | N | Codigo sequencial do log de gerac?o do meio magnetico da remessa APAC. |
+| 2 | CD_FAT_SIA | NUMBER | N | Codigo da fatura ambulatorial. |
+| 3 | CD_REMESSA | NUMBER | N | Codigo da remessa do movimento de APAC. |
+| 4 | NM_ARQUIVO_GERADO | VARCHAR2 | Y | Nome do arquivo gerado da remessa APAC. |
+| 5 | NM_USUARIO | VARCHAR2 | Y | Nome do Usuario que gerou o arquivo da remessa APAC. |
+| 6 | DT_GERACAO | DATE | Y | Data de gerac?o do arquivo da remessa APAC. |
+| 7 | HR_GERACAO | VARCHAR2 | Y | Hora de gerac?o do arquivo da remessa APAC. |
+| 8 | QT_CONTA_REMESSA | NUMBER | N | Quantidade de contas existente na remessa APAC enviada no arquivo gerado. |
+
+---
+
+## DBAMV.LOG_MOTIVO_GLOSA
+> Tabela que guarda os registros de mudancas dos motivos de glosa pelos usuarios.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MOTIVO_GLOSA | NUMBER | N | Sequencial do log. |
+| 2 | CD_MOTIVO_GLOSA | NUMBER | N | Codigo do registro de motivo de glosa. |
+| 3 | NM_USUARIO_DB | VARCHAR2 | N | O usuario do banco de dados que realizou a acao. |
+| 4 | NM_USUARIO_OS | VARCHAR2 | N | O usuario do sistema operacional que realizou a acao. |
+| 5 | NM_TERMINAL | VARCHAR2 | N | Terminal usado para realizar a acao. |
+| 6 | TP_MODIFICACAO | VARCHAR2 | N | Tipo da acao realizada. |
+| 7 | DT_MODIFICACAO | DATE | N | A data da motificacao. |
+| 8 | DS_MOTIVO_GLOSA | VARCHAR2 | Y | Ultimo valor para a descricao do motivo de glosa. |
+| 9 | SN_ATIVO | VARCHAR2 | Y | Ultimo valor para o status de ativacao do motivo de glosa. |
+
+---
+
+## DBAMV.LOG_MOTORISTA_ROMANEIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MOTORISTA_ROMANEIO | NUMBER | Y | Sequencial da Tabela |
+| 2 | DS_LOG | VARCHAR2 | Y | Log de Alterações/Inclusões no cadastro de Motorista Romaneio |
+| 3 | DATA_LOG | DATE | Y | Data de Inserção do Log de Alterações/Inclusões no cadastro de Motorista Romaneio |
+
+---
+
+## DBAMV.LOG_MOT_PEND
+> Tabela de Log de Motivos de Pendência da Guia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MOT_PEND | NUMBER | N | Sequencial da tabela (cd_log_mot_pend). |
+| 2 | CD_GUIA | NUMBER | N | Código da guia. |
+| 3 | TP_GUIA | VARCHAR2 | N | Tipo da guia. |
+| 4 | DT_MOVIMENTO | DATE | N | Data da movimentação. |
+| 5 | CD_USU_MOVIMENTO | VARCHAR2 | N | Nome do usuário que movimentou. |
+| 6 | TP_MOVIMENTO | VARCHAR2 | N | Tipo de Movimento (Insert, Update, Delete). |
+| 7 | CD_MOTIV_PEND_ANT | NUMBER | Y | Motivo de Pendência anterior. |
+| 8 | CD_MOTIV_PEND_ATU | NUMBER | Y | Motivo de Pendência atual. |
+
+---
+
+## DBAMV.LOG_MOVIMENTO_EXAME
+> Tabela de Registro de Log de Movimentac?o de Exames de Imagem e Laboratoriais.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MOVIMENTO_EXAME | NUMBER | N | Codigo Sequencial do Registro de Movimentac?o do Exame. |
+| 2 | CD_ATENDIMENTO | NUMBER | N | Codigo do Atendimento associado ao Pedido do Exame. |
+| 3 | CD_PED_LAB_RX | NUMBER | N | Codigo do Pedido de Exame associado ao Exame. |
+| 4 | CD_ITPED_LAB_RX | NUMBER | N | Codigo do Item do Pedido do Exame, identificador do Exame. |
+| 5 | CD_EXA_LAB | NUMBER | Y | Codigo do Exame Laboratorial associado ao Item. |
+| 6 | CD_EXA_RX | NUMBER | Y | Codigo do Exame de Imagem associado ao Item. |
+| 7 | TP_EXAME | VARCHAR2 | N | Tipo do Exame: A - Ambulatorial, I - Imagem. |
+| 8 | DS_MOVIMENTO | VARCHAR2 | N | Descric?o da Movimentac?o realizada pelo exame. |
+| 9 | DT_MOVIMENTO | DATE | N | Data em que foi realizada a movimentac?o do exame. |
+| 10 | HR_MOVIMENTO | DATE | N | Hora em que foi realizada a movimentac?o do exame. |
+| 11 | CD_USUARIO_RESPONSAVEL | VARCHAR2 | N | Usuario responsavel pela movimentac?o do exame. |
+| 12 | CD_AMOSTRA | NUMBER | Y |  |
+| 13 | SN_CANCELADO_SETOR | VARCHAR2 | N |  |
+| 14 | SN_CANCELADO_LAB | VARCHAR2 | N |  |
+| 15 | NM_RESPONSAVEL | VARCHAR2 | Y | Nome do usuario responsavel pela ac?o. |
+
+---
+
+## DBAMV.LOG_MOV_CARDAPIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MOV_CARDAPIO | NUMBER | Y |  |
+| 2 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 3 | DT_MOV_CARDAPIO | DATE | Y |  |
+| 4 | TP_CARDAPIO | VARCHAR2 | Y |  |
+| 5 | CD_TIPO_REFEICAO | VARCHAR2 | Y |  |
+| 6 | CD_TIPO_DIETA | VARCHAR2 | Y |  |
+| 7 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 8 | CD_SETOR | NUMBER | Y |  |
+| 9 | CD_FUNCIONARIO | NUMBER | Y |  |
+| 10 | CD_COPA | NUMBER | Y |  |
+| 11 | CD_ITPRE_MED | NUMBER | Y |  |
+| 12 | CD_FUNC | NUMBER | Y |  |
+| 13 | SN_AVULSO | VARCHAR2 | Y |  |
+| 14 | SN_CONFIRMADO | VARCHAR2 | Y |  |
+| 15 | OBS_NUTRICAO | VARCHAR2 | Y |  |
+| 16 | CD_USUARIO | VARCHAR2 | Y |  |
+| 17 | TP_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 18 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 19 | DT_SUSPENCAO | DATE | Y |  |
+| 20 | USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_MOV_CC_RPA
+> Tabela para LOG de Movimentac?es Antes e Pos Cirurgia do Paciente.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MOV_CC_RPA | NUMBER | Y | Codigo Sequencial da Movimentac?o. |
+| 2 | NM_DISPARADOR | VARCHAR2 | Y | Tela ou Objeto de Banco que ativou o Log. |
+| 3 | NM_USER | VARCHAR2 | Y | Usuario responsavel pela inclus?o/alterac?o pelo registro |
+| 4 | DT_LOG | DATE | Y | Data e hora da inclus?o/alterac?o da movimentac?o |
+| 5 | CD_ATENDIMENTO | NUMBER | Y | Codigo do Atendimento do Paciente vinculado ao Aviso |
+| 6 | DT_CENTRO_CIRURGICO | DATE | Y | Data e Hora da Entrada no Centro Cirurgico |
+| 7 | DT_ENTRADA_RPA | DATE | Y | Data e Hora da Entrada no RPA |
+| 8 | DT_SAIDA_RPA | DATE | Y | Data e Hora da Saida no RPA |
+| 9 | NM_USUARIO | VARCHAR2 | Y | Usuario Responsavel pela movimentac?o |
+| 10 | CD_MOV_CC_RPA | NUMBER | Y | Codigo Sequencial da Movimentac?o. |
+| 11 | CD_AVISO_CIRURGIA | NUMBER | Y | Codigo do aviso de cirurgia associado a transferencia |
+| 12 | DS_LOCAL_TRANSF_POS_CIR | VARCHAR2 | Y | Indicar o destino do Paciente |
+| 13 | DT_CHAMADA_TRANSF | DATE | Y | Data e hora em que foi realizada a chamada para realizac?o da transferencia do paciente. |
+| 14 | DT_LOG_CHAMADA_TRANSF | DATE | Y | Data do registro da transferencia do paciente para o centro cirurgico. |
+| 15 | CD_USUARIO_CHAMADA_TRANSF | VARCHAR2 | Y | Usuario responsavel pelo registro da transferencia do paciente para o centro cirurgico. |
+| 16 | DT_LOG_TRANSF_CC | DATE | Y | Data e hora do registro da transferencia do paciente para o centro cirurgico. |
+| 17 | DT_LOG_RPA | DATE | Y | Data e hora do registro da ultima movimentac?o de entrada ou saida do paciente do RPA. |
+| 18 | CD_USUARIO_RPA | VARCHAR2 | Y | Usuario responsavel pelo registro da transferencia da entrada ou saida do paciente da RPA. |
+| 19 | CD_SETOR | NUMBER | Y | Codigo Sequencial do Setor. |
+| 20 | CD_SETOR_TRANSF | NUMBER | Y | Codigo do setor atual |
+| 21 | CD_UNID_INT_TRANSF | NUMBER | Y | Codigo do unidade de internacao atual |
+| 22 | CD_UNIDADE_ORIGEM | NUMBER | Y | Codigo da Unidade de Origem enviado ao MGES |
+| 23 | CD_SETOR_ORIGEM | NUMBER | Y | Codigo do Setor de Origem enviado ao MGES |
+| 24 | CD_UNIDADE_DESTINO | NUMBER | Y | Codigo da Unidade de Destino enviado ao MGES |
+| 25 | CD_SETOR_DESTINO | NUMBER | Y | Codigo do Setor de Destino enviado ao MGES |
+
+---
+
+## DBAMV.LOG_MOV_CENTRO_CIRURGICO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MOV_CENTRO_CIRURGICO | NUMBER | N |  |
+| 2 | CD_MOV_CENTRO_CIRURGICO | NUMBER | N |  |
+| 3 | CD_AVISO_CIRURGIA | NUMBER | N |  |
+| 4 | CD_PACIENTE | NUMBER | Y |  |
+| 5 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 6 | CD_PRESTADOR_CIR | NUMBER | Y |  |
+| 7 | CD_PRESTADOR_ANEST | NUMBER | Y |  |
+| 8 | CD_SAL_CIR | NUMBER | Y |  |
+| 9 | CD_LEITO | NUMBER | Y |  |
+| 10 | CD_TIP_ANEST | NUMBER | Y |  |
+| 11 | CD_CIRURGIA | NUMBER | N |  |
+| 12 | CD_STATUS_CENTRO_CIRURGICO | NUMBER | Y |  |
+| 13 | DH_CIRURGIA | DATE | Y |  |
+| 14 | DT_INCLUSAO | DATE | N |  |
+| 15 | DT_EXCLUSAO | DATE | Y |  |
+| 16 | CD_USUARIO_EXCLUSAO | VARCHAR2 | Y |  |
+| 17 | SN_FICHA_ANESTESICA | VARCHAR2 | Y | Indica se foi anexado o documento de ficha anestésica ao aviso de cirurgia. |
+| 18 | SN_TERMO_CONSENTIMENTO | VARCHAR2 | Y | Indica se foi anexado o documento de ficha anestésica ao aviso de cirurgia. |
+| 19 | CD_MULTI_EMPRESA | NUMBER | Y |  |
+| 20 | CD_USUARIO_OPERACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_MOV_FATURA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FAT_SIA | NUMBER | N |  |
+| 2 | DT_MOVIMENTACAO | DATE | N |  |
+| 3 | TP_MOVIMENTACAO | VARCHAR2 | N |  |
+| 4 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_MV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_USUARIO | VARCHAR2 | Y |  |
+| 2 | DH_REGISTRO | DATE | Y |  |
+| 3 | DS_LOG | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_MVTO_APLIC_DIRETA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo do log |
+| 2 | CD_ENT_PRO | NUMBER | Y | Código da entrada. |
+| 3 | DT_ENTRADA | DATE | Y | Data da entrada |
+| 4 | CD_MVTO_ESTOQUE | NUMBER | Y | Código da movimentacao. |
+| 5 | DT_MVTO_ESTOQUE | DATE | Y | Data da movimentação. |
+| 6 | HR_MVTO_ESTOQUE | DATE | Y | Hora da movimentacao. |
+| 7 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario da movimentação. |
+| 8 | DT_LOG | DATE | Y | Data de criação do log |
+
+---
+
+## DBAMV.LOG_MVTO_CME
+> Tabela que grava os log das modificac?es das movimentac?es.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MVTO_CME | NUMBER | N | Codigo Log_mvto_cme. |
+| 2 | CD_KIT | NUMBER | Y | Codigo do kit - Composic?o. |
+| 3 | CD_MVTO_CME | NUMBER | Y | Codigo da movimentac?o do Cme. |
+| 4 | TP_MOVIMENTACAO | VARCHAR2 | N | Tipo da Movimentac?o. |
+| 5 | CD_MVTO_CME_COPIA | NUMBER | Y | Codigo da copia da movimentac?o do Cme. |
+| 6 | DT_INCLUSAO_USUARIO | DATE | N | Data de inclus?o do LOG |
+| 7 | CD_USUARIO_INCLUSAO | VARCHAR2 | N | Usuario que realizou a modificac?o na movimentac?o. |
+
+---
+
+## DBAMV.LOG_MVTO_CONSIGNADO
+> Tabela que guarda todas as movimentac?es dos produtos consignados.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_MVTO_CONSIGNADO | NUMBER | N | Codigo sequencial da tabela de log de consignado |
+| 2 | CD_MVTO_ESTOQUE | NUMBER | Y | Codigo da Movimentac?o |
+| 3 | CD_ENT_PRO | NUMBER | Y | Codigo da entrada |
+| 4 | CD_PRODUTO | NUMBER | N | Codigo do Produto |
+| 5 | QT_MOVIMENTO | NUMBER | N | Quantidade movimentada |
+| 6 | TP_MOVIMENTO | VARCHAR2 | N | Tipo da Movimentac?o S-Saida e E-Entrada |
+| 7 | VL_UNITARIO | NUMBER | Y | Valor Unitario do Produto |
+| 8 | CD_ATENDIMENTO | NUMBER | Y | Codigo do Atendimento do paciente |
+| 9 | CD_ESTOQUE | NUMBER | N | Codigo do Estoque |
+| 10 | CD_FORNECEDOR | NUMBER | N | Codigo do Fornecedor |
+| 11 | CD_SETOR | NUMBER | Y | Codigo do Setor |
+| 12 | CD_UNID_INT | NUMBER | Y | Codigo da Unidade de Internac?o |
+| 13 | DT_GRAVACAO | DATE | Y | Data da Gravac?o da linha |
+| 14 | CD_LOG_MVTO_CONSIGNADO_TEM | NUMBER | Y | Codigo do log consignado que se relaciona com o registro. |
+
+---
+
+## DBAMV.LOG_MVTO_INSTRUMENTAL
+> Registro das movimentac?es dos instrumentais.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Codigo do log. |
+| 2 | CD_USUARIO_MVTO | VARCHAR2 | N | Codigo do usuario que realizou a movimentac?o. |
+| 3 | DT_MVTO_INSTRUMENTAL | DATE | N | Data em que foi realizada a movimentac?o. |
+| 4 | TP_MVTO_INSTRUMENTAL | VARCHAR2 | N | Tipo de Movimentac?o: CC - Cadastro na composic?o / EE - Entrada no Expurgo / ED - Entrada na Des... |
+| 5 | CD_MVTO_CME | NUMBER | Y | Codigo da movimentac?o no CME. |
+| 6 | CD_BEM | NUMBER | Y | Codigo do Instrumental |
+| 7 | CD_KIT | NUMBER | Y | Codigo do Kit |
+| 8 | CD_BEM_TERCEIRO | NUMBER | Y | Código do bem de terceiro. |
+| 9 | CD_PRODUTO_REPROCESSADO | NUMBER | Y | Código do Produto de Reprocessado. |
+
+---
+
+## DBAMV.LOG_NATUREZA_DESPESA
+> Tabela que guarda os historicos das Naturezas de Despesas vinculadas aos produtos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Guarda o código sequencial. É alimentada pela sequence SEQ_LOG_NATUREZA_DESPESA |
+| 2 | CD_PRODUTO | NUMBER | Y | Código do Produto vinculado a Natureza de Despesa |
+| 3 | NM_USUARIO | VARCHAR2 | N | Nome do usuario que realizou alterações na Natureza de Despesa ao produto |
+| 4 | TP_EVENTO | VARCHAR2 | N | I - Insert e/ou U - Update e/ou D - Exclusão na configuração da Natureza de Despesa ao produto |
+| 5 | DS_MENSAGEM | VARCHAR2 | N | Historico dos registros (new e old) |
+| 6 | DT_GERACAO | DATE | N | Data em que o registro foi modificado ou incluso |
+| 7 | CD_SERVICO | NUMBER | Y | LOG CÓDIGO DO PROCEDIMENTO CPT |
+
+---
+
+## DBAMV.LOG_NOTA_ALTERADA
+> Tabela de registro dos itens que ser?o alterados e servir?o de base para a gerac?o de arquivo de retificac?o para o SES.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_NOTA_ALTERADA | NUMBER | N | Codigo interno para controle do registro de linhas. |
+| 2 | CD_ITENT_PRO | NUMBER | N | Codigo do item que sofreu alterac?o de itens. |
+| 3 | CD_MERCOSUL_ANT | VARCHAR2 | Y | Codigo do MERCOSUL para o item que sofreu alterac?o. Esta e a informac?o antes da alterac?o. |
+| 4 | CD_MERCOSUL | VARCHAR2 | Y | Codigo do MERCOSUL para o item que sofreu alterac?o. Esta e a informac?o depois da alterac?o. |
+| 5 | ID_DESPESAS_ANT | NUMBER | Y | Codigo de DESPESA do item que sofreu alterac?o. Esta e a informac?o antes da alterac?o. |
+| 6 | ID_DESPESAS | NUMBER | Y | Codigo de DESPESA do item que sofreu alterac?o. Esta e a informac?o depois da alterac?o. |
+| 7 | DT_ALTERACAO | DATE | Y | Data da alterac?o. |
+| 8 | CD_USUARIO | VARCHAR2 | Y | Usuario que realizou a alterac?o. |
+| 9 | SN_ENVIADA | VARCHAR2 | Y | Indica se o item alterado ja foi enviado ja passou pelo processo de envio de remessa de correc?o ... |
+
+---
+
+## DBAMV.LOG_OCORRENCIA_DIETA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OCORRENCIA | NUMBER | N |  |
+| 2 | CD_TIPO_OCORRENCIA | NUMBER | N |  |
+| 3 | CD_MOV_CARDAPIO | NUMBER | N |  |
+| 4 | DS_OCORRENCIA | VARCHAR2 | N |  |
+| 5 | DT_ALTERACAO | DATE | N |  |
+| 6 | CD_USUARIO_ALTERACAO | VARCHAR2 | N |  |
+| 7 | CD_USUARIO_ANTERIOR | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_OPERACAO_ATENDIMENTO
+> Tabela de log de operac?es de atendimentos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_OPERACAO_ATENDIMENTO | NUMBER | N | Codigo do log da operac?o do atendimento |
+| 2 | TP_OPERACAO | VARCHAR2 | Y | Tipo da operac?o realizada no atendimento |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Codigo do usuario que realizou a operac?o |
+| 4 | DT_OPERACAO | DATE | Y | Data da operac?o |
+| 5 | CD_MODULO | VARCHAR2 | Y | Codigo do modulo que realizou a operac?o |
+| 6 | CD_ATENDIMENTO | NUMBER | Y | Codigo do atendimento da operac?o |
+| 7 | TP_ATENDIMENTO | VARCHAR2 | Y | Tipo do atendimento da operac?o |
+| 8 | DT_ATENDIMENTO | DATE | Y | Data do atendimento da operac?o |
+| 9 | CD_PACIENTE_ATENDIMENTO | NUMBER | Y | Codigo do paciente do atendimento da operac?o |
+| 10 | CD_PRESTADOR_ATENDIMENTO | NUMBER | Y | Codigo do prestador do atendimento da operac?o |
+
+---
+
+## DBAMV.LOG_OPERA_AGENDA_CENTRAL
+> Log de operac?es de Bloqueio, Desbloqueio e Exclus?o de agendas / horarios
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_OPERA_AGENDA | NUMBER | N | Codigo sequencial do Log de operac?o |
+| 2 | DT_OPERA_AGENDA | DATE | N | Data da operac?o |
+| 3 | TP_OPERACAO | VARCHAR2 | N | Tipo de Operac?o: (A) Agendamento ; (T) Transferencia ; (B) Bloqueio de Agenda; (D) Desbloqueio d... |
+| 4 | CD_AGENDA_CENTRAL | NUMBER | Y | Codigo da Agenda ou parametro de agenda informada |
+| 5 | TP_AGENDA | VARCHAR2 | Y | Tipo de Agenda: Imagem, Laboratorio ou Ambulatorio |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que realizou a operac?o |
+| 7 | HR_INICIO_OPERACAO | DATE | Y | Horario inicial informado para a operac?o |
+| 8 | HR_FIM_OPERACAO | DATE | Y | Horario final informado para a operac?o |
+| 9 | DS_MOTIVO | VARCHAR2 | Y | Motivo ou justificativa da operac?o |
+| 10 | CD_GRUPO_AGENDA | NUMBER | Y | Grupo de Paciente da Agenda excluida |
+| 11 | CD_ITEM_AGENDAMENTO | NUMBER | Y | Codigo do Item de agendamento do horario excluido |
+| 12 | CD_RECURSO_CENTRAL | NUMBER | Y | Codigo do Recurso da agenda |
+| 13 | CD_UNIDADE_ATENDIMENTO | NUMBER | Y | Codigo da Unidade de Atendimento |
+| 14 | CD_PACIENTE | NUMBER | Y | Codigo do paciente da agenda |
+| 15 | CD_PRESTADOR | NUMBER | Y | Codigo do Prestador da agenda |
+| 16 | CD_SETOR | NUMBER | Y | Codigo do Setor da Agenda |
+| 17 | DT_AGENDA | DATE | Y | Data da Agenda da operac?o |
+| 18 | CD_MULTI_EMPRESA | NUMBER | Y | Codigo multi-empresa da Agenda |
+| 19 | DT_INICIO | DATE | Y | Data inicial do Periodo de pesquisa para bloqueio/desbloqueio na agenda |
+| 20 | DT_FIM | DATE | Y | Data final do Periodo de pesquisa para bloqueio/desbloqueio na agenda |
+| 21 | NM_PACIENTE | VARCHAR2 | Y | Loga o nome do paiente n?o cadastrado para operac?es de exclus?o de marcac?o |
+| 22 | CD_IT_AGENDA_CENTRAL | NUMBER | Y | Codigo do horario-pai em que e feita a operac?o |
+| 23 | CD_ESCALA_CENTRAL | NUMBER | Y | Codigo da escala geradora da agenda |
+| 24 | HR_AGENDA | DATE | Y | Horario do agendamento |
+| 25 | SN_OPERA_DOMINGO | VARCHAR2 | N | Indica se o dia Domingo foi incluido na operac?o |
+| 26 | SN_OPERA_SEGUNDA | VARCHAR2 | N | Indica se o dia Segunda foi incluido na operac?o |
+| 27 | SN_OPERA_TERCA | VARCHAR2 | N | Indica se o dia Terca foi incluido na operac?o |
+| 28 | SN_OPERA_QUARTA | VARCHAR2 | N | Indica se o dia Quarta foi incluido na operac?o |
+| 29 | SN_OPERA_QUINTA | VARCHAR2 | N | Indica se o dia Quinta foi incluido na operac?o |
+| 30 | SN_OPERA_SEXTA | VARCHAR2 | N | Indica se o dia Sexta foi incluido na operac?o |
+| 31 | SN_OPERA_SABADO | VARCHAR2 | N | Indica se o dia Sabado foi incluido na operac?o |
+| 32 | CD_PACIENTE_ANTIGO | NUMBER | Y | Codigo do Paciente Antigo da agenda (Gravado na operac?o de alterac?o do paciente agendado) |
+| 33 | CD_IT_MOVIMENTO_AGENDA_CENTRAL | NUMBER | Y | Codigo do item de movimento da agenda relacionado ao agendamento no momento da operac?o |
+| 34 | DT_ANTERIOR | DATE | Y | Data anterior do agendamento transferido. |
+| 35 | DT_TRANSFERIDO | DATE | Y | Nova data do agendamento transferido. |
+| 36 | CD_TRATAMENTO | NUMBER | Y | Codigo do tratamento |
+| 37 | CD_MOT_CANC | NUMBER | Y | Codigo do motivo de cancelamento |
+| 38 | DS_OBS_OPERA_AGD_CENTRAL | CLOB | Y | Observac?es complementares |
+| 39 | CD_AGENDA_CENTRAL_ANTERIOR | NUMBER | Y | Codigo da agenda anterior a transferencia do agendamento. |
+| 40 | CD_TIPO_BLOQUEIO | NUMBER | Y | Codigo do tipo de bloqueio aplicado a um horario. |
+| 41 | DS_TELA | VARCHAR2 | Y | tela que criou o registro. |
+
+---
+
+## DBAMV.LOG_OPERA_AGENDA_TURMA
+> Tabela para armazenar os logs de operac?o nas agendas das turmas.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_OPERA_AGENDA_TURMA | NUMBER | N | Codigo da Operac?o |
+| 2 | DT_OPERACAO | DATE | N | Data da Operac?o |
+| 3 | CD_USUARIO | VARCHAR2 | N | Usuario que realizou a operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de Operac?o: (A) Agendamento ; (B) Bloqueio de Agenda;  (D) Desbloqueio de agenda; (E) Exclu... |
+| 5 | CD_AGENDA_TURMA | NUMBER | Y | Codigo da Agenda |
+| 6 | DS_MOTIVO | VARCHAR2 | N | Motivo da operac?o |
+| 7 | CD_PACIENTE | NUMBER | Y | Codigo do paciente envolvido na operac?o |
+| 8 | NM_PACIENTE | VARCHAR2 | Y | Nome do paciente envolvido na operac?o |
+| 9 | DT_HR_INICIAL_AGENDA | DATE | Y | Horario inicial informado na operac?o |
+| 10 | DT_HR_FINAL_AGENDA | DATE | Y | Horario final informado na operac?o |
+| 11 | DT_AGENDA | DATE | Y | Data da agenda informada na operac?o |
+| 12 | CD_TRATAMENTO_TURMA | NUMBER | Y | Codigo do tratamento da turma informado na operac?o |
+| 13 | CD_CONTROLE_TRATAMENTO | NUMBER | Y | Codigo do controle de tratamento informado na operac?o |
+| 14 | DT_INICIO | DATE | Y | Data do inicial da operac?o(Dispensa Autorizada) |
+| 15 | DT_FIM | DATE | Y | Data final da operac?o(Dispensa Autorizada) |
+
+---
+
+## DBAMV.LOG_ORCA_AJUSTE_NF
+> Base de orçamento ajustes contas a pagar
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ORCA_AJUSTE_NF | NUMBER | N | Código sequencial do LOG ajuste. |
+| 2 | CD_ORCA_AJUSTE_NF | NUMBER | N | Código sequencial do ajuste. |
+| 3 | DT_LOG_MOVTO | DATE | N | Data do movimento no LOG. |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa. |
+| 5 | DT_COMPETENCIA | DATE | N | Data de competência do título. |
+| 6 | DT_EMISSAO | DATE | N | Data de emissão do título |
+| 7 | NR_DOCUMENTO | VARCHAR2 | Y | Número do documento do título. |
+| 8 | CD_FORNECEDOR | NUMBER | Y | Código do fornecedor do título. |
+| 9 | VL_DOCUMENTO | NUMBER | N | Valor do título. |
+| 10 | CD_HISTORICO_PADRAO | NUMBER | Y | Código do histórico padrão. |
+| 11 | SN_DESCONSIDERAR | VARCHAR2 | Y | Indicador para desconciderar o título no orçamento. |
+| 12 | DS_LOG | VARCHAR2 | Y | Descrição da modificação. |
+
+---
+
+## DBAMV.LOG_ORCA_AJUSTE_NF_RAT
+> Base de orçamento o LOG dos ajustes contas a pagar rateio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ORCA_AJUSTE_NF_RAT | NUMBER | N | Código sequencial do LOG ajuste rateio. |
+| 2 | CD_LOG_ORCA_AJUSTE_NF | NUMBER | N | Código sequencial do LOG ajuste NF. |
+| 3 | CD_ORCA_AJUSTE_NF_RATEIO | NUMBER | N | Código sequencial do ajuste rateio. |
+| 4 | CD_SETOR | NUMBER | Y | Código do setor do ajuste rateio. |
+| 5 | CD_ITEM_RES | NUMBER | Y | Código da conta de custo no rateio. |
+| 6 | VL_RATEIO | NUMBER | N | Valor do ajuste rateio. |
+| 7 | DS_LOG_RATEIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_ORCA_CONTROLE_MOV
+> Tabela dos logs dos movimentos.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_ORCA_CONTROLE_MOV | NUMBER | N | Sequencial do log. |
+| 2 | CD_ORCA_CONTROLE_MOV | NUMBER | N | Sequencial do movimento no log. |
+| 3 | DT_ALTERACAO | DATE | N | Data da alteração. |
+| 4 | NM_USUARIO_ALTERACAO | VARCHAR2 | N | Usuario que realizou a alteração. |
+| 5 | TP_STATUS_CONTROLE | VARCHAR2 | N | Status do controle. |
+| 6 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Justificativa da alteração. |
+| 7 | VL_ORCADO_CONTR | NUMBER | Y | Valor previsto controle. |
+| 8 | QT_ORCADO_CONTR | NUMBER | Y | Quantidade previsto controle. |
+| 9 | CD_JUSTIFICATIVA | NUMBER | Y |  |
+| 10 | VL_REALIZADO_CONTR | NUMBER | Y |  |
+| 11 | QT_REALIZADO_CONTR | NUMBER | Y |  |
+| 12 | SN_ALT_VL_REALIZADO_CONTR | VARCHAR2 | N | Indicador se alterou o valor realizado. |
+| 13 | SN_ALT_VL_ORCADO_CONTR | VARCHAR2 | N | Indicador se alterou o valor orçado. |
+
+---
+
+## DBAMV.LOG_PACIENTE_ATENDIME
+> Tabela para guardar as informac?es do paciente em relac?o a um atendimento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PACIENTE | NUMBER | N | Codigo do paciente |
+| 2 | CD_ATENDIMENTO | NUMBER | N | Codigo do atendimento |
+| 3 | NM_PACIENTE | VARCHAR2 | N | Nome do paciente |
+| 4 | TP_SEXO | VARCHAR2 | N | Tipo do sexo |
+| 5 | TP_ESTADO_CIVIL | VARCHAR2 | Y | Tipo do estado civil |
+| 6 | CD_PROFISSAO | NUMBER | Y | Codigo da profiss?o |
+| 7 | CD_CIDADE_TEM | NUMBER | Y | Codigo da cidade tem |
+| 8 | DS_ENDERECO | VARCHAR2 | Y | Descric?o do endereco |
+| 9 | NR_ENDERECO | NUMBER | Y | Numero do endereco |
+| 10 | DS_COMPLEMENTO | VARCHAR2 | Y | Descric?o do complemento |
+| 11 | NM_BAIRRO | VARCHAR2 | Y | Nome do bairro |
+| 12 | CD_CIDADE | NUMBER | Y | Codigo da cidade |
+| 13 | CD_TIPO_LOGRADOURO | NUMBER | Y | Codigo do tipo do logradouro |
+| 14 | CD_PAIS | NUMBER | Y | Codigo do pais relacionado ao endereco do paciente |
+| 15 | DT_CADASTRO | DATE | N | Data do cadastro |
+| 16 | HR_CADASTRO | DATE | Y | Hora do cadastro |
+| 17 | DT_NASCIMENTO | DATE | Y | Data de nascimento |
+| 18 | TP_COR | VARCHAR2 | Y | Tipo da cor |
+| 19 | CD_TIP_MOR | NUMBER | Y | Codigo do tipo de moradia |
+| 20 | CD_TIP_RES | NUMBER | Y | Codigo do tipo de residencia |
+| 21 | NR_CEP | VARCHAR2 | Y | Numero do CEP |
+| 22 | NR_FONE | VARCHAR2 | Y | Numero de telefone |
+| 23 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario |
+| 24 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da multi empresa |
+| 25 | NM_MAE | VARCHAR2 | Y | Nome da m?e |
+
+---
+
+## DBAMV.LOG_PACIENTE_PROGRAMA_SAUDE
+> Log da tabela dbamv.paciente_programa_saude
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Chave primária da tabela |
+| 2 | CD_PACIENTE | NUMBER | N | Código do paciente |
+| 3 | CD_PROGRAMA_SAUDE | NUMBER | N | Código do Programa de Saúde |
+| 4 | DT_OPERACAO | DATE | N | Data da operação |
+| 5 | HR_OPERACAO | DATE | N | Hora da operação |
+| 6 | CD_USUARIO | VARCHAR2 | N | Código do usuário que realizou a operação |
+| 7 | DS_OPERACAO | VARCHAR2 | N | Identificação da operação - U = update e I = insert |
+| 8 | SN_ANT_PROG_SAUDE_ATIVO | VARCHAR2 | Y | Valor anterior do atributo paciente_programa_saude.sn_programa_saude_ativo |
+
+---
+
+## DBAMV.LOG_PAGTO_REPASSE_ACRES_DESC
+> Tabela de log para gravac?o dos acrescimos e descontos no pagamento do repasse
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REPASSE | NUMBER | N | Codigo do repasse principal gerado no pagamento do repasse |
+| 2 | CD_PRESTADOR | NUMBER | N | Codigo do prestador gerado no pagamento do repasse |
+| 3 | CD_PRESTADOR_REPASSE | NUMBER | N | Codigo do prestador_repasse de pagamento do repasse |
+| 4 | CD_REG_REP_DESC | NUMBER | N | Codigo do acrescimo e desconto de repasse |
+| 5 | VL_ACRES_DESC | NUMBER | N | Valor do acrescimo e desconto de repasse no pagamento |
+
+---
+
+## DBAMV.LOG_PAR_MED
+> Tabela de Log do Parecer
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAR_MED | NUMBER | Y | Codigo do parecer medico |
+| 2 | CD_ESPECIALID | NUMBER | Y | Codigo da especialidade do prestador |
+| 3 | CD_ATENDIMENTO | NUMBER | Y | Codigo do atendimento |
+| 4 | DATA_HORA | DATE | Y | Data e hora do parecer |
+| 5 | PRESTADOR | NUMBER | Y | Codigo do prestador |
+| 6 | DS_PARECER_ANTES | VARCHAR2 | Y | Descric?o do parecer |
+
+---
+
+## DBAMV.LOG_PEP_PALM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PEP_PALM | NUMBER | N |  |
+| 2 | XML_CLOB | CLOB | Y |  |
+| 3 | DH_GERACAO_XML | DATE | Y |  |
+| 4 | NM_USR_GERACAO_XML | VARCHAR2 | Y |  |
+| 5 | DH_CARGA | DATE | Y |  |
+| 6 | DH_DESCARGA | DATE | Y |  |
+| 7 | ID_PALM | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_PERMITE_TRANSF
+> Tabela de log da mudan?a de configura??o de permiss?o de transfer?ncia.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PERMITE_TRANSF | NUMBER | N |  |
+| 2 | DH_ACAO | DATE | N |  |
+| 3 | SN_ACAO_ANTIGA | VARCHAR2 | N |  |
+| 4 | SN_ACAO_NOVA | VARCHAR2 | N |  |
+| 5 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_PLANO_CONTAS
+> Log para a tela MPlacon.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PLANO_CONTAS | NUMBER | N | Código sequencial do log (SEQ_LOG_PLANO_CONTAS). |
+| 2 | TP_MOVIMENTO | VARCHAR2 | N | Tipo movimentação. |
+| 3 | DT_MOVIMENTO | DATE | N | Data da movimentação. |
+| 4 | DESC_MOVIMENTO | VARCHAR2 | N | Descrição da movimentação. |
+| 5 | CD_REDUZIDO | NUMBER | N | Codigo Contabil. |
+
+---
+
+## DBAMV.LOG_PLANO_CONTAS_SPED
+> Tabela de criac?o de log do plano de contas do sped
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REDUZIDO | NUMBER | N | Codigo reduzido da Conta Contabil |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo de identificac?o da empresa |
+| 3 | DT_LOG_SPED | DATE | N | Data e Hora de Criac?o do Log |
+| 4 | CD_CTA_REF_SPED_OLD | VARCHAR2 | Y | Codigo da conta de referencia antigo |
+| 5 | CD_CTA_REF_SPED_NEW | VARCHAR2 | Y | Codigo da conta de referencia novo |
+| 6 | CD_LIGA_REF_SPED | VARCHAR2 | Y | Referencia da Conta Receita Federal/Banco Central |
+| 7 | TP_CTA_REF_SPED | VARCHAR2 | Y | Tipo de relacionamento da Conta Ativo / Passivo ou Patrimonial |
+| 8 | DS_USUARIO | VARCHAR2 | Y | Usuario que fez referencia das contas contabeis com as contas do SPED |
+
+---
+
+## DBAMV.LOG_PLANO_ESTR
+> Log para a tela MPlacon.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PLANO_ESTR | NUMBER | N | Código sequencial do log (SEQ_LOG_PLANO_ESTR). |
+| 2 | CD_PLANO | VARCHAR2 | N | Código do plano. |
+| 3 | CD_PLANO_ESTR | NUMBER | N | Código da estrutura do plano. |
+| 4 | TP_MOVIMENTO | VARCHAR2 | N | Tipo movimentação. |
+| 5 | DT_MOVIMENTO | DATE | N | Data da movimentação. |
+| 6 | DESC_MOVIMENTO | VARCHAR2 | N | Descrição da movimentação. |
+
+---
+
+## DBAMV.LOG_PRESCRICAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRE_MED | NUMBER | Y |  |
+| 2 | DT_PROCESSO | DATE | Y |  |
+| 3 | TP_ACAO | VARCHAR2 | Y |  |
+| 4 | DS_JUSTIFICATIVA | VARCHAR2 | Y |  |
+| 5 | NM_USUARIO | VARCHAR2 | Y |  |
+| 6 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 7 | DT_PRE_MED_ATUAL | DATE | Y |  |
+| 8 | DT_PRE_MED_REAGENDAMENTO | DATE | Y |  |
+| 9 | CD_LOG_PRESCRICAO | NUMBER | N | Chave primária da tabela |
+
+---
+
+## DBAMV.LOG_PRESTADOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PRESTADOR | NUMBER | N | Código da tabela de Log de Prestador |
+| 2 | CD_PRESTADOR | NUMBER | N | Código do Prestador que foi modificado. |
+| 3 | DS_CAMPO_MODIFICADO | VARCHAR2 | N | Descrição do campo modificado. |
+| 4 | VL_ANTERIOR_CAMPO | VARCHAR2 | Y | Antigo valor do campo modificado |
+| 5 | VL_NOVO_CAMPO | VARCHAR2 | Y | Novo valor do campo modificado |
+| 6 | TP_ACAO_REALIZADA | VARCHAR2 | N | Tipo de ação realizada: (I) - Inserção / (U) - Update |
+| 7 | DH_MODIFICACAO | DATE | N | Data na qual foi realizada a modificação do prestador. |
+| 8 | CD_USUARIO_MODIFICACAO | VARCHAR2 | N | Usuário que realizou a modificação. |
+
+---
+
+## DBAMV.LOG_PRESTADOR_VINCULO
+> Tabela de controle dos registros de vinculos dos prestadores provisórios.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PRESTADOR_VINCULO | NUMBER | N | Chave primária da Tabela (PK) |
+| 2 | CD_PRESTADOR_VINCULO | NUMBER | N | Código do vinculo do prestador provisório. |
+| 3 | CD_ATENDIMENTO | NUMBER | Y | Código do Atendimento que está associado ao vínculo. |
+| 4 | DH_ALTA_MEDICA_ATENDIMENTO | DATE | Y | Data/hora da Alta médica do Atendimento informado. |
+| 5 | CD_RES_LEI | NUMBER | Y | Código da Pré-internação que está associado ao vínculo. |
+| 6 | SN_ATIVO_RES_LEI | VARCHAR2 | Y | Situação da Pré-Internação (S) - Ativa / (N) - Desativada. |
+| 7 | CD_AVISO_CIRURGIA | NUMBER | Y | Código do Aviso de Cirurgia associado ao vínculo. |
+| 8 | TP_SITUACAO_AVISO_CIRURGIA | VARCHAR2 | Y | Tipo de Situação do Aviso de Cirurgia. |
+| 9 | CD_PACIENTE | NUMBER | Y | Código do Paciente associado ao vinculo. |
+| 10 | DH_INICIO_VINGENCIA_PACIENTE | DATE | Y | Data/hora de Início do Vinculo do Paciente. |
+| 11 | DH_FIM_VINGENCIA_PACIENTE | DATE | Y | Data/hora de Fim do Vinculo do Paciente. |
+
+---
+
+## DBAMV.LOG_PRE_MED_TRATAMENTO
+> Log das prescric?es de tratamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PRE_MED_TRATAMENTO | NUMBER | N | Codigo do log de prescric?es de tratamento |
+| 2 | CD_PRE_MED_TRATMT | NUMBER | N | Codigo da prescric?o de tratamento |
+| 3 | DH_OPERACAO | DATE | N | Data da operac?o |
+| 4 | TP_OPERACAO | VARCHAR2 | N | Tipo de operac?o: Exc=Exclus?o |
+| 5 | CD_PRESTADOR_OPERACAO | NUMBER | N | Codigo do prestador responsavel pela operac?o |
+| 6 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 7 | DS_OBSERVACOES | VARCHAR2 | Y | Observac?es |
+| 8 | CD_PRE_MED | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 9 | CD_ATENDIMENTO | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 10 | CD_PRESTADOR | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 11 | CD_UNID_INT | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 12 | DT_PRE_MED | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 13 | HR_PRE_MED | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 14 | DS_EVOLUCAO | LONG | Y | Informac?o original da prescric?o de tratamento |
+| 15 | CD_ID_USUARIO | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 16 | CD_SOLSAI_PRO | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 17 | SN_FECHADO | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 18 | SN_RN | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 19 | DT_VALIDADE | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 20 | FL_PRINCIPAL | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 21 | FL_IMPRESSO | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 22 | CD_SETOR | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 23 | TP_PRE_MED | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 24 | NM_USUARIO | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 25 | DT_REFERENCIA | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 26 | SN_TRANSCRICAO | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 27 | DH_CRIACAO | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 28 | DH_IMPRESSAO | DATE | Y | Informac?o original da prescric?o de tratamento |
+| 29 | CD_IMPORTA_REG_FAT | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 30 | CD_IMPORTA_REG_AMB | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 31 | CD_PRE_PAD | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 32 | CD_OBJETO | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+| 33 | NM_USUARIO_AUTORIZADOR | VARCHAR2 | Y | Informac?o original da prescric?o de tratamento |
+| 34 | CD_REGISTRO_CLINICO | NUMBER | Y | Informac?o original da prescric?o de tratamento |
+
+---
+
+## DBAMV.LOG_PRE_REMESSA_FFCV
+> Tabela de Log da Pre-remessa para criac?o de Remessas em tela unificada.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SEQ_LOG | NUMBER | N | Sequencial de log da pre-remessa. |
+| 2 | CD_PRE_REMESSA | NUMBER | N | Codigo da pre-remessa. |
+| 3 | DH_REGISTRO | DATE | Y | Data e hora do registro. |
+| 4 | CD_USUARIO_ANT | VARCHAR2 | Y | Usuario anterior a mudanca de usuario. |
+| 5 | CD_USUARIO_ATU | VARCHAR2 | Y | Usuario que esta assumindo a pre-remessa. |
+| 6 | DS_MOTIVO | VARCHAR2 | Y | Motivo da mudanca de usuario. |
+
+---
+
+## DBAMV.LOG_PRIORID_PACIENTE
+> Tabela de log das prioridades do paciente.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PRIORID_PACIENTE | NUMBER | N |  |
+| 2 | TP_ACAO | VARCHAR2 | N |  |
+| 3 | DH_ACAO | DATE | N |  |
+| 4 | CD_USUARIO | VARCHAR2 | N |  |
+| 5 | DS_SISTEMA | VARCHAR2 | Y |  |
+| 6 | DS_TELA | VARCHAR2 | Y |  |
+| 7 | NM_TABELA | VARCHAR2 | Y |  |
+| 8 | CD_PRIORID_PACIENTE | NUMBER | Y |  |
+| 9 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 10 | CD_TRIAGEM_ATENDIMENTO | NUMBER | Y |  |
+| 11 | CD_PACIENTE | NUMBER | Y |  |
+| 12 | CD_IT_AGENDA_CENTRAL | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_PROCESSA_SCNES
+> Tabela de LOG do processamento SCNES
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROCESSA_SCNES | NUMBER | N | Codigo do log |
+| 2 | DT_PROCESSAMENTO | DATE | N | Data do processamento do Arquivo XML |
+| 3 | CD_ORDEM | NUMBER | N | Ordena o processo |
+| 4 | CD_CHAVE | VARCHAR2 | N | Codigo do SCNES |
+| 5 | CD_PRESTADOR | NUMBER | N | Codigo do Prestador que sofreu atualizac?o |
+| 6 | TP_ACAO | VARCHAR2 | Y | Tipo da Ac?o = Incluir/Atualizar |
+| 7 | CD_TABELA | VARCHAR2 | Y | Tabela que sofreu atualizac?o |
+| 8 | CD_COLUNA | VARCHAR2 | Y | Coluna que sofreu atualizac?o |
+| 9 | DS_NOVO_VALOR | VARCHAR2 | Y | Valor que foi atualizado |
+| 10 | DS_VELHO_VALOR | VARCHAR2 | Y | Antigo valor |
+| 11 | DS_ATUALIZACAO | VARCHAR2 | Y | Descritivo da atualizac?o durante o processamento |
+
+---
+
+## DBAMV.LOG_PROC_INSTR_REG_BPA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROCEDIMENTO | VARCHAR2 | N |  |
+| 2 | CD_INSTRUMENTO_REGISTRO | VARCHAR2 | N |  |
+| 3 | DT_COMPETENCIA | DATE | N |  |
+| 4 | DT_ALTERACAO | DATE | N |  |
+| 5 | CD_USUARIO | VARCHAR2 | N |  |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa |
+
+---
+
+## DBAMV.LOG_PROIB_RET
+> Tabela para cadastro de log de proibições com datas retoativas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PROIB_RET | NUMBER | N | Chave Primária da tabela |
+| 2 | CD_PRO_FAT | VARCHAR2 | Y | Código do Procedimento |
+| 3 | CD_CON_PLA | NUMBER | Y | Código do Plano |
+| 4 | CD_CONVENIO | NUMBER | N | Código do Convênio |
+| 5 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Justificativa do cadastro retroativo |
+| 6 | TP_PROIBICAO | VARCHAR2 | N | Tipo da proibição |
+| 7 | TP_ATENDIMENTO | VARCHAR2 | N | Tipo do Atendimento |
+| 8 | DT_INICIAL_PROIBICAO | DATE | Y | Data inicial da proibição |
+| 9 | DT_FIM_PROIBICAO | DATE | Y | Data final da proibição |
+| 10 | DT_CADASTRO | DATE | Y | Data em que a proibição retroativa foi cadastrada no sistema |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y | Código da empresa do cadastro |
+| 12 | CD_SETOR | NUMBER | Y | Código da Setor de Realização do Procedimento |
+| 13 | CD_USUARIO_CADASTROU | VARCHAR2 | Y | Usuário que cadastrou a proibição retroativa |
+
+---
+
+## DBAMV.LOG_PRO_FAT_EMPRESA
+> Tabela Log de movimentaca? de itens pela regra de procedimentos por empresa.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_PRO_FAT_EMPRESA | NUMBER | N | Codigo unico (sequencial) da tabela. |
+| 2 | CD_MULTI_EMPRESA_ORIGEM | NUMBER | Y | Codigo da empresa origem da movimentac?o do item. |
+| 3 | CD_CONTA_ORIGEM | NUMBER | Y | Codigo da conta de origem do item |
+| 4 | CD_LANCAMENTO_ORIGEM | NUMBER | Y | Codigo do Lancamento do item na conta original |
+| 5 | CD_ATI_MED_ITLAN_MED | VARCHAR2 | Y | Codigo da atividade medica (Apenas para movimentac?o de item de equipe medica). |
+| 6 | CD_REGRA_PRO_FAT_EMPRESA | NUMBER | Y | Codigo da Regra de Procedimento que originou a movimentac?o. |
+| 7 | CD_MULTI_EMPRESA_DESTINO | NUMBER | Y | Codigo da empresa destino da movimentac?o do item. |
+| 8 | CD_CONTA_DESTINO | NUMBER | Y | Codigo da Conta destino do item. |
+| 9 | CD_LANCAMENTO_DESTINO | NUMBER | Y | Codigo do Lancamento do item na conta destino |
+| 10 | DT_MOVIMENTACAO | DATE | Y | Data desta movimentac?o de item. |
+| 11 | CD_USUARIO_MOVIMENTACAO | VARCHAR2 | Y | Usuario que efetuou esta movimentac?o. |
+
+---
+
+## DBAMV.LOG_QUEBRA_CONTA
+> Tabela de Log de contas quebradas no Job de quebra automática
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_QUEBRA_CONTA | NUMBER | N | Sequencial da tabela (cd_log_quebra_conta). |
+| 2 | CD_REG_FAT_NOVA | NUMBER | N | Código da conta parcial gerada |
+| 3 | CD_REG_FAT_QUEBRA | NUMBER | N | Código da conta parcial quebrada |
+| 4 | DT_QUEBRA | DATE | N | Data da quebra da conta |
+
+---
+
+## DBAMV.LOG_RASTREABILIDADE
+> Tabela pai com o cabecalho do log da rastreabilidade.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_RASTRO | NUMBER | N | Codigo sequencial da rastreabilidade. |
+| 2 | DT_LOG | DATE | Y | Data que a informac?o do log foi gerada. |
+| 3 | CD_ROTINA | VARCHAR2 | Y | Codigo da Rotina que devera ser rastreada. |
+| 4 | NM_USUARIO | VARCHAR2 | Y | Usuario que gerou a informac?o do log. |
+| 5 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa para qual o log foi gerado. |
+| 6 | DS_CONFIGURACOES | LONG | Y | Campo livre para incluir as principais configurac?es da rotina em questao. |
+
+---
+
+## DBAMV.LOG_REAGENDAMENTO
+> TABELA REFERENTE AS SOLICITACOES DE RE-AGENDAMENTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SOLIC_AGENDAMENTO | NUMBER | N | CODIGO DA SOLICITACAO DE AGENDAMENTO |
+| 2 | CD_ATENDIMENTO | NUMBER | N | CODIGO DO ATENDIMENTO QUE GEROU O RE-AGENDAMENTO |
+| 3 | NM_USUARIO | VARCHAR2 | N | NOME DO USUARIO |
+| 4 | DT_REAGENDAMENTO | DATE | N | DATE SUGERIDA DO RE-AGENDAMENTO |
+| 5 | DH_CRIACAO | DATE | N | DATA/HORA DA CRIACAO DO REGISTRO |
+
+---
+
+## DBAMV.LOG_RECIBO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 2 | CD_PRESTADOR | NUMBER | Y |  |
+| 3 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 4 | DT_LOG | DATE | Y |  |
+| 5 | CD_LOG | NUMBER | Y |  |
+| 6 | VL_LOG | NUMBER | Y |  |
+| 7 | CD_REG_FAT | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_REGISTRO_PROCED
+> Tabela responsvel pelo log dos registros de procedimentos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_REGISTRO_PROCED | NUMBER | N | Cdigo do log dos registros de procedimentos gerado por sequence |
+| 2 | CD_LOG_TAXA_PROCED | NUMBER | N | Cdigo do log da taxa gerado por sequence |
+| 3 | CD_REG_AMB | NUMBER | N | Cdigo do registro ambulatorial |
+| 4 | CD_LANCAMENTO | NUMBER | N | Cdigo do lanamento |
+| 5 | CD_PRO_FAT | VARCHAR2 | N | Cdigo do procedimento de faturamento |
+| 6 | QT_LANCAMENTO | NUMBER | Y | Quantidade de itens |
+| 7 | VL_UNITARIO | NUMBER | Y | Valor unitrio |
+| 8 | VL_TOTAL_CONTA | NUMBER | Y | Valor total |
+
+---
+
+## DBAMV.LOG_REGISTRO_PROCED_FAT
+> Tabela responsvel pelo log dos registros de procedimentos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_REGISTRO_PROCED_FAT | NUMBER | N | Cdigo do log dos registros de procedimentos gerado por sequence |
+| 2 | CD_LOG_TAXA_PROCED_FAT | NUMBER | N | Cdigo do log da taxa gerado por sequence |
+| 3 | CD_REG_FAT | NUMBER | N | Cdigo do registro particular |
+| 4 | CD_LANCAMENTO | NUMBER | N | Cdigo do lanamento |
+| 5 | CD_PRO_FAT | VARCHAR2 | N |  |
+| 6 | QT_LANCAMENTO | NUMBER | Y | Quantidade de itens |
+| 7 | VL_UNITARIO | NUMBER | Y | Valor unitrio |
+| 8 | VL_TOTAL_CONTA | NUMBER | Y | Valor total |
+
+---
+
+## DBAMV.LOG_REPASSE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REPASSE | NUMBER | N |  |
+| 2 | DS_REPASSE | VARCHAR2 | N |  |
+| 3 | DT_COMPETENCIA | DATE | N |  |
+| 4 | DT_REPASSE | DATE | N |  |
+| 5 | CD_CONVENIO | NUMBER | Y |  |
+| 6 | CD_PRESTADOR | NUMBER | Y |  |
+| 7 | CD_REMESSA | NUMBER | Y |  |
+| 8 | TP_REMESSA | VARCHAR2 | Y |  |
+| 9 | DT_COMPETENCIA_FAT | DATE | Y |  |
+| 10 | DT_LIMITE | DATE | Y |  |
+| 11 | CD_GRU_FAT | NUMBER | Y |  |
+| 12 | CD_GRU_PRO | NUMBER | Y |  |
+| 13 | CD_ESPECIALID | NUMBER | Y |  |
+| 14 | CD_FAT_SIA | NUMBER | Y |  |
+| 15 | NM_USUARIO | VARCHAR2 | N |  |
+| 16 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 17 | CD_PRESTADOR_REPASSE | NUMBER | Y |  |
+| 18 | DT_INICIAL_RECEB | DATE | Y | Armazenara a data inicial de recebimento para historico da gerac?o do repasse conciliado |
+| 19 | DT_FINAL_RECEB | DATE | Y | Armazenara a data final de recebimento para historico da gerac?o do repasse conciliado |
+| 20 | DT_COMPET_CUSTOS | DATE | Y | Data de competencia de custos. Caso informada processara a gerac?o do mesmo. |
+| 21 | CD_UPS | NUMBER | Y | Codigo da unidade prestadora de servico (UPS) |
+| 22 | CD_DECENDIO | NUMBER | Y | Codigo do Decendio da fatura ambulatorial |
+| 23 | DT_COMPETENCIA_ENTREGA | DATE | Y | Competência de entrega quando for selecionada ao gerar o repasse. |
+
+---
+
+## DBAMV.LOG_REPASSE_CONTROLE
+> Tabela de log interno da MV para novos tipos de repasse criados.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REPASSE | NUMBER | N | Código do repasse |
+| 2 | DS_LOG_REPASSE | VARCHAR2 | Y | Descrição do Log |
+| 3 | TP_REPASSE | VARCHAR2 | Y | Tipo específico do repasse |
+| 4 | DT_COMPETENCIA | DATE | Y | Competência do repasse |
+| 5 | DT_GERACAO | DATE | Y | Data e hora do insert do registro |
+| 6 | NM_USUARIO | VARCHAR2 | Y | Usuário do insert do registro |
+| 7 | CD_PRESTADOR | NUMBER | Y | Prestador do repasse |
+| 8 | DT_DIA_SEMANA | DATE | Y | Data referente ao dia do qual foi gerado o repasse |
+| 9 | CD_ESPECIALID | NUMBER | Y | Código da especialidade |
+| 10 | DT_REGERADO | DATE | Y | Data em que este repasse foi excluido e regerado |
+| 11 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 12 | CD_CONVENIO | NUMBER | Y |  |
+| 13 | DT_INICIO | DATE | Y |  |
+| 14 | DT_FINAL | DATE | Y |  |
+| 15 | CD_REG_REP_SOL | NUMBER | Y |  |
+| 16 | CD_AVISO_CIRURGIA | VARCHAR2 | Y | Código do aviso de cirurgia |
+
+---
+
+## DBAMV.LOG_REPASSE_PAGAMENTO
+> Comtem problemas encontrados no momento da gerac?o do contas a pagar de repasse
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_REPASSE_PAGAMENTO | NUMBER | N | Pk da tabela a partir da sequence dbamv.seq_log_repasse_pagamento |
+| 2 | CD_PRESTADOR_REPASSE | NUMBER | N | Codigo do grupo de repasse que gerou rateio de pagamento |
+| 3 | CD_PRESTADOR | NUMBER | N | Prestador que esta ligado ao fornecedor e que de fato sera vinculado ao conta a pagar. Faz parte ... |
+| 4 | DT_COMPETENCIA_REPASSE | DATE | N | Competencia do repasse que esta se gerando o contas a pagar |
+| 5 | DS_LOG_REPASSE_PAGAMENTO | VARCHAR2 | N | Indica qual o erro que foi detectado |
+| 6 | DS_CORRECAO | VARCHAR2 | N | Indica qual medida deve ser tomada para solucionar o problema |
+| 7 | NM_USUARIO_BAIXOU | VARCHAR2 | Y | Usuario que baixou o log de erro |
+| 8 | DT_CRIACAO_LOG | DATE | N | Data de criac?o do log |
+
+---
+
+## DBAMV.LOG_REPROVACAO_LIMPEZA
+> Tabela de Log de Reprovac?o da Limpeza apos a fase de check-list
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_REPROVACAO_LIMPEZA | NUMBER | N | Codigo Sequencial da tabela de Log de Reprovac?o da Limpeza |
+| 2 | CD_SOLIC_LIMPEZA | NUMBER | N | Codido da solicitac?o de limpeza que gerou o log |
+| 3 | CD_USUARIO | VARCHAR2 | N | Codido do Usuario que Reprovou a Limpeza |
+| 4 | DT_HR_INI_AG_HIGIENIZA | DATE | Y | Data de inicio da fase Aguardando Higienizac?o |
+| 5 | DT_HR_FIM_AG_HIGIENIZA | DATE | Y | Data de finalizac?o da fase Aguardando Higienizac?o |
+| 6 | DT_HR_INI_ROUPARIA | DATE | Y | Data de inicio da fase Rouparia |
+| 7 | DT_HR_FIM_ROUPARIA | DATE | Y | Data de finalizac?o da fase Rouparia |
+| 8 | DT_HR_INI_HIGIENIZA | DATE | Y | Data de inicio da fase Em Higienizac?o |
+| 9 | DT_HR_FIM_HIGIENIZA | DATE | Y | Data de finalizac?o da fase Em Higienizac?o |
+| 10 | DT_HR_INI_POS_HIGIENIZA | DATE | Y | Data de inicio da fase pos-limpeza |
+| 11 | DT_HR_FIM_POS_HIGIENIZA | DATE | Y | Data de finalizac?o da fase pos-limpeza |
+
+---
+
+## DBAMV.LOG_REP_RESULTADO
+> Tabela de log do Repasse Resultado
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_REPASSE | NUMBER | Y |  |
+| 2 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 3 | CD_REG_AMB | NUMBER | Y |  |
+| 4 | CD_REG_FAT | NUMBER | Y |  |
+| 5 | CD_LANCAMENTO_AMB | NUMBER | Y |  |
+| 6 | CD_LANCAMENTO_FAT | NUMBER | Y |  |
+| 7 | CD_PRESTADOR | NUMBER | Y |  |
+| 8 | CD_SETOR | NUMBER | Y |  |
+| 9 | DT_REPASSE | DATE | Y |  |
+| 10 | NM_USUARIO | VARCHAR2 | Y |  |
+| 11 | VL_REPASSE | NUMBER | Y |  |
+| 12 | VL_BASE_REPASSADO | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_RES_EXA
+> Tabela de Log de Resultados Laboratorio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_RES_EXA | NUMBER | N | Codigo do Log do Exame |
+| 2 | CD_ITPED_LAB | NUMBER | N | Codigo do Exame Solicitado no Pedido |
+| 3 | DT_LOG | DATE | N | Data do Log |
+| 4 | CD_USUARIO_LOG | VARCHAR2 | N | Usuario responsavel pelo LOG |
+| 5 | CD_VERSAO | NUMBER | Y | Codigo da Vers?o do Layout do Laudo |
+| 6 | DS_ORIGEM | VARCHAR2 | N | Origem do LOG |
+| 7 | CD_EXA_LAB | NUMBER | N | Codigo do Exame Laboratorial |
+| 8 | NM_CAMPO | VARCHAR2 | N | Descric?o do Campo do Exame |
+| 9 | DS_RESULTADO | VARCHAR2 | Y | Descric?o do Resultado |
+| 10 | CD_ORDEM_PERGUNTA | NUMBER | N | Numero de ordem da visualizac?o da pergunta |
+| 11 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Descric?o da Justificativa para valores controlados |
+| 12 | TP_RESULTADO | VARCHAR2 | Y | Tipo do Resultado |
+| 13 | DS_CAMINHO_GRAFICO | VARCHAR2 | Y | Imagem referente ao resultado do campo do Laudo |
+| 14 | DS_RESULTADO_CODIFICADO | VARCHAR2 | Y | Resultado codificado do Exame |
+| 15 | DS_CAMPO_LIVRE_CLOB | CLOB | Y |  |
+| 16 | TP_STATUS | VARCHAR2 | Y |  |
+| 17 | DS_MOTIVO_RETIFICACAO | VARCHAR2 | Y | Motivo da Retificação. |
+| 18 | CD_MEDICO_EXEC | NUMBER | Y | Código do médico executante. |
+| 19 | CD_AMOSTRA | NUMBER | Y | Código da amostra que foi utilizada para o laudo na tela de microbiologia. |
+| 20 | CD_COLETA_MATERIAL | NUMBER | Y | Código utilizado para a PK da amostra |
+| 21 | CD_MOTIVO_RETIFICACAO_EXAME | NUMBER | Y | Indica o motivo de retificação do exame |
+
+---
+
+## DBAMV.LOG_RETORNO_ARQMAG_IPE
+> Tabela de LOG dos Retornos de Glosa IPERG
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_RETORNO_LOG_IPE | NUMBER | N | Sequêncial da tabela |
+| 2 | NM_USUARIO | VARCHAR2 | Y | Nome do usuário que realizou a importação |
+| 3 | NM_ARQUIVO | VARCHAR2 | Y | Nome do arquivo de retorno |
+| 4 | DT_IMPORTACAO | DATE | Y | Data em que foi realizada a importação do arquivo de retorno |
+| 5 | TP_ARQMAG_IPE | VARCHAR2 | N | Tipo de arquivo de retorno importado, o valor 00 é para caso não venha nenhum dos outros tipo. |
+| 6 | DT_RECEBIMENTO | DATE | Y | Data em que vai ser realizado o recebimento |
+| 7 | DS_LOG | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_RETORNO_FATURA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_RETORNO_FATURA | NUMBER | N |  |
+| 2 | DT_IMPORTACAO | DATE | Y |  |
+| 3 | NM_USUARIO | VARCHAR2 | N |  |
+| 4 | NM_ARQUIVO | VARCHAR2 | N |  |
+| 5 | SN_RECURSO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_RETORNO_PLANSERV
+> Tabela de LOG dos Retornos de Glosa do convênio Planserv.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_RETORNO_PLANSERV | NUMBER | N | Sequencial da tabela. |
+| 2 | SEQ_REMESSA | NUMBER | N | Sequencial de remessa do convênio. |
+| 3 | NR_CONTA | VARCHAR2 | N | Número da conta no envio. |
+| 4 | NR_ITEM | NUMBER | N | Sequencial do item na conta. |
+| 5 | COD_SERVICO | VARCHAR2 | Y | Código do procedimento no envio (com ou sem de/para). |
+| 6 | VL_INFORMADO | NUMBER | Y | Valor informado no envio. |
+| 7 | VL_GLOSA | NUMBER | Y | Valor do retorno de glosa. |
+| 8 | VL_LIBERADO | NUMBER | Y | Valor liberado pelo convênio. |
+| 9 | CD_GLOSA_1 | VARCHAR2 | Y | Código do motivo de glosa 1. |
+| 10 | CD_GLOSA_2 | VARCHAR2 | Y | Código do motivo de glosa 2. |
+| 11 | DS_OBS_GLOSA | VARCHAR2 | Y | Observação para glosas manuais. |
+| 12 | TP_CONTA | VARCHAR2 | Y | Tipo da conta (Hospitalar ou Ambulatorial). |
+| 13 | CD_CONTA | NUMBER | Y | Número da conta no sistema da MV (Hospitalar ou Ambulatorial). |
+| 14 | CD_PRO_FAT | VARCHAR2 | Y | Código AMB do procedimento. |
+| 15 | CD_REMESSA | NUMBER | Y | Remessa da Conta |
+
+---
+
+## DBAMV.LOG_SALDO_TELA
+> TABELA ULTILIZADA PARA VALIDAR A RASTREABILIDADE DAS CORREÃ¿Ã¿ES DE SALDO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_SALDO_TELA | NUMBER | N |  |
+| 2 | TP_PROCESSO | VARCHAR2 | Y |  |
+| 3 | CD_ESTOQUE | NUMBER | Y |  |
+| 4 | CD_PRODUTO | NUMBER | Y |  |
+| 5 | CD_LOTE | VARCHAR2 | Y |  |
+| 6 | DT_VALIDADE | DATE | Y |  |
+| 7 | QT_KIT | NUMBER | Y |  |
+| 8 | QT_KIT_RESERVA | NUMBER | Y |  |
+| 9 | QT_ESTOQUE_ATUAL | NUMBER | Y | QUANTIDADE RELATIVA AO QUE EXISTE NA TABELA |
+| 10 | QT_ESTOQUE_REAL | NUMBER | Y | QUANTIDADE RELATIVA AO SALDO REAL DO ESTOQUE |
+| 11 | DS_OBSERVACAO_PROCESSO | VARCHAR2 | Y |  |
+| 12 | DT_OPERACAO_PROCESSO | DATE | Y |  |
+
+---
+
+## DBAMV.LOG_SIMPRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORT_SIMPRO | NUMBER | N |  |
+| 2 | DT_IMPORTACAO | DATE | N |  |
+| 3 | DT_VIGENCIA | DATE | N |  |
+| 4 | NM_ARQUIVO | VARCHAR2 | N |  |
+| 5 | CD_ID_USUARIO | NUMBER | Y |  |
+| 6 | CD_TAB_FAT | NUMBER | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | N |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | Y | Empresa correspondente a importac?o feita. Sera usada apenas com a restric?o por empresa ativa no... |
+| 9 | DT_PUBLICACAO_EDICAO | DATE | Y | Data referente a publicação da Edição SIMPRO. |
+
+---
+
+## DBAMV.LOG_SOLCOM_OPME
+> Tabela que armazena log de Status da Solicitac?o tipo OPME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID | NUMBER | N | ID do item, gerado pela sequence |
+| 2 | CD_SOLCOM | NUMBER | N | Codigo da Solicitac?o tipo OPME |
+| 3 | DH_LOG | DATE | Y | Data na qual e movimentada a Solicitac?o tipo OPME |
+| 4 | NM_USUARIO | VARCHAR2 | Y | Nome de usuario que afetuou a movimentac?o da Solicitac?o tipo OPME |
+| 5 | DS_LOG | VARCHAR2 | Y | Descric?o do passo executado |
+
+---
+
+## DBAMV.LOG_SOLIC_AGEN_ITEM_AGEN
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_SOLIC_AGEN_ITEM_AGEN | NUMBER | N | Código do log de alteração do item de agendamento na solicitação de agendamento. |
+| 2 | CD_SOLIC_AGENDAMENTO | NUMBER | N | Código da solicitação de agendamento. |
+| 3 | CD_ITEM_AGENDAMENTO_ANTERIOR | NUMBER | N | Código do item de agendamento anterior. |
+| 4 | CD_ITEM_AGENDAMENTO_ATUAL | NUMBER | N | Código do item de agendamento atual. |
+| 5 | DT_ALTERACAO | DATE | N | Data em que a alteração do item de agendamento foi realizada. |
+| 6 | CD_USUARIO_ALTERACAO | VARCHAR2 | N | Código do usuário que realizou a alteração do item de agendamento na solicitação de agendamento. |
+
+---
+
+## DBAMV.LOG_STATUS_APROVACAO_AVISO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N | Chave primaria da tabela |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | N | Codigo do aviso de cirurgia referente a operacao |
+| 3 | TP_ACAO | VARCHAR2 | N | I - Internação, O - OPME, C - Centro Cirúrgico, E - Esterilização, A - Agendado, P - Pré-agendado |
+| 4 | CD_MOTIVO_REPROVACAO | NUMBER | Y | Codigo do motivo de reprovacao caso a operacao for de reprovacao |
+| 5 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que rea |
+| 6 | DT_OPERACAO | DATE | N | Data da operação |
+| 7 | STATUS | VARCHAR2 | N | A - Aprovado, R - Reprovado, C - Cancelado |
+| 8 | CD_MOTIVO_CANCELAMENTO | NUMBER | Y | Código do motivo de cancelamento caso a operação for de cancelamento do aviso ou do agendamento |
+
+---
+
+## DBAMV.LOG_STATUS_LAUDO_SIA_APAC
+> Historico dã situação dos laudos para integração com o GERPAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_LAUDO | NUMBER | N | Código do log |
+| 2 | DH_LOG | DATE | N | Data e hora da criação do registro |
+| 3 | NM_USUARIO | VARCHAR2 | Y | Usuário que fez alguma alteração |
+| 4 | CD_LAUDO_APAC | NUMBER | Y | Código do laudo apac |
+| 5 | CD_TIP_ATE | NUMBER | Y | Código do tipo de tratamento APAC |
+| 6 | NR_PROTOCOLO_SOLICITACAO | VARCHAR2 | Y | Número do protocolo de solicitação |
+| 7 | DT_SOLICITACAO | DATE | Y | Data de solicitação |
+| 8 | NR_AUTORIZACAO | VARCHAR2 | Y | Número da APAC Autorizada |
+| 9 | DT_AUTORIZACAO | DATE | Y | Data de autorização |
+| 10 | QT_AUTORIZADA | NUMBER | Y | Quantidade autorizada |
+| 11 | QT_EXECUTADA | NUMBER | Y | Quantidade executada |
+| 12 | DT_EXECUCAO | DATE | Y | Data de execução |
+| 13 | TP_SITUACAO | VARCHAR2 | Y | Situação do laudo |
+| 14 | DS_MENSAGEM | VARCHAR2 | Y | Descrição |
+| 15 | CD_PROCEDIMENTO_PRINCIPAL | VARCHAR2 | Y | Código do procedimento sus |
+| 16 | NR_SEQUENCIA_EXECUCAO | NUMBER | Y | Sequência de execução |
+| 17 | NM_PACIENTE | VARCHAR2 | Y | Nome do paciente |
+| 18 | DT_INTEGRA | DATE | Y | Data de integração |
+| 19 | CD_SEQ_INTEGRA | NUMBER | Y | Código de sequência de integração |
+
+---
+
+## DBAMV.LOG_SUBSTANCIA
+> Log de inclusão e alteração de substancia
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_SUBSTANCIA | NUMBER | N | Chave primaria alimentada através de sequence de banco. |
+| 2 | CD_SUBSTANCIA | NUMBER | N | Código de chave primária da tabela dbamv.substancia. |
+| 3 | DS_SUBSTANCIA | VARCHAR2 | Y | Descrição da substancia ou nomeclatura DCB até 30 posições. |
+| 4 | NR_DCB | NUMBER | Y | Numero Denominações Comuns Brasileiras |
+| 5 | DS_DCB | VARCHAR2 | Y | Descrição Denominações Comuns Brasileiras |
+| 6 | NR_CAS | VARCHAR2 | Y | Número de registro que é emitido pelo Chemical Abstracts Service |
+| 7 | TP_CLASSIFICACAO | VARCHAR2 | N | Classificação do tipo de Substância. Legenda da Classificação: BIO ¿ produtos biológicos, EXA ¿ e... |
+| 8 | TP_INCLUSAO | VARCHAR2 | N | Tipo de inclusão. Legenda: I - Importação, D - Manual |
+| 9 | DS_HISTORICO | VARCHAR2 | Y | Histórico da tabela DBC. O campo histórico da Lista Consolidada das Denominações Comuns Brasileir... |
+| 10 | CD_USUARIO | VARCHAR2 | N | Usuário que realizou a inclusão manual ou importação |
+| 11 | DT_OPERACAO | DATE | N | Data da operação. |
+| 12 | TP_OPERACAO | VARCHAR2 | N | Ação realizada: I = Inserção, U = Alteração, D = Deleção. |
+| 13 | SN_ATIVO | VARCHAR2 | N | Informa se a substancia está ativo. Legenda: S - SIM, N - Não. |
+
+---
+
+## DBAMV.LOG_TASK
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TASK | NUMBER | N | Codigo do log da tarefa |
+| 2 | NM_TASK | VARCHAR2 | Y | Nome da tarefa |
+| 3 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario |
+| 4 | DT_LOG | DATE | Y | Data de gravacao do log |
+| 5 | DT_VERSAO_FRAMEWORK | DATE | Y | Data da versao do framework |
+| 6 | NM_BLOCO | VARCHAR2 | Y | Nome do Bloco |
+| 7 | NM_ITEM | VARCHAR2 | Y | Nome do item |
+| 8 | DS_STATUS_TASK | VARCHAR2 | Y | Descricao da situacao da tarefa |
+| 9 | DS_MODE | VARCHAR2 | Y | Modo atual da tela |
+| 10 | DS_VALOR_ITEM | VARCHAR2 | Y | Descricao do item |
+| 11 | DS_RECORD_STATUS | VARCHAR2 | Y | Situac?o do registro |
+| 12 | DS_BLOCO_STATUS | VARCHAR2 | Y | Situac?o do bloco |
+| 13 | DS_CLASSE | VARCHAR2 | Y | Descric?o da classe |
+| 14 | DS_METODO | VARCHAR2 | Y | Descric?o do metodo |
+| 15 | DS_OBS_GERAL | VARCHAR2 | Y | Observac?o Geral |
+| 16 | CD_POSICAO_LOG_TASK | NUMBER | Y |  |
+
+---
+
+## DBAMV.LOG_TAXA_MANUSEIO_OPME
+> Tabela de LOG das taxas de manuseio OPME.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TAXA | NUMBER | N | Sequence da tabela. |
+| 2 | DT_LOG_TAXA | DATE | Y | Data em que foi aplicada a taxa de manuseio. |
+| 3 | CD_USUARIO | VARCHAR2 | Y | Usuário que aplicou a taxa. |
+| 4 | TP_LOG_TAXA | VARCHAR2 | Y | Tipo de aplicação da taxa. |
+| 5 | CD_TAXA | NUMBER | Y | Taxa - código. |
+| 6 | CD_REGRA | NUMBER | Y | Taxa - regra de cobrança. |
+| 7 | VL_FAIXA_INICIAL | NUMBER | Y | Taxa - valor inicial da faixa. |
+| 8 | VL_FAIXA_FINAL | NUMBER | Y | Taxa - valor final da faixa. |
+| 9 | DT_VIGENCIA_INICIO | DATE | Y | Taxa - vigência inicial. |
+| 10 | DT_VIGENCIA_FIM | DATE | Y | Taxa - vigência final. |
+| 11 | VL_PERCENTUAL | NUMBER | Y | Taxa - percentual. |
+| 12 | VL_FIXO | NUMBER | Y | Taxa - valor fixo. |
+| 13 | CD_ATENDIMENTO | NUMBER | Y | Código do atendimento. |
+| 14 | TP_CONTA | VARCHAR2 | Y | Tipo da conta, H-ospitalar ou A-mbulatorial. |
+| 15 | CD_CONTA | NUMBER | Y | Número da conta. |
+| 16 | CD_LANCAMENTO | NUMBER | Y | TX - Código de lançamento da taxa. |
+| 17 | CD_GUIA | NUMBER | Y | TX - Código da guia. |
+| 18 | CD_IT_GUIA | NUMBER | Y | TX - Código do item da guia. |
+| 19 | DT_LANCAMENTO | DATE | Y | TX - Data de lançamento da taxa na conta. |
+| 20 | HR_LANCAMENTO | DATE | Y | TX - Hora de lançamento da taxa na conta. |
+| 21 | QT_LANCAMENTO | NUMBER | Y | TX - Quantidade lançada na conta. |
+| 22 | VL_PERCENTUAL_MULTIPLA | NUMBER | Y | TX - percentual lançado. |
+| 23 | CD_GRU_FAT | NUMBER | Y | TX - grupo de faturamento lançado. |
+| 24 | CD_PRO_FAT | VARCHAR2 | Y | TX - procedimento da taxa que foi lançado. |
+| 25 | CD_SETOR | NUMBER | Y | TX - Setor que foi lançado. |
+| 26 | CD_SETOR_PRODUZIU | NUMBER | Y | TX - Setor que foi lançado. |
+| 27 | CD_MVTO | NUMBER | Y | TX - Código de movimentação da taxa lançada. |
+| 28 | TP_MVTO | VARCHAR2 | Y | TX - Tipo de movimentação da taxa lançada. |
+| 29 | VL_TOTAL_CONTA | NUMBER | Y | TX - Valor da taxa lançada. |
+| 30 | CD_LANCAMENTO_ORI | NUMBER | Y | ORI - Código de lançamento do OPME que gerou a taxa. |
+| 31 | CD_GUIA_ORI | NUMBER | Y | ORI - Código da guia do registro de origem (OPME). |
+| 32 | CD_IT_GUIA_ORI | NUMBER | Y | ORI - Còdigo do item da guia de origem. |
+| 33 | DT_LANCAMENTO_ORI | DATE | Y | ORI - Data de lançamento do registro de origem. |
+| 34 | HR_LANCAMENTO_ORI | DATE | Y | ORI - Hora de lançamento do registro de origem. |
+| 35 | QT_LANCAMENTO_ORI | NUMBER | Y | ORI - Quantidade do registro de origem. |
+| 36 | VL_PERCENTUAL_MULT_ORI | NUMBER | Y | ORI - Percentual do registro de origem. |
+| 37 | CD_GRU_FAT_ORI | NUMBER | Y | ORI - Grupo de faturamento do registro de origem. |
+| 38 | CD_PRO_FAT_ORI | VARCHAR2 | Y | ORI - Código do procedimento de origem (OPME). |
+| 39 | CD_SETOR_ORI | NUMBER | Y | ORI - Setor do registro de origem. |
+| 40 | CD_SETOR_PRODUZIU_ORI | NUMBER | Y | ORI - Setor do registro de origem. |
+| 41 | CD_MVTO_ORI | NUMBER | Y | ORI - Código de movimentação do registro de origem. |
+| 42 | TP_MVTO_ORI | VARCHAR2 | Y | ORI - Tipo de movimentação do registro de origem. |
+| 43 | NR_DOCUMENTO_COB | VARCHAR2 | Y | COB - Número do documento dos dados da nota. |
+| 44 | VL_PRECO_UNIT_COB | NUMBER | Y | COB - Valor unitário dos dados da nota. |
+| 45 | VL_PRECO_TOTAL_COB | NUMBER | Y | COB - Valor total dos dados da nota. |
+| 46 | CD_FORNECEDOR_COB | NUMBER | Y | COB - Fornecedor dos dados da nota. |
+| 47 | VL_TAXA_CONSIG_COB | NUMBER | Y | COB - Taxa de comercialização dos dados da nota. |
+| 48 | CD_IDENTIFICADOR | NUMBER | Y | Código identificador do agrupamento, usado durante o processamento. |
+
+---
+
+## DBAMV.LOG_TAXA_PROCED
+> Tabela responsvel pelo log das taxas de procedimentos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TAXA_PROCED | NUMBER | N | Cdigo do log da taxa gerado por sequence |
+| 2 | CD_CONF_EMP_CONV_TAXA_OP | NUMBER | N | Cdigo das taxas por grupo |
+| 3 | CD_ATENDIMENTO | NUMBER | N | Cdigo do atendimento |
+| 4 | CD_REG_AMB | NUMBER | N |  |
+| 5 | CD_SETOR_PRODUZIU | NUMBER | N | Cdigo do setor que executou |
+| 6 | NR_PORCENTAGEM | NUMBER | Y |  |
+| 7 | VL_COBRADO | NUMBER | Y |  |
+| 8 | VL_TOTAL | NUMBER | Y | Valor total da taxa |
+| 9 | HR_LANCAMENTO | DATE | Y | Data do lanamento da taxa |
+| 10 | DT_LOG | DATE | Y | Data da criao do log |
+| 11 | CD_USUARIO | VARCHAR2 | Y | Usurio logado |
+
+---
+
+## DBAMV.LOG_TAXA_PROCED_FAT
+> Tabela responsvel pelo log das taxas de procedimentos hospitalar
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TAXA_PROCED_FAT | NUMBER | N | Cdigo do log da taxa gerado por sequence |
+| 2 | CD_CONF_EMP_CONV_TAXA_OP | NUMBER | N | Cdigo das taxas por grupo |
+| 3 | CD_ATENDIMENTO | NUMBER | N | Cdigo do atendimento |
+| 4 | CD_REG_FAT | NUMBER | N |  |
+| 5 | CD_SETOR_PRODUZIU | NUMBER | N | Cdigo do setor que executou |
+| 6 | NR_PORCENTAGEM | NUMBER | Y |  |
+| 7 | VL_COBRADO | NUMBER | Y |  |
+| 8 | VL_TOTAL | NUMBER | Y | Valor total da taxa |
+| 9 | HR_LANCAMENTO | DATE | Y | Data do lanamento da taxa |
+| 10 | DT_LOG | DATE | Y | Data da criao do log |
+| 11 | CD_USUARIO | VARCHAR2 | Y | Usurio logado |
+
+---
+
+## DBAMV.LOG_TEMP_SOLICITACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITSOLSAI_PRO | NUMBER | N |  |
+| 2 | CD_SOLSAI_PRO | NUMBER | N |  |
+| 3 | CD_PRODUTO_NOVO | NUMBER | Y |  |
+| 4 | CD_PRODUTO_ANTIGO | NUMBER | Y |  |
+| 5 | CD_UNI_PRO | NUMBER | Y |  |
+| 6 | QT_SOLICITADO | NUMBER | N |  |
+| 7 | CD_TIP_PRESC | NUMBER | Y |  |
+| 8 | CD_TIP_FRE | NUMBER | Y |  |
+| 9 | QT_PRESCRITA | NUMBER | Y |  |
+| 10 | NR_DIAS | NUMBER | Y |  |
+| 11 | NM_USUARIO_ALTERACO | VARCHAR2 | Y |  |
+| 12 | DS_ACAO | VARCHAR2 | Y |  |
+| 13 | TELA | VARCHAR2 | Y |  |
+| 14 | DT_ACAO | DATE | Y |  |
+
+---
+
+## DBAMV.LOG_TRANSFERENCIA
+> Log das transferencias de atendimento amb para hosp preservando o codigo do atendimento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TRANSF | NUMBER | N | Codigo do Log da Transferencia |
+| 2 | CD_CONVENIO | NUMBER | Y | Codigo do convenio da trasferencia do atendimento |
+| 3 | CD_PRESTADOR | NUMBER | Y | Codigo do prestador da trasferencia do atendimento |
+| 4 | DT_TRANSF | DATE | N | data da transferencia da trasferencia do atendimento |
+| 5 | CD_ATENDIMENTO | NUMBER | Y | codigo do atendimento da trasferencia do atendimento |
+| 6 | CD_PACIENTE | NUMBER | Y | codigo do paciente da trasferencia do atendimento |
+| 7 | CD_PRO_FAT | VARCHAR2 | Y | codigo do procediemento principal da trasferencia do atendimento |
+| 8 | CD_ORI_ATE | NUMBER | Y | codigo da origem do atendimento da trasferencia do atendimento |
+| 9 | CD_MOTIVO | NUMBER | Y | codigo do motivo da trasferencia do atendimento |
+| 10 | DS_OBSERVACAO | LONG | Y | observac?es sobre a trasferencia do atendimento |
+| 11 | TP_TRANSF | VARCHAR2 | Y | tipo de transferencia do atendimento |
+| 12 | CD_USUARIO_TRASF | VARCHAR2 | Y | Matricula do Usuario que efetuou a trasnferencia. |
+| 13 | CD_ATENDIMENTO_ORIGEM | NUMBER | Y | Código do atendimento de origem quando a transf for para outro atendimento. |
+
+---
+
+## DBAMV.LOG_TRANSF_CONTA
+> Tabela de LOG das transferência de conta BPA e AIH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TRANSF_CONTA | NUMBER | N | Código da transferência de conta. |
+| 2 | CD_ATENDIMENTO | NUMBER | N | Código do atendimento |
+| 3 | CD_FAT_SIA | NUMBER | N | Código da fatura |
+| 4 | CD_REMESSA | NUMBER | N | Código da remessa |
+| 5 | CD_EVENTOS | NUMBER | N | código do evento BPA |
+| 6 | CD_REG_FAT | NUMBER | N | código da conta |
+| 7 | CD_LANCAMENTO | NUMBER | N | código do item da conta |
+| 8 | NM_USUARIO | VARCHAR2 | N | Usuário que realizou a importação |
+| 9 | DATA_TRANSF | DATE | N | data da transferência |
+| 10 | TP_TRANSF_CONTA | VARCHAR2 | N | BPA_AIH -> transferência de BPA para AIH. AIH_BPA -> transferência de AIH para BPA |
+| 11 | CD_MULTI_EMPRESA | NUMBER | N | Número da empresa |
+
+---
+
+## DBAMV.LOG_TRANSF_PACIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TRANS | NUMBER | N |  |
+| 2 | DT_LOG_TRANS | DATE | N |  |
+| 3 | HR_LOG_TRANS | DATE | N |  |
+| 4 | NM_USUARIO_LOG | VARCHAR2 | N |  |
+| 5 | CD_ATENDIMENTO_OLD | NUMBER | N |  |
+| 6 | CD_PACIENTE_OLD | NUMBER | N |  |
+| 7 | CD_PACIENTE_NEW | NUMBER | N |  |
+| 8 | DS_MOTIVO | VARCHAR2 | N |  |
+| 9 | DS_CONCLUIDA | VARCHAR2 | N |  |
+| 10 | DT_INTEGRA | DATE | Y | Data em que o registro foi integrado |
+| 11 | CD_SEQ_INTEGRA | NUMBER | Y | Codigo sequencial da integrac?o |
+| 12 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBAMV.LOG_TRANSF_REMESSA_FFCV
+> Tabela de log da tela M_TRANSF_REMESSA_FFCV.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TRANSF | NUMBER | N | Código sequencial. |
+| 2 | DT_COMPET_ORIGEM | DATE | Y | Transferência por competência (origem). |
+| 3 | DT_COMPET_DESTINO | DATE | Y | Transferência por competência (destino). |
+| 4 | CD_FATURA_ORIGEM | NUMBER | Y | Transferência por Fatura (origem). |
+| 5 | CD_FATURA_DESTINO | NUMBER | Y | Transferência por Fatura (destino). |
+| 6 | CD_USUARIO | VARCHAR2 | Y | Usuário que fez a transferência. |
+| 7 | DT_TRANSF | DATE | Y | Data em que foi feita a transferência. |
+| 8 | CD_REMESSAS | VARCHAR2 | Y | Remessas transferidas. |
+
+---
+
+## DBAMV.LOG_TRANSF_SAME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAD_SAME | NUMBER | Y |  |
+| 2 | NR_MATRICULA_SAME_ORIG | NUMBER | Y |  |
+| 3 | NR_MATRICULA_SAME_DEST | NUMBER | Y |  |
+| 4 | DT_TRANSF | DATE | Y |  |
+| 5 | NM_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_TRANSPORTADORA_ROMANEIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TRANSPORTADORA_ROMANEIO | NUMBER | Y | Sequencial da tabela |
+| 2 | DS_LOG | VARCHAR2 | Y | Log de Alterações/Inclusões no cadastro de Motorista Romaneio |
+| 3 | DATA_LOG | DATE | Y | Data de Inserção do Log de Alterações/Inclusões no cadastro de Motorista Romaneio |
+
+---
+
+## DBAMV.LOG_TROCPAC_REGS_PAC_DEST
+> Tabela que armazena a quantidade de registro das tabelas do paciente de destino.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TROCPAC_REGS_PAC_DEST | NUMBER | N | Código sequencial da tabela. |
+| 2 | CD_LOG_TROCPAC_REVERSAO | NUMBER | N | Código de log para reversão. |
+| 3 | DS_TABELA | VARCHAR2 | Y | Tabela com registro do paciente de destino. |
+| 4 | NR_REGISTROS | NUMBER | Y | Número de registros da tabela do paciente de destino antes de unificar. |
+
+---
+
+## DBAMV.LOG_TROCPAC_REVERSAO
+> Tabela que armazena os dados para reversão
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TROCPAC_REVERSAO | NUMBER | N | Código da reversão. |
+| 2 | DH_LOG_TROCPAC | DATE | N | Data da reversão. |
+| 3 | NM_USUARIO_LOG_TROCPAC | VARCHAR2 | N | Usuário que gerou o log da reversão. |
+| 4 | DS_MOTIVO_TROCPAC | VARCHAR2 | Y | Motivo da reversão. |
+| 5 | DH_LOG_REVERSAO | DATE | Y | Data do registro de reversão. |
+| 6 | NM_USUARIO_LOG_REVERSAO | VARCHAR2 | Y | Usuário que realizou a reversão. |
+| 7 | DS_MOTIVO_REVERSAO | VARCHAR2 | Y | Motivo da reversão. |
+| 8 | DS_JUSTIFICATIVA_UNIFICACAO | VARCHAR2 | Y | Justificativa para a divergência de dados entre pacientes de origem e destino. |
+
+---
+
+## DBAMV.LOG_TROCPAC_SUBSTITUICAO
+> Tabela que armazena o log da unificação.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_TROCPAC_SUBSTITUICAO | NUMBER | N | Código da unificação. |
+| 2 | CD_LOG_TROCPAC_REVERSAO | NUMBER | N | Código de log para reversão. |
+| 3 | DS_TABELA | VARCHAR2 | N | Tabela usada na unificação. |
+| 4 | DS_PK_COLUNA_1 | VARCHAR2 | Y | Coluna PK 1 da unificação. |
+| 5 | DS_PK_COLUNA_2 | VARCHAR2 | Y | Coluna PK 2 da unificação. |
+| 6 | DS_PK_COLUNA_3 | VARCHAR2 | Y | Coluna PK 3 da unificação. |
+| 7 | DS_PK_COLUNA_4 | VARCHAR2 | Y | Coluna PK 4 da unificação. |
+| 8 | DS_PK_COLUNA_5 | VARCHAR2 | Y | Coluna PK 5 da unificação. |
+| 9 | DS_PK_VALOR_1 | VARCHAR2 | Y | Valor da PK 1 da unificação. |
+| 10 | DS_PK_VALOR_2 | VARCHAR2 | Y | Valor da PK 2 da unificação. |
+| 11 | DS_PK_VALOR_3 | VARCHAR2 | Y | Valor da PK 3 da unificação. |
+| 12 | DS_PK_VALOR_4 | VARCHAR2 | Y | Valor da PK 4 da unificação. |
+| 13 | DS_PK_VALOR_5 | VARCHAR2 | Y | Valor da PK 5 da unificação. |
+| 14 | DS_COLUNA_SUBSTITUICAO | VARCHAR2 | Y | Coluna substituida na unificação. |
+| 15 | CD_PACIENTE_ORIGEM | NUMBER | Y | Código do paciente de origem. |
+| 16 | NM_PACIENTE_ORIGEM | VARCHAR2 | Y | Nome do paciente de origem. |
+| 17 | CD_PACIENTE_DESTINO | NUMBER | Y | Código do paciente de destino. |
+| 18 | NM_PACIENTE_DESTINO | VARCHAR2 | Y | Nome do paciente de destino. |
+
+---
+
+## DBAMV.LOG_UNIFICA_PACIENTE_INTEGRA
+> Log de Unificac?o de Pacientes
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_UNIFICA | NUMBER | N | Codigo da Unificac?o do Paciente |
+| 2 | DT_LOG_UNIFICA | DATE | N | Data da Unificac?o do Paciente |
+| 3 | HR_LOG_UNIFICA | DATE | N | Data/Hora da Unificac?o do Paciente |
+| 4 | NM_USUARIO_LOG | VARCHAR2 | N | Nome do Usuario |
+| 5 | CD_PACIENTE_OLD | NUMBER | N | Paciente de Origem da Unificac?o |
+| 6 | CD_PACIENTE_NEW | NUMBER | N | Paciente de Destino da Unificac?o |
+| 7 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBAMV.LOG_USUARIO_PERMITIDO_PRODUTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_LOG_USU_PERM_PROD | NUMBER | N | INDICA CODIGO DO LOG. |
+| 2 | CD_USUARIO | VARCHAR2 | N | INDICA QUAL USUARIO REALIZOU A AÇÃO. |
+| 3 | TP_ALTERACAO | VARCHAR2 | Y | INDICA QUAL O TIPO DE ALTERAÇÃO "INSERÇÃO", "EXCLUSÃO", "ALTERAÇÃO". |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa a qual pertence as configuraçoes |
+| 5 | DT_ALTERACAO | DATE | Y | INDICA EM QUE DATA FOI ALTERADO O REGISTRO. |
+| 6 | CD_USUARIO_REGISTRO | VARCHAR2 | Y | GUARDA O REGISTRO DO USUÁRIO. |
+| 7 | DS_MOT_ALTERACAO | VARCHAR2 | Y | INDICA O MOTIVO NO QUAL HOUVE A ALTERAÇÃO. |
+
+---
+
+## DBAMV.LOG_VALIDA_EMP_AVI_CIR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 3 | EMPRESA_ATD | NUMBER | Y |  |
+| 4 | EMPRESA_AVI_CIR | NUMBER | Y |  |
+| 5 | DS_MODULO | VARCHAR2 | Y |  |
+| 6 | DT_LOG | DATE | Y |  |
+| 7 | CD_USUARIO | VARCHAR2 | Y |  |
+| 8 | TP_ACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.LOG_VEICULO_ROMANEIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VEICULO_ROMANEIO | NUMBER | Y | Sequencial do veiculo |
+| 2 | DS_LOG | VARCHAR2 | Y | Log de Alterações/Inclusões no cadastro de veículo do Romaneio |
+| 3 | DATA_LOG | DATE | Y | Data de Inserção do Log de Alterações/Inclusões no cadastro de veículo do Romaneio |
+
+---
+
+## DBAMV.LOG_VERSAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG | NUMBER | N |  |
+| 2 | DS_LOG | VARCHAR2 | Y |  |
+| 3 | DT_LOG | DATE | N |  |
+| 4 | CD_VERSAO | NUMBER | N |  |
+| 5 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.LOG_VINC_LOTE_DANFE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_VINC_LOTE_DANFE | NUMBER | N | CODIGO SEQUENCIA DA TABELA |
+| 2 | NR_IDE_NFE | VARCHAR2 | N | Chave de Acesso da NFE. |
+| 3 | CD_LINHA_NCM | VARCHAR2 | N | LINHA DE VALIDACÇÃO DO REGISTRO DO DANFE |
+| 4 | CD_NCM | VARCHAR2 | N | CODIGO DO NCM |
+| 5 | CD_PRODUTO | NUMBER | Y | CODIGO DO PRODUTO |
+| 6 | CD_LOTE | VARCHAR2 | Y | CODIGO DO LOTE |
+| 7 | DT_VALIDADE | DATE | Y | DATA DA VALIDADE |
+| 8 | QT_ENTRADA_LOTE | NUMBER | Y | QUANTIDADE DE ENTRADA DO LOTE |
+
+---
+
+## DBAMV.LOG_VINC_PROD_DANFE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LINHA_NCM | VARCHAR2 | Y | Linha de validação do registro do danfe |
+| 2 | CD_NCM | VARCHAR2 | Y | Código do NCM |
+| 3 | CD_PRODUTO | NUMBER | Y | Código do Produto |
+| 4 | NR_IDE_NFE | VARCHAR2 | N | Chave de Acesso da NFE. |
+| 5 | QT_ENTRADA | NUMBER | Y | QUANTIDADE DE ENTRADA DO PRODUTO/NCM |
+
+---
+
+## DBAMV.LOG_WEB_ITPED_LAB
+> Tabela para guarda os logs do acesso a exames via WEB.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_WEB_ITPED_LAB | NUMBER | N | Identificador |
+| 2 | CD_ITPED_LAB | NUMBER | N | Codigo Sequencial do Item de Pedido de Exame (Chave da Tabela). |
+| 3 | DH_EVENTO | DATE | N | Data e Hora do Evento |
+| 4 | DS_EVENTO | VARCHAR2 | Y | Descric?o do Evento |
+| 5 | DS_IP | VARCHAR2 | Y | IP da maquina que fez o Evento |
+
+---
+
+## DBAMV.MATERIAL_CURATIVO
+> Tabela da Norma 24 com os MATERIAIS CURATIVOS do CATÁLOGO MATERIAL CURACIÓN Da Norma 24 do México
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MATERIAL_CURATIVO | NUMBER | N | Chave primária da tabela |
+| 2 | CD_EXTERNO_MATERIAL_CURATIVO | VARCHAR2 | N | -Codigo do MATERIAL CURATIVO -"Clave_insumo"- no CATÁLOGO MATERIAL CURACIÓN  Da Norma 24 do México |
+| 3 | DS_MATERIAL_CURATIVO | VARCHAR2 | N | Desrcriçao do MATERIAL CURATIVO no CATÁLOGO MATERIAL CURACIÓN  Da Norma 24 do México |
+| 4 | TP_INSUMO | VARCHAR2 | N | Tipo de Insumo no CATÁLOGO MATERIAL CURACIÓN Da Norma 24 do México |
+| 5 | DS_ANO_EDICAO | VARCHAR2 | Y | Ano de edição do MATERIAL CURATIVO no CATÁLOGO IMATERIAL CURACIÓN Da Norma 24 do México |
+
+---
+
+## DBAMV.NOTIFICACAO
+> Tabela de Notificac?es.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N | PK da tabela de notificac?o. |
+| 2 | DS_NOTIFICACAO | VARCHAR2 | N | Descric?o da notificac?o. Ex.: Ressonancia de face recebido. |
+| 3 | DS_DETALHES | VARCHAR2 | Y | Detalhamento da notificac?o, exemplo: UTI Adulto - Jose Silva |
+| 4 | CD_CONFIG_NOTIFICACAO | NUMBER | N | Tipo de notificac?o. FK para CONFIG_NOTIFICACAO. |
+| 5 | SN_RESOLVIDA | VARCHAR2 | N | Indica que a notificac?o foi resolvida. |
+| 6 | DH_NOTIFICACAO | DATE | Y | Data de criac?o da notificac?o. |
+| 7 | NM_SISTEMA_ORIGEM | VARCHAR2 | Y | Nome do sistema que registrou a notificac?o. |
+| 8 | CD_MODULO_ORIGEM | VARCHAR2 | Y | Nome do modulo que registrou a notificac?o. |
+| 9 | DH_SOLUCAO | DATE | Y | Data da soluc?o da notificac?o. |
+| 10 | CD_PRESTADOR | NUMBER | Y | Prestador que resolveu a notificac?o. |
+| 11 | DH_LEITURA | DATE | Y | Data da Leitura da notificac?o. |
+| 12 | CD_USUARIO_LEITURA | VARCHAR2 | Y | Usuario que leu a notificac?o. |
+| 13 | CD_PRES_MEDC_ASSIST | NUMBER | Y | Medico Assistente do atendimento |
+| 14 | SN_ENVIADA_MOBILE | VARCHAR2 | Y | Indica se a notifica??o foi enviada para o servidor externo |
+
+---
+
+## DBAMV.NOTIFICACAO_ATRASO_EXA_LAB
+> Tabela de exames configurados do Setor Executante para notificação de atraso.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_ATRASO_EXA_LAB | NUMBER | N | Código único identificador da notificação de atraso do exame |
+| 2 | CD_NOTIFICACAO_ATRASO_LAB | NUMBER | N | Código de identificação da notificação de atraso |
+| 3 | CD_EXA_LAB | NUMBER | N | Código do exame |
+| 4 | CD_MATERIAL | NUMBER | Y | Código do material de coleta |
+
+---
+
+## DBAMV.NOTIFICACAO_ATRASO_LAB
+> Tabela para configurar notificação de atraso do resultado
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_ATRASO_LAB | NUMBER | N | Código único de identificação da notificação de atraso |
+| 2 | DS_NOTIFICACAO_ATRASO_LAB | VARCHAR2 | Y | Descritivo da notificacao de atraso que será apresentada |
+| 3 | CD_SET_EXA | NUMBER | N | Código do setor executante |
+| 4 | DATA_CRIACAO | DATE | Y | Data de criação de notificação de atraso |
+| 5 | CD_USUARIO_CRIACAO | VARCHAR2 | Y | Usuário do sistema que criou notificação de atraso |
+| 6 | DATA_ENVIO_NOTIFICACAO | DATE | Y | Data de envio de notificação de atraso |
+| 7 | CD_USUARIO_ENVIO_NOTIFICACAO | VARCHAR2 | Y | Usuário do sistema que enviou notificacao de atraso |
+| 8 | SN_ENVIO_NOTIFICACAO | VARCHAR2 | Y | Indica que notificacao foi enviada |
+| 9 | CD_BLOQUEIO_EXAME | NUMBER | Y | Código de Bloqueio de Exame |
+| 10 | SN_ATIVO_NOTIFICACAO_ATRASO | VARCHAR2 | N | Indica que notificacao está em ativo |
+
+---
+
+## DBAMV.NOTIFICACAO_CCIH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_CCIH | NUMBER | N |  |
+| 2 | CD_ATENDIMENTO | NUMBER | N |  |
+| 3 | CD_PED_LAB | NUMBER | N |  |
+| 4 | CD_ITPED_LAB | NUMBER | N |  |
+| 5 | CD_EXA_LAB | NUMBER | N |  |
+| 6 | CD_MATERIAL | NUMBER | Y |  |
+| 7 | CD_PRESTADOR | NUMBER | N |  |
+| 8 | DT_PEDIDO | DATE | N |  |
+| 9 | DT_LAUDO | DATE | N |  |
+| 10 | CD_PACIENTE | NUMBER | N |  |
+| 11 | CD_SETOR | NUMBER | N |  |
+| 12 | CD_REG_INF | NUMBER | Y |  |
+| 13 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 14 | SN_LAUDO_RETIFICADO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.NOTIFICACAO_CENTRO_CIRURGICO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO | NUMBER | N | Chave primária |
+| 2 | CD_AVISO | NUMBER | N | Código do aviso. |
+| 3 | CD_SETOR | NUMBER | N | Código do setor. |
+| 4 | TP_SETOR | VARCHAR2 | Y | Tipo do setor (Estoque, imagem, laboratório, banco de sangue). |
+| 5 | TP_SOLICITADO | VARCHAR2 | Y | Tipo da solicitação (produto [P], imagem [I], laboratório [L] ou sangue [S]). |
+| 6 | TP_OPERACAO | VARCHAR2 | Y | Se a solicitação é de inserção [I], exclusão [E] ou alteração [A]. |
+| 7 | CD_PRODUTO_EXAME | NUMBER | Y | Código do produto/imagem/laboratório/sangue, solicitado. |
+| 8 | DS_PRODUTO_EXAME | VARCHAR2 | Y | Descrição produto/imagem/laboratório/sangue, solicitado(utilizado em caso de produtos sem código ... |
+| 9 | DT_REALIZACAO | DATE | Y | Data para qual foi solicitado o CD_PRODUTO_EXAME. |
+| 10 | DT_ANTERIOR | DATE | Y | Utilizada para os casos de transferência de aviso de cirurgia. |
+| 11 | QT_REALIZACAO | NUMBER | Y | Quantidade solicitada para o CD_PRODUTO_EXAME. |
+| 12 | QT_ANTERIOR | NUMBER | Y | Utilizada para alteração de quantidade. |
+| 13 | DS_UNIDADE | VARCHAR2 | Y | Descrição da unidade do CD_PRODUTO_EXAME. |
+| 14 | SN_NOTIFICACAO_VISUALIZADA | VARCHAR2 | Y | Controle de alerta ao usuário. |
+
+---
+
+## DBAMV.NOTIFICACAO_DILIGENCIA
+> Log de notificação de diligenciamento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_DILIGENCIA | NUMBER | N | Sequence da tabela. |
+| 2 | DT_NOTIFICACAO | DATE | Y |  |
+| 3 | CD_SOLICITACAO_DILIGENCIA | NUMBER | Y | Código da Solicitação Diligenciamento. |
+| 4 | DS_EMAIL | VARCHAR2 | Y | Email que foi enviada a notificação. |
+| 5 | NR_DDD | VARCHAR2 | Y | DDD do SMS que foi enviada a notificação. |
+| 6 | NR_DDI | VARCHAR2 | Y | DDI do SMS que foi enviada a notificação. |
+| 7 | NR_SMS | NUMBER | Y | Numero do SMS que foi enviada a notificação. |
+| 8 | DS_MENSAGEM | VARCHAR2 | Y | Mensagem enviada |
+| 9 | SN_ENVIADO | VARCHAR2 | N | Notificação enviada |
+| 10 | DS_MSG_ERRO | VARCHAR2 | Y | Mensagem do Erro |
+
+---
+
+## DBAMV.NOTIFICACAO_FORNECEDOR
+> Tabela que registra dados da notificação de fornecedor
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICA_FORNECEDOR | NUMBER | N | Código do cadastro da notificação de fornecedor |
+| 2 | DT_NOTIFICA_FORNECEDOR | DATE | N | Data do cadastro da notificação |
+| 3 | HR_NOTIFICA_FORNECEDOR | DATE | N | Hora do cadastro da notificação |
+| 4 | DT_ENTRADA | DATE | N | Data da entrada de produto/serviço |
+| 5 | NR_DOCUMENTO | VARCHAR2 | Y | Número do documento da entrada |
+| 6 | NR_SERIE | VARCHAR2 | Y | Número da serie do documento da entrada |
+| 7 | CD_FORNECEDOR | NUMBER | N | Código do fornecedor |
+| 8 | DS_MOTIVO_NOTIFICA | VARCHAR2 | Y | Descrição do motivo da notificação da notificação |
+| 9 | DS_JUSTIFICATIVA | VARCHAR2 | Y | Descrição da justificativa da notificação |
+| 10 | DS_EMAIL_FORNECEDOR | VARCHAR2 | Y | E-mail da notificação de fornecedor |
+| 11 | DS_EMAIL_ADICIONAL_FORNECEDOR | VARCHAR2 | Y | E-mail adicionais da notificação de fornecedor |
+| 12 | CD_ENT_PRO | NUMBER | Y | Código da entrada de produto |
+| 13 | VL_NOTA | NUMBER | Y | Valor da entrada |
+| 14 | CD_USUARIO | VARCHAR2 | N | Código do usuário responsável pela notificação |
+| 15 | CD_ENT_SERV | NUMBER | Y | Código do Cadastro da Notificação de Fornecedor |
+
+---
+
+## DBAMV.NOTIFICACAO_IMAGEM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_IMAGEM | NUMBER | N |  |
+| 2 | DT_NOTIFICACAO | DATE | Y | Data/hora da notificação |
+| 3 | TP_NOTIFICACAO | VARCHAR2 | Y | Tipos de notificação, R = Retificacão. |
+| 4 | CD_PED_RX | NUMBER | Y | Código do pedido de imagem |
+| 5 | CD_ITPED_RX | NUMBER | Y | Código do item de pedido de imagem |
+| 6 | CD_EXA_RX | NUMBER | Y | Código do exame referente a notificação |
+| 7 | CD_PRESTADOR | NUMBER | Y | Código do prestador enviada a notificação |
+| 8 | DS_TIP_COMUN_PREST | VARCHAR2 | Y | Descrição do contato do prestador que foi enviada a notificação |
+| 9 | NR_DDD | VARCHAR2 | Y | Número ddd do contato quando corresponde a um telefone |
+| 10 | NR_DDI | VARCHAR2 | Y | Número ddi do contato quando corresponde a um telefone |
+| 11 | DS_MENSAGEM | VARCHAR2 | Y | Mensagem enviada como notificação |
+| 12 | SN_ENVIADO | VARCHAR2 | N | Informação se a msg foi enviada ou não. S = Enviada, N = Não enviada. |
+| 13 | DS_MSG_ERRO | VARCHAR2 | Y | Informação sobre o não envio da notificação. |
+
+---
+
+## DBAMV.NOTIFICACAO_LABORATORIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_NOTIFICACAO_LABORATORIO | NUMBER | N |  |
+| 2 | DT_NOTIFICACAO | DATE | Y | Data/hora da notificac?o |
+| 3 | TP_NOTIFICACAO | VARCHAR2 | Y | Tipo da notificação, P = Pânico , R = Retificacão , C = Recoleta e I = Micro-organismo X CID  e G... |
+| 4 | CD_PED_LAB | NUMBER | Y | Codigo do pedido laboratorial |
+| 5 | CD_ITPED_LAB | NUMBER | Y | Codigo do item de pedido laboratorial |
+| 6 | CD_EXA_LAB | NUMBER | Y | Codigo do exame referente a notificac?o |
+| 7 | CD_PRESTADOR | NUMBER | Y | Codigo do prestador enviada a notificac?o |
+| 8 | DS_TIP_COMUN_PREST | VARCHAR2 | Y | Descric?o do contato do prestador que foi enviada a notificac?o |
+| 9 | NR_DDD | VARCHAR2 | Y | Numero ddd do contato quando corresponde a um telefone |
+| 10 | NR_DDI | VARCHAR2 | Y | Numero ddi do contato quando corresponde a um telefone |
+| 11 | DS_MENSAGEM | VARCHAR2 | Y | Mensagem enviada como notificac?o |
+| 12 | SN_ENVIADO | VARCHAR2 | N | Informac?o se a msg foi enviada ou n?o. S = Enviada, N = N?o enviada. |
+| 13 | DS_MSG_ERRO | VARCHAR2 | Y | Informac?o sobre o n?o envio da notificac?o. |
+| 14 | CD_AMOSTRA | NUMBER | Y | Codigo da amostra que foi recoletada. |
+
+---
+
+## DBAMV.OPERACAO_AUTORIZADA
+> Tabela que registra as operac?es que foram autorizadas pelo usuario autorizador
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OPERACAO_AUTORIZADA | NUMBER | N | Codigo da Operac?o Autorizada |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario responsavel |
+| 3 | CD_USUARIO_AUTORIZADOR | VARCHAR2 | N | Codigo do usuario Autorizador |
+| 4 | DT_AUTORIZACAO | DATE | N | Data da autorizac?o da realizac?o da operac?o |
+| 5 | TP_ORIGEM | VARCHAR2 | N | Origem da movimentac?o autorizada |
+| 6 | CD_PROCESSO_OPERACAO | NUMBER | N | Codigo da Operac?o autorizada |
+| 7 | CD_OPERACAO_ARGUMENTO | NUMBER | N | Codigo do Argumento da Operac?o autorizada |
+| 8 | CD_PROCESSO_PAI | NUMBER | N | Codigo do processo pai origem da operac?o |
+| 9 | VL_AUTORIZADO | NUMBER | N | Valor da movimentac?o Autorizado |
+| 10 | CD_ORIGEM | NUMBER | N | Codigo do movimento que deu origem a utilizac?o da operac?o |
+
+---
+
+## DBAMV.OPER_ARGUM_GRU_USU
+> Tabela que registra as operac?es que s?o permitidas para cada grupo e/ou usuario
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OPER_ARGUM_GRU_USU | NUMBER | N | Codigo da permiss?o da operac?o para o grupo e/ou usuario |
+| 2 | CD_OPERACAO_ARGUMENTO | NUMBER | N | Codigo do argumento da operac?o |
+| 3 | CD_PROCESSO_OPERACAO | NUMBER | N | Codigo da operac?o |
+| 4 | CD_ESTRUTURAL_OPERACAO | VARCHAR2 | N | Codigo estrutural da operac?o |
+| 5 | CD_GRU_USU | NUMBER | Y | Codigo do relacionamento Grupo de Usuario/Usuario liberado a utilizac?o da operac?o |
+| 6 | CD_GRUPO | NUMBER | Y | Codigo do Grupo de Usuario liberado a utilizac?o da operac?o |
+| 7 | CD_USUARIO | VARCHAR2 | Y | Codigo do Usuario liberado a utilizac?o da operac?o |
+| 8 | DT_VIGENCIA | DATE | N | Data de Ativac?o de utilizac?o da operac?o para o grupo e/ou usuario |
+| 9 | SN_DESATIVADO | VARCHAR2 | N | Grupo e/ou usuario ativo ou n?o |
+| 10 | DT_DESATIVADO | DATE | Y | Data de desativac?o de Grupo e/ou usuario |
+
+---
+
+## DBAMV.PAPEL_CENTRO_CIR_USUARIO
+> Tabela ligação entre o papel e o usuário.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL_CENTRO_CIR_USUARIO | NUMBER | N | Código do papel. |
+| 2 | CD_USUARIO | VARCHAR2 | N | código do usuario. |
+
+---
+
+## DBAMV.PARECER_AUDITORIA
+> Pareceres da Auditoria
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PARECER_AUDITORIA | NUMBER | N | Codigo Sequencial do Parecer |
+| 2 | DS_PARECER_AUDITORIA | VARCHAR2 | Y | Descric?o do Parecer da Auditoria |
+| 3 | DS_MENSAGEM_PARECER | VARCHAR2 | Y | sigla da UF |
+
+---
+
+## DBAMV.PATOLOGIA_GES
+> Patologias GES.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PATOLOGIA_GES | NUMBER | N | Código identificador. |
+| 2 | DS_PATOLOGIA_GES | VARCHAR2 | Y | Descrição da patologia. |
+| 3 | CD_GRUPO_PATOLOGIA_GES | NUMBER | Y | Grupo de patologia relacionado. |
+| 4 | CD_ALERTA_PROTOCOLO | NUMBER | Y | Alerta de protocolo relacionado. |
+| 5 | SN_CUBRE_SOSPECHA | VARCHAR2 | Y | Indica se cobre faturamento de suspeita. |
+| 6 | SN_CUBRE_DIAGNOSTICO | VARCHAR2 | Y | Indica se cobre faturamento de diagnostico. |
+| 7 | SN_CUBRE_TRATAMIENTO | VARCHAR2 | Y | Indica se cobre faturamento de tratamento. |
+| 8 | SN_CUBRE_SEGUIMIENTO | VARCHAR2 | Y | Indica se cobre faturamento de acompanhamento. |
+
+---
+
+## DBAMV.PEP_CONFIGURACAO_USUARIO_SETOR
+> Tabela usada para configurac?o de setores que podem ser acessador por determinado usuario.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIGURACAO_USUARIO_SETOR | NUMBER | N | Codigo da configurac?o de setores ? PK |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario para o qual os setores est?o sendo configurados ? FK |
+| 3 | TP_LISTA | VARCHAR2 | Y | Identifica o tipo de lista de setores a qual o Usuario esta relacionado. |
+| 4 | CD_SISTEMA | VARCHAR2 | Y | Identifica a qual sistema a configurac?o esta associada. |
+
+---
+
+## DBAMV.PEP_REGISTRO_LOG
+> Tabela que armazena os registros de log do sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PEP_REGISTRO_LOG | NUMBER | N | Codigo identificador do registro de log |
+| 2 | DH_MARCACAO_TEMPORAL | DATE | N | Instante em que o registro de log foi gerado |
+| 3 | TP_LOG | VARCHAR2 | N | Tipo do registro de log |
+| 4 | TP_SEVERIDADE | VARCHAR2 | N | Severidade da ac?o que gerou o log |
+| 5 | CD_PRESTADOR | NUMBER | Y | Prestador (usuario) que executou a ac?o que gerou o log |
+| 6 | DS_MENSAGEM | VARCHAR2 | N | Mensagem referente ao log gerado |
+| 7 | DS_ATRIBUTO1 | VARCHAR2 | N | Informac?o variavel de acordo com o tipo do log |
+| 8 | DS_ATRIBUTO2 | VARCHAR2 | N | Informac?o variavel de acordo com o tipo do log |
+
+---
+
+## DBAMV.PEP_SETOR_LISTA_PACIENTE
+> Tabela mapeada juntamente com ConfiguracaoUsuarioSetor; identifica a qual ConfiguracaoUsuarioSetor o Setor esta relacionado.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR_LISTA_PACIENTE | NUMBER | N | Codigo da relac?o entre um  Setor e um ConfiguracaoUsuarioSetor ? PK |
+| 2 | CD_SETOR | NUMBER | N | Identifica o Setor ao qual o ConfiguracaoUsuarioSetor esta relacionado ? FK |
+| 3 | CD_CONFIGURACAO_USUARIO_SETOR | NUMBER | N | Identifica a qual configuracaoUsuarioSetor o Setor  esta relacionado ? FK |
+
+---
+
+## DBAMV.PEP_SETOR_ULTIMA_ATUALIZACAO
+> Tabela mapeada juntamente com ConfiguracaoUsuarioSetor; identifica a qual ConfiguracaoUsuarioSetor o Setor esta relacionado.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR_ULTIMA_ATUALIZACAO | NUMBER | N | Codigo da relac?o entre um  Setor e um ConfiguracaoUsuarioSetor ? PK |
+| 2 | CD_SETOR | NUMBER | N | Identifica o Setor ao qual o ConfiguracaoUsuarioSetor esta relacionado ? FK |
+| 3 | CD_CONFIGURACAO_USUARIO_SETOR | NUMBER | N | Identifica a qual configuracaoUsuarioSetor o Setor esta relacionado. ? FK |
+
+---
+
+## DBAMV.PERFIL_AGENDAMENTO
+> Cadastro de Perfis de Agendamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa |
+| 2 | CD_PERFIL_AGENDAMENTO | NUMBER | N | Código do perfil de Agendamento |
+| 3 | DS_PERFIL_AGENDAMENTO | VARCHAR2 | N | Descrição do perfil de Agendamento |
+| 4 | CD_SER_DIS | NUMBER | Y | Código do Serviço Disponível |
+| 5 | CD_TIP_MAR | NUMBER | Y | Código do tipo de marcação |
+| 6 | CD_RECURSO_CENTRAL | NUMBER | Y | Código do recurso central |
+| 7 | CD_CONVENIO | NUMBER | Y | Código do convênio |
+| 8 | CD_PRESTADOR | NUMBER | Y | Código do prestador |
+| 9 | CD_UNIDADE_ATENDIMENTO | NUMBER | Y | Código da unidade de atendimento |
+| 10 | CD_SETOR | NUMBER | Y | Código do setor |
+| 11 | TP_AGENDA | VARCHAR2 | Y | Código do tipo de Agenda: (A)-Ambulatorial / (I)-Imagem / (L)-Laboratorial |
+| 12 | CD_ITEM_AGENDAMENTO | NUMBER | Y | Código do item de agendamento |
+| 13 | TP_PERFIL | VARCHAR2 | Y | Tipo de Perfil. Informa qual o comportamento que será mantido pelo perfil cadastrado. (AN)-Agenda... |
+| 14 | DT_CADASTRO | DATE | N | Data de cadastro do perfil |
+| 15 | SN_ATIVO | VARCHAR2 | N | Inidicador de Registro Ativo: (S) Sim / (N) Não |
+| 16 | SN_CONTROLA_FILA_ESPERA | VARCHAR2 | N | Indica se será habilitado o controle da Fila de Espera por perfil do usuário. |
+| 17 | SN_CADASTRA_FILA_ESPERA | VARCHAR2 | N | Indica se o perfil de usuário será habilitado para cadastrar fila de espera. |
+| 18 | SN_EXCLUI_FILA_ESPERA | VARCHAR2 | N | Indica se o perfil de usuário será habilitado para excluir fila de espera. |
+| 19 | SN_ALTERA_FILA_ESPERA | VARCHAR2 | N | Indica se o perfil de usuário será habilitado para alterar fila de espera. |
+| 20 | SN_UTILIZA_FILA_ESPERA | VARCHAR2 | N | Indica se o perfil de usuário será habilitado para utilizar fila de espera. |
+| 21 | SN_VERIF_DATA_LIBER_AGENDA | VARCHAR2 | N | Indica se o perfil de usuário será habilitado para verificar a data de liberação da agenda para a... |
+
+---
+
+## DBAMV.PERFIL_ALERTA
+> Tabela de configurac?o dos perfis de alerta.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_ALERTA | NUMBER | N | Codigo do perfil de alerta |
+| 2 | PERFIL | VARCHAR2 | N | Descric?o do perfil de alerta. |
+| 3 | DS_TEXTO_SMS | VARCHAR2 | N | Texto padr?o do SMS referente ao perfil de alerta. |
+| 4 | DS_REMETENTE_SMS | VARCHAR2 | N |  |
+| 5 | DS_REMETENTE_EMAIL | VARCHAR2 | N |  |
+| 6 | DS_CABECALHO_EMAIL | VARCHAR2 | Y | Cabecalho padr?o do e-mail referente ao perfil de alerta. |
+| 7 | DS_CORPO_EMAIL | VARCHAR2 | Y | Corpo padr?o do e-mail referente ao perfil de alerta. |
+| 8 | DS_RODAPE_EMAIL | VARCHAR2 | Y | Rodape padr?o do e-mail referente ao perfil de alerta. |
+| 9 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa. |
+| 10 | DS_OBSERVACAO_PERFIL_ALERTA | VARCHAR2 | Y | Observações referentes ao perfil de alerta. |
+
+---
+
+## DBAMV.PERFIL_ALERTA_PACIENTE
+> Tabela de configurac?o dos perfis de alerta por paciente.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_ALERTA | NUMBER | N | Codigo do perfil de alerta |
+| 2 | CD_PACIENTE | NUMBER | N | Codigo do paciente. |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa. |
+
+---
+
+## DBAMV.PERFIL_ALERTA_USUARIO
+> Tabela de associac?o dos perfil / usuario / empresa.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_ALERTA | NUMBER | N | Codigo do perfil de alerta |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario associado ao perfil. |
+| 3 | SN_RECEBE_SMS | VARCHAR2 | N | Indica se o perfil ira disparar avisos em SMS para o usuario |
+| 4 | SN_RECEBE_EMAIL | VARCHAR2 | N | Indica se o perfil ira disparar avisos por e-mail para o usuario |
+| 5 | SN_URGENCIA | VARCHAR2 | N | Indica se o perfil ira disparar avisos para atendimentos de urgencia |
+| 6 | SN_INTERNACAO | VARCHAR2 | N | Indica se o perfil ira disparar avisos para atendimentos de internac?o |
+| 7 | SN_AMBULATORIO | VARCHAR2 | N | Indica se o perfil ira disparar avisos para atendimentos ambulatoriais |
+| 8 | SN_EXTERNO | VARCHAR2 | N | Indica se o perfil ira disparar avisos para atendimentos externo |
+| 9 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa. |
+| 10 | SN_NOTIFICACAO_USUARIO | VARCHAR2 | Y | Indica se o perfil irá disparar notificações para o usuário. |
+| 11 | SN_AGENDAMENTO | VARCHAR2 | Y | Indica se o perfil irá disparar avisos para agendamentos. |
+| 12 | SN_HOMECARE | VARCHAR2 | Y | Indica se o perfil irá disparar avisos para Homecare. |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL
+> Tabela de cadastro dos perfis ambulatoriais
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Codigo sequencial do perfil ambulatorial atribuido automaticamente |
+| 2 | DS_PERFIL_AMBULATORIAL | VARCHAR2 | N | Descric?o do perfil ambulatorial |
+| 3 | TP_CONVENIO | VARCHAR2 | Y | Tipo do convenio, n?o obrigatorio |
+| 4 | CD_CONVENIO | NUMBER | Y | Codigo do convenio, n?o obrigatorio |
+| 5 | CD_SETOR | NUMBER | Y | Codigo do setor, n?o obrigatorio |
+| 6 | CD_ESPECIALIDADE | NUMBER | Y | Codigo da especialidade, n?o obrigatorio |
+| 7 | CD_PRESTADOR | NUMBER | Y | Codigo do prestador, n?o obrigatorio e serve para criar um perfil exclusivo |
+| 8 | SN_ATIVO | VARCHAR2 | N | Codigo do prestador, n?o obrigatorio e serve para criar um perfil exclusivo |
+| 9 | TP_SEXO | VARCHAR2 | Y | SEXO PARA O PERFIL |
+| 10 | VL_IDADE_MAX | NUMBER | Y | IDADE MAXIMA PARA PERFIL |
+| 11 | VL_IDADE_MIN | NUMBER | Y | IDADE MINIMA PARA PERFIL |
+| 12 | CD_TIP_PRESTA | NUMBER | Y | Tipo de prestador que ser?! filtrado para obter o perfil |
+| 13 | CD_SISTEMA | VARCHAR2 | Y | Sistema que sera filtrado para obter o perfil |
+| 14 | TP_ATENDIMENTO | VARCHAR2 | Y | Tipo de Atendimento que sera filtrado para obter o perfil |
+| 15 | TP_GRUPO_SETOR | VARCHAR2 | Y | INDICA O TIPO DE ATENDIMENTO |
+| 16 | TP_PERFIL | VARCHAR2 | Y | Armazena o tipo do perfil (SIS Sistema, PES Pessoal) |
+| 17 | TP_PORTA_ENTRADA | VARCHAR2 | N | Indica a partir de onde o usuário está acessando o prontuário: LISTA_PACIENTES = Clicou em um ate... |
+| 18 | TP_ALTA | VARCHAR2 | Y | Indica para quais atendimentos o perfil serve: ALTA= Para atendimentos com alta m??dica ou hospit... |
+| 19 | TP_OPCAO_ACESSO | VARCHAR2 | N | Indica para qual local do sistema o usu?!rio deve ser direcionado ao utilizar este perfil: OBSERV... |
+| 20 | CD_ESPECIALIDADE_MEDICA | NUMBER | Y | Especialidade principal do prestador logado. |
+| 21 | CD_MULTI_EMPRESA | NUMBER | Y | Codigo da Empresa que sera filtrada para obter o perfil |
+| 22 | TP_ACESSO | VARCHAR2 | Y |  |
+| 23 | SN_PERFIL_SEM_ATENDIMENTO | VARCHAR2 | N | Coluna que define se o perfil deverá ser usado para pacientes sem atendimento criado |
+| 24 | CD_SERVICO | NUMBER | Y | Código do serviço |
+| 25 | CD_ORI_ATE | NUMBER | Y | Origem do atendimento |
+| 26 | SN_ONCOLOGICO | VARCHAR2 | N | Informa se poderá alterar paciente para oncológico |
+| 27 | SN_PERFIL_HABILITA_ASSISTENTE | VARCHAR2 | N | Habilita transcrição baseado no perfil ambulatorial selecionado |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_CONVENIO
+> Filtros Avançados do Perfil por Convênio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_CONVENIO | NUMBER | N | Código do convênio |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_EMPRESA
+> Filtros Avançados do Perfil por Empresa
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Códido da Empresa |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_ESPECIALID
+> Filtros Avançados do Perfil por Especialidade
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_ESPECIALID | NUMBER | N | Códido do Tipo de Especialidade |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_ESP_MEDICA
+> Filtros Avançados do Perfil por Especialidade Médica
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_ESPECIALID | NUMBER | N | Códido do Tipo de Especialidade Médica |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_ORI_ATE
+> Tabela para armazenar origens de atendimentos vinculadas ao Perfil do Usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Chave relacional tabela Perfil ambulatorial |
+| 2 | CD_ORI_ATE | NUMBER | N | Chave relacional tabela origem atendimento |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_PRESTADOR
+> Filtros Avançados do Perfil por Prestador
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_PRESTADOR | NUMBER | N | Códido do Prestador |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_SEGMENTO
+> Tabela de perfil Ambulatorial do Segmento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL_SEGMENT | NUMBER | N | Codigo sequencial do perfil ambulatorial do segmento atribuido automaticamente |
+| 2 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Codigo do perfil ambulatorial |
+| 3 | CD_SEGMENTO | NUMBER | N | Codigo do segmento |
+| 4 | NR_ORDEM_SEGMENTO | NUMBER | N | Numero de ordem do segmento |
+| 5 | TP_EXIGE_ATENDIMENTO | VARCHAR2 | Y | A = Atendimento, exige codigo do atendimento, T = Triagem, exige pelo menos o codigo da triagem e... |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_SERVICO
+> Tabela para armazenar os serviços vinculados ao perfil do usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Chave relacional tabela Perfil ambulatorial |
+| 2 | CD_SERVICO | NUMBER | N | Chave relacional tabela Servico |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_SETOR
+> Filtros Avançados do Perfil por Setor
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_SETOR | NUMBER | N | Códido do Setor |
+
+---
+
+## DBAMV.PERFIL_AMBULATORIAL_TIP_PREST
+> Filtros Avançados do Perfil por Tipo de Prestador
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_AMBULATORIAL | NUMBER | N | Código do Perfil |
+| 2 | CD_TIP_PRESTA | NUMBER | N | Códido do Tipo de Prestador |
+
+---
+
+## DBAMV.PERFIL_CONTROLADORIA
+> Tabela de perfis da controladoria com permissões de acesso
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL_CONTROLADORIA | NUMBER | N | SEQUENCIA DO REGISTRO |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y | CODIGO DA MULTI EMPRESA |
+| 3 | DS_PERFIL | VARCHAR2 | Y | DESCRICAO DO PERFIL |
+| 4 | DT_ATIVACAO | DATE | Y | DATA DE ATIVACAO |
+| 5 | SN_SITUACAO | VARCHAR2 | Y | SITUACAO DO CADASTRO |
+| 6 | SN_MLOTE_VER_TELA | VARCHAR2 | Y | PERMITE VISLIZAR A TELA LOTE CONTABIL |
+| 7 | SN_MLOTE_ABRIR_FECHAR | VARCHAR2 | Y | PERMITE ABRIR / FECHAR LOTE CONTABIL |
+| 8 | SN_MLOTE_CRIAR_LOTE | VARCHAR2 | Y | PERMITE CRIAR LOTE MANUAL |
+| 9 | SN_MLOTE_EXCLUIR_LOTE | VARCHAR2 | Y | PERMITE EXCLUIR LOTE MANUAL |
+| 10 | SN_MLOTE_ALTERAR_DATA | VARCHAR2 | Y | PERMITE ALTERAR DATA DO LOTE CONTABIL |
+| 11 | SN_LCTOC_LANCA_CONTAB | VARCHAR2 | Y | PERMITE FAZER LANCAMENTO CONTABIL |
+| 12 | SN_LCTOC_LANCA_SETOR | VARCHAR2 | Y | PERMITE FAZER LANCAMENTO SETOR |
+| 13 | SN_LCTOC_ABRIR_FECHAR | VARCHAR2 | Y | PERMITE ABRIR / FECHAR LOTE CONTABIL |
+| 14 | SN_LCTOC_ALTERACOES | VARCHAR2 | Y | PERMITE REALIZAR ALTERACOES |
+
+---
+
+## DBAMV.PERFIL_USUARIO_AUDITOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 3 | CD_CONVENIO | NUMBER | N |  |
+| 4 | SN_AUDITOR_HOSPITAL | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.PERMISSAO_CONV_PLA_CMC
+> Tabela com configuração de permissão de carteiras retornadas pela elegibilidade.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERMISSAO_CONV_PLA_CMC | NUMBER | N | Código da configuração permissão de carteiras retornadas pela elegibilidade. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa associada a configuração |
+| 3 | CD_CONVENIO | NUMBER | N | Código do convênio associado a configuração |
+| 4 | CD_CON_PLA | NUMBER | N | Código do plano associado a configuração |
+| 5 | CD_DIGITO_INI | VARCHAR2 | Y | Código do dígito inicial da carteira com permissão de atendimento. |
+| 6 | SN_CARGA_FAMILIAR | VARCHAR2 | N | Cargo familiar |
+
+---
+
+## DBAMV.PERMISSAO_USUARIO_EMPRESAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | USERNAME | VARCHAR2 | N |  |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBAMV.PRIORID_AVISO_CIRURGIA
+> Tabela de log de desativa??o da regula??o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRIORID_AVISO_CIRURGIA | NUMBER | N | C?digo de registro do log de desativa??o da regula??o |
+| 2 | CD_AVISO_CIRURGIA | NUMBER | N | Usu?rio que realizou a desativa??o |
+| 3 | CD_PRIORID_PACIENTE | NUMBER | N | Data da desativa??o da regula??o |
+
+---
+
+## DBAMV.PRODUCAO_AIH_CABECALHO
+> Tabela de LOG de acompanhamento da última carga SIGTAP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRODUCAO | NUMBER | N | Código de controle da Produção. |
+| 2 | CD_FATURA | NUMBER | N | Código da fatura da Produção. |
+| 3 | DH_GERACAO | DATE | N | Data e hora de geração da Produção. |
+| 4 | TP_GERACAO | VARCHAR2 | N | Tipo de geração P-Prévia G-Geração de produção. |
+| 5 | DS_REMESSAS | VARCHAR2 | Y | Remessas contidas na Produção. |
+| 6 | DS_STATUS | VARCHAR2 | Y | Descrição da situação atual da produção. |
+| 7 | DS_PARAMETROS | VARCHAR2 | Y | Descrição dos parâmetros da chamada da rotina. |
+| 8 | NR_REGISTROS | NUMBER | Y | Quantidade de registros que fazem parte da Produção. |
+| 9 | DH_EXPORTACAO | DATE | Y | Data que a imagem da Produção foi exportada. |
+| 10 | CD_MULTI_EMPRESA | NUMBER | Y | cd_multi_empresa da produção bpa entrega. |
+
+---
+
+## DBAMV.PRODUCAO_BPA_ENTREGA
+> Tabela de LOG de acompanhamento da ultima carga SIGTAP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRODUCAO | NUMBER | N | Codigo de controle da Produc?o. |
+| 2 | CD_FAT_SIA | NUMBER | N | Codigo da fatura da Produc?o. |
+| 3 | DT_GERACAO | DATE | N | Data de gerac?o da Produc?o. |
+| 4 | DS_IMAGEM | VARCHAR2 | Y | Descric?o informada pelo usuario pra identificar a imagem. |
+| 5 | NR_CNES | NUMBER | Y | CNES da empresa exportada na Produc?o. |
+| 6 | NR_REGISTROS | NUMBER | Y | Quantidade de registros que fazem parte da Produc?o. |
+| 7 | NM_EMPRESA | VARCHAR2 | Y | Nome da empresa exportada na Produc?o. |
+| 8 | TP_ENTREGA | VARCHAR2 | Y | Tipo de entrega:(E)Empresa ou (U)UPS. |
+| 9 | ID_IMAGEM | VARCHAR2 | Y | Query usada pra gerar a imagem da Produc?o. |
+| 10 | DT_EXPORTACAO | DATE | Y | Data que a imagem da Produc?o foi exportada. |
+| 11 | CD_MULTI_EMPRESA | NUMBER | Y | cd_multi_empresa da produção bpa entrega. |
+
+---
+
+## DBAMV.RELATORIO_PERSONALIZADO_USU
+> Tabela que relaciona usuario a relatorio personalizado
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_RELATORIO_PERSONALIZADO | NUMBER | N | Codigo do relatorio que o usuario tera permiss?o de acesso |
+| 2 | CD_USUARIO_PERMISSAO | VARCHAR2 | N | Usuario que tera permiss?o de gerar o relatorio |
+| 3 | CD_USUARIO_CADASTRO | VARCHAR2 | N | Usuario logado no momento do cadastro |
+| 4 | DH_CADASTRO | DATE | N | Data/hora do cadastro |
+| 5 | CD_USUARIO_ULTIMA_ALTERACAO | VARCHAR2 | Y | Usuario logado no momento da ultima alterac?o |
+| 6 | DH_ULTIMA_ALTERACAO | DATE | Y | Data/hora da ultima alterac?o |
+
+---
+
+## DBAMV.ROTINAS_RASTRO
+> Rotinas cadastradas com o Log de Rastreabilidade
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ROTINA | VARCHAR2 | N | Codigo da Rotina que devera ser rastreada. |
+| 2 | DS_LOCAL | VARCHAR2 | Y | Local onde foi inserido o log da rastreabilidade. |
+| 3 | QT_DIAS_LIMPO | NUMBER | Y | Quantidade de dias que a rotina permanece com os logs para consulta. |
+| 4 | SN_ATIVO | VARCHAR2 | Y | Indica se a rotina esta ativa ou n?o para gerar log de rastreabilidade. |
+
+---
+
+## DBAMV.SEQUENCIA_CONTAGEM
+> Armazena a sequencia atual da contagem, para evitar duplicac?o de valores quando houver mais de um usuario executando a mesma contagem.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTAGEM | NUMBER | N | Codigo da Contagem. |
+| 2 | NR_SEQUENCIA | NUMBER | N | Valor atual da sequencia para a contagem. |
+
+---
+
+## DBAMV.SERVICIO
+> Catálogo para a norma 24
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SERVICIO | NUMBER | N | Chave primária da tabela |
+| 2 | DS_SERVICIO | VARCHAR2 | N | Descrição do atributo da tabela |
+
+---
+
+## DBAMV.TERMINOLOGIA_CLINICA
+> Tabela de cadastro de terminologias clínicas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TERMINOLOGIA_CLINICA | NUMBER | N | Código sequencial da terminologia clínica |
+| 2 | DS_TERMINOLOGIA | VARCHAR2 | N | Descrição da terminologia |
+| 3 | DS_VERSAO | VARCHAR2 | N | Versão da Terminologia |
+| 4 | DS_IDIOMA | VARCHAR2 | N | Idioma da Terminologia |
+| 5 | SN_ATIVO | VARCHAR2 | N | Indica se a Terminologia está ativa |
+
+---
+
+## DBAMV.TEXTO_PADRAO_EDITOR_USUARIO
+> Tabela que faz a ligac?o do textos padr?es com os usuarios
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TEXTO_PADRAO_EDITOR_USUARIO | NUMBER | N | codigo do identificado da tabela |
+| 2 | CD_TEXTO_PADRAO_EDITOR | NUMBER | N | codigo do texto padrao |
+| 3 | CD_USUARIO | VARCHAR2 | N | Usuario |
+
+---
+
+## DBAMV.USUARIOS_AUTORIZADORES
+> Tabela de usuarios autorizadores
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario cadastrado no SGU. |
+| 2 | NR_NIVEL_AUTORIZACAO_LOT_REM | VARCHAR2 | N | Nivel de Autorizac?o para Lote de Remessa. |
+| 3 | SN_ATIVO | VARCHAR2 | N | Indica se o usuario autorizador esta ativo (S) ou inativo (N). |
+| 4 | NR_NIVEL_AUTORIZACAO | VARCHAR2 | N | Nivel de autorizac?o. |
+| 5 | SN_OPERACAO | VARCHAR2 | N | Realiza Controle de Usuarios e Operac?es |
+| 6 | NR_NIVEL_AUTORIZ_LOTE_COBRANCA | NUMBER | Y | Indica o nivel de autorizac?o do usuario para lotes de cobranca ou emiss?o de boletos |
+
+---
+
+## DBAMV.USUARIOS_AUTORIZADORES_SOL_CPR
+> Tabela que armazena os usuarios autorizadores de Solicitac?o de Compras
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USU | VARCHAR2 | N | Codigo de usuario autorizador |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa a qual pertence o usuario autorizador cadastrado |
+| 3 | VL_AUTZD_AUTOMATICA | NUMBER | N | Valor limite para aprovac?o automatica |
+| 4 | VL_LIM_AUTZD | NUMBER | N | Valor limite para privilegio de autorizac?o |
+| 5 | SN_USU_SUPERIOR | VARCHAR2 | N | Responsable por aprovac?es superiores ao valor limite |
+| 6 | CD_NIVEL_AUTORIZADOR | NUMBER | N | Nivel hierarquico para aprovar Solicitac?es de Compra |
+
+---
+
+## DBAMV.USUARIOS_ESPECIE
+> Autorizac?o de usuarios por especie de produto.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIOS_ESPECIE | NUMBER | N | Codigo da autorizac?o de usuario por especie. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario autorizado. |
+| 3 | CD_ESPECIE | NUMBER | N | Codigo da especie autorizada para o usuario. |
+| 4 | CD_CLASSE | NUMBER | Y | Codigo da classe da especie autorizada para o usuario. |
+| 5 | CD_SUB_CLA | NUMBER | Y | Codigo da Sub-classe da classe da especie autorizada para o usuario. |
+| 6 | CD_PRODUTO | NUMBER | Y | Código do Produto |
+
+---
+
+## DBAMV.USUARIOS_FFCV
+> Tabela para configurações de Usuários para o Faturamento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuário. |
+| 2 | SN_ALTERA_DADOS_NOTA_CONTA | VARCHAR2 | Y | Sinaliza se o usuário do sistema terá permissão de alterar os dados de OPME nas contas ou de some... |
+| 3 | SN_MARCA_ITGUIA_FATURA_DIRETO | VARCHAR2 | N | Define se o usuário tem permissão para marcar procedimentos na guia como Fatura Direto. |
+| 4 | SN_APLICA_TAXA_MANUSEIO_OPME | VARCHAR2 | N | Define se o usuário tem permissão para aplicar as taxas de manuseio de opme nas telas de guia. |
+| 5 | SN_INF_FORN_FORA_DE_PROJETO | VARCHAR2 | Y | Indica se o usuário tem permissão de informar um fornecedor fora de Projeto no Agendamento Cirúrg... |
+| 6 | SN_AUT_EXCEDER_LIMITE_OPME | VARCHAR2 | Y | Indica se o usuário tem permissão para autorizar exceder Limite de OPME para os Pacotes do Aviso. |
+| 7 | SN_ALTERA_FLUXO_OPME | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USUARIOS_MUNICIPIO
+> Tabela de Usuario por Municipio.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MUNICIPIO | NUMBER | N | Codigo sequencial do Usuario por Municipio. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario. |
+| 3 | CD_MUNICIPIO | NUMBER | N | Codigo do Municipio. |
+| 4 | SN_ATIVO | VARCHAR2 | N | Status registro. |
+| 5 | DT_CADASTRO | DATE | N | Data do cadastro do Registro. |
+| 6 | HR_CADASTRO | DATE | N | Hora do cadastro do Registro. |
+
+---
+
+## DBAMV.USUARIOS_OFICINA_FUNCAO
+> Autorizac?o de usuarios por oficina de acordo com a func?o.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario autorizado. |
+| 2 | CD_OFICINA | NUMBER | N | Codigo da oficina autorizada para o usuario. |
+| 3 | TP_FUNCAO | VARCHAR2 | N | Tipo da func?o que o usuario pode executar.SS - Solicitac?o de Servico. AS - Atender Solicitac?o.... |
+
+---
+
+## DBAMV.USUARIOS_PORTADORES
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PORTADOR | NUMBER | N | Codigo do portador |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario relacionado ao portador |
+| 3 | DT_INICIO_VIGENCIA | DATE | Y |  |
+| 4 | DT_FIM_VIGENCIA | DATE | Y |  |
+
+---
+
+## DBAMV.USUARIOS_REPMED
+> Cadastro de regras do repasse de produtividade
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | código do usuario repmed |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | codigo da multi empresa |
+| 3 | CPF | VARCHAR2 | N | cpf do usuario repmed |
+| 4 | DS_CODIGO_CONSELHO | VARCHAR2 | Y | codigo do conselho CRM |
+| 5 | TP_PERFIL | VARCHAR2 | Y | tipo do perfil MEDICO/CHEFE |
+| 6 | CD_PRESTADOR | NUMBER | Y | codigo do prestador MV |
+| 7 | DT_VIGENCIA_INI | DATE | Y | Data inicial da vigencia |
+| 8 | DT_VIGENCIA_FIM | DATE | Y | Data final da vigencia |
+
+---
+
+## DBAMV.USUARIOS_SET_EXA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SET_EXA | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIOS_UNIDADE_ANALITICA
+> Tabela de Configurac?o de Usuarios X Unidades Analiticas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNIDADE_ANALITICA | NUMBER | N | Codigo da Unidade Analitica a qual esta vinculado o Usuario |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario vinculado a Unidade Analitica |
+
+---
+
+## DBAMV.USUARIOS_UNIDADE_REGIONAL
+> Tabela de Configurac?o de Usuarios X Unidades Regionais
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNIDADE_REGIONAL | VARCHAR2 | N | Codigo da Unidade Regional a qual esta vinculado o Usuario |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario vinculado a Unidade Regional |
+
+---
+
+## DBAMV.USUARIO_AGENDA_CENTRAL
+> Tabela que relaciona usuarios para configurac?o de permiss?es no Sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario para associac?o as permiss?es |
+| 2 | TP_OPERACAO | VARCHAR2 | N | Tipo de Operac?o que sera verificada pela Lista de usuarios |
+
+---
+
+## DBAMV.USUARIO_ANEXO_GUIA
+> PERMISSÃO DE EXCLUSÃO PARA ANEXO DE GUIA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | USUARIO |
+| 2 | SN_EXCLUI_ANEXO | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR ANEXO DE GUIA |
+
+---
+
+## DBAMV.USUARIO_ASSINATURA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | ASSINATURA | LONG RAW | N |  |
+
+---
+
+## DBAMV.USUARIO_AUTORIZACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | SN_AGENDA_TELEFONE | VARCHAR2 | N |  |
+| 3 | SN_ATENDE | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_CAD_SAME
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAD_SAME | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_CAIXA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CAIXA | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 4 | DT_ATIVACAO | DATE | N |  |
+| 5 | DT_DESATIVACAO | DATE | Y |  |
+
+---
+
+## DBAMV.USUARIO_CANCELA_NOTA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_FORMULARIO_NF | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_COLUNA_CAD_PACIENTE
+> Campos do cadastro de pacientes associados a usuarios com permiss?o de alterac?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_COLUNA_CAD_PACIENTE | VARCHAR2 | N | Nome da coluna da tabela DBAMV.PACIENTE a qual o usuario/sistema esta relacionado |
+| 2 | CD_SISTEMA | VARCHAR2 | N | Codigo do sistema |
+| 3 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 4 | SN_VISIVEL_PEP | VARCHAR2 | N | Campo utilizado pelo PEP para mascarar os dados do paciente |
+
+---
+
+## DBAMV.USUARIO_CONFIGURACAO_LICITACAO
+> Configurac?o do Usuario de Licitac?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N | Codigo do Setor |
+| 2 | NM_USUARIO | VARCHAR2 | N | Nome do Usuario |
+| 3 | SN_ATIVO | VARCHAR2 | N | Ativo? Sim ou N?o |
+| 4 | SN_UTILIZA_LEITOR | VARCHAR2 | N | Utiliza Leitor? Sim ou N?o |
+| 5 | SN_MASTER | VARCHAR2 | N | Master? Sim ou N?o |
+| 6 | SN_CONSULTA_CONTRATO | VARCHAR2 | N | Consulta Contrato? Sim ou N?o |
+| 7 | CD_SETOR_ALOCADO | NUMBER | Y | Codigo do Setor Alocado |
+| 8 | SN_IMPORTA_SIAFI | VARCHAR2 | N | Importa Siafi? Sim ou N?o |
+| 9 | NR_CPF_SIAFI | VARCHAR2 | Y | Numero do CPF do Siafi |
+| 10 | SN_CONVERTE_ADESAO | VARCHAR2 | N | Converte Ades?o? Sim ou N?o |
+| 11 | SN_LANCA_PEDIDO | VARCHAR2 | N | Lanca Pedido? Sim ou N?o |
+| 12 | SN_ENVIA_EMAIL_SICAF | VARCHAR2 | N | Envia E-mail Sicaf? Sim ou N?o |
+| 13 | SN_REABRE_PEDIDO | VARCHAR2 | N | Reabre Pedido? Sim ou N?o |
+| 14 | SN_PARECER_TECNICO | VARCHAR2 | N | Parecer Tecnico? Sim ou N?o |
+
+---
+
+## DBAMV.USUARIO_CONFIGURACAO_PECAS
+> Configura??es do Usu?rio para Pe?as Or?ament?rias
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_CONFIGURACAO_PECAS | NUMBER | N | C?digo da configura??o |
+| 2 | CD_USUARIO | VARCHAR2 | Y | C?digo do usu?rio do or?amento |
+| 3 | CD_GRUPO_USUARIO_ORCAMENTO | NUMBER | Y | Grupo do usu?rio do or?amento |
+| 4 | CD_SETOR | NUMBER | N | C?digo do setor |
+| 5 | CD_PECA_ORCAMENTARIA | NUMBER | N | C?digo da Pe?a Or?ament?ria |
+| 6 | CD_USUARIO_CONFIG_PEC_ORI | NUMBER | Y | C?digo da configura??o origem |
+| 7 | CD_USUARIO_ORCAMENTO | NUMBER | N |  |
+
+---
+
+## DBAMV.USUARIO_CONTROLADORIA
+> Tabela de usuarios da controladoria com permissões de acesso.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_CONTROLADORIA | NUMBER | N | SEQUENCIA DO REGISTRO |
+| 2 | CD_USUARIO | VARCHAR2 | Y | CODIGO DO USUARIO |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y | CODIGO DA MULTI EMPRESA |
+| 4 | SN_MLOTE_VER_TELA | VARCHAR2 | Y | PERMITE VISLIZAR A TELA LOTE CONTABIL |
+| 5 | SN_MLOTE_ABRIR_FECHAR | VARCHAR2 | Y | PERMITE ABRIR / FECHAR LOTE CONTABIL |
+| 6 | SN_MLOTE_CRIAR_LOTE | VARCHAR2 | Y | PERMITE CRIAR LOTE MANUAL |
+| 7 | SN_MLOTE_EXCLUIR_LOTE | VARCHAR2 | Y | PERMITE EXCLUIR LOTE MANUAL |
+| 8 | SN_MLOTE_ALTERAR_DATA | VARCHAR2 | Y | PERMITE ALTERAR DATA DO LOTE CONTABIL |
+| 9 | SN_LCTOC_LANCA_CONTAB | VARCHAR2 | Y | PERMITE FAZER LANCAMENTO CONTABIL |
+| 10 | SN_LCTOC_LANCA_SETOR | VARCHAR2 | Y | PERMITE FAZER LANCAMENTO SETOR |
+| 11 | SN_LCTOC_ABRIR_FECHAR | VARCHAR2 | Y | PERMITE ABRIR / FECHAR LOTE CONTABIL |
+| 12 | SN_LCTOC_ALTERACOES | VARCHAR2 | Y | PERMITE REALIZAR ALTERACOES |
+
+---
+
+## DBAMV.USUARIO_CONVENIO
+> Cadastro de Usuario para o Convenio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONVENIO | NUMBER | N | Codigo do Convenio |
+| 2 | DS_USUARIO | VARCHAR2 | N | Descric?o do Usuario |
+| 3 | DS_SENHA | VARCHAR2 | N | Descric?o da Senha |
+
+---
+
+## DBAMV.USUARIO_ENCERRAMENTO
+> Tabela dos usuarios responsaveis por encerramento de chamados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N | Codigo multi-empresa |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario responsavel por encerramento de chamados |
+
+---
+
+## DBAMV.USUARIO_EXCLUI_CNL_FFCV
+> Usuarios com permiss?o de excluir Consumo N?o Lancado. Caso nenhum seja informado, todos tem permiss?o.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Usuario com permiss?o para excluir Consumo N?o Lancado nas contas. |
+| 2 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario. |
+
+---
+
+## DBAMV.USUARIO_FECH_CONT_LOG
+> Tabela para gracao de log de alteracao da tabela USU_MES_ANO_FECH_CONT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_FECH_CONT_LOG | NUMBER | N | Código do log |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 3 | CD_USUARIO | VARCHAR2 | N | Usuário de sistema que realizou a ação |
+| 4 | DH_ACAO | DATE | N | Data de quando ocorreu a ação |
+| 5 | TP_ACAO | VARCHAR2 | N | Tipo de acao Insert, Update, Delete |
+| 6 | DS_ALTERACAO | VARCHAR2 | N | Descrição da Alteração |
+
+---
+
+## DBAMV.USUARIO_FORNECEDOR
+> Tabela de relac?o do usuario com o fornecedor para ter acesso ao sistema de Compras WEB.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Identifica o cod. do usuario que sera relaciondo com o fornecedor. |
+| 2 | CD_FORNECEDOR | NUMBER | N | Identifica o cod. do fornecedor que sera relaciondo com o usuario. |
+
+---
+
+## DBAMV.USUARIO_GUIA
+> PERMISSÃO DE USUARIO MANUTENÇÃO DE GUIAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | USUARIO |
+| 2 | SN_EXCLUI_I | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE INTERNAÇÃO |
+| 3 | SN_EXCLUI_C | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE CONSULTA |
+| 4 | SN_EXCLUI_R | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE PRORROGAÇÃO |
+| 5 | SN_EXCLUI_P | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE PROCEDIMENTO |
+| 6 | SN_EXCLUI_O | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE OPME |
+| 7 | SN_EXCLUI_Q | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE QUIMIOTERAPIA |
+| 8 | SN_EXCLUI_D | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE RADIOTERAPIA |
+| 9 | SN_EXCLUI_S | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE SADT |
+| 10 | SN_EXCLUI_M | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE MEDICAMENTOS |
+| 11 | SN_EXCLUI_T | VARCHAR2 | N | S-SIM e N-NÃO EXCLUIR GUIA DE MATERIAIS |
+
+---
+
+## DBAMV.USUARIO_MODELO_EMPRESA
+> Armazena permissão de usuário por módulo
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MODELO | VARCHAR2 | N | Código do usuário |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa |
+
+---
+
+## DBAMV.USUARIO_MODELO_MODELOS
+> Armazena permissão de usuário por módulo
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MODELO | VARCHAR2 | N | Código do usuário |
+| 2 | CD_MODELO_CONTABIL | VARCHAR2 | N | Código do modelo contabil |
+| 3 | SN_EDICAO | VARCHAR2 | N | Pode editar |
+| 4 | SN_EXECUCAO | VARCHAR2 | N | Pode executar |
+
+---
+
+## DBAMV.USUARIO_MODIFICA_OS
+> Cadastro de usuarios que podem modificar OS.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario logado. |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa logada. |
+| 3 | SN_MODIFICA_CABECALHO | VARCHAR2 | N | Indica se pode modificar o cabecalho da OS concluida. |
+| 4 | SN_MODIFICA_DETALHE | VARCHAR2 | N | Indica se pode modificar os detalhes da OS concluida. |
+| 5 | SN_REABRE_OS | VARCHAR2 | N | Indica se pode reabrir a OS concluida (ou n?o atendida). |
+| 6 | SN_EXCLUI_OS | VARCHAR2 | N | Indica se pode excluir a OS aberta (n?o concluida). |
+
+---
+
+## DBAMV.USUARIO_MOV_CME_SETOR
+> [MGCE] Tabela de configuração de acesso de usuários por setor e movimentação de esterilização.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuário |
+| 2 | CD_SETOR | NUMBER | N | Código do setor ao qual o usuário terá acesso |
+| 3 | SN_EXPURGO | VARCHAR2 | N | Identifica se o usuário terá acesso à movimentação da fase de expurgo |
+| 4 | SN_LAVAGEM | VARCHAR2 | N | Identifica se o usuário terá acesso à movimentação da fase de lavagem |
+| 5 | SN_DESINFECCAO | VARCHAR2 | N | Identifica se o usuário terá acesso à movimentação da fase de desinfecção |
+| 6 | SN_PREPARO | VARCHAR2 | N | Identifica se o usuário terá acesso à movimentação da fase de preparo |
+| 7 | SN_ESTERILIZACAO | VARCHAR2 | N | Identifica se o usuário terá acesso à movimentação da fase de esterilização |
+
+---
+
+## DBAMV.USUARIO_MULTI_EMPRESA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_MULTI_EMPRESA_ESTOQUE
+> Tabela associativa entre as tabelas DBASGU.USUARIOS com DBAMV.MULTI_EMPRESAS e DBAMV.ESTOQUE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MULTI_EMPRE_ESTOQ | NUMBER | N | Chave identificadora da tabela |
+| 2 | CD_MULTI_EMPRESA | NUMBER | Y | Campo identificador da empresa |
+| 3 | CD_ESTOQUE | NUMBER | Y | Campo identificador do estoque |
+| 4 | CD_USUARIO | VARCHAR2 | N | Campo identificador do usuario |
+
+---
+
+## DBAMV.USUARIO_MULTI_EMPRESA_RH_15
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_MULTI_EMPRESA_RH_16
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USUARIO_MULTI_EMPRESA_RH_9
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USUARIO_OFICINA
+> Tabela re relacionamento Usuario - Oficina.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario logado. |
+| 2 | CD_OFICINA | NUMBER | N | Codigo da Oficina. |
+| 3 | SN_ATIVO | VARCHAR2 | N | Indica se o item esta ativo. |
+
+---
+
+## DBAMV.USUARIO_ORCAMENTO
+> Tabela responsavel pela selec?o dos usuarios do orcamento e suas configuracoes gerais
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario do orcamento |
+| 2 | CD_GRUPO_USUARIO_ORCAMENTO | NUMBER | N | Codigo do grupo de usuarios do orcamento |
+| 3 | SN_AMBIENTE_OPERACIONAL | VARCHAR2 | N | Utiliza o Ambiente Operacional |
+| 4 | SN_AMBIENTE_GERENCIAL | VARCHAR2 | N | Utiliza o Ambiente Gerencial |
+| 5 | TP_AMBIENTE_DEFAULT | VARCHAR2 | N | Tipo de Ambiente Default |
+| 6 | TP_IDIOMA_DEFAULT | VARCHAR2 | N | Tipo de Idioma Default |
+| 7 | CD_ORCAMENTO_DEFAULT | NUMBER | Y | C??digo do Or??amento Default |
+| 8 | CD_PLANO_DEFAULT | NUMBER | Y | C??digo do Plano Or??ament?!rio Default |
+| 9 | CD_SETOR_DEFAULT | NUMBER | Y | C??digo do Setor Default |
+| 10 | TP_ANALISE_ORCAMENTARIA | VARCHAR2 | N |  |
+| 11 | CD_USUARIO_ORCAMENTO | NUMBER | N |  |
+| 12 | SN_HISTORICO | VARCHAR2 | Y | Informar se o registro do usuário é mantido apenas como um log de registro de histórico |
+
+---
+
+## DBAMV.USUARIO_ORCAMENTO_MENSAGEM
+> Tabela responsavel por manter as mensagens resgistradas pelos usuarios e suas pastas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_ORCAMENTO_MENSAGEM | NUMBER | N | Codigo da mensagem do usuario do orcamento |
+| 2 | CD_USUARIO_ORCAMENTO | VARCHAR2 | N | Codigo do usuario do orcamento |
+| 3 | CD_MENSAGEM_ORCAMENTO | NUMBER | N | Codigo da mensagem registrada |
+| 4 | TP_PASTA | VARCHAR2 | N | Tipo de Pasta (Entrada, Enviadas, Excluidas e Rascunho) |
+| 5 | SN_LIDA | VARCHAR2 | N | Mensagem Lida |
+| 6 | CD_PROCESSO_ORCAMENTARIO | NUMBER | Y | Codigo do Processo Orcamentario |
+| 7 | CD_ORIGEM | NUMBER | Y | Codigo Origem do Processo Orcamentario |
+| 8 | SN_EXECUTAR | VARCHAR2 | N | Mensagem Executar |
+| 9 | DH_LEITURA | DATE | Y | Data/Hora de leitura da mensagem |
+
+---
+
+## DBAMV.USUARIO_PERFIL_AGENDAMENTO
+> Cadastro de Usuário / Perfis de Agendamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa |
+| 2 | CD_PERFIL_AGENDAMENTO | NUMBER | N | Código do perfil de Agendamento |
+| 3 | CD_USUARIO | VARCHAR2 | N | Código do usuário |
+
+---
+
+## DBAMV.USUARIO_PERFIL_CONTROLADORIA
+> Tabela de usuarios ligados perfis da controladoria com permissões de acesso.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USU_PERFIL_CONTROLADORIA | NUMBER | N | CODIGO DO PERFIL |
+| 2 | CD_PERFIL_CONTROLADORIA | NUMBER | Y | SEQUENCIA DO REGISTRO |
+| 3 | CD_USUARIO | VARCHAR2 | Y | CODIGO DO USUARIO |
+
+---
+
+## DBAMV.USUARIO_PERMITIDO_AGEND
+> Tabela que guarda os usuários com permissão de agendamento dentro do horário mínimo definido para agendamento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuário com permissão para agendar |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa a qual o usuário pertence. |
+
+---
+
+## DBAMV.USUARIO_PERMITIDO_PRODUTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USU_PERM_PROD | NUMBER | N | Código sequencial para configuração de permissão de usuários. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário liberado para visualizar os produtos para o período configurado |
+| 3 | NM_USUARIO | VARCHAR2 | N | Guarda o nome do usuário. |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa a qual pertence as configuraçoes |
+
+---
+
+## DBAMV.USUARIO_PERM_PROCED
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_GRU_PRO | NUMBER | N |  |
+| 3 | CD_PRO_FAT | VARCHAR2 | Y |  |
+| 4 | SN_PROIBE_EXCLUSAO | VARCHAR2 | N |  |
+| 5 | SN_PROIBE_ALTERACAO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_PRE_ORCAMENTO
+> Configurac?es do Usuario para Pre-Orcamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_PRE_ORCAMENTO | NUMBER | N | Codigo do Usuario Pre-Orcamento |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario do Orcamento |
+| 3 | CD_GRUPO_USUARIO_ORCAMENTO | NUMBER | N | Codigo do Grupo de Usuario |
+| 4 | CD_SETOR | NUMBER | N | Codigo do Setor - Centro de Custo |
+| 5 | CD_IT_PLANO_ORCAMENTARIO | NUMBER | N | Codigo da Conta Orcamentaria |
+| 6 | CD_USUARIO_PRE_ORCAMENTO_ORIG | NUMBER | Y | C?digo da configura??o origem |
+| 7 | CD_USUARIO_ORCAMENTO | NUMBER | N |  |
+
+---
+
+## DBAMV.USUARIO_PRODUTO_HABILITADO
+> Tabela que guarda os usuários que não sofrem a restrição de visualização dos campos do cadastro do produto
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USU_PROD_HABILITADO | NUMBER | N | Código sequencial para configuração de permissão de usuários. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário liberado para visualizar de todos os campos habilitados da tela MProduto |
+| 3 | NM_USUARIO | VARCHAR2 | N | Guarda o nome do usuário. |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Código da Empresa a qual pertence as configuraçoes |
+
+---
+
+## DBAMV.USUARIO_RESP_GUIA
+> abela para configuração de Usuário Responsável x Convênio para a nova tela de guias.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuário responsável. |
+| 2 | CD_CONVENIO | NUMBER | N | Convênios pelos quais o usuário é responsável (controle de guias). |
+
+---
+
+## DBAMV.USUARIO_RESTRICAO_GUIA
+> Usuários com restrição de acesso às guias do Faturamento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y | Código do usuário. |
+| 2 | TP_ATENDIMENTO | VARCHAR2 | Y | Restrição por Tipo de Atendimento. |
+| 3 | CD_ORI_ATE | NUMBER | Y | Restrição por Origem. |
+| 4 | CD_GRU_PRO | NUMBER | Y | Restrição nos itens da guia por Grupo de Procedimento. |
+| 5 | CD_USUARIO_RESTRICAO_GUIA | NUMBER | N |  |
+
+---
+
+## DBAMV.USUARIO_RESTRICAO_GUIA_DET
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | SN_INS_GUIA | VARCHAR2 | Y |  |
+| 3 | SN_UPD_GUIA | VARCHAR2 | Y |  |
+| 4 | SN_DEL_GUIA | VARCHAR2 | Y |  |
+| 5 | SN_INS_IT_GUIA | VARCHAR2 | Y |  |
+| 6 | SN_UPD_IT_GUIA | VARCHAR2 | Y |  |
+| 7 | SN_DEL_IT_GUIA | VARCHAR2 | Y |  |
+| 8 | SN_INS_VAL_OPME_IT_GUIA | VARCHAR2 | Y |  |
+| 9 | SN_UPD_VAL_OPME_IT_GUIA | VARCHAR2 | Y |  |
+| 10 | SN_DEL_VAL_OPME_IT_GUIA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USUARIO_SERVICO
+> TABELA REFERENTE AO ULTIMO SERVICO ACESSADO PELO USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | COLUNA REFERENTE AO NOME DO USUARIO |
+| 2 | CD_SERVICO | NUMBER | N | COLUNA REFERENTE AO CODIGO DO SERVICO |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N | COLUNA REFERENTE A EMPRESA QUE O USUARIO ESTA |
+
+---
+
+## DBAMV.USUARIO_SETOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_SETOR_FFCH
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_CONSULTA | VARCHAR2 | Y |  |
+| 4 | SN_ORCAMENTO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USUARIO_SETOR_FFCV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USUARIO_SETOR_LIVRO_ELETRONICO
+> Configurac?o de acesso de usuario ao Livro eletronico do Setor
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SETOR | NUMBER | N | Setor associado ao usuario |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario com permiss?o de acesso ao Livro do setor |
+| 3 | TP_PERFIL | VARCHAR2 | N | Tipo de permiss?o de usuario: Externo, Interno, Coordenador |
+
+---
+
+## DBAMV.USUARIO_SETOR_MOVDOC
+> tabela para restric?o do movimento de documentos por usuario e setor
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Indica qual o usuario do vinculo |
+| 2 | CD_SETOR | NUMBER | N | Indica qual o setor do vinculo |
+
+---
+
+## DBAMV.USUARIO_SETOR_SAC
+> Usuario por Setor de Atendimento de Chamados (SAC)
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario |
+| 2 | CD_SETOR | NUMBER | N | Codigo do Setor |
+
+---
+
+## DBAMV.USUARIO_SINAC
+> Tabela da Norma 24 com os usuários do sistema Desktop SINAC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_SINAC | NUMBER | N | Chave primária da tabela |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuario da tabela DBASGU.USUARIOS |
+| 3 | NM_USUARIO | VARCHAR2 | Y | Nome do usuário do sistema |
+| 4 | DS_USUARIO | VARCHAR2 | Y | Descrição do usuário |
+| 5 | TP_USUARIO | VARCHAR2 | Y | Tipo do usuário |
+| 6 | CHAVE_USUARIO | VARCHAR2 | Y | Senha de acesso ao sistema SINAC |
+
+---
+
+## DBAMV.USUARIO_SOLSAI_PRO_MOVEL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario |
+| 2 | SN_PED_PACIENTE | VARCHAR2 | N | Permite atendimento para Paciente |
+| 3 | SN_PED_SETOR | VARCHAR2 | N | Permite atendimento para Setor |
+| 4 | SN_PED_ESTOQUE | VARCHAR2 | N | Permite atendimento para Estoque |
+| 5 | SN_DEV_PACIENTE | VARCHAR2 | N | Permite atendimento das Devoluc?o de Paciente |
+| 6 | SN_DEV_SETOR | VARCHAR2 | N | Permite atendimento das Devoluc?o de Setor |
+| 7 | SN_URGENTE | VARCHAR2 | N | Permite atendimento das Solicitac?es Urgentes |
+| 8 | TP_SITUACAO | VARCHAR2 | N | Tipo de Solicitac?o que o Usuario pode Visualizar |
+| 9 | CD_ESTOQUE | NUMBER | N | Estoque que o Usuario pode Visualizar |
+| 10 | CD_SETOR | NUMBER | N | Setor que o Usuario pode Visualizar |
+| 11 | CD_UNID_INT | NUMBER | N | Unidade de Internac?o que o Usuario pode Visualizar |
+
+---
+
+## DBAMV.USUARIO_TIPO_RESERVA_HOR_SCMA
+> Lista dos Usuarios que podem agendar, mesmo com um tipo de bloqueio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TIPO_RESERVA_HORARIOS_SCMA | NUMBER | N | Codigo do Tipo da reserva do horario |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario que podem agendar, mesmo com um tipo de bloqueio |
+
+---
+
+## DBAMV.USUARIO_ULTIMO_ACESSO
+> ULTIMO ACESSO PELO USUARIO EM ALGUM TIPO DE ACESSO, COMO ULTIMA EMPRESA ACESSADA, ULTIMO SERVICO ACESSADO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | NOME DO USUARIO QUE FEZ O ACESSO |
+| 2 | NM_CHAVE | VARCHAR2 | N | TIPO DE ACESSO REALIZADO |
+| 3 | DS_VALOR | VARCHAR2 | Y | VALOR DA CHAVE DO ULTIMO ACESSO |
+| 4 | CD_MULTI_EMPRESA | NUMBER | Y | EMPRESA QUE O USUARIO ESTA |
+
+---
+
+## DBAMV.USUARIO_UNID_ATENDIMENTO
+> Tabela de Configurac?o de Acesso da Central de Marcac?o: Usuarios X Unidade de Atendimento.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario cujo acesso esta sendo liberado para Unidade de Atendimento. |
+| 2 | CD_UNIDADE_ATENDIMENTO | NUMBER | N | Codigo da Unidade de Atendimento que o Usuario podera ter acesso. |
+
+---
+
+## DBAMV.USUARIO_UNID_INT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNID_INT | NUMBER | Y |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | N |  |
+| 4 | SN_SOLICITACAO_PRODUTO_SETOR | VARCHAR2 | Y | Indica se o usuário tem autorização para solicitar produto ao setor |
+| 5 | SN_SOLICITACAO_PRODUTO_GAS_SAL | VARCHAR2 | Y | Indica se o usuário tem autorização para solicitar produto para gasto de sala |
+| 6 | SN_SOLICITACAO_PRODUTO_PACIENT | VARCHAR2 | Y | Indica se o usuário tem autorização para solicitar produto para paciente |
+| 7 | SN_SOLICITACAO_PRODUTO_ESTOQ | VARCHAR2 | Y | Indica se o usuário tem autorização para solicitar produto para estoque |
+| 8 | SN_SOLICITACAO_PRODUTO_EMP | VARCHAR2 | Y | Indica se o usuário tem autorização para solicitar produto para empresa |
+| 9 | SN_MOVIMENTACAO_SETOR | VARCHAR2 | Y | Indica se o usuário tem autorização para movimentar produto ao setor |
+| 10 | SN_MOVIMENTACAO_GASTO_SALA | VARCHAR2 | Y | Indica se o usuário tem autorização para movimentar produto para gasto de sala |
+| 11 | SN_MOVIMENTACAO_PACIENTE | VARCHAR2 | Y | Indica se o usuário tem autorização para movimentar produto para paciente |
+| 12 | SN_MOVIMENTACAO_ESTOQUE | VARCHAR2 | Y | Indica se o usuário tem autorização para movimentar produto para estoque |
+| 13 | SN_MOVIMENTACAO_EMPRESA | VARCHAR2 | Y | Indica se o usuário tem autorização para movimentar produto para empresa |
+| 14 | SN_CONFIRMACAO_RECEBIMENTO | VARCHAR2 | Y | Configuração do setor e/ou unidade de internação pode realizar o recebimento da solicitação. |
+
+---
+
+## DBAMV.USUARIO_UNID_INT_BKP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNID_INT | NUMBER | Y |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 3 | CD_SETOR | NUMBER | N |  |
+
+---
+
+## DBAMV.USUARIO_UNID_INT_RH_15
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_UNID_INT | NUMBER | Y |  |
+| 2 | CD_ID_USUARIO | VARCHAR2 | Y |  |
+| 3 | CD_SETOR | NUMBER | N |  |
+| 4 | SN_SOLICITACAO_PRODUTO_SETOR | VARCHAR2 | Y |  |
+| 5 | SN_SOLICITACAO_PRODUTO_GAS_SAL | VARCHAR2 | Y |  |
+| 6 | SN_SOLICITACAO_PRODUTO_PACIENT | VARCHAR2 | Y |  |
+| 7 | SN_SOLICITACAO_PRODUTO_ESTOQ | VARCHAR2 | Y |  |
+| 8 | SN_SOLICITACAO_PRODUTO_EMP | VARCHAR2 | Y |  |
+| 9 | SN_MOVIMENTACAO_SETOR | VARCHAR2 | Y |  |
+| 10 | SN_MOVIMENTACAO_GASTO_SALA | VARCHAR2 | Y |  |
+| 11 | SN_MOVIMENTACAO_PACIENTE | VARCHAR2 | Y |  |
+| 12 | SN_MOVIMENTACAO_ESTOQUE | VARCHAR2 | Y |  |
+| 13 | SN_MOVIMENTACAO_EMPRESA | VARCHAR2 | Y |  |
+| 14 | SN_CONFIRMACAO_RECEBIMENTO | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USU_AUT_DT_MOV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | SN_MOV_RETROATIVO | VARCHAR2 | N |  |
+| 3 | SN_MOV_APOS_ALTA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_AUT_DT_PED_PSDI
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | SN_PED_RETROATIVO | VARCHAR2 | N |  |
+| 3 | SN_PED_APOS_ALTA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_AUT_DT_PED_PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | SN_PED_RETROATIVO | VARCHAR2 | N |  |
+| 3 | SN_PED_APOS_ALTA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_AUT_OC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USUARIO | VARCHAR2 | N |  |
+| 2 | VL_AUT_AUTOMATICA | NUMBER | N |  |
+| 3 | VL_LIM_AUT | NUMBER | N |  |
+| 4 | SN_USUARIO_SUPERIOR | VARCHAR2 | N | Indica se o usuario e responsavel por autorizac?es superiores ao valor limite do autorizador de n... |
+| 5 | CD_NIVEL_AUTORIZADOR | NUMBER | Y | Codigo do nivel autorizador |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da multi_empresa |
+| 7 | CD_USU_AUT_OC | NUMBER | N | Código sequencial da tabela |
+| 8 | SN_CONTRATO | VARCHAR2 | N | Indica que o usuário poderá autorizar ordem de compra de contrato. |
+| 9 | SN_ATIVO | VARCHAR2 | N | Status da regra |
+
+---
+
+## DBAMV.USU_AUT_SCCV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | SN_ULTRAPASSAR_AGENDA | VARCHAR2 | N |  |
+| 3 | SN_EXCLUIR_ITEM_AGENDA | VARCHAR2 | N |  |
+| 4 | SN_ATENDER_AGENDA | VARCHAR2 | N |  |
+| 5 | SN_EXCLUIR_ATENDIMENTO | VARCHAR2 | N |  |
+| 6 | SN_IMPRIMIR_RECIBO | VARCHAR2 | N |  |
+| 7 | SN_IMPRIMIR_PROD_TODOS | VARCHAR2 | N |  |
+| 8 | SN_ALTERAR_AGENDA | VARCHAR2 | Y |  |
+
+---
+
+## DBAMV.USU_AUT_SOLIC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_USU_SOLIC | VARCHAR2 | N |  |
+| 2 | VL_LIM_AUT_SOLIC | NUMBER | N |  |
+| 3 | VL_AUTOMATICO_SOLIC | NUMBER | N |  |
+| 4 | SN_USUARIO_SUPERIOR | VARCHAR2 | N | Indica se o usuÃ¡rio Ã© responsÃ¡vel por autorizaÃ§Ãµes superiores ao valor limite do autorizador... |
+| 5 | CD_NIVEL_AUT_SOLIC | NUMBER | Y | CÃ³digo do nÃ­vel autorizador |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N | CÃ³digo da multi_empresa |
+| 7 | SN_ATIVO | VARCHAR2 | N | Status da regra |
+
+---
+
+## DBAMV.USU_CEN_CIR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CEN_CIR | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_CEN_CIR_MOV
+> Tabela que grava a configurac?o dos usuarios por movimentac?o e centro cirurgico.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CEN_CIR | NUMBER | N | Codigo do centro cirurgico |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario que podera realizar ou n?o movimentac?es. |
+| 3 | SN_EXPURGO | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Expurgo |
+| 4 | SN_DESINFECCAO | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Desinfecc?o |
+| 5 | SN_PREPARO | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Preparo |
+| 6 | SN_ESTERILIZACAO | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Esterilizacao |
+| 7 | SN_ARSENAL_ENTRADA | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Entrada de Arsenal |
+| 8 | SN_ARSENAL_SAIDA | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es ds Saida de Arsenal |
+| 9 | SN_ARSENAL_DEVOLUCAO | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Devoluc?o de Arsenal |
+| 10 | SN_ARSENAL_TRANSFERENCIA | VARCHAR2 | N | Informa se o usuario podera realizar movimentac?es de Transferencia de Arsenal |
+| 11 | SN_TERCEIRIZACAO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_CONF_GESTAO_PACOTE
+> Tabela de usuários autorizadores do gestor de pacotes.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N | Empresa. |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código do usuário autorizador. |
+| 3 | DS_EMAIL | VARCHAR2 | Y | E-mail do usuário autorizador |
+| 4 | SN_ALERTA_MEDIA | VARCHAR2 | N | Se o usuário receberá e-mail no impedimento da média gestão. |
+| 5 | SN_ALERTA_ALTA | VARCHAR2 | N | Se o usuário receberá e-mail no impedimento da alta gestão. |
+
+---
+
+## DBAMV.USU_ESTOQUE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | N |  |
+| 2 | CD_ID_DO_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_AUTORIZA_EXCL_SOLICITACAO | VARCHAR2 | N |  |
+| 4 | SN_AUTORIZA_ALTE_SOLICITACAO | VARCHAR2 | Y |  |
+| 5 | TP_USUARIO | VARCHAR2 | N |  |
+| 6 | SN_PERMITE_ALT_ORD_COMPRAS | VARCHAR2 | N |  |
+| 7 | SN_ALT_VL_UNIT_OC | VARCHAR2 | N |  |
+| 8 | VL_PERC_VAR_VL_UNIT | NUMBER | N |  |
+| 9 | SN_TRANS_QUANT_COTA | VARCHAR2 | N |  |
+| 10 | SN_AUTORIZA_ALTE_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 11 | SN_AUTORIZA_EXCL_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 12 | SN_ALTERA_UNIDADE | VARCHAR2 | Y | Permite o Usuario Alterar a unidade de medida na Transferencia entre estoques lancando o produto ... |
+| 13 | TP_UNID_TRANSF | VARCHAR2 | Y | Tipo de Unidade padr?o utilizada na Transferencia entre estoques quando usuario estiver configura... |
+| 14 | SN_PODE_ABRIR_CONFERENCIA_ENTR | VARCHAR2 | N | Guarda o indicador de que o usuário pode iniciar uma conferência na entrada dos produtos. |
+| 15 | SN_PODE_CONFERIR_CONFE_ENTR | VARCHAR2 | N | Guarda o indicador de que o usuário pode executar a conferência na entrada dos produtos. |
+| 16 | SN_PODE_VALIDAR_CONFE_ENTR | VARCHAR2 | N | Guarda o indicador de que o usuário pode executar a validação da conferência na entrada dos produ... |
+| 17 | SN_PODE_CANCELAR_CONFE_ENTR | VARCHAR2 | N | Guarda o indicador de que o usuário pode cancelar a conferência na entrada dos produtos. |
+| 18 | SN_PODE_GERAR_ENTRAD_CNFR_ENTR | VARCHAR2 | N | Guarda o indicador de que o usuário pode gerar a entrada dos produtos após a conferência. |
+| 19 | SN_ALTERA_LOCALIZACAO_PRODUTO | VARCHAR2 | N | Guarda o indicador de que o usuário pode alterar a localização do produto. |
+| 20 | SN_INFORMA_DATA_FATURAMENTO | VARCHAR2 | N | Guarda o indicador de que o usuário pode alterar a data de faturamento na entrada de consignado |
+| 21 | SN_AUTORIZA_DESC_COMERCIAL | VARCHAR2 | N | Informa se usuário autoriza os descontos a serem utilizados na confirmação de consumo OPME. |
+| 22 | SN_EXIGE_AUTENTICACAO_ATND_SOL | VARCHAR2 | N | Guarda o indicador da exigência da autenticação do usuário no momento do atendimento da solicitaç... |
+| 23 | SN_LIBERA_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y | Ao marcar, o usuário, indicará que o usuário tem permissão para analisar e confirmar um inventári... |
+| 24 | SN_PODE_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y | Ao marcar, indicará que o usuário poderá realizar movimentação dos produtos mesmo que ele esteja ... |
+| 25 | SN_AVALIACAO_FARMACEUTICA | VARCHAR2 | N | Guarda o indicador de que um farmacêutico estará autorizado a fazer avaliação nas solicitações de... |
+| 26 | SN_ALTERA_ENT_PRO_CONCLUIDA | VARCHAR2 | N | Indicar se permite alteração na Dt. Vencimento, Vl Duplicata, CFOP e Frete para entrada de produtos? |
+| 27 | SN_MODIF_IMP_SUGERIDO_ENT_PRO | VARCHAR2 | Y | Permite modificar os Impostos Sugeridos na Entrada de Produtos |
+
+---
+
+## DBAMV.USU_ESTOQUE_RH_15
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | N |  |
+| 2 | CD_ID_DO_USUARIO | VARCHAR2 | Y |  |
+| 3 | SN_AUTORIZA_EXCL_SOLICITACAO | VARCHAR2 | N |  |
+| 4 | SN_AUTORIZA_ALTE_SOLICITACAO | VARCHAR2 | Y |  |
+| 5 | TP_USUARIO | VARCHAR2 | N |  |
+| 6 | SN_PERMITE_ALT_ORD_COMPRAS | VARCHAR2 | N |  |
+| 7 | SN_ALT_VL_UNIT_OC | VARCHAR2 | N |  |
+| 8 | VL_PERC_VAR_VL_UNIT | NUMBER | N |  |
+| 9 | SN_TRANS_QUANT_COTA | VARCHAR2 | N |  |
+| 10 | SN_AUTORIZA_ALTE_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 11 | SN_AUTORIZA_EXCL_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 12 | SN_ALTERA_UNIDADE | VARCHAR2 | Y |  |
+| 13 | TP_UNID_TRANSF | VARCHAR2 | Y |  |
+| 14 | SN_PODE_ABRIR_CONFERENCIA_ENTR | VARCHAR2 | N |  |
+| 15 | SN_PODE_CONFERIR_CONFE_ENTR | VARCHAR2 | N |  |
+| 16 | SN_PODE_VALIDAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 17 | SN_PODE_CANCELAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 18 | SN_PODE_GERAR_ENTRAD_CNFR_ENTR | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_LOCALIZACAO_PRODUTO | VARCHAR2 | N |  |
+| 20 | SN_INFORMA_DATA_FATURAMENTO | VARCHAR2 | N |  |
+| 21 | SN_AUTORIZA_DESC_COMERCIAL | VARCHAR2 | N |  |
+| 22 | SN_EXIGE_AUTENTICACAO_ATND_SOL | VARCHAR2 | N |  |
+| 23 | SN_LIBERA_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y |  |
+| 24 | SN_PODE_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y |  |
+| 25 | SN_AVALIACAO_FARMACEUTICA | VARCHAR2 | N |  |
+| 26 | SN_ALTERA_ENT_PRO_CONCLUIDA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_ESTOQUE_RH_9
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ESTOQUE | NUMBER | N |  |
+| 2 | CD_ID_DO_USUARIO | VARCHAR2 | Y |  |
+| 3 | SN_AUTORIZA_EXCL_SOLICITACAO | VARCHAR2 | N |  |
+| 4 | SN_AUTORIZA_ALTE_SOLICITACAO | VARCHAR2 | Y |  |
+| 5 | TP_USUARIO | VARCHAR2 | N |  |
+| 6 | SN_PERMITE_ALT_ORD_COMPRAS | VARCHAR2 | N |  |
+| 7 | SN_ALT_VL_UNIT_OC | VARCHAR2 | N |  |
+| 8 | VL_PERC_VAR_VL_UNIT | NUMBER | N |  |
+| 9 | SN_TRANS_QUANT_COTA | VARCHAR2 | N |  |
+| 10 | SN_AUTORIZA_ALTE_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 11 | SN_AUTORIZA_EXCL_MOVIMENTACAO | VARCHAR2 | Y |  |
+| 12 | SN_ALTERA_UNIDADE | VARCHAR2 | Y |  |
+| 13 | TP_UNID_TRANSF | VARCHAR2 | Y |  |
+| 14 | SN_PODE_ABRIR_CONFERENCIA_ENTR | VARCHAR2 | N |  |
+| 15 | SN_PODE_CONFERIR_CONFE_ENTR | VARCHAR2 | N |  |
+| 16 | SN_PODE_VALIDAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 17 | SN_PODE_CANCELAR_CONFE_ENTR | VARCHAR2 | N |  |
+| 18 | SN_PODE_GERAR_ENTRAD_CNFR_ENTR | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_LOCALIZACAO_PRODUTO | VARCHAR2 | N |  |
+| 20 | SN_INFORMA_DATA_FATURAMENTO | VARCHAR2 | N |  |
+| 21 | SN_AUTORIZA_DESC_COMERCIAL | VARCHAR2 | N |  |
+| 22 | SN_EXIGE_AUTENTICACAO_ATND_SOL | VARCHAR2 | N |  |
+| 23 | SN_LIBERA_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y |  |
+| 24 | SN_PODE_MOV_PRODUTO_CONTAGEM | VARCHAR2 | Y |  |
+| 25 | SN_AVALIACAO_FARMACEUTICA | VARCHAR2 | N |  |
+| 26 | SN_ALTERA_ENT_PRO_CONCLUIDA | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_INVENTARIO_CONF
+> TABELA DE CADASTRAO DOS USUARIOS QUE PODEM FAZER INVENTARIO POR ETAPAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CONFIGEST_ID | NUMBER | N | CÓDIGO REFERENCIAL DA TABELA DE FUNCIONAMENTO DO ESTOQUE |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | CÓDIGO REFERENCIAL DA TABELA DE MULTI_EMPRESAS |
+| 3 | CD_USUARIO | VARCHAR2 | N | CÓDIGO REFERENCIAL DA TABELA DE USUARIOS |
+| 4 | SN_ABER_CONTAGEM | VARCHAR2 | N | INFORMA SE O USUARIO PODERÁ REALIZAR ABERTURA DE CONTAGEM PARA O PROCESSO DE INVENTARIO POR ETAPA... |
+| 5 | SN_CONTAGEM | VARCHAR2 | N | INFORMA SE O USUARIO PODERÁ ABRIR CONTAGEM PARA O PROCESSO DE INVENTARIO POR ETAPAS(INVENTARIO DA... |
+| 6 | SN_PENDENCIA | VARCHAR2 | N | INFORMA SE O USUARIO PODERÁ FECHAR AS PENDENCIAS PARA O PROCESSO DE INVENTARIO POR ETAPAS(INVENTA... |
+| 7 | SN_AUTORIZACAO | VARCHAR2 | N | INFORMA SE O USUARIO PODERÁ AUTORIZAR PARA O PROCESSO DE INVENTARIO POR ETAPAS(INVENTARIO DA COMU... |
+| 8 | SN_FECHAMENTO | VARCHAR2 | N | INFORMA SE O USUARIO PODERÁ FECHAR O INVENTARIO PARA O PROCESSO DE INVENTARIO POR ETAPAS(INVENTAR... |
+
+---
+
+## DBAMV.USU_MES_ANO_FECH_CONT
+> TABELA DE PERMISSÃODE FECHAMENTO E ABERTURA DE MÊS CONTABIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | CDIGO DO USUARIO |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | CDIGO DA EMPRESA |
+| 3 | TP_PERMISSAO | VARCHAR2 | N | TIPO DE PERMISSÃO |
+
+---
+
+## DBAMV.USU_ORIGEM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ORI_ATE | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N |  |
+
+---
+
+## DBAMV.USU_PERMISSAO_COMPETENCIA
+> Tabela de usuarios com permiss?o para criar competencias do faturamento
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que possui permiss?o para criar competencias do faturamento |
+| 2 | DT_CADASTRO | DATE | Y | Data da inclus?o da permiss?o ao usuario para criar competencias do faturamento |
+| 3 | SN_CRIAR | VARCHAR2 | N | Indica se o Usuário tem permissão de Criar novas competências. |
+| 4 | SN_ABRIR | VARCHAR2 | N | Indica se o Usuário tem permissão de Abrir competências. |
+| 5 | SN_FECHAR | VARCHAR2 | N | Indica se o Usuário tem permissão de Fechar competências. |
+| 6 | SN_VISUALIZAR | VARCHAR2 | N | Indica se o Usuário tem permissão de Visualizar as remessas da competência. |
+
+---
+
+## DBAMV.USU_SUBSTITUICAO
+> Tabela para registrar regras de substituio para privilgios de autorizao de OC e SC
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SUBSTITUICAO | VARCHAR2 | N | Cdigo da regra |
+| 2 | TP_SUBSTITUICAO | VARCHAR2 | N | Tipo da substituio |
+| 3 | CD_USU_SUBSTITUTO | VARCHAR2 | N | Cdigo do usurio que ser substituto |
+| 4 | CD_USU_SUBSTITUIDO | VARCHAR2 | Y | Cdigo do usurio que ser substituido |
+| 5 | DT_INI_SUBSTITUICAO | DATE | Y | Data de incio da regra de substituio |
+| 6 | DT_FIM_SUBSTITUICAO | DATE | Y | Data de fim da regra de substituio |
+| 7 | CD_NIVEL_SUBSTITUICAO | NUMBER | Y | Cdigo do nvel de substituio que ser utilizado na regra do tipo Nivel |
+| 8 | SN_ATIVO | CHAR | N | Status da regra |
+| 9 | DT_CRIACAO | DATE | N | Data de criao da regra |
+| 10 | CD_USU_CRIACAO | VARCHAR2 | N | Cdigo do usurio de criao da regra |
+| 11 | DS_NR_ORIGEM | VARCHAR2 | Y |  |
+| 12 | DS_OBSERVACAO | VARCHAR2 | Y | Observao da regra |
+
+---
+
+## DBASGU.AS_CONFIG
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG | NUMBER | N |  |
+| 2 | DS_SQLPLUS | VARCHAR2 | Y |  |
+| 3 | DS_SENHA_DBAMV | VARCHAR2 | Y |  |
+| 4 | DS_SENHA_DBASGU | VARCHAR2 | Y |  |
+| 5 | DS_SENHA_DBAPS | VARCHAR2 | Y |  |
+| 6 | DS_SENHA_SYSTEM | VARCHAR2 | Y |  |
+| 7 | DS_SENHA_SYS | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AS_EXECUCAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EXECUCAO | NUMBER | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | DS_EXECUCAO | VARCHAR2 | Y |  |
+| 4 | CD_VERSAO | VARCHAR2 | Y |  |
+| 5 | CD_RELEASE | VARCHAR2 | Y |  |
+| 6 | DT_EXECUCAO | DATE | Y |  |
+| 7 | DS_DIRETORIO | VARCHAR2 | N |  |
+| 8 | DT_INICIO | DATE | Y |  |
+| 9 | DT_FIM | DATE | Y |  |
+| 10 | SN_SUCESSO | VARCHAR2 | Y |  |
+| 11 | SISTEMA | VARCHAR2 | Y |  |
+| 12 | DT_CARGA | DATE | Y |  |
+| 13 | TEMPO_CARGA | NUMBER | Y |  |
+| 14 | TEMPO_EXECUCAO | NUMBER | Y |  |
+| 15 | DS_EMAIL_VALIDA_LOG | VARCHAR2 | Y |  |
+| 16 | QTD_SCRIPT_MV | NUMBER | Y |  |
+| 17 | QTD_SCRIPT_AS | NUMBER | Y |  |
+| 18 | STATUS | VARCHAR2 | Y |  |
+| 19 | TP_ORIGEM_CARGA | VARCHAR2 | Y |  |
+| 20 | DS_CARGA_VERSAO | VARCHAR2 | Y |  |
+| 21 | DS_CARGA_STATUS | VARCHAR2 | Y |  |
+| 22 | DS_EXECUCAO_STATUS | VARCHAR2 | Y |  |
+| 23 | PULA_SCRIPT_VERSAO_ANTERIOR | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AS_SCRIPT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SCRIPT | NUMBER | N |  |
+| 2 | CD_EXECUCAO | NUMBER | N |  |
+| 3 | NM_SCRIPT | VARCHAR2 | N |  |
+| 4 | DS_SCRIPT | VARCHAR2 | Y |  |
+| 5 | TP_POSICAO | VARCHAR2 | Y |  |
+| 6 | NM_USUARIO | VARCHAR2 | Y |  |
+| 7 | HOSPITAL | VARCHAR2 | Y |  |
+| 8 | SN_SUCESSO | VARCHAR2 | Y |  |
+| 9 | TEMPO_CARGA | NUMBER | Y |  |
+| 10 | TEMPO_EXECUCAO | NUMBER | Y |  |
+| 11 | SN_FORCA_EXECUCAO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AS_SCRIPT_ERROS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ERRO | VARCHAR2 | N |  |
+| 2 | TIPO | VARCHAR2 | N |  |
+| 3 | DS_ERRO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.AS_SCRIPT_ETAPAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SCRIPT | NUMBER | N |  |
+| 2 | NR_ETAPA | NUMBER | N |  |
+| 3 | SN_SUCESSO | VARCHAR2 | Y |  |
+| 4 | DS_ERRO | VARCHAR2 | Y |  |
+| 5 | TP_ERRO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AS_SCRIPT_ETAPAS_SQL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SCRIPT | NUMBER | N |  |
+| 2 | NR_ETAPA | NUMBER | N |  |
+| 3 | NR_SEQUENCIA | NUMBER | N |  |
+| 4 | TEXTO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.AS_SISTEMAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | SISTEMA | VARCHAR2 | N |  |
+| 2 | CKECKSUM | VARCHAR2 | Y |  |
+| 3 | VIGENCIA | DATE | Y |  |
+| 4 | SN_ATIVO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AS_STATUS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_STATUS | DATE | N |  |
+| 2 | DS_VERSAO | VARCHAR2 | Y |  |
+| 3 | DS_RELEASE | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.AUT_MOD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | SN_CONSULTAR | VARCHAR2 | N | Identificar se tem permicao de consultar |
+| 4 | SN_ALTERAR | VARCHAR2 | N | Identificar se tem permicao de alterar |
+| 5 | SN_EXCLUIR | VARCHAR2 | N | Identificar se tem permicao de excluir |
+| 6 | SN_INCLUIR | VARCHAR2 | N | Identificar se tem permicao de incluir |
+
+---
+
+## DBASGU.AUT_MOD_RH_9
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | SN_CONSULTAR | VARCHAR2 | N |  |
+| 4 | SN_ALTERAR | VARCHAR2 | N |  |
+| 5 | SN_EXCLUIR | VARCHAR2 | N |  |
+| 6 | SN_INCLUIR | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.AUT_TABLE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TABELA | VARCHAR2 | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario |
+| 3 | SN_INCLUSAO | VARCHAR2 | N |  |
+| 4 | SN_ALTERACAO | VARCHAR2 | N |  |
+| 5 | SN_CONSULTA | VARCHAR2 | N |  |
+| 6 | SN_EXCLUSAO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.BIOMETRIA_USUARIOS
+> Armazena os dados de minucias do usuario referente a leitura biometrica do usuario
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Referencia a tabela de usuario. Essa tabela de Usuario e diretamente dependente do seu usuario |
+| 2 | DS_MINUCIA | VARCHAR2 | N | Dado biometrico. Qualquer biometria apos ser aplicado o algoritmo de analise resulta nas minucias... |
+| 3 | TP_BIOMETRIA | VARCHAR2 | N | Informa o tipo de leitura biometrica utilizada. O mais comum sera a "Digital", mas pode existir o... |
+| 4 | NM_API | VARCHAR2 | Y | Nome de referencia da Api que foi utilizada para fazer a leitura e identificac?o das minucias. Se... |
+| 5 | LO_IMAGEM | BLOB | Y | Imagem inicial que serviu para calculo das minucias. No caso da Digital, pode ser a imaegm binari... |
+
+---
+
+## DBASGU.BKP_CONFIGEST
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CONFIGEST_ID | NUMBER | N |  |
+| 2 | VL_CLASSE_A_MATERIAIS_INICIAL | NUMBER | N |  |
+| 3 | VL_CLASSE_A_MATERIAIS_FINAL | NUMBER | N |  |
+| 4 | VL_CLASSE_B_MATERIAIS_INICIAL | NUMBER | N |  |
+| 5 | VL_CLASSE_B_MATERIAIS_FINAL | NUMBER | N |  |
+| 6 | VL_CLASSE_C_MATERIAIS_INICIAL | NUMBER | N |  |
+| 7 | VL_CLASSE_C_MATERIAIS_FINAL | NUMBER | N |  |
+| 8 | VL_CLASSE_A_VALORES_INICIAL | NUMBER | N |  |
+| 9 | VL_CLASSE_A_VALORES_FINAL | NUMBER | N |  |
+| 10 | VL_CLASSE_B_VALORES_INICIAL | NUMBER | N |  |
+| 11 | VL_CLASSE_B_VALORES_FINAL | NUMBER | N |  |
+| 12 | VL_CLASSE_C_VALORES_INICIAL | NUMBER | N |  |
+| 13 | VL_CLASSE_C_VALORES_FINAL | NUMBER | N |  |
+| 14 | QT_LOTE_COMPRA_XA | NUMBER | N |  |
+| 15 | QT_LOTE_COMPRA_XB | NUMBER | N |  |
+| 16 | QT_LOTE_COMPRA_XC | NUMBER | N |  |
+| 17 | QT_LOTE_COMPRA_YA | NUMBER | N |  |
+| 18 | QT_LOTE_COMPRA_YB | NUMBER | N |  |
+| 19 | QT_LOTE_COMPRA_YC | NUMBER | N |  |
+| 20 | QT_LOTE_COMPRA_ZA | NUMBER | N |  |
+| 21 | QT_LOTE_COMPRA_ZB | NUMBER | N |  |
+| 22 | QT_LOTE_COMPRA_ZC | NUMBER | N |  |
+| 23 | QT_DIAS_MINIMO_XA | NUMBER | N |  |
+| 24 | QT_DIAS_MINIMO_XB | NUMBER | N |  |
+| 25 | QT_DIAS_MINIMO_XC | NUMBER | N |  |
+| 26 | QT_DIAS_MINIMO_YA | NUMBER | N |  |
+| 27 | QT_DIAS_MINIMO_YB | NUMBER | N |  |
+| 28 | QT_DIAS_MINIMO_YC | NUMBER | N |  |
+| 29 | QT_DIAS_MINIMO_ZA | NUMBER | N |  |
+| 30 | QT_DIAS_MINIMO_ZB | NUMBER | N |  |
+| 31 | QT_DIAS_MINIMO_ZC | NUMBER | N |  |
+| 32 | SN_SOMENTE_MARCA | VARCHAR2 | N |  |
+| 33 | DT_FINAL | DATE | Y |  |
+| 34 | DT_INICIAL | DATE | Y |  |
+| 35 | SN_CONTROLA_NR_DOCUMENTO | VARCHAR2 | N |  |
+| 36 | SN_ORDEM_PREFERENCIA | VARCHAR2 | N |  |
+| 37 | DS_CAMINHO_IMP_SOL_COM | VARCHAR2 | Y |  |
+| 38 | DS_REL_ORD_COM | VARCHAR2 | Y |  |
+| 39 | DS_REL_SOL_COM | VARCHAR2 | Y |  |
+| 40 | TP_CRITERIO_ESCOLHA | VARCHAR2 | Y |  |
+| 41 | SN_BLOQUEIA_QTD_ORD_COM | VARCHAR2 | N |  |
+| 42 | CD_REDUZIDO_DEBITO_BAIXA | NUMBER | Y |  |
+| 43 | SN_SAIDA_FRACIONADA | VARCHAR2 | N |  |
+| 44 | SN_LOTE_AUTOMATICO | VARCHAR2 | N |  |
+| 45 | NR_DIAS_DEPOIS_ALTA | NUMBER | Y |  |
+| 46 | DS_NOTA_FISCAL_DEVOLUCAO | VARCHAR2 | Y |  |
+| 47 | VL_PERCENTUAL_VARIACAO | NUMBER | Y |  |
+| 48 | SN_IMPRIMIR_VALOR_SAIDAS_DEVO | VARCHAR2 | N |  |
+| 49 | SN_ALTERA_DEPOIS_QUE_GRAVAR | VARCHAR2 | N |  |
+| 50 | CD_TIP_DOC | NUMBER | Y |  |
+| 51 | QT_HORAS_APOS_ALTA | NUMBER | Y |  |
+| 52 | SN_EMPRESTIMO_CUSTO_MEDIO | VARCHAR2 | Y |  |
+| 53 | SN_INTEGRA_ORAAPP | VARCHAR2 | Y |  |
+| 54 | TP_IMPRESSAO_SOLIC_DEVOLUCAO | VARCHAR2 | Y |  |
+| 55 | SN_IMP_SOLIC_LOCAL_POSTO | VARCHAR2 | N |  |
+| 56 | SN_UTILIZA_AGRUPAMENTO | VARCHAR2 | N |  |
+| 57 | SN_ISO | VARCHAR2 | N |  |
+| 58 | TP_CONTROLE_SALDO | VARCHAR2 | Y |  |
+| 59 | VL_PERC_LEILAO_REVERSO | NUMBER | Y |  |
+| 60 | SN_CONTROLA_EST_ORCAMENTARIO | VARCHAR2 | N |  |
+| 61 | SN_GERA_ORD_PADRO_NAO_PADRO | VARCHAR2 | N |  |
+| 62 | SN_BLOQUEAR_RESERVADO | VARCHAR2 | Y |  |
+| 63 | CD_FARMACEUTICO_RESP | NUMBER | Y |  |
+| 64 | SN_PERMITIR_SAIDA_SALDO | VARCHAR2 | Y |  |
+| 65 | SN_VISUALIZA_TODAS_EMPRESAS | VARCHAR2 | Y |  |
+| 66 | NR_COLUNAS_ZEBRA | NUMBER | Y |  |
+| 67 | DESLOCAMENTO_ZEBRA | NUMBER | Y |  |
+| 68 | POS_INIC_ZEBRA | NUMBER | Y |  |
+| 69 | QTD_CARACTERE_ZEBRA | NUMBER | Y |  |
+| 70 | SN_EXIGE_JUSTIFICA | VARCHAR2 | N |  |
+| 71 | SN_CONFIRMACAO_AUTO | VARCHAR2 | Y |  |
+| 72 | SN_PRODUTO_PARA_FFCV | VARCHAR2 | Y |  |
+| 73 | SN_PRODUTO_PARA_PAGU | VARCHAR2 | Y |  |
+| 74 | SN_ALTERA_DATA_SOLCOM | VARCHAR2 | N |  |
+| 75 | SN_DEVOLUCAO_NO_DIA | VARCHAR2 | Y |  |
+| 76 | NM_CARGO_ORDCOM1 | VARCHAR2 | Y |  |
+| 77 | NM_CARGO_ORDCOM2 | VARCHAR2 | Y |  |
+| 78 | NM_CARGO_ORDCOM3 | VARCHAR2 | Y |  |
+| 79 | CD_FORNECEDOR | NUMBER | Y |  |
+| 80 | CD_SUB_CLA_CAIXA | NUMBER | Y |  |
+| 81 | CD_CLASSE_CAIXA | NUMBER | Y |  |
+| 82 | CD_ESPECIE_CAIXA | NUMBER | Y |  |
+| 83 | QT_MAXIMA_ALERTA | NUMBER | Y |  |
+| 84 | SN_IMPORTA_COLETA_PRECO | VARCHAR2 | N |  |
+| 85 | SN_MOSTRA_VAL_PROC | VARCHAR2 | N |  |
+| 86 | SN_FECHA_MODAL | VARCHAR2 | Y |  |
+| 87 | SN_VIS_PROD | VARCHAR2 | N |  |
+| 88 | SN_KIT_REL_CIRURG | VARCHAR2 | N |  |
+| 89 | NR_DIAS_RETROATIVOS | NUMBER | Y |  |
+| 90 | NR_HORAS_RETROATIVAS | NUMBER | Y |  |
+| 91 | NR_DIAS_INCL_MOV_APOS_ALTA | NUMBER | Y |  |
+| 92 | NR_HORAS_INCL_MOV_APOS_ALTA | NUMBER | Y |  |
+| 93 | CD_TAB_FAT | NUMBER | Y |  |
+| 94 | SN_UNIDADE_AUTOMATICO | VARCHAR2 | N |  |
+| 95 | NM_CARGO_ORDCOM4 | VARCHAR2 | Y |  |
+| 96 | SN_ATENDER_PARCIAL | VARCHAR2 | N |  |
+| 97 | SN_DUPL_NR_DOCUMENTO | VARCHAR2 | N |  |
+| 98 | SN_HAB_IPI | VARCHAR2 | N |  |
+| 99 | SN_HAB_DESCONTO | VARCHAR2 | N |  |
+| 100 | SN_CONTROLA_EMPENHO | VARCHAR2 | N |  |
+| 101 | NR_HORAS_ATENDIME_AMBULA | NUMBER | Y |  |
+| 102 | SN_VISUALIZAR_TODOS_SETORES | VARCHAR2 | Y |  |
+| 103 | SN_ATENDE_SOLICITACAO_ANTES | VARCHAR2 | Y |  |
+| 104 | TP_CHECAR_DT_VAL | VARCHAR2 | N |  |
+| 105 | SN_PRIORIZA_SOLSAI_PRO_URGENTE | VARCHAR2 | N |  |
+| 106 | SN_BIONEXO | VARCHAR2 | Y |  |
+| 107 | SN_ARRE_CALC_DEMANDA | VARCHAR2 | Y |  |
+| 108 | TP_AVALIACAO | VARCHAR2 | Y |  |
+| 109 | TP_RODA_CUSTO | VARCHAR2 | Y |  |
+| 110 | TP_FASE_PROCESSO | VARCHAR2 | Y |  |
+| 111 | SN_AUTORIZA_EM_SERIE | VARCHAR2 | N |  |
+| 112 | SN_IMPRIME_OC_APOS_AUT | VARCHAR2 | N |  |
+| 113 | SN_INTEGRA_SINTESE | VARCHAR2 | N |  |
+| 114 | DS_REL_SOL_COM_FORNEC | VARCHAR2 | Y |  |
+| 115 | TP_UNIDADE_PACIENTE_SOLIC | VARCHAR2 | Y |  |
+| 116 | TP_UNIDADE_SETOR_SOLIC | VARCHAR2 | Y |  |
+| 117 | TP_UNIDADE_ESTOQUE_SOLIC | VARCHAR2 | Y |  |
+| 118 | TP_RESTRICAO_PACIENTE_SOLIC | VARCHAR2 | Y |  |
+| 119 | TP_RESTRICAO_SETOR_SOLIC | VARCHAR2 | Y |  |
+| 120 | TP_RESTRICAO_ESTOQUE_SOLIC | VARCHAR2 | Y |  |
+| 121 | SN_PRECO_COLETA | VARCHAR2 | N |  |
+| 122 | TP_PROCESSO_CONSIG | VARCHAR2 | Y |  |
+| 123 | DT_PROCESSO_CONSIG | DATE | Y |  |
+| 124 | SN_AGREGA_FRETE_CUSTO_MEDIO | VARCHAR2 | Y |  |
+| 125 | SN_SELECAO_PRODUTO_INVENTARIO | VARCHAR2 | Y |  |
+| 126 | SN_SUGERE_PRODUTO_RELACIONADO | VARCHAR2 | Y |  |
+| 127 | SN_EXIGE_JUSTIFICA_SERVICO | VARCHAR2 | Y |  |
+| 128 | SN_CONTROLA_KIT | VARCHAR2 | Y |  |
+| 129 | SN_REABRIR_MOVIMENTACAO | VARCHAR2 | N |  |
+| 130 | SN_ATENDER_SOL_PAC | VARCHAR2 | Y |  |
+| 131 | SN_ATENDER_SOL_EST | VARCHAR2 | Y |  |
+| 132 | SN_ATENDER_SOL_SETOR | VARCHAR2 | Y |  |
+| 133 | HORA_ANT_ATD | NUMBER | Y |  |
+| 134 | TP_SOLIC | VARCHAR2 | Y |  |
+| 135 | TP_APLICACAO_DIRETA | VARCHAR2 | Y |  |
+| 136 | QT_DIAS_ANALISE | NUMBER | Y |  |
+| 137 | VL_PERCENT_VAR_CONSUMO | NUMBER | Y |  |
+| 138 | SN_IMPRIME_ETIQUETA | VARCHAR2 | N |  |
+| 139 | SN_OPME_BLOQ_ENTRADA_PROD | VARCHAR2 | Y |  |
+| 140 | SN_CUSTO_MEDIO_MENSAL | VARCHAR2 | N |  |
+| 141 | DT_CUSTO_MEDIO_MENSAL | DATE | Y |  |
+| 142 | SN_VALIDA_ITEM | VARCHAR2 | Y |  |
+| 143 | SN_RETORNA_SOLICITACAO | VARCHAR2 | Y |  |
+| 144 | SN_RETORNA_URGENCIA | VARCHAR2 | Y |  |
+| 145 | SN_URGENCIA_TURNO | VARCHAR2 | Y |  |
+| 146 | SN_FECHA_AUTOMATICO | VARCHAR2 | Y |  |
+| 147 | SN_AJUSTA_CONSIGNADO | VARCHAR2 | N |  |
+| 148 | DT_MUDANCA_REAL_CUSTO_MEDIO | DATE | Y |  |
+| 149 | TP_LAYOUT_BIONEXO | VARCHAR2 | N |  |
+| 150 | TP_CUSTO_TRANSF_EMP | VARCHAR2 | Y |  |
+| 151 | SN_AUTORIZA_OC_BIONEXO | VARCHAR2 | Y |  |
+| 152 | TP_PADRAO_ARQUIVO_BIONEXO | VARCHAR2 | Y |  |
+| 153 | SN_ATIVA_BIONEXO_XML | VARCHAR2 | Y |  |
+| 154 | SN_BUSCA_MVTO_KIT | VARCHAR2 | N |  |
+| 155 | SN_ATIVA_OPMENEXO | VARCHAR2 | Y |  |
+| 156 | SN_DEVOLUCAO_BAIXA_AUTO | VARCHAR2 | N |  |
+| 157 | SN_CONTROLA_ATEND_DEVOL | VARCHAR2 | N |  |
+| 158 | CD_MOT_BAIXA_AUTO | NUMBER | Y |  |
+| 159 | SN_CONTROLA_PROD_DOACAO | VARCHAR2 | N |  |
+| 160 | SN_BUSCA_VL_OPME_GUIA_ENTRADA | VARCHAR2 | Y |  |
+| 161 | SN_CONTROLA_IMPRESSAO_ETIQUETA | VARCHAR2 | N |  |
+| 162 | SN_ENVIA_EMAIL_COMPRADOR | VARCHAR2 | Y |  |
+| 163 | SN_APROVA_SC_EM_SERIE | VARCHAR2 | N |  |
+| 164 | TP_BIONEXO_PARCELA_ORDEM_COMP | VARCHAR2 | N |  |
+| 165 | SN_EXIGIR_JUSTIF_CANC_SOLIC | VARCHAR2 | N |  |
+| 166 | CD_TIP_DOC_TRANSF | NUMBER | Y |  |
+| 167 | CD_CFOP_TRANSF | NUMBER | Y |  |
+| 168 | SN_EXIBE_PENDENCIA_OC | VARCHAR2 | N |  |
+| 169 | SN_GERA_DUPL_AUTO_OC | VARCHAR2 | Y |  |
+| 170 | SN_NOMENCLATURA_LASA | VARCHAR2 | N |  |
+| 171 | SN_MESTRE_FORMULA | VARCHAR2 | N |  |
+| 172 | TP_VERIFICA_PRODUTO_KIT | VARCHAR2 | N |  |
+| 173 | TP_VERIFICA_QUANTIDADE_KIT | VARCHAR2 | N |  |
+| 174 | TP_ESTOQUE_MOV_GASTO_SALA | VARCHAR2 | N |  |
+| 175 | SN_OBRIGA_OC_NF | VARCHAR2 | N |  |
+| 176 | SN_INT_MERCADO_ELETRONICO | VARCHAR2 | N |  |
+| 177 | SN_INC_NOTA_MERC_ELETRONICO | VARCHAR2 | N |  |
+| 178 | QT_LAB_PRO_MERC_ELETRONICO | NUMBER | N |  |
+| 179 | SN_BLOQ_MVTO_APOS_ALTA | VARCHAR2 | N |  |
+| 180 | SN_CONSIDERA_FATOR_PROD_BION | VARCHAR2 | Y |  |
+| 181 | SN_LOTE_VAL_PRD_EMP | VARCHAR2 | N |  |
+| 182 | SN_CONFIRMA_TRANSF_EST | VARCHAR2 | N |  |
+| 183 | SN_EXIGE_CHANCELA | VARCHAR2 | Y |  |
+| 184 | SN_EXIGE_CHANCELA_URG | VARCHAR2 | Y |  |
+| 185 | TP_PRESCRICAO_EXIGE_CHANCELA | VARCHAR2 | Y |  |
+| 186 | SN_OBRIGA_ICMS_ENTRADA | VARCHAR2 | N |  |
+| 187 | SN_UTILIZA_CAPA_LIVRO_HOSPITAL | VARCHAR2 | N |  |
+| 188 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 189 | SN_QUESTIONARIO | VARCHAR2 | Y |  |
+| 190 | TP_ORDENA_ORDCOM | VARCHAR2 | Y |  |
+| 191 | SN_VISUALIZA_SALDO_SOLICITACAO | VARCHAR2 | N |  |
+| 192 | SN_AUT_EM_SERIE_SOLIC_COMPRA | VARCHAR2 | N |  |
+| 193 | SN_ATUA_CURVA_ABC_CONSOLIDACAO | CHAR | Y |  |
+| 194 | SN_MODIFICA_COND_PAG | VARCHAR2 | Y |  |
+| 195 | SN_PERMITE_DIVER_ORD_COM | VARCHAR2 | Y |  |
+| 196 | VL_PERCENTUAL_VARIACAO_ORD_COM | NUMBER | Y |  |
+| 197 | SN_DESC_IPI_ORD_COM_SERV | VARCHAR2 | Y |  |
+| 198 | SN_IMP_ORD_COM | VARCHAR2 | Y |  |
+| 199 | SN_PADRONIZADO_EMP | VARCHAR2 | N |  |
+| 200 | SN_LANC_EST_SOL_COM_SERV | VARCHAR2 | Y |  |
+| 201 | SN_PERMITE_VALIDADE_VENCIDA | VARCHAR2 | Y |  |
+| 202 | SN_ENVIA_EMAIL_AUT_OC_SERIE | VARCHAR2 | N |  |
+| 203 | SN_VALIDA_MARCA_PROD_BIONEXO | VARCHAR2 | N |  |
+| 204 | SN_PERM_ALTR_DT_PRD_CONCL_MOV | VARCHAR2 | N |  |
+| 205 | SN_CTRL_RET_SD_RCBM_PARCI_TRNS | VARCHAR2 | N |  |
+| 206 | SN_PERMITIR_NF_PROD_SERV | VARCHAR2 | N |  |
+| 207 | SN_UTILIZA_DISPENS_ELETRONICO | VARCHAR2 | N |  |
+| 208 | SN_TRANSITORIO_PERMANENTE | VARCHAR2 | N |  |
+| 209 | SN_REALIZA_ACERTO_ESTOQUE | VARCHAR2 | N |  |
+| 210 | SN_MANIPULA_MEDICAMENTO | VARCHAR2 | Y |  |
+| 211 | SN_MAPA_DISTINTO | VARCHAR2 | Y |  |
+| 212 | SN_RASTREIA_S_CONTROLAR_QUANT | VARCHAR2 | N |  |
+| 213 | SN_LANCA_MOTIVO_CONTAGEM | VARCHAR2 | N |  |
+| 214 | SN_APLICACAO_DIRETA | VARCHAR2 | N |  |
+| 215 | SN_UTILIZA_DESC_COMERCIAL | VARCHAR2 | N |  |
+| 216 | SN_BLOQUEIA_ATND_IT_PRESC_SUSP | VARCHAR2 | N |  |
+| 217 | SN_USA_RESTRICAO_ESPECIE_CPRDR | VARCHAR2 | N |  |
+| 218 | SN_ATIVA_INATIVA_ITEM_PRESC | VARCHAR2 | N |  |
+| 219 | SN_UTILIZA_CENTRAL_COMPRA | VARCHAR2 | N |  |
+| 220 | TP_MATERIAL_CENTRAL_CPR | VARCHAR2 | N |  |
+| 221 | SN_EXIBE_GUIA_CENTRAL_CPR | VARCHAR2 | N |  |
+| 222 | SN_EXIBE_SOLICITA_CENTRAL_CPR | VARCHAR2 | N |  |
+| 223 | SN_EXIBE_ORDEM_CENTRAL_CPR | VARCHAR2 | N |  |
+| 224 | SN_EXIBE_NOTA_FISC_CENTRAL_CPR | VARCHAR2 | N |  |
+| 225 | SN_EXIBE_PAGAMENTO_CENTRAL_CPR | VARCHAR2 | N |  |
+| 226 | TP_LAYOUT_XLS | VARCHAR2 | Y |  |
+| 227 | SN_OBRIGA_LOTE_VALIDADE_MOV | VARCHAR2 | N |  |
+| 228 | SN_EXIBE_CONSUMO_CENTRAL_CPR | VARCHAR2 | N |  |
+| 229 | SN_OBRIGA_CNPJ_FABRICANTE | VARCHAR2 | N |  |
+| 230 | SN_COMPLEMENTO_REFERENCIA | VARCHAR2 | N |  |
+| 231 | SN_CONTROLA_UND_INTEGRACAO | VARCHAR2 | N |  |
+| 232 | QT_TP_UNID_INTEGRACAO | NUMBER | Y |  |
+| 233 | SN_CONTROLA_EXIBICAO_PRODUTO | VARCHAR2 | N |  |
+| 234 | SN_HAB_CONT_VISUAL_PROD | VARCHAR2 | N |  |
+| 235 | DT_MAXIMA_EXIBE_PRO | DATE | Y |  |
+| 236 | SN_CONF_RECEB_SOLICITACAO | VARCHAR2 | Y |  |
+| 237 | SN_TIPO_RECEB_SOLICITACAO | VARCHAR2 | Y |  |
+| 238 | SN_CONF_USUARIO_ESPECIE | VARCHAR2 | Y |  |
+| 239 | SN_RECEB_SO_ESPECIE_CADASTRADA | VARCHAR2 | Y |  |
+| 240 | SN_CONTROLA_CADASTRO_PRODUTO | VARCHAR2 | N |  |
+| 241 | SN_EXIBE_COL_LIC_MEDICA | VARCHAR2 | Y |  |
+| 242 | SN_EMAIL_CENTRAL_CPR | VARCHAR2 | Y |  |
+| 243 | SN_UTILIZA_LOGO_CENTRAL_CPR | VARCHAR2 | Y |  |
+| 244 | LO_ANEXO_LOGO | BLOB | Y |  |
+| 245 | SN_INDENTIFICADOR_UNICO_PRD | VARCHAR2 | N |  |
+| 246 | SN_CONTROLA_ALCADA_OPME_SUPRI | VARCHAR2 | Y |  |
+| 247 | SN_DEVOLUCAO_CONSIGNADO | VARCHAR2 | Y |  |
+| 248 | SN_HAB_PROD_NOR_CON | VARCHAR2 | N |  |
+| 249 | SN_SUGERE_LOTE_PRODUCAO | VARCHAR2 | N |  |
+| 250 | SN_AVALIACAO_FARMACEUTICA | VARCHAR2 | N |  |
+| 251 | SN_CONF_SOLICITACAO_ESPECIE | VARCHAR2 | N |  |
+| 252 | SN_BLOQ_SOLIC_DEV_SEM_CONFIRM | VARCHAR2 | N |  |
+| 253 | SN_ZERAR_CENTAVOS_NT_CRE_DEB | VARCHAR2 | N |  |
+| 254 | SN_UTILIZA_NOTA_CRE_DEB | VARCHAR2 | N |  |
+| 255 | TP_CAMBIO_NOTA_CRE_DEB | VARCHAR2 | Y |  |
+| 256 | SN_UTILIZA_NCF_COMO_NUMERO_NF | VARCHAR2 | Y |  |
+| 257 | CD_MOT_BAIXA_DESCARTE | NUMBER | Y |  |
+| 258 | CD_MOT_BAIXA_ACERTO | NUMBER | Y |  |
+| 259 | QT_TEMPO_ATUALIZACAO_TELA | NUMBER | Y |  |
+| 260 | SN_ORDEM_ADM_MEDICAMENTO | VARCHAR2 | Y |  |
+| 261 | SN_CONF_UNID_INT_SETOR | VARCHAR2 | N |  |
+| 262 | SN_INFORMA_CFOP | VARCHAR2 | Y |  |
+| 263 | SN_OBRIGA_CFOP | VARCHAR2 | Y |  |
+| 264 | SN_INFORMA_CST | VARCHAR2 | Y |  |
+| 265 | SN_OBRIGA_CST | VARCHAR2 | Y |  |
+| 266 | SN_CFOP_CST_ENT_PRO | VARCHAR2 | Y |  |
+| 267 | SN_CFOP_CST_EMPRESTIMO | VARCHAR2 | Y |  |
+| 268 | SN_CFOP_CST_CONSIGNADO | VARCHAR2 | Y |  |
+| 269 | SN_CFOP_CST_BAIXA | VARCHAR2 | Y |  |
+| 270 | SN_CFOP_CST_ACERTO_ESTOQUE | VARCHAR2 | Y |  |
+| 271 | SN_CFOP_CST_TRA_PRO_EMP | VARCHAR2 | Y |  |
+| 272 | SN_CONTROLA_PROC_CONC_MOV | VARCHAR2 | N |  |
+| 273 | SN_INTEGRA_SPED_TERCEIRO | VARCHAR2 | N |  |
+| 274 | SN_TRANSF_EMPRE_PROD_REPROC | VARCHAR2 | N |  |
+| 275 | TP_CUSTO_TRANSF_EMPRE_REPROC | VARCHAR2 | Y |  |
+| 276 | DT_TRANSF_EMPRE_REPROC | DATE | Y |  |
+| 277 | USER_TRANSF_EMPRE_REPROC | VARCHAR2 | Y |  |
+| 278 | SN_OVERFILL_DOSE | VARCHAR2 | Y |  |
+| 279 | TP_TRANSFERENCIA_DOSE | VARCHAR2 | Y |  |
+| 280 | SN_OC_PESQUISA_AUTOMATICA | VARCHAR2 | Y |  |
+| 281 | SN_PERM_DEV_PROD_VENCIDO | VARCHAR2 | Y |  |
+| 282 | SN_CONTROLA_OBRIGA_ISO | VARCHAR2 | Y |  |
+| 283 | SN_OBRIGA_INFOR_ENT_SERV | VARCHAR2 | N |  |
+| 284 | SN_UTILIZA_VENDA_MED | VARCHAR2 | N |  |
+| 285 | SN_OBRIGA_RATEIO_ENT_SERV | VARCHAR2 | Y |  |
+| 286 | CD_MOT_CANCEL_ORDCOM | NUMBER | Y |  |
+| 287 | SN_VALIDA_FORN_MATRIZ_FILIAL | VARCHAR2 | Y |  |
+| 288 | SN_UTILIZA_TELA_ESPEC_KIT | VARCHAR2 | N |  |
+| 289 | SN_BLOQ_SOLSAI_PRO_PAC | VARCHAR2 | N |  |
+| 290 | SN_CNPJ_FORNEC_ENT_PRO | VARCHAR2 | N |  |
+| 291 | SN_EXIBE_RATEIO_REL_ENTRADA | VARCHAR2 | N |  |
+| 292 | TP_CALCULO_RANKING | VARCHAR2 | Y |  |
+| 293 | SN_OBRIGA_PRE_MED_SAI_PAC | VARCHAR2 | N |  |
+| 294 | SN_ALTERA_SC_SEM_DESAPROV | VARCHAR2 | N |  |
+| 295 | SN_ALTERA_AVALIA_MES_FECHADO | VARCHAR2 | Y |  |
+| 296 | SN_FILTRA_QUESTIONARIO | VARCHAR2 | Y |  |
+| 297 | SN_BLOQ_COMPRA_GERAL | VARCHAR2 | N |  |
+| 298 | SN_VINCULA_MARCA_FAB_MESTRE | VARCHAR2 | N |  |
+| 299 | SN_APAGA_APROVADORES_OC | VARCHAR2 | N |  |
+| 300 | SN_HAB_VAL_CFOP | VARCHAR2 | N |  |
+| 301 | SN_VALIDA_MARCA_ANVISA | VARCHAR2 | N |  |
+| 302 | SN_AVALIACAO_AVULSA | VARCHAR2 | N |  |
+| 303 | SN_HAB_VAL_INS | VARCHAR2 | N |  |
+| 304 | SN_UTILIZA_SOLSAI_PRO_KARDEX | VARCHAR2 | N |  |
+| 305 | SN_PROCESSO_INVENTARIO_ETAPAS | VARCHAR2 | N |  |
+| 306 | SN_DEFINE_USUARIO_ETAPAS | VARCHAR2 | N |  |
+| 307 | SN_CONCILIAR_EMPRESTIMO | VARCHAR2 | N |  |
+| 308 | SN_VALID_PEND_EMP_AUT | VARCHAR2 | N |  |
+| 309 | TP_PRODUTO_PERMITIDO_REC | VARCHAR2 | N |  |
+| 310 | TP_QUATIDADE_PERMITIDO_REC | VARCHAR2 | N |  |
+| 311 | TP_VALOR_PERMITIDO_REC | VARCHAR2 | N |  |
+| 312 | VL_PERC_PERMITIDO_REC | NUMBER | Y |  |
+| 313 | TP_PRODUTO_PERMITIDO_CON | VARCHAR2 | N |  |
+| 314 | TP_QUATIDADE_PERMITIDO_CON | VARCHAR2 | N |  |
+| 315 | TP_VALOR_PERMITIDO_CON | VARCHAR2 | N |  |
+| 316 | VL_PERC_PERMITIDO_CON | NUMBER | Y |  |
+| 317 | SN_APURA_MOV_DIARIA | VARCHAR2 | N |  |
+| 318 | SN_HABILITA_IMPOSTO_ENT_PRO | VARCHAR2 | N |  |
+| 319 | SN_HABILITA_CHK_CONTRATO_OC | VARCHAR2 | N |  |
+| 320 | SN_VALIDADE_LOTE_EM_HORAS | VARCHAR2 | N |  |
+| 321 | SN_GERA_SC_SOLICITADO | VARCHAR2 | N |  |
+| 322 | SN_VISUALIZA_SC_OC_AUTORIZADA | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CDDL_DATNETS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | MREF | NUMBER | Y |  |
+| 2 | PDAT | NUMBER | Y |  |
+| 3 | CDAT | NUMBER | Y |  |
+
+---
+
+## DBASGU.CE_EXCESSAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EXCESSAO | NUMBER | N |  |
+| 2 | OWNER | VARCHAR2 | N |  |
+| 3 | NM_OBJETO | VARCHAR2 | N |  |
+| 4 | TP_ACAO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CE_EXCESSAO_CLIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EXCESSAO | NUMBER | N |  |
+| 2 | CD_CLIENTE | NUMBER | N |  |
+
+---
+
+## DBASGU.CE_OBJETO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OBJETO | NUMBER | N |  |
+| 2 | OWNER | VARCHAR2 | N |  |
+| 3 | NM_OBJETO | VARCHAR2 | N |  |
+| 4 | TP_OBJETO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CE_OBJETO_COLUNA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OBJETO | NUMBER | N |  |
+| 2 | NR_SEQUENCIA | NUMBER | N |  |
+| 3 | NM_COLUNA | VARCHAR2 | N |  |
+| 4 | TP_COLUNA | VARCHAR2 | N |  |
+| 5 | NR_TAMANHO | NUMBER | Y |  |
+| 6 | NR_PRECISAO | NUMBER | Y |  |
+| 7 | VL_DEFAULT | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.CE_OBJETO_DETALHE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OBJETO | NUMBER | N |  |
+| 2 | TP_CONSTRAINT | VARCHAR2 | Y |  |
+| 3 | NM_TABELA | VARCHAR2 | Y |  |
+| 4 | CONSTRAINT_PAI | VARCHAR2 | Y |  |
+| 5 | USUARIO_PAI | VARCHAR2 | Y |  |
+| 6 | TP_DELECAO | VARCHAR2 | Y |  |
+| 7 | DS_CONDICAO | VARCHAR2 | Y |  |
+| 8 | SN_NOME_GERADO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.CE_OBJETO_TEXTO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_OBJETO | NUMBER | N |  |
+| 2 | NR_SEQUENCIA | NUMBER | N |  |
+| 3 | TEXTO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CE_RESULTA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_COMP | NUMBER | N |  |
+| 2 | CD_IMAGEM_VERSAO | VARCHAR2 | N |  |
+| 3 | CD_VERSAO_COMPARADA | VARCHAR2 | N |  |
+| 4 | CD_SITUACAO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CE_RESULTA_COMANDO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_COMP | NUMBER | N |  |
+| 2 | CD_OBJETO | NUMBER | N |  |
+| 3 | NR_SEQUENCIA | NUMBER | N |  |
+| 4 | TEXTO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.CE_RESULTA_OBJETO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_COMP | NUMBER | N |  |
+| 2 | CD_OBJETO | NUMBER | N |  |
+| 3 | NM_OBJETO | VARCHAR2 | N |  |
+| 4 | TP_OBJETO | VARCHAR2 | N |  |
+| 5 | CD_ACAO | VARCHAR2 | N |  |
+| 6 | OWNER | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.CG_FORM_HELP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | HLP_APPLN | VARCHAR2 | N |  |
+| 2 | HLP_INDEX | VARCHAR2 | N |  |
+| 3 | HLP_MODTAB_NAME | VARCHAR2 | Y |  |
+| 4 | HLP_GENERATED | VARCHAR2 | Y |  |
+| 5 | HLP_SEQ | NUMBER | N |  |
+| 6 | HLP_TEXT | VARCHAR2 | Y |  |
+| 7 | HLP_TYPE | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CHECAGEM_IMPLANTACAO
+> Tabela de checagem de implantac?o dos processos do MV2000
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CHECAGEM_IMPLANTACAO | NUMBER | N | Codigo da chave primaria da tabela de checagem, sequence |
+| 2 | CD_PROCESSO | NUMBER | N | Codigo do processo checado |
+| 3 | CD_USUARIO | VARCHAR2 | N | Usuario responsavel pela checagem |
+| 4 | DT_CHECAGEM | DATE | N | Data da checagem do processo |
+| 5 | QT_REGISTROS | NUMBER | N | Quantidade de registros checados |
+
+---
+
+## DBASGU.CLIENTE
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CLIENTE | NUMBER | N |  |
+| 2 | NM_CLIENTE | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CONFIGURACAO_COLUNA_CABEC
+> Tabela para armazenar cadastro da configuracao de colunas do relatorio em colunas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIGURACAO_COLUNA_CABEC | NUMBER | N | Codigo da configuracao do cabecalho em coluna chave primaria |
+| 2 | CD_CONFIGURACAO_LINHA_CABEC | NUMBER | Y | Codigo da configuracao da linha relacionada a coluna do cabecalho |
+| 3 | NR_COLUNA | NUMBER | N | Campo que informa o numero da coluna relacionada |
+| 4 | VL_POSICAO | VARCHAR2 | Y | Campo que informa o valor referente a celula que ira aparecer no relatorio |
+
+---
+
+## DBASGU.CONFIGURACAO_LINHA_CABEC
+> Tabela para armazenar cadastro da configuracao de linhas do relatorio em colunas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIGURACAO_LINHA_CABEC | NUMBER | N | Codigo do relatorio cabecalho da linha em coluna chave primaria |
+| 2 | CD_RELATORIO_CABECALHO_COLUNA | NUMBER | Y | Campo que informa o codigo do relatorio cabecalho em coluna |
+| 3 | NR_LINHA | NUMBER | N | Campo que informa o numero da linha relacionada |
+
+---
+
+## DBASGU.CONFIGURACAO_USUARIO
+> Tabela de controle dos campos obrigatórios ao cadastrar usuário.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_COLUNA | VARCHAR2 | N | Colunas da tabela DBASGU.USUARIOS |
+| 2 | DS_COMENTARIO_COLUNA | VARCHAR2 | Y | Comentário da coluna |
+| 3 | SN_NULLABLE_COLUNA | VARCHAR2 | N | Indica se a coluna pode ser nula |
+| 4 | SN_HABILITA_COLUNA | VARCHAR2 | N | Indica se a coluna vai estar habilitada |
+| 5 | SN_OBRIGA_COLUNA | VARCHAR2 | N | Indica se a coluna será obrigatória |
+| 6 | CD_MULTI_EMPRESA | NUMBER | N | Indica a qual empresa pertence a configuração |
+
+---
+
+## DBASGU.CONFIG_ITEM_MODULO
+> Tabela responsável pelas configurações dos itens das telas do Soul.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | CD_BLOCO | VARCHAR2 | N |  |
+| 3 | CD_ITEM | VARCHAR2 | N |  |
+| 4 | LABEL | VARCHAR2 | Y |  |
+| 5 | SN_VISIBLE | VARCHAR2 | N |  |
+| 6 | SN_ENABLED | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.CONFIG_SERVICO_EMAIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa configurada |
+| 2 | CD_CONFIG_SERVICO_EMAIL | NUMBER | N | Código da configuração |
+| 3 | DS_PORTA_SERVIDOR_EMAIL | VARCHAR2 | Y | Porta utilizada pelo servidor de e-mail |
+| 4 | DS_SERVIDOR_EMAIL | VARCHAR2 | Y | Endereço do servidor de e-mail |
+| 5 | NM_USUARIO_EMAIL | VARCHAR2 | Y | Nome do usuário a ser autenticado no servidor de e-mail |
+| 6 | DS_SENHA_EMAIL | VARCHAR2 | Y | Senha para autenticação no servidor de e-mail |
+| 7 | TP_CONFIG_ENVIO_EMAIL | VARCHAR2 | Y | Tipo de configuração para o envio de e-mail |
+| 8 | SN_AUTENTICACAO | VARCHAR2 | Y | Chave para indicar se o servidor de e-mail é autenticado |
+| 9 | URL_SERVICO_EMAIL | VARCHAR2 | Y |  |
+| 10 | SN_TP_ENVIO_EMAIL | VARCHAR2 | N | Define se os emails serão enviados via ORACLE(O) ou via Serviço(S) |
+| 11 | DS_DESC_REMETENTE | VARCHAR2 | N | Descrição do Remetente |
+
+---
+
+## DBASGU.CONFIG_SGU
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONFIG_SGU | NUMBER | N |  |
+| 2 | MINUTO_SOLICITACAO | NUMBER | N |  |
+| 3 | NM_TABLESPACE_DEFAULT | VARCHAR2 | Y |  |
+| 4 | NM_TABLESPACE_TEMP | VARCHAR2 | Y |  |
+| 5 | NR_EXECUTA_JOB | NUMBER | Y | Periodo para execuc?o do job |
+| 6 | SN_ATIVAR_JOB | VARCHAR2 | Y | Ativar job de gerac?o de dicionario de dados para tabelas |
+| 7 | NM_ENDERECO_EMAIL_AUDITORIA | VARCHAR2 | Y | Endereco de E-mail do remetente dos avisos da sobre auditoria |
+| 8 | NR_DIAS_LIMPEZA_AUTOMATICA | NUMBER | Y | Numero de dias para a limpeza automatica da auditoria (Processo realizado via job |
+| 9 | SN_AUDITORIA_LOBS | VARCHAR2 | Y | Se a auditoria vai auditar campos de tabelas dos tipos longs e lobs |
+| 10 | SN_BIOMETRIA_ACESSO | VARCHAR2 | N | Se será utilizada a configuração de Biometria do usuário para acesso ao sistema. |
+| 11 | SN_EMAIL_HTML | VARCHAR2 | N |  |
+| 12 | SN_EXIGE_AUTENTICACAO | VARCHAR2 | N | Indica se vai pedir a senha do usuário para abrir a tela M_AUTENTICACAO. |
+
+---
+
+## DBASGU.CONFIG_SGU_LDAP
+> TIPO DE DESTINATARIO DO BENEFICIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_URL | VARCHAR2 | Y | ENDERECO DO LDAP |
+| 2 | CD_AUTENTICACAO | VARCHAR2 | Y | TIPO DE AUTENTICACAO |
+| 3 | CD_USUARIO | VARCHAR2 | Y | USUARIO DO USUARIO COM ACESSO AO LDAP |
+| 4 | CD_SENHA | VARCHAR2 | Y | SENHA DO USUARIO COM ACESSO AO LDAP |
+| 5 | CD_BASE | VARCHAR2 | Y | ARQUITETURA DE PASTAS ONDE BUSCA OS USUARIOS |
+| 6 | CD_FILTRO | VARCHAR2 | Y | FILTRO UTILIZADO NO LDAP. |
+| 7 | CD_MULTI_EMPRESA | NUMBER | N | CODIGO DO MULTI EMPRESA |
+
+---
+
+## DBASGU.CRMI
+> Tabela que armazena os crms definidos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CRMI | NUMBER | N | Codigo do CRM |
+| 2 | DS_CRMI | VARCHAR2 | N | Descric?o do CRM. |
+| 3 | CD_CRMI_TIPO | NUMBER | N | Codigo do tipo de crm gerado. |
+| 4 | DT_EXIBICAO | DATE | N | Data de exibic?o inicial do crm. |
+| 5 | DT_VALIDADE | DATE | N | Data de validade do crm. |
+| 6 | DS_LOCALIZA_LINK | VARCHAR2 | N | Descreve o endereco que esta gravado o arquivo a ser exebido. |
+| 7 | QT_EXIBICAO | NUMBER | N | Quantidade de vezes que um crm sera exibido |
+
+---
+
+## DBASGU.CRMI_CONTROLE_EXIBICAO
+> Tabela que armazena as leituras dos CRM por usuario
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Identificac?o do usuario que fez a leitura do CRM. |
+| 2 | CD_CRMI | NUMBER | N | Codigo do crm gerado. |
+| 3 | QT_EXIBICAO | NUMBER | N | Quantidade de vezes que o crm e exibido por usuario. |
+
+---
+
+## DBASGU.CRMI_HOSPITAL
+> Tabela que armazena crms especificos para clientes
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CRMI | NUMBER | N | Codigo do crm especifico para cliente. |
+| 2 | CD_HOSPITAL | NUMBER | N | Codigo do cliente na cadastrado na MV. |
+
+---
+
+## DBASGU.CRMI_SISTEMA
+> Tabela que armazena os crm por sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CRMI | NUMBER | N | Codigo do CRM por sistema |
+| 2 | CD_SISTEMA | VARCHAR2 | N | Codigo do sistema utilizado para criar o CRM |
+
+---
+
+## DBASGU.CRMI_TIPO
+> Tabela que armazena os tipos possiveis de crm
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CRMI_TIPO | NUMBER | N | Codigo do tipo do CRM |
+| 2 | DS_CRMI_TIPO | VARCHAR2 | N | Descric?o do tipo do CRM. Exemplo: Newsletter, informativo. |
+| 3 | TP_CRM | VARCHAR2 | N | Tipos de CRM, newletter, Aniversario,data comemorativas, dicas, formulario,promoc?o , entrada em ... |
+
+---
+
+## DBASGU.DIRETRIZ_SENHA
+> Configurac?o que deve determinar as regras de criac?o de senha.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID | NUMBER | N |  |
+| 2 | NR_COMPRIMENTO_MAXIMO | NUMBER | N | Numero maximo de caracteres permitido na senha |
+| 3 | NR_COMPRIMENTO_MINIMO | NUMBER | N | Numero minimo de caracteres permitido na senha |
+| 4 | QT_TEMPO_MAXIMO | NUMBER | Y | Quantidade maximo de dias que o usuario pode ficar com a mesma senha |
+| 5 | QT_TEMPO_MINIMO | NUMBER | Y | Quantidade minima de dias para trocar de senha, ou seja, apos a troca da senha uma nova troca so ... |
+| 6 | QT_SENHA_RECENTE | NUMBER | N | Quantidade maxima de senhas que ser?o armazenadas para efeito de evitar que a senha seja repetida... |
+| 7 | SN_EXIGE_COMPLEXIDADE | VARCHAR2 | N | Determina se as senhas dever?o satisfazer a requisitos de complexidade. Por exemplo, N?o conter n... |
+
+---
+
+## DBASGU.DOCUMENTOS
+> TABELA DE VINCULO ENTRE O MODULO E DOCUMENTOS DO EDITOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N | CODIGO DO MODULO DO SISTEMA |
+| 2 | CD_REGISTRO | NUMBER | N | CCODIGO DO REGISTRO DO DOCUMENTO DO EDITOR |
+| 3 | SN_ATIVO | VARCHAR2 | N | INDICA SE O FORMULARIO ESTA ATIVO PARA O MODULO |
+| 4 | CD_USUARIO | VARCHAR2 | N | CODIGO DO USUARIO QUE REALIZOU A INCLUSÃO DA FORMULARIO |
+| 5 | DT_INCLUSAO | DATE | N | DATA DE INCLUSAO DO FORMULARIO |
+| 6 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y | CODIGO DO USUARIO QUE REALIZOU QUALQUER ALTERACAO NO REGISTRO |
+| 7 | DT_ALTERACAO | DATE | Y | DATA QUE FOI REALIZADA A ALTERACAO NO REGISTRO |
+| 8 | CD_MULTI_EMPRESA | NUMBER | N | CODIGO DA EMPRESA EM QUE FOI FEITA O REGISTRO DO DOCUMENTO |
+
+---
+
+## DBASGU.ESTAT_CON_MULT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DT_CON | DATE | N |  |
+| 2 | QT_CON | NUMBER | N |  |
+
+---
+
+## DBASGU.ESTAT_CON_MV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | MAQUINA | VARCHAR2 | N |  |
+| 2 | DT_ACESSO | DATE | N |  |
+| 3 | USERNAME | VARCHAR2 | Y |  |
+| 4 | OSUSER | VARCHAR2 | Y |  |
+| 5 | PROGRAMA | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.GRUPO_USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_GRUPO_USUARIO | NUMBER | N |  |
+| 2 | DS_GRUPO_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_ATIVO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.HIST_ALT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | DT_HIST_ALT | DATE | N |  |
+| 3 | HR_HIST_ALT | DATE | N |  |
+| 4 | DS_HISTORICO | VARCHAR2 | N |  |
+| 5 | NM_RESPONSAVEL | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.HORARIO_VERAO
+> Tabela de Horario de Ver?o.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_HORARIO_VERAO | NUMBER | N | Codigo de identificac?o do Horario de Ver?o |
+| 2 | DH_INICIO | DATE | N | Data e Hora Inicio do Horario de Ver?o |
+| 3 | DH_FINAL | DATE | N | Data e Hora Final do Horario de Ver?o |
+| 4 | QT_HORAS | NUMBER | N | Quantidade em horas para o Horario de Ver?o |
+| 5 | DS_FUSO_HORARIO | VARCHAR2 | N | Fuso Horario Local |
+| 6 | DS_LOCAL | VARCHAR2 | N | Descric?o Local |
+
+---
+
+## DBASGU.HOSPITAL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | HOSP_CD_HOSPITAL | NUMBER | N |  |
+| 2 | HOSP_DS_ENDERECO | VARCHAR2 | N |  |
+| 3 | HOSP_NM_BAIRRO | VARCHAR2 | N |  |
+| 4 | HOSP_NM_CIDADE | VARCHAR2 | N |  |
+| 5 | HOSP_NM_HOSPITAL | VARCHAR2 | N |  |
+| 6 | HOSP_NM_UF | VARCHAR2 | N |  |
+| 7 | HOSP_NR_CEP | NUMBER | N |  |
+| 8 | HOSP_NR_CGC | NUMBER | Y |  |
+| 9 | HOSP_NR_INSEST | VARCHAR2 | Y |  |
+| 10 | HOSP_NR_DDD1 | NUMBER | Y |  |
+| 11 | HOSP_NR_TELEFONE1 | NUMBER | Y |  |
+| 12 | HOSP_NR_DDD2 | NUMBER | Y |  |
+| 13 | HOSP_NR_TELEFONE2 | NUMBER | Y |  |
+| 14 | HOSP_VL_DEPOSITO | NUMBER | Y |  |
+| 15 | HOSP_DT_VALOR_DEPOSITO | DATE | Y |  |
+| 16 | HOSP_USUARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.IMPLANTACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CLIENTE | NUMBER | N |  |
+| 2 | CD_SISTEMA | VARCHAR2 | N |  |
+| 3 | DT_IMPLANTACAO | DATE | N |  |
+| 4 | NM_RESPONSAVEL | VARCHAR2 | N |  |
+| 5 | DS_IMPLANTACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.ITGRUPO_USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_GRUPO_USUARIO | NUMBER | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | Y |  |
+| 3 | CD_GRUPO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.ITPARAM_COND_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | TP_OPERACAO | VARCHAR2 | N |  |
+| 2 | VL_INICIAL | VARCHAR2 | N |  |
+| 3 | VL_FINAL | VARCHAR2 | Y |  |
+| 4 | DS_JOINER | VARCHAR2 | Y |  |
+| 5 | NM_PARAMETRO | VARCHAR2 | Y |  |
+| 6 | CD_ITPARAM_MODULO | NUMBER | N |  |
+
+---
+
+## DBASGU.ITPARAM_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITPARAM_MODULO | NUMBER | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | CD_PARAMETRO | VARCHAR2 | N |  |
+| 4 | NM_VALOR | VARCHAR2 | Y |  |
+| 5 | NR_ORDEM | NUMBER | Y |  |
+
+---
+
+## DBASGU.LOG_ACESSO_MV2000
+> Tabela que registra a conex?o ao sistema.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ACESSO | NUMBER | N | Codigo que idetifica a conex?o |
+| 2 | CD_SISTEMA_ORIGEM | VARCHAR2 | N | Sistema que gerou a conex?o |
+| 3 | CD_USUARIO | VARCHAR2 | N | Identificac?o do usuario conectado ao sistema |
+| 4 | MAQUINA | VARCHAR2 | Y | Nome da maquina que conectou ao sistema |
+| 5 | CD_USUARIO_REDE | VARCHAR2 | Y | Usuario de rede conectado ao sistema |
+| 6 | DT_CONEXAO | DATE | N | Data de conex?o ao sistema pelo usuario |
+| 7 | DT_DESCONEXAO | DATE | Y | Data de desconex?o do usuario |
+| 8 | CD_EMPRESA_CONEXAO | NUMBER | N | Empresa conectada pelo usuario |
+| 9 | TP_CONEXAO | VARCHAR2 | N | Tipo de conex?o no MV2000, senha ou biometria |
+
+---
+
+## DBASGU.LOG_SENHA
+> Registra o Hash das ultimas senhas utilizadas pelo usuario. A lista de senhas aqui utilizadas n?o se pode repetir. O numero de registros por usuario e determinado por configurac?o na tabela dbasgu.diretriz_senha
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Usuario que teve sua senha informada ou alterada |
+| 2 | CD_SENHA | VARCHAR2 | N | Hash(criptografia) da senha |
+| 3 | DH_REGISTRO | DATE | N | Data e hora que foi criado o registro de log |
+| 4 | CD_USUARIO_ALTERACAO | VARCHAR2 | N | Usuario que estava conectado ao fazer a alterac?o de senha |
+
+---
+
+## DBASGU.MENSAGEM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MENSAGEM | NUMBER | N |  |
+| 2 | CD_REMETENTE_MENSAGEM | VARCHAR2 | N |  |
+| 3 | DS_ASSUNTO_MENSAGEM | VARCHAR2 | N |  |
+| 4 | DH_ENVIO_MENSAGEM | DATE | N |  |
+| 5 | DS_MENSAGEM | VARCHAR2 | Y |  |
+| 6 | CD_MSG_ORIGEM | NUMBER | Y |  |
+| 7 | DH_ENTREGA | DATE | Y |  |
+| 8 | CD_ATENDIMENTO | NUMBER | Y |  |
+| 9 | TP_EMAIL | VARCHAR2 | N | Indica o Tipo do Email |
+| 10 | DS_DESTINATARIO | VARCHAR2 | Y | Indica o(s) Destinatarios do Email |
+| 11 | CD_AVISO_CIRURGIA | NUMBER | Y | Indica o Codigo do Aviso de Cirurgia |
+
+---
+
+## DBASGU.MENU
+> Tabela com o cadastro de todas as opc?es de menu do sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MENU | NUMBER | N | Chave primaria da tabela |
+| 2 | NM_MENU | VARCHAR2 | Y | Nome do menu que sera exibido para o usuario |
+| 3 | CD_MENU_PAI | NUMBER | Y | Codigo do menu ao qual este menu ou tela e relacionado |
+| 4 | CD_MODULO | VARCHAR2 | Y | Codigo do modulo a ser chamado pela opc?o de menu |
+| 5 | NR_ORDEM | NUMBER | Y | Importantissimo, diz a sequencia continua de ordenac?o dos menus |
+| 6 | TP_MENU | VARCHAR2 | Y | M-MENU, T-TELA(MODULO), W-LINK DA WEB, L-LINHA/SEPARADOR |
+| 7 | CD_TEXTO | NUMBER | Y | Codigo do Texto para Multi-Idioma |
+| 8 | NM_LINK | VARCHAR2 | Y | Nome do Link da Web a acessar quando o tipo do menu for W-WEBSITE |
+| 9 | SN_MIGRADO | VARCHAR2 | Y | Projeto Recife - Indica se o modulo ja foi migrado ou n?o |
+| 10 | NM_ICON | VARCHAR2 | Y | Nome da imagem a ser mostrada no menu dinamico |
+| 11 | TP_CRUD | VARCHAR2 | Y | Tipo de funcionamento da tela (C)onsulta ou (T)odos |
+| 12 | SN_ALTERADO | VARCHAR2 | N | Indica se houve alterac?o ou n?o |
+
+---
+
+## DBASGU.MENU_PROCESSO
+> Tabela responsável pelo cadastro do menu de processos dos usuários
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROCESSO | VARCHAR2 | N | Código identificador do menu de processo |
+| 2 | DS_PROCESSO | VARCHAR2 | N | Descrição do menu de processo que será exibido para o usuário |
+| 3 | NR_ORDEM | NUMBER | N | Ordem em que o processo será exibido no menu para o usuário |
+| 4 | DS_IMG_MENU | VARCHAR2 | Y | Imagem que será exibida no menu do usuário do processo |
+| 5 | SN_ATIVO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.MODELO_PROCESSO
+> Tabela para Inserir um modelo de processo - Sistema GECON
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODELO_PROCESSO | NUMBER | N | COLUNA DO C??DIGO DO MODELO |
+| 2 | NM_MODELO | VARCHAR2 | N | COLUNA NOME DO MODELO |
+| 3 | DS_MODELO | VARCHAR2 | N | COLUNA DA DESCRI????O DO MODELO |
+| 4 | NR_MAXIMO_USUARIO | NUMBER | Y | COLUNA QUANTIDADE MAXIMA DE USUARIOS |
+| 5 | NR_MINIMO_USUARIO | NUMBER | Y | COLUNA QUANTIDADE MINIMA DE USUARIOS |
+| 6 | SN_PADRAO | VARCHAR2 | N | COLUNA DO TIPO DE PADR??O (N - N??O) |
+| 7 | DS_CAMINHO_MAQUINA_VIRTUAL | VARCHAR2 | Y | COLUNA DE DESCRI????O DO CAMINHO ORIGEM DA MAQUINA VIRTUAL PARA INSTALA????O |
+| 8 | DS_CAMINHO_SERVIDOR_APLICACAO | VARCHAR2 | Y | COLUNA DE DESCRI????O DO CAMINHO ORIGEM DO SERVIDOR DE APLICA????O PARA INSTALA????O |
+| 9 | DS_CAMINHO_CLUSTER | VARCHAR2 | Y | COLUNA DE DESCRI????O DO CAMINHO ORIGEM DO CLUSTER PARA INSTALA????O |
+| 10 | DS_CAMINHO_APLICACAO | VARCHAR2 | Y | COLUNA DE DESCRI????O DO CAMINHO ORIGEM DA APLICACAO PARA INSTALA????O |
+| 11 | DS_CAMINHO_SERVIDOR_BANCO | VARCHAR2 | Y | COLUNA DE DESCRI????O DO CAMINHO ORIGEM DO SERVIDOR DE BANCO DE DADOS PARA INSTALA????O |
+
+---
+
+## DBASGU.MODULOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | NM_MODULO | VARCHAR2 | N |  |
+| 3 | TP_MODULO | VARCHAR2 | N |  |
+| 4 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 5 | CD_CLIENTE | NUMBER | Y |  |
+| 6 | CD_HELP | NUMBER | Y |  |
+| 7 | DT_CRIACAO | DATE | N |  |
+| 8 | CD_SISTEMA_DONO | VARCHAR2 | Y |  |
+| 9 | SN_ATIVO_REL_ESPECIFICO | VARCHAR2 | Y |  |
+| 10 | SN_ARMAZENA_PARAMETRO | VARCHAR2 | N |  |
+| 11 | SN_CF_ACESSO | VARCHAR2 | N | Identificar se o Modulo Existe Configuracao de Usuario sim ou Nao |
+| 12 | DS_MENU_PRINCIPAL | VARCHAR2 | Y | Identificar a localizadao do modulo dentro do sistema |
+| 13 | DS_TIPO_SEGMENTO | VARCHAR2 | Y | Identificar o tipo do segumento |
+| 14 | SN_SEG_ATIVO | VARCHAR2 | Y | Identificar se o Modulo esta ativo ou nao |
+| 15 | TP_TELA | VARCHAR2 | Y |  |
+| 16 | DS_CAMINHO | VARCHAR2 | Y | Caminho padr?o da tela no MV |
+| 17 | LO_ICONE | BLOB | Y | Icone padr?o da tela no MV |
+| 18 | TP_PERFIL | VARCHAR2 | N | Indica a qual area do perfil do usuario que o modulo podera ser utilizado. SISTEMA = Sistema, PES... |
+| 19 | SN_HTML5 | VARCHAR2 | N | PIndica se o módulo já foi migrado para o HTML5 |
+| 20 | SN_BIKE | VARCHAR2 | Y | Indica se a tela faz parte do escopo BIKE (S=Sim) |
+| 21 | SN_UTILIZA_CUSTOMIZACAO | VARCHAR2 | Y | Indica se a tela utiliza as customizações de exibição dos campos |
+
+---
+
+## DBASGU.MODULOS_BKP
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | NM_MODULO | VARCHAR2 | N |  |
+| 3 | TP_MODULO | VARCHAR2 | N |  |
+| 4 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 5 | CD_CLIENTE | NUMBER | Y |  |
+| 6 | CD_HELP | NUMBER | Y |  |
+| 7 | DT_CRIACAO | DATE | N |  |
+| 8 | CD_SISTEMA_DONO | VARCHAR2 | Y |  |
+| 9 | SN_ATIVO_REL_ESPECIFICO | VARCHAR2 | Y |  |
+| 10 | SN_ARMAZENA_PARAMETRO | VARCHAR2 | N |  |
+| 11 | SN_CF_ACESSO | VARCHAR2 | N |  |
+| 12 | DS_MENU_PRINCIPAL | VARCHAR2 | Y |  |
+| 13 | DS_TIPO_SEGMENTO | VARCHAR2 | Y |  |
+| 14 | SN_SEG_ATIVO | VARCHAR2 | Y |  |
+| 15 | TP_TELA | VARCHAR2 | Y |  |
+| 16 | DS_CAMINHO | VARCHAR2 | Y |  |
+| 17 | LO_ICONE | BLOB | Y |  |
+| 18 | TP_PERFIL | VARCHAR2 | N |  |
+| 19 | SN_HTML5 | VARCHAR2 | N |  |
+| 20 | SN_BIKE | VARCHAR2 | Y |  |
+| 21 | SN_UTILIZA_CUSTOMIZACAO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.MODULOS_IMPRESSORA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | DS_IMPRESSORA | VARCHAR2 | N |  |
+| 3 | NR_COPIAS | NUMBER | N |  |
+| 4 | TP_IMPRESSAO | VARCHAR2 | N |  |
+| 5 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa |
+
+---
+
+## DBASGU.MODULO_MENU_PROCESSO
+> Tabela responsável pelo cadastro de itens de menu do processo
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO_MENU_PROCESSO | NUMBER | N | Código identificador do módulo do processo |
+| 2 | CD_MODULO | VARCHAR2 | N | Código do módulo que será exibido |
+| 3 | DS_MODULO | VARCHAR2 | N | Descrição do módulo que será exibido no menu |
+| 4 | NR_ORDEM | NUMBER | N | Ordem em que o módulo será exibido no menu |
+| 5 | CD_PROCESSO | VARCHAR2 | N | Código do processo do menu |
+| 6 | CD_MODULO_MENU_PAI | NUMBER | Y | Código dos itens do submenu (Apenas para módulo MV_MENU) |
+
+---
+
+## DBASGU.MODULO_MENU_PROCESSO_PARAMETRO
+> TABELA DE VINCULO ENTRE OS PARAMETROS E O MENU
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MOD_MENU_PROCESSO_PARAMETRO | NUMBER | N | CODIGO SEQUENCIAL DA TABELA DE PARAMETROS |
+| 2 | CD_MODULO_MENU_PROCESSO | NUMBER | N | CODIGO DO SEQUENCIAL DO MENU |
+| 3 | CD_PARAMETRO | VARCHAR2 | N | CODIGO DO PARAMETRO DO MENU |
+| 4 | NM_PARAMETRO | VARCHAR2 | Y | NOME DO PARAMETRO DO MENU |
+| 5 | DS_PARAMETRO | VARCHAR2 | Y | VALOR DO PARAMETRO DO MENU |
+
+---
+
+## DBASGU.MOD_LOG_ACESSO_MV2000
+> Tabela que registra acesso atraves dos modulos.
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ACESSO | NUMBER | N | Codigo que identifica a conex?o |
+| 2 | CD_ID_ACESSO | NUMBER | N | Codigo que identifica a chamada a cada modulo |
+| 3 | CD_MODULO | VARCHAR2 | N | Nome do modulo que acessado pelo usuario. |
+| 4 | DT_ACESSO | DATE | Y | Data de acesso ao modulo |
+
+---
+
+## DBASGU.MOD_SIS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | CD_HELP | NUMBER | Y |  |
+
+---
+
+## DBASGU.MV_ADM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DS_LICENCA | VARCHAR2 | N |  |
+| 2 | NR_SERIE | VARCHAR2 | N |  |
+| 3 | CD_ACESSO | VARCHAR2 | N |  |
+| 4 | NR_LICENCA | VARCHAR2 | Y |  |
+| 5 | CTRL_ACESSO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.MV_ADM_CNPJ
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NR_SERIE | VARCHAR2 | N |  |
+| 2 | CTRL_ACESSO | NUMBER | N |  |
+| 3 | CD_MULTI_EMPRESA | NUMBER | N |  |
+
+---
+
+## DBASGU.MV_ADM_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | CD_CHAVE_ACESSO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PAPEL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N |  |
+| 2 | DS_PAPEL | VARCHAR2 | N |  |
+| 3 | TP_PAPEL | VARCHAR2 | Y | Identifica papeis de determinado setor |
+| 4 | CD_PRODUTO | VARCHAR2 | Y | Codigo do produto que o sistema pertence. |
+| 5 | SN_ATIVO | VARCHAR2 | N | Indicador de utilizacao |
+
+---
+
+## DBASGU.PAPEL_ACOES_FSCC
+> Tabela de Ac?es aos perfis de acesso a tela de solicitac?o de pre-agendamento cirurgico
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N | Codigo do papel associado as ac?es |
+| 2 | SN_IN_NOVAS_SOLIC_AGENDA | VARCHAR2 | N | Indica se o usuario podera cadastrar novas solicitac?es de pre-agendamento |
+| 3 | SN_UP_REGISTROS_SOLICITACOES | VARCHAR2 | N | Indica se o usuario podera inserir ou complementar informac?es dos registros de solicitac?es de p... |
+| 4 | SN_IN_DOC_ELETRONICO | VARCHAR2 | N | Indica se o usuario podera cadastrar um novo documento eletronico. |
+| 5 | SN_CONTATOS_REG_PACIENTE | VARCHAR2 | N | Indica se o usuario podera registrar contatos com o paciente |
+| 6 | SN_CONFIRMA_SOLIC_AGENDA | VARCHAR2 | N | Indica se o usuario podera confirmar solicitac?es de pre-agendamento |
+| 7 | SN_CANCELA_SOLIC_AGENDA | VARCHAR2 | N | Indica se o usuario podera cancelar solicitac?es de pre-agendamento |
+| 8 | SN_LIBERA_ANESTESISTA | VARCHAR2 | N | Indica se o usuario podera efetuar liberac?o do ponto de vista do anestesita |
+| 9 | SN_LIBERA_SETOR | VARCHAR2 | N | Indica se o usuario podera efetuar a liberac?o do setor responsavel pelas orientac?es |
+| 10 | SN_INCLUIR_ALTERAR_DESC_CIR | VARCHAR2 | N | Permite incluir ou alterar o campo de descricao cirurgica |
+| 11 | SN_INCLUIR_ALTERAR_RISCO_CIR | VARCHAR2 | N | Permite incluir ou alterar o campo de risco cirurgico |
+| 12 | SN_INCLUIR_ALTERAR_INTER_CIR | VARCHAR2 | N | Permite incluir ou alterar o campo de intercorrencia cirurgica |
+| 13 | SN_INCLUIR_ALTERAR_ATO_ANEST | VARCHAR2 | N | Permite incluir ou alterar o campo de ato anestesico |
+| 14 | SN_INCLUIR_ALTERAR_ACHADO_CIR | VARCHAR2 | N | Permite incluir ou alterar o campo de achados cirurgicos |
+
+---
+
+## DBASGU.PAPEL_ACOES_LAPROD
+> Tabela que armazena os papeis, ac?es e suas permiss?es sobre o Sistema LAPROD - Laboratorio de Analise de Produtos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N | Codigo do papel do SGU que sera associado as ac?es do LAPROD. Este Papel devera ser do tipo P. |
+| 2 | SN_CAD_AMOSTRA | VARCHAR2 | N | Permitir o cadastro de amostras |
+| 3 | SN_ALTERA_AMOSTRA | VARCHAR2 | N | Permitir Alterac?o de Amostras Cadastradas. |
+| 4 | SN_CANC_AMOSTRA | VARCHAR2 | N | Permitir Cancelamento de Amostras |
+| 5 | SN_RESTAURA_AMOSTRA | VARCHAR2 | N | Permitir restaurar uma amostra cancelada. |
+| 6 | SN_EXIG_AMOSTRA | VARCHAR2 | N | Permitir Colocar uma amostra em exigencia. |
+| 7 | SN_RETIRA_EXIG_AMOSTRA | VARCHAR2 | N | Permitir retirar uma amostra da exigencia. |
+| 8 | SN_GERA_AMOSTRA_CORRELATIVA | VARCHAR2 | N | Permitir gerar amostra correlativa. |
+| 9 | SN_GERA_AMOSTRA_CONTRAPROVA | VARCHAR2 | N | Permitir gerar amostra contraprova. |
+| 10 | SN_GERA_AMOSTRA_TESTEMUNHO | VARCHAR2 | N | Permitir gerar amostra testemunho. |
+| 11 | SN_COPIA_AMOSTRA | VARCHAR2 | N | Permitir copiar amostra. |
+| 12 | SN_IMPRIME_ETIQ_AMOSTA | VARCHAR2 | N | Permitir impress?o de etiqueta de amostra |
+| 13 | SN_CAD_ENSAIO | VARCHAR2 | N | Permitir cadastro de ensaios |
+| 14 | SN_ALTERA_ENSAIO | VARCHAR2 | N | Permitir alterac?o de ensaios |
+| 15 | SN_EXCLUI_ENSAIO | VARCHAR2 | N | Permitir exclus?o de ensaios |
+| 16 | SN_CAD_RESULTADO_ENSAIO | VARCHAR2 | N | Permitir cadastro de resultados de ensaios. |
+| 17 | SN_FINALIZA_RESULTADO | VARCHAR2 | N | Permitir finalizar resultados (amostra) |
+| 18 | SN_EXIG_ENSAIO | VARCHAR2 | N | Permitir colocar ensaio em exigencia. |
+| 19 | SN_RETIRA_EXIG_ENSAIO | VARCHAR2 | N | Permitir retirar o ensaio da exigencia. |
+| 20 | SN_CANC_ENSAIO | VARCHAR2 | N | Permitir cancelar ensaios. |
+| 21 | SN_EXEC_FICHA_CADASTRO | VARCHAR2 | N | Permitir executar ficha de cadastro. |
+| 22 | SN_IMPRIME_LAUDO_PARCIAL | VARCHAR2 | N | Permitir imprimir laudo parcial. |
+| 23 | SN_IMPRIME_LAUDO | VARCHAR2 | N | Permitir imprimir laudo final. |
+| 24 | SN_RESTAURA_ENSAIO | VARCHAR2 | N | Permitir restaurar ensaio cancelado. |
+
+---
+
+## DBASGU.PAPEL_ACOES_PSDI
+> Tabela de Ac?es relacionadas ao perfil do usuario do PSDI
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N | Codigo do perfil do usuario |
+| 2 | SN_IN_RESULTADO | VARCHAR2 | N | Indica se o usuario tera permiss?o para cadastrar resultado para o exame |
+| 3 | SN_UP_RESULTADO | VARCHAR2 | N | Indica se o usuario tera permiss?o para alterar resultado do exame |
+| 4 | SN_OUT_RESULTADO | VARCHAR2 | N | Indica se o usuario tera permiss?o para excluir resultado do exame |
+| 5 | SN_ASSINAR_LAUDO | VARCHAR2 | N | Indica se o usuario tera permiss?o para assinar laudos |
+| 6 | SN_IMPRIMIR_LAUDO | VARCHAR2 | N | Indica se o usuario tera permiss?o para imprimir laudos |
+| 7 | SN_IMPRIMIR_RASCUNHO | VARCHAR2 | Y | Indica se o usuario tera autorizac?o para efetuar impress?o atraves do bot?o rascunho na tela M_L... |
+| 8 | SN_RETIFICAR_LAUDO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PAPEL_ACOES_PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N |  |
+| 2 | SN_IN_USUARIO | VARCHAR2 | N |  |
+| 3 | SN_IN_AGENDA_EXA | VARCHAR2 | N |  |
+| 4 | SN_OUT_AGENDA_EXA | VARCHAR2 | N |  |
+| 5 | SN_IN_PED_LAB | VARCHAR2 | N |  |
+| 6 | SN_UP_PED_LAB | VARCHAR2 | N |  |
+| 7 | SN_OUT_PED_LAB | VARCHAR2 | N |  |
+| 8 | SN_IN_COLETA | VARCHAR2 | N |  |
+| 9 | SN_UP_COLETA | VARCHAR2 | N |  |
+| 10 | SN_OUT_COLETA | VARCHAR2 | N |  |
+| 11 | SN_IN_RESULTADO | VARCHAR2 | N |  |
+| 12 | SN_UP_RESULTADO | VARCHAR2 | N | **DESCONTINUADO** |
+| 13 | SN_OUT_RESULTADO | VARCHAR2 | N | **DESCONTINUADO** |
+| 14 | SN_REVISAR_LAUDO | VARCHAR2 | N |  |
+| 15 | SN_ASSINAR_LAUDO | VARCHAR2 | N |  |
+| 16 | SN_IMPRIMIR_LAUDO | VARCHAR2 | N |  |
+| 17 | SN_IN_ENTREGA | VARCHAR2 | N |  |
+| 18 | SN_UP_ENTREGA | VARCHAR2 | N |  |
+| 19 | SN_OUT_ENTREGA | VARCHAR2 | N |  |
+| 20 | TP_PERMISSAO_EXC_RESULTADO | VARCHAR2 | N | Indica a permiss?o para a exclus?o do resultado do exame |
+| 21 | TP_PERMISSAO_ALT_RESULTADO | VARCHAR2 | N | Indica a permiss?o para a alterac?o do resultado do exame |
+| 22 | SN_CADASTRAR_POP | VARCHAR2 | N | Indica se o perfil tera permiss?o para cadastrar o POP. |
+| 23 | SN_FILTRAR_BANCADA_REVISAO | VARCHAR2 | N | Indica se no momento da revis?o os exames ser?o filtrados por bancada. |
+| 24 | SN_REIMPRIME_ETIQUETA_AMO | VARCHAR2 | Y | Indica se o usuario tem permiss?o para re-imprimir etiquetas de amostras ja coletadas. |
+| 25 | SN_RETIFICAR_LAUDO | VARCHAR2 | N | Permite retificac?o do laudo. Retificar = alterar o exame depois de liberado. |
+| 26 | SN_ALT_RES_EXA_FORA_NORMAL | VARCHAR2 | Y | Configuração para alterar resultados de exames fora da faixa de normalidade. |
+| 27 | SN_ALT_RES_EXA_FORA_LIMITE | VARCHAR2 | Y | Configuração para alterar resultados de exames fora da faixa limite. |
+| 28 | SN_ALT_RES_EXA_FAIXA_PANIC | VARCHAR2 | Y | Configuração para alterar resultados de exames dentro da faixa de pânico. |
+| 29 | SN_LIB_RES_EXA_FORA_NORMAL | VARCHAR2 | Y | Configuração para liberar resultados de exames fora da faixa de normalidade. |
+| 30 | SN_LIB_RES_EXA_FORA_LIMITE | VARCHAR2 | Y | Configuração para liberar resultados de exames fora da faixa limite. |
+| 31 | SN_LIB_RES_EXA_FAIXA_PANIC | VARCHAR2 | Y | Configuração para liberar resultados de exames dentro da faixa de pânico. |
+| 32 | SN_LIBERAR_RESULTADO_PARCIAL | VARCHAR2 | Y | Valores permitidos "S ou N". S = Indica que o usuário poderá liberar o resultado do exame como pa... |
+| 33 | SN_ACOMPANHAR_RESOLVER_DILIGEN | VARCHAR2 | N | Acompanha e Resolve Diligenciamentos. |
+| 34 | SN_ACESSAR_SOROTECA | VARCHAR2 | Y | Indica se o papel de usuário tem acesso à Soroteca |
+| 35 | SN_USUARIO_ADM_SOROTECA | VARCHAR2 | Y | Indica se o papel de usuario tem acesso administrador a Soroteca |
+| 36 | SN_LIB_RES_EXA_ABSURDO | VARCHAR2 | N | Indica se será permitido liberar resultados absurdos |
+
+---
+
+## DBASGU.PAPEL_CONF_MOD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N | Codigo do Papel do Usuario |
+| 2 | CD_MODULO | VARCHAR2 | N | Codigo do Modulo do Usuario |
+
+---
+
+## DBASGU.PAPEL_MOD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | SN_CONSULTAR | VARCHAR2 | N | Identificar se tem permicao de consultar |
+| 4 | SN_ALTERAR | VARCHAR2 | N | Identificar se tem permicao de alterar |
+| 5 | SN_EXCLUIR | VARCHAR2 | N | Identificar se tem permicao de excluir |
+| 6 | SN_INCLUIR | VARCHAR2 | N | Identificar se tem permicao de incluir |
+
+---
+
+## DBASGU.PAPEL_SIS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N |  |
+| 2 | CD_SISTEMA | VARCHAR2 | N |  |
+| 3 | SN_CONSULTAR | VARCHAR2 | N | Identificar se tem permicao de consultar |
+| 4 | SN_ALTERAR | VARCHAR2 | N | Identificar se tem permicao de alterar |
+| 5 | SN_EXCLUIR | VARCHAR2 | N | Identificar se tem permicao de excluir |
+| 6 | SN_INCLUIR | VARCHAR2 | N | Identificar se tem permicao de incluir |
+
+---
+
+## DBASGU.PAPEL_TAB
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PAPEL | NUMBER | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+| 3 | SN_INCLUSAO | VARCHAR2 | N |  |
+| 4 | SN_ALTERACAO | VARCHAR2 | N |  |
+| 5 | SN_CONSULTA | VARCHAR2 | N |  |
+| 6 | SN_EXCLUSAO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PAPEL_USUARIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_PAPEL | NUMBER | N |  |
+| 3 | TP_PAPEL | VARCHAR2 | Y |  |
+| 4 | SN_USUARIO_MASTER | VARCHAR2 | N | Indica se o usuario e master. |
+
+---
+
+## DBASGU.PAPEL_USUARIOS_RH_15
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | CD_PAPEL | NUMBER | N |  |
+| 3 | TP_PAPEL | VARCHAR2 | Y |  |
+| 4 | SN_USUARIO_MASTER | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PAPEL_USUARIOS_RH_9
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | CD_PAPEL | NUMBER | N |  |
+| 3 | TP_PAPEL | VARCHAR2 | Y |  |
+| 4 | SN_USUARIO_MASTER | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PARAMETRO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | Y |  |
+| 2 | CD_PARAMETRO | VARCHAR2 | N |  |
+| 3 | NM_PARAMETRO | VARCHAR2 | Y |  |
+| 4 | NM_VALOR | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.PARAMETRO_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | CD_USUARIO | VARCHAR2 | N |  |
+| 4 | NM_VALOR | VARCHAR2 | Y |  |
+| 5 | CD_PARAMETRO | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PARAM_MENU
+> Tabela de Parametros das opc?es de menu, particularmente as telas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MENU | NUMBER | N | Codigo do menu q vai ser registrado o parametro |
+| 2 | CD_PARAMETRO | VARCHAR2 | N | Codigo do parametro do menu |
+| 3 | NM_VALOR | VARCHAR2 | Y | Valor do parametro |
+
+---
+
+## DBASGU.PARAM_MODULO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MODULO | VARCHAR2 | N |  |
+| 2 | CD_PARAMETRO | VARCHAR2 | N |  |
+| 3 | NM_VALOR | VARCHAR2 | Y |  |
+| 4 | SN_OBRIGATORIO | VARCHAR2 | N | Indica se o parametro e obrigatorio |
+| 5 | TP_VALOR | VARCHAR2 | Y | Tipo do valor que sera inserido para o parametro. |
+| 6 | DS_SQL_VALIDACAO | VARCHAR2 | Y | SQL para trazer o dominio dos campos para validac?o |
+| 7 | SN_PERMITE_CONFIGURACAO | VARCHAR2 | N | Verifica se o parâmetro permite configuração. |
+| 8 | DS_PATH_TELA | VARCHAR2 | Y | Indica qual tela irá ser chamada pelo botão de Configuração |
+
+---
+
+## DBASGU.PARAM_MODULO_VALOR
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PARAMETRO_VALOR | NUMBER | N | Codigo sequencial de cadastro de valor |
+| 2 | CD_MODULO | VARCHAR2 | N | Codigo do modulo relacionado ao parametro |
+| 3 | CD_PARAMETRO | VARCHAR2 | N | Codigo do paramtro relacionado ao valor |
+| 4 | NM_VALOR | VARCHAR2 | N | Valor possivel para o parametro |
+
+---
+
+## DBASGU.PER_CON
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ANIUQAM | VARCHAR2 | N |  |
+| 2 | OSSECA_TD | VARCHAR2 | N |  |
+| 3 | EMANRESU | VARCHAR2 | Y |  |
+| 4 | RESUSO | VARCHAR2 | Y |  |
+| 5 | AMARGOPR | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.PER_MULT
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NOC_TD | VARCHAR2 | N |  |
+| 2 | NOC_TQ | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.PESQUISA_MENU
+> Tabela que dados para pesquisa menu dinamico
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQUISA_MENU | NUMBER | N | codigo da pesquisa |
+| 2 | CD_MENU | NUMBER | N | codigo do menu relacionado a pesquisa |
+| 3 | CD_VERSAO_SISTEMA | VARCHAR2 | Y | vers?o do sistema que a pesquisa pertence |
+| 4 | DS_DESCRICAO | VARCHAR2 | Y | descric?o da pesquisa |
+| 5 | DS_OBJETIVO | VARCHAR2 | Y | Objetivo do Menu |
+
+---
+
+## DBASGU.PESQUISA_MENU_AGRUPAMENTO
+> Tabela de agrupamentos chave relacionada a pesquisa de menu
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_AGRUPAMENTO | NUMBER | N | codigo do agrupamento |
+| 2 | DS_PESQ_MENU_AGRUPAMENTO | VARCHAR2 | Y | texto do agrupamento |
+| 3 | CD_PESQ_MENU_MODULO | NUMBER | N |  |
+| 4 | CD_PESQUISA_MENU | NUMBER | Y | codigo da pesquisa menu relacionada |
+
+---
+
+## DBASGU.PESQUISA_MENU_ENTIDADE
+> Tabela de relacionamento entre pesquisa_menu e entidade
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQUISA_MENU_ENTIDADE | NUMBER | N | chave primaria da tabela |
+| 2 | CD_PESQUISA_MENU | NUMBER | N | codigo da pesquisa menu relacionada |
+| 3 | CD_TAB_ENTIDADE | NUMBER | N | codigo da entidade relacionada |
+| 4 | CD_PESQ_MENU_MODULO | NUMBER | N | codigo de modulo da pesquisa relacionado |
+
+---
+
+## DBASGU.PESQUISA_MENU_FILTRO
+> Tabela de filtros chave relacionada a pesquisa de menu
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_FILTRO | NUMBER | N | codigo do filtro |
+| 2 | DS_PESQ_MENU_FILTRO | VARCHAR2 | Y | texto do filtro |
+| 3 | CD_PESQ_MENU_MODULO | NUMBER | N |  |
+| 4 | CD_PESQUISA_MENU | NUMBER | Y | codigo da pesquisa menu relacionada |
+
+---
+
+## DBASGU.PESQUISA_MENU_IMAGEM
+> Tabela de imagems relacionada a pesquisa de menu
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_IMAGEM | NUMBER | N | codigo da imagem |
+| 2 | CD_PESQUISA_MENU | NUMBER | Y | codigo da pesquisa menu relacionada |
+| 3 | DS_PESQ_MENU_IMAGEM | VARCHAR2 | Y | Descric?o da imagem do modulo relacionado |
+| 4 | CD_PESQ_MENU_MODULO | NUMBER | N | Codigo de modulo da pesquisa relacionado |
+| 5 | LO_PESQ_MENU_IMAGEM | BLOB | Y | Imagem do modulo relacionado |
+
+---
+
+## DBASGU.PESQUISA_MENU_MODULO
+> Tabela que relaciona pesquisa de menu aos modulos do sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_MODULO | NUMBER | N | Chave primaria da tabela |
+| 2 | CD_PESQUISA_MENU | NUMBER | N | codigo da pesquisa de menu relacionada |
+| 3 | CD_MODULO | VARCHAR2 | N | codigo do modulo relacionado |
+
+---
+
+## DBASGU.PESQUISA_MENU_ORDENACAO
+> Tabela de ordenacaos chave relacionada a pesquisa de menu
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_ORDENACAO | NUMBER | N | codigo do ordenacao |
+| 2 | DS_PESQ_MENU_ORDENACAO | VARCHAR2 | Y | texto do ordenacao |
+| 3 | CD_PESQ_MENU_MODULO | NUMBER | N |  |
+| 4 | CD_PESQUISA_MENU | NUMBER | Y | codigo da pesquisa menu relacionada |
+
+---
+
+## DBASGU.PESQUISA_MENU_PALAVRA_CHAVE
+> Tabela de palavras chave relacionada a pesquisa de menu
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PESQ_MENU_PALAVRA_CHAVE | NUMBER | N | codigo da palavra chave |
+| 2 | DS_PESQ_MENU_PALAVRA_CHAVE | VARCHAR2 | Y | texto da palavra chave |
+| 3 | CD_PESQ_MENU_MODULO | NUMBER | N | codigo do modulo da pesquisa relacionado |
+| 4 | CD_PESQUISA_MENU | NUMBER | Y |  |
+
+---
+
+## DBASGU.PLAUDOS_LOG_USUARIOS
+> Tabela de log de atividades dos usuarios do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_USUARIO | NUMBER | N |  |
+| 2 | CD_USUARIO | NUMBER | Y | Código do usuário |
+| 3 | DH_ATIVIDADE | DATE | N | Data e hora da atividade |
+| 4 | DS_ATIVIDADE | VARCHAR2 | N | Descrição da atividade |
+| 5 | CD_ITPED_LAB | NUMBER | Y | Código do item de pedido associado |
+| 6 | DS_LOGIN | VARCHAR2 | N | Login do usuário |
+| 7 | DS_IP | VARCHAR2 | Y | Login do usuário |
+| 8 | DS_EXTRA | VARCHAR2 | Y | Informações extra para logar |
+
+---
+
+## DBASGU.PLAUDOS_PERFIS
+> Tabela de controle de perfis de usuário do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PERFIL | VARCHAR2 | N | Código do perfil do usuário |
+| 2 | NM_PERFIL | VARCHAR2 | N | Nome do perfil do usuário |
+| 3 | SN_ATIVO | VARCHAR2 | N | Indica se o perfil do usuário está ativo |
+
+---
+
+## DBASGU.PLAUDOS_TOKENS_PERSISTENTES
+> Tabela de controle de tokens dos usuários do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SERIAL | VARCHAR2 | N | Código serial do token |
+| 2 | CD_USUARIO | NUMBER | N | Código do usuário do token |
+| 3 | DS_TOKEN | VARCHAR2 | N | Valor do token |
+| 4 | DS_ENDERECO_IP | VARCHAR2 | N | Endereço IP do usuário |
+| 5 | DS_USER_AGENT | VARCHAR2 | N | User agent do usuário |
+| 6 | DH_TOKEN | DATE | N | Data hora do token |
+
+---
+
+## DBASGU.PLAUDOS_USUARIOS
+> Tabela de controle de usuários do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Código único do usuário |
+| 2 | CD_PACIENTE | NUMBER | Y | Código do paciente associado ao usuário |
+| 3 | CD_EMPRESA_PED_LAB | NUMBER | Y | Código da empresa relacionada aos pedidos de exame |
+| 4 | DS_LOGIN | VARCHAR2 | Y | Descrição do login do usuário |
+| 5 | DS_SENHA | VARCHAR2 | N | Descrição da senha do usuário |
+| 6 | NM_USUARIO | VARCHAR2 | Y | Nome do usuário |
+| 7 | CD_CHAVE_ATIVACAO | VARCHAR2 | Y | Código da chave de ativação do usuário |
+| 8 | CD_CHAVE_TROCA_SENHA | VARCHAR2 | Y | Código da chave de troca de senha do usuário |
+| 9 | DS_CODIGO_CONSELHO | VARCHAR2 | Y | Descrição do código do conselho do usuário do tipo Médico |
+| 10 | NR_CNPJ | VARCHAR2 | Y | Número do CNPJ do usuário do tipo Empresa |
+| 11 | NR_TELEFONE_FIXO | VARCHAR2 | Y | Número do telefone fixo do usuário |
+| 12 | NR_TELEFONE_CELULAR | VARCHAR2 | Y | Número do telefone celular do usuário |
+| 13 | NR_CPF | VARCHAR2 | Y | Número do CPF do usuário |
+| 14 | DS_EMAIL | VARCHAR2 | Y | Descrição do e-mail do usuário |
+| 15 | SN_ATIVO | VARCHAR2 | N | Indica se o usuário está ativo |
+| 16 | SN_AUTORIZADO | VARCHAR2 | N | Indica se o usuário está autorizado |
+| 17 | LO_COPIA_CPF | BLOB | Y | Arquivo da cópia do CPF |
+| 18 | LO_COPIA_CONSELHO | BLOB | Y | Arquivo da cópia da carteira do conselho |
+| 19 | DH_SOLICITACAO_TROCA_SENHA | DATE | Y | Data e hora da última solicitação de troca de senha |
+| 20 | NR_TENTATIVAS | NUMBER | Y | Coluna para guardar a quantidade de tentativas de login restantes do usuário. |
+| 21 | DT_BLOQUEIO_LOGIN | DATE | Y | Coluna para guardar a a data de bloqueio após usuário exceder a quantidade de tentativas de login. |
+| 22 | DS_NOVO_EMAIL | VARCHAR2 | Y | Descrição do novo e-mail na solicitação de troca de e-mail. |
+
+---
+
+## DBASGU.PLAUDOS_USUARIOS_DEPENDENTES
+> Tabela de associação de usuários a seus dependentes do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Código do usuário |
+| 2 | CD_PACIENTE | NUMBER | N | Código do paciente dependente |
+
+---
+
+## DBASGU.PLAUDOS_USUARIOS_PERFIS
+> Tabela de associação de usuários e perfis do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Código do usuário |
+| 2 | CD_PERFIL | VARCHAR2 | N | Código do perfil |
+
+---
+
+## DBASGU.PRESTADOR_USUARIO
+> Tabela da tela Prestador x Usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRESTADOR_USUARIO | NUMBER | N | Código do registro Prestador X Usuário |
+| 2 | CD_PRESTADOR | NUMBER | N | Código do Prestador associado ao Usuário |
+| 3 | CD_USUARIO | VARCHAR2 | N | Código do usuário associado ao Prestador |
+| 4 | CD_MULTI_EMPRESA | NUMBER | N | Código da empresa associada ao Prestador x Usuário |
+
+---
+
+## DBASGU.PROCESSO
+> Tabela de processos do MV2000
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROCESSO | NUMBER | N | Codigo da chave primaria da tabela de processos, sequence |
+| 2 | DS_PROCESSO | VARCHAR2 | N | Descric?o do processo |
+| 3 | CD_SISTEMA | VARCHAR2 | N | Sistema (Modulo) principal que o processo pertence |
+| 4 | TP_PROCESSO | VARCHAR2 | N | Tipo do processo, se impactante ou n?o |
+| 5 | TP_STATUS | VARCHAR2 | N | Status do processo, se ja checado ou n?o |
+| 6 | DS_QUERY | VARCHAR2 | N | Query de consulta do processo para checagem na implantac?o |
+
+---
+
+## DBASGU.PROCESSOS_USUARIOS
+> Tabela responsável pelo cadastro do menu de processos dos usuários
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PROCESSO | VARCHAR2 | N | Código identificador do menu de processo |
+| 2 | CD_USUARIO | VARCHAR2 | N | Código identificador do usuário vinculado ao processo |
+
+---
+
+## DBASGU.PRODUTO_SISTEMA
+> Tabela com os produtos Sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_PRODUTO | VARCHAR2 | N | Campo Chave. Indica o produto: MV2000, MVPEP, MVSAUDE etc. |
+| 2 | NM_PRODUTO | VARCHAR2 | N | Nome do produto |
+| 3 | DS_PRODUTO | VARCHAR2 | N | Descric?o do produto |
+| 4 | DH_REGISTRO | DATE | Y | data de registro, criac?o do produto |
+| 5 | TP_PLATAFORMA | VARCHAR2 | N | Tipo de Plataforma |
+| 6 | DS_URL_SERVIDOR | VARCHAR2 | Y | Descric?o da Url do Servidor |
+| 7 | DS_URL_SERV_RELATORIO | VARCHAR2 | Y | Descric?o da URL do Servidor de Relatorios |
+| 8 | SN_LINK_EXT | VARCHAR2 | N | Informa se o produto abre um link é externo |
+| 9 | DS_URL_SERVIDOR_HTML | VARCHAR2 | Y | Descrição da Url do Servidor Foundation |
+| 10 | DS_URL_SERV_RELATORIO_HTML | VARCHAR2 | Y | Descrição da URL do Servidor de Relatórios Foundation |
+| 11 | DS_URL_SERVIDOR_FLEX | VARCHAR2 | Y | Descrição da Url do Servidor Flex compatível com Workspace Integrado |
+| 12 | DS_URL_SERV_RELATORIO_FLEX | VARCHAR2 | Y | Descrição da Url do Servidor Relatório compatível com Workspace Integrado |
+| 13 | SN_FOUNDATION | VARCHAR2 | N | Indica se o produto usa o Workspace do Foundation |
+
+---
+
+## DBASGU.RELATORIO_CABECALHO_COLUNA
+> Tabela para armazenar cadastro da configuracao do relatorio em colunas
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_RELATORIO_CABECALHO_COLUNA | NUMBER | N | Codigo do relatorio cabecalho em coluna chave primaria |
+| 2 | CD_MODULO | VARCHAR2 | N | Campo que informa o modulo relacionado |
+| 3 | CD_PARAMETRO | VARCHAR2 | N | Campo que informa o parametro relacionado |
+
+---
+
+## DBASGU.RN_CONTROLE_EVENTO
+> Tabela que registrara as alterac?es feitas no desenvolvimento da MV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTROLE_EVENTO | NUMBER | N | Chave primaria sequencial desta tabela |
+| 2 | CD_EVENTO | NUMBER | N | Codigo do evento que tera alteracao |
+| 3 | TP_RASTRO | VARCHAR2 | N | Tipo da rastreabilidade desejada |
+| 4 | NM_USUARIO_REDE | VARCHAR2 | N | Nome do usuario de rede que efetuou a alterac?o |
+| 5 | SN_PENDENTE | VARCHAR2 | N | Indica se o evento esta com a alterac?o ainda n?o "commitada" |
+| 6 | DH_REGISTRO | DATE | N | Data/Hora que o registro de alterac?o foi criado |
+| 7 | DS_COMENTARIO | VARCHAR2 | Y | Texto descritivo que explica a necssidade desta alteracao |
+| 8 | DH_ATIVACAO | DATE | Y | Data/Hora que o registro de alterac?o foi confirmado |
+
+---
+
+## DBASGU.RN_EVENTO
+> Tabela com os eventos de cada tabela/coluna
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EVENTO | NUMBER | N | Chave primaria da tabela Evento |
+| 2 | TP_EVENTO | VARCHAR2 | N | Tipo do evento a ser tratado, por exemplo: On-Insert, On-Select, When-Validate-Item |
+| 3 | NM_OWNER | VARCHAR2 | Y | Usuario proprietario deste objeto |
+| 4 | NM_OBJETO | VARCHAR2 | N | Nome do objeto de banco de repositorio. Inicialmente iremos tratar apenas as tabelas |
+| 5 | TP_RASTRO | VARCHAR2 | N | Indica que execuc?es devem ter seu rastro gravados: (T)odos "Sucesso e Erro", (E)rros "Somente Er... |
+| 6 | SN_ATIVO | VARCHAR2 | N | Indica se o evento esta ou n?o ativo |
+| 7 | NM_COLUNA | VARCHAR2 | Y | Nome da coluna que tera o evento associado. N?o obrigatorio. |
+
+---
+
+## DBASGU.RN_EVENTO_EXECUCAO
+> Tabela com o relacionamento entre o evento e o que ele deve executar
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EVENTO | NUMBER | N | Evento que deve disparar esta execucao |
+| 2 | CD_EXECUCAO | NUMBER | N | Codigo da execucao a ser disparada neste evento |
+| 3 | NR_ORDEM | NUMBER | N | Numero livre sequencial que determina a ordem de execuc?o dos codigos deste evento |
+| 4 | CD_VERSAO | VARCHAR2 | Y | Codigo da versao inicial que esta execucao podera ser disparado |
+| 5 | CD_RELEASE | VARCHAR2 | Y | Codigo da release inicial que esta execucao podera ser disparado |
+
+---
+
+## DBASGU.RN_EXECUCAO
+> Tabela com o cadastro dos codigos Pl-sql e query a serem executados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EXECUCAO | NUMBER | N | Chave primaria da tabela Evento |
+| 2 | NM_EXECUCAO | VARCHAR2 | N | Nome que facilita a identificac?o do codigo |
+| 3 | TP_CODIGO | VARCHAR2 | N | Tipo de codigo a ser escrito. Inicialmente sera permitido os valores: QUERY e PLSQL |
+| 4 | DS_CODIGO | VARCHAR2 | N | Codigo propriamente dito, escrito de acordo com o valor informado no TP_CODIGO |
+
+---
+
+## DBASGU.RN_IMPORTA
+> Tabela intermediaria para importac?o dos dados de regra de negocio
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORTA | NUMBER | N | Chave primaria da tabela |
+| 2 | DH_IMPORTA | DATE | Y | Data e Hora que os dados foram importados |
+| 3 | DH_TERMINO | DATE | Y | Data e Hora que finalizou o processamento destes dados |
+| 4 | NM_SOLUCAO | VARCHAR2 | Y | Nome da soluc?o que envolve a importac?o. Inicialmente existira as soluc?es: "Regra de Negocio" e... |
+| 5 | NM_OWNER | VARCHAR2 | Y | Proprietario da tabela que recebera os dados |
+| 6 | NM_TABELA | VARCHAR2 | Y | Nome da tabela que recebera os dados |
+| 7 | CD_ERRO | NUMBER | Y | Codigo do erro Oracle, se houver interrupc?o na execuc?o |
+| 8 | DS_ERRO | VARCHAR2 | Y | Descric?o do erro Oracle, se houver interrupc?o na execuc?o |
+
+---
+
+## DBASGU.RN_IMPORTA_COLUNA
+> Dados a serem importados
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_IMPORTA | NUMBER | Y | Coluna de referencia para a tabela principal de importac?o |
+| 2 | NR_REGISTRO | NUMBER | Y | Numero do Registro |
+| 3 | NM_COLUNA | VARCHAR2 | Y | Nome da coluna que o valor devera ser transportado |
+| 4 | DS_VALOR | VARCHAR2 | Y | Conteudo a ser importado |
+
+---
+
+## DBASGU.RN_ITEM_CONTROLE_EVENTO
+> Tabela que registrara os detalhes das alterac?es feitas no desenvolvimento da MV
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_CONTROLE_EVENTO | NUMBER | N | Chave estrangeira que referencia a tabela Controle_Evento |
+| 2 | CD_EXECUCAO | NUMBER | N | Codigo da Execucao que esta sendo feito alteracao |
+| 3 | NM_EXECUCAO | VARCHAR2 | Y | Nome original no cadastro da execucao |
+| 4 | NR_ORDEM | NUMBER | Y | Ordem de execuc?o |
+| 5 | TP_CODIGO | VARCHAR2 | Y | Tipo de codigo original no cadastro da execucao |
+| 6 | DS_CODIGO_ANTERIOR | VARCHAR2 | Y | Codigo (Query ou Pl-Sql) conforme estava originalmente |
+| 7 | DS_CODIGO_NOVO | VARCHAR2 | Y | Codigo (Query ou Pl-Sql) atual |
+
+---
+
+## DBASGU.RN_RASTRO
+> Tabela que registrara todas as execucoes em tempo de "runtime" dos usuarios, sejam elas executadas com sucesso ou n?o
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_EVENTO | NUMBER | N | Codigo do evento disparado |
+| 2 | CD_EXECUCAO | NUMBER | N | Trecho de codigo que foi executado |
+| 3 | NM_EXECUCAO | VARCHAR2 | N | Texto descrito do codigo que foi executado |
+| 4 | DS_CODIGO | VARCHAR2 | N | Codigo que foi executado |
+| 5 | DS_VARIAVEL | VARCHAR2 | Y | Valores das variaveis de ligac?o usados durante a execuc?o |
+| 6 | NM_USUARIO | VARCHAR2 | N | Nome do usuario que executou este evento |
+| 7 | DH_EXECUCAO | DATE | N | Data e Hora em que ocorreu a execucao do evento |
+| 8 | DH_CONCLUSAO | DATE | N | Data e Hora em que a execucao do evento foi finalizado |
+| 9 | SN_SUCESSO | VARCHAR2 | N | Indica se a execucao do evento foi concluida com sucesso |
+| 10 | NM_FORMULARIO | VARCHAR2 | Y | Nome do formulario/programa que disparou o evento |
+| 11 | TP_ERRO | VARCHAR2 | Y | Se a execucao tiver falhado este campo tera a informacao do tipo do erro: ORA, PLS, etc |
+| 12 | CD_ERRO | NUMBER | Y | Se a execucao tiver falhado este campo tera a informacao do codigo do erro |
+| 13 | DS_ERRO | VARCHAR2 | Y | Se a execucao tiver falhado este campo tera a informacao da descricao do erro |
+
+---
+
+## DBASGU.SERVICO_ENVIO_EMAIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SERVICO_ENVIO_EMAIL | NUMBER | N | Código do email |
+| 2 | DS_REMETENTE | VARCHAR2 | N | Email do remetente |
+| 3 | DS_DESTINATARIO | VARCHAR2 | N | Email do destinatário |
+| 4 | DS_COPIA | VARCHAR2 | Y | Emails que estarão em cópia |
+| 5 | DS_ASSUNTO | VARCHAR2 | Y | Descrição do assunto do email a ser enviado |
+| 6 | DS_EMAIL | VARCHAR2 | Y | Corpo do email que foi enviado |
+| 7 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 8 | CD_MULTI_EMPRESA | NUMBER | N |  |
+| 9 | SN_ENVIADO | VARCHAR2 | N | Indica se o email ja foi enviado |
+
+---
+
+## DBASGU.SGU_MENSAGENS_AUDITORIA
+> Tabela para envio de Mensagens da Auditoria
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_MENSAGEM | NUMBER | N | Codigo da Mensagem |
+| 2 | TP_SITUACAO | VARCHAR2 | N | Situac?o da Mensagem I=Inserida A=Aguardando E=Enviada |
+| 3 | NM_REMETENTE | VARCHAR2 | N | Endereco de E-mail do Remetente da Mensagem |
+| 4 | NM_DESTINATARIO | VARCHAR2 | N | Endereco de e-mail de um ou mais destinatarios da mensagem |
+| 5 | DS_ASSUNTO | VARCHAR2 | N | Assunto da Mensagem |
+| 6 | DS_MENSAGEM | VARCHAR2 | N | Corpo do E-mail da Mensagem da Auditoria |
+
+---
+
+## DBASGU.SISTEMA
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | NM_SISTEMA | VARCHAR2 | N |  |
+| 3 | TP_PLATAFORMA | VARCHAR2 | Y |  |
+| 4 | SN_ATIVO | VARCHAR2 | N |  |
+| 5 | CD_PRODUTO | VARCHAR2 | Y | Codigo do produto que o sistema pertence. |
+
+---
+
+## DBASGU.SISTEMA_USUARIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | CD_USUARIO | VARCHAR2 | N | Codigo do Usuario |
+| 3 | SN_CONSULTAR | VARCHAR2 | N | Identificar se tem permicao de consultar |
+| 4 | SN_ALTERAR | VARCHAR2 | N | Identificar se tem permicao de alterar |
+| 5 | SN_EXCLUIR | VARCHAR2 | N | Identificar se tem permicao de excluir |
+| 6 | SN_INCLUIR | VARCHAR2 | N | Identificar se tem permicao de incluir |
+
+---
+
+## DBASGU.TABELAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TABELA | VARCHAR2 | N |  |
+| 2 | DS_TABELA | VARCHAR2 | N |  |
+| 3 | TP_CLASSE | VARCHAR2 | Y |  |
+| 4 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 5 | NM_ENDERECO_EMAIL_AUDITOR | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.TAB_ENTIDADE
+> Tabela de entidades(tabelas do sistema)
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TAB_ENTIDADE | NUMBER | N | codigo da entidade(chave primaria) |
+| 2 | CD_SISTEMA | VARCHAR2 | Y | codigo do sistema relacionado |
+| 3 | NM_TAB_ENTIDADE | VARCHAR2 | Y | nome da entidade |
+| 4 | DS_OBJETIVO | VARCHAR2 | Y | Objetivo da entidade |
+
+---
+
+## DBASGU.TAB_SIS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | CD_TABELA | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.TAG_CAMPO_EMAIL
+> TABELA RESPONSAVEL POR ARMAZENAR AS TAGS DO CORPO DOS TIPOS DE EMAIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_TAG | NUMBER | N | CODIGO SEQUENCIAL DA TAG |
+| 2 | CD_TP_EMAIL | VARCHAR2 | N | CODIGO DO TIPO DO EMAIL |
+| 3 | CD_TAG | VARCHAR2 | N | CODIGO DO DADO DA TAG |
+| 4 | DS_TAG | VARCHAR2 | N | DESCRICAO DA TAG |
+
+---
+
+## DBASGU.TERMO_USO
+> Tabela que armazena o termo de aceite
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_TERMO_USO | NUMBER | N | Codigo do termo |
+| 2 | NR_PERIODO | NUMBER | Y | Quantidade de tempo de expiração |
+| 3 | TP_TEMPO | VARCHAR2 | N | Tempo de expiração: D - Dia, S - Semana, M - Mês e A - Ano |
+| 4 | DS_VERSAO | VARCHAR2 | Y | Versão do termo |
+| 5 | DS_TERMO | CLOB | Y | Descrição do termo |
+| 6 | DT_ULTIMA_ATUALIZACAO | DATE | N | Data da ultima atualização do termo de uso |
+
+---
+
+## DBASGU.TIPO_EMAIL
+> TABELA RESPONSAVEL POR ARMAZENAR OS TIPOS DE EMAIL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ID_EMAIL | NUMBER | N | CODIGO SEQUENCIAL DO TIPO DO EMAIL |
+| 2 | CD_TP_EMAIL | VARCHAR2 | N | CODIGO DO TIPO DO EMAIL |
+| 3 | DS_TP_EMAIL | VARCHAR2 | N | DESCRICAO DO TIPO DO EMAIL |
+
+---
+
+## DBASGU.TROCPAC_PLAUDOS_LOG_USUARIOS
+> Tabela de log de atividades dos usuarios do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_LOG_USUARIO | NUMBER | N |  |
+| 2 | CD_USUARIO | NUMBER | Y | Codigo do usuario |
+| 3 | DH_ATIVIDADE | DATE | N | Data e hora da atividade |
+| 4 | DS_ATIVIDADE | VARCHAR2 | N | Descrição da atividade |
+| 5 | CD_ITPED_LAB | NUMBER | Y | Codigo do item de pedido associado |
+| 6 | DS_LOGIN | VARCHAR2 | N | Login do usuario |
+| 7 | DS_IP | VARCHAR2 | Y | Login do usuario |
+| 8 | DS_EXTRA | VARCHAR2 | Y | Informações extra para logar |
+| 9 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBASGU.TROCPAC_PLAUDOS_TOKENS_PERS
+> Tabela de controle de tokens dos usuarios do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SERIAL | VARCHAR2 | N | Codigo serial do token |
+| 2 | CD_USUARIO | NUMBER | N | Codigo do usuario do token |
+| 3 | DS_TOKEN | VARCHAR2 | N | Valor do token |
+| 4 | DS_ENDERECO_IP | VARCHAR2 | N | Endereco IP do usuario |
+| 5 | DS_USER_AGENT | VARCHAR2 | N | User agent do usuario |
+| 6 | DH_TOKEN | DATE | N | Data hora do token |
+| 7 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBASGU.TROCPAC_PLAUDOS_USUARIOS
+> Tabela de controle de usuarios do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Codigo unico do usuario |
+| 2 | CD_PACIENTE | NUMBER | Y | Codigo do paciente associado ao usuario |
+| 3 | CD_EMPRESA_PED_LAB | NUMBER | Y | Codigo da empresa relacionada aos pedidos de exame |
+| 4 | DS_LOGIN | VARCHAR2 | Y | Descrição do login do usuario |
+| 5 | DS_SENHA | VARCHAR2 | N | Descrição da senha do usuario |
+| 6 | NM_USUARIO | VARCHAR2 | Y | Nome do usuario |
+| 7 | CD_CHAVE_ATIVACAO | VARCHAR2 | Y | Codigo da chave de ativação do usuario |
+| 8 | CD_CHAVE_TROCA_SENHA | VARCHAR2 | Y | Codigo da chave de troca de senha do usuario |
+| 9 | DS_CODIGO_CONSELHO | VARCHAR2 | Y | Descrição do codigo do conselho do usuario do tipo Medico |
+| 10 | NR_CNPJ | VARCHAR2 | Y | Numero do CNPJ do usuario do tipo Empresa |
+| 11 | NR_TELEFONE_FIXO | VARCHAR2 | Y | Numero do telefone fixo do usuario |
+| 12 | NR_TELEFONE_CELULAR | VARCHAR2 | Y | Numero do telefone celular do usuario |
+| 13 | NR_CPF | VARCHAR2 | Y | Numero do CPF do usuario |
+| 14 | DS_EMAIL | VARCHAR2 | Y | Descrição do e-mail do usuario |
+| 15 | SN_ATIVO | VARCHAR2 | N | Indica se o usuario esta ativo |
+| 16 | SN_AUTORIZADO | VARCHAR2 | N | Indica se o usuario esta autorizado |
+| 17 | LO_COPIA_CPF | BLOB | Y | Arquivo da copia do CPF |
+| 18 | LO_COPIA_CONSELHO | BLOB | Y | Arquivo da copia da carteira do conselho |
+| 19 | DH_SOLICITACAO_TROCA_SENHA | DATE | Y | Data e hora da ultima solicitação de troca de senha |
+| 20 | DS_NOVO_EMAIL | VARCHAR2 | Y | Descrição do novo e-mail na solicitação de troca de e-mail. |
+| 21 | NR_TENTATIVAS | NUMBER | Y | Coluna para guardar a quantidade de tentativas de login restantes do usuario. |
+| 22 | DT_BLOQUEIO_LOGIN | DATE | Y | Coluna para guardar a a data de bloqueio apos usuario exceder a quantidade de tentativas de login. |
+| 23 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBASGU.TROCPAC_PLAUDOS_USU_DEPEN
+> Tabela de associação de usuarios a seus dependentes do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Codigo do usuario |
+| 2 | CD_PACIENTE | NUMBER | N | Codigo do paciente dependente |
+| 3 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBASGU.TROCPAC_PLAUDOS_USU_PERFIS
+> Tabela de associação de usuarios e perfis do Portal de Laudos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | NUMBER | N | Codigo do usuario |
+| 2 | CD_PERFIL | VARCHAR2 | N | Codigo do perfil |
+| 3 | CD_LOG_TROCPAC_REVERSAO | NUMBER | Y | Código da reversão. |
+
+---
+
+## DBASGU.USUARIOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Indica o Login / Código do usuário |
+| 2 | NM_USUARIO | VARCHAR2 | N | Indica o nome do usuário |
+| 3 | DS_OBSERVACAO | VARCHAR2 | Y | Indica as observações que se fizerem necessárias sobre o usuário |
+| 4 | RAMAL | VARCHAR2 | Y | Indica o código do Ramal do usuário |
+| 5 | TP_PRIVILEGIO | VARCHAR2 | N | Indica o tipo de privilégio do usuário. A - Administrador Geral, S - Administrador do Setor, U - ... |
+| 6 | NR_ID_USUARIO | NUMBER | Y |  |
+| 7 | CD_SENHA | VARCHAR2 | N | Indica a senha do usuário |
+| 8 | CD_PAPEL | NUMBER | Y | Indica o papel principal do usuário |
+| 9 | TP_STATUS | VARCHAR2 | Y | Indica o status do usuário. R - Reconciliado, N - Não reconciliado |
+| 10 | CD_PRESTADOR | NUMBER | Y | Indica o código do prestador vinculado ao usuário |
+| 11 | USER_ID_ORA_APP | NUMBER | Y |  |
+| 12 | SN_ATIVO | VARCHAR2 | N | Indica se o usuáio está ativo ou não. S - Ativo, N  - Inativo |
+| 13 | SN_SENHA_PLOGIN | VARCHAR2 | N | Indica se o usuário deverá alterar a senha na próxima vez que fizer login |
+| 14 | SN_ABRE_FECHA_CONTA | VARCHAR2 | N | Indica se o usuário poderá alterar dados nas contas (abertura e fechamento) de fat. convênio |
+| 15 | CPF | VARCHAR2 | Y | Indifca o CPF do usuário |
+| 16 | SN_RECEBE_MSG_EXPIRA_CHAVE | VARCHAR2 | Y | Indica se o usuáio irá receber um comunicado de expiração de chave de acesso |
+| 17 | SN_ALTERA_AUDITORIA_IN_LOCO | VARCHAR2 | N | Indica se o usuário poderá alterar lançamentos em contas em auditoria in-loco |
+| 18 | SN_CADASTRA_PACIENTE | VARCHAR2 | N | Indica se o usuário tem permissão de cadastrar pacientes |
+| 19 | SN_ALTERA_CADASTRO_PACIENTE | VARCHAR2 | N | Indica se o usuáio tem permissão de alterar o cadastro de pacientes |
+| 20 | DT_NASCIMENTO | DATE | Y | Indica a data de nascimento do usuário |
+| 21 | CD_MATRICULA | VARCHAR2 | Y | Inidica o código de matrícula do usuário |
+| 22 | DS_EMAIL | VARCHAR2 | Y | Indica o e-mail cadastrado para o usuário |
+| 23 | CD_IDIOMA | VARCHAR2 | Y | Indica o idioma do usuário |
+| 24 | SN_CERTIFICADO_DIGITAL | VARCHAR2 | Y | Indica se o usuário possui certificado digital |
+| 25 | DS_BAIRRO | VARCHAR2 | Y | Indica o bairro da residência do usuário |
+| 26 | DS_CIDADE | VARCHAR2 | Y | Indica a cidade da residência do usuário |
+| 27 | DS_ESTADO | VARCHAR2 | Y | Indica o estado de residência do usuário |
+| 28 | DS_PAIS | VARCHAR2 | Y | Indica o pais de residência do usuário |
+| 29 | NR_CEP | NUMBER | Y | Indica o CEP da residência do usuário |
+| 30 | DS_ENDERECO | VARCHAR2 | Y | Indica o endereço da residência do usuáio |
+| 31 | NR_ENDERECO | NUMBER | Y | Indica o número da residência do usuário |
+| 32 | DS_COMPLEMENTO | VARCHAR2 | Y | Indica o complemento da residência do usuário |
+| 33 | SN_AUDITOR_TABELA | VARCHAR2 | N | Indica se o usuário tem permissão para configurar a auditoria de tabelas. Para ligar a auditoria ... |
+| 34 | SN_CRIA_USUARIO | VARCHAR2 | Y | Indica se o usuário tem permissão de criar outros usuários |
+| 35 | SN_PERMITE_DESVINCULO_PACOTE | VARCHAR2 | Y | Inica se o usuário permite o desvínculo de pacotes do fatur. coonvênio |
+| 36 | SN_ALTERA_PACIENTE_SEM_CPF | VARCHAR2 | Y |  |
+| 37 | NR_DDI | NUMBER | Y | Indica o DDI do telefone do usuário |
+| 38 | NR_DDD | NUMBER | Y | Indica o DDD do telefone do usuário |
+| 39 | NR_CELULAR | NUMBER | Y | Indica o número do telefone do usuário |
+| 40 | DH_GRAVACAO_USUARIO | DATE | Y | Indica a data que o usuário foi registrado |
+| 41 | CD_USUARIO_GRAVACAO | VARCHAR2 | Y | Inica o usuário responsável pela criação do usuário |
+| 42 | DH_ALTERACAO_USUARIO | DATE | Y | Indica a data da última alteração daquele usuário |
+| 43 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y | Indica o código do usuário responsável pela última alteração no usuário |
+| 44 | NR_TENTATIVA_LOGIN | NUMBER | Y | Indica o número de tentativas de login no sistema para o usuário |
+| 45 | SN_ALTERA_OBSERVACAO_GUIA | VARCHAR2 | Y | Indica se o usuário tem permissão para alterar da guia, na tela de manunteção de guias |
+| 46 | CD_SENHA_INTEGRA | VARCHAR2 | Y |  |
+| 47 | CD_CBO | VARCHAR2 | Y | Indica a profissão do usuário através da Classificação Brasileira de Ocupação (CBO) |
+| 48 | NR_MATRICULA | VARCHAR2 | Y | Identificador da matricula do usuário |
+| 49 | CD_CRACHA | VARCHAR2 | Y | Identificador do crachá do usuário |
+| 50 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 51 | CD_PROFISSAO | NUMBER | Y | Indica a profissão do usuário através do cadastro de profissões: GLOBAL/M_PROFISSAO |
+| 52 | SN_TERMO_USO_PROFISSIONAL | CHAR | Y |  |
+| 53 | TS_TERMO_USO_PROFISSIONAL | TIMESTAMP(6) | Y |  |
+| 54 | SN_PERMITE_FECHA_CNT_ANATOMIA | VARCHAR2 | Y |  |
+| 55 | SN_PERMITE_DUPLICIDADE_CPF | VARCHAR2 | N | Permite a duplicidade do CPF ao cadastrar usuário. |
+| 56 | SN_UTILIZA_PROCESSO | VARCHAR2 | Y | Indica se o Usuário só visualizará o menu por atividade |
+| 57 | SN_PERMITE_EXECUCAO_TROCPAC | VARCHAR2 | N | Campo utilizado pelo PEP para mascarar os dados do paciente |
+| 58 | SN_PERMITE_REVERSAO_TROCPAC | VARCHAR2 | N | Campo utilizado pelo PEP para mascarar os dados do paciente |
+| 59 | SN_TERMO_USO | VARCHAR2 | N | Indica se o termo foi aceito pelo usuário |
+| 60 | DH_TERMO_USO | DATE | Y | Data e hora que o termo foi aceito pelo usuário |
+| 61 | SN_INTEGRA_ONEPASS | VARCHAR2 | N |  |
+
+---
+
+## DBASGU.USUARIOS_MASTER
+> Tabela que armazenara todos os usuarios Master
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO_MASTER | NUMBER | N | Codigo sequencial da tabela Usuario Master |
+| 2 | CD_USUARIO | VARCHAR2 | N | Usuario Master |
+| 3 | TP_ACAO | VARCHAR2 | N | Ac?o que o Usuario Master podera executar: Descric?o Cirurgica(D) - Habilitados a descrever qualq... |
+
+---
+
+## DBASGU.USUARIOS_MENU
+> Tabela de permissoes de menu dos usuarios
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuario que tem permissão ao menu |
+| 2 | CD_MENU | NUMBER | N | Código do menu ao qual o usuario tem permissao |
+| 3 | CD_MULTI_EMPRESA | NUMBER | Y | Código da empresa |
+
+---
+
+## DBASGU.USUARIOS_RH_15
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 4 | RAMAL | VARCHAR2 | Y |  |
+| 5 | TP_PRIVILEGIO | VARCHAR2 | N |  |
+| 6 | NR_ID_USUARIO | NUMBER | Y |  |
+| 7 | CD_SENHA | VARCHAR2 | N |  |
+| 8 | CD_PAPEL | NUMBER | Y |  |
+| 9 | TP_STATUS | VARCHAR2 | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | USER_ID_ORA_APP | NUMBER | Y |  |
+| 12 | SN_ATIVO | VARCHAR2 | N |  |
+| 13 | SN_SENHA_PLOGIN | VARCHAR2 | N |  |
+| 14 | SN_ABRE_FECHA_CONTA | VARCHAR2 | N |  |
+| 15 | CPF | VARCHAR2 | Y |  |
+| 16 | SN_RECEBE_MSG_EXPIRA_CHAVE | VARCHAR2 | Y |  |
+| 17 | SN_ALTERA_AUDITORIA_IN_LOCO | VARCHAR2 | N |  |
+| 18 | SN_CADASTRA_PACIENTE | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_CADASTRO_PACIENTE | VARCHAR2 | N |  |
+| 20 | DT_NASCIMENTO | DATE | Y |  |
+| 21 | CD_MATRICULA | VARCHAR2 | Y |  |
+| 22 | DS_EMAIL | VARCHAR2 | Y |  |
+| 23 | CD_IDIOMA | VARCHAR2 | Y |  |
+| 24 | SN_CERTIFICADO_DIGITAL | VARCHAR2 | Y |  |
+| 25 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 26 | DS_CIDADE | VARCHAR2 | Y |  |
+| 27 | DS_ESTADO | VARCHAR2 | Y |  |
+| 28 | DS_PAIS | VARCHAR2 | Y |  |
+| 29 | NR_CEP | NUMBER | Y |  |
+| 30 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 31 | NR_ENDERECO | NUMBER | Y |  |
+| 32 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 33 | SN_AUDITOR_TABELA | VARCHAR2 | N |  |
+| 34 | SN_CRIA_USUARIO | VARCHAR2 | Y |  |
+| 35 | SN_PERMITE_DESVINCULO_PACOTE | VARCHAR2 | Y |  |
+| 36 | SN_ALTERA_PACIENTE_SEM_CPF | VARCHAR2 | Y |  |
+| 37 | NR_DDI | NUMBER | Y |  |
+| 38 | NR_DDD | NUMBER | Y |  |
+| 39 | NR_CELULAR | NUMBER | Y |  |
+| 40 | DH_GRAVACAO_USUARIO | DATE | Y |  |
+| 41 | CD_USUARIO_GRAVACAO | VARCHAR2 | Y |  |
+| 42 | DH_ALTERACAO_USUARIO | DATE | Y |  |
+| 43 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y |  |
+| 44 | NR_TENTATIVA_LOGIN | NUMBER | Y |  |
+| 45 | SN_ALTERA_OBSERVACAO_GUIA | VARCHAR2 | Y |  |
+| 46 | CD_SENHA_INTEGRA | VARCHAR2 | Y |  |
+| 47 | CD_CBO | VARCHAR2 | Y |  |
+| 48 | NR_MATRICULA | VARCHAR2 | Y |  |
+| 49 | CD_CRACHA | VARCHAR2 | Y |  |
+| 50 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 51 | CD_PROFISSAO | NUMBER | Y |  |
+| 52 | SN_TERMO_USO_PROFISSIONAL | CHAR | Y |  |
+| 53 | TS_TERMO_USO_PROFISSIONAL | TIMESTAMP(6) | Y |  |
+| 54 | SN_PERMITE_FECHA_CNT_ANATOMIA | VARCHAR2 | Y |  |
+| 55 | SN_PERMITE_DUPLICIDADE_CPF | VARCHAR2 | N |  |
+| 56 | SN_UTILIZA_PROCESSO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.USUARIOS_RH_16
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 4 | RAMAL | VARCHAR2 | Y |  |
+| 5 | TP_PRIVILEGIO | VARCHAR2 | N |  |
+| 6 | NR_ID_USUARIO | NUMBER | Y |  |
+| 7 | CD_SENHA | VARCHAR2 | N |  |
+| 8 | CD_PAPEL | NUMBER | Y |  |
+| 9 | TP_STATUS | VARCHAR2 | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | USER_ID_ORA_APP | NUMBER | Y |  |
+| 12 | SN_ATIVO | VARCHAR2 | N |  |
+| 13 | SN_SENHA_PLOGIN | VARCHAR2 | N |  |
+| 14 | SN_ABRE_FECHA_CONTA | VARCHAR2 | N |  |
+| 15 | CPF | VARCHAR2 | Y |  |
+| 16 | SN_RECEBE_MSG_EXPIRA_CHAVE | VARCHAR2 | Y |  |
+| 17 | SN_ALTERA_AUDITORIA_IN_LOCO | VARCHAR2 | N |  |
+| 18 | SN_CADASTRA_PACIENTE | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_CADASTRO_PACIENTE | VARCHAR2 | N |  |
+| 20 | DT_NASCIMENTO | DATE | Y |  |
+| 21 | CD_MATRICULA | VARCHAR2 | Y |  |
+| 22 | DS_EMAIL | VARCHAR2 | Y |  |
+| 23 | CD_IDIOMA | VARCHAR2 | Y |  |
+| 24 | SN_CERTIFICADO_DIGITAL | VARCHAR2 | Y |  |
+| 25 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 26 | DS_CIDADE | VARCHAR2 | Y |  |
+| 27 | DS_ESTADO | VARCHAR2 | Y |  |
+| 28 | DS_PAIS | VARCHAR2 | Y |  |
+| 29 | NR_CEP | NUMBER | Y |  |
+| 30 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 31 | NR_ENDERECO | NUMBER | Y |  |
+| 32 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 33 | SN_AUDITOR_TABELA | VARCHAR2 | N |  |
+| 34 | SN_CRIA_USUARIO | VARCHAR2 | Y |  |
+| 35 | SN_PERMITE_DESVINCULO_PACOTE | VARCHAR2 | Y |  |
+| 36 | SN_ALTERA_PACIENTE_SEM_CPF | VARCHAR2 | Y |  |
+| 37 | NR_DDI | NUMBER | Y |  |
+| 38 | NR_DDD | NUMBER | Y |  |
+| 39 | NR_CELULAR | NUMBER | Y |  |
+| 40 | DH_GRAVACAO_USUARIO | DATE | Y |  |
+| 41 | CD_USUARIO_GRAVACAO | VARCHAR2 | Y |  |
+| 42 | DH_ALTERACAO_USUARIO | DATE | Y |  |
+| 43 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y |  |
+| 44 | NR_TENTATIVA_LOGIN | NUMBER | Y |  |
+| 45 | SN_ALTERA_OBSERVACAO_GUIA | VARCHAR2 | Y |  |
+| 46 | CD_SENHA_INTEGRA | VARCHAR2 | Y |  |
+| 47 | CD_CBO | VARCHAR2 | Y |  |
+| 48 | NR_MATRICULA | VARCHAR2 | Y |  |
+| 49 | CD_CRACHA | VARCHAR2 | Y |  |
+| 50 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 51 | CD_PROFISSAO | NUMBER | Y |  |
+| 52 | SN_TERMO_USO_PROFISSIONAL | CHAR | Y |  |
+| 53 | TS_TERMO_USO_PROFISSIONAL | TIMESTAMP(6) | Y |  |
+| 54 | SN_PERMITE_FECHA_CNT_ANATOMIA | VARCHAR2 | Y |  |
+| 55 | SN_PERMITE_DUPLICIDADE_CPF | VARCHAR2 | N |  |
+| 56 | SN_UTILIZA_PROCESSO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.USUARIOS_RH_9
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y |  |
+| 2 | NM_USUARIO | VARCHAR2 | N |  |
+| 3 | DS_OBSERVACAO | VARCHAR2 | Y |  |
+| 4 | RAMAL | VARCHAR2 | Y |  |
+| 5 | TP_PRIVILEGIO | VARCHAR2 | N |  |
+| 6 | NR_ID_USUARIO | NUMBER | Y |  |
+| 7 | CD_SENHA | VARCHAR2 | Y |  |
+| 8 | CD_PAPEL | NUMBER | Y |  |
+| 9 | TP_STATUS | VARCHAR2 | Y |  |
+| 10 | CD_PRESTADOR | NUMBER | Y |  |
+| 11 | USER_ID_ORA_APP | NUMBER | Y |  |
+| 12 | SN_ATIVO | VARCHAR2 | N |  |
+| 13 | SN_SENHA_PLOGIN | VARCHAR2 | N |  |
+| 14 | SN_ABRE_FECHA_CONTA | VARCHAR2 | N |  |
+| 15 | CPF | VARCHAR2 | Y |  |
+| 16 | SN_RECEBE_MSG_EXPIRA_CHAVE | VARCHAR2 | Y |  |
+| 17 | SN_ALTERA_AUDITORIA_IN_LOCO | VARCHAR2 | N |  |
+| 18 | SN_CADASTRA_PACIENTE | VARCHAR2 | N |  |
+| 19 | SN_ALTERA_CADASTRO_PACIENTE | VARCHAR2 | N |  |
+| 20 | DT_NASCIMENTO | DATE | Y |  |
+| 21 | CD_MATRICULA | VARCHAR2 | Y |  |
+| 22 | DS_EMAIL | VARCHAR2 | Y |  |
+| 23 | CD_IDIOMA | VARCHAR2 | Y |  |
+| 24 | SN_CERTIFICADO_DIGITAL | VARCHAR2 | Y |  |
+| 25 | DS_BAIRRO | VARCHAR2 | Y |  |
+| 26 | DS_CIDADE | VARCHAR2 | Y |  |
+| 27 | DS_ESTADO | VARCHAR2 | Y |  |
+| 28 | DS_PAIS | VARCHAR2 | Y |  |
+| 29 | NR_CEP | NUMBER | Y |  |
+| 30 | DS_ENDERECO | VARCHAR2 | Y |  |
+| 31 | NR_ENDERECO | NUMBER | Y |  |
+| 32 | DS_COMPLEMENTO | VARCHAR2 | Y |  |
+| 33 | SN_AUDITOR_TABELA | VARCHAR2 | N |  |
+| 34 | SN_CRIA_USUARIO | VARCHAR2 | Y |  |
+| 35 | SN_PERMITE_DESVINCULO_PACOTE | VARCHAR2 | Y |  |
+| 36 | SN_ALTERA_PACIENTE_SEM_CPF | VARCHAR2 | Y |  |
+| 37 | NR_DDI | NUMBER | Y |  |
+| 38 | NR_DDD | NUMBER | Y |  |
+| 39 | NR_CELULAR | NUMBER | Y |  |
+| 40 | DH_GRAVACAO_USUARIO | DATE | Y |  |
+| 41 | CD_USUARIO_GRAVACAO | VARCHAR2 | Y |  |
+| 42 | DH_ALTERACAO_USUARIO | DATE | Y |  |
+| 43 | CD_USUARIO_ALTERACAO | VARCHAR2 | Y |  |
+| 44 | NR_TENTATIVA_LOGIN | NUMBER | Y |  |
+| 45 | SN_ALTERA_OBSERVACAO_GUIA | VARCHAR2 | Y |  |
+| 46 | CD_SENHA_INTEGRA | VARCHAR2 | Y |  |
+| 47 | CD_CBO | VARCHAR2 | Y |  |
+| 48 | NR_MATRICULA | VARCHAR2 | Y |  |
+| 49 | CD_CRACHA | VARCHAR2 | Y |  |
+| 50 | CD_IDENTIFICADOR_PESSOA | VARCHAR2 | Y |  |
+| 51 | CD_PROFISSAO | NUMBER | Y |  |
+| 52 | SN_TERMO_USO_PROFISSIONAL | CHAR | Y |  |
+| 53 | TS_TERMO_USO_PROFISSIONAL | TIMESTAMP(6) | Y |  |
+| 54 | SN_PERMITE_FECHA_CNT_ANATOMIA | VARCHAR2 | Y |  |
+| 55 | SN_PERMITE_DUPLICIDADE_CPF | VARCHAR2 | N |  |
+| 56 | SN_UTILIZA_PROCESSO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.USUARIO_BANCADA
+> Cadastro de Bancadas associados a um Usario do Perfil de Ac?es do PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario associado a Bancada |
+| 2 | CD_BANCADA | NUMBER | N | Codigo da Bancada que esta associado a (e representado por) um usuario |
+
+---
+
+## DBASGU.USUARIO_EMPRESA_COLETA
+> Cadastro das empresas que o usuario podera acessar na coleta dos exames
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario associado a empresa |
+| 2 | CD_MULTI_EMPRESA | NUMBER | N | Codigo da empresa que esta associado a um usuario |
+
+---
+
+## DBASGU.USUARIO_LEITO
+> Tabela que armazenara todos os leitos que cada usuario podera manipular no processo de Gest?o de Leitos
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario associado ao Prestador |
+| 2 | CD_LEITO | NUMBER | N | Codigo do Leito que sera manipulado pelo usuario |
+| 3 | CD_PAPEL | NUMBER | N | Codigo do Papel associado ao usuario |
+
+---
+
+## DBASGU.USUARIO_LOCAL_SOROTECA
+> Tabela de permissões de acesso aos locais de armazenamento da Soroteca por Usuário
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Código do usuário |
+| 2 | CD_CONGELADOR | NUMBER | N | Código do local de armazenamento |
+
+---
+
+## DBASGU.USUARIO_MENSAGEM
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N |  |
+| 2 | CD_MENSAGEM | NUMBER | N |  |
+| 3 | TP_SITUACAO_MENSAGEM | VARCHAR2 | Y |  |
+| 4 | CD_PASTA_SISTEMA | VARCHAR2 | Y |  |
+| 5 | CD_PASTA_MENSAGEM | NUMBER | Y |  |
+| 6 | SN_LIDA | VARCHAR2 | Y |  |
+| 7 | DS_IDENTIFICADOR | VARCHAR2 | Y |  |
+| 8 | ID_IDENTIFICADOR | VARCHAR2 | Y |  |
+| 9 | TP_IDENTIFICADOR | VARCHAR2 | Y |  |
+| 10 | SN_EXECUTAR | VARCHAR2 | Y |  |
+| 11 | DH_LEITURA | DATE | Y |  |
+
+---
+
+## DBASGU.USUARIO_MENU_FAVORITO
+> Tabela menu favoritos dos usuarios do sistema
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario que possui opc?o de menu favoritos |
+| 2 | CD_MENU_FAV | NUMBER | N | Codigo do menu a ser utilizado como um dos favoritos |
+| 3 | CD_MENU_FAV_PAI | NUMBER | Y | Codigo do menu ao qual este menu ou tela e relacionado |
+| 4 | NR_ORDEM | NUMBER | Y | Sequencia continua de ordenac?o dos menus |
+| 5 | TP_MENU | VARCHAR2 | Y | M-MENU, T-TELA(MODULO), W-LINK DA WEB, L-LINHA/SEPARADOR, P-PROCESSO |
+| 6 | CD_TEXTO | NUMBER | Y | Codigo do Texto para Multi-Idioma |
+| 7 | NM_MENU | VARCHAR2 | Y | Nome do Menu Favorito |
+| 8 | CD_MODULO | VARCHAR2 | Y | codigo do modulo originado da tabela dbasgu.menu |
+| 9 | NM_LINK | VARCHAR2 | Y | link originado da tabela dbasgu.menu |
+| 10 | NM_ICON | VARCHAR2 | Y | nome da imagem do incone originado da  tabela dbasgu.menu |
+| 11 | CD_MENU | NUMBER | Y | cd_menu que originou o favoritos relaciona com a tabela dbasgu.menu |
+
+---
+
+## DBASGU.USUARIO_PRESTADOR_LAB
+> Cadastro de Prestadores/Tecnicos associados a um Usario do Perfil de Ac?es do PSSD
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | N | Codigo do usuario associado ao Prestador |
+| 2 | CD_PRESTADOR | NUMBER | N | Codigo do Prestador/Tecnico que esta associado a (e representado por) um usuario |
+| 3 | TP_ATIVIDADE | VARCHAR2 | N | Indicador se o Prestador e um Medico ou Tecnico |
+| 4 | TP_ACAO | VARCHAR2 | N | Diferencia os prestadores/tecnicos de Laboratorio (L) dos de Imagem (I) |
+
+---
+
+## DBASGU.VALIDACAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VALIDACAO | NUMBER | N |  |
+| 2 | TP_DONO | VARCHAR2 | N |  |
+| 3 | CD_CLIENTE | NUMBER | N |  |
+| 4 | CD_VERSAO | VARCHAR2 | N |  |
+| 5 | SN_ATIVO | VARCHAR2 | N |  |
+| 6 | DH_CADASTRO | DATE | N |  |
+| 7 | NM_USUARIO_REDE | VARCHAR2 | N |  |
+| 8 | NM_OBJETO | VARCHAR2 | Y |  |
+| 9 | TP_OBJETO | VARCHAR2 | Y |  |
+| 10 | NM_CAMPO | VARCHAR2 | Y |  |
+| 11 | TP_EXECUCAO | VARCHAR2 | Y |  |
+| 12 | NM_FORMULARIO | VARCHAR2 | Y |  |
+| 13 | CD_RELEASE | VARCHAR2 | Y |  |
+| 14 | DS_VALIDACAO | VARCHAR2 | Y |  |
+| 15 | DS_LISTA_VALOR | VARCHAR2 | Y |  |
+| 16 | DS_COMENTARIO | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.VDIC_CONSULTAR_USUARIO
+> Consultar Usuario
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_USUARIO | VARCHAR2 | Y | Codigo do Usuario |
+| 2 | NM_USUARIO | VARCHAR2 | Y | Nome do Usuario |
+| 3 | NR_CPF | VARCHAR2 | Y | Numero do CPF |
+| 4 | SN_ATIVO | VARCHAR2 | Y | Indica se o usuario esta ativo |
+| 5 | TP_PRIVILEGIO | VARCHAR2 | Y | Tipo de privilegio |
+| 6 | CD_PRESTADOR | NUMBER | Y | Codigo do Prestador |
+| 7 | NM_PRESTADOR | VARCHAR2 | Y | Nome do Prestador |
+| 8 | CD_PAPEL | NUMBER | N | Codigo do Papel |
+| 9 | DS_PAPEL | VARCHAR2 | N | Descric?o do Papel |
+
+---
+
+## DBASGU.VERSAO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_VERSAO | VARCHAR2 | Y |  |
+| 2 | CD_RELEASE | VARCHAR2 | Y |  |
+| 3 | DT_FECHAMENTO | DATE | Y |  |
+| 4 | DT_IMPLANTACAO | DATE | Y |  |
+
+---
+
+## DBASGU.VW_DATA_INICIAL
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | DATA | DATE | Y |  |
+
+---
+
+## DBASGU.VW_RECRIA_CUSTO_MEDIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_ITENT_PRO | NUMBER | Y |  |
+| 2 | CD_PRODUTO | NUMBER | Y |  |
+| 3 | CD_PRODUTO_TEM | NUMBER | Y |  |
+| 4 | DT_ENTRADA | DATE | Y |  |
+| 5 | HR_ENTRADA | DATE | Y |  |
+| 6 | HR_MOVIMENTO | DATE | Y |  |
+| 7 | VL_TOTAL | NUMBER | Y |  |
+| 8 | VL_UNI | NUMBER | Y |  |
+| 9 | SN_ATUALIZA_PRECO | VARCHAR2 | Y |  |
+| 10 | SN_CONTAGEM | CHAR | Y |  |
+| 11 | SN_MESTRE | CHAR | Y |  |
+| 12 | CD_ESTOQUE | NUMBER | Y |  |
+| 13 | TP_ENTRADA | VARCHAR2 | Y |  |
+| 14 | SN_CONSIGNADO | VARCHAR2 | Y |  |
+| 15 | TP_DOCUMENTO_ENTRADA | VARCHAR2 | Y |  |
+| 16 | VL_UNITARIO | NUMBER | Y |  |
+| 17 | VL_FATOR | NUMBER | Y |  |
+| 18 | CD_ITMVTO_ESTOQUE | NUMBER | Y |  |
+
+---
+
+## DBASGU.V_CONFIGURACAO_USUARIO
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | NM_COLUNA | VARCHAR2 | N |  |
+| 2 | DS_COMENTARIO_COLUNA | VARCHAR2 | Y |  |
+| 3 | SN_NULLABLE_COLUNA | VARCHAR2 | Y |  |
+
+---
+
+## DBASGU.V_CRMI
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | EDICAO | VARCHAR2 | Y | Exibe mes e ano da edic?o |
+| 2 | DS_LOCALIZA_LINK | VARCHAR2 | N | Local que o arquivo esta gravado |
+| 3 | CD_CRMI | NUMBER | N | Codigo do crm cadastrado |
+
+---
+
+## DBASGU.V_SIS_MODULOS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | CD_SISTEMA | VARCHAR2 | N |  |
+| 2 | CD_MODULO | VARCHAR2 | N |  |
+| 3 | NM_MODULO | VARCHAR2 | N |  |
+| 4 | TP_MODULO | VARCHAR2 | N |  |
+
+---
+
+## MVONEPASS.ACCREDIT_USER
+> TABELA DE CREDENCIAMENTO DO USUARIO COM O MVONEPASS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | UUID | VARCHAR2 | N | UUID DO CREDENCIAMENTO DO USUARIO |
+| 2 | TOKEN | VARCHAR2 | N | TOKEN DO CREDENCIAMENTO DO USUARIO |
+| 3 | DOCUMENT_TYPE | VARCHAR2 | N | TIPO DO DOCUMENTO DO CADASTRO USUARIO (CPF, RUT) |
+| 4 | DOCUMENT_CODE | VARCHAR2 | N | VALOR UNICO DO DOCUMENTO DO CADASTRO DO USUARIO |
+| 5 | ACCREDIT_TYPE | VARCHAR2 | N | TIPO DO CREDENCIAMENTO, (CURADORIA, AUTO-CREDENCIMANTO, AUTOMATICO) |
+| 6 | ACCREDIT_SYSTEM | VARCHAR2 | N | SISTEMA QUE REALIZOU O CREDENCIAMENTO DO USUARIO |
+| 7 | CREATED_AT | TIMESTAMP(6) WITH TIME ZONE | Y | DATA DE CRIACAO DO CREDENCIAMENTO |
+| 8 | ACTIVE | VARCHAR2 | N | STATUS DO CREDENCIAMENTO DO USUARIO |
+
+---
+
+## MVONEPASS.ACCREDIT_USER_HISTORY
+> TABELA DE HISTORICO DO CREDENCIAMENTO DO USUARIO COM O MVONEPASS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | UUID | VARCHAR2 | N | UUID DO CREDENCIAMENTO DO USUARIO |
+| 2 | TOKEN | VARCHAR2 | N | TOKEN DO CREDENCIAMENTO DO USUARIO |
+| 3 | DOCUMENT_TYPE | VARCHAR2 | N | TIPO DO DOCUMENTO DO CADASTRO USUARIO (CPF, RUT) |
+| 4 | DOCUMENT_CODE | VARCHAR2 | N | VALOR UNICO DO DOCUMENTO DO CADASTRO DO USUARIO |
+| 5 | ACCREDIT_TYPE | VARCHAR2 | N | TIPO DO CREDENCIAMENTO, (CURADORIA, AUTO-CREDENCIMANTO, AUTOMATICO) |
+| 6 | ACCREDIT_SYSTEM | VARCHAR2 | N | SISTEMA QUE REALIZOU O CREDENCIAMENTO DO USUARIO |
+| 7 | INACTIVATION_DATE | TIMESTAMP(6) WITH TIME ZONE | Y | DATA DE INATIVACAO DO CREDENCIAMENTO |
+| 8 | CREATED_AT | TIMESTAMP(6) WITH TIME ZONE | Y | DATA DE CRIACAO DO CREDENCIAMENTO |
+| 9 | ACTIVE | VARCHAR2 | N | STATUS DO CREDENCIAMENTO DO USUARIO |
+
+---
+
+## MVONEPASS.CONFIGURATION_SETTINGS
+> TABELA DE CONFIGURAÃ¿Ã¿ES DO MVONEPASS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID | NUMBER | N | ID DA CONFIGURAÃ¿Ã¿O |
+| 2 | SETTING_NAME | VARCHAR2 | N | NOME DA CONFIGURAÃ¿Ã¿O |
+| 3 | SETTING_VALUE | VARCHAR2 | N | VALOR DA CONFIGURAÃ¿Ã¿O |
+| 4 | CREATED_AT | TIMESTAMP(6) | Y | DATA DE CRIAÃ¿Ã¿O DA CONFIGURAÃ¿Ã¿O |
+| 5 | UPDATED_AT | TIMESTAMP(6) | Y | DATA DE ATUALIZAÃ¿Ã¿O DA CONFIGURAÃ¿Ã¿O |
+
+---
+
+## MVONEPASS.USER_HASH
+> TABELA DE USUÃRIOS DO MVONEPASS - ARMAZENA HASH DE SENHAS
+
+| # | Coluna | Tipo | Nulo | Comentario |
+|---|--------|------|------|------------|
+| 1 | ID | NUMBER | N | CHAVE PRIMÃRIA DA TABELA (GERADA PELA SEQUENCE) |
+| 2 | DOCUMENT_CODE | VARCHAR2 | Y | CÃ¿DIGO DO DOCUMENTO (EX.: CPF, CNPJ) |
+| 3 | DOCUMENT_TYPE | VARCHAR2 | Y | TIPO DO DOCUMENTO (EX.: CPF, CNPJ) |
+| 4 | EMAIL | VARCHAR2 | Y | ENDEREÃ¿O DE E-MAIL DO USUÃRIO |
+| 5 | HASH | VARCHAR2 | N | HASH DE SENHA CRIPTOGRAFADA |
+| 6 | CREATED_AT | TIMESTAMP(6) | Y | DATA/HORA DE CRIAÃ¿Ã¿O DO REGISTRO |
+| 7 | UPDATED_AT | TIMESTAMP(6) | Y |  |

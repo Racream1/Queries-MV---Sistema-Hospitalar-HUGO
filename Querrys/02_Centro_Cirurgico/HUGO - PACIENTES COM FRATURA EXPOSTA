@@ -1,0 +1,55 @@
+WITH TERMOS AS (
+    SELECT 'Fratura exposta' termo FROM dual UNION ALL
+    SELECT 'Fx exposta'   FROM dual UNION ALL
+    SELECT 'FRATURA EXPOSTA' FROM dual UNION ALL
+    SELECT 'FX EXPOSTA' FROM dual
+
+)
+, BASE AS (
+  SELECT pr.cd_atendimento,
+         a.cd_paciente,
+         p.nm_paciente,
+         a.dt_atendimento,
+         a.hr_atendimento,
+         a.dt_alta,
+         ac.dt_realizacao,
+         fnc_extrair_coluna_long('ds_evolucao', 'pre_med', 'cd_pre_med', cd_pre_med) AS ds_evolucao_FNC,
+         ac.dt_aviso_cirurgia,
+         ac.DT_INICIO_CIRURGIA,
+         a.cd_cid,
+         a.cd_procedimento,
+         ps.DS_PROCEDIMENTO,
+         CASE WHEN A.TP_ATENDIMENTO = 'I' THEN MA.DS_MOT_ALT ELSE TP.DS_TIP_RES END ALTA
+
+  FROM pre_med pr
+  JOIN pw_documento_clinico dc ON pr.cd_documento_clinico = dc.cd_documento_clinico
+  JOIN pagu_objeto td          ON dc.cd_objeto = td.cd_objeto
+  JOIN atendime a              ON a.cd_atendimento = pr.cd_atendimento
+  JOIN paciente p              ON p.cd_paciente = a.cd_paciente
+  LEFT JOIN aviso_cirurgia ac  ON ac.cd_atendimento = a.cd_atendimento
+  left join procedimento_sus ps on ps.cd_procedimento = a.cd_procedimento
+  LEFT JOIN MOT_ALT MA ON MA.CD_MOT_ALT = A.CD_MOT_ALT
+  LEFT JOIN TIP_RES TP ON TP.CD_TIP_RES = A.CD_TIP_RES
+  WHERE dc.cd_objeto = 203
+    AND a.cd_multi_empresa = 40
+    -- sem ORDER BY aqui
+)
+SELECT DISTINCT b.cd_atendimento,
+       b.cd_paciente,
+       b.nm_paciente,
+       TO_CHAR(b.dt_atendimento,'DD/MM/YYYY') || ' ' || TO_CHAR(b.hr_atendimento,'HH24:MI:SS') dt_atendimento,
+       TRUNC(b.dt_alta - b.hr_atendimento) || ' ' || TRUNC(MOD((b.dt_alta - b.hr_atendimento) * 24, 24)) || ':' ||
+            TRUNC(MOD((b.dt_alta - b.hr_atendimento) * 24 * 60, 60)) tempo_internacao,
+       TRUNC(b.dt_realizacao - b.hr_atendimento) || ' ' || TRUNC(MOD((b.dt_realizacao - b.hr_atendimento) * 24, 24)) || ':' ||
+            TRUNC(MOD((b.dt_realizacao - b.hr_atendimento) * 24 * 60, 60)) TMP_ATE_CIR,
+      b.dt_aviso_cirurgia,
+      b.DT_INICIO_CIRURGIA,
+      b.cd_cid,
+      b.cd_procedimento, 
+      b.DS_PROCEDIMENTO,
+      ALTA
+FROM base b
+JOIN TERMOS t
+  ON INSTR(UPPER(b.ds_evolucao_FNC), UPPER(t.termo)) > 0
+WHERE B.DT_ATENDIMENTO >=  TO_DATE(TO_CHAR($DataIniHugo$,'DD/MM/YYYY') || ' 00:00:00', 'DD/MM/YYYY HH24:MI:SS')
+  AND B.DT_ATENDIMENTO <=  TO_DATE(TO_CHAR($DataFimHugo$,'DD/MM/YYYY') || ' 23:59:59', 'DD/MM/YYYY HH24:MI:SS')

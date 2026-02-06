@@ -1,0 +1,91 @@
+-- ============================================================
+-- PORTLET: CONTAGEM DE ATENDIMENTOS COMPLETOS - EMERGENCIA
+-- Descricao: Total de atendimentos que passaram por triagem,
+--            classificacao de risco e atendimento medico
+-- Periodo: A partir de 01/01/2025
+-- Ultima Atualizacao: 13/10/2025
+-- ============================================================
+
+WITH atendimentos_completos AS (
+    -- Subquery para identificar apenas atendimentos com as 3 etapas
+    SELECT DISTINCT
+        ATE.CD_ATENDIMENTO,
+        ATE.CD_PACIENTE,
+        ATE.DT_ATENDIMENTO,
+        ATE.HR_ATENDIMENTO,
+        ATE.TP_ATENDIMENTO,
+        ATE.TP_PRIORIDADE,
+        ATE.DT_ALTA
+    FROM 
+        DBAMV.ATENDIME ATE
+        -- JOIN 1: Garante que existe TRIAGEM
+        INNER JOIN DBAMV.TRIAGEM_ATENDIMENTO TRI 
+            ON ATE.CD_ATENDIMENTO = TRI.CD_ATENDIMENTO
+        -- JOIN 2: Garante que existe CLASSIFICACAO DE RISCO (inicio ou fim)
+        INNER JOIN (
+            SELECT DISTINCT CD_TRIAGEM_ATENDIMENTO
+            FROM DBAMV.SACR_TEMPO_PROCESSO
+            WHERE CD_TIPO_TEMPO_PROCESSO IN (11, 12) -- 11=Inicio Classif, 12=Fim Classif
+              AND DH_PROCESSO IS NOT NULL
+        ) CLASSIF ON TRI.CD_TRIAGEM_ATENDIMENTO = CLASSIF.CD_TRIAGEM_ATENDIMENTO
+        -- JOIN 3: Garante que existe ATENDIMENTO MEDICO (inicio ou fim)
+        INNER JOIN (
+            SELECT DISTINCT CD_TRIAGEM_ATENDIMENTO
+            FROM DBAMV.SACR_TEMPO_PROCESSO
+            WHERE CD_TIPO_TEMPO_PROCESSO IN (31, 32) -- 31=Inicio Atend Medico, 32=Fim Atend Medico
+              AND DH_PROCESSO IS NOT NULL
+        ) ATEND_MED ON TRI.CD_TRIAGEM_ATENDIMENTO = ATEND_MED.CD_TRIAGEM_ATENDIMENTO
+    WHERE 1=1
+        -- Filtro: Multi-Empresa
+        AND ATE.CD_MULTI_EMPRESA = 40
+        -- Filtro: Tipo de Atendimento - Urgencia/Emergencia
+        AND ATE.TP_ATENDIMENTO IN ('U', 'E')
+        -- Filtro: A partir de 01/01/2025
+        AND ATE.DT_ATENDIMENTO >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+)
+
+-- Query principal com metricas agregadas
+SELECT 
+    -- Data do Atendimento
+    TO_CHAR(AC.DT_ATENDIMENTO, 'DD/MM/YYYY') AS DATA_ATENDIMENTO,
+    
+    -- Dia da Semana
+    CASE TO_CHAR(AC.DT_ATENDIMENTO, 'D')
+        WHEN '1' THEN 'Domingo'
+        WHEN '2' THEN 'Segunda'
+        WHEN '3' THEN 'Terca'
+        WHEN '4' THEN 'Quarta'
+        WHEN '5' THEN 'Quinta'
+        WHEN '6' THEN 'Sexta'
+        WHEN '7' THEN 'Sabado'
+    END AS DIA_SEMANA,
+    
+    -- Total de Atendimentos Completos
+    COUNT(DISTINCT AC.CD_ATENDIMENTO) AS TOTAL_ATENDIMENTOS,
+    
+    -- Total de Pacientes Unicos
+    COUNT(DISTINCT AC.CD_PACIENTE) AS PACIENTES_UNICOS,
+    
+    -- Atendimentos por Tipo
+    SUM(CASE WHEN AC.TP_ATENDIMENTO = 'U' THEN 1 ELSE 0 END) AS URGENCIA,
+    SUM(CASE WHEN AC.TP_ATENDIMENTO = 'E' THEN 1 ELSE 0 END) AS EMERGENCIA,
+    
+    -- Atendimentos por Classificacao de Risco
+    SUM(CASE WHEN AC.TP_PRIORIDADE = 'A' THEN 1 ELSE 0 END) AS RISCO_ALTO,
+    SUM(CASE WHEN AC.TP_PRIORIDADE = 'M' THEN 1 ELSE 0 END) AS RISCO_MEDIO,
+    SUM(CASE WHEN AC.TP_PRIORIDADE = 'B' THEN 1 ELSE 0 END) AS RISCO_BAIXO,
+    
+    -- Status de Alta
+    SUM(CASE WHEN AC.DT_ALTA IS NOT NULL THEN 1 ELSE 0 END) AS COM_ALTA,
+    SUM(CASE WHEN AC.DT_ALTA IS NULL THEN 1 ELSE 0 END) AS EM_ATENDIMENTO
+    
+FROM 
+    atendimentos_completos AC
+    
+GROUP BY 
+    AC.DT_ATENDIMENTO,
+    TO_CHAR(AC.DT_ATENDIMENTO, 'DD/MM/YYYY'),
+    TO_CHAR(AC.DT_ATENDIMENTO, 'D')
+    
+ORDER BY 
+    AC.DT_ATENDIMENTO DESC

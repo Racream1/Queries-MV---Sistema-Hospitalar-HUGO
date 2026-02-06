@@ -1,0 +1,149 @@
+-- ==========================================================================================
+-- QUERY: Carga Mensal de Antimicrobianos - Pacientes Internados na Ortopedia (HUGO) - v3
+-- PERÍODO: Desde Junho/2024 até o mês atual
+-- OBJETIVO: Avaliar a tendência do uso de ATB (DOT/1000 paciente-dias) e por criticidade.
+-- MÉTRICA PRINCIPAL: Days of Therapy (DOT) por 1000 Paciente-Dias
+-- ESPECIALIDADES ORTOPEDIA HUGO: 33 (ORTOPEDIA E TRAUMATOLOGIA), 60 (CIRURGIA DA MÃO), 61 (CIRURGIA DA COLUNA)
+-- ATUALIZAÇÃO: Correção ORA-00904, revisão ORA-06502.
+-- ==========================================================================================
+
+WITH
+-- 1. Período de Análise
+PARAMS AS (
+    SELECT
+        TO_DATE('01/06/2024', 'DD/MM/YYYY') AS DATA_INICIO_ANALISE,
+        TRUNC(SYSDATE) AS DATA_FIM_ANALISE -- Até a data atual
+    FROM DUAL
+),
+
+-- 2. Gera uma lista de todos os meses no período de análise
+MESES_ANALISE AS (
+    SELECT
+        ADD_MONTHS(TRUNC(P.DATA_INICIO_ANALISE, 'MM'), LEVEL - 1) AS PRIMEIRO_DIA_MES,
+        LAST_DAY(ADD_MONTHS(TRUNC(P.DATA_INICIO_ANALISE, 'MM'), LEVEL - 1)) AS ULTIMO_DIA_MES
+    FROM PARAMS P
+    CONNECT BY LEVEL <= MONTHS_BETWEEN(P.DATA_FIM_ANALISE, P.DATA_INICIO_ANALISE) + 1
+),
+
+-- 3. Seleciona as internações da Ortopedia no período
+INTERNACOES_ORTO AS (
+    SELECT
+        A.CD_ATENDIMENTO,
+        A.CD_PACIENTE,
+        GREATEST(A.HR_ATENDIMENTO, P.DATA_INICIO_ANALISE) AS DT_ENTRADA_PERIODO,
+        LEAST(NVL(A.HR_ALTA, P.DATA_FIM_ANALISE + 1), P.DATA_FIM_ANALISE + 1) AS DT_SAIDA_PERIODO
+    FROM
+        DBAMV.ATENDIME A
+    CROSS JOIN PARAMS P
+    WHERE
+        A.CD_MULTI_EMPRESA = 40
+        AND A.TP_ATENDIMENTO = 'I'
+        AND A.CD_ESPECIALID IN (33, 60, 61) -- Códigos da Ortopedia HUGO
+        AND A.HR_ATENDIMENTO <= P.DATA_FIM_ANALISE + INTERVAL '1' DAY - INTERVAL '1' SECOND
+        AND NVL(A.HR_ALTA, P.DATA_FIM_ANALISE + 1) >= P.DATA_INICIO_ANALISE
+),
+
+-- 4. Calcula os Paciente-Dias por Mês para as internações da Ortopedia
+PACIENTE_DIAS_MES AS (
+    SELECT
+        M.PRIMEIRO_DIA_MES, -- Correção do typo aqui
+        SUM( -- Calcula a interseção (overlap) de dias da internação dentro do mês
+             GREATEST(0, LEAST(I.DT_SAIDA_PERIODO, M.ULTIMO_DIA_MES + 1) - GREATEST(I.DT_ENTRADA_PERIODO, M.PRIMEIRO_DIA_MES))
+        ) AS TOTAL_PACIENTE_DIAS
+    FROM
+        MESES_ANALISE M
+    JOIN
+        INTERNACOES_ORTO I ON I.DT_ENTRADA_PERIODO < M.ULTIMO_DIA_MES + 1 AND I.DT_SAIDA_PERIODO > M.PRIMEIRO_DIA_MES
+    GROUP BY
+        M.PRIMEIRO_DIA_MES
+),
+
+-- 5. Seleciona as prescrições de antibióticos para as internações da Ortopedia
+PRESCRICOES_ATB AS (
+    SELECT
+        PM.CD_ATENDIMENTO,
+        ITM.CD_ITPRE_MED,
+        PROD.DS_PRODUTO, --
+        -- Define início e fim da validade da prescrição dentro do período de análise
+        GREATEST(NVL(ITM.DH_INICIAL, PM.HR_PRE_MED), P.DATA_INICIO_ANALISE) AS DH_INICIO_VALIDO, --
+        LEAST(NVL(ITM.DH_FINAL, PM.HR_PRE_MED + NVL(ITM.QT_DIAS, 365)), P.DATA_FIM_ANALISE + 1) AS DH_FIM_VALIDO, -- Assume 1 ano se QT_DIAS for nulo
+        -- Classificação de Criticidade (AJUSTADA CONFORME SOLICITAÇÃO)
+        CASE
+            -- CRITICOS
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%MEROPENEM%' THEN 'CRITICO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%POLIMIXINA%' THEN 'CRITICO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%LINEZOLIDA%' THEN 'CRITICO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%TIGECICLINA%' THEN 'CRITICO' --
+
+            -- RESTRITOS
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%VANCOMICINA%' THEN 'RESTRITO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%PIPERACILINA%' THEN 'RESTRITO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%CEFEPIME%' THEN 'RESTRITO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%LEVOFLOXACIN%' THEN 'RESTRITO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%AMICACINA%' THEN 'RESTRITO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%TEICOPLANINA%' THEN 'RESTRITO' --
+
+            -- PADRAO (Incluindo os adicionados)
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%CEFTRIAXONA%' THEN 'PADRAO' --
+            WHEN UPPER(PROD.DS_PRODUTO) LIKE '%GENTAMICINA%' THEN 'PADRAO' --
+
+            ELSE 'PADRAO' -- Mantém outros como Padrão por default
+        END AS CRITICIDADE
+    FROM
+        DBAMV.PRE_MED PM --
+    JOIN
+        DBAMV.ITPRE_MED ITM ON PM.CD_PRE_MED = ITM.CD_PRE_MED --
+    JOIN
+        DBAMV.TIP_PRESC TP ON ITM.CD_TIP_PRESC = TP.CD_TIP_PRESC --
+    JOIN
+        DBAMV.PRODUTO PROD ON ITM.CD_PRODUTO = PROD.CD_PRODUTO --
+    JOIN
+        INTERNACOES_ORTO IO ON PM.CD_ATENDIMENTO = IO.CD_ATENDIMENTO
+    CROSS JOIN PARAMS P
+    WHERE
+        TP.CD_TIP_ESQ = 'ATB' -- Filtra apenas antibióticos
+        AND NVL(ITM.SN_CANCELADO, 'N') = 'N' -- Ignora itens cancelados
+        -- Garante que a prescrição teve pelo menos 1 dia dentro do período de análise
+        AND GREATEST(NVL(ITM.DH_INICIAL, PM.HR_PRE_MED), P.DATA_INICIO_ANALISE) < LEAST(NVL(ITM.DH_FINAL, PM.HR_PRE_MED + NVL(ITM.QT_DIAS, 365)), P.DATA_FIM_ANALISE + 1)
+),
+
+-- 6. Calcula os Dias de Antibiótico (DOT) por Mês e por Criticidade
+ANTIBIOTICO_DIAS_MES AS (
+    SELECT
+        M.PRIMEIRO_DIA_MES,
+        SUM( -- Calcula a interseção (overlap) de dias da prescrição dentro do mês - sem cast explícito
+             GREATEST(0, LEAST(P.DH_FIM_VALIDO, M.ULTIMO_DIA_MES + 1) - GREATEST(P.DH_INICIO_VALIDO, M.PRIMEIRO_DIA_MES))
+        ) AS TOTAL_DIAS_ATB,
+        SUM(CASE WHEN P.CRITICIDADE = 'CRITICO' THEN GREATEST(0, LEAST(P.DH_FIM_VALIDO, M.ULTIMO_DIA_MES + 1) - GREATEST(P.DH_INICIO_VALIDO, M.PRIMEIRO_DIA_MES)) ELSE 0 END) AS DIAS_ATB_CRITICO,
+        SUM(CASE WHEN P.CRITICIDADE = 'RESTRITO' THEN GREATEST(0, LEAST(P.DH_FIM_VALIDO, M.ULTIMO_DIA_MES + 1) - GREATEST(P.DH_INICIO_VALIDO, M.PRIMEIRO_DIA_MES)) ELSE 0 END) AS DIAS_ATB_RESTRITO,
+        SUM(CASE WHEN P.CRITICIDADE = 'PADRAO' THEN GREATEST(0, LEAST(P.DH_FIM_VALIDO, M.ULTIMO_DIA_MES + 1) - GREATEST(P.DH_INICIO_VALIDO, M.PRIMEIRO_DIA_MES)) ELSE 0 END) AS DIAS_ATB_PADRAO
+    FROM
+        MESES_ANALISE M
+    JOIN
+        PRESCRICOES_ATB P ON P.DH_INICIO_VALIDO < M.ULTIMO_DIA_MES + 1 AND P.DH_FIM_VALIDO > M.PRIMEIRO_DIA_MES
+    GROUP BY
+        M.PRIMEIRO_DIA_MES
+)
+
+-- 7. Junta os resultados mensais e calcula a métrica final
+SELECT
+    TO_CHAR(PDM.PRIMEIRO_DIA_MES, 'MM/YYYY') AS MES_ANO,
+    ROUND(PDM.TOTAL_PACIENTE_DIAS, 2) AS TOTAL_PACIENTE_DIAS,
+    ROUND(NVL(ADM.TOTAL_DIAS_ATB, 0), 2) AS TOTAL_DIAS_ANTIBIOTICO,
+    -- Métrica Principal: DOT / 1000 Paciente-Dias
+    CASE
+        WHEN PDM.TOTAL_PACIENTE_DIAS > 0 THEN ROUND((NVL(ADM.TOTAL_DIAS_ATB, 0) / PDM.TOTAL_PACIENTE_DIAS) * 1000, 1)
+        ELSE 0
+    END AS DOT_POR_1000_PAC_DIAS,
+    -- Detalhamento por Criticidade
+    ROUND(NVL(ADM.DIAS_ATB_CRITICO, 0), 2) AS DIAS_ATB_CRITICO,
+    ROUND(NVL(ADM.DIAS_ATB_RESTRITO, 0), 2) AS DIAS_ATB_RESTRITO,
+    ROUND(NVL(ADM.DIAS_ATB_PADRAO, 0), 2) AS DIAS_ATB_PADRAO
+FROM
+    PACIENTE_DIAS_MES PDM
+LEFT JOIN
+    ANTIBIOTICO_DIAS_MES ADM ON PDM.PRIMEIRO_DIA_MES = ADM.PRIMEIRO_DIA_MES
+-- Exclui o mês atual se ele ainda não terminou completamente (opcional)
+-- WHERE PDM.PRIMEIRO_DIA_MES < TRUNC(SYSDATE, 'MM')
+ORDER BY
+    PDM.PRIMEIRO_DIA_MES ASC -- Ordena do mais antigo para o mais recente

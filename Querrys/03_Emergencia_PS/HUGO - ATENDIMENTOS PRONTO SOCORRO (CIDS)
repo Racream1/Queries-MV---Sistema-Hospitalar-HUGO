@@ -1,0 +1,126 @@
+WITH params AS (
+    SELECT
+        -- Ajustado para usar as variáveis de parâmetro diretamente
+        TO_DATE(TO_CHAR($pgmvDataIni$,'dd/mm/yyyy')||' 00:00','dd/mm/yyyy hh24:mi') AS data_inicio,
+        TO_DATE(TO_CHAR($pgmvDataFim$,'dd/mm/yyyy')||' 23:59','dd/mm/yyyy hh24:mi') AS data_fim,
+        40 AS cd_unidade -- FILTRO DE UNIDADE ADICIONADO
+    FROM DUAL
+),
+
+-- PASSO 1: Busca de eventos agora filtrada por unidade
+TODOS_OS_EVENTOS AS (
+    -- Fonte 1: Marcos Principais (Chegada)
+    SELECT a.CD_ATENDIMENTO, a.CD_PACIENTE, a.HR_ATENDIMENTO AS DATA_HORA_EVENTO, 'INÍCIO ATENDIMENTO (Chegada)' AS DESCRICAO_EVENTO
+    FROM DBAMV.ATENDIME a, params p
+    WHERE a.HR_ATENDIMENTO BETWEEN p.data_inicio AND p.data_fim
+      AND a.TP_ATENDIMENTO = 'U'
+      AND a.CD_MULTI_EMPRESA = p.cd_unidade -- FILTRO DE UNIDADE ADICIONADO
+
+    UNION ALL
+
+    -- Fonte 2: Marcos Principais (Alta)
+    SELECT a.CD_ATENDIMENTO, a.CD_PACIENTE, a.HR_ALTA AS DATA_HORA_EVENTO, 'FIM ATENDIMENTO (Alta)' AS DESCRICAO_EVENTO
+    FROM DBAMV.ATENDIME a, params p
+    WHERE a.HR_ATENDIMENTO BETWEEN p.data_inicio AND p.data_fim
+      AND a.TP_ATENDIMENTO = 'U'
+      AND a.HR_ALTA IS NOT NULL
+      AND a.CD_MULTI_EMPRESA = p.cd_unidade -- FILTRO DE UNIDADE ADICIONADO
+
+    UNION ALL
+
+    -- Fonte 3: Eventos de Processo Detalhados
+    SELECT a.CD_ATENDIMENTO, a.CD_PACIENTE, stp.dh_processo AS DATA_HORA_EVENTO,
+           COALESCE(sttp.DS_TIPO_TEMPO_PROCESSO, 'CÓDIGO SEM DESCRIÇÃO') || ' (Cód: ' || stp.cd_tipo_tempo_processo || ')' AS DESCRICAO_EVENTO
+    FROM DBAMV.ATENDIME a
+    JOIN params p ON a.HR_ATENDIMENTO BETWEEN p.data_inicio AND p.data_fim
+    LEFT JOIN DBAMV.TRIAGEM_ATENDIMENTO ta ON a.CD_ATENDIMENTO = ta.CD_ATENDIMENTO
+    LEFT JOIN DBAMV.SACR_TEMPO_PROCESSO stp ON ta.cd_triagem_atendimento = stp.cd_triagem_atendimento
+    LEFT JOIN DBAMV.SACR_TIPO_TEMPO_PROCESSO sttp ON stp.cd_tipo_tempo_processo = sttp.cd_tipo_tempo_processo
+    WHERE a.TP_ATENDimento = 'U'
+      AND stp.dh_processo IS NOT NULL
+      AND a.CD_MULTI_EMPRESA = p.cd_unidade -- FILTRO DE UNIDADE ADICIONADO
+),
+
+-- PASSO 2: Pivotar os eventos (nenhuma alteração aqui)
+ATENDIMENTOS_PIVOTADOS AS (
+    SELECT
+        CD_ATENDIMENTO,
+        CD_PACIENTE,
+        MAX(CASE WHEN DESCRICAO_EVENTO = 'INÍCIO ATENDIMENTO (Chegada)' THEN DATA_HORA_EVENTO END) AS "INICIO ATENDIMENTO",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 1)' THEN DATA_HORA_EVENTO END) AS "CADASTRO TOTEM (CÓD 1)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 11)' THEN DATA_HORA_EVENTO END) AS "HORA_INICIO_CLASSIF (COD 11)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 12)' THEN DATA_HORA_EVENTO END) AS "HORA_FIM_CLASSIF (COD 12)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 21)' THEN DATA_HORA_EVENTO END) AS "ATENDIMENTO ADMINISTRATIVO INICIO (CODIGO 21)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 20)' THEN DATA_HORA_EVENTO END) AS "ATENDIMENTO ADMINISTRATIVO CHAMADO (COD 20)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 22)' THEN DATA_HORA_EVENTO END) AS "ATENDIMENTO ADMINISTRATIVO FINAL (COD 22)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 31)' THEN DATA_HORA_EVENTO END) AS "HORA_ATEND_MEDICO INICIO (COD 31)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 32)' THEN DATA_HORA_EVENTO END) AS "ATENDIMENTO MÉDICO FINAL (COD 32)",
+        MAX(CASE WHEN DESCRICAO_EVENTO LIKE '%(Cód: 90)' THEN DATA_HORA_EVENTO END) AS "ATENDIMENTO MÉDICO ALTA (COD 90)",
+        MAX(CASE WHEN DESCRICAO_EVENTO = 'FIM ATENDIMENTO (Alta)' THEN DATA_HORA_EVENTO END) AS "FIM ATENDIMENTO (ALTA)"
+    FROM TODOS_OS_EVENTOS
+    GROUP BY CD_ATENDIMENTO, CD_PACIENTE
+),
+
+-- PASSO 3: Lógica da jornada do paciente agora filtrada por unidade
+JORNADA_PACIENTE AS (
+    SELECT
+        atd.cd_atendimento,
+        atd.tp_atendimento,
+        atd.hr_alta,
+        LEAD(atd.tp_atendimento, 1) OVER (PARTITION BY atd.cd_paciente ORDER BY atd.hr_atendimento) AS proximo_tp_atendimento,
+        LEAD(atd.cd_atendimento, 1) OVER (PARTITION BY atd.cd_paciente ORDER BY atd.hr_atendimento) AS proximo_cd_atendimento,
+        LEAD(atd.hr_atendimento, 1) OVER (PARTITION BY atd.cd_paciente ORDER BY atd.hr_atendimento) AS proximo_hr_inicio_atend,
+        LEAD(atd.hr_alta, 1) OVER (PARTITION BY atd.cd_paciente ORDER BY atd.hr_atendimento) AS proximo_hr_alta
+    FROM DBAMV.ATENDIME atd
+    INNER JOIN params p ON atd.dt_atendimento BETWEEN p.data_inicio AND p.data_fim
+    WHERE atd.CD_MULTI_EMPRESA = p.cd_unidade -- FILTRO DE UNIDADE ADICIONADO
+)
+
+-- PASSO 4: Unir tudo para o relatório final
+SELECT
+    pvt.CD_ATENDIMENTO,
+    pac.NM_PACIENTE,
+    TO_CHAR(pvt."CADASTRO TOTEM (CÓD 1)", 'DD/MM/YYYY HH24:MI:SS') AS CADASTRO_TOTEM_COD_1,
+    TO_CHAR(pvt."HORA_INICIO_CLASSIF (COD 11)", 'DD/MM/YYYY HH24:MI:SS') AS HORA_INICIO_CLASSIF_COD_11,
+    TO_CHAR(pvt."HORA_FIM_CLASSIF (COD 12)", 'DD/MM/YYYY HH24:MI:SS') AS HORA_FIM_CLASSIF_COD_12,
+    TO_CHAR(pvt."ATENDIMENTO ADMINISTRATIVO INICIO (CODIGO 21)", 'DD/MM/YYYY HH24:MI:SS') AS ATEND_ADM_INICIO_COD_21,
+    TO_CHAR(pvt."ATENDIMENTO ADMINISTRATIVO CHAMADO (COD 20)", 'DD/MM/YYYY HH24:MI:SS') AS ATEND_ADM_CHAMADO_COD_20,
+    TO_CHAR(pvt."INICIO ATENDIMENTO", 'DD/MM/YYYY HH24:MI:SS') AS INICIO_ATENDIMENTO_URG,
+    TO_CHAR(pvt."ATENDIMENTO ADMINISTRATIVO FINAL (COD 22)", 'DD/MM/YYYY HH24:MI:SS') AS ATEND_ADM_FINAL_COD_22,
+    TO_CHAR(pvt."HORA_ATEND_MEDICO INICIO (COD 31)", 'DD/MM/YYYY HH24:MI:SS') AS HORA_ATEND_MEDICO_INICIO_COD_31,
+    TO_CHAR(pvt."FIM ATENDIMENTO (ALTA)", 'DD/MM/YYYY HH24:MI:SS') AS FIM_ATENDIMENTO_ALTA_URG,
+    TO_CHAR(pvt."ATENDIMENTO MÉDICO FINAL (COD 32)", 'DD/MM/YYYY HH24:MI:SS') AS ATEND_MEDICO_FINAL_COD_32,
+    TO_CHAR(pvt."ATENDIMENTO MÉDICO ALTA (COD 90)", 'DD/MM/YYYY HH24:MI:SS') AS ATEND_MEDICO_ALTA_COD_90,
+    CASE
+        WHEN j.tp_atendimento = 'U'
+        AND j.proximo_tp_atendimento = 'I'
+        AND j.proximo_hr_inicio_atend <= (j.hr_alta + INTERVAL '48' HOUR)
+        THEN 'SIM'
+        ELSE 'NAO'
+    END AS INTERNACAO_CONVERTIDA,
+    CASE
+        WHEN j.tp_atendimento = 'U'
+        AND j.proximo_tp_atendimento = 'I'
+        AND j.proximo_hr_inicio_atend <= (j.hr_alta + INTERVAL '48' HOUR)
+        THEN j.proximo_cd_atendimento
+    END AS CD_ATENDIMENTO_INTERNACAO,
+    CASE
+        WHEN j.tp_atendimento = 'U'
+        AND j.proximo_tp_atendimento = 'I'
+        AND j.proximo_hr_inicio_atend <= (j.hr_alta + INTERVAL '48' HOUR)
+        THEN TO_CHAR(j.proximo_hr_inicio_atend, 'DD/MM/YYYY HH24:MI:SS')
+    END AS INICIO_ATENDIMENTO_INTERNACAO,
+    CASE
+        WHEN j.tp_atendimento = 'U'
+        AND j.proximo_tp_atendimento = 'I'
+        AND j.proximo_hr_inicio_atend <= (j.hr_alta + INTERVAL '48' HOUR)
+        THEN TO_CHAR(j.proximo_hr_alta, 'DD/MM/YYYY HH24:MI:SS')
+    END AS FIM_ATENDIMENTO_ALTA_INTERNACAO
+FROM
+    ATENDIMENTOS_PIVOTADOS pvt
+LEFT JOIN
+    DBAMV.PACIENTE pac ON pvt.CD_PACIENTE = pac.CD_PACIENTE
+LEFT JOIN
+    JORNADA_PACIENTE j ON pvt.CD_ATENDIMENTO = j.cd_atendimento
+ORDER BY
+    pac.NM_PACIENTE, pvt."INICIO ATENDIMENTO"

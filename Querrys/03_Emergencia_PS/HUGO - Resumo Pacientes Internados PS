@@ -1,0 +1,59 @@
+/* Resumo - Pacientes internados no PS (tempo real)
+   Empresa: CD_MULTI_EMPRESA = 40
+   Unidades: EMERGENCIA, OBSERVACAO 01, OBSERVACAO 02, UNIDADE DE DECISAO ORTOPEDICA
+*/
+WITH ocupacao_ps AS (
+  SELECT
+    l.cd_leito,
+    u.ds_unid_int,
+    MAX(mi.cd_mov_int) AS cd_mov_int_ult
+  FROM dbamv.mov_int mi
+  JOIN dbamv.leito     l ON l.cd_leito    = mi.cd_leito
+  JOIN dbamv.unid_int  u ON u.cd_unid_int = l.cd_unid_int
+  JOIN dbamv.setor     s ON s.cd_setor    = u.cd_setor
+  WHERE s.cd_multi_empresa = 40
+    AND u.sn_ativo = 'S'
+    AND l.tp_situacao <> 'I'
+    AND u.ds_unid_int IN ('EMERGENCIA','OBSERVACAO 01','OBSERVACAO 02','UNIDADE DE DECISAO ORTOPEDICA')
+    AND l.tp_ocupacao = 'O'      -- leito ocupado agora
+    AND mi.dt_lib_mov IS NULL    -- movimento aberto
+  GROUP BY l.cd_leito, u.ds_unid_int
+),
+atd_atuais AS (
+  SELECT
+    op.ds_unid_int,
+    mi.cd_atendimento
+  FROM ocupacao_ps op
+  JOIN dbamv.mov_int mi ON mi.cd_mov_int = op.cd_mov_int_ult
+),
+base AS (
+  SELECT
+    aa.ds_unid_int,
+    COALESCE(atd.hr_atendimento, atd.dt_atendimento) AS dt_adm
+  FROM atd_atuais aa
+  JOIN dbamv.atendime atd
+    ON atd.cd_atendimento = aa.cd_atendimento
+   AND atd.cd_multi_empresa = 40
+),
+sumario AS (
+  SELECT
+    COUNT(*)                                                               AS total_internados_ps,
+    SUM(CASE WHEN ds_unid_int = 'EMERGENCIA' THEN 1 ELSE 0 END)            AS se_qtd,
+    SUM(CASE WHEN ds_unid_int = 'UNIDADE DE DECISAO ORTOPEDICA' THEN 1 ELSE 0 END) AS uot_qtd,
+    SUM(CASE WHEN ds_unid_int IN ('OBSERVACAO 01','OBSERVACAO 02') THEN 1 ELSE 0 END) AS ui_qtd,
+    SUM(CASE WHEN dt_adm IS NOT NULL AND (SYSDATE - dt_adm)*24 >= 24 THEN 1 ELSE 0 END) AS acima_24h_qtd
+  FROM base
+)
+SELECT 'Total de pacientes internados no PS'       AS INDICADOR, total_internados_ps                         AS VALOR FROM sumario
+UNION ALL
+SELECT 'Quantidade de pacientes SE (Emergência)'   AS INDICADOR, se_qtd                                      AS VALOR FROM sumario
+UNION ALL
+SELECT 'Ortopedia - Quantidade de pacientes (UOT)' AS INDICADOR, uot_qtd                                     AS VALOR FROM sumario
+UNION ALL
+SELECT 'UI - Pacientes no total (Observação 01 e 02)' AS INDICADOR, ui_qtd                                  AS VALOR FROM sumario
+UNION ALL
+SELECT 'Total de pacientes acima de 24h'           AS INDICADOR, acima_24h_qtd                               AS VALOR FROM sumario
+UNION ALL
+SELECT 'Pacientes corredor UI'                     AS INDICADOR, GREATEST(ui_qtd - 18, 0)                    AS VALOR FROM sumario
+UNION ALL
+SELECT 'Pacientes corredor SE'                     AS INDICADOR, GREATEST(se_qtd - 15, 0)                    AS VALOR FROM sumario

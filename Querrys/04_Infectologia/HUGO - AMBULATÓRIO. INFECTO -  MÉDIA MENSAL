@@ -1,0 +1,40 @@
+-- ==========================================
+-- PORTLET: MÉDIA MENSAL - AMBULATÓRIO INFECTOLOGIA
+-- Período: Julho/2025 até último mês completo
+-- Apenas especialidade: INFECTOLOGIA
+-- ==========================================
+
+WITH parametros AS (
+ SELECT 
+ TO_DATE('01/07/2025', 'DD/MM/YYYY') AS data_inicio,
+ ADD_MONTHS(TRUNC(SYSDATE, 'MM'), 0) - 1 AS data_fim
+ FROM DUAL
+),
+
+atendimentos_por_mes AS (
+ SELECT 
+ TO_CHAR(a.DT_ATENDIMENTO, 'MM/YYYY') AS MES_ANO,
+ COUNT(DISTINCT a.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS
+ FROM 
+ DBAMV.ATENDIME a
+ INNER JOIN 
+ DBAMV.ESPECIALID e ON a.CD_ESPECIALID = e.CD_ESPECIALID
+ CROSS JOIN 
+ parametros p
+ WHERE 
+ a.TP_ATENDIMENTO = 'A'
+ AND UPPER(e.DS_ESPECIALID) LIKE '%INFECTO%'
+ AND a.DT_ATENDIMENTO BETWEEN p.data_inicio AND p.data_fim
+ AND a.CD_MULTI_EMPRESA = 40
+ GROUP BY 
+ TO_CHAR(a.DT_ATENDIMENTO, 'MM/YYYY')
+)
+
+SELECT 
+ MES_ANO,
+ QTD_ATENDIMENTOS,
+ ROUND(AVG(QTD_ATENDIMENTOS) OVER (), 2) AS MEDIA_MENSAL
+FROM 
+ atendimentos_por_mes
+ORDER BY 
+ TO_DATE('01/' || MES_ANO, 'DD/MM/YYYY')

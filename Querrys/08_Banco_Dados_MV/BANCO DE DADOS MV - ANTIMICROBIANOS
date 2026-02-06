@@ -1,0 +1,501 @@
+# 📋 MAPEAMENTO DA ESTRUTURA DE ANTIMICROBIANOS - MV/DBAMV
+## Hospital: HUGO (CD_MULTI_EMPRESA = 40)
+### Data do Mapeamento: Janeiro/2025
+
+---
+
+## 🗂️ VISÃO GERAL DAS TABELAS
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                        HIERARQUIA DE TABELAS ATB                            │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  ATENDIME (Internação)                                                      │
+│      │                                                                      │
+│      ├── PRE_MED (Prescrição Médica) ─── 53 colunas                        │
+│      │       │                                                              │
+│      │       └── ITPRE_MED (Itens Prescritos) ─── 93 colunas               │
+│      │               │                                                      │
+│      │               ├── TIP_PRESC (Tipos de Prescrição) ─── 99 colunas    │
+│      │               │       └── CD_TIP_ESQ = 'ATB' (631 registros)        │
+│      │               │                                                      │
+│      │               ├── PRODUTO (Medicamentos)                             │
+│      │               │       └── ANT_PRO → ANTIMICROB (211 cadastrados)    │
+│      │               │                                                      │
+│      │               ├── TIP_FRE (Frequências) ─── 387 usadas em ATB       │
+│      │               │                                                      │
+│      │               └── FOR_APL (Vias) ─── 41 usadas em ATB               │
+│      │                                                                      │
+│      └── PW_DOCUMENTO_CLINICO (Documentos Clínicos)                        │
+│              │                                                              │
+│              ├── Documento 709: Ficha de Antimicrobianos                   │
+│              ├── CD_OBJETO 29190: Evolução SCIH/Infectologia               │
+│              └── CD_OBJETO 29121: Evolução Farmácia Clínica                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 TABELA 1: PRE_MED (Prescrição Médica)
+**Total: 53 colunas**
+
+### Colunas Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_PRE_MED | NUMBER | **PK** - Código da prescrição |
+| CD_ATENDIMENTO | NUMBER | **FK** → ATENDIME |
+| CD_PRESTADOR | NUMBER | **FK** → PRESTADOR (médico) |
+| CD_UNID_INT | NUMBER | **FK** → UNID_INT |
+| DT_PRE_MED | DATE | Data da prescrição |
+| HR_PRE_MED | DATE | Data/hora completa |
+| DS_EVOLUCAO | LONG | Texto da evolução |
+| TP_PRE_MED | VARCHAR2(1) | Tipo: M=Médica, O=Outros |
+| CD_OBJETO | NUMBER | FK → Formulário/Objeto |
+| CD_DOCUMENTO_CLINICO | NUMBER | FK → PW_DOCUMENTO_CLINICO |
+| SN_FECHADO | VARCHAR2(1) | Prescrição fechada? |
+| DT_VALIDADE | DATE | Data de validade |
+
+---
+
+## 📊 TABELA 2: ITPRE_MED (Itens da Prescrição)
+**Total: 93 colunas**
+
+### Colunas Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_ITPRE_MED | NUMBER | **PK** - Código do item |
+| CD_PRE_MED | NUMBER | **FK** → PRE_MED |
+| CD_TIP_ESQ | VARCHAR2(3) | Esquema: **ATB**, DIE, MED |
+| CD_TIP_PRESC | NUMBER | **FK** → TIP_PRESC |
+| CD_PRODUTO | NUMBER | **FK** → PRODUTO |
+| CD_TIP_FRE | NUMBER | **FK** → TIP_FRE (frequência) |
+| CD_FOR_APL | VARCHAR2(4) | **FK** → FOR_APL (via) |
+| QT_ITPRE_MED | NUMBER | Dose prescrita |
+| CD_UNI_PRO | NUMBER | **FK** → UNI_PRO (unidade) |
+| QT_DIAS | NUMBER | Duração em dias |
+| SN_CANCELADO | VARCHAR2(1) | Item cancelado? |
+| DH_INICIAL | DATE | Início do uso |
+| DH_FINAL | DATE | Fim do uso |
+| SN_ATM_PRORROGACAO | VARCHAR2(1) | Flag prorrogação ATB |
+| DS_JUSTIFICATIVA | VARCHAR2(2000) | Justificativa |
+| CD_PRESTADOR | NUMBER | Médico prescritor |
+
+---
+
+## 📊 TABELA 3: TIP_PRESC (Tipos de Prescrição)
+**Total: 99 colunas | 631 registros ATB | 185 produtos únicos**
+
+### Colunas Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_TIP_PRESC | NUMBER | **PK** |
+| CD_TIP_ESQ | VARCHAR2(3) | Esquema: **ATB** |
+| DS_TIP_PRESC | VARCHAR2(60) | Nome do tipo |
+| CD_PRODUTO | NUMBER | **FK** → PRODUTO |
+| SN_JUSTIFICATIVA | VARCHAR2(1) | Exige justificativa? |
+| SN_ATIVO | VARCHAR2(1) | Ativo/Inativo |
+
+### Estatísticas:
+- **613 ativos** / 17 inativos
+- **5 exigem justificativa**
+- **185 produtos ATB únicos**
+
+---
+
+## 📊 TABELA 4: ANTIMICROB (Cadastro de Antimicrobianos)
+**Total: 211 antimicrobianos cadastrados**
+
+### Estrutura:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_ANTIMICROB | VARCHAR2(4) | **PK** |
+| NM_ANTIMICROB | VARCHAR2(30) | Nome do ATB |
+| NR_DIAS_LIBERADO | NUMBER | Dias liberados |
+| NR_DDD | NUMBER | Dose Diária Definida |
+| SN_RESTRITO | VARCHAR2(1) | **Uso restrito?** |
+| SN_VIGILANCIA | VARCHAR2(1) | **Sob vigilância?** |
+
+### Classificação:
+- 🔴 **17 RESTRITOS**: Anfotericina B lipossomal, RIPE, Ganciclovir, Sulfadiazina, Pirimetamina, Tobramicina
+- 🟡 **79 SOB VIGILÂNCIA**: Carbapenêmicos, Glicopeptídeos, Polimixinas, Fluoroquinolonas
+- 🔗 **60 com produtos vinculados**
+
+---
+
+## 📊 TABELA 5: ANT_PRO (Vínculo Antimicrobiano ↔ Produto)
+
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_PRODUTO | NUMBER | **FK** → PRODUTO |
+| CD_ANTIMICROB | VARCHAR2(4) | **FK** → ANTIMICROB |
+| QT_GRAMA | NUMBER | Quantidade em gramas |
+| NR_DIAS_LIBERADO | NUMBER | Override dias |
+| SN_IMPEDE_LIBERACAO | VARCHAR2(1) | Impede liberação? |
+
+---
+
+## 📊 TABELA 6: TIP_FRE (Frequências de Administração)
+**387 frequências usadas em ATB**
+
+### TOP 10 Mais Usadas:
+| Rank | Frequência | Prescrições |
+|------|------------|-------------|
+| 1 | 6/6H | 600.081 |
+| 2 | AGORA | 317.748 |
+| 3 | 12/12H | 270.590 |
+| 4 | 8/8H | 259.565 |
+| 5 | 24/24H | 204.443 |
+| 6 | 8/8H (horários específicos) | 178.181 |
+| 7 | 12/12H (10/22) | 200.513 |
+| 8 | 8/8H (00/06/16) | 172.336 |
+| 9 | 8/8H (06/14/22) | 151.686 |
+| 10 | 12/12H padrão | 145.370 |
+
+---
+
+## 📊 TABELA 7: FOR_APL (Vias de Administração)
+**41 vias usadas em ATB**
+
+### Principais:
+| Via | Descrição | Prescrições |
+|-----|-----------|-------------|
+| **EV** | Endovenoso | 2.507.474 |
+| **IV** | Intravenoso | 1.767.530 |
+| **VO** | Via Oral | 335.170 |
+| **IM** | Intramuscular | 59.582 |
+| **SE** | Sonda Nasoentérica | 55.612 |
+| **TO** | Tópico | 22.770 |
+| **BI** | Bomba de Infusão | 18.658 |
+
+> ⚠️ **Nota**: EV e IV são duplicidades (mesma via) - total IV ≈ 4,3 milhões
+
+---
+
+## 📋 DOCUMENTO 709: FICHA DE ANTIMICROBIANOS
+
+### Campos Principais (DS_IDENTIFICADOR):
+
+| Identificador | Descrição | Uso na Query |
+|---------------|-----------|--------------|
+| `PAR_CD_ITPRE_MED` | Vínculo com ITPRE_MED | Join com prescrição |
+| `Metadado_57_722_1` | **INDICAÇÃO/JUSTIFICATIVA** | Campo texto livre |
+| `radioUsoProfTerapeutico_1` | Uso PROFILÁTICO | true/false |
+| `radioUsoProfTerapeutico_2` | Uso TERAPÊUTICO | true/false |
+| `INFECCAO_HOSPITALAR_1` | Infecção Hospitalar | true/false |
+| `INFECCAO_COMUNITARIA_1` | Infecção Comunitária | true/false |
+| `radioCultura_1` | Cultura coletada SIM | true/false |
+| `radioCultura_2` | Cultura coletada NÃO | true/false |
+| `texto_antimicr_1` | **DOSE/DIA** | Campo texto |
+| `texto_antimicr_2` | **POSOLOGIA** | Campo texto |
+| `texto_antimicr_3` | **TEMPO SOLICITADO** | Campo texto |
+| `radioInsuficRenal_1/2` | Insuf. Renal S/N | true/false |
+| `radioInsufichepatica_1/2` | Insuf. Hepática S/N | true/false |
+| `radioObesidade_1/2` | Obesidade S/N | true/false |
+
+### Como Extrair Dados da Ficha:
+```sql
+SELECT 
+    TRIM(MAX(CASE WHEN ec.DS_IDENTIFICADOR = 'Metadado_57_722_1' 
+        THEN TO_CHAR(DBMS_LOB.SUBSTR(erc.LO_VALOR, 500, 1)) END)) AS INDICACAO,
+    TRIM(MAX(CASE WHEN ec.DS_IDENTIFICADOR = 'radioUsoProfTerapeutico_1' 
+        THEN TO_CHAR(DBMS_LOB.SUBSTR(erc.LO_VALOR, 10, 1)) END)) AS USO_PROFILATICO,
+    -- ... demais campos
+FROM DBAMV.PW_DOCUMENTO_CLINICO dc
+JOIN DBAMV.PW_EDITOR_CLINICO pec ON pec.CD_DOCUMENTO_CLINICO = dc.CD_DOCUMENTO_CLINICO
+JOIN DBAMV.EDITOR_REGISTRO_CAMPO erc ON erc.CD_REGISTRO = pec.CD_EDITOR_REGISTRO
+JOIN DBAMV.EDITOR_CAMPO ec ON ec.CD_CAMPO = erc.CD_CAMPO
+WHERE pec.CD_DOCUMENTO = 709
+```
+
+---
+
+## 🔗 RELACIONAMENTOS PRINCIPAIS
+
+```sql
+-- Prescrição → Item → Tipo ATB
+ITPRE_MED.CD_PRE_MED → PRE_MED.CD_PRE_MED
+ITPRE_MED.CD_TIP_PRESC → TIP_PRESC.CD_TIP_PRESC (WHERE CD_TIP_ESQ = 'ATB')
+
+-- Item → Produto → Antimicrobiano
+ITPRE_MED.CD_PRODUTO → PRODUTO.CD_PRODUTO
+ANT_PRO.CD_PRODUTO → PRODUTO.CD_PRODUTO
+ANT_PRO.CD_ANTIMICROB → ANTIMICROB.CD_ANTIMICROB
+
+-- Item → Frequência e Via
+ITPRE_MED.CD_TIP_FRE → TIP_FRE.CD_TIP_FRE
+ITPRE_MED.CD_FOR_APL → FOR_APL.CD_FOR_APL
+
+-- Ficha ATB → Item Prescrito
+EDITOR_REGISTRO_CAMPO.LO_VALOR (PAR_CD_ITPRE_MED) → ITPRE_MED.CD_ITPRE_MED
+```
+
+---
+
+## 📌 OBJETOS/DOCUMENTOS CLÍNICOS IMPORTANTES
+
+| CD_OBJETO | Descrição | Uso |
+|-----------|-----------|-----|
+| - | Documento 709 | Ficha de Antimicrobianos |
+| 29190 | Evolução SCIH | Auditoria Infectologia |
+| 29121 | Evolução Farmácia | Auditoria Farmácia Clínica |
+| 1088 | Evolução Nutricional | Dados antropométricos |
+
+---
+
+## ✅ CONCLUSÃO
+
+Este mapeamento permite:
+1. **Rastrear prescrições ATB** desde a internação até o item específico
+2. **Extrair dados da ficha de justificativa** (documento 709)
+3. **Identificar ATBs restritos e sob vigilância** para stewardship
+4. **Monitorar auditorias** da Infectologia e Farmácia
+5. **Calcular métricas** de uso (frequências, vias, duração)
+
+---
+
+*Documento gerado em: Janeiro/2025*
+*Hospital: HUGO - CD_MULTI_EMPRESA = 40*
+
+
+MAPEAMENTO DE ATBS X FARMÁCIA 
+
+# 📦 MAPEAMENTO DA ESTRUTURA DE FARMÁCIA/DISPENSAÇÃO - MV/DBAMV
+## Hospital: HUGO (CD_MULTI_EMPRESA = 40)
+### Data do Mapeamento: Janeiro/2025
+
+---
+
+## 🗂️ VISÃO GERAL DAS TABELAS DE FARMÁCIA
+
+```
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                    HIERARQUIA DE TABELAS - FARMÁCIA                         │
+├─────────────────────────────────────────────────────────────────────────────┤
+│                                                                             │
+│  PRE_MED (Prescrição)                                                       │
+│      │                                                                      │
+│      └── ITPRE_MED (Item Prescrito)                                        │
+│              │                                                              │
+│              ├──────────────────────────────────────────┐                   │
+│              │                                          │                   │
+│              ▼                                          ▼                   │
+│      SOLSAI_PRO (Solicitação/Saída)            MVTO_ESTOQUE (Movimento)    │
+│      42.7M registros                            37.3M registros            │
+│              │                                          │                   │
+│              ▼                                          ▼                   │
+│      ITSOLSAI_PRO (Itens)                      ITMVTO_ESTOQUE (Itens)      │
+│      158M registros                             134M registros             │
+│              │                                          │                   │
+│              └──────────────┬───────────────────────────┘                   │
+│                             │                                               │
+│                             ▼                                               │
+│                      CUSTO_MEDIO                                           │
+│                      1.9M registros                                        │
+│                      (CD_MULTI_EMPRESA = 1)                                │
+│                                                                             │
+└─────────────────────────────────────────────────────────────────────────────┘
+```
+
+---
+
+## 📊 TABELA: SOLSAI_PRO (Solicitação/Saída de Produtos)
+**Total: 57 colunas | 42.7M registros**
+
+### Campos Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_SOLSAI_PRO | NUMBER | **PK** |
+| TP_SOLSAI_PRO | VARCHAR2(1) | **Tipo da solicitação** |
+| TP_SITUACAO | VARCHAR2(1) | **Status** |
+| CD_ATENDIMENTO | NUMBER | FK → ATENDIME |
+| CD_PRE_MED | NUMBER | FK → PRE_MED |
+| CD_ESTOQUE | NUMBER | FK → Estoque origem |
+| CD_SETOR | NUMBER | FK → Setor solicitante |
+| CD_UNID_INT | NUMBER | FK → Unidade de internação |
+| DT_SOLSAI_PRO | DATE | Data da solicitação |
+| HR_SOLSAI_PRO | DATE | Data/hora completa |
+| CD_PRESTADOR | NUMBER | Médico solicitante |
+| SN_URGENTE | VARCHAR2(1) | Solicitação urgente? |
+
+### Tipos de Solicitação (TP_SOLSAI_PRO):
+| Código | Descrição | Volume (30 dias) |
+|--------|-----------|------------------|
+| **P** | Prescrição | 735.414 |
+| **S** | Saída/Solicitação | 23.799 |
+| **C** | Consumo | 14.039 |
+| **E** | Empréstimo | 10.604 |
+| **D** | Devolução | 150 |
+| **G** | Geral | 376 |
+| **L** | Livre | 654 |
+
+### Status (TP_SITUACAO):
+| Código | Descrição | Uso |
+|--------|-----------|-----|
+| **S** | Solicitado | Aguardando atendimento |
+| **P** | Pendente | Em processamento |
+| **A** | Atendido | Dispensado |
+| **C** | Cancelado | Cancelado |
+
+---
+
+## 📊 TABELA: ITSOLSAI_PRO (Itens da Solicitação)
+**Total: 39 colunas | 158M registros**
+
+### Campos Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_ITSOLSAI_PRO | NUMBER | **PK** |
+| CD_SOLSAI_PRO | NUMBER | **FK** → SOLSAI_PRO |
+| CD_PRODUTO | NUMBER | **FK** → PRODUTO |
+| CD_ITPRE_MED | NUMBER | **FK** → ITPRE_MED ⭐ |
+| QT_SOLICITADO | NUMBER | Quantidade solicitada |
+| QT_ATENDIDA | NUMBER | Quantidade dispensada |
+| QT_PRESCRITA | NUMBER | Quantidade da prescrição |
+| SN_ATENDIDO | VARCHAR2(1) | Flag atendido |
+| CD_TIP_PRESC | NUMBER | FK → TIP_PRESC |
+| CD_TIP_FRE | NUMBER | FK → TIP_FRE (frequência) |
+| CD_LOTE | VARCHAR2(500) | Lote do produto |
+| DT_VALIDADE | DATE | Validade do lote |
+| NR_DIAS | NUMBER | Dias de tratamento |
+
+> ⭐ **CD_ITPRE_MED** é o campo chave para vincular dispensação com prescrição!
+
+---
+
+## 📊 TABELA: CUSTO_MEDIO
+**Total: 18 colunas | 1.9M registros**
+
+### Campos Principais:
+| Coluna | Tipo | Descrição |
+|--------|------|-----------|
+| CD_CUSTO_MEDIO | NUMBER | **PK** |
+| CD_PRODUTO | NUMBER | **FK** → PRODUTO |
+| CD_MULTI_EMPRESA | NUMBER | **Empresa** (usar = 1) |
+| VL_CUSTO_MEDIO | NUMBER | **Custo médio unitário** |
+| DH_CUSTO_MEDIO | DATE | Data/hora do cálculo |
+| DT_CUSTO | DATE | Data referência |
+| QT_ESTOQUE_ANTES | NUMBER | Estoque antes |
+| QT_ENTRADA | NUMBER | Quantidade entrada |
+| VL_ENTRADA | NUMBER | Valor da entrada |
+
+### ⚠️ IMPORTANTE - CD_MULTI_EMPRESA para Custos:
+```
+CD_MULTI_EMPRESA = 1  → Almoxarifado Central (HUGOL) - TEM CUSTOS
+CD_MULTI_EMPRESA = 40 → HUGO - SEM CUSTOS DIRETOS
+
+Para obter custos de ATB no HUGO, usar CD_MULTI_EMPRESA = 1
+```
+
+---
+
+## 🔗 RELACIONAMENTOS FARMÁCIA ↔ PRESCRIÇÃO
+
+```sql
+-- Prescrição → Solicitação → Dispensação
+PRE_MED.CD_PRE_MED → SOLSAI_PRO.CD_PRE_MED
+ITPRE_MED.CD_ITPRE_MED → ITSOLSAI_PRO.CD_ITPRE_MED
+
+-- Item Solicitado → Produto → Custo
+ITSOLSAI_PRO.CD_PRODUTO → PRODUTO.CD_PRODUTO
+PRODUTO.CD_PRODUTO → CUSTO_MEDIO.CD_PRODUTO (WHERE CD_MULTI_EMPRESA = 1)
+
+-- Produto → Antimicrobiano
+PRODUTO.CD_PRODUTO → ANT_PRO.CD_PRODUTO → ANTIMICROB.CD_ANTIMICROB
+```
+
+---
+
+## 📋 QUERY: DISPENSAÇÃO DE ATB COM CUSTO
+
+```sql
+SELECT 
+    -- Solicitação
+    sp.CD_SOLSAI_PRO,
+    TO_CHAR(sp.HR_SOLSAI_PRO, 'DD/MM/YYYY HH24:MI') AS DH_SOLICITACAO,
+    -- Produto/ATB
+    prod.CD_PRODUTO,
+    prod.DS_PRODUTO,
+    atm.NM_ANTIMICROB,
+    CASE WHEN atm.SN_RESTRITO = 'S' THEN 'RESTRITO' 
+         WHEN atm.SN_VIGILANCIA = 'S' THEN 'VIGILANCIA' 
+         ELSE 'LIVRE' END AS CLASSIFICACAO,
+    -- Quantidades
+    isp.QT_SOLICITADO,
+    NVL(isp.QT_ATENDIDA, isp.QT_SOLICITADO) AS QT_DISPENSADA,
+    -- Custo (usando empresa 1 - almoxarifado central)
+    cm.VL_CUSTO_MEDIO,
+    ROUND(NVL(isp.QT_ATENDIDA, isp.QT_SOLICITADO) * NVL(cm.VL_CUSTO_MEDIO, 0), 4) AS VL_TOTAL_ITEM,
+    -- Vínculo com prescrição
+    isp.CD_ITPRE_MED,
+    sp.CD_PRE_MED,
+    sp.CD_ATENDIMENTO
+FROM DBAMV.SOLSAI_PRO sp
+JOIN DBAMV.ITSOLSAI_PRO isp ON isp.CD_SOLSAI_PRO = sp.CD_SOLSAI_PRO
+JOIN DBAMV.PRODUTO prod ON prod.CD_PRODUTO = isp.CD_PRODUTO
+JOIN DBAMV.ANT_PRO ap ON ap.CD_PRODUTO = prod.CD_PRODUTO
+JOIN DBAMV.ANTIMICROB atm ON atm.CD_ANTIMICROB = ap.CD_ANTIMICROB
+LEFT JOIN (
+    SELECT CD_PRODUTO, VL_CUSTO_MEDIO,
+           ROW_NUMBER() OVER (PARTITION BY CD_PRODUTO ORDER BY DH_CUSTO_MEDIO DESC) AS RN
+    FROM DBAMV.CUSTO_MEDIO
+    WHERE CD_MULTI_EMPRESA = 1  -- Almoxarifado central
+) cm ON cm.CD_PRODUTO = prod.CD_PRODUTO AND cm.RN = 1
+WHERE sp.HR_SOLSAI_PRO >= SYSDATE - 30
+  AND sp.TP_SOLSAI_PRO = 'P'  -- Prescrição
+  AND sp.TP_SITUACAO IN ('S', 'A')  -- Solicitado ou Atendido
+ORDER BY sp.HR_SOLSAI_PRO DESC;
+```
+
+---
+
+## 📊 INDICADORES POSSÍVEIS
+
+### 1. Consumo Total por ATB (período)
+```sql
+SELECT 
+    atm.NM_ANTIMICROB,
+    SUM(NVL(isp.QT_ATENDIDA, isp.QT_SOLICITADO)) AS QTD_TOTAL,
+    SUM(NVL(isp.QT_ATENDIDA, isp.QT_SOLICITADO) * NVL(cm.VL_CUSTO_MEDIO, 0)) AS CUSTO_TOTAL
+FROM ...
+GROUP BY atm.NM_ANTIMICROB
+ORDER BY CUSTO_TOTAL DESC;
+```
+
+### 2. DDD/1000 pacientes-dia
+```sql
+-- Consumo em DDD = (Quantidade dispensada * Dose unitária) / DDD
+-- Taxa = (DDD consumidas / pacientes-dia) * 1000
+```
+
+### 3. Custo por Paciente
+```sql
+SELECT 
+    sp.CD_ATENDIMENTO,
+    SUM(NVL(isp.QT_ATENDIDA, 0) * NVL(cm.VL_CUSTO_MEDIO, 0)) AS CUSTO_ATB_TOTAL
+FROM ...
+GROUP BY sp.CD_ATENDIMENTO;
+```
+
+### 4. Taxa de Atendimento
+```sql
+SELECT 
+    COUNT(CASE WHEN isp.QT_ATENDIDA >= isp.QT_SOLICITADO THEN 1 END) * 100.0 / COUNT(*) AS TAXA_ATEND_COMPLETO
+FROM ITSOLSAI_PRO isp
+WHERE ...;
+```
+
+---
+
+## 📝 NOTAS IMPORTANTES
+
+1. **Custo está na empresa 1** (almoxarifado central), não na 40 (HUGO)
+2. **TP_SOLSAI_PRO = 'P'** para prescrições médicas
+3. **TP_SITUACAO IN ('S','A')** para itens solicitados/atendidos
+4. **CD_ITPRE_MED** vincula dispensação com item da prescrição
+5. Valores de custo são muito baixos (centavos) - provavelmente por unidade mínima
+
+---
+
+*Documento gerado em Janeiro/2025*

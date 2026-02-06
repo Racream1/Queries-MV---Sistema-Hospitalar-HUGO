@@ -1,0 +1,51 @@
+-- CTE para definir os parâmetros de data
+WITH params AS (
+    SELECT
+        TO_DATE(TO_CHAR($pgmvDataIni$,'dd/mm/yyyy')||' 00:00','dd/mm/yyyy hh24:mi') AS DH_INICIO,
+        TO_DATE(TO_CHAR($pgmvDataFim$,'dd/mm/yyyy')||' 23:59','dd/mm/yyyy hh24:mi') AS DH_FIM
+    FROM DUAL
+),
+-- CTE que prepara os dados base, identificando a unidade e o TIPO de alta (Alta, Óbito, Transferência)
+altas_base AS (
+    SELECT
+        NVL(u.ds_unid_int, 'Atd. Urgência') AS nome_unidade,
+        CASE
+            -- 1. Identifica Transferências
+            WHEN UPPER(ma.ds_mot_alt) LIKE '%TRANSFER%' THEN 'TRANSFERENCIA'
+            -- 2. Identifica Óbitos
+            WHEN UPPER(ma.ds_mot_alt) LIKE '%OBITO%' OR a.sn_obito = 'S' THEN 'OBITO'
+            -- 3. O restante é considerado Alta
+            ELSE 'ALTA'
+        END AS tipo_alta
+    FROM
+        dbamv.atendime a
+        CROSS JOIN params p
+        LEFT JOIN dbamv.mot_alt ma ON a.cd_mot_alt = ma.cd_mot_alt
+        LEFT JOIN dbamv.leito l ON a.cd_leito = l.cd_leito
+        LEFT JOIN dbamv.unid_int u ON l.cd_unid_int = u.cd_unid_int
+    WHERE
+        a.cd_multi_empresa = 40
+        AND a.tp_atendimento IN ('I') -- Filtra atendimentos de Internação e Urgência
+        AND a.hr_alta BETWEEN p.DH_INICIO AND p.DH_FIM -- Garante que estamos pegando apenas registros com alta no período
+)
+-- Consulta final para pivotar os dados em colunas por tipo de alta
+SELECT
+    NVL(nome_unidade, 'TOTAL GERAL') AS UNIDADE,
+    
+    -- Coluna 1: Conta apenas as altas do tipo 'ALTA'
+    SUM(CASE WHEN tipo_alta = 'ALTA' THEN 1 ELSE 0 END) AS ALTAS,
+
+    -- Coluna 2: Conta apenas as altas do tipo 'OBITO'
+    SUM(CASE WHEN tipo_alta = 'OBITO' THEN 1 ELSE 0 END) AS OBITOS,
+    
+    -- Coluna 3: Conta apenas as altas do tipo 'TRANSFERENCIA'
+    SUM(CASE WHEN tipo_alta = 'TRANSFERENCIA' THEN 1 ELSE 0 END) AS TRANSFERENCIAS,
+    
+    -- Coluna 4: Conta o total de saídas para a unidade
+    COUNT(*) AS TOTAL_POR_UNIDADE
+FROM
+    altas_base
+GROUP BY ROLLUP(nome_unidade)
+ORDER BY
+    CASE WHEN nome_unidade IS NULL THEN 1 ELSE 0 END, -- Joga o TOTAL GERAL para o final
+    nome_unidade

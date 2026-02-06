@@ -1,0 +1,42 @@
+-- ========================================================
+-- PORTLET: Pedidos de Laboratório Aguardando Coleta - HUGO
+-- Descrição: Pedidos atuais pendentes de coleta
+-- ========================================================
+SELECT 
+    ped.CD_PED_LAB AS CODIGO_PEDIDO,
+    atend.CD_ATENDIMENTO AS ATENDIMENTO,
+    pac.NM_PACIENTE AS PACIENTE,
+    TO_CHAR(ped.HR_PED_LAB, 'DD/MM/YYYY HH24:MI') AS DATA_HORA_PEDIDO,
+    prest.NM_PRESTADOR AS SOLICITANTE,
+    unid.DS_UNID_INT AS UNIDADE,
+    leito.DS_LEITO AS LEITO,
+    ROUND((SYSDATE - ped.HR_PED_LAB) * 24, 1) AS HORAS_AGUARDANDO,
+    CASE 
+        WHEN ROUND((SYSDATE - ped.HR_PED_LAB) * 24) >= 24 THEN 'CRITICO - Mais de 24h'
+        WHEN ROUND((SYSDATE - ped.HR_PED_LAB) * 24) >= 12 THEN 'ALERTA - Mais de 12h'
+        WHEN ROUND((SYSDATE - ped.HR_PED_LAB) * 24) >= 6 THEN 'ATENCAO - Mais de 6h'
+        ELSE 'NORMAL - Menos de 6h'
+    END AS STATUS_TEMPO
+FROM DBAMV.PED_LAB ped
+    INNER JOIN DBAMV.ATENDIME atend 
+        ON atend.CD_ATENDIMENTO = ped.CD_ATENDIMENTO
+    INNER JOIN DBAMV.PACIENTE pac 
+        ON pac.CD_PACIENTE = atend.CD_PACIENTE
+    INNER JOIN DBAMV.PRESTADOR prest 
+        ON prest.CD_PRESTADOR = ped.CD_PRESTADOR
+    LEFT JOIN DBAMV.LEITO leito 
+        ON leito.CD_LEITO = atend.CD_LEITO
+    LEFT JOIN DBAMV.UNID_INT unid 
+        ON unid.CD_UNID_INT = leito.CD_UNID_INT
+WHERE atend.CD_MULTI_EMPRESA = 40
+    AND atend.DT_ALTA IS NULL
+    AND TRUNC(ped.DT_PEDIDO) >= TRUNC(SYSDATE) - 2
+    AND EXISTS (
+        SELECT 1
+        FROM DBAMV.COLETA_MATERIAL coleta
+            INNER JOIN DBAMV.AMOSTRA amostra 
+                ON amostra.CD_COLETA_MATERIAL = coleta.CD_COLETA_MATERIAL
+        WHERE coleta.CD_PED_LAB = ped.CD_PED_LAB
+          AND amostra.SN_COLETA = 'N'
+    )
+ORDER BY HORAS_AGUARDANDO DESC, unid.DS_UNID_INT, leito.DS_LEITO

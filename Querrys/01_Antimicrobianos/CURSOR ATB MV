@@ -1,0 +1,1625 @@
+CURSOR cProcesso_00574(pCdMultiEmpresa Number, pProcesso Number, pNrCnpj Number, pCdCliente Number, pCdMvccEmpresa Number) IS SELECT pProcesso Nr_Processo , Null Tp_Categoria , NULL Cd_Atendimento , NULL Cd_Paciente , NULL Cd_Prestador , NUll Tp_Diagnostico , NUll Nm_Indicador , NUll Nm_Grupo , Estabelecimento.Cd_Mvcc_Empresa Cd_Multi_Empresa , Ori_Ate.Cd_Ori_Ate Cd_Departamento , Ori_Ate.Ds_Ori_Ate Ds_Departamento , Nvl(Movimento.Data_mes,To_Char(v_Dt_Ini_Diagno,'MM/YYYY')) Data_Mes , NUll Nm_Processo , 'PERC. DE USO ANTIBIOTICO NA URGÊNCIA, QTDE DE ATENDIMENTO: '||Nvl(Movimento.Qtde_Paciente,0)||Chr(10) ||', QTDE DE ATENDIMENTO C/USO DE ANTIBIÓTICO: '||Nvl(Movimento.Qtde_Paciente_Uso_Atb,0)||Chr(10) ||', PERC. USO DE ANTIBIÓTICO: '||Nvl(Movimento.Vl_Perc_Uso_Antibiotico,0)||Chr(10) ||', QTDE DE ATENDIMENTO NO DIA: '||Nvl(Movimento.Qtde_Paciente_Dia,0)||Chr(10) ||', QTDE DE ATENDIMENTO C/USO DE ANTIBIÓTICO NO DIA: '||Nvl(Movimento.Qtde_Paciente_Uso_Atb_Dia,0)||Chr(10) ||', PERC. USO DE ANTIBIÓTICO NO DIA: '||Nvl(Movimento.Vl_Perc_Uso_Antibiotico_Dia,0) Ds_Item_Nao_Conforme , pCdCliente Cd_Cliente , Estabelecimento.Nr_Cnpj , v_Dh_Geracao Dh_Geracao , Null Qtde_Naoconforme , Null Qtde_Instalada , 'MVTO_ESTOQUE' Nm_Tabela_Chave , pProcesso Cd_Coluna_Chave , v_Dh_Geracao Dt_Coluna_Chave , Null Dh_Proxima_Geracao , Nvl(Movimento.Qtde_Paciente_Uso_Atb,0) Qtde_Conforme , Null Qtde_Total , Null Dt_Finalizacao , Null Qtde_NaoConforme_Dia , Nvl(Movimento.Qtde_Paciente_Uso_Atb_Dia,0) Qtde_Conforme_Dia , Null Qtde_Total_Dia, 1 Nr_Notificacao
+FROM (-- MOVIMENTO--- SELECT Mov.Cd_Ori_Ate , To_Char(v_Dt_Ini_Diagno,'MM/YYYY') Data_Mes , Nvl(Mov.Qtde_Paciente,0) Qtde_Paciente , Nvl(Mov.Qtde_Paciente_Uso_Atb,0) Qtde_Paciente_Uso_Atb , Nvl(Mov.Qtde_Paciente_Dia,0) Qtde_Paciente_Dia , Nvl(Mov.Qtde_Paciente_Uso_Atb_Dia,0) Qtde_Paciente_Uso_Atb_Dia , (Case
+WHEN Nvl(Mov.Qtde_Paciente,0) = 0
+THEN 0
+ELSE Round(Nvl(Mov.Qtde_Paciente_Uso_Atb,0)/Nvl(Mov.Qtde_Paciente,0)*100,2)
+END ) Vl_Perc_Uso_Antibiotico , (Case
+WHEN Nvl(Mov.Qtde_Paciente_Dia,0) = 0
+THEN 0
+ELSE Round(Nvl(Mov.Qtde_Paciente_Uso_Atb_Dia,0)/Nvl(Mov.Qtde_Paciente_Dia,0)*100,2)
+END ) Vl_Perc_Uso_Antibiotico_Dia
+FROM ( SELECT Ori.Cd_Ori_Ate , Nvl(( SELECT Count(1)
+FROM MvccAdmin.Fato_Atendime_Externo Ate
+WHERE Ate.tp_atendimento = 'U' And Ate.dh_atendimento Between v_Dt_Ini_Diagno And v_Dt_Fim_Diagno And Ate.Cd_Ori_Ate = Ori.Cd_Ori_Ate And Ate.Cd_Multi_Empresa = pCdMultiEmpresa),0) Qtde_Paciente , Nvl(( SELECT Count(Distinct Mvt.Cd_Atendimento)
+FROM Dbamv.Mvto_Estoque Mvt , MvccAdmin.Fato_Atendime_Externo Ate
+WHERE Ate.Cd_Atendimento = Mvt.Cd_Atendimento And Mvt.Tp_Mvto_Estoque = 'P' And Ate.tp_atendimento = 'U' And Exists ( SELECT 1
+FROM Dbamv.ItMvto_Estoque ItMv
+WHERE Mvt.Tp_Mvto_Estoque = 'P' And Mvt.Cd_Mvto_Estoque = ItMv.Cd_Mvto_Estoque And Exists ( SELECT 1
+FROM Dbamv.Ant_Pro Atp
+WHERE Atp.Cd_Produto = ItMv.Cd_Produto) ) And Mvt.dt_mvto_estoque Between v_Dt_Ini_Diagno And v_Dt_Fim_Diagno And Ate.Cd_Ori_Ate = Ori.Cd_Ori_Ate And Mvt.Cd_Multi_Empresa = pCdMultiEmpresa ),0) Qtde_Paciente_Uso_Atb , Nvl(( SELECT Count(1)
+FROM MvccAdmin.Fato_Atendime_Externo Ate
+WHERE Ate.tp_atendimento = 'U' And Ate.dh_atendimento Between Trunc(Sysdate) And Trunc(Sysdate)+.99999 And Ate.Cd_Ori_Ate = Ori.Cd_Ori_Ate And Ate.Cd_Multi_Empresa = pCdMultiEmpresa),0) Qtde_Paciente_Dia , Nvl(( SELECT Count(Distinct Mvt.Cd_Atendimento)
+FROM Dbamv.Mvto_Estoque Mvt , MvccAdmin.Fato_Atendime_Externo Ate
+WHERE Ate.Cd_Atendimento = Mvt.Cd_Atendimento And Mvt.Tp_Mvto_Estoque = 'P' And Ate.tp_atendimento = 'U' And Exists ( SELECT 1
+FROM Dbamv.ItMvto_Estoque ItMv
+WHERE Mvt.Tp_Mvto_Estoque = 'P' And Mvt.Cd_Mvto_Estoque = ItMv.Cd_Mvto_Estoque And Exists ( SELECT 1
+FROM Dbamv.Ant_Pro Atp
+WHERE Atp.Cd_Produto = ItMv.Cd_Produto) ) And Mvt.dt_mvto_estoque Between Trunc(Sysdate) And Trunc(Sysdate)+.99999 And Ate.Cd_Ori_Ate = Ori.Cd_Ori_Ate And Mvt.Cd_Multi_Empresa = pCdMultiEmpresa ),0) Qtde_Paciente_Uso_Atb_Dia
+FROM Dbamv.Ori_Ate Ori
+WHERE Ori.Tp_Origem = 'U' And Ori.Sn_Ativo = 'S' And Ori.Cd_Multi_Empresa = pCdMultiEmpresa ) Mov ) Movimento , Dbamv.Ori_Ate , MvccAdmin.Estabelecimento
+WHERE Ori_Ate.Cd_Ori_Ate = Movimento.Cd_Ori_Ate And Ori_Ate.Tp_Origem = 'U' And Ori_Ate.Sn_Ativo = 'S' And Ori_Ate.Cd_Multi_Empresa = pCdMultiEmpresa And Estabelecimento.Cd_Multi_Empresa = pCdMultiEmpresa;
+
+
+
+
+╔════════════════════════════════════════════════════════════════════════════════╗
+║                                                                                ║
+║   🔬 GUIA DEFINITIVO - ANTIMICROBIANOS NO MV                                  ║
+║   📊 Sistema Completo de Rastreamento e Análise                               ║
+║                                                                                ║
+╚════════════════════════════════════════════════════════════════════════════════╝
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 ÍNDICE
+═══════════════════════════════════════════════════════════════════════════════
+
+1. MAPA DE RELACIONAMENTOS - TABELAS CORE
+2. ESTRUTURA COMPLETA DO SISTEMA
+3. QUERIES FUNDAMENTAIS - DESCOBERTA DE ESTRUTURA
+4. QUERIES DE ANÁLISE - PRESCRIÇÃO DE ANTIMICROBIANOS
+5. QUERIES DE ANÁLISE - CULTURAS E ANTIBIOGRAMAS
+6. QUERIES DE ANÁLISE - AUDITORIA E AVALIAÇÃO
+7. QUERIES AVANÇADAS - INDICADORES E DASHBOARDS
+8. QUERIES DE INTEGRAÇÃO - INFECTOLOGIA
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 1. MAPA DE RELACIONAMENTOS - TABELAS CORE
+═══════════════════════════════════════════════════════════════════════════════
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     ESTRUTURA DO SISTEMA DE ANTIMICROBIANOS                 │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+                        ┌─────────────────────┐
+                        │    ANTIMICROB       │ ← Cadastro Mestre
+                        │  (CD_ANTIMICROB)    │
+                        └──────────┬──────────┘
+                                   │
+        ┌──────────────────────────┼──────────────────────────┐
+        │                          │                          │
+        ▼                          ▼                          ▼
+┌──────────────┐         ┌──────────────┐         ┌──────────────────┐
+│   ANT_PRO    │         │  ATENDIME_   │         │     AUDIT_       │
+│              │         │   ANT_PRO    │         │ ANTIMICROBIANO   │
+│ Liga Produto │         │              │         │                  │
+│ a Antimicrob │         │ Antimicrob   │         │  Auditoria de    │
+└──────┬───────┘         │ Prescrito    │         │  Prescrições     │
+       │                 └──────┬───────┘         └─────────┬────────┘
+       │                        │                           │
+       ▼                        ▼                           ▼
+┌──────────────┐         ┌──────────────┐         ┌──────────────────┐
+│   PRODUTO    │         │  ITPRE_MED   │         │ ITPRE_MED_       │
+│              │         │              │         │ JUSTIFICATIVA    │
+└──────────────┘         └──────────────┘         └──────────────────┘
+       │                        │
+       ▼                        ▼
+┌──────────────┐         ┌──────────────┐
+│  ATENDIME    │◄────────┤   PRE_MED    │
+└──────────────┘         └──────────────┘
+
+
+┌─────────────────────────────────────────────────────────────────────────────┐
+│                     SISTEMA DE CULTURAS E ANTIBIOGRAMAS                     │
+└─────────────────────────────────────────────────────────────────────────────┘
+
+        ┌─────────────────────┐
+        │     CULTURAS        │ ← Solicitação de Cultura
+        └──────────┬──────────┘
+                   │
+                   ▼
+        ┌─────────────────────┐
+        │    ITCULTURA        │ ← Antibiograma (Resultado)
+        │                     │
+        │ - CD_ANTIMICROB     │
+        │ - CD_TIPO_RESULTADO │
+        └──────────┬──────────┘
+                   │
+        ┌──────────┼──────────┐
+        │          │          │
+        ▼          ▼          ▼
+┌──────────┐ ┌──────────┐ ┌──────────────────────┐
+│ANTIMICROB│ │  GERMES  │ │TIPO_RESULTADO_       │
+│          │ │          │ │ANTIMICROB            │
+└──────────┘ └──────────┘ │                      │
+                          │ (Sensível, Resistente│
+                          │  Intermediário)      │
+                          └──────────────────────┘
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📚 2. ESTRUTURA COMPLETA DO SISTEMA
+═══════════════════════════════════════════════════════════════════════════════
+
+🔹 TABELAS DE CADASTRO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ANTIMICROB                    → Cadastro mestre de antimicrobianos
+  ANT_PRO                       → Liga antimicrobianos a produtos
+  AGRUPA_ANTIMICROB             → Agrupamento de antimicrobianos
+  ANTIMICROB_MIC                → MIC (Concentração Inibitória Mínima)
+  TIPO_RESULTADO_ANTIMICROB     → Tipos de resultado (S, R, I)
+  GERME_ANTIMICROBIANO          → Relação germes x antimicrobianos
+  EMPRESA_ANTIMICROB            → Antimicrobianos por empresa
+
+🔹 TABELAS DE PRESCRIÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  ATENDIME_ANT_PRO              → Antimicrobianos prescritos por atendimento
+  PRES_ANTIMICROB               → Prescrição de antimicrobianos
+  ITPRE_MED                     → Itens de prescrição médica (geral)
+  PRE_MED                       → Prescrição médica (cabeçalho)
+  ITPRE_MED_JUSTIFICATIVA       → Justificativas de prescrição
+
+🔹 TABELAS DE AUDITORIA E AVALIAÇÃO
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  AUDIT_ANTIMICROBIANO          → Auditoria de antimicrobianos
+  AVALIACAO_ANTIMICROBIANO_PRSCT → Avaliação de prescrições
+  AUDIT_AUTO_PSIH               → Auditoria automática PSIH
+  HIST_AUDIT_PSIH               → Histórico de auditoria
+
+🔹 TABELAS DE MICROBIOLOGIA
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+  CULTURAS                      → Solicitações de cultura
+  ITCULTURA                     → Resultados de cultura (antibiograma)
+  ITCULTURA_MANUAL              → Resultados manuais
+  GERMES                        → Cadastro de germes/bactérias
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🔍 3. QUERIES FUNDAMENTAIS - DESCOBERTA DE ESTRUTURA
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 01: Estrutura Completa da Tabela ANTIMICROB                        ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ANTIMICROB'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 02: Estrutura Completa da Tabela ANT_PRO                           ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ANT_PRO'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 03: Estrutura da Tabela ATENDIME_ANT_PRO                           ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ATENDIME_ANT_PRO'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 04: Cadastro Completo de Antimicrobianos                           ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+-- Esta query pode ser executada depois de conhecer a estrutura
+SELECT *
+FROM DBAMV.ANTIMICROB
+ORDER BY 1;  -- Ajustar após descobrir o nome da primeira coluna
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 05: Relacionamento Produtos x Antimicrobianos                      ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    AP.*,
+    P.DS_PRODUTO,
+    A.*  -- Ajustar após conhecer estrutura
+FROM DBAMV.ANT_PRO AP
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+LEFT JOIN DBAMV.ANTIMICROB A 
+    ON AP.CD_ANTIMICROB = A.CD_ANTIMICROB
+ORDER BY P.DS_PRODUTO;
+
+
+═══════════════════════════════════════════════════════════════════════════════
+💊 4. QUERIES DE ANÁLISE - PRESCRIÇÃO DE ANTIMICROBIANOS
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 06: Antimicrobianos Prescritos por Período                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar nome da coluna após descobrir estrutura
+    AP.CD_PRODUTO,
+    P.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+GROUP BY 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM'),
+    A.CD_ANTIMICROB,
+    AP.CD_PRODUTO,
+    P.DS_PRODUTO
+ORDER BY MES_ANO DESC, QTD_PRESCRICOES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 07: Antimicrobianos Prescritos na URGÊNCIA (Replicando cProcesso) ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    AT.CD_SETOR,
+    S.NM_SETOR,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar após descobrir estrutura
+    P.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES,
+    -- Calcular percentual
+    ROUND(
+        COUNT(DISTINCT AAP.CD_ATENDIMENTO) * 100.0 / 
+        NULLIF(
+            (SELECT COUNT(DISTINCT CD_ATENDIMENTO) 
+             FROM DBAMV.ATENDIME 
+             WHERE TP_ATENDIMENTO = 'U' 
+               AND TRUNC(DT_ATENDIMENTO, 'MM') = TRUNC(AAP.DT_CADASTRO, 'MM')
+            ), 0
+        ), 2
+    ) AS PERCENTUAL_ATENDIMENTOS_COM_ATB
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.SETOR S 
+    ON AT.CD_SETOR = S.CD_SETOR
+INNER JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AT.TP_ATENDIMENTO = 'U'  -- Urgência
+  AND AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+GROUP BY 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM'),
+    AT.CD_SETOR,
+    S.NM_SETOR,
+    A.CD_ANTIMICROB,
+    P.DS_PRODUTO,
+    TRUNC(AAP.DT_CADASTRO, 'MM')
+ORDER BY MES_ANO DESC, QTD_PRESCRICOES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 08: Top 20 Antimicrobianos Mais Prescritos                         ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar após descobrir estrutura
+    P.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES,
+    MIN(AAP.DT_CADASTRO) AS PRIMEIRA_PRESCRICAO,
+    MAX(AAP.DT_CADASTRO) AS ULTIMA_PRESCRICAO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY 
+    A.CD_ANTIMICROB,
+    P.DS_PRODUTO
+ORDER BY QTD_PRESCRICOES DESC
+FETCH FIRST 20 ROWS ONLY;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 09: Antimicrobianos por Setor/Unidade de Internação                ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    S.CD_SETOR,
+    S.NM_SETOR,
+    UI.DS_UNID_INT,
+    A.CD_ANTIMICROB,
+    P.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.SETOR S 
+    ON AT.CD_SETOR = S.CD_SETOR
+LEFT JOIN DBAMV.UNID_INT UI 
+    ON AT.CD_UNID_INT = UI.CD_UNID_INT
+INNER JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -6)
+  AND AT.TP_ATENDIMENTO = 'I'  -- Internação
+GROUP BY 
+    S.CD_SETOR,
+    S.NM_SETOR,
+    UI.DS_UNID_INT,
+    A.CD_ANTIMICROB,
+    P.DS_PRODUTO
+ORDER BY S.NM_SETOR, QTD_PRESCRICOES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 10: Antimicrobianos por Especialidade Médica                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    E.DS_ESPECIALID AS ESPECIALIDADE,
+    P.NM_PRESTADOR AS MEDICO,
+    A.CD_ANTIMICROB,
+    PROD.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.PRESTADOR P 
+    ON AT.CD_PRESTADOR = P.CD_PRESTADOR
+LEFT JOIN DBAMV.ESPECIALID E 
+    ON P.CD_ESPECIALID = E.CD_ESPECIALID
+INNER JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+INNER JOIN DBAMV.PRODUTO PROD 
+    ON AP.CD_PRODUTO = PROD.CD_PRODUTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY 
+    E.DS_ESPECIALID,
+    P.NM_PRESTADOR,
+    A.CD_ANTIMICROB,
+    PROD.DS_PRODUTO
+ORDER BY ESPECIALIDADE, QTD_PRESCRICOES DESC;
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🦠 5. QUERIES DE ANÁLISE - CULTURAS E ANTIBIOGRAMAS
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 11: Estrutura da Tabela CULTURAS                                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'CULTURAS'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 12: Estrutura da Tabela ITCULTURA (Antibiograma)                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ITCULTURA'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 13: Perfil de Resistência por Antimicrobiano                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar após conhecer estrutura
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB,
+    -- TRA.DS_TIPO_RESULTADO,  -- Ajustar após conhecer estrutura
+    COUNT(*) AS QTD_TESTES,
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (PARTITION BY A.CD_ANTIMICROB), 2) AS PERCENTUAL
+FROM DBAMV.ITCULTURA IC
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON IC.CD_ANTIMICROB = A.CD_ANTIMICROB
+INNER JOIN DBAMV.TIPO_RESULTADO_ANTIMICROB TRA 
+    ON IC.CD_TIPO_RESULTADO_ANTIMICROB = TRA.CD_TIPO_RESULTADO_ANTIMICROB
+INNER JOIN DBAMV.CULTURAS C 
+    ON IC.ANTIMICROB_CD_ANTIMICROB = C.ANTIMICROB_CD_ANTIMICROB
+-- WHERE C.DT_CULTURA >= ADD_MONTHS(SYSDATE, -12)  -- Ajustar campo data
+GROUP BY 
+    A.CD_ANTIMICROB,
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB
+ORDER BY A.CD_ANTIMICROB, PERCENTUAL DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 14: Germes Identificados e Perfil de Sensibilidade                 ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    G.CD_GERME,
+    G.DS_GERME,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar após conhecer estrutura
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB AS RESULTADO,
+    COUNT(*) AS QTD_TESTES,
+    COUNT(DISTINCT IC.ANTIMICROB_CD_ANTIMICROB) AS QTD_CULTURAS
+FROM DBAMV.ITCULTURA IC
+INNER JOIN DBAMV.CULTURAS C 
+    ON IC.ANTIMICROB_CD_ANTIMICROB = C.ANTIMICROB_CD_ANTIMICROB
+INNER JOIN DBAMV.GERMES G 
+    ON C.CD_GERME = G.CD_GERME  -- Ajustar campo de relacionamento
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON IC.CD_ANTIMICROB = A.CD_ANTIMICROB
+INNER JOIN DBAMV.TIPO_RESULTADO_ANTIMICROB TRA 
+    ON IC.CD_TIPO_RESULTADO_ANTIMICROB = TRA.CD_TIPO_RESULTADO_ANTIMICROB
+-- WHERE C.DT_CULTURA >= ADD_MONTHS(SYSDATE, -12)  -- Ajustar campo data
+GROUP BY 
+    G.CD_GERME,
+    G.DS_GERME,
+    A.CD_ANTIMICROB,
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB
+ORDER BY G.DS_GERME, A.CD_ANTIMICROB, QTD_TESTES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 15: Taxa de Resistência por Antimicrobiano (Últimos 12 Meses)     ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WITH ResultadosCulturas AS (
+    SELECT 
+        A.CD_ANTIMICROB,
+        -- A.DS_ANTIMICROB,  -- Ajustar
+        TRA.CD_TIPO_RESULTADO_ANTIMICROB,
+        -- TRA.DS_TIPO_RESULTADO,  -- Ajustar
+        COUNT(*) AS QTD
+    FROM DBAMV.ITCULTURA IC
+    INNER JOIN DBAMV.ANTIMICROB A 
+        ON IC.CD_ANTIMICROB = A.CD_ANTIMICROB
+    INNER JOIN DBAMV.TIPO_RESULTADO_ANTIMICROB TRA 
+        ON IC.CD_TIPO_RESULTADO_ANTIMICROB = TRA.CD_TIPO_RESULTADO_ANTIMICROB
+    INNER JOIN DBAMV.CULTURAS C 
+        ON IC.ANTIMICROB_CD_ANTIMICROB = C.ANTIMICROB_CD_ANTIMICROB
+    -- WHERE C.DT_CULTURA >= ADD_MONTHS(SYSDATE, -12)
+    GROUP BY 
+        A.CD_ANTIMICROB,
+        TRA.CD_TIPO_RESULTADO_ANTIMICROB
+)
+SELECT 
+    CD_ANTIMICROB,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'S' THEN QTD ELSE 0 END) AS SENSIVEIS,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'R' THEN QTD ELSE 0 END) AS RESISTENTES,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'I' THEN QTD ELSE 0 END) AS INTERMEDIARIOS,
+    SUM(QTD) AS TOTAL_TESTES,
+    ROUND(
+        SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'R' THEN QTD ELSE 0 END) * 100.0 / 
+        NULLIF(SUM(QTD), 0), 2
+    ) AS TAXA_RESISTENCIA_PCT
+FROM ResultadosCulturas
+GROUP BY CD_ANTIMICROB
+ORDER BY TAXA_RESISTENCIA_PCT DESC;
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📋 6. QUERIES DE ANÁLISE - AUDITORIA E AVALIAÇÃO
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 16: Estrutura da Tabela AUDIT_ANTIMICROBIANO                       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'AUDIT_ANTIMICROBIANO'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 17: Estrutura da Tabela AVALIACAO_ANTIMICROBIANO_PRSCT             ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'AVALIACAO_ANTIMICROBIANO_PRSCT'
+ORDER BY ATC.COLUMN_ID;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 18: Auditorias Realizadas por Período                              ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    -- TO_CHAR(AA.DT_AUDITORIA, 'YYYY-MM') AS MES_ANO,  -- Ajustar campo data
+    U.NM_USUARIO AS AUDITOR,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar
+    COUNT(*) AS QTD_AUDITORIAS,
+    COUNT(DISTINCT AA.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS_AUDITADOS
+FROM DBAMV.AUDIT_ANTIMICROBIANO AA
+INNER JOIN DBAMV.USUARIOS U 
+    ON AA.CD_USUARIO_AVALIACAO = U.CD_USUARIO
+LEFT JOIN DBAMV.ANTIMICROB A 
+    ON AA.CD_ANTIMICROB = A.CD_ANTIMICROB
+-- WHERE AA.DT_AUDITORIA >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY 
+    -- TO_CHAR(AA.DT_AUDITORIA, 'YYYY-MM'),
+    U.NM_USUARIO,
+    A.CD_ANTIMICROB
+ORDER BY QTD_AUDITORIAS DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 19: Prescrições com e sem Justificativa                            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,  -- Ajustar
+    COUNT(*) AS TOTAL_PRESCRICOES,
+    COUNT(AAP.CD_ITPRE_MED) AS PRESCRICOES_COM_ITEM,
+    COUNT(DISTINCT IMJ.CD_ITPRE_MED_JUSTIFICATIVA) AS PRESCRICOES_COM_JUSTIFICATIVA,
+    ROUND(
+        COUNT(DISTINCT IMJ.CD_ITPRE_MED_JUSTIFICATIVA) * 100.0 / 
+        NULLIF(COUNT(*), 0), 2
+    ) AS PERCENTUAL_JUSTIFICADO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+LEFT JOIN DBAMV.ITPRE_MED_JUSTIFICATIVA IMJ 
+    ON AAP.CD_ITPRE_MED = IMJ.CD_ITPRE_MED
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM'),
+    A.CD_ANTIMICROB
+ORDER BY MES_ANO DESC, TOTAL_PRESCRICOES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 20: Avaliações de Prescrição de Antimicrobianos                    ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    AAP.*,  -- Ajustar após conhecer estrutura
+    AT.CD_PACIENTE,
+    PAC.NM_PACIENTE,
+    P.NM_PRESTADOR AS MEDICO_PRESCRITOR
+FROM DBAMV.AVALIACAO_ANTIMICROBIANO_PRSCT AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.PACIENTE PAC 
+    ON AT.CD_PACIENTE = PAC.CD_PACIENTE
+LEFT JOIN DBAMV.PRESTADOR P 
+    ON AT.CD_PRESTADOR = P.CD_PRESTADOR
+-- WHERE AAP.DT_AVALIACAO >= ADD_MONTHS(SYSDATE, -3)  -- Ajustar campo data
+ORDER BY 1 DESC;  -- Ajustar ordenação
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📊 7. QUERIES AVANÇADAS - INDICADORES E DASHBOARDS
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 21: Dashboard Executivo - Consumo de Antimicrobianos               ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WITH Mensal AS (
+    SELECT 
+        TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+        COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS ATENDIMENTOS_COM_ATB,
+        COUNT(*) AS TOTAL_PRESCRICOES_ATB,
+        COUNT(DISTINCT AAP.CD_ANTIMICROB) AS ANTIMICROBIANOS_DIFERENTES
+    FROM DBAMV.ATENDIME_ANT_PRO AAP
+    WHERE AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+    GROUP BY TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM')
+),
+AtendimentosMensais AS (
+    SELECT 
+        TO_CHAR(DT_ATENDIMENTO, 'YYYY-MM') AS MES_ANO,
+        COUNT(DISTINCT CD_ATENDIMENTO) AS TOTAL_ATENDIMENTOS
+    FROM DBAMV.ATENDIME
+    WHERE DT_ATENDIMENTO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+    GROUP BY TO_CHAR(DT_ATENDIMENTO, 'YYYY-MM')
+)
+SELECT 
+    M.MES_ANO,
+    M.ATENDIMENTOS_COM_ATB,
+    AM.TOTAL_ATENDIMENTOS,
+    M.TOTAL_PRESCRICOES_ATB,
+    M.ANTIMICROBIANOS_DIFERENTES,
+    ROUND(M.ATENDIMENTOS_COM_ATB * 100.0 / NULLIF(AM.TOTAL_ATENDIMENTOS, 0), 2) AS PCT_ATENDIMENTOS_COM_ATB,
+    ROUND(M.TOTAL_PRESCRICOES_ATB * 1.0 / NULLIF(M.ATENDIMENTOS_COM_ATB, 0), 2) AS MEDIA_PRESCRICOES_POR_ATENDIMENTO
+FROM Mensal M
+LEFT JOIN AtendimentosMensais AM 
+    ON M.MES_ANO = AM.MES_ANO
+ORDER BY M.MES_ANO DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 22: Indicador - DDD (Dose Diária Definida) por Antimicrobiano      ║
+║  Nota: Necessita tabela auxiliar com DDDs ou cálculo manual               ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+-- Template para implementar após definir tabela de DDD
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,
+    -- Adicionar campos de dose prescrita
+    -- Calcular DDD = dose_total / dose_padrao_ddd
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM'),
+    A.CD_ANTIMICROB
+ORDER BY MES_ANO DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 23: Padrão de Prescrição por Tipo de Atendimento                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    AT.TP_ATENDIMENTO,
+    CASE AT.TP_ATENDIMENTO
+        WHEN 'I' THEN 'Internação'
+        WHEN 'U' THEN 'Urgência'
+        WHEN 'E' THEN 'Externo'
+        WHEN 'A' THEN 'Ambulatorial'
+        ELSE 'Outros'
+    END AS DESCRICAO_TP_ATENDIMENTO,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES,
+    ROUND(AVG(
+        -- Calcular tempo de uso do antimicrobiano
+        1  -- Substituir pelo cálculo real
+    ), 1) AS MEDIA_DIAS_USO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -6)
+GROUP BY 
+    AT.TP_ATENDIMENTO,
+    A.CD_ANTIMICROB
+ORDER BY AT.TP_ATENDIMENTO, QTD_PRESCRICOES DESC;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 24: Análise de Concordância - Cultura vs Prescrição                ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    AT.CD_ATENDIMENTO,
+    PAC.NM_PACIENTE,
+    -- Antimicrobiano prescrito
+    APRES.CD_ANTIMICROB AS ATB_PRESCRITO,
+    AAP.DT_CADASTRO AS DT_PRESCRICAO,
+    -- Resultado da cultura
+    ACULT.CD_ANTIMICROB AS ATB_CULTURA,
+    -- C.DT_CULTURA,  -- Ajustar campo
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB AS RESULTADO_CULTURA,
+    -- Verificar concordância
+    CASE 
+        WHEN APRES.CD_ANTIMICROB = ACULT.CD_ANTIMICROB 
+         AND TRA.CD_TIPO_RESULTADO_ANTIMICROB = 'S'  -- Sensível
+        THEN 'CONCORDANTE'
+        WHEN APRES.CD_ANTIMICROB = ACULT.CD_ANTIMICROB 
+         AND TRA.CD_TIPO_RESULTADO_ANTIMICROB = 'R'  -- Resistente
+        THEN 'RESISTENTE'
+        ELSE 'NÃO TESTADO'
+    END AS CONCORDANCIA
+FROM DBAMV.ATENDIME AT
+INNER JOIN DBAMV.PACIENTE PAC 
+    ON AT.CD_PACIENTE = PAC.CD_PACIENTE
+-- Antimicrobianos prescritos
+INNER JOIN DBAMV.ATENDIME_ANT_PRO AAP 
+    ON AT.CD_ATENDIMENTO = AAP.CD_ATENDIMENTO
+INNER JOIN DBAMV.ANTIMICROB APRES 
+    ON AAP.CD_ANTIMICROB = APRES.CD_ANTIMICROB
+-- Culturas do atendimento
+LEFT JOIN DBAMV.CULTURAS C 
+    ON AT.CD_ATENDIMENTO = C.CD_ATENDIMENTO  -- Ajustar relacionamento
+LEFT JOIN DBAMV.ITCULTURA IC 
+    ON C.ANTIMICROB_CD_ANTIMICROB = IC.ANTIMICROB_CD_ANTIMICROB
+LEFT JOIN DBAMV.ANTIMICROB ACULT 
+    ON IC.CD_ANTIMICROB = ACULT.CD_ANTIMICROB
+LEFT JOIN DBAMV.TIPO_RESULTADO_ANTIMICROB TRA 
+    ON IC.CD_TIPO_RESULTADO_ANTIMICROB = TRA.CD_TIPO_RESULTADO_ANTIMICROB
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -3)
+ORDER BY AT.CD_ATENDIMENTO, AAP.DT_CADASTRO;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 25: Tempo Médio de Prescrição de Antimicrobianos                   ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WITH PrescricoesComTempo AS (
+    SELECT 
+        AAP.CD_ATENDIMENTO,
+        AAP.CD_ANTIMICROB,
+        -- A.DS_ANTIMICROB,
+        AAP.DT_CADASTRO AS DT_INICIO,
+        -- Buscar data final (pode estar em outra tabela)
+        -- NVL(DT_FIM, DT_ALTA) AS DT_FIM,
+        -- Calcular dias de uso
+        1 AS DIAS_USO  -- Substituir pelo cálculo real
+    FROM DBAMV.ATENDIME_ANT_PRO AAP
+    INNER JOIN DBAMV.ANTIMICROB A 
+        ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+    WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -6)
+)
+SELECT 
+    CD_ANTIMICROB,
+    -- DS_ANTIMICROB,
+    COUNT(*) AS QTD_PRESCRICOES,
+    ROUND(AVG(DIAS_USO), 1) AS MEDIA_DIAS_USO,
+    ROUND(STDDEV(DIAS_USO), 1) AS DESVIO_PADRAO_DIAS,
+    MIN(DIAS_USO) AS MINIMO_DIAS,
+    MAX(DIAS_USO) AS MAXIMO_DIAS,
+    ROUND(MEDIAN(DIAS_USO), 1) AS MEDIANA_DIAS
+FROM PrescricoesComTempo
+GROUP BY CD_ANTIMICROB
+ORDER BY QTD_PRESCRICOES DESC;
+
+
+═══════════════════════════════════════════════════════════════════════════════
+🏥 8. QUERIES DE INTEGRAÇÃO - INFECTOLOGIA (PARECERES E EVOLUÇÕES)
+═══════════════════════════════════════════════════════════════════════════════
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 26: Pareceres de Infectologia com Antimicrobianos Prescritos       ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+-- Identificar tabela de pareceres primeiro
+-- Exemplo genérico:
+SELECT 
+    -- PAR.CD_PARECER,  -- Ajustar
+    -- PAR.DT_PARECER,
+    AT.CD_ATENDIMENTO,
+    PAC.NM_PACIENTE,
+    P.NM_PRESTADOR AS INFECTOLOGISTA,
+    A.CD_ANTIMICROB,
+    -- A.DS_ANTIMICROB,
+    PROD.DS_PRODUTO,
+    AAP.DT_CADASTRO AS DT_PRESCRICAO_ATB
+FROM DBAMV.ATENDIME AT
+INNER JOIN DBAMV.PACIENTE PAC 
+    ON AT.CD_PACIENTE = PAC.CD_PACIENTE
+-- Parecer (ajustar join conforme tabela real)
+-- LEFT JOIN DBAMV.PARECER_MEDICO PAR ON ...
+LEFT JOIN DBAMV.PRESTADOR P 
+    ON AT.CD_PRESTADOR = P.CD_PRESTADOR
+LEFT JOIN DBAMV.ESPECIALID E 
+    ON P.CD_ESPECIALID = E.CD_ESPECIALID
+-- Antimicrobianos prescritos
+LEFT JOIN DBAMV.ATENDIME_ANT_PRO AAP 
+    ON AT.CD_ATENDIMENTO = AAP.CD_ATENDIMENTO
+LEFT JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+LEFT JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+LEFT JOIN DBAMV.PRODUTO PROD 
+    ON AP.CD_PRODUTO = PROD.CD_PRODUTO
+WHERE UPPER(E.DS_ESPECIALID) LIKE '%INFECT%'
+  -- AND PAR.DT_PARECER >= ADD_MONTHS(SYSDATE, -12)
+ORDER BY AT.CD_ATENDIMENTO, AAP.DT_CADASTRO;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 27: Evolução Temporal do Tratamento com Antimicrobianos            ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+SELECT 
+    AT.CD_ATENDIMENTO,
+    PAC.NM_PACIENTE,
+    AT.DT_ATENDIMENTO,
+    -- Evoluções médicas
+    -- EM.DT_EVOLUCAO,  -- Ajustar tabela EVOLUCAO_MEDICA
+    -- EM.DS_EVOLUCAO,
+    -- Antimicrobianos prescritos em cada momento
+    AAP.DT_CADASTRO AS DT_PRESCRICAO,
+    A.CD_ANTIMICROB,
+    PROD.DS_PRODUTO,
+    -- Culturas
+    -- C.DT_CULTURA,
+    G.DS_GERME,
+    TRA.CD_TIPO_RESULTADO_ANTIMICROB AS RESULTADO_CULTURA
+FROM DBAMV.ATENDIME AT
+INNER JOIN DBAMV.PACIENTE PAC 
+    ON AT.CD_PACIENTE = PAC.CD_PACIENTE
+-- Evoluções
+LEFT JOIN DBAMV.EVOLUCAO_MEDICA EM 
+    ON AT.CD_ATENDIMENTO = EM.CD_ATENDIMENTO  -- Ajustar relacionamento
+-- Prescrições de antimicrobianos
+LEFT JOIN DBAMV.ATENDIME_ANT_PRO AAP 
+    ON AT.CD_ATENDIMENTO = AAP.CD_ATENDIMENTO
+LEFT JOIN DBAMV.ANTIMICROB A 
+    ON AAP.CD_ANTIMICROB = A.CD_ANTIMICROB
+LEFT JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+LEFT JOIN DBAMV.PRODUTO PROD 
+    ON AP.CD_PRODUTO = PROD.CD_PRODUTO
+-- Culturas
+LEFT JOIN DBAMV.CULTURAS C 
+    ON AT.CD_ATENDIMENTO = C.CD_ATENDIMENTO  -- Ajustar
+LEFT JOIN DBAMV.GERMES G 
+    ON C.CD_GERME = G.CD_GERME  -- Ajustar
+LEFT JOIN DBAMV.ITCULTURA IC 
+    ON C.ANTIMICROB_CD_ANTIMICROB = IC.ANTIMICROB_CD_ANTIMICROB
+LEFT JOIN DBAMV.TIPO_RESULTADO_ANTIMICROB TRA 
+    ON IC.CD_TIPO_RESULTADO_ANTIMICROB = TRA.CD_TIPO_RESULTADO_ANTIMICROB
+WHERE AT.DT_ATENDIMENTO >= ADD_MONTHS(SYSDATE, -6)
+ORDER BY AT.CD_ATENDIMENTO, AAP.DT_CADASTRO;
+
+
+╔════════════════════════════════════════════════════════════════════════════╗
+║  QUERY 28: Relatório Mensal Infectologia (Template Hugo)                  ║
+╚════════════════════════════════════════════════════════════════════════════╝
+
+WITH DadosMensais AS (
+    SELECT 
+        TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+        -- Contadores
+        COUNT(DISTINCT AT.CD_ATENDIMENTO) AS TOTAL_ATENDIMENTOS_COM_ATB,
+        COUNT(DISTINCT CASE WHEN AT.TP_ATENDIMENTO = 'U' THEN AT.CD_ATENDIMENTO END) AS ATEND_URGENCIA_COM_ATB,
+        COUNT(DISTINCT CASE WHEN AT.TP_ATENDIMENTO = 'I' THEN AT.CD_ATENDIMENTO END) AS ATEND_INTERNACAO_COM_ATB,
+        COUNT(*) AS TOTAL_PRESCRICOES_ATB,
+        COUNT(DISTINCT AAP.CD_ANTIMICROB) AS ATB_DIFERENTES_USADOS,
+        -- Pareceres (ajustar conforme tabela real)
+        -- COUNT(DISTINCT PAR.CD_PARECER) AS QTD_PARECERES_INFECTO,
+        -- Culturas
+        COUNT(DISTINCT C.ANTIMICROB_CD_ANTIMICROB) AS QTD_CULTURAS,
+        COUNT(DISTINCT IC.CD_ANTIMICROB) AS ATB_TESTADOS_CULTURAS
+    FROM DBAMV.ATENDIME_ANT_PRO AAP
+    INNER JOIN DBAMV.ATENDIME AT 
+        ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+    LEFT JOIN DBAMV.CULTURAS C 
+        ON AT.CD_ATENDIMENTO = C.CD_ATENDIMENTO  -- Ajustar
+    LEFT JOIN DBAMV.ITCULTURA IC 
+        ON C.ANTIMICROB_CD_ANTIMICROB = IC.ANTIMICROB_CD_ANTIMICROB
+    WHERE AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+    GROUP BY TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM')
+)
+SELECT 
+    MES_ANO,
+    TOTAL_ATENDIMENTOS_COM_ATB,
+    ATEND_URGENCIA_COM_ATB,
+    ATEND_INTERNACAO_COM_ATB,
+    TOTAL_PRESCRICOES_ATB,
+    ATB_DIFERENTES_USADOS,
+    -- QTD_PARECERES_INFECTO,
+    QTD_CULTURAS,
+    ATB_TESTADOS_CULTURAS,
+    ROUND(TOTAL_PRESCRICOES_ATB * 1.0 / NULLIF(TOTAL_ATENDIMENTOS_COM_ATB, 0), 2) AS MEDIA_PRESCRICOES_POR_ATENDIMENTO,
+    ROUND(ATEND_URGENCIA_COM_ATB * 100.0 / NULLIF(TOTAL_ATENDIMENTOS_COM_ATB, 0), 2) AS PCT_URGENCIA
+FROM DadosMensais
+ORDER BY MES_ANO DESC;
+
+
+═══════════════════════════════════════════════════════════════════════════════
+📝 NOTAS FINAIS E PRÓXIMOS PASSOS
+═══════════════════════════════════════════════════════════════════════════════
+
+✅ QUERIES PRIORITÁRIAS PARA EXECUTAR PRIMEIRO:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. QUERY 01, 02, 03: Conhecer estrutura das tabelas core
+2. QUERY 04, 05: Verificar cadastro de antimicrobianos
+3. QUERY 06-10: Análise de prescrições
+4. QUERY 11-15: Análise de culturas e resistência
+5. QUERY 16-20: Análise de auditoria
+
+
+🔧 AJUSTES NECESSÁRIOS APÓS DESCOBRIR ESTRUTURAS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Substituir comentários -- A.DS_ANTIMICROB pelos nomes reais das colunas
+2. Ajustar campos de data (DT_CULTURA, DT_AUDITORIA, etc.)
+3. Ajustar relacionamentos entre CULTURAS e outras tabelas
+4. Identificar tabela de PARECERES médicos
+5. Verificar tabela de EVOLUCAO_MEDICA
+
+
+💡 DICAS DE IMPLEMENTAÇÃO:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+1. Execute primeiro as queries de estrutura (01-05, 11-12, 16-17)
+2. Ajuste os nomes das colunas descobertos nas queries de análise
+3. Teste com períodos curtos (1 mês) antes de queries grandes
+4. Use FETCH FIRST n ROWS ONLY para testes rápidos
+5. Crie views para queries mais usadas
+6. Documente campos calculados para DDD
+
+
+📊 RELATÓRIOS SUGERIDOS:
+━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+✓ Dashboard Executivo (Query 21)
+✓ Relatório Mensal Infectologia (Query 28)
+✓ Perfil de Resistência (Query 13, 14, 15)
+✓ Auditoria de Prescrições (Query 18, 19)
+✓ Concordância Cultura vs Prescrição (Query 24)
+
+
+═══════════════════════════════════════════════════════════════════════════════
+FIM DO GUIA
+═══════════════════════════════════════════════════════════════════════════════
+
+Documento gerado em: 2025-10-21
+Versão: 1.0
+Sistema: MV Soul
+Foco: Antimicrobianos / Antibióticos
+
+
+
+/*
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                                                                              ║
+║  🔬 QUERIES PRÁTICAS - ANTIMICROBIANOS NO MV                                ║
+║  📋 Prontas para Copiar e Executar                                          ║
+║  ⭐ Organizadas por Prioridade                                              ║
+║                                                                              ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+  Sistema: MV Soul
+  Data: 21/10/2025
+  Versão: 1.0
+  
+  INSTRUÇÕES:
+  1. Execute as queries na ordem apresentada
+  2. Cada query é independente (pode ser executada individualmente)
+  3. Copie APENAS o código SQL (não copie os comentários de cabeçalho)
+  4. Ajuste os nomes das colunas conforme descobrir
+*/
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 🚀 PRIORIDADE 1: DESCOBERTA DE ESTRUTURA
+-- Execute PRIMEIRO para conhecer as tabelas!
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 1.1: Estrutura da Tabela ANTIMICROB
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ANTIMICROB'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 1.2: Estrutura da Tabela ANT_PRO
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ANT_PRO'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 1.3: Estrutura da Tabela ATENDIME_ANT_PRO
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ATENDIME_ANT_PRO'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 1.4: Estrutura da Tabela CULTURAS
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'CULTURAS'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 1.5: Estrutura da Tabela ITCULTURA (Antibiograma)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'ITCULTURA'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 📊 PRIORIDADE 2: CONHECER OS DADOS
+-- Execute para ver o que existe cadastrado
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 2.1: Ver TODOS os Antimicrobianos Cadastrados
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.ANTIMICROB
+ORDER BY 1
+FETCH FIRST 50 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 2.2: Contagem de Registros nas Tabelas Principais
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 'ANTIMICROB' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.ANTIMICROB
+UNION ALL
+SELECT 'ANT_PRO' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.ANT_PRO
+UNION ALL
+SELECT 'ATENDIME_ANT_PRO' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.ATENDIME_ANT_PRO
+UNION ALL
+SELECT 'CULTURAS' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.CULTURAS
+UNION ALL
+SELECT 'ITCULTURA' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.ITCULTURA
+UNION ALL
+SELECT 'AUDIT_ANTIMICROBIANO' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.AUDIT_ANTIMICROBIANO
+UNION ALL
+SELECT 'AVALIACAO_ANTIMICROBIANO_PRSCT' AS TABELA, COUNT(*) AS QTD_REGISTROS FROM DBAMV.AVALIACAO_ANTIMICROBIANO_PRSCT
+ORDER BY QTD_REGISTROS DESC;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 2.3: Relacionamento PRODUTO x ANTIMICROB (Primeiros 50)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    AP.*,
+    P.DS_PRODUTO,
+    P.TP_PRESCRICAO
+FROM DBAMV.ANT_PRO AP
+INNER JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+ORDER BY P.DS_PRODUTO
+FETCH FIRST 50 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 2.4: Tipos de Resultado de Antimicrobianos (S, R, I)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.TIPO_RESULTADO_ANTIMICROB
+ORDER BY 1;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 💊 PRIORIDADE 3: ANÁLISE DE PRESCRIÇÕES
+-- Análises básicas de prescrição
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.1: Resumo Mensal de Prescrições (Últimos 12 Meses)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS_COM_ATB,
+    COUNT(*) AS QTD_PRESCRICOES_ATB,
+    COUNT(DISTINCT AAP.CD_ANTIMICROB) AS QTD_ATB_DIFERENTES,
+    ROUND(COUNT(*) * 1.0 / COUNT(DISTINCT AAP.CD_ATENDIMENTO), 2) AS MEDIA_PRESCRICOES_POR_ATENDIMENTO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+GROUP BY TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM')
+ORDER BY MES_ANO DESC;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.2: Prescrições de ÚLTIMOS 30 DIAS (Amostra)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    AAP.*,
+    AT.CD_PACIENTE,
+    AT.TP_ATENDIMENTO,
+    P.DS_PRODUTO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+LEFT JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+LEFT JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+WHERE AAP.DT_CADASTRO >= TRUNC(SYSDATE) - 30
+ORDER BY AAP.DT_CADASTRO DESC
+FETCH FIRST 100 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.3: Top 20 Antimicrobianos MAIS PRESCRITOS (Últimos 12 Meses)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    AAP.CD_ANTIMICROB,
+    P.DS_PRODUTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES,
+    MIN(AAP.DT_CADASTRO) AS PRIMEIRA_PRESCRICAO,
+    MAX(AAP.DT_CADASTRO) AS ULTIMA_PRESCRICAO
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+LEFT JOIN DBAMV.ANT_PRO AP 
+    ON AAP.CD_PRODUTO = AP.CD_PRODUTO
+LEFT JOIN DBAMV.PRODUTO P 
+    ON AP.CD_PRODUTO = P.CD_PRODUTO
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -12)
+GROUP BY AAP.CD_ANTIMICROB, P.DS_PRODUTO
+ORDER BY QTD_PRESCRICOES DESC
+FETCH FIRST 20 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.4: Prescrições na URGÊNCIA (Replicando cProcesso_00574)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS ATEND_URGENCIA_COM_ATB,
+    COUNT(*) AS PRESCRICOES_ATB_URGENCIA,
+    COUNT(DISTINCT AAP.CD_ANTIMICROB) AS ATB_DIFERENTES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+WHERE AT.TP_ATENDIMENTO = 'U'  -- Urgência
+  AND AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+GROUP BY TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM')
+ORDER BY MES_ANO DESC;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.5: Prescrições por TIPO DE ATENDIMENTO
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    AT.TP_ATENDIMENTO,
+    CASE AT.TP_ATENDIMENTO
+        WHEN 'I' THEN 'Internação'
+        WHEN 'U' THEN 'Urgência'
+        WHEN 'E' THEN 'Externo'
+        WHEN 'A' THEN 'Ambulatorial'
+        ELSE 'Outros'
+    END AS DESCRICAO_TP_ATENDIMENTO,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -6)
+GROUP BY AT.TP_ATENDIMENTO
+ORDER BY QTD_PRESCRICOES DESC;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 3.6: Prescrições por SETOR
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    S.CD_SETOR,
+    S.NM_SETOR,
+    COUNT(DISTINCT AAP.CD_ATENDIMENTO) AS QTD_ATENDIMENTOS,
+    COUNT(*) AS QTD_PRESCRICOES
+FROM DBAMV.ATENDIME_ANT_PRO AAP
+INNER JOIN DBAMV.ATENDIME AT 
+    ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+INNER JOIN DBAMV.SETOR S 
+    ON AT.CD_SETOR = S.CD_SETOR
+WHERE AAP.DT_CADASTRO >= ADD_MONTHS(SYSDATE, -6)
+GROUP BY S.CD_SETOR, S.NM_SETOR
+ORDER BY QTD_PRESCRICOES DESC
+FETCH FIRST 20 ROWS ONLY;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 🦠 PRIORIDADE 4: ANÁLISE DE CULTURAS E ANTIBIOGRAMAS
+-- Perfil de resistência
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 4.1: Amostra de CULTURAS (Últimos 100 Registros)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.CULTURAS
+ORDER BY 1 DESC
+FETCH FIRST 100 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 4.2: Amostra de ANTIBIOGRAMAS (Últimos 100 Registros)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.ITCULTURA
+ORDER BY 1 DESC
+FETCH FIRST 100 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 4.3: Contagem de Resultados por Tipo (S, R, I)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    IC.CD_TIPO_RESULTADO_ANTIMICROB,
+    COUNT(*) AS QTD_TESTES
+FROM DBAMV.ITCULTURA IC
+GROUP BY IC.CD_TIPO_RESULTADO_ANTIMICROB
+ORDER BY QTD_TESTES DESC;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 4.4: Perfil de Resistência por Antimicrobiano (Simples)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    IC.CD_ANTIMICROB,
+    IC.CD_TIPO_RESULTADO_ANTIMICROB,
+    COUNT(*) AS QTD_TESTES,
+    ROUND(COUNT(*) * 100.0 / SUM(COUNT(*)) OVER (PARTITION BY IC.CD_ANTIMICROB), 2) AS PERCENTUAL
+FROM DBAMV.ITCULTURA IC
+GROUP BY IC.CD_ANTIMICROB, IC.CD_TIPO_RESULTADO_ANTIMICROB
+ORDER BY IC.CD_ANTIMICROB, PERCENTUAL DESC
+FETCH FIRST 50 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 4.5: Taxa de RESISTÊNCIA por Antimicrobiano
+-- ────────────────────────────────────────────────────────────────────────────
+WITH ResultadosCulturas AS (
+    SELECT 
+        IC.CD_ANTIMICROB,
+        IC.CD_TIPO_RESULTADO_ANTIMICROB,
+        COUNT(*) AS QTD
+    FROM DBAMV.ITCULTURA IC
+    GROUP BY IC.CD_ANTIMICROB, IC.CD_TIPO_RESULTADO_ANTIMICROB
+)
+SELECT 
+    CD_ANTIMICROB,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'S' THEN QTD ELSE 0 END) AS SENSIVEIS,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'R' THEN QTD ELSE 0 END) AS RESISTENTES,
+    SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'I' THEN QTD ELSE 0 END) AS INTERMEDIARIOS,
+    SUM(QTD) AS TOTAL_TESTES,
+    ROUND(
+        SUM(CASE WHEN CD_TIPO_RESULTADO_ANTIMICROB = 'R' THEN QTD ELSE 0 END) * 100.0 / 
+        NULLIF(SUM(QTD), 0), 2
+    ) AS TAXA_RESISTENCIA_PCT
+FROM ResultadosCulturas
+GROUP BY CD_ANTIMICROB
+ORDER BY TAXA_RESISTENCIA_PCT DESC
+FETCH FIRST 30 ROWS ONLY;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 📋 PRIORIDADE 5: ANÁLISE DE AUDITORIA
+-- Verificar auditoria de prescrições
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 5.1: Estrutura da Tabela AUDIT_ANTIMICROBIANO
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'AUDIT_ANTIMICROBIANO'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 5.2: Amostra de Auditorias (Últimas 100)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.AUDIT_ANTIMICROBIANO
+ORDER BY 1 DESC
+FETCH FIRST 100 ROWS ONLY;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 5.3: Estrutura da Tabela AVALIACAO_ANTIMICROBIANO_PRSCT
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'AVALIACAO_ANTIMICROBIANO_PRSCT'
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 5.4: Amostra de Avaliações (Últimas 100)
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT *
+FROM DBAMV.AVALIACAO_ANTIMICROBIANO_PRSCT
+ORDER BY 1 DESC
+FETCH FIRST 100 ROWS ONLY;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 🎯 PRIORIDADE 6: DASHBOARD EXECUTIVO
+-- Query consolidada para relatório mensal
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- QUERY 6.1: Dashboard Executivo - Resumo Mensal Completo
+-- ────────────────────────────────────────────────────────────────────────────
+WITH DadosMensais AS (
+    SELECT 
+        TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM') AS MES_ANO,
+        COUNT(DISTINCT AT.CD_ATENDIMENTO) AS TOTAL_ATENDIMENTOS_COM_ATB,
+        COUNT(DISTINCT CASE WHEN AT.TP_ATENDIMENTO = 'U' THEN AT.CD_ATENDIMENTO END) AS ATEND_URGENCIA,
+        COUNT(DISTINCT CASE WHEN AT.TP_ATENDIMENTO = 'I' THEN AT.CD_ATENDIMENTO END) AS ATEND_INTERNACAO,
+        COUNT(*) AS TOTAL_PRESCRICOES_ATB,
+        COUNT(DISTINCT AAP.CD_ANTIMICROB) AS ATB_DIFERENTES
+    FROM DBAMV.ATENDIME_ANT_PRO AAP
+    INNER JOIN DBAMV.ATENDIME AT 
+        ON AAP.CD_ATENDIMENTO = AT.CD_ATENDIMENTO
+    WHERE AAP.DT_CADASTRO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+    GROUP BY TO_CHAR(AAP.DT_CADASTRO, 'YYYY-MM')
+),
+AtendimentosMensais AS (
+    SELECT 
+        TO_CHAR(DT_ATENDIMENTO, 'YYYY-MM') AS MES_ANO,
+        COUNT(DISTINCT CD_ATENDIMENTO) AS TOTAL_ATENDIMENTOS
+    FROM DBAMV.ATENDIME
+    WHERE DT_ATENDIMENTO >= ADD_MONTHS(TRUNC(SYSDATE, 'MM'), -12)
+    GROUP BY TO_CHAR(DT_ATENDIMENTO, 'YYYY-MM')
+)
+SELECT 
+    DM.MES_ANO,
+    DM.TOTAL_ATENDIMENTOS_COM_ATB,
+    AM.TOTAL_ATENDIMENTOS,
+    DM.ATEND_URGENCIA,
+    DM.ATEND_INTERNACAO,
+    DM.TOTAL_PRESCRICOES_ATB,
+    DM.ATB_DIFERENTES,
+    ROUND(DM.TOTAL_ATENDIMENTOS_COM_ATB * 100.0 / NULLIF(AM.TOTAL_ATENDIMENTOS, 0), 2) AS PCT_ATENDIMENTOS_COM_ATB,
+    ROUND(DM.TOTAL_PRESCRICOES_ATB * 1.0 / NULLIF(DM.TOTAL_ATENDIMENTOS_COM_ATB, 0), 2) AS MEDIA_PRESCRICOES_POR_ATENDIMENTO,
+    ROUND(DM.ATEND_URGENCIA * 100.0 / NULLIF(DM.TOTAL_ATENDIMENTOS_COM_ATB, 0), 2) AS PCT_URGENCIA
+FROM DadosMensais DM
+LEFT JOIN AtendimentosMensais AM 
+    ON DM.MES_ANO = AM.MES_ANO
+ORDER BY DM.MES_ANO DESC;
+
+
+-- ════════════════════════════════════════════════════════════════════════════
+-- 🔍 QUERIES AUXILIARES
+-- Para investigações específicas
+-- ════════════════════════════════════════════════════════════════════════════
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- EXTRA 1: Descobrir estrutura de QUALQUER tabela (Template)
+-- Substitua 'NOME_DA_TABELA' pela tabela que você quer investigar
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    ATC.COLUMN_NAME,
+    ATC.DATA_TYPE,
+    ATC.DATA_LENGTH,
+    ATC.NULLABLE,
+    ACC.COMMENTS,
+    ATC.COLUMN_ID AS ORDEM
+FROM ALL_TAB_COLUMNS ATC
+LEFT JOIN ALL_COL_COMMENTS ACC 
+    ON ATC.OWNER = ACC.OWNER 
+    AND ATC.TABLE_NAME = ACC.TABLE_NAME 
+    AND ATC.COLUMN_NAME = ACC.COLUMN_NAME
+WHERE ATC.OWNER = 'DBAMV'
+  AND ATC.TABLE_NAME = 'NOME_DA_TABELA'  -- <<<< SUBSTITUIR AQUI
+ORDER BY ATC.COLUMN_ID;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- EXTRA 2: Buscar tabelas por palavra-chave
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    TABLE_NAME,
+    NUM_ROWS,
+    COMMENTS
+FROM ALL_TABLES AT
+LEFT JOIN ALL_TAB_COMMENTS ATC 
+    ON AT.OWNER = ATC.OWNER 
+    AND AT.TABLE_NAME = ATC.TABLE_NAME
+WHERE AT.OWNER = 'DBAMV'
+  AND (
+       UPPER(AT.TABLE_NAME) LIKE '%PALAVRA_CHAVE%'  -- <<<< SUBSTITUIR
+    OR UPPER(ATC.COMMENTS) LIKE '%PALAVRA_CHAVE%'   -- <<<< SUBSTITUIR
+  )
+ORDER BY AT.TABLE_NAME;
+
+
+-- ────────────────────────────────────────────────────────────────────────────
+-- EXTRA 3: Ver relacionamentos de uma tabela específica
+-- ────────────────────────────────────────────────────────────────────────────
+SELECT 
+    c.TABLE_NAME AS TABELA_ORIGEM,
+    c.CONSTRAINT_NAME AS FK_NAME,
+    cc.COLUMN_NAME AS COLUNA_FK,
+    c2.TABLE_NAME AS TABELA_REFERENCIADA,
+    cc2.COLUMN_NAME AS COLUNA_REFERENCIADA
+FROM ALL_CONSTRAINTS c
+INNER JOIN ALL_CONS_COLUMNS cc 
+    ON c.CONSTRAINT_NAME = cc.CONSTRAINT_NAME 
+    AND c.OWNER = cc.OWNER
+LEFT JOIN ALL_CONSTRAINTS c2 
+    ON c.R_CONSTRAINT_NAME = c2.CONSTRAINT_NAME 
+    AND c.R_OWNER = c2.OWNER
+LEFT JOIN ALL_CONS_COLUMNS cc2 
+    ON c2.CONSTRAINT_NAME = cc2.CONSTRAINT_NAME 
+    AND c2.OWNER = cc2.OWNER
+WHERE c.OWNER = 'DBAMV'
+  AND c.CONSTRAINT_TYPE = 'R'
+  AND c.TABLE_NAME = 'NOME_DA_TABELA'  -- <<<< SUBSTITUIR
+ORDER BY c.CONSTRAINT_NAME;
+
+
+/*
+╔══════════════════════════════════════════════════════════════════════════════╗
+║                            FIM DAS QUERIES                                   ║
+╚══════════════════════════════════════════════════════════════════════════════╝
+
+📝 CHECKLIST DE EXECUÇÃO:
+
+□ Executei QUERY 1.1 a 1.5 (estruturas)
+□ Executei QUERY 2.1 a 2.4 (conhecer dados)
+□ Executei QUERY 3.1 a 3.6 (prescrições)
+□ Executei QUERY 4.1 a 4.5 (culturas)
+□ Executei QUERY 5.1 a 5.4 (auditoria)
+□ Executei QUERY 6.1 (dashboard)
+
+🎯 PRÓXIMOS PASSOS:
+
+1. Ajustar nomes das colunas descobertos nas queries de estrutura
+2. Criar views para queries mais usadas
+3. Criar índices se necessário
+4. Montar relatórios automatizados
+5. Integrar com BI/PowerBI
+
+📞 SUPORTE:
+
+Se precisar de ajuda para ajustar as queries ou criar novos indicadores,
+consulte o arquivo GUIA_DEFINITIVO_ANTIMICROBIANOS_MV.txt
+
+*/

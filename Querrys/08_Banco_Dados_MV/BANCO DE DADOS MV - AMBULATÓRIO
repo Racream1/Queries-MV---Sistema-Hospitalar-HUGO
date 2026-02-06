@@ -1,0 +1,1380 @@
+# CATÁLOGO DE ESTRUTURA DO BANCO DE DADOS MV
+## Atendimentos Ambulatoriais
+
+---
+
+## 📋 SUMÁRIO
+
+1. [Introdução](#introdução)
+2. [Visão Geral](#visão-geral)
+3. [Tabelas Principais](#tabelas-principais)
+4. [Módulos Funcionais](#módulos-funcionais)
+5. [Relacionamentos Chave](#relacionamentos-chave)
+6. [Glossário de Campos](#glossário-de-campos)
+
+---
+
+## 🎯 INTRODUÇÃO
+
+Este documento apresenta o catálogo da estrutura do banco de dados do sistema MV (MV Soul) relacionada aos **atendimentos ambulatoriais**. O objetivo é fornecer uma visão completa das tabelas, campos e relacionamentos utilizados no gerenciamento de agendas, consultas e atendimentos ambulatoriais.
+
+**Fonte dos Dados:** Backup da base de dados HUGO - INFECTOLOGIA (Auditoria de Antimicrobianos)
+
+**Total de Tabelas Identificadas:** 397 tabelas relacionadas a atendimentos ambulatoriais
+
+---
+
+## 📊 VISÃO GERAL
+
+### Distribuição por Schema/Owner
+
+O banco de dados MV organiza suas estruturas em diferentes schemas (owners):
+
+- **DBAMV**: Schema principal com as tabelas operacionais core
+- **MVINTEGRA**: Tabelas de integração com sistemas externos
+- **AUDIT_DBAMV**: Tabelas de auditoria e histórico
+- **DBAPORTAL**: Tabelas do portal do paciente
+- **DBAPS**: Tabelas do módulo de Atenção Primária à Saúde
+- **CONSULTA**: Views de consulta e relatórios
+- **FUSION**: Integrações Fusion
+- Outros schemas especializados (DBACP, DBADW, HGG, HMED, etc.)
+
+### Categorias Funcionais
+
+As tabelas estão organizadas nas seguintes categorias funcionais:
+
+1. **Agendamento e Agenda**
+2. **Atendimento**
+3. **Paciente**
+4. **Prestador/Profissional**
+5. **Convênio**
+6. **Procedimentos**
+7. **Faturamento**
+8. **Integração**
+9. **Auditoria e Log**
+
+---
+
+## 🗄️ TABELAS PRINCIPAIS
+
+### 1. ATENDIME (Atendimentos)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela principal de atendimentos do sistema MV. Armazena todos os tipos de atendimentos (ambulatorial, internação, pronto-socorro, etc.)
+
+#### Campos Principais (188 colunas)
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_ATENDIMENTO** | NUMBER(22) | Sim | Código único do atendimento (PK) |
+| **CD_PACIENTE** | NUMBER(22) | Sim | Código do paciente (FK → PACIENTE) |
+| **CD_ORI_ATE** | NUMBER(22) | Sim | Código da origem do atendimento (FK → ORI_ATE) |
+| **CD_CONVENIO** | NUMBER(22) | Sim | Código do convênio (FK → CONVENIO) |
+| **CD_PRO_INT** | VARCHAR2(8) | Não | Código do procedimento interno |
+| **DT_ATENDIMENTO** | DATE | Sim | Data do atendimento |
+| **HR_ATENDIMENTO** | DATE | Sim | Hora do atendimento |
+| **TP_ATENDIMENTO** | VARCHAR2(1) | Sim | Tipo de atendimento (A=Ambulatorial, I=Internação, E=Emergência, U=Urgência) |
+| **CD_PRESTADOR** | NUMBER(22) | Não | Código do prestador/médico (FK → PRESTADOR) |
+| **CD_LEITO** | NUMBER(22) | Não | Código do leito (para internações) |
+| **CD_LOC_TRANS** | NUMBER(22) | Não | Código do local de transferência |
+| **CD_MOT_ALT** | NUMBER(22) | Não | Código do motivo de alta |
+| **CD_CID** | VARCHAR2(6) | Não | Código CID do diagnóstico principal |
+| **CD_SERVICO** | NUMBER(22) | Não | Código do serviço (FK → SERVICO) |
+| **DS_ATENDIMENTO** | VARCHAR2(2000) | Não | Descrição/observações do atendimento |
+| **DT_DIAG** | DATE | Não | Data do diagnóstico |
+| **DT_ALTA** | DATE | Não | Data da alta |
+| **HR_ALTA** | DATE | Não | Hora da alta |
+| **DS_OBS_ALTA** | VARCHAR2(2000) | Não | Observações da alta |
+| **DT_ENTRADA_SAME** | DATE | Não | Data de entrada no SAME |
+| **DT_PREVISTA_ALTA** | DATE | Não | Data prevista de alta |
+| **CD_TIP_RES** | NUMBER(22) | Não | Código do tipo de resultado |
+| **CD_TIP_ACOM** | NUMBER(22) | Não | Código do tipo de acompanhante |
+| **DT_VAL_GUIA** | DATE | Não | Data de validade da guia |
+| **NR_GUIA** | VARCHAR2(20) | Não | Número da guia do convênio |
+| **CD_SER_DIS** | NUMBER(22) | Não | Código do serviço dispensado |
+| **CD_DES_ATE** | NUMBER(22) | Não | Código do destino do atendimento |
+| **DS_ATE_OCO** | VARCHAR2(2000) | Não | Descrição de ocorrências no atendimento |
+| **CD_ULTIMO_MOV_INT** | NUMBER(22) | Não | Código do último movimento de internação |
+| **CD_CASOS_ATD** | NUMBER(22) | Não | Código de casos atendidos |
+| **DS_DESTINO_TRANSFERENCIA** | VARCHAR2(40) | Não | Descrição do destino da transferência |
+| **NM_USUARIO** | VARCHAR2(30) | Não | Nome do usuário que registrou |
+| **CD_CON_PLA** | NUMBER(22) | Não | Código do plano do convênio |
+| **NM_USUARIO_ALTA** | VARCHAR2(30) | Não | Nome do usuário que deu alta |
+| **CD_TIPO_INTERNACAO** | NUMBER(22) | Não | Código do tipo de internação |
+| **CD_LOC_PROCED** | NUMBER(22) | Não | Código do local do procedimento |
+| **SN_ACOMPANHANTE** | VARCHAR2(1) | Não | Indicador de acompanhante (S/N) |
+| **SN_INFECCAO** | VARCHAR2(1) | Não | Indicador de infecção hospitalar (S/N) |
+| **SN_RETORNO** | VARCHAR2(1) | Não | Indicador de retorno (S/N) |
+| **CD_SSM_CIH** | VARCHAR2(10) | Não | Código SSM da Comissão de Infecção Hospitalar |
+| **CD_CONVENIO_SECUNDARIO** | NUMBER(22) | Não | Código do convênio secundário |
+| **CD_CON_PLA_SECUNDARIO** | NUMBER(22) | Não | Código do plano secundário |
+| **CD_MULTI_EMPRESA** | NUMBER(22) | Sim | Código da multi-empresa |
+| **CD_ESPECIALID** | NUMBER(22) | Não | Código da especialidade |
+| **CD_TIP_MAR** | NUMBER(22) | Não | Código do tipo de marcação |
+| **DT_REVISAO** | DATE | Não | Data de revisão |
+| **DT_RETORNO** | DATE | Não | Data de retorno |
+| **CD_ATENDIMENTO_PAI** | NUMBER(22) | Não | Código do atendimento pai (relacionamento) |
+| **QT_SESSOES** | NUMBER(22) | Não | Quantidade de sessões |
+| **DT_ALTA_MEDICA** | DATE | Não | Data da alta médica |
+| **NM_USUARIO_ALTA_MEDICA** | VARCHAR2(30) | Não | Nome do usuário que deu alta médica |
+| **HR_ALTA_MEDICA** | DATE | Não | Hora da alta médica |
+| **CD_SERVICO_SAIDA** | NUMBER(22) | Não | Código do serviço de saída |
+| **CD_ESPECIALID_SAIDA** | NUMBER(22) | Não | Código da especialidade de saída |
+| **CD_LOC_TRANS_SAIDA** | NUMBER(22) | Não | Código do local de transferência de saída |
+| **CD_MOT_TRANS_SAIDA** | NUMBER(22) | Não | Código do motivo de transferência de saída |
+| **DS_OBS_PSIH** | VARCHAR2(2000) | Não | Observações PSIH |
+| **DT_AVISO_MEDICO** | DATE | Não | Data do aviso médico |
+| **HR_AVISO_MEDICO** | DATE | Não | Hora do aviso médico |
+| **DS_AVISO_TP_CONTATO** | VARCHAR2(30) | Não | Descrição do tipo de contato do aviso |
+| **DS_AVISO_OBS** | VARCHAR2(30) | Não | Observações do aviso |
+| **NM_AVISO_USUARIO** | VARCHAR2(30) | Não | Nome do usuário do aviso |
+| **TP_PROGRAMA_ALTA_UNIDADE** | VARCHAR2(2) | Não | Tipo de programa de alta da unidade |
+| **DS_PROGRAMA_ALTA** | VARCHAR2(200) | Não | Descrição do programa de alta |
+| **DT_PROGRAMA_ALTA** | DATE | Não | Data do programa de alta |
+| **NM_USUARIO_PROG_ALTA** | VARCHAR2(30) | Não | Nome do usuário do programa de alta |
+| **DT_LIBERACAO** | DATE | Não | Data de liberação |
+| **SN_IMPORTA_AUTO** | VARCHAR2(1) | Sim | Indicador de importação automática (S/N) |
+| **CD_SUB_PLANO** | VARCHAR2(5) | Não | Código do sub-plano |
+| **SN_BUSCA_ATIVA** | VARCHAR2(1) | Sim | Indicador de busca ativa (S/N) |
+| **TP_BUSCA_ATIVA** | VARCHAR2(1) | Não | Tipo de busca ativa |
+| **SN_OBITO** | VARCHAR2(1) | Não | Indicador de óbito (S/N) |
+| **SN_EM_ATENDIMENTO** | VARCHAR2(1) | Sim | Indicador de em atendimento (S/N) |
+| **CD_TIP_SITUACAO** | NUMBER(22) | Não | Código do tipo de situação |
+| **TP_PRIORIDADE** | VARCHAR2(1) | Sim | Tipo de prioridade |
+| **CD_SSM_SIA** | VARCHAR2(8) | Não | Código SSM SIA |
+| **CD_GRU_ATE** | NUMBER(22) | Não | Código do grupo de atendimento |
+| **SN_CONSULTA_SIASUS** | VARCHAR2(1) | Não | Indicador de consulta SIASUS (S/N) |
+| **NM_USUARIO_RETORNO** | VARCHAR2(30) | Não | Nome do usuário de retorno |
+| **DT_USUARIO_RETORNO** | DATE | Não | Data do usuário de retorno |
+| **SN_RECEBE_VISITA** | VARCHAR2(1) | Sim | Indicador de recebe visita (S/N) |
+| **NR_CHAMADA_PAINEL** | VARCHAR2(15) | Não | Número da chamada no painel |
+| **NR_LAUDO** | NUMBER(22) | Não | Número do laudo |
+| **NR_LAUDO_ALTO_CUSTO** | NUMBER(22) | Não | Número do laudo de alto custo |
+| **CD_USUARIO_DIAG** | VARCHAR2(40) | Não | Código do usuário do diagnóstico |
+| **CD_USUARIO_UPD_DIAG** | VARCHAR2(40) | Não | Código do usuário de atualização do diagnóstico |
+| **DT_ULTIMA_UPD_DIAG** | DATE | Não | Data da última atualização do diagnóstico |
+| **NR_PEDIDO_LAUDO** | NUMBER(22) | Não | Número do pedido de laudo |
+| **CD_ESCALA_DIA** | NUMBER(22) | Não | Código da escala do dia |
+| **HR_AGENDA** | DATE | Não | Hora da agenda |
+| **CD_TIP_ACOM_COBERTURA** | NUMBER(22) | Não | Código do tipo de acompanhante por cobertura |
+| **CD_SETOR_OBITO** | NUMBER(22) | Não | Código do setor de óbito |
+| **DT_SOLIC_MEDICA** | DATE | Não | Data da solicitação médica |
+| **NR_SEQ_PREIMPRE** | NUMBER(22) | Não | Número de sequência pré-impressão |
+| **SN_ATENDIMENTO_APAC** | VARCHAR2(1) | Não | Indicador de atendimento APAC (S/N) |
+| **SN_OBITO_INFEC** | VARCHAR2(1) | Não | Indicador de óbito por infecção (S/N) |
+| **DT_CHEGADA_PACIENTE** | DATE | Não | Data de chegada do paciente |
+| **NR_CARTEIRA** | VARCHAR2(25) | Não | Número da carteira do convênio |
+| **DT_VALIDADE** | DATE | Não | Data de validade da carteira |
+| **NM_EMPRESA** | VARCHAR2(30) | Não | Nome da empresa |
+| **NR_CARTEIRA_ACOPLAMENTO** | VARCHAR2(25) | Não | Número da carteira de acoplamento |
+| **DT_VALIDADE_ACOPLAMENTO** | DATE | Não | Data de validade do acoplamento |
+| **NM_EMPRESA_ACOPLAMENTO** | VARCHAR2(30) | Não | Nome da empresa de acoplamento |
+| **NR_DECLARACAO_OBITO** | VARCHAR2(11) | Não | Número da declaração de óbito |
+| **SENHA_SUS** | VARCHAR2(20) | Não | Senha SUS |
+| **HR_ATENDIMENTO_MEDICO** | DATE | Não | Hora do atendimento médico |
+| **CD_SEQ_INTEGRA** | VARCHAR2(20) | Não | Código de sequência de integração |
+| **DT_INTEGRA** | DATE | Não | Data de integração |
+| **SN_PACIENTE_PAGA_DIF_DIARIA** | VARCHAR2(1) | Não | Indicador se paciente paga diferença de diária (S/N) |
+| **CD_GUIA** | NUMBER(22) | Não | Código da guia |
+| **CD_LAUDO_APAC** | NUMBER(22) | Não | Código do laudo APAC |
+| **TP_DOENCA** | VARCHAR2(1) | Não | Tipo de doença |
+| **NR_TEMPO_DOENCA** | NUMBER(22) | Não | Número de tempo de doença |
+| **TP_TEMPO_DOENCA** | VARCHAR2(1) | Não | Tipo de tempo de doença |
+| **TP_CARATER_INTERNACAO** | VARCHAR2(1) | Não | Tipo de caráter de internação |
+| **TP_OBITO_MULHER** | NUMBER(22) | Não | Tipo de óbito de mulher |
+| **TP_ACIDENTE_TISS** | NUMBER(22) | Não | Tipo de acidente TISS |
+| **CD_ATENDIMENTO_SUS_VINCULADO** | NUMBER(22) | Não | Código do atendimento SUS vinculado |
+| **TP_ATENDIMENTO_TISS** | NUMBER(22) | Não | Tipo de atendimento TISS |
+| **SN_GESTACAO_TISS** | VARCHAR2(1) | Não | Indicador de gestação TISS (S/N) |
+| **SN_ABORTO_TISS** | VARCHAR2(1) | Não | Indicador de aborto TISS (S/N) |
+| **SN_TRANSTORNO_TISS** | VARCHAR2(1) | Não | Indicador de transtorno TISS (S/N) |
+| **SN_COMPLICACAO_TISS** | VARCHAR2(1) | Não | Indicador de complicação TISS (S/N) |
+| **SN_ATEND_NEO_TISS** | VARCHAR2(1) | Não | Indicador de atendimento neonatal TISS (S/N) |
+| **SN_COMPLICACAO_NEO_TISS** | VARCHAR2(1) | Não | Indicador de complicação neonatal TISS (S/N) |
+| **SN_BAIXO_PESO_TISS** | VARCHAR2(1) | Não | Indicador de baixo peso TISS (S/N) |
+| **SN_CESARIO_TISS** | VARCHAR2(1) | Não | Indicador de cesário TISS (S/N) |
+| **SN_RECEM_NATO** | VARCHAR2(1) | Não | Indicador de recém-nato (S/N) |
+| **SN_NOTIFICAR_POLICIA** | VARCHAR2(1) | Não | Indicador de notificar polícia (S/N) |
+| **SN_CUSTODIA_POLICIAL** | VARCHAR2(1) | Não | Indicador de custódia policial (S/N) |
+| **CD_CID_OBITO** | VARCHAR2(6) | Não | Código CID do óbito |
+| **SN_NORMAL_TISS** | VARCHAR2(1) | Não | Indicador de normal TISS (S/N) |
+| **SN_PAGA_ACOMPANHANTE** | VARCHAR2(1) | Não | Indicador de paga acompanhante (S/N) |
+| **CD_SETOR_LOCAL_FSCC** | NUMBER(22) | Não | Código do setor local FSCC |
+| **SN_PACOTE** | VARCHAR2(1) | Não | Indicador de pacote (S/N) |
+| **SN_PACOTE_DAY_CLINIC** | VARCHAR2(1) | Não | Indicador de pacote day clinic (S/N) |
+| **NR_GUIA_ENVIO_PRINCIPAL** | VARCHAR2(20) | Não | Número da guia de envio principal |
+| **CD_PROCEDIMENTO** | VARCHAR2(10) | Não | Código do procedimento |
+| **CD_CBO_PRESTADOR** | VARCHAR2(6) | Não | Código CBO do prestador |
+| **CD_CARATER_ATENDIMENTO** | NUMBER(22) | Não | Código do caráter do atendimento |
+| **CD_ATENDIMENTO_INTEGRA** | VARCHAR2(50) | Não | Código do atendimento integração |
+| **CD_PROCEDIMENTO_ALTA** | VARCHAR2(10) | Não | Código do procedimento de alta |
+| **CD_PRESTADOR_EM_ATENDIMENTO** | VARCHAR2(30) | Não | Código do prestador em atendimento |
+| **SN_RELACAO_TRABALHO** | VARCHAR2(1) | Sim | Indicador de relação de trabalho (S/N) |
+| **SN_SUSPEITA_EPIDEMIA** | VARCHAR2(1) | Sim | Indicador de suspeita de epidemia (S/N) |
+| **SN_REAVALIACAO** | VARCHAR2(1) | Não | Indicador de reavaliação (S/N) |
+| **NR_TAG_ATENDIMENTO** | VARCHAR2(20) | Não | Número da tag do atendimento |
+| **SN_INTERNADO** | VARCHAR2(1) | Sim | Indicador de internado (S/N) |
+| **NR_PRE_NATAL** | VARCHAR2(20) | Não | Número do pré-natal |
+| **NR_AUTORIZACAO_GESTOR** | VARCHAR2(13) | Não | Número da autorização do gestor |
+| **TP_ENCAMINHAMENTO_OBITO** | VARCHAR2(5) | Não | Tipo de encaminhamento de óbito |
+| **CD_PROTOCOLO** | NUMBER(22) | Não | Código do protocolo |
+| **CD_SINTOMA_AVALIACAO** | NUMBER(22) | Não | Código do sintoma de avaliação |
+| **VL_ESCORE** | NUMBER(22) | Não | Valor do escore |
+| **CD_COR_REFERENCIA** | NUMBER(22) | Não | Código da cor de referência |
+| **CD_RES_LEI_REGULACAO** | NUMBER(22) | Não | Código da resolução da lei de regulação |
+| **CD_MEIO_TRANSPORTE** | NUMBER(22) | Não | Código do meio de transporte |
+| **DH_ALTA_MEDICA_LANCADA** | DATE | Não | Data e hora da alta médica lançada |
+| **DH_ALTA_LANCADA** | DATE | Não | Data e hora da alta lançada |
+| **NM_USUARIO_AUTORIZADOR** | VARCHAR2(30) | Não | Nome do usuário autorizador |
+| **CD_ATENDIMENTO_ORIGINAL** | NUMBER(22) | Não | Código do atendimento original |
+| **SN_SEGURO_COMPLEMENTAR** | VARCHAR2(1) | Não | Indicador de seguro complementar (S/N) |
+| **SN_RETENCAO_JUDICIAL** | VARCHAR2(1) | Não | Indicador de retenção judicial (S/N) |
+| **CD_SISTEMA** | VARCHAR2(6) | Não | Código do sistema |
+| **CD_PRESTADOR_INDICACAO** | NUMBER(22) | Não | Código do prestador de indicação |
+| **CD_SENHA_AUTORIZACAO** | NUMBER(22) | Não | Código da senha de autorização |
+| **CD_PROGRAMAS_HOMECARE** | NUMBER(22) | Não | Código dos programas de homecare |
+| **CD_ATENDIMENTO_TISS** | NUMBER(22) | Não | Código do atendimento TISS |
+| **TP_COBERTURA_ESPECIAL** | VARCHAR2(2) | Não | Tipo de cobertura especial |
+| **TP_REGIME_ATENDIMENTO** | VARCHAR2(2) | Não | Tipo de regime do atendimento |
+| **TP_SAUDE_OCUPACIONAL** | VARCHAR2(2) | Não | Tipo de saúde ocupacional |
+| **DS_OPME** | VARCHAR2(1000) | Não | Descrição de OPME |
+| **DS_CRM_PRESTADOR_OPME** | VARCHAR2(10) | Não | Descrição do CRM do prestador OPME |
+| **DT_INICIO_USO_OPME** | DATE | Não | Data de início de uso de OPME |
+| **TP_LIBERA_PAC_CON** | VARCHAR2(1) | Sim | Tipo de liberação de paciente por convênio |
+| **NM_PRESTADOR_OPME** | VARCHAR2(100) | Não | Nome do prestador OPME |
+| **DT_MES_ANO_INICIO_USO_OPME** | DATE | Não | Data mês/ano de início de uso de OPME |
+| **CD_PRODUTO_OPME** | NUMBER(22) | Não | Código do produto OPME |
+| **NM_PRODUTO_OPME** | VARCHAR2(100) | Não | Nome do produto OPME |
+
+#### Campos de Auditoria
+
+| Campo | Tipo | Descrição |
+|-------|------|-----------|
+| **AUDIT_DT_REGISTRO** | DATE | Data do registro de auditoria |
+| **AUDIT_CD_USUARIO** | VARCHAR2(30) | Código do usuário de auditoria |
+| **AUDIT_TP_ACAO** | VARCHAR2(30) | Tipo de ação de auditoria |
+| **AUDIT_TP_REGISTRO** | VARCHAR2(30) | Tipo de registro de auditoria |
+| **AUDIT_CD_SISTEMA** | VARCHAR2(30) | Código do sistema de auditoria |
+| **AUDIT_CD_MODULO** | VARCHAR2(60) | Código do módulo de auditoria |
+
+---
+
+### 2. AGENDA_CENTRAL (Agenda Central)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela que armazena as agendas configuradas na central de agendamento, definindo horários disponíveis para consultas e procedimentos ambulatoriais.
+
+#### Campos Principais (44 colunas)
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_AGENDA_CENTRAL** | NUMBER(22) | Sim | Código único da agenda central (PK) |
+| **TP_AGENDA** | VARCHAR2(1) | Sim | Tipo de agenda |
+| **SN_AGENDA_PUBLICA** | VARCHAR2(1) | Não | Indicador se agenda é pública (S/N) |
+| **CD_UNIDADE_ATENDIMENTO** | NUMBER(22) | Não | Código da unidade de atendimento |
+| **CD_RECURSO_CENTRAL** | NUMBER(22) | Não | Código do recurso central |
+| **CD_PRESTADOR** | NUMBER(22) | Não | Código do prestador (FK → PRESTADOR) |
+| **CD_SETOR** | NUMBER(22) | Sim | Código do setor |
+| **DT_AGENDA** | DATE | Sim | Data da agenda |
+| **HR_INICIO** | DATE | Sim | Hora de início |
+| **HR_FIM** | DATE | Sim | Hora de fim |
+| **SN_ATIVO** | VARCHAR2(1) | Sim | Indicador se agenda está ativa (S/N) |
+| **SN_ATENDE_FERIADO** | VARCHAR2(1) | Não | Indicador se atende em feriado (S/N) |
+| **DT_LIBERACAO** | DATE | Sim | Data de liberação |
+| **SN_SIA** | VARCHAR2(1) | Sim | Indicador de SIA (S/N) |
+| **QT_ATENDIMENTO** | NUMBER(22) | Não | Quantidade de atendimentos |
+| **QT_ENCAIXES** | NUMBER(22) | Não | Quantidade de encaixes |
+| **SN_AGENDA_DINAMICA** | VARCHAR2(1) | Sim | Indicador de agenda dinâmica (S/N) |
+| **QT_MARCADOS** | NUMBER(22) | Não | Quantidade marcados |
+| **QT_ENCAIXES_MARCADOS** | NUMBER(22) | Não | Quantidade de encaixes marcados |
+| **QT_TEMPO_MEDIO** | NUMBER(22) | Sim | Quantidade de tempo médio (minutos) |
+| **CD_USUARIO** | VARCHAR2(30) | Sim | Código do usuário |
+| **TP_PRODUCAO** | VARCHAR2(1) | Não | Tipo de produção |
+| **DS_CONSULTORIO** | VARCHAR2(20) | Não | Descrição do consultório |
+| **SN_FALTA** | VARCHAR2(1) | Não | Indicador de falta (S/N) |
+| **SN_SERVICO_LIVRE** | VARCHAR2(1) | Não | Indicador de serviço livre (S/N) |
+| **SN_TIPO_LIVRE** | VARCHAR2(1) | Não | Indicador de tipo livre (S/N) |
+| **CD_MULTI_EMPRESA** | VARCHAR2(4) | Sim | Código da multi-empresa |
+| **CD_ESCALA_CENTRAL** | NUMBER(22) | Não | Código da escala central |
+| **DT_GERACAO** | DATE | Não | Data de geração |
+| **CD_USUARIO_REGERACAO** | VARCHAR2(30) | Não | Código do usuário de regeração |
+| **DT_REGERACAO** | DATE | Não | Data de regeração |
+| **CD_AGENDA_CENTRAL_INTEGRA** | VARCHAR2(50) | Não | Código da agenda central para integração |
+| **CD_SEQ_INTEGRA** | NUMBER(22) | Não | Código de sequência de integração |
+| **DT_INTEGRA** | DATE | Não | Data de integração |
+| **SN_PERMITE_ENCAIXE_EXTRA** | VARCHAR2(1) | Sim | Indicador se permite encaixe extra (S/N) |
+| **SN_SOLICITA_SENHA_ENCAIXE** | VARCHAR2(1) | Sim | Indicador se solicita senha para encaixe (S/N) |
+| **SN_PERMITE_FILA_ESPERA** | VARCHAR2(1) | Sim | Indicador se permite fila de espera (S/N) |
+| **TP_HORARIO** | VARCHAR2(1) | Sim | Tipo de horário |
+| **DS_OBS_AGENDA_CENTRAL** | CLOB | Não | Observações da agenda central |
+| **QT_PESO_MAXIMO** | NUMBER(22) | Não | Quantidade de peso máximo |
+| **QT_ALTURA_MAXIMA** | NUMBER(22) | Não | Quantidade de altura máxima |
+| **NR_IDADE_MINIMA** | NUMBER(22) | Não | Número de idade mínima |
+| **NR_IDADE_MAXIMA** | NUMBER(22) | Não | Número de idade máxima |
+| **CD_COR_AREA_FAMILIA** | NUMBER(22) | Não | Código da cor da área da família |
+
+---
+
+### 3. ITEM_AGENDAMENTO (Itens de Agendamento)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela que armazena os itens individuais de agendamento (marcações específicas de consultas e procedimentos).
+
+#### Campos Principais
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_IT_AGENDA_PAI** | NUMBER(22) | Sim | Código do item de agenda pai (PK) |
+| **CD_AGENDA_CENTRAL** | NUMBER(22) | Sim | Código da agenda central (FK → AGENDA_CENTRAL) |
+| **CD_PACIENTE** | NUMBER(22) | Sim | Código do paciente (FK → PACIENTE) |
+| **HR_AGENDA** | DATE | Sim | Hora da agenda |
+| **CD_ATENDIMENTO** | NUMBER(22) | Não | Código do atendimento (FK → ATENDIME) |
+| **CD_PRESTADOR** | NUMBER(22) | Não | Código do prestador |
+| **TP_SITUACAO** | VARCHAR2(1) | Sim | Tipo de situação (A=Agendado, C=Confirmado, R=Realizado, F=Faltou, etc.) |
+| **DT_GRAVACAO** | DATE | Sim | Data de gravação |
+| **NM_USUARIO** | VARCHAR2(30) | Sim | Nome do usuário |
+| **CD_CONVENIO** | NUMBER(22) | Não | Código do convênio |
+| **CD_CON_PLA** | NUMBER(22) | Não | Código do plano do convênio |
+| **CD_PROCEDIMENTO** | VARCHAR2(10) | Não | Código do procedimento |
+| **SN_ENCAIXE** | VARCHAR2(1) | Sim | Indicador de encaixe (S/N) |
+| **SN_RETORNO** | VARCHAR2(1) | Não | Indicador de retorno (S/N) |
+| **DT_CANCELAMENTO** | DATE | Não | Data de cancelamento |
+| **CD_MOT_CANCELAMENTO** | NUMBER(22) | Não | Código do motivo de cancelamento |
+| **DS_OBS_CANCELAMENTO** | VARCHAR2(2000) | Não | Descrição de observações do cancelamento |
+
+---
+
+### 4. PACIENTE (Pacientes)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela principal de cadastro de pacientes do sistema MV.
+
+#### Campos Principais
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_PACIENTE** | NUMBER(22) | Sim | Código único do paciente (PK) |
+| **NM_PACIENTE** | VARCHAR2(100) | Sim | Nome do paciente |
+| **NM_SOCIAL_PACIENTE** | VARCHAR2(100) | Não | Nome social do paciente |
+| **DT_NASCIMENTO** | DATE | Sim | Data de nascimento |
+| **TP_SEXO** | VARCHAR2(1) | Sim | Tipo de sexo (M/F) |
+| **NR_CPF** | VARCHAR2(11) | Não | Número do CPF |
+| **NR_RG** | VARCHAR2(15) | Não | Número do RG |
+| **NR_CNS** | VARCHAR2(15) | Não | Número do Cartão Nacional de Saúde |
+| **NM_MAE** | VARCHAR2(100) | Não | Nome da mãe |
+| **NM_PAI** | VARCHAR2(100) | Não | Nome do pai |
+| **DS_ENDERECO** | VARCHAR2(100) | Não | Descrição do endereço |
+| **NR_ENDERECO** | VARCHAR2(10) | Não | Número do endereço |
+| **DS_COMPLEMENTO** | VARCHAR2(50) | Não | Descrição do complemento |
+| **DS_BAIRRO** | VARCHAR2(50) | Não | Descrição do bairro |
+| **CD_CIDADE** | NUMBER(22) | Não | Código da cidade |
+| **NR_CEP** | VARCHAR2(9) | Não | Número do CEP |
+| **NR_TELEFONE** | VARCHAR2(15) | Não | Número do telefone |
+| **NR_CELULAR** | VARCHAR2(15) | Não | Número do celular |
+| **DS_EMAIL** | VARCHAR2(100) | Não | Descrição do e-mail |
+| **CD_PACIENTE_PRONTUARIO** | VARCHAR2(20) | Não | Código do prontuário do paciente |
+| **DT_CADASTRO** | DATE | Sim | Data de cadastro |
+| **CD_MULTI_EMPRESA** | NUMBER(22) | Sim | Código da multi-empresa |
+
+---
+
+### 5. PRESTADOR (Prestadores/Profissionais)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela de cadastro de prestadores de serviço (médicos, enfermeiros, etc.).
+
+#### Campos Principais
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_PRESTADOR** | NUMBER(22) | Sim | Código único do prestador (PK) |
+| **NM_PRESTADOR** | VARCHAR2(100) | Sim | Nome do prestador |
+| **NR_CPF_CGC** | VARCHAR2(14) | Não | Número do CPF/CNPJ |
+| **NR_CONSELHO** | VARCHAR2(15) | Não | Número do conselho profissional |
+| **CD_CONSELHO** | NUMBER(22) | Não | Código do conselho |
+| **TP_PRESTADOR** | VARCHAR2(1) | Sim | Tipo de prestador |
+| **CD_ESPECIALID** | NUMBER(22) | Não | Código da especialidade |
+| **SN_ATIVO** | VARCHAR2(1) | Sim | Indicador se está ativo (S/N) |
+| **CD_MULTI_EMPRESA** | NUMBER(22) | Sim | Código da multi-empresa |
+
+---
+
+### 6. CONVENIO (Convênios)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela de cadastro de convênios e planos de saúde.
+
+#### Campos Principais
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_CONVENIO** | NUMBER(22) | Sim | Código único do convênio (PK) |
+| **NM_CONVENIO** | VARCHAR2(100) | Sim | Nome do convênio |
+| **NR_CGC** | VARCHAR2(14) | Não | Número do CNPJ |
+| **CD_PLANO** | NUMBER(22) | Não | Código do plano |
+| **SN_ATIVO** | VARCHAR2(1) | Sim | Indicador se está ativo (S/N) |
+| **CD_MULTI_EMPRESA** | NUMBER(22) | Sim | Código da multi-empresa |
+
+---
+
+### 7. ORI_ATE (Origem do Atendimento)
+
+**Schema:** DBAMV  
+**Descrição:** Tabela de cadastro das origens de atendimento (Ambulatório, Pronto-Socorro, etc.).
+
+#### Campos Principais
+
+| Campo | Tipo | Obrigatório | Descrição |
+|-------|------|-------------|-----------|
+| **CD_ORI_ATE** | NUMBER(22) | Sim | Código único da origem de atendimento (PK) |
+| **DS_ORI_ATE** | VARCHAR2(50) | Sim | Descrição da origem de atendimento |
+| **TP_ORI_ATE** | VARCHAR2(1) | Sim | Tipo de origem (A=Ambulatorial, E=Emergência, I=Internação, U=Urgência) |
+| **SN_ATIVO** | VARCHAR2(1) | Sim | Indicador se está ativo (S/N) |
+| **CD_MULTI_EMPRESA** | NUMBER(22) | Sim | Código da multi-empresa |
+
+---
+
+## 📂 MÓDULOS FUNCIONAIS
+
+### MÓDULO 1: Agendamento
+
+Responsável pelo gerenciamento de agendas e marcação de consultas/procedimentos ambulatoriais.
+
+#### Tabelas Principais
+
+- **AGENDA_CENTRAL**: Definição das agendas disponíveis
+- **ITEM_AGENDAMENTO**: Marcações individuais de consultas
+- **AGENDA_CENTRAL_CONVENIO**: Relacionamento agenda x convênio
+- **AGENDA_CENTRAL_USUARIO**: Relacionamento agenda x usuário
+- **AGENDA_CENTRAL_ITEM_AGENDA**: Itens configurados para agenda
+- **AGENDA_TURMA**: Agendas em turma/grupo
+- **AGENDA_TURMA_PACIENTE**: Pacientes em agenda de turma
+- **AGENDA_FILA_ESPERA**: Fila de espera para agendamentos
+- **FILA_ESPERA_AGENDAMENTO**: Gerenciamento de fila de espera
+- **SOLICITACAO_AGENDAMENTO**: Solicitações de agendamento
+- **SOLIC_AGENDAMENTO**: Solicitações de agendamento (alternativa)
+- **PERFIL_AGENDAMENTO**: Perfis de acesso ao agendamento
+- **RESTRICAO_AGENDAMENTO**: Restrições de agendamento
+- **JUSTIFICATIVA_AGENDAMENTO**: Justificativas para agendamentos
+
+#### Tabelas de Log e Auditoria
+
+- **LOG_OPERA_AGENDA_CENTRAL**: Log de operações na agenda central
+- **LOG_COPIA_AGENDA**: Log de cópia de agendas
+- **LOG_EXCLUSAO_AGENDAMENTO**: Log de exclusões de agendamentos
+- **LOG_REAGENDAMENTO**: Log de reagendamentos
+- **LOG_ITEM_AGENDA**: Log de itens de agenda
+
+#### Tabelas de Integração
+
+- **AGENDA_CENTRAL_INTEGRA**: Integração de agenda central
+- **AGENDAMENTO_RESERVA_NF**: Reservas de agendamento para nota fiscal
+- **SITE_AGENDAMENTO**: Agendamentos via portal/site
+
+---
+
+### MÓDULO 2: Atendimento Ambulatorial
+
+Responsável pelo registro e acompanhamento de atendimentos ambulatoriais.
+
+#### Tabelas Principais
+
+- **ATENDIME**: Registro de atendimentos (todos os tipos)
+- **ATENDI_CONSULTA**: Atendimentos de consulta
+- **ATENDIME_INFO**: Informações complementares do atendimento
+- **ATENDIME_PROGRAMA**: Atendimento vinculado a programas
+- **ATENDIME_PROCEDIMENTO**: Procedimentos realizados no atendimento
+- **ATENDIME_CONSUMO**: Consumo de materiais/medicamentos no atendimento
+- **ATENDIME_SESSAO**: Sessões de atendimento
+- **ATENDIME_PRO_INT**: Procedimentos internos do atendimento
+- **DIAGNOSTICO_ATENDIME**: Diagnósticos do atendimento
+- **ATENDIME_LAUDO_AIH**: Laudos AIH vinculados ao atendimento
+
+#### Tabelas de Configuração
+
+- **PERFIL_AMBULATORIAL**: Perfis de atendimento ambulatorial
+- **PERFIL_AMBULATORIAL_CONVENIO**: Perfil x convênio
+- **PERFIL_AMBULATORIAL_ESPECIALID**: Perfil x especialidade
+- **PERFIL_AMBULATORIAL_PRESTADOR**: Perfil x prestador
+- **PERFIL_AMBULATORIAL_SERVICO**: Perfil x serviço
+- **PERFIL_AMBULATORIAL_SETOR**: Perfil x setor
+- **CONFIGURA_ATENDIMENTO**: Configurações gerais de atendimento
+- **UNIDADE_ATENDIMENTO**: Unidades de atendimento
+- **TP_ATENDIMENTO_CONFIGURACAO**: Configuração de tipos de atendimento
+
+#### Tabelas de Painel e Chamada
+
+- **PAINEL_ATENDIMENTO**: Painéis de chamada
+- **ATENDIME_CHAMADA_PAINEL**: Chamadas no painel
+- **HORARIO_PAINEL_ATENDIMENTO**: Horários de funcionamento do painel
+
+#### Tabelas de Log e Auditoria
+
+- **LOG_OPERACAO_ATENDIMENTO**: Log de operações em atendimentos
+- **LOG_EXCL_ATENDIME**: Log de exclusões de atendimentos
+- **LOG_PACIENTE_ATENDIME**: Log de alterações em pacientes x atendimentos
+
+---
+
+### MÓDULO 3: Cadastro de Pacientes
+
+Responsável pelo cadastro e manutenção de informações de pacientes.
+
+#### Tabelas Principais
+
+- **PACIENTE**: Cadastro principal de pacientes
+- **GRUPO_AGENDA_PAC**: Grupos de pacientes para agenda
+- **ATENDIME_CASOS_CONFIDENCIAL**: Casos confidenciais de atendimento
+
+#### Tabelas de Log
+
+- **LOG_PACIENTE_ATENDIME**: Log de alterações em pacientes
+
+---
+
+### MÓDULO 4: Cadastro de Prestadores
+
+Responsável pelo cadastro e gestão de prestadores de serviço.
+
+#### Tabelas Principais
+
+- **PRESTADOR**: Cadastro de prestadores
+- **MOV_PRESTADOR**: Movimentações do prestador
+- **PRESTADOR_VINCULO_ATENDIME**: Vínculos de prestador com atendimento
+- **ATENDIME_PRESTADOR_EXTERNO**: Prestadores externos
+
+#### Tabelas de Configuração
+
+- **PRESTADOR_PERFIL_AGENDAMENTO**: Perfis de prestador para agendamento
+- **PERFIL_AMBULATORIAL_PRESTADOR**: Perfis ambulatoriais de prestadores
+
+---
+
+### MÓDULO 5: Convênios e Faturamento
+
+Responsável pela gestão de convênios e processos de faturamento.
+
+#### Tabelas Principais
+
+- **CONVENIO**: Cadastro de convênios
+- **CON_PLA**: Planos de convênio
+- **CONVENIO_PERFIL_AGENDAMENTO**: Perfis de convênio para agendamento
+- **AGENDA_CENTRAL_CONVENIO**: Convênios habilitados por agenda
+- **COTA_CONSULTA**: Cotas de consultas por convênio
+
+#### Tabelas de Guias e Autorização
+
+- **GUIA_ATENDIMENTO_NORMA24**: Guias padrão TISS
+- **GUIA_ATENDIME_PROC_NORMA24**: Procedimentos nas guias
+- **SENHA_AUTORIZACAO**: Senhas de autorização
+- **APOLICE_ATENDIMENTO**: Apólices vinculadas a atendimentos
+
+---
+
+### MÓDULO 6: Integração
+
+Responsável pelas integrações com sistemas externos e interfaces.
+
+#### Tabelas Principais
+
+- **IMV_AGENDAMENTO**: Integração de agendamentos
+- **IMV_ATENDIMENTO**: Integração de atendimentos
+- **INTEGRA_ENTRADA_AGENDAMENTO**: Entrada de dados de agendamento
+- **INTEGRA_ENTRADA_ATENDIMENTO**: Entrada de dados de atendimento
+- **INTEGRA_SAIDA_AGENDAMENTO**: Saída de dados de agendamento
+- **INTEGRA_SAIDA_ATENDIMENTO**: Saída de dados de atendimento
+- **ARQUIVO_ATENDIMENTO**: Arquivos vinculados a atendimentos
+
+---
+
+### MÓDULO 7: Regulação
+
+Responsável pela regulação de consultas e procedimentos.
+
+#### Tabelas Principais
+
+- **SOLIC_ATENDIMENTO_REGULACAO**: Solicitações para regulação
+- **SOLICITACAO_ATENDIMENTO**: Solicitações gerais de atendimento
+- **AGENDA_FILA_ESPERA**: Fila de espera regulada
+- **FILA_ESPERA_AGENDAMENTO**: Gerenciamento de fila
+
+---
+
+### MÓDULO 8: Procedimentos e Exames
+
+Responsável pelo registro de procedimentos e exames ambulatoriais.
+
+#### Tabelas Principais
+
+- **PROCEDIMENTO**: Cadastro de procedimentos
+- **ATENDIME_PROCEDIMENTO**: Procedimentos realizados
+- **ITEM_AGENDAMENTO**: Agendamento de procedimentos/exames
+- **EXA_RX_ITEM_AGENDAMENTO**: Agendamento de exames de imagem
+
+---
+
+### MÓDULO 9: Especialidades e Serviços
+
+Responsável pelo cadastro de especialidades médicas e serviços.
+
+#### Tabelas Principais
+
+- **ESPECIALID**: Cadastro de especialidades
+- **SERVICO**: Cadastro de serviços
+- **SER_DIS**: Serviços dispensados
+- **AGENDA_CENTRAL_SER_TIPO**: Serviços e tipos habilitados na agenda
+
+---
+
+### MÓDULO 10: Auditoria e Relatórios
+
+Responsável por auditorias e geração de relatórios.
+
+#### Tabelas de Views
+
+- **V_ATENDIMENTOS**: View de atendimentos
+- **V_AGENDA**: View de agendas
+- **V_AGENDAMENTO**: View de agendamentos
+- **V_CONSULTA_ATENDIME_PSIH**: Consultas de atendimento PSIH
+- **VDIC_ATENDIME**: View de dicionário de atendimentos
+- **VDIC_ATENDIMENTO**: View de dicionário de atendimentos
+- **VDIC_AGENDA_SCMA**: View de agenda SCMA
+
+#### Tabelas de Log
+
+- **LOG_OPERA_AGENDA_CENTRAL**: Log de operações em agenda
+- **LOG_OPERACAO_ATENDIMENTO**: Log de operações em atendimento
+- **LOG_EXCLUSAO_AGENDAMENTO**: Log de exclusões
+- **AUDIT_DBAMV.ATENDIME**: Auditoria de atendimentos
+- **AUDIT_DBAMV.AGENDA_FILA_ESPERA**: Auditoria de fila de espera
+
+---
+
+## 🔗 RELACIONAMENTOS CHAVE
+
+### Diagrama Conceitual de Relacionamentos
+
+```
+PACIENTE (1) -----< (N) ATENDIME (N) >----- (1) PRESTADOR
+    |                       |                      |
+    |                       |                      |
+    v                       v                      v
+CONVENIO (1) -----< (N) ATENDIME (N) >----- (1) ORI_ATE
+                            |
+                            |
+                            v
+                    DIAGNOSTICO_ATENDIME
+                            |
+                            v
+                    ATENDIME_PROCEDIMENTO
+                            |
+                            v
+                    ATENDIME_CONSUMO
+
+
+AGENDA_CENTRAL (1) -----< (N) ITEM_AGENDAMENTO (N) >----- (1) PACIENTE
+       |                              |
+       |                              |
+       v                              v
+  PRESTADOR (1)              ATENDIME (0,1)
+       |
+       |
+       v
+   CONVENIO (N) (via AGENDA_CENTRAL_CONVENIO)
+```
+
+### Relacionamentos Principais
+
+#### 1. Atendimento → Paciente
+- **Tabela:** ATENDIME
+- **Chave Estrangeira:** CD_PACIENTE
+- **Referência:** PACIENTE.CD_PACIENTE
+- **Cardinalidade:** N:1 (Muitos atendimentos para um paciente)
+
+#### 2. Atendimento → Prestador
+- **Tabela:** ATENDIME
+- **Chave Estrangeira:** CD_PRESTADOR
+- **Referência:** PRESTADOR.CD_PRESTADOR
+- **Cardinalidade:** N:1 (Muitos atendimentos para um prestador)
+
+#### 3. Atendimento → Convênio
+- **Tabela:** ATENDIME
+- **Chave Estrangeira:** CD_CONVENIO
+- **Referência:** CONVENIO.CD_CONVENIO
+- **Cardinalidade:** N:1 (Muitos atendimentos para um convênio)
+
+#### 4. Atendimento → Origem de Atendimento
+- **Tabela:** ATENDIME
+- **Chave Estrangeira:** CD_ORI_ATE
+- **Referência:** ORI_ATE.CD_ORI_ATE
+- **Cardinalidade:** N:1 (Muitos atendimentos para uma origem)
+
+#### 5. Item Agendamento → Agenda Central
+- **Tabela:** ITEM_AGENDAMENTO
+- **Chave Estrangeira:** CD_AGENDA_CENTRAL
+- **Referência:** AGENDA_CENTRAL.CD_AGENDA_CENTRAL
+- **Cardinalidade:** N:1 (Muitos itens para uma agenda)
+
+#### 6. Item Agendamento → Paciente
+- **Tabela:** ITEM_AGENDAMENTO
+- **Chave Estrangeira:** CD_PACIENTE
+- **Referência:** PACIENTE.CD_PACIENTE
+- **Cardinalidade:** N:1 (Muitos agendamentos para um paciente)
+
+#### 7. Item Agendamento → Atendimento
+- **Tabela:** ITEM_AGENDAMENTO
+- **Chave Estrangeira:** CD_ATENDIMENTO
+- **Referência:** ATENDIME.CD_ATENDIMENTO
+- **Cardinalidade:** 1:0,1 (Um agendamento pode gerar zero ou um atendimento)
+
+#### 8. Agenda Central → Prestador
+- **Tabela:** AGENDA_CENTRAL
+- **Chave Estrangeira:** CD_PRESTADOR
+- **Referência:** PRESTADOR.CD_PRESTADOR
+- **Cardinalidade:** N:1 (Muitas agendas para um prestador)
+
+#### 9. Diagnóstico Atendimento → Atendimento
+- **Tabela:** DIAGNOSTICO_ATENDIME
+- **Chave Estrangeira:** CD_ATENDIMENTO
+- **Referência:** ATENDIME.CD_ATENDIMENTO
+- **Cardinalidade:** N:1 (Muitos diagnósticos para um atendimento)
+
+#### 10. Atendimento Procedimento → Atendimento
+- **Tabela:** ATENDIME_PROCEDIMENTO
+- **Chave Estrangeira:** CD_ATENDIMENTO
+- **Referência:** ATENDIME.CD_ATENDIMENTO
+- **Cardinalidade:** N:1 (Muitos procedimentos para um atendimento)
+
+---
+
+## 📖 GLOSSÁRIO DE CAMPOS
+
+### Prefixos Comuns
+
+- **CD_**: Código (identificador numérico)
+- **NM_**: Nome
+- **DS_**: Descrição
+- **DT_**: Data
+- **HR_**: Hora
+- **TP_**: Tipo
+- **SN_**: Sim/Não (flag booleano)
+- **QT_**: Quantidade
+- **NR_**: Número
+- **VL_**: Valor
+
+### Sufixos Comuns
+
+- **_INTEGRA**: Relacionado a integração
+- **_TISS**: Padrão TISS (Troca de Informações de Saúde Suplementar)
+- **_SUS**: Sistema Único de Saúde
+- **_APAC**: Autorização de Procedimento de Alta Complexidade
+- **_AIH**: Autorização de Internação Hospitalar
+- **_SIA**: Sistema de Informações Ambulatoriais
+
+### Tipos de Atendimento (TP_ATENDIMENTO)
+
+- **A**: Ambulatorial
+- **I**: Internação
+- **E**: Emergência
+- **U**: Urgência
+- **O**: Outros
+
+### Situações de Agendamento (TP_SITUACAO em ITEM_AGENDAMENTO)
+
+- **A**: Agendado
+- **C**: Confirmado
+- **R**: Realizado/Atendido
+- **F**: Faltou
+- **D**: Desmarcado/Cancelado
+- **E**: Em atendimento
+- **L**: Aguardando na recepção
+
+### Campos de Controle de Flag (SN_)
+
+- **S**: Sim
+- **N**: Não
+
+Exemplos:
+- **SN_ATIVO**: Indica se o registro está ativo
+- **SN_RETORNO**: Indica se é um retorno
+- **SN_ENCAIXE**: Indica se é um encaixe
+- **SN_OBITO**: Indica se houve óbito
+- **SN_INTERNADO**: Indica se o paciente está internado
+
+---
+
+## 📋 LISTA COMPLETA DE TABELAS
+
+### Tabelas de Agendamento (87 tabelas)
+
+1. AGENDA
+2. AGENDA_CENTRAL
+3. AGENDA_CENTRAL_CONVENIO
+4. AGENDA_CENTRAL_GRU_AGEN_PAC
+5. AGENDA_CENTRAL_ITEM_AGENDA
+6. AGENDA_CENTRAL_SER_TIPO
+7. AGENDA_CENTRAL_USUARIO
+8. AGENDA_FILA_ESPERA
+9. AGENDA_GERADA
+10. AGENDA_GERADA_AUTOMATICA
+11. AGENDAMENTO_ONCOLOGICO
+12. AGENDAMENTO_RESERVA_NF
+13. AGENDA_ONCOLOGICA
+14. AGENDA_REMESSA
+15. AGENDA_TURMA
+16. AGENDA_TURMA_CONVENIO
+17. AGENDA_TURMA_FILA
+18. AGENDA_TURMA_PACIENTE
+19. AGENDA_TURMA_PRESTADOR
+20. CIRURGIA_AVISO_AGENDADA
+21. ESCALA_CENTRAL_ITEM_AGENDA
+22. FILA_ESPERA_AGENDAMENTO
+23. GERACAO_AGENDA
+24. GERACAO_AGENDA_BACKGROUND
+25. GRUPO_AGENDA
+26. GRUPO_AGENDA_PAC
+27. HGG_CANC_AGENDA
+28. HGG_PRE_AGENDAMENTO_CIR
+29. HISTORICO_AGENDA_ONCOLOGICA
+30. INDICACAO_AGENDA
+31. INTERDICAO_AGENDAMENTO_ONCO
+32. IT_AGENDA
+33. IT_AGENDA_CENTRAL
+34. IT_AGENDA_CENTRAL_EQUIPTO
+35. ITEM_AGENDAMENTO
+36. ITEM_AGENDAMENTO_COMPOSICAO
+37. ITEM_AGENDAMENTO_CONFLITO
+38. ITEM_AGENDAMENTO_EQUIPTO
+39. ITEM_AGENDAMENTO_PERFIL_AGDM
+40. ITEM_AGENDAMENTO_PRE_REQ
+41. ITEM_AGENDAMENTO_PRESTADOR
+42. ITEM_AGENDAMENTO_RECURSO
+43. IT_GERACAO_AGENDA
+44. IT_LOG_COPIA_AGENDA
+45. IT_MOVIMENTO_AGENDA_CENTRAL
+46. IT_SOLICITACAO_AGENDAMENTO
+47. JUSTIFICATIVA_AGENDAMENTO
+48. LOG_AGENDAMENTO_RESERVA_NF
+49. LOG_COPIA_AGENDA
+50. LOG_ESCALA_CENTRAL_ITEM_AGENDA
+51. LOG_EXCLUSAO_AGENDAMENTO
+52. LOG_ITEM_AGENDA
+53. LOG_OPERA_AGENDA_CENTRAL
+54. LOG_OPERA_AGENDA_TURMA
+55. LOG_REAGENDAMENTO
+56. MOVIMENTO_AGENDA_CENTRAL
+57. OPERA_AGENDA
+58. PERFIL_AGENDAMENTO
+59. PRAZO_AGENDAMENTO_AVISO
+60. PRESTADOR_PERFIL_AGENDAMENTO
+61. PW_AGE_AGENDA_POR_RECURSO
+62. PW_AGENDA_DOMICILIAR
+63. PW_ESPECIALID_ITEM_AGENDAMENTO
+64. PW_GERACAO_AGENDA_DOMICILIAR
+65. PW_IT_AGENDA_DOMICILIAR
+66. PW_IT_AGENDA_TP_CHAMADO_DOMIC
+67. PW_IT_GERACAO_AGD_AGENDA_DOMIC
+68. PW_PESQUISA_AGENDA_CRITERIO
+69. PW_QRTZ_ESTADO_AGENDADOR
+70. PW_QRTZ_GATILHOS_AGENDADOS
+71. REGISTRO_FLUXO_AGENDA
+72. RESTRICAO_AGENDAMENTO
+73. SER_DIS_PERFIL_AGENDAMENTO
+74. SETOR_PERFIL_AGENDAMENTO
+75. SITE_AGENDAMENTO
+76. SITE_AGENDAMENTO_PROJETO_SERV
+77. SOLIC_AGENDAMENTO
+78. SOLICITACAO_AGENDAMENTO
+79. SOS_IT_AGENDA_CIRU
+80. TIP_MAR_PERFIL_AGENDAMENTO
+81. TP_INDICACAO_AGENDA
+82. TROCPAC_AGENDA_TURMA_FILA
+83. TROCPAC_AGENDA_TURMA_PACIENTE
+84. UNIDADE_ATENDIMENTO_PERF_AGDM
+85. USUARIO_AGENDA_CENTRAL
+86. USUARIO_PERFIL_AGENDAMENTO
+87. CONTROLE_AGENDAMENTO_RESER_NF
+
+### Tabelas de Atendimento (98 tabelas)
+
+1. ATENDI_CONSULTA
+2. ATENDIME
+3. ATENDIME_ANT_PRO
+4. ATENDIME_CASOS_CONFIDENCIAL
+5. ATENDIME_CD_PAC_ITAGENDA_BKP
+6. ATENDIME_CHAMADA_PAINEL
+7. ATENDIME_CONSUMO
+8. ATENDIME_GRUPO_ASSISTENCIAL
+9. ATENDIME_HCARE
+10. ATENDIME_INDICE_ASIS
+11. ATENDIME_INFO
+12. ATENDIME_LAUDO_AIH
+13. ATENDIMENTO_AUTORIZA_CRDP_ACOM
+14. ATENDIMENTO_SUS_CIHA
+15. ATENDIMENTO_TIPO_AUDIT_ISOLAMT
+16. ATENDIMENTO_XML
+17. ATENDIME_OBS_LACTARIO
+18. ATENDIME_ORI_MEIO_MAG
+19. ATENDIME_PRESTADOR_EXTERNO
+20. ATENDIME_PROCEDIMENTO
+21. ATENDIME_PROC_PRO_INT
+22. ATENDIME_PROGRAMA
+23. ATENDIME_PRO_INT
+24. ATENDIME_SESSAO
+25. APOLICE_ATENDIMENTO
+26. ARQUIVO_ATENDIMENTO
+27. CONFIGURA_ATENDIMENTO
+28. DIAGNOSTICO_ATENDIME
+29. ENT_PRO_ATENDIMENTO
+30. EVOLUCAO_ATENDIME_ASIS
+31. FA_CUSTO_ATENDIMENTO
+32. FA_IT_CUSTO_ATENDIMENTO
+33. FFAS_ITENS_ATENDIMENTO
+34. FFIS_ITENS_ATENDIMENTO
+35. FNRM_REPASSE_ATENDIMENTO
+36. GUIA_ATENDIMENTO_NORMA24
+37. GUIA_ATENDIME_OBITO_NORMA24
+38. GUIA_ATENDIME_PROC_NORMA24
+39. GUIA_ATENDIME_RN_NORMA24
+40. HGG_PENDENCIAS_ATENDIMENTO_CHI
+41. HORARIO_PAINEL_ATENDIMENTO
+42. IMVAPP_CONVENIO_TP_ATENDIMENTO
+43. IT_CONFIG_USUARIO_ATENDIME
+44. LOG_EXCL_ATENDIME
+45. LOG_OPERACAO_ATENDIMENTO
+46. LOG_PACIENTE_ATENDIME
+47. OSV_ATENDIME
+48. PACTUACAO_AMBULATORIAL
+49. PAINEL_ATENDIMENTO
+50. PENDENCIA_ATENDIMENTO
+51. PERFIL_AMBULATORIAL
+52. PERFIL_AMBULATORIAL_CONVENIO
+53. PERFIL_AMBULATORIAL_EMPRESA
+54. PERFIL_AMBULATORIAL_ESPECIALID
+55. PERFIL_AMBULATORIAL_ESP_MEDICA
+56. PERFIL_AMBULATORIAL_ORI_ATE
+57. PERFIL_AMBULATORIAL_PRESTADOR
+58. PERFIL_AMBULATORIAL_SEGMENTO
+59. PERFIL_AMBULATORIAL_SERVICO
+60. PERFIL_AMBULATORIAL_SETOR
+61. PERFIL_AMBULATORIAL_TIP_PREST
+62. PRESTADOR_VINCULO_ATENDIME
+63. PT_EVOL_ATENDIME
+64. PW_DIAGNOSTICO_ATENDIME_CID
+65. PW_DIAGNOSTICO_ATENDIME_SNOMED
+66. PW_DOCUMENTO_CLINICO_CONSULTA
+67. PW_ESPECIALIDADE_ATENDIMENTO
+68. PW_LISTA_EM_ATENDIMENTO
+69. PW_RESPOSTA_EX_FIS_ATENDIME
+70. PW_SETOR_TIPO_ATENDIMENTO
+71. REGRA_ATENDIMENTO
+72. REGRA_ATENDIMENTO_PRO_FAT
+73. REPASSE_VIRTUAL_ATENDIME
+74. SOLIC_ATENDIMENTO_REGULACAO
+75. SOLICITACAO_ATENDIMENTO
+76. SOLICITACAO_ATENDIMENTO_SIDRA
+77. TBL_JOB_AVICIR_ATENDIME
+78. TEMP_FFCH_FA_CUSTO_ATENDIMENTO
+79. TP_ATENDIMENTO_CONFIGURACAO
+80. TRIAGEM_ATENDIMENTO
+81. TROCPAC_ATENDIME_HCARE
+82. TROCPAC_LOG_PACIENTE_ATENDIME
+83. UNIDADE_ATENDIMENTO
+84. ST_ATENDIME (DBAPORTAL)
+85. V_ATENDIMENTOS (DBAPORTAL)
+86. VDW_ATENDIMENTO (DBAPORTAL)
+87. FATO_ATENDIME_EXTERNO (MVCCADMIN)
+88. FATO_ATENDIME_INTERNADO (MVCCADMIN)
+89. IMV_ATENDIMENTO (MVINTEGRA)
+90. IMV_ATENDIMENTO_SOS (MVINTEGRA)
+91. INTEGRA_ENTRADA_ATENDIMENTO (MVINTEGRA)
+92. INTEGRA_SAIDA_ATENDIMENTO (MVINTEGRA)
+93. ATENDIMENTO (FUSION)
+94. V_HEPIC_ATENDIMENTO_V4 (HEPIC)
+95. HGG_PENDENCIAS_ATENDIMENTO_CHI (HGG)
+96. VHMED_AGENDA_PRONTUARIO (HMED)
+97. VW_SESGO_CIRURGIA_AGENDADA (SESGO)
+98. EXA_RX_ITEM_AGENDAMENTO
+
+### Tabelas de Paciente (4 tabelas)
+
+1. PACIENTE
+2. GRUPO_AGENDA_PAC
+3. ATENDIME_CASOS_CONFIDENCIAL
+4. VDIC_ETIQUE_PACIENTE_SAA (ACESSOPRD)
+
+### Tabelas de Prestador (9 tabelas)
+
+1. PRESTADOR
+2. MOV_PRESTADOR
+3. PRESTADOR_VINCULO_ATENDIME
+4. ATENDIME_PRESTADOR_EXTERNO
+5. PRESTADOR_PERFIL_AGENDAMENTO
+6. PERFIL_AMBULATORIAL_PRESTADOR
+7. VDIC_ATENDIME_PRESTADOR (CONSULTA)
+8. VDIC_CIRURGIA_PRESTADOR (CONSULTA)
+9. VDIC_PARECER_PRESTADOR (CONSULTA)
+
+### Tabelas de Convênio (8 tabelas)
+
+1. CONVENIO
+2. CON_PLA
+3. CONVENIO_PERFIL_AGENDAMENTO
+4. AGENDA_CENTRAL_CONVENIO
+5. COTA_CONSULTA
+6. PERFIL_AMBULATORIAL_CONVENIO
+7. V_FNRM_PRODUCAO_CONVENIO (ACESSOPRD)
+8. IMVAPP_CONVENIO_TP_ATENDIMENTO
+
+### Tabelas de Consulta/Views (68 tabelas)
+
+1. V_AGENDA
+2. V_AGENDA_CENTRAL_GUPO_PAC
+3. V_AGENDAMENTO
+4. V_AMAP_AGENDA
+5. V_AMAP_AGENDA_PAC
+6. V_AMAP_CONSULTA
+7. V_ATENDIME_GASES
+8. V_ATENDIME_PRO_INVASIVO
+9. V_CIHA_PRODUCAO_AMBULATORIAL
+10. V_CONSULTA_AGRUP
+11. V_CONSULTA_ATENDIME_PSIH
+12. V_CONSULTA_CASOS_ATD
+13. V_CONSULTA_CONTAS_PACIENTE
+14. V_CONSULTA_CONTAS_REMESSA
+15. V_CONSULTA_DOCUMENTO_ENTRADA
+16. V_CONSULTA_EMPENHO
+17. V_CONSULTA_ITENS_BLOQ_ALCADA
+18. V_CONSULTA_ITENS_LOTES_INV
+19. V_CONSULTA_NOTAS
+20. V_CONSULTA_PARCELA_PAGAR
+21. V_CONSULTA_PARCELA_RECEBER
+22. V_CONSULTA_RECURSO
+23. V_CONSULTA_REMESSA_GLOSA
+24. V_CONSULTA_REPASSE_ATENDIMENTO
+25. VDIC_AGENDA_CENTRAL_SERV_APOIO
+26. VDIC_AGENDA_SCMA
+27. VDIC_ATENDER_CONSULTA_AGENDADA
+28. VDIC_ATENDIME
+29. VDIC_ATENDIME_ESPECIALIDADE
+30. VDIC_ATENDIME_ESPECIALIDADE_V2
+31. VDIC_ATENDIMENTO
+32. VDIC_ATENDIMENTO_CRER
+33. VDIC_ATENDIMENTO_CURATIVO
+34. VDIC_ATENDIMENTO_TESTE_REP
+35. VDIC_ATENDIME_PRESTADOR
+36. VDIC_CONSULTA_BASICA
+37. VDIC_CONSULTAR_FATURAMENTO
+38. VDIC_CONSULTAR_LCTO_PRESTADOR
+39. VDIC_CONSULTAR_PRECO_SIMPRO
+40. VDIC_ESCALA_AGENDA_SCMA
+41. VDIC_ESP_ATENDIME_PEDIATRIA
+42. VDIC_GRUPO_AGENDAMENTO_SCMA
+43. VDIC_HEMOGO_AGENDA_SERVICO
+44. VDIC_HGG_AGENDA_RX_PTE_INTERN
+45. VDIC_HGG_AGENDA_SERVICO
+46. VDIC_HGG_PAC_AGENDADOS_SCMA
+47. VDIC_HORARIOS_AGENDA_SCMA
+48. VDIC_HORARIOS_AGENDA_SCMA_MULT
+49. VDIC_ITEM_AGENDAMENTO_CONFLITO
+50. VDIC_ITEM_AGENDAMENTO_EQUIPTO
+51. VDIC_ITEM_AGENDAMENTO_RECURSO
+52. VDIC_ITEM_AGENDAMENTO_SCMA
+53. VDIC_ITEM_AGENDAMENT_PRESTADOR
+54. VDIC_LOG_OPERA_AGENDA_CENTRAL
+55. VDIC_LOG_OPERACAO_AGENDA_SCMA
+56. VDIC_MOVIMENTA_PAC_AGENDADO
+57. VDIC_PERGUNTA_RESPOSTA_AGENDA
+58. VDIC_PRE_AGENDAMENTO_CIR
+59. VDIC_PRODUTIVIDADE_AGENDA
+60. VDIC_RECEPCAO_AGENDA
+61. VDIC_SESGO_AGENDA_REAL_LAB
+62. VDIC_SESGO_AGENDAS
+63. VDIC_SESGO_AGENDAS_FALTAS
+64. VDIC_WARLEN_CONSULTA_PRESC
+65. V_FFIS_ATENDIMENTOS_PACIENTE
+66. V_IMVMICRODATA_ATENDIMENTOS
+67. V_LOTE_ATENDIMENTO
+68. V_MANUTENCAO_AGENDA_TURMA
+
+### Tabelas de Integração (16 tabelas)
+
+1. IMV_AGENDAMENTO (MVINTEGRA)
+2. IMV_ATENDIMENTO (MVINTEGRA)
+3. IMV_ATENDIMENTO_SOS (MVINTEGRA)
+4. INTEGRA_ENTRADA_AGENDAMENTO (MVINTEGRA)
+5. INTEGRA_ENTRADA_ATENDIMENTO (MVINTEGRA)
+6. INTEGRA_SAIDA_AGENDAMENTO (MVINTEGRA)
+7. INTEGRA_SAIDA_ATENDIMENTO (MVINTEGRA)
+8. CONSULTA_CIDADAO_PRONTUARIO (MVINTEGRA)
+9. AGENDAMENTO (FUSION)
+10. ATENDIMENTO (FUSION)
+11. STATUSAGENDAMENTO (FUSION)
+12. STATUSAGENDAMENTODEPARA (FUSION)
+13. ARQUIVO_ATENDIMENTO
+14. ATENDIMENTO_XML
+15. CD_AGENDA_CENTRAL_INTEGRA (campo em AGENDA_CENTRAL)
+16. CD_ATENDIMENTO_INTEGRA (campo em ATENDIME)
+
+### Tabelas de Auditoria (10 tabelas)
+
+1. AUDIT_DBAMV.AGENDA_FILA_ESPERA
+2. AUDIT_DBAMV.ATENDIME
+3. AUDIT_DBAMV.MOV_PRESTADOR
+4. AUDIT_DBAMV.PACIENTE
+5. AUDIT_DBAMV.PERFIL_AMBULATORIAL
+6. AUDIT_DBAMV.PRESTADOR
+7. LOG_OPERA_AGENDA_CENTRAL
+8. LOG_OPERACAO_ATENDIMENTO
+9. LOG_EXCLUSAO_AGENDAMENTO
+10. LOG_PACIENTE_ATENDIME
+
+### Tabelas Especializadas por Módulo
+
+#### Data Warehouse (3 tabelas)
+1. DI_TP_ATENDIMENTO (DBADW)
+2. VINTERCONSULTA_PREST (DBADW)
+3. VINTERCONSULTA_SOLIC (DBADW)
+
+#### APS - Atenção Primária (8 tabelas)
+1. AGENDA_CARTEIRA (DBAPS)
+2. CONSULTA_MEDALLIANCE (DBAPS)
+3. TIPO_CONSULTA (DBAPS)
+4. TIPO_SAIDA_GUIA_CONSULTA (DBAPS)
+5. V_CONSULTA_FUNCIONALIDADE_PERF (DBAPS)
+6. V_CONSULTA_GRAU_DEPENDENCIA (DBAPS)
+7. V_CONSULTA_ITEM_ASSISTENCIAL (DBAPS)
+8. V_CONSULTA_SITUACAO_TRIBUTARIA (DBAPS)
+
+#### Tarefas Agendadas (2 tabelas)
+1. HIST_ENVIO_TAREFA_AGENDADA (APOIOINTEGRADORCLIENT)
+2. TAREFA_AGENDADA (APOIOINTEGRADORCLIENT)
+
+---
+
+## 📝 OBSERVAÇÕES IMPORTANTES
+
+### 1. Multi-Empresa
+O campo **CD_MULTI_EMPRESA** está presente na maioria das tabelas principais e permite que o sistema MV trabalhe com múltiplas empresas/unidades de negócio de forma integrada.
+
+### 2. Soft Delete
+Muitas tabelas utilizam o campo **SN_ATIVO** (S/N) para implementar exclusão lógica (soft delete), mantendo o histórico de registros inativos.
+
+### 3. Auditoria
+O sistema possui uma infraestrutura robusta de auditoria através:
+- Schema AUDIT_DBAMV com tabelas espelhadas
+- Tabelas de LOG_ para operações críticas
+- Campos AUDIT_ nas próprias tabelas (DT_REGISTRO, CD_USUARIO, TP_ACAO, etc.)
+
+### 4. Integração
+O MV possui forte capacidade de integração:
+- Schema MVINTEGRA dedicado
+- Campos _INTEGRA nas tabelas principais
+- Suporte a TISS (padrão ANS)
+- APIs de entrada e saída de dados
+
+### 5. Performance
+O sistema utiliza:
+- Views materializadas (VDIC_)
+- Tabelas de consulta otimizadas (V_)
+- Índices em chaves estrangeiras
+- Particionamento por CD_MULTI_EMPRESA
+
+### 6. Padrão TISS
+Muitos campos seguem o padrão TISS da ANS (Agência Nacional de Saúde Suplementar):
+- Campos terminados em _TISS
+- Guias no formato NORMA24
+- Códigos padronizados de procedimentos
+
+### 7. SUS
+Integração com sistemas do SUS:
+- Campos _SUS, _SIA, _SIASUS
+- Tabelas específicas para APAC e AIH
+- CNS (Cartão Nacional de Saúde)
+
+---
+
+## 🔍 QUERIES ÚTEIS
+
+### Query 1: Buscar Atendimentos Ambulatoriais de um Paciente
+
+```sql
+SELECT 
+    a.CD_ATENDIMENTO,
+    a.DT_ATENDIMENTO,
+    a.HR_ATENDIMENTO,
+    p.NM_PACIENTE,
+    pr.NM_PRESTADOR,
+    c.NM_CONVENIO,
+    o.DS_ORI_ATE,
+    a.DS_ATENDIMENTO
+FROM 
+    DBAMV.ATENDIME a
+    INNER JOIN DBAMV.PACIENTE p ON a.CD_PACIENTE = p.CD_PACIENTE
+    LEFT JOIN DBAMV.PRESTADOR pr ON a.CD_PRESTADOR = pr.CD_PRESTADOR
+    LEFT JOIN DBAMV.CONVENIO c ON a.CD_CONVENIO = c.CD_CONVENIO
+    INNER JOIN DBAMV.ORI_ATE o ON a.CD_ORI_ATE = o.CD_ORI_ATE
+WHERE 
+    a.TP_ATENDIMENTO = 'A'  -- Ambulatorial
+    AND a.CD_PACIENTE = :CD_PACIENTE
+    AND a.DT_ATENDIMENTO BETWEEN :DT_INICIO AND :DT_FIM
+ORDER BY 
+    a.DT_ATENDIMENTO DESC, a.HR_ATENDIMENTO DESC;
+```
+
+### Query 2: Listar Agendas Disponíveis de um Prestador
+
+```sql
+SELECT 
+    ac.CD_AGENDA_CENTRAL,
+    ac.DT_AGENDA,
+    ac.HR_INICIO,
+    ac.HR_FIM,
+    pr.NM_PRESTADOR,
+    s.NM_SETOR,
+    ac.QT_ATENDIMENTO,
+    ac.QT_MARCADOS,
+    (ac.QT_ATENDIMENTO - ac.QT_MARCADOS) AS VAGAS_DISPONIVEIS
+FROM 
+    DBAMV.AGENDA_CENTRAL ac
+    INNER JOIN DBAMV.PRESTADOR pr ON ac.CD_PRESTADOR = pr.CD_PRESTADOR
+    LEFT JOIN DBAMV.SETOR s ON ac.CD_SETOR = s.CD_SETOR
+WHERE 
+    ac.CD_PRESTADOR = :CD_PRESTADOR
+    AND ac.DT_AGENDA BETWEEN :DT_INICIO AND :DT_FIM
+    AND ac.SN_ATIVO = 'S'
+    AND (ac.QT_ATENDIMENTO - ac.QT_MARCADOS) > 0  -- Tem vagas
+ORDER BY 
+    ac.DT_AGENDA, ac.HR_INICIO;
+```
+
+### Query 3: Consultar Agendamentos de um Paciente
+
+```sql
+SELECT 
+    ia.CD_IT_AGENDA_PAI,
+    ia.HR_AGENDA,
+    ac.DT_AGENDA,
+    p.NM_PACIENTE,
+    pr.NM_PRESTADOR,
+    c.NM_CONVENIO,
+    ia.TP_SITUACAO,
+    CASE ia.TP_SITUACAO
+        WHEN 'A' THEN 'Agendado'
+        WHEN 'C' THEN 'Confirmado'
+        WHEN 'R' THEN 'Realizado'
+        WHEN 'F' THEN 'Faltou'
+        WHEN 'D' THEN 'Cancelado'
+        ELSE 'Outros'
+    END AS DS_SITUACAO
+FROM 
+    DBAMV.ITEM_AGENDAMENTO ia
+    INNER JOIN DBAMV.AGENDA_CENTRAL ac ON ia.CD_AGENDA_CENTRAL = ac.CD_AGENDA_CENTRAL
+    INNER JOIN DBAMV.PACIENTE p ON ia.CD_PACIENTE = p.CD_PACIENTE
+    LEFT JOIN DBAMV.PRESTADOR pr ON ac.CD_PRESTADOR = pr.CD_PRESTADOR
+    LEFT JOIN DBAMV.CONVENIO c ON ia.CD_CONVENIO = c.CD_CONVENIO
+WHERE 
+    ia.CD_PACIENTE = :CD_PACIENTE
+    AND ac.DT_AGENDA BETWEEN :DT_INICIO AND :DT_FIM
+ORDER BY 
+    ac.DT_AGENDA DESC, ia.HR_AGENDA DESC;
+```
+
+### Query 4: Relatório de Produção Ambulatorial por Prestador
+
+```sql
+SELECT 
+    pr.CD_PRESTADOR,
+    pr.NM_PRESTADOR,
+    e.NM_ESPECIALID,
+    COUNT(DISTINCT a.CD_ATENDIMENTO) AS QT_ATENDIMENTOS,
+    COUNT(DISTINCT CASE WHEN ia.TP_SITUACAO = 'F' THEN ia.CD_IT_AGENDA_PAI END) AS QT_FALTAS,
+    COUNT(DISTINCT CASE WHEN ia.TP_SITUACAO = 'R' THEN ia.CD_IT_AGENDA_PAI END) AS QT_REALIZADOS
+FROM 
+    DBAMV.PRESTADOR pr
+    LEFT JOIN DBAMV.ATENDIME a ON pr.CD_PRESTADOR = a.CD_PRESTADOR 
+        AND a.TP_ATENDIMENTO = 'A'
+        AND a.DT_ATENDIMENTO BETWEEN :DT_INICIO AND :DT_FIM
+    LEFT JOIN DBAMV.ITEM_AGENDAMENTO ia ON a.CD_ATENDIMENTO = ia.CD_ATENDIMENTO
+    LEFT JOIN DBAMV.ESPECIALID e ON pr.CD_ESPECIALID = e.CD_ESPECIALID
+WHERE 
+    pr.SN_ATIVO = 'S'
+    AND pr.CD_MULTI_EMPRESA = :CD_MULTI_EMPRESA
+GROUP BY 
+    pr.CD_PRESTADOR, pr.NM_PRESTADOR, e.NM_ESPECIALID
+ORDER BY 
+    QT_ATENDIMENTOS DESC;
+```
+
+### Query 5: Fila de Espera para Agendamento
+
+```sql
+SELECT 
+    afe.CD_AGENDA_FILA_ESPERA,
+    afe.DT_SOLICITACAO,
+    p.NM_PACIENTE,
+    p.NR_TELEFONE,
+    pr.NM_PRESTADOR,
+    e.NM_ESPECIALID,
+    c.NM_CONVENIO,
+    afe.TP_PRIORIDADE,
+    CASE afe.TP_PRIORIDADE
+        WHEN '1' THEN 'Urgente'
+        WHEN '2' THEN 'Alta'
+        WHEN '3' THEN 'Normal'
+        ELSE 'Baixa'
+    END AS DS_PRIORIDADE
+FROM 
+    DBAMV.AGENDA_FILA_ESPERA afe
+    INNER JOIN DBAMV.PACIENTE p ON afe.CD_PACIENTE = p.CD_PACIENTE
+    LEFT JOIN DBAMV.PRESTADOR pr ON afe.CD_PRESTADOR = pr.CD_PRESTADOR
+    LEFT JOIN DBAMV.ESPECIALID e ON afe.CD_ESPECIALID = e.CD_ESPECIALID
+    LEFT JOIN DBAMV.CONVENIO c ON afe.CD_CONVENIO = c.CD_CONVENIO
+WHERE 
+    afe.SN_ATENDIDO = 'N'
+    AND afe.CD_MULTI_EMPRESA = :CD_MULTI_EMPRESA
+ORDER BY 
+    afe.TP_PRIORIDADE, afe.DT_SOLICITACAO;
+```
+
+---
+
+## 📚 REFERÊNCIAS E RECURSOS
+
+### Documentação Oficial MV
+- Portal de Documentação MV Soul
+- Wiki MV (acesso restrito a clientes)
+- Central de Atendimento MV
+
+### Padrões e Normas
+- **TISS**: Padrão de Troca de Informações de Saúde Suplementar (ANS)
+- **SUS**: Sistemas de Informação do SUS (DATASUS)
+- **HL7**: Padrão de comunicação em saúde
+- **CID-10**: Classificação Internacional de Doenças
+
+### Ferramentas Recomendadas
+- Oracle SQL Developer (para consultas ao banco)
+- DBeaver (alternativa open source)
+- PL/SQL Developer
+- Toad for Oracle
+
+---
+
+## 📅 HISTÓRICO DE VERSÕES
+
+| Versão | Data | Descrição | Autor |
+|--------|------|-----------|-------|
+| 1.0 | 23/10/2025 | Versão inicial do catálogo | Claude (Anthropic) |
+
+---
+
+## 📧 CONTATO E SUPORTE
+
+Para dúvidas sobre a estrutura do banco de dados MV, entre em contato com:
+- Equipe de TI / DBA
+- Suporte MV
+- Consultor MV responsável
+
+---
+
+**Nota:** Este documento foi gerado com base em backups de estrutura de banco de dados. As informações podem variar dependendo da versão do MV Soul instalada e das customizações específicas de cada instituição.

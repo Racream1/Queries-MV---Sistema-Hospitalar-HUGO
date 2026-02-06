@@ -1,0 +1,126 @@
+-- ========================================
+-- PORTLET: TEMPO MEDIO RESERVA ACOMODACAO POR MES E PLANTAO
+-- Descricao: Analise mensal do tempo medio entre reserva e acomodacao,
+--            estratificado por turno (Diurno 7h-19h / Noturno 19h-7h)
+-- Fonte de Dados: DBAMV
+-- Periodo: ano atual 2025
+-- ========================================
+
+WITH RESERVAS_BASE AS (
+    SELECT 
+        mi.CD_MOV_INT,
+        mi.CD_ATENDIMENTO,
+        mi.CD_LEITO,
+        
+        -- Data/hora da reserva
+        TO_DATE(
+            TO_CHAR(mi.DT_MOV_INT, 'DD/MM/YYYY') || ' ' || 
+            TO_CHAR(mi.HR_MOV_INT, 'HH24:MI:SS'),
+            'DD/MM/YYYY HH24:MI:SS'
+        ) AS DH_RESERVA,
+        
+        -- Data/hora da acomodacao
+        TO_DATE(
+            TO_CHAR(mi.DT_LIB_MOV, 'DD/MM/YYYY') || ' ' || 
+            TO_CHAR(mi.HR_LIB_MOV, 'HH24:MI:SS'),
+            'DD/MM/YYYY HH24:MI:SS'
+        ) AS DH_ACOMODACAO,
+        
+        -- Extrai mes e ano da reserva
+        TO_CHAR(mi.DT_MOV_INT, 'MM/YYYY') AS MES_ANO,
+        TO_CHAR(mi.DT_MOV_INT, 'YYYY') AS ANO,
+        TO_CHAR(mi.DT_MOV_INT, 'MM') AS MES,
+        
+        -- Identifica o turno baseado na hora da reserva
+        CASE 
+            WHEN TO_NUMBER(TO_CHAR(mi.HR_MOV_INT, 'HH24')) BETWEEN 7 AND 18 
+            THEN 'Diurno 7h-19h'
+            ELSE 'Noturno 19h-7h'
+        END AS TURNO_PLANTAO,
+        
+        -- Calcula tempo de espera em horas
+        ROUND((
+            TO_DATE(
+                TO_CHAR(mi.DT_LIB_MOV, 'DD/MM/YYYY') || ' ' || 
+                TO_CHAR(mi.HR_LIB_MOV, 'HH24:MI:SS'),
+                'DD/MM/YYYY HH24:MI:SS'
+            ) - 
+            TO_DATE(
+                TO_CHAR(mi.DT_MOV_INT, 'DD/MM/YYYY') || ' ' || 
+                TO_CHAR(mi.HR_MOV_INT, 'HH24:MI:SS'),
+                'DD/MM/YYYY HH24:MI:SS'
+            )
+        ) * 24, 2) AS TEMPO_ESPERA_HORAS
+        
+    FROM DBAMV.MOV_INT mi
+    WHERE 
+        mi.SN_RESERVA = 'S'
+        AND mi.DT_MOV_INT >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+        AND mi.DT_LIB_MOV IS NOT NULL
+        AND mi.HR_LIB_MOV IS NOT NULL
+),
+
+RESERVAS_VALIDADAS AS (
+    SELECT 
+        rb.*
+    FROM RESERVAS_BASE rb
+    INNER JOIN DBAMV.ATENDIME a 
+        ON rb.CD_ATENDIMENTO = a.CD_ATENDIMENTO
+        AND a.CD_MULTI_EMPRESA = 40
+    INNER JOIN DBAMV.LEITO l 
+        ON rb.CD_LEITO = l.CD_LEITO
+    INNER JOIN DBAMV.UNID_INT ui 
+        ON l.CD_UNID_INT = ui.CD_UNID_INT
+)
+
+SELECT 
+    rv.MES_ANO AS MES_REFERENCIA,
+    rv.TURNO_PLANTAO AS PLANTAO,
+    
+    COUNT(*) AS TOTAL_RESERVAS,
+    
+    -- Tempo medio formatado
+    TRUNC(AVG(rv.TEMPO_ESPERA_HORAS)) || 'h ' ||
+    TRUNC(MOD(AVG(rv.TEMPO_ESPERA_HORAS) * 60, 60)) || 'min' AS TEMPO_MEDIO_FORMATADO,
+    
+    -- Tempo medio em horas (para graficos)
+    ROUND(AVG(rv.TEMPO_ESPERA_HORAS), 2) AS MEDIA_HORAS,
+    
+    -- Tempo minimo formatado
+    TRUNC(MIN(rv.TEMPO_ESPERA_HORAS)) || 'h ' ||
+    TRUNC(MOD(MIN(rv.TEMPO_ESPERA_HORAS) * 60, 60)) || 'min' AS TEMPO_MINIMO,
+    
+    -- Tempo maximo formatado
+    TRUNC(MAX(rv.TEMPO_ESPERA_HORAS)) || 'h ' ||
+    TRUNC(MOD(MAX(rv.TEMPO_ESPERA_HORAS) * 60, 60)) || 'min' AS TEMPO_MAXIMO,
+    
+    -- Mediana
+    ROUND(MEDIAN(rv.TEMPO_ESPERA_HORAS), 2) AS MEDIANA_HORAS,
+    
+    -- Percentual atendidas em ate 4 horas
+    ROUND(
+        (SUM(CASE WHEN rv.TEMPO_ESPERA_HORAS <= 4 THEN 1 ELSE 0 END) * 100.0) / 
+        COUNT(*), 
+        1
+    ) AS PERCENTUAL_ATE_4H,
+    
+    -- Percentual que ultrapassaram 12 horas
+    ROUND(
+        (SUM(CASE WHEN rv.TEMPO_ESPERA_HORAS > 12 THEN 1 ELSE 0 END) * 100.0) / 
+        COUNT(*), 
+        1
+    ) AS PERCENTUAL_ACIMA_12H,
+    
+    -- Desvio padrao
+    ROUND(STDDEV(rv.TEMPO_ESPERA_HORAS), 2) AS DESVIO_PADRAO_HORAS
+    
+FROM RESERVAS_VALIDADAS rv
+GROUP BY 
+    rv.MES_ANO,
+    rv.ANO,
+    rv.MES,
+    rv.TURNO_PLANTAO
+ORDER BY 
+    rv.ANO DESC,
+    rv.MES DESC,
+    rv.TURNO_PLANTAO

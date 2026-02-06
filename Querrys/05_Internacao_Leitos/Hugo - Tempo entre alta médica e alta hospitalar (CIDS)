@@ -1,0 +1,46 @@
+WITH dados_brutos AS (
+    SELECT 
+        atd.hr_alta_medica,
+        (atd.dh_alta_lancada - atd.hr_alta_medica) * 24 AS diferenca_horas
+    FROM dbamv.atendime atd
+    WHERE atd.cd_multi_empresa = 40
+      AND atd.tp_atendimento = 'I'
+      AND atd.hr_alta_medica IS NOT NULL
+      AND atd.dh_alta_lancada IS NOT NULL
+      AND atd.dh_alta_lancada >= atd.hr_alta_medica
+      AND atd.dt_alta >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+      AND atd.dt_alta < TO_DATE('01/01/2026', 'DD/MM/YYYY')
+),
+quartis AS (
+    SELECT
+        PERCENTILE_CONT(0.25) WITHIN GROUP (ORDER BY diferenca_horas) AS q1,
+        PERCENTILE_CONT(0.75) WITHIN GROUP (ORDER BY diferenca_horas) AS q3
+    FROM dados_brutos
+),
+limites AS (
+    SELECT
+        q1,
+        q3,
+        (q3 - q1) AS iqr,
+        (q1 - 1.5 * (q3 - q1)) AS limite_inferior,
+        (q3 + 1.5 * (q3 - q1)) AS limite_superior
+    FROM quartis
+),
+dados_filtrados AS (
+    SELECT 
+        db.hr_alta_medica,
+        db.diferenca_horas
+    FROM dados_brutos db
+    CROSS JOIN limites l
+    WHERE db.diferenca_horas BETWEEN l.limite_inferior AND l.limite_superior
+)
+SELECT 
+    TO_CHAR(df.hr_alta_medica, 'YYYY-MM') AS mes,
+    TO_CHAR(df.hr_alta_medica, 'MM/YYYY') AS mes_formatado,
+    COUNT(*) AS qtd_registros,
+    ROUND(AVG(df.diferenca_horas), 2) AS tempo_medio_horas
+FROM dados_filtrados df
+GROUP BY 
+    TO_CHAR(df.hr_alta_medica, 'YYYY-MM'),
+    TO_CHAR(df.hr_alta_medica, 'MM/YYYY')
+ORDER BY mes

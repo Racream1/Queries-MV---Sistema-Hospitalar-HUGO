@@ -1,0 +1,85 @@
+WITH base_emprestimos_crus AS (
+    SELECT
+        multi_Empresas.cd_multi_Empresa,
+        multi_empresas.ds_multi_Empresa,
+        Estoque.cd_estoque,
+        estoque.ds_estoque,
+        Ent_pro.dt_entrada AS dt_emprestimo,
+        ent_pro.cd_ent_pro AS cd_movimentacao,
+        Nvl(Itent_pro.sn_pendencia,'S') AS sn_pendencia,
+        decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_ent(itent_pro.cd_itent_pro) ,'PEC','PEC','ER') AS tp_emprestimo,
+        decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_ent(itent_pro.cd_itent_pro) ,'PEC','Pagto Empréstimo Concedido','Empréstimo Recebido') AS ds_tipo_emprestimo,
+        fornecedor.cd_fornecedor,
+        fornecedor.nm_fornecedor,
+        Produto.cd_produto,
+        Produto.ds_produto,
+        Uni_pro.ds_unidade,
+        Itent_pro.qt_entrada AS qt_movimentacao,
+        Round(Itent_pro.vl_unitario,2) AS vl_unitario,
+        Round((Nvl(ItEnt_Pro.Qt_Entrada, 0) * Nvl(Vl_Custo_Real, 0)),2) AS vl_total,
+        itmvto_Estoque.cd_mvto_Estoque AS cd_mvto_quitacao,
+        itmvto_Estoque.dt_gravacao AS dt_quitacao,
+        itmvto_Estoque.qt_movimentacao AS qt_mvto_quitacao,
+        Round(itmvto_Estoque.vl_unitario_emprestimo,2) AS vl_unitario_quitacao,
+        Round(itmvto_Estoque.vl_total_emprestimo,2) AS vl_total_quitacao
+    FROM Dbamv.Ent_pro, Dbamv.Itent_pro, dbamv.itmvto_Ent, Dbamv.Estoque, Dbamv.Tip_doc, Dbamv.Fornecedor, dbamv.multi_empresas, Dbamv.Produto, Dbamv.Uni_pro, dbamv.itmvto_Estoque
+    WHERE Ent_Pro.Cd_Ent_Pro = ItEnt_Pro.Cd_Ent_Pro AND Ent_Pro.Cd_Estoque = Estoque.Cd_Estoque AND Uni_Pro.Cd_Uni_Pro(+) = ItEnt_Pro.Cd_Uni_Pro AND Ent_Pro.Cd_Tip_Doc = Tip_Doc.Cd_Tip_Doc AND Ent_pro.cd_fornecedor = Fornecedor.cd_fornecedor AND estoque.cd_multi_Empresa = multi_Empresas.cd_multi_empresa AND Itent_pro.cd_produto = Produto.cd_produto AND itent_pro.cd_itent_pro = itmvto_Ent.cd_itent_pro(+) AND itmvto_Ent.cd_itmvto_Estoque = itmvto_Estoque.cd_itmvto_Estoque(+) AND Tip_Doc.Tp_Entrada = 'E' AND decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_ent(itent_pro.cd_itent_pro) ,'PEC','PEC','ER') = 'ER'
+    AND multi_Empresas.cd_multi_Empresa = 40 AND dbamv.fnc_atribui_empresa(multi_Empresas.cd_multi_Empresa) = 40
+    AND Ent_pro.dt_entrada BETWEEN $pgmvDataIni$ AND $pgmvDataFim$
+    UNION ALL
+    SELECT
+        multi_empresas.cd_multi_Empresa,
+        multi_empresas.ds_multi_Empresa,
+        Estoque.cd_estoque,
+        estoque.ds_estoque,
+        mvto_estoque.dt_mvto_estoque AS dt_emprestimo,
+        mvto_estoque.cd_mvto_estoque AS cd_movimentacao,
+        Nvl(Itmvto_estoque.sn_pendencia,'S') AS sn_pendencia,
+        decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_sai(itmvto_estoque.cd_itmvto_estoque),'PER','PER','EC') AS tp_emprestimo,
+        decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_sai(itmvto_estoque.cd_itmvto_estoque),'PER','Pagto de Empréstimo Recebido','Empréstimo Concedido') AS ds_tipo_emprestimo,
+        fornecedor.cd_fornecedor,
+        fornecedor.nm_fornecedor,
+        Produto.cd_produto,
+        Produto.ds_produto,
+        Uni_pro.ds_unidade,
+        ItMvto_Estoque.Qt_Movimentacao AS qt_movimentacao,
+        round((uni_pro.Vl_Fator * Verif_Vl_Custo_Medio(produto.Cd_Produto,mvto_estoque.dt_mvto_estoque,'H',null,mvto_estoque.hr_mvto_estoque)),2) AS vl_unitario,
+        round((ItMvto_Estoque.Qt_Movimentacao * uni_pro.Vl_Fator * Verif_Vl_Custo_Medio(produto.Cd_Produto,mvto_estoque.dt_mvto_estoque,'H',null,mvto_estoque.hr_mvto_estoque)),2) AS vl_total,
+        itent_pro.cd_ent_pro AS cd_mvto_quitacao,
+        itent_pro.dt_gravacao AS dt_quitacao,
+        itent_pro.qt_entrada AS qt_mvto_quitacao,
+        Round(itent_pro.vl_unitario,2) AS vl_unitario_quitacao,
+        Round(itent_pro.vl_total,2) AS vl_total_quitacao
+    FROM Dbamv.Mvto_Estoque, Dbamv.Uni_Pro, Dbamv.ItMvto_Estoque, Dbamv.Estoque, Dbamv.Produto, Dbamv.Fornecedor, dbamv.multi_empresas, dbamv.itmvto_Ent, dbamv.itent_pro
+    WHERE Mvto_Estoque.Cd_Estoque = Estoque.Cd_Estoque AND ItMvto_Estoque.Cd_Mvto_Estoque = Mvto_Estoque.Cd_Mvto_Estoque AND ItMvto_Estoque.Cd_Produto = Produto.Cd_Produto AND Uni_Pro.Cd_Uni_Pro(+) = ItMvto_Estoque.Cd_Uni_Pro AND mvto_estoque.cd_fornecedor = fornecedor.cd_fornecedor AND estoque.cd_multi_Empresa = multi_empresas.cd_multi_empresa AND itmvto_Estoque.cd_itmvto_Estoque = itmvto_ent.cd_itmvto_estoque(+) AND itmvto_ent.cd_itent_pro = itent_pro.cd_itent_pro(+) AND mvto_estoque.tp_mvto_estoque = 'E' AND decode(dbamv.pkg_mges_emprestimo.retorna_tp_emprestimo_sai(itmvto_estoque.cd_itmvto_estoque),'PER','PER','EC') = 'EC'
+    AND multi_Empresas.cd_multi_Empresa = 40 AND dbamv.fnc_atribui_empresa(multi_Empresas.cd_multi_Empresa) = 40
+    AND mvto_estoque.dt_mvto_estoque BETWEEN $pgmvDataIni$ AND $pgmvDataFim$
+)
+SELECT
+    cd_multi_Empresa,
+    ds_multi_Empresa,
+    cd_estoque,
+    ds_estoque,
+    dt_emprestimo,
+    cd_movimentacao,
+    sn_pendencia,
+    tp_emprestimo,
+    ds_tipo_emprestimo,
+    cd_fornecedor,
+    nm_fornecedor,
+    cd_produto,
+    ds_produto,
+    ds_unidade,
+    qt_movimentacao,
+    vl_unitario,
+    vl_total,
+    cd_mvto_quitacao,
+    dt_quitacao,
+    qt_mvto_quitacao,
+    vl_unitario_quitacao,
+    vl_total_quitacao
+FROM
+    base_emprestimos_crus
+ORDER BY
+    dt_emprestimo DESC,
+    cd_movimentacao DESC

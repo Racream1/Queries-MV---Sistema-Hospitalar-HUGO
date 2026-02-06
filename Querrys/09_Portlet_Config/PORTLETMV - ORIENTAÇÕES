@@ -1,0 +1,173 @@
+
+Acesso rápido
+
+Opções de conteúdo, Query, Links da portlet, Informações extras, Formatação, Parâmetros, Configurações do gráfico, Confirmação, Segurança da portlet, Detalhamento, Consulta de portlets SQL
+
+ Localizações
+ Pré-requisitos
+Função da tela 
+Cadastrar, consultar, editar e/ou remover as portlets do tipo SQL. Além disso, utilizando essa tela, é possível exportar e/ou importar uma portlet.
+
+Como usar
+Cadastro de portlets SQL
+Para iniciar o cadastro de uma portlet SQL, o usuário deverá acionar o botão . Serão apresentados os campos para o registro da nova portlet, neles o usuário deverá:
+
+Informar o título da portlet;
+Informar o grupo ao qual ela está vinculada;
+Informar a descrição da portlet;
+Marcar o check box "Publicado" para informar que a portlet ficará disponível para ser adicionada às pastas;
+Marcar o check box "Smartphone" para que a portlet fique disponível para uso no Gestor Mobile.
+Aba "Opções de Conteúdo"
+Aba "Query"
+Selecionar a fonte de dados a ser utilizada para obtenção dos dados. Ao selecionar a fonte de dados, serão apresentados no bloco "Parâmetros Globais" os parâmetros que poderão ser utilizados;
+Importante
+
+Os parâmetros globais apresentados como opção, são aqueles associadas a mesma fonte de dados selecionada para a portlet, nos casos em que no seu cadastro é selecionada a opção "Lista de valores"; ou os parâmetros dos tipos texto ou data, que não são associados à uma fonte de dados no momento do seu cadastro e, por esse motivo, serão apresentados independente da fonte de dados selecionada para o cadastro da portlet SQL. 
+
+Informar a consulta (query) a ser realizada. Acionar o botão < Validar Query > para que seja verificado se a consulta informada está correta;
+No campo "Variáveis do Sistema", serão disponibilizadas as variáveis do sistema que podem ser utilizadas como filtros e integrar a query que está sendo cadastrada. Para utilizá-las, é necessário clicar sobre a variável desejada e ela será apresentada no campo disponível para cadastro da query;
+Para que o usuário possa navegar entre as abas, devem ser utilizados os botões < Anterior > e < Próximo >.
+Aba "Links da Portlet"
+Caso o usuário deseje associar um link para o qual o usuário final será direcionado ao clicar em uma coluna ou qualquer parte da portlet, ele deve selecionar a opção desejada na lista de valores do campo "Tipo";
+
+"Sem link" - deverá ser selecionada nos casos em que não se deseja inserir links na portlet;
+"Coluna" - é necessário selecionar a coluna que terá o link;
+"Portlet" - é necessário selecionar a portlet para a qual será efetuado o link;
+Para adicionar as portlets, basta acionar o botão , será apresentada a janela "Parâmetros", o usuário deverá marcar o check box correspondente a opção desejada e acionar o botão < Confirmar >. Os campos código, título e grupo poderão ser utilizados como filtros para consulta de uma portlet específica;
+É possível definir se o drill da portlet será apresentado como pop-up ou dentro da própria portlet, ou seja, se ao clicar sobre um dos resultados apresentados, o detalhamento das informações desse será apresentado em forma de pop-up ou não. Caso deseje que seja apresentado em pop-up, o usuário deverá marcar o check box "Abrir em Pop Up". Com isso, ao clicar sobre o dado desejado será apresentada uma janela com as informações;
+Caso o check box não esteja marcado, ao selecionar um dos resultados apresentados, as informações serão apresentadas na mesma portlet. Ou seja, não será gerado um pop-up;
+As informações apresentadas no drill (portlet que será aberta com o detalhamento), levarão em consideração a resposta para o parâmetro global da página na qual a portlet está, caso elas utilizem o mesmo parâmetro global;
+Para visualizar os parâmetros globais utilizados na portlet aberta, o usuário deverá acionar o botão , para que seja apresentada uma janela com os parâmetros associados.
+"Página" - é necessário selecionar a página e a pasta que será apresentada.
+Aba "Informações Extras"
+Selecionar se será apresentado um hint para algum dos campos da portlet. Um hint significa que ao pausar o mouse sobre uma coluna, por exemplo, será apresentado um pop up com a descrição da informação referente aquela coluna. As opções para seleção de hint ficarão disponíveis de acordo com os dados informados na consulta, ou seja, se serão apresentadas na portlet dados de código, descrição e link, poderá ser utilizado o hint para alguma dessas opções;
+O campo "Coluna Pesquisa", possibilita a indicação de um parâmetro para realização de pesquisa das informações da portlet quando visualizadas por meio do Gestor Mobile;
+Marcar o check box "Exibir borda" para que seja exibida a borda no grid (em torno) da portlet.
+Aba "Formatação"
+Serão apresentados nessa aba todos os campos a serem visualizados na portlet. Para configurá-los, o usuário deverá:
+
+Bloco "Configurações do Cabeçalho"
+Selecionar a fonte do cabeçalho;
+Selecionar o tamanho da fonte;
+Selecionar a cor da fonte;
+Marcar o check box "Negrito" para que o cabeçalho da portlet apresente esse destaque;
+Marcar o check box "Exibir Cabeçalho" para que as informações do cabeçalho sejam apresentadas na portlet.
+Bloco "Configurações do Rodapé"
+Selecionar a fonte do cabeçalho;
+Selecionar o tamanho da fonte;
+Selecionar a cor da fonte;
+Marcar o check box "Negrito" para que o rodapé da portlet apresente esse destaque.
+Para configurar os demais campos da portlet, o usuário deverá: 
+
+Informar a descrição correspondente aquele campo, a ser apresentada na visualização da portlet;
+Informar a fonte utilizada;
+Indicar o alinhamento da informação;
+Indicar o  tamanho da fonte;
+Informar as cores de fundo e da fonte;
+Indicar a largura dos campos. A largura dos campos pode ser definida para se ajustar ao texto, ou apresentar o tamanho padrão (quando não há definição de largura);
+Definir a máscara a ser utilizada na apresentação das informações. A máscara é normalmente utilizada quando os dados a serem exibidos correspondem a números ou datas, por exemplo. Caso seja selecionada uma máscara, ao realizar a consulta, os dados obtidos serão transformados para que sejam apresentados no padrão definido na máscara;
+Marcar o check box "Sum" para indicar que será apresentado o somatório das informações. Por exemplo, numa portlet que mostre a quantidade de prescrições por prestador, ao marcar esse check box, será exibido um campo com o total de prescrições realizadas;
+Marcar o check box "Hidden" para definir se o campo ficará oculto;
+Utilizando a coluna "Condicional", é possível aplicar uma formatação específica aos resultados de uma coluna da portlet. Ao acionar o botão  será apresentada a janela "Formatação Condicional" cujo campo "Coluna" estará automaticamente preenchido com o nome da coluna selecionada. Nela, o usuário deverá:
+Acionar o botão < Nova > para cadastrar uma nova formatação;
+Selecionar o operador (E ou OU). Esse campo somente ficará habilitado após o cadastro de uma primeira condição, possibilitando ao usuário manter uma lógica na condição que está sendo cadastrada;
+Selecionar o campo;
+Selecionar o operador desejado (diferente, igual, maior, maior igual, menor ou menor igual);
+Informar o valor desejado;
+Acionar o botão  para adicionar o critério ou o botão  para cancelar. Os critérios cadastrados serão apresentados no bloco existente na tela;
+Acionar o botão  para editá-los e o botão  para excluí-los, se necessário;
+Definir a formatação desejada, se estilo ou imagem. Ao selecionar a opção "Estilo", serão apresentados os campos para definição do estilo e cor da fonte e do fundo. Já, quando selecionada a opção "Imagem", será apresentado o campo para seleção da imagem desejada;
+Selecionar a fonte, a cor da fonte e a cor de fundo da coluna;
+Acionar o botão < Aplicar > para salvar as alterações ou < Cancelar > para cancelá-las.
+As formatações cadastradas, serão apresentadas na tela principal da janela e poderão ser editadas (quando acionado o botão ) ou excluídas (quando acionado o botão ).
+
+Para sinalizar que há uma formatação condicional cadastrada para aquele campo, na coluna "Condicional", o botão será apresentado da seguinte forma: .
+
+Aba "Parâmetros"
+Os parâmetros locais utilizados na query serão apresentados para que seja possível configurá-los. Devem ser informados: 
+
+A pergunta a ser realizada no momento da seleção do resultado do parâmetro;
+O tipo de parâmetro, se texto, lista de valores ou calendário;
+No campo "Lista", serão exibidas todas as listas de valores associadas a mesma fonte de dados selecionada. Esse campo estará habilitado apenas nos casos em que, no campo "Tipo de Parâmetro", tenha sido selecionada a opção "Lista de Valores";
+Selecionar o modo de exibição do parâmetro;
+Informar o valor defult para o campo;
+Selecionar a máscara do campo, a máscara é normalmente utilizada quando os dados a serem exibidos correspondem a números ou datas, por exemplo.
+Aba "Config. Gráfico"
+Aba "Configurações"
+Informar o tipo de apresentação das informações, se através de planilha, gráfico ou ambos;
+Informar o tipo de apresentação default (padrão);
+Quando selecionada a opção gráfico, é necessário:
+Selecionar o tipo de gráfico a ser utilizado;
+Selecionar, no bloco "Configurações Gráfico", a grade de cores a ser utilizada no gráfico;
+Indicar a precisão decimal que o gráfico terá;
+Informar se os valores serão exibidos como percentual;
+Definir a distância que as partes do gráfico apresentarão entre elas;
+Definir o tipo do marcador;
+Definir o tamanho do marcador;
+Marcar o check box "Acumulativo" caso deseje que, nos gráficos de barras, as barras apresentem os resultados somando os valores;
+Definir o percentual de transparência do gráfico;
+Selecionar o modelo /forma a ser utilizada no gráfico, se boxe, cilindro, cone ou pirâmide;
+Definir o tamanho do raio;
+Definir a altura/largura do gráfico.
+Importante
+
+Os campos serão apresentados de acordo com o tipo de gráfico e dimensão selecionados (2D ou 3D). 
+
+Exceto quando a opção selecionada for "Gauge", o bloco "Configurações Gerais" estará habilitado. Nele, o usuário deverá:
+Marcar o check box "Sim", para definir se o título da planilha/gráfico será exibido;
+Marcar o check box "Sim", para definir se será apresentado rótulo horizontal para o gráfico;
+Definir a inclinação que o rótulo horizontal deve ter. Essa opção somente estará disponível caso o check box para exibição do rótulo tenha sido marcado;
+Marcar o check box "Sim", para o campo "Mostrar Hint do Valor", para que os valores sejam exibidos no gráfico;
+Marcar o check box "Sim", para o campo "Mostrar Legenda", para que a legenda seja exibida no gráfico e indicar a posição em que ela deverá ser exibida. O campo para seleção da posição somente ficará disponível se a opção de exibição for marcada;
+Marcar o check box "Sim", para definir se será apresentado rótulo vertical para o gráfico;
+Definir a inclinação que o rótulo vertical deve ter. Essa opção somente estará disponível caso o check box para exibição do rótulo tenha sido marcado.
+Quando selecionado o tipo de gráfico "Gauge", será apresentado o bloco "Configurações do Gauge". Nele, o usuário definirá o layout desejado e, no campo "Formatação", como os valores deverão ser exibidos. 
+Aba "Dados"
+Nessa aba o usuário deverá definir quais as informações a serem apresentadas no gráfico. As opções disponíveis dependerão do tipo de gráfico selecionado. 
+
+Definir qual a informação que será apresentada no eixo das categorias;
+Definir a série a ser utilizada para exibição do gráfico;
+Definir os valores a serem apresentados;
+Peso (tamanho das bolhas);
+Eixo e o segundo eixo. Nos casos em que os gráficos são mistos (linha e coluna), um eixo mostrará o que está selecionado no campo "Valor" e o outro eixo será o que tiver na opção "segundo eixo". 
+Quando selecionado o tipo de gráfico "Gauge", o usuário deverá: 
+
+Marcar o check box "Query" quando desejar utilizar os dados obtidos por meio da query informada. Ao selecioná-lo, todas as outras opções da aba ficarão desabilitadas;
+Definir o valor;
+Marcar o check box para definir valores iniciais e finais;
+Definir os valores iniciais e finais;
+Definir a cor para a faixa cadastrada. 
+Aba "Avançados"
+Nessa aba a apresentação ou não de campos, dependerá do tipo de gráfico selecionado; comumente, são apresentadas quando selecionada a visualização em 3D. São opções que auxiliarão o usuário a definir o tipo de apresentação do gráfico. Como os campos "Ângulo", "Profundidade", "Zoom", "Rotação" etc. 
+
+Aba "Confirmação"
+Nessa aba é possível pré-visualizar as informações que serão exibidas na portlet configurada, atendendo ao padrão WYSIWYG.
+
+Para isso, deverá ser acionado o botão < Executar >. Será apresentada a janela "Parâmetros", na qual o usuário poderá filtrar as informações que serão apresentadas de acordo com os parâmetros definidos na aba "Parâmetros".
+
+Será apresentada uma janela pop-up contendo o gráfico ou a planilha, de acordo com os filtros indicados. 
+
+Aba "Segurança"
+Nessa aba serão apresentados todos os papéis cadastrados, para que seja possível definir quais terão acesso à portlet e qual o tipo desse acesso, se somente leitura ou leitura e alteração. Para vincular um papel à portlet, basta arrastar o papel desejado para o bloco ao qual ele terá acesso. Dessa forma, todos os usuários configurados com aquele papel terão acesso as informações da portlet. Caso deseje remover o papel, basta arrastá-lo de volta ao bloco "Papéis Existentes".
+
+Além dos usuários configurados, o criador da portlet também poderá acessá-la e realizar alterações, inclusive cadastrando novos papéis, mesmo que ele (o criador) não tenha acesso a nenhum dos papéis vinculados à portlet. 
+
+Aba "Detalhamento"
+Cadastrar as observações necessárias sobre a portlet.
+Para salvar as informações cadastradas, o usuário deverá acionar o botão ;
+Caso deseje copiar uma portlet já cadastrada, basta clicar no botão . Não será permitido copiar uma portlet baixada pelo marketplace;
+Para retornar a tela inicial de cadastro das portlets, o usuário deverá acionar o botão .
+Consultando as portlets cadastradas
+Ao acessar a tela "Módulo de Portlet SQL", serão apresentadas todas as portlets SQL cadastradas. Para uma consulta mais específica, o usuário poderá utilizar os campos "Código", "Título", "Grupo de Portlet" e/ou "Papéis" como parâmetros de pesquisa.
+
+Caso deseje executar uma portlet, o usuário deverá acionar o botão . Será apresentada uma janela para que o usuário possa visualizar a portlet desejada.
+
+Caso deseje editar uma portlet, o usuário deverá acionar o botão . Será apresentada a tela com as informações da portlet para que sejam realizadas as alterações necessárias.
+
+Caso seja necessário realizar a exclusão de um parâmetro, basta acionar o botão .
+
+As opções apresentadas somente estarão habilitadas caso o usuário possua permissão para visualizar e editar a portlet.
+
+As portlets cadastradas impactam na visualização geral do Painel de Indicadores. 
+
+ 

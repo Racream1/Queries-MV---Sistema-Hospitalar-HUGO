@@ -1,0 +1,59 @@
+-- ===================================================================
+-- PORTLET: CIDs Mais Prevalentes em Internacoes - Ano Atual
+-- Descricao: Lista os codigos CID associados as internacoes do ano 
+-- atual no Hospital Hugo, ordenados por prevalencia
+-- + Tempo medio de internacao por CID
+-- Fonte de Dados: [nome da fonte]
+-- Parametros: Nenhum (usa ano atual automaticamente)
+-- ===================================================================
+
+WITH PARAMETROS AS (
+ -- Define o periodo do ano atual automaticamente
+ SELECT 
+ TRUNC(SYSDATE, 'YYYY') AS DATA_INICIO,
+ SYSDATE AS DATA_FIM
+ FROM DUAL
+),
+INTERNACOES_CID AS (
+ -- Agrupa as internacoes por CID e calcula tempo medio
+ SELECT 
+ C.CD_CID,
+ C.DS_CID AS DESCRICAO_CID,
+ COUNT(*) AS QUANTIDADE,
+ AVG(NVL(A.HR_ALTA, SYSDATE) - A.HR_ATENDIMENTO) AS TEMPO_MEDIO_DIAS
+ FROM 
+ DBAMV.ATENDIME A
+ CROSS JOIN PARAMETROS P
+ INNER JOIN DBAMV.CID C ON A.CD_CID = C.CD_CID
+ WHERE 
+ A.TP_ATENDIMENTO = 'I'
+ AND A.CD_MULTI_EMPRESA = 40
+ AND A.HR_ATENDIMENTO BETWEEN P.DATA_INICIO AND P.DATA_FIM
+ AND A.CD_CID IS NOT NULL
+ GROUP BY 
+ C.CD_CID, 
+ C.DS_CID
+),
+TOTAIS AS (
+ -- Calcula o total de internacoes para percentual
+ SELECT 
+ SUM(QUANTIDADE) AS TOTAL_INTERNACOES
+ FROM 
+ INTERNACOES_CID
+)
+SELECT 
+ ROW_NUMBER() OVER (ORDER BY I.QUANTIDADE DESC) AS POSICAO,
+ I.CD_CID AS CODIGO_CID,
+ I.DESCRICAO_CID AS DESCRICAO_DO_CID,
+ I.QUANTIDADE AS QUANTIDADE,
+ TO_CHAR(ROUND((I.QUANTIDADE * 100.0 / T.TOTAL_INTERNACOES), 2), '990.00') || '%' AS PERCENTUAL,
+ TRUNC(I.TEMPO_MEDIO_DIAS) || 'D ' || 
+ TRUNC(MOD(I.TEMPO_MEDIO_DIAS * 24, 24)) || 'H ' ||
+ TRUNC(MOD(I.TEMPO_MEDIO_DIAS * 1440, 60)) || 'MIN' AS TEMPO_MEDIO_INTERNACAO,
+ ROUND(I.TEMPO_MEDIO_DIAS, 2) AS TEMPO_MEDIO_DIAS_DECIMAL
+FROM 
+ INTERNACOES_CID I
+ CROSS JOIN TOTAIS T
+ORDER BY 
+ I.QUANTIDADE DESC,
+ I.CD_CID

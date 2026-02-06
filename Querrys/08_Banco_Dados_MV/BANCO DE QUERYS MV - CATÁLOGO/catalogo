@@ -1,0 +1,481 @@
+1. ATENDIMENTO E URGÊNCIA
+
+cProcesso_00053: Quantidade de Entradas na Urgência
+cProcesso_00143: Quantidade de Saídas de Pacientes na Urgência Institucional
+cProcesso_00149: Número de Consultas por Convênio
+
+2. INTERNAÇÃO E OCUPAÇÃO
+
+cProcesso_00077: Giro de Leito por Unidade de Internação
+cProcesso_00083: Percentual de Ocupação Global SUS
+cProcesso_00087: Percentual de Ocupação Global Convênio
+cProcesso_00094: Ocupação Global Unidade Geral Convênio
+cProcesso_00107: Ocupação Global Unidade Geral Particular
+cProcesso_00127: Número de Contas de Internação Convênio/Particular
+
+3. CENTRO CIRÚRGICO
+
+cProcesso_00079: Quantidade Produzida por Tipo de Convênio (Cirúrgico)
+cProcesso_00089: Quantidade de Horas Realizadas em Salas Cirúrgicas
+
+4. EXAMES E DIAGNÓSTICO
+
+cProcesso_00086: Quantidade Produzida por Bancada (Laboratório)
+cProcesso_00088: Quantidade de Exames Realizados por Setor
+
+5. FATURAMENTO E PRODUÇÃO
+
+cProcesso_00081: Valor de Produção Convênio por Setor
+cProcesso_00082: Valor de Produção Convênio UTIs
+cProcesso_00084: Valor Produzido por Setor
+cProcesso_00085: Valor Faturado Convênio por Setor
+cProcesso_00090: Valor Faturado Convênio dos SADTs
+cProcesso_00091: Valor Faturado Convênio Global
+cProcesso_00148: Valor de Produção Convênio/Particular
+
+6. RECURSOS HUMANOS
+
+cProcesso_00092: Despesa de Pessoal por Setor (Contas a Pagar)
+cProcesso_00093: Despesa de Pessoal Mensal por Setor
+cProcesso_00095: Despesa de Pessoal Projetada por Setor
+cProcesso_00129: Despesa de Pessoal (Fato Valor Econômico)
+
+7. INDICADORES FINANCEIROS
+
+cProcesso_00124: Ticket Médio Convênio Interno
+cProcesso_00125: Ticket Médio Convênio Externo
+cProcesso_00126: Ticket Médio Convênio Urgência
+
+8. GESTÃO DE RECURSOS E CAPACIDADE
+
+cProcesso_00111: Percentual de Utilização de Profissionais por Unidade
+cProcesso_00112: Percentual de Utilização de Técnicos por Estoque
+
+9. PRODUÇÃO POR CATEGORIA
+
+cProcesso_00122: Quantidade Produzida por Tipo de Categoria
+cProcesso_00134: Quantidade Produzida por Tipo de Categoria (Contexto 2)
+cProcesso_00135: Quantidade Produzida por Tipo de Categoria (Contexto 3)
+
+10. SAÍDAS E ALTAS POR CONVÊNIO
+
+cProcesso_00144: Quantidade de Saídas por Convênio (Contexto 1)
+cProcesso_00145: Quantidade de Saídas por Convênio (Contexto 2)
+
+
+
+Analisando o segundo arquivo SQL, aqui está o catálogo resumido dos cursores MV:
+
+═══════════════════════════════════════════════════════════════════════
+**CATÁLOGO RESUMIDO - CURSORS MV POR ASSUNTO (ARQUIVO 2)**
+═══════════════════════════════════════════════════════════════════════
+
+## 1. FATURAMENTO CENTRO CIRÚRGICO
+   - cProcesso_00150: Valor Faturado dos Convênios em Centro Cirúrgico
+
+## 2. PRODUÇÃO CIRÚRGICA
+   - cProcesso_00155: Quantidade Produzida por Subgrupo de Cirurgia
+
+## 3. CUSTOS OPERACIONAIS POR SETOR
+   - cProcesso_00158: Valor de Custo Operacional (Pessoal, Material Médico e Fixo)
+   - cProcesso_00159: Valor de Custo Operacional por Setor (Detalhado)
+   - cProcesso_00160: Valor de Custo Operacional Geral por Setor
+   - cProcesso_00163: Valor de Custo Operacional com Projeções
+   - cProcesso_00164: Valor de Custo Operacional Consolidado
+   - cProcesso_00173: Valor de Custo Operacional Total por Setor
+
+## 4. PRODUÇÃO E FATURAMENTO CONVÊNIO
+   - cProcesso_00161: Valor de Produção Convênio em Unidade Geral
+   - cProcesso_00162: Valor Faturado de Convênio por Setor
+
+## 5. DESPESAS COM PESSOAL
+   - cProcesso_00165: Valor de Despesas com Pessoal por Setor
+
+## 6. OCUPAÇÃO UNIDADES GERAIS
+   - cProcesso_00167: Ocupação Global Unidade Geral Convênio/Particular
+   - cProcesso_00183: Ocupação Global Unidade Geral SUS
+
+## 7. CONSULTAS POR CONVÊNIO
+   - cProcesso_00168: Número de Consultas Convênio/Particular
+
+## 8. OCUPAÇÃO UTIs
+   - cProcesso_00179: Ocupação Global UTI SUS
+   - cProcesso_00180: Ocupação Global UTI Convênio
+   - cProcesso_00181: Ocupação Global UTI Particular
+   - cProcesso_00182: Ocupação Global UTI Convênio/Particular
+
+## 9. OCUPAÇÃO GLOBAL CONSOLIDADA
+   - cProcesso_00177: Percentual de Ocupação Global Particular
+   - cProcesso_00178: Percentual de Ocupação Global Convênio/Particular
+
+## 10. TICKET MÉDIO SUS
+   - cProcesso_00185: Ticket Médio SUS Interno
+   - cProcesso_00186: Ticket Médio SUS Externo
+   - cProcesso_00187: Ticket Médio SUS Urgência
+
+## 11. TICKET MÉDIO PARTICULAR
+   - cProcesso_00188: Ticket Médio Particular Interno
+   - cProcesso_00189: Ticket Médio Particular Externo
+   - cProcesso_00190: Ticket Médio Particular Urgência
+
+## 12. PRODUÇÃO SUS POR SETOR
+   - cProcesso_00191: Valor de Produção SUS por Setor
+   - cProcesso_00193: Valor de Produção SUS em UTIs
+   - cProcesso_00194: Valor Produzido SUS Geral por Setor
+
+## 13. PRODUÇÃO E FATURAMENTO SUS GLOBAL
+   - cProcesso_00192: Valor de Produção SUS Global (com histórico comparativo)
+   - cProcesso_00197: Valor Faturado SUS Global (com histórico comparativo)
+
+## 14. FATURAMENTO SUS POR SETOR
+   - cProcesso_00195: Valor Faturado SUS por Setor
+   - cProcesso_00196: Valor Faturado SUS Geral por Setor
+   - cProcesso_00198: Valor Faturado SUS por Setor UTI
+   - cProcesso_00199: Valor Faturado SUS em Setores de Exames
+
+═══════════════════════════════════════════════════════════════════════
+**TOTAL: 34 CURSORES IDENTIFICADOS**
+═══════════════════════════════════════════════════════════════════════
+
+
+  Analisando o terceiro arquivo SQL, aqui está o catálogo resumido dos cursores MV:
+
+═══════════════════════════════════════════════════════════════════════
+**CATÁLOGO RESUMIDO - CURSORS MV POR ASSUNTO (ARQUIVO 3)**
+═══════════════════════════════════════════════════════════════════════
+
+## 1. PRODUÇÃO SUS POR SETOR
+   - cProcesso_00237: Valor de Produção SUS em Unidade Geral
+   - cProcesso_00255: Valor de Produção SUS em Urgência
+   - cProcesso_00277: Valor de Produção SUS em Ambulatório
+
+## 2. FATURAMENTO SUS POR SETOR
+   - cProcesso_00276: Valor Faturado SUS em Urgência por Setor
+   - cProcesso_00278: Valor Faturado SUS em Ambulatório por Setor
+
+## 3. DESPESAS COM PESSOAL
+   - cProcesso_00285: Valor de Despesas com Pessoal por Setor
+
+## 4. FATURAMENTO CONVÊNIO POR SETOR
+   - cProcesso_00286: Valor Faturado Convênio em Urgência
+   - cProcesso_00287: Valor Faturado Convênio Geral por Setor
+
+## 5. PRODUÇÃO CONVÊNIO POR SETOR
+   - cProcesso_00288: Valor de Produção Convênio por Setor (Contexto 1)
+   - cProcesso_00289: Valor de Produção Convênio por Setor (Contexto 2)
+
+## 6. FATURAMENTO CONSOLIDADO GLOBAL
+   - cProcesso_00290: Valor Faturado Total Global
+   - cProcesso_00297: Valor de Produção Total
+
+## 7. FATURAMENTO CONSOLIDADO POR SETOR
+   - cProcesso_00291: Valor Faturado Total por Setor (Geral)
+   - cProcesso_00292: Valor Faturado Total por Setor (Contexto 1)
+   - cProcesso_00293: Valor Faturado Total por Setor (Contexto 2)
+   - cProcesso_00294: Valor Faturado por Setor (Detalhado)
+   - cProcesso_00295: Valor Faturado Total por Setor (Contexto 3)
+   - cProcesso_00296: Valor Faturado por Setor (Contexto 4)
+
+## 8. PRODUÇÃO TOTAL POR ÁREA ESPECÍFICA
+   - cProcesso_00298: Valor de Produção Total em Centro Cirúrgico
+   - cProcesso_00299: Valor de Produção Total em UTIs
+   - cProcesso_00300: Valor de Produção Total em Unidade Geral
+   - cProcesso_00301: Valor de Produção Total em SADTs
+   - cProcesso_00302: Valor de Produção Total em Urgência
+   - cProcesso_00303: Valor de Produção Total por Setor
+
+## 9. INDICADORES DE GESTÃO
+   - cProcesso_00308: Giro de Estoque (Últimos 12 Meses)
+   - cProcesso_00312: Taxa de Risco de Perda de Contas
+
+## 10. QUALIDADE ASSISTENCIAL
+   - cProcesso_00310: Taxa de Reincidência de Internação com Alerta
+
+═══════════════════════════════════════════════════════════════════════
+**TOTAL: 28 CURSORES IDENTIFICADOS**
+═══════════════════════════════════════════════════════════════════════
+
+
+  ═══════════════════════════════════════════════════════════════════════
+CATÁLOGO RESUMIDO - CURSORS MV POR ASSUNTO
+═══════════════════════════════════════════════════════════════════════
+
+1. OCUPAÇÃO DE LEITOS E UNIDADES
+   - cProcesso_00313: Taxa de Ocupação UTI com Detalhamento Completo
+   - cProcesso_00314: Taxa de Ocupação Não-UTI
+   - cProcesso_00315: Taxa de Ocupação por Unidade (Versão 1)
+   - cProcesso_00316: Percentual de Ocupação Global
+   - cProcesso_00317: Taxa de Ocupação por Unidade (Versão 2)
+   - cProcesso_00318: Taxa de Ocupação por Unidade (Versão 3)
+   - cProcesso_00319: Taxa de Ocupação por Unidade (Versão 4)
+   - cProcesso_00320: Taxa de Ocupação por Unidade (Versão 5)
+   - cProcesso_00321: Taxa de Ocupação por Unidade (Versão 6)
+   - cProcesso_00322: Taxa de Ocupação por Unidade (Versão 7)
+   - cProcesso_00323: Taxa de Ocupação por Unidade (Versão 8)
+   - cProcesso_00427: Taxa de Ocupação por Unidade de Internação
+   - cProcesso_00428: Taxa de Ocupação por Atendimento
+   - cProcesso_00429: Produção por Unidade de Internação
+   - cProcesso_00472: Taxa de Ocupação UTI (Simplificado)
+   - cProcesso_00473: Taxa de Ocupação por Unidade (Versão 9)
+   - cProcesso_00474: Taxa de Ocupação por Unidade (Versão 10)
+   - cProcesso_00475: Taxa de Ocupação por Unidade (Versão 11)
+   - cProcesso_00476: Taxa de Ocupação por Unidade (Versão 12)
+   - cProcesso_00477: Percentual de Ocupação Unidades Abertas - Pandemia
+
+2. INTERNAÇÕES E MOVIMENTAÇÃO DE PACIENTES
+   - cProcesso_00324: Número de Internações
+   - cProcesso_00325: Número de Contas Internação SUS AIH
+   - cProcesso_00480: Taxa de Readmissão em UTI (<24h)
+
+3. FATURAMENTO E CONTRATUALIZAÇÕES
+   - cProcesso_00339: Contratualização SUS
+   - cProcesso_00340: Controle de Teto UPS
+   - cProcesso_00437: Taxa de Entrega de Contas por Convênio
+
+4. CUSTOS E DESPESAS OPERACIONAIS
+   - cProcesso_00389: Despesas com Pessoal Total
+   - cProcesso_00390: Valor Custo Operacional Global
+   - cProcesso_00580: Valor da Despesa com Fixo
+   - cProcesso_00582: Valor da Despesa com Pessoal
+   - cProcesso_00583: Valor da Despesa Total
+   - cProcesso_00584: Valor da Despesa com Material/Medicamento
+
+5. RECEITAS E VALORES FINANCEIROS
+   - cProcesso_00581: Valor da Receita do Mês
+   - cProcesso_00585: Valor do Estoque com Material/Medicamento
+   - cProcesso_00586: Valor do Recebido no Mês
+   - cProcesso_00587: Valor da Receita Total a Receber
+   - cProcesso_00588: Valor do Estoque de Faturamento
+   - cProcesso_00589: Valor da Receita Faturada
+   - cProcesso_00590: Valor da Receita com Material/Medicamento
+
+6. GESTÃO DE MATERIAIS E ESTOQUE
+   - cProcesso_00399: Taxa de Devolução de Itens por Setor
+
+7. PROCEDIMENTOS E TERAPIAS
+   - cProcesso_00401: Taxa de Uso de Terapia por Pacientes
+   - cProcesso_00574: Percentual de Uso de Antibiótico na Urgência
+   - cProcesso_00575: Taxa de Reoperação por Centro Cirúrgico
+
+8. AUDITORIA E QUALIDADE
+   - cProcesso_00451: Taxa de Registros Auditados por Usuário
+   - cProcesso_00483: Taxa de Glosas - Média Mensal por Departamento
+
+9. INDICADORES DE MORTALIDADE E ABANDONO
+   - cProcesso_00478: Taxa de Mortalidade Institucional
+   - cProcesso_00479: Taxa de Abandono/Evasão SUS Internados
+
+10. CIRURGIAS E PARTOS
+    - cProcesso_00481: Percentual de Partos Cesarianos
+
+11. ATENDIMENTO AMBULATORIAL
+    - cProcesso_00482: Taxa de Abandono de Senhas por Especialidade
+
+12. SAC E PESQUISAS DE SATISFAÇÃO
+    - cProcesso_00616: Taxa de Satisfação - Pacientes Internados
+    - cProcesso_00617: Taxa de Reclamação - Pacientes Internados
+    - cProcesso_00618: Taxa de Satisfação Geral
+    - cProcesso_00619: Taxa de Reclamações Geral
+
+═══════════════════════════════════════════════════════════════════════
+TOTAL: 53 CURSORS CATALOGADOS
+═══════════════════════════════════════════════════════════════════════
+
+
+═══════════════════════════════════════════════════════════════════════
+CATÁLOGO RESUMIDO - CURSORS MV POR ASSUNTO (ATUALIZADO)
+═══════════════════════════════════════════════════════════════════════
+
+1. OCUPAÇÃO DE LEITOS E UNIDADES (20)
+   - cProcesso_00313: Taxa de Ocupação UTI com Detalhamento Completo
+   - cProcesso_00314: Taxa de Ocupação Não-UTI
+   - cProcesso_00315: Taxa de Ocupação por Unidade (Versão 1)
+   - cProcesso_00316: Percentual de Ocupação Global
+   - cProcesso_00317: Taxa de Ocupação por Unidade (Versão 2)
+   - cProcesso_00318: Taxa de Ocupação por Unidade (Versão 3)
+   - cProcesso_00319: Taxa de Ocupação por Unidade (Versão 4)
+   - cProcesso_00320: Taxa de Ocupação por Unidade (Versão 5)
+   - cProcesso_00321: Taxa de Ocupação por Unidade (Versão 6)
+   - cProcesso_00322: Taxa de Ocupação por Unidade (Versão 7)
+   - cProcesso_00323: Taxa de Ocupação por Unidade (Versão 8)
+   - cProcesso_00427: Taxa de Ocupação por Unidade de Internação
+   - cProcesso_00428: Taxa de Ocupação por Atendimento
+   - cProcesso_00429: Produção por Unidade de Internação
+   - cProcesso_00472: Taxa de Ocupação UTI (Simplificado)
+   - cProcesso_00473: Taxa de Ocupação por Unidade (Versão 9)
+   - cProcesso_00474: Taxa de Ocupação por Unidade (Versão 10)
+   - cProcesso_00475: Taxa de Ocupação por Unidade (Versão 11)
+   - cProcesso_00476: Taxa de Ocupação por Unidade (Versão 12)
+   - cProcesso_00477: Percentual de Ocupação Unidades Abertas - Pandemia
+
+2. INTERNAÇÕES E MOVIMENTAÇÃO DE PACIENTES (10)
+   - cProcesso_00324: Número de Internações
+   - cProcesso_00325: Número de Contas Internação SUS AIH
+   - cProcesso_00480: Taxa de Readmissão em UTI (<24h)
+   - cProcesso_00629: Média de Permanência SUS
+   - cProcesso_00667: Número de Internações Hospital Dia
+   - cProcesso_00688: Número de Diárias Clínica Adulto SUS
+   - cProcesso_00689: Número de Diárias Cirúrgica Adulto SUS
+   - cProcesso_00690: Número de Diárias Clínica Pediátrica SUS
+   - cProcesso_00694: Número de Diárias Cirúrgica Pediátrica SUS
+   - cProcesso_00703: Taxa de Reincidência de Internação <=30 Dias
+
+3. FATURAMENTO E CONTRATUALIZAÇÕES (4)
+   - cProcesso_00339: Contratualização SUS
+   - cProcesso_00340: Controle de Teto UPS
+   - cProcesso_00437: Taxa de Entrega de Contas por Convênio
+   - cProcesso_00637: Percentual Médio de Entrega no Mês da Alta
+
+4. CUSTOS E DESPESAS OPERACIONAIS (6)
+   - cProcesso_00389: Despesas com Pessoal Total
+   - cProcesso_00390: Valor Custo Operacional Global
+   - cProcesso_00580: Valor da Despesa com Fixo
+   - cProcesso_00582: Valor da Despesa com Pessoal
+   - cProcesso_00583: Valor da Despesa Total
+   - cProcesso_00584: Valor da Despesa com Material/Medicamento
+
+5. RECEITAS E VALORES FINANCEIROS (7)
+   - cProcesso_00581: Valor da Receita do Mês
+   - cProcesso_00585: Valor do Estoque com Material/Medicamento
+   - cProcesso_00586: Valor do Recebido no Mês
+   - cProcesso_00587: Valor da Receita Total a Receber
+   - cProcesso_00588: Valor do Estoque de Faturamento
+   - cProcesso_00589: Valor da Receita Faturada
+   - cProcesso_00590: Valor da Receita com Material/Medicamento
+
+6. GESTÃO DE MATERIAIS E ESTOQUE (1)
+   - cProcesso_00399: Taxa de Devolução de Itens por Setor
+
+7. PROCEDIMENTOS E TERAPIAS (4)
+   - cProcesso_00401: Taxa de Uso de Terapia por Pacientes
+   - cProcesso_00574: Percentual de Uso de Antibiótico na Urgência
+   - cProcesso_00575: Taxa de Reoperação por Centro Cirúrgico
+   - cProcesso_00668: Sessões de Quimioterapia
+
+8. AUDITORIA E QUALIDADE (2)
+   - cProcesso_00451: Taxa de Registros Auditados por Usuário
+   - cProcesso_00483: Taxa de Glosas - Média Mensal por Departamento
+
+9. INDICADORES DE MORTALIDADE E ABANDONO (2)
+   - cProcesso_00478: Taxa de Mortalidade Institucional
+   - cProcesso_00479: Taxa de Abandono/Evasão SUS Internados
+
+10. CIRURGIAS E PARTOS (22)
+    - cProcesso_00481: Percentual de Partos Cesarianos
+    - cProcesso_00639: Número de Cirurgias Eletivas (Versão 1)
+    - cProcesso_00640: Número de Cirurgias de Urgência (Versão 1)
+    - cProcesso_00641: Número de Cirurgias de Emergência (Versão 1)
+    - cProcesso_00642: Número de Cirurgias Eletivas (Versão 2)
+    - cProcesso_00643: Número de Cirurgias de Urgência (Versão 2)
+    - cProcesso_00644: Número de Cirurgias de Emergência (Versão 2)
+    - cProcesso_00645: Número de Cirurgias Eletivas (Versão 3)
+    - cProcesso_00646: Número de Cirurgias de Urgência (Versão 3)
+    - cProcesso_00647: Número de Cirurgias de Emergência (Versão 3)
+    - cProcesso_00691: Número de Cirurgias Eletivas (Versão 4)
+    - cProcesso_00692: Número de Cirurgias de Urgência (Versão 4)
+    - cProcesso_00693: Número de Cirurgias de Emergência (Versão 4)
+    - cProcesso_00695: Número de Diárias Obstétrica Cirúrgica SUS
+    - cProcesso_00696: Número de Diárias Obstétrica Clínica SUS
+    - cProcesso_00697: Número de Diárias Obstétrica Parto SUS
+    - cProcesso_00710: Número de Cirurgias Eletivas SUS
+    - cProcesso_00713: Número de Cirurgias de Urgência SUS
+    - cProcesso_00714: Número de Cirurgias de Emergência SUS
+    - cProcesso_00717: Número de Cirurgias CERFIS
+    - cProcesso_00718: Quantidade de Cirurgias Pediátricas SUS
+    - cProcesso_00719: Produção de Cirurgias por Tipo de Convênio
+
+11. ATENDIMENTO AMBULATORIAL E CONSULTAS (2)
+    - cProcesso_00482: Taxa de Abandono de Senhas por Especialidade
+    - cProcesso_00704: Percentual de Consultas Ofertadas
+
+12. SAC E PESQUISAS DE SATISFAÇÃO (5)
+    - cProcesso_00616: Taxa de Satisfação - Pacientes Internados
+    - cProcesso_00617: Taxa de Reclamação - Pacientes Internados
+    - cProcesso_00618: Taxa de Satisfação Geral
+    - cProcesso_00619: Taxa de Reclamações Geral
+    - cProcesso_00620: Taxa de Opinião dos Pacientes
+
+13. EXAMES LABORATORIAIS E ANÁLISES CLÍNICAS (18)
+    A) EXTERNOS:
+    - cProcesso_00649: Número de Exames Análises Clínicas (Externos)
+    - cProcesso_00650: Número de Teste Ergométrico (Externos)
+    - cProcesso_00651: Número de Colangiopancreatografia Retrógrada (Externos)
+    - cProcesso_00652: Número de Colonoscopia (Externos)
+    - cProcesso_00653: Número de Ecocardiograma (Externos)
+    - cProcesso_00654: Número de Eletroencefalograma (Externos)
+    - cProcesso_00655: Número de Endoscopia Digestiva Alta (Externos)
+    - cProcesso_00656: Número de Endoscopia das Vias Urinárias (Externos)
+    - cProcesso_00657: Número de Endoscopia das Vias Respiratórias (Externos)
+    - cProcesso_00658: Número de Holter (Externos)
+    - cProcesso_00659: Número de MAPA (Externos)
+    B) INTERNOS:
+    - cProcesso_00670: Número de Teste Ergométrico (Internos)
+    - cProcesso_00671: Número de Holter (Internos)
+    - cProcesso_00673: Número de Colangiopancreatografia Retrógrada (Internos)
+    - cProcesso_00674: Número de Colonoscopia (Internos)
+    - cProcesso_00675: Número de Exames Análises Clínicas (Internos)
+    - cProcesso_00676: Número de Endoscopia das Vias Respiratórias (Internos)
+    - cProcesso_00678: Número de Eletroencefalograma (Internos)
+    - cProcesso_00681: Número de MAPA (Internos)
+    - cProcesso_00683: Número de Endoscopia Digestiva Alta (Internos)
+    - cProcesso_00684: Número de Ecocardiograma (Internos)
+    - cProcesso_00685: Número de Endoscopia das Vias Urinárias (Internos)
+
+14. EXAMES DE IMAGEM (18)
+    A) EXTERNOS:
+    - cProcesso_00660: Número de Mamografia (Externos)
+    - cProcesso_00661: Número de Raio-X (Externos)
+    - cProcesso_00662: Número de Ressonância Magnética (Externos)
+    - cProcesso_00663: Número de Tomografia Computadorizada (Externos)
+    - cProcesso_00664: Número de Ultrassonografia (Externos)
+    - cProcesso_00665: Número de Ultrassonografia/Doppler (Externos)
+    B) INTERNOS:
+    - cProcesso_00672: Número de Ultrassonografia/Doppler (Internos)
+    - cProcesso_00677: Número de Raio-X (Internos)
+    - cProcesso_00679: Número de Tomografia Computadorizada (Internos)
+    - cProcesso_00680: Número de Ultrassonografia (Internos)
+    - cProcesso_00682: Número de Ressonância Magnética (Internos)
+    - cProcesso_00686: Número de Mamografia (Internos)
+
+15. BANCO DE SANGUE E HEMOCOMPONENTES (3)
+    - cProcesso_00623: Percentual de Atendimento de Solicitações de Hemocomponentes
+    - cProcesso_00700: Percentual de Recusa de Doação por Morte Encefálica
+    - cProcesso_00701: Percentual de Recusa de Doação por Morte PCR
+
+16. EQUIPAMENTOS E MANUTENÇÃO (4)
+    - cProcesso_00624: Percentual de Calibrações Realizadas
+    - cProcesso_00625: Percentual de Qualificação Térmica
+    - cProcesso_00626: Indicador de Manutenção Preventiva (Versão 1)
+    - cProcesso_00635: Indicador de Manutenção Preventiva (Versão 2)
+
+17. OUTROS PROCEDIMENTOS E SERVIÇOS (4)
+    - cProcesso_00666: Número de Cirurgias Cardíacas
+    - cProcesso_00699: Taxa de Ocupação de Salas Cirúrgicas
+    - cProcesso_00705: Percentual de Exames (SADTS) Realizados
+    - cProcesso_00715: Número de Transplantes Realizados
+    - cProcesso_00716: Número de Procedimentos Ambulatoriais SUS
+
+═══════════════════════════════════════════════════════════════════════
+TOTAL: 128 CURSORS CATALOGADOS
+═══════════════════════════════════════════════════════════════════════
+
+DISTRIBUIÇÃO POR CATEGORIA:
+• Exames Laboratoriais e Análises Clínicas: 18 cursors
+• Cirurgias e Partos: 22 cursors
+• Ocupação de Leitos e Unidades: 20 cursors
+• Exames de Imagem: 12 cursors
+• Internações e Movimentação: 10 cursors
+• Receitas e Valores Financeiros: 7 cursors
+• Custos e Despesas: 6 cursors
+• SAC e Pesquisas: 5 cursors
+• Outros Procedimentos: 5 cursors
+• Faturamento: 4 cursors
+• Equipamentos e Manutenção: 4 cursors
+• Procedimentos e Terapias: 4 cursors
+• Banco de Sangue: 3 cursors
+• Auditoria e Qualidade: 2 cursors
+• Atendimento Ambulatorial: 2 cursors
+• Mortalidade e Abandono: 2 cursors
+• Gestão de Materiais: 1 cursor
+
+═══════════════════════════════════════════════════════════════════════

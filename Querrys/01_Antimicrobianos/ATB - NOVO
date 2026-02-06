@@ -1,0 +1,674 @@
+# Manual de Estrutura de Dados - Prescrição de Antimicrobianos no MV/DBAMV
+
+## 1. VISÃO GERAL DA ARQUITETURA
+
+O sistema de prescrições do MV/DBAMV é organizado em camadas hierárquicas:
+
+```
+ATENDIME (Atendimento)
+    └── PRE_MED (Prescrição Médica - Cabeçalho)
+        └── ITPRE_MED (Itens da Prescrição)
+            ├── HRITPRE_MED (Horários/Aprazamento)
+            ├── CITPRE_MED (Checagem)
+            └── PW_HORARIO_FECHADO_CHECAGEM (Horários Fechados)
+```
+
+---
+
+## 2. TABELAS PRINCIPAIS
+
+### 2.1 PRE_MED (Prescrição Médica - Cabeçalho)
+**Função:** Armazena o cabeçalho da prescrição médica, vinculando-a ao atendimento e setor.
+
+**Campos Principais:**
+- `CD_PRE_MED` (PK) - Identificador único da prescrição
+- `CD_ATENDIMENTO` (FK) - Ligação com ATENDIME
+- `CD_PRESTADOR` (FK) - Médico prescritor
+- `CD_SETOR` (FK) - Setor onde foi prescrito
+- `CD_UNID_INT` (FK) - Unidade de internação
+- `DH_CRIACAO` - Data/hora da criação
+- `TP_PRE_MED` - Tipo da prescrição (M=Médica, E=Enfermagem, etc.)
+- `CD_MULTI_EMPRESA` - Empresa (40 para HUGO)
+
+**Campos de Tratamento/Oncologia:**
+- `CD_TRATAMENTO` - Código da sessão de tratamento
+- `NR_CICLO` - Número do ciclo
+- `NR_SESSAO` - Número da sessão
+- `SN_INTERROMPER_SESSAO` - Flag de interrupção
+- `DS_JUSTIFICATIVA_INTERROMPER` - Justificativa da interrupção
+- `NR_PERCENTUAL_REDUCAO_QUANTD` - Percentual de redução de dose
+
+**Campos de Controle:**
+- `SN_PRESCRICAO_DIA_SEGUINTE` - Se é prescrição futura
+- `DH_CONVERSAO_PRESCRICAO` - Quando foi convertida
+- `SN_COPIADA` - Se foi copiada de outra prescrição
+
+**Total de registros:** 64.852.294
+
+---
+
+### 2.2 ITPRE_MED (Itens da Prescrição)
+**Função:** Armazena cada item prescrito (medicamento, procedimento, exame, dieta).
+
+**Campos de Identificação (obrigatórios):**
+- `CD_ITPRE_MED` (PK) - Identificador único do item
+- `CD_PRE_MED` (FK) - Prescrição à qual pertence
+- `CD_TIP_ESQ` (VARCHAR2(3)) - **TIPO DE ESQUEMA** ('ATB' = Antibiótico)
+- `CD_TIP_PRESC` (FK) - Tipo de prescrição
+- `CD_MULTI_EMPRESA` - Empresa (40 para HUGO)
+
+**Campos de Produto/Medicamento:**
+- `CD_PRODUTO` (FK PRODUTO) - Produto padronizado
+- `CD_NPADRONIZADO` (FK PRODUTO) - Produto não padronizado
+- `DS_NPADRONIZADO` - Descrição do não padronizado
+- `DS_ITEM_PRESCRICAO_MED` - Descrição completa do item
+- `CD_UNI_PRO` (FK UNI_PRO) - Unidade do produto
+
+**Campos de Dosagem:**
+- `QT_ITPRE_MED` - Quantidade prescrita
+- `QT_DOSE_PADRAO` - Dose padrão
+- `QT_ITPRE_MED_CALCULADO` - Quantidade calculada (superfície corpórea)
+- `CD_UNI_PRESC` (FK UNI_PRESC) - Unidade de prescrição (mg, mL, etc.)
+
+**Campos de Frequência:**
+- `CD_TIP_FRE` (FK TIP_FRE) - Frequência (8/8h, 12/12h, etc.)
+- `CD_TIP_FRE_DET` - Detalhamento da frequência
+- `CD_TIP_FRE_APRAZAMENTO` - Frequência usada no aprazamento
+
+**Campos de Via e Forma:**
+- `CD_FOR_APL` (FK FOR_APL) - Via de aplicação (EV, VO, IM, etc.)
+- `HR_DURACAO` - Duração da infusão
+- `QT_INFUSAO` - Quantidade de infusão
+- `CD_UNI_PRESC_INF` - Unidade da velocidade de infusão
+
+**Campos de Vigência:**
+- `DH_INICIAL` - Data/hora inicial
+- `DH_FINAL` - Data/hora final
+- `NR_DIAS` - Dias de duração
+- `NR_HORA` - Horas de duração
+- `NR_MINUTO` - Minutos de duração
+- `SN_CONTINUO` - Se é contínuo
+
+**Campos de Controle:**
+- `TP_SITUACAO` - Situação (A=Ativo, S=Suspenso, C=Cancelado)
+- `SN_CANCELADO` - Flag de cancelamento
+- `DH_CANCELADO` - Data/hora do cancelamento
+- `CD_PREST_CANC` - Prestador que cancelou
+- `DS_JUSTIFICATIVA` - Justificativa
+
+**Campos Específicos de Antimicrobianos:**
+- `CD_TIP_ESQ = 'ATB'` - Identificador de antibiótico
+- `SN_CRONICO` - Medicação crônica
+- `NR_PERCENTUAL_REDUCAO_QUANTD` - Redução de dose
+- `SN_REDUZIR_QUANTIDADE` - Flag de redução
+
+**Campos de Grupo/Organização:**
+- `CD_GRUPO_PRESCRICAO_ITPRE_MED` (FK) - Grupo de prescrição
+- `NR_ORDEM` - Ordem de exibição
+- `NR_AGRUPAMENTO` - Agrupamento de itens
+
+**Campos de Horário:**
+- `SN_HORARIO_GERADO` - Se horários foram gerados
+- `DS_OBSERVACAO_APRAZAMENTO` - Observações do aprazamento
+- `CD_USUARIO_OBSERVACAO_APRAZA` - Usuário da observação
+
+**Campos de Tratamento/Oncologia:**
+- `CD_ITPRE_MED_TRATMT` - Item pai em tratamento
+- `TP_FASE_QT` - Fase da quimioterapia (PRE, QT, POS)
+- `SN_FINAL_CICLO_NOTIFICADO` - Notificação de fim de ciclo
+
+**Campos de Controle de Alteração:**
+- `SN_COPIA` - Se foi copiado
+- `CD_ITPRE_MED_COPIA` - Item de origem da cópia
+- `SN_COPIA_IDENTICA` - Se é cópia idêntica
+- `SN_KIT_PADRAO_ALTERADO` - Se kit foi alterado
+- `SN_REAVALICAO_MEDICA` - Se houve reavaliação
+
+**Campos de Alertas:**
+- `SN_ALERTA_PERSISTIDO` - Se alertas foram salvos
+- `DS_OBSERVACAO_AUTOMATICA` - Observações automáticas do sistema
+
+**Campos para Exames:**
+- `CD_SET_EXA` (FK SET_EXA) - Set de exames
+- `CD_CID` (FK CID) - CID para exames
+- `CD_MATERIAL` (FK MATERIAL) - Material de coleta
+- `CD_LOCAL_ANATOMICO_COLETA` (FK) - Local da coleta
+- `DS_MATERIAL_COMPLEMENTAR` - Material complementar
+
+**Campos de Integração:**
+- `CD_ITPRE_MED_INTEGRA` - Código de-para integração
+- `CD_SEQ_INTEGRA` - Sequência de integração
+- `DT_INTEGRA` - Data da integração
+
+**Total de registros:** 171.091.333
+
+---
+
+### 2.3 HRITPRE_MED (Horários/Aprazamento)
+**Função:** Armazena os horários aprazados para administração de cada item.
+
+**Campos Principais:**
+- `CD_HRITPRE_MED` (PK) - Identificador do horário
+- `CD_ITPRE_MED` (FK) - Item da prescrição
+- `DH_HORARIO` - Data/hora do horário
+- `TP_SITUACAO` - Situação (A=Aguardando, R=Realizado, etc.)
+
+**Total de registros:** 208.773.055
+
+---
+
+### 2.4 CITPRE_MED (Checagem)
+**Função:** Registra as checagens de administração dos medicamentos.
+
+**Campos Principais:**
+- `CD_CITPRE_MED` (PK) - Identificador da checagem
+- `CD_ITPRE_MED` (FK) - Item checado
+- `CD_PRE_MED` (FK) - Prescrição
+- `DH_CHECAGEM` - Data/hora da checagem
+- `CD_PRESTADOR` - Profissional que checou
+
+**Total de registros:** 71.470.382
+
+---
+
+### 2.5 PW_HORARIO_FECHADO_CHECAGEM
+**Função:** Controla o fechamento dos horários de checagem (usado para DOT).
+
+**Campos Principais:**
+- `CD_HORARIO_FECHADO_CHECAGEM` (PK)
+- `CD_ITPRE_MED` (FK)
+- `DH_HORARIO_FECHADO` - Data/hora do fechamento
+- `SN_CHECADO` - Se foi checado
+
+**Total de registros:** 2.843.927
+
+---
+
+## 3. TABELAS DE PRODUTO/MEDICAMENTO
+
+### 3.1 PRODUTO
+**Função:** Cadastro mestre de todos os produtos (medicamentos, materiais, etc.).
+
+**Campos de Identificação:**
+- `CD_PRODUTO` (PK) - Identificador único
+- `CD_ESPECIE` (FK ESPECIE) - Espécie/categoria
+- `CD_CLASSE` (FK CLASSE) - Classe do produto
+- `DS_PRODUTO` - Descrição completa
+- `DS_PRODUTO_RESUMIDO` - Descrição resumida
+
+**Campos de Classificação:**
+- `CD_SUBSTANCIA_PRINCIPAL` - Substância principal
+- `QT_CONCENTRACAO` - Concentração/dosagem
+- `CD_FORMA_FARMACEUTICA` - Forma farmacêutica
+
+**Campos Específicos de Antimicrobianos:**
+- `SN_ONCOLOGIA` - Se é oncológico
+- `SN_ALTO_RISCO` - Se é alto risco
+- `SN_CONTROLA_SERIE` - Controle de série/lote
+
+**Campos de Controle:**
+- `SN_PERMITE_VENDER` - Permite venda
+- `SN_BLOQUEIA_MOVIMENTACAO` - Bloqueio
+- `TP_STATUS_UNIFICADO` - Status de unificação
+
+**Total de registros:** 87.567
+
+---
+
+### 3.2 ESPECIE
+**Função:** Categoria/espécie do produto (ex: Medicamento, Material, etc.).
+
+**Total de registros:** 87
+
+---
+
+### 3.3 CLASSE
+**Função:** Classificação do produto dentro da espécie.
+
+**Total de registros:** 274
+
+---
+
+### 3.4 UNI_PRO (Unidade do Produto)
+**Função:** Unidades de medida dos produtos (ampola, frasco, comprimido, etc.).
+
+**Campos Principais:**
+- `CD_UNI_PRO` (PK)
+- `DS_UNI_PRO` - Descrição da unidade
+- `CD_ESPECIE` (FK) - Espécie relacionada
+
+**Total de registros:** 96.567
+
+---
+
+## 4. TABELAS DE CLASSIFICAÇÃO TERAPÊUTICA
+
+### 4.1 TIP_ESQ (Tipo de Esquema)
+**Função:** Classifica o tipo de esquema terapêutico. **FUNDAMENTAL PARA ANTIMICROBIANOS**.
+
+**Campos Principais:**
+- `CD_TIP_ESQ` (PK, VARCHAR2(3)) - Código do tipo
+- `DS_TIP_ESQ` - Descrição
+
+**Valores Importantes:**
+- **'ATB'** = Antibiótico/Antimicrobiano
+- 'QUI' = Quimioterapia
+- 'HOR' = Hormônio
+- 'VAC' = Vacina
+- etc.
+
+**Total de registros:** 89
+
+---
+
+### 4.2 TIP_FRE (Tipo de Frequência)
+**Função:** Define as frequências de administração.
+
+**Exemplos:**
+- 8/8h, 12/12h, 24/24h
+- 1x/dia, 2x/dia
+- S/N (Se necessário)
+- ACM (A critério médico)
+- CONT (Contínuo)
+
+---
+
+### 4.3 FOR_APL (Forma de Aplicação)
+**Função:** Via de administração do medicamento.
+
+**Exemplos:**
+- EV (Endovenoso)
+- VO (Via Oral)
+- IM (Intramuscular)
+- SC (Subcutâneo)
+- TOP (Tópico)
+- INL (Inalatório)
+
+---
+
+### 4.4 UNI_PRESC (Unidade de Prescrição)
+**Função:** Unidades usadas na prescrição (mg, mL, UI, etc.).
+
+---
+
+## 5. TABELAS DE CONTROLE E AUDITORIA
+
+### 5.1 PW_AVALIACAO_ITPRE_MED
+**Função:** Avaliação farmacêutica dos itens prescritos.
+
+**Total de registros:** 160.342.955
+
+---
+
+### 5.2 PW_ITPRE_MED_ALERTA
+**Função:** Alertas de interação, alergia, dose, etc.
+
+**Total de registros:** 36.023.039
+
+---
+
+### 5.3 ITPRE_MED_JUSTIFICATIVA
+**Função:** Justificativas para prescrição (ex: antibióticos de uso restrito).
+
+**Campos Principais:**
+- `CD_ITPRE_MED_JUSTIFICATIVA` (PK)
+- `DS_JUSTIFICATIVA` - Texto da justificativa
+
+**Total de registros:** 389
+
+---
+
+### 5.4 LOG_HRITPRE_MED
+**Função:** Log de alterações nos horários.
+
+**Total de registros:** 569.087.497
+
+---
+
+### 5.5 ALTERACAO_ITPRE_MED
+**Função:** Registra alterações nos itens de prescrição.
+
+**Total de registros:** 2.966
+
+---
+
+## 6. TABELAS RELACIONADAS A ANTIMICROBIANOS
+
+### 6.1 PW_ANTIBIOTICO_DOADOR
+**Função:** Antibióticos para banco de sangue/doadores.
+
+**Total de registros:** 0
+
+---
+
+### 6.2 PW_CONFIG_AVAL_FARMACIA_ESQ
+**Função:** Configuração de avaliação farmacêutica por esquema.
+
+**Total de registros:** 2.283
+
+---
+
+### 6.3 PW_CONFIG_AVAL_FARMACIA_DIA
+**Função:** Configuração de avaliação farmacêutica por dia.
+
+**Total de registros:** 3.241
+
+---
+
+### 6.4 AVALIACAO_ANTIMICROBIANO_PRSCT
+**Função:** Avaliação específica de antimicrobianos prescritos.
+
+**Relacionamento:** CD_ITPRE_MED → ITPRE_MED
+
+---
+
+## 7. RELACIONAMENTOS PRINCIPAIS
+
+### 7.1 Fluxo de Prescrição → Item → Horário → Checagem
+
+```sql
+ATENDIME (CD_ATENDIMENTO)
+    ↓
+PRE_MED (CD_PRE_MED, CD_ATENDIMENTO)
+    ↓
+ITPRE_MED (CD_ITPRE_MED, CD_PRE_MED, CD_TIP_ESQ='ATB')
+    ↓
+HRITPRE_MED (CD_HRITPRE_MED, CD_ITPRE_MED)
+    ↓
+CITPRE_MED (CD_CITPRE_MED, CD_ITPRE_MED)
+```
+
+### 7.2 Item → Produto
+
+```sql
+ITPRE_MED (CD_PRODUTO)
+    ↓
+PRODUTO (CD_PRODUTO, CD_ESPECIE, CD_CLASSE)
+    ↓
+ESPECIE (CD_ESPECIE)
+CLASSE (CD_CLASSE)
+```
+
+### 7.3 Item → Classificação Terapêutica
+
+```sql
+ITPRE_MED (CD_TIP_ESQ='ATB')
+    ↓
+TIP_ESQ (CD_TIP_ESQ, DS_TIP_ESQ='Antibiótico')
+```
+
+---
+
+## 8. QUERY MODELO PARA ANTIMICROBIANOS
+
+### 8.1 Prescrições de Antimicrobianos Ativas
+
+```sql
+SELECT 
+    a.cd_atendimento,
+    p.nome_paciente,
+    p.dt_nascimento,
+    pm.cd_pre_med,
+    pm.dh_criacao,
+    prest.nm_prestador AS medico,
+    it.cd_itpre_med,
+    it.cd_produto,
+    prod.ds_produto,
+    it.qt_itpre_med,
+    up.ds_unidade AS unidade_dose,
+    tf.ds_tip_fre AS frequencia,
+    fa.ds_for_apl AS via,
+    it.dh_inicial AS dt_vigencia_inicial,
+    it.dh_final AS dt_vigencia_final,
+    te.ds_tip_esq AS tipo_esquema
+FROM dbamv.atendime a
+JOIN dbamv.paciente p ON a.cd_paciente = p.cd_paciente
+JOIN dbamv.pre_med pm ON a.cd_atendimento = pm.cd_atendimento
+JOIN dbamv.itpre_med it ON pm.cd_pre_med = it.cd_pre_med
+JOIN dbamv.produto prod ON it.cd_produto = prod.cd_produto
+JOIN dbamv.tip_esq te ON it.cd_tip_esq = te.cd_tip_esq
+LEFT JOIN dbamv.uni_pro up ON it.cd_uni_pro = up.cd_uni_pro
+LEFT JOIN dbamv.tip_fre tf ON it.cd_tip_fre = tf.cd_tip_fre
+LEFT JOIN dbamv.for_apl fa ON it.cd_for_apl = fa.cd_for_apl
+LEFT JOIN dbamv.prestador prest ON pm.cd_prestador = prest.cd_prestador
+WHERE it.cd_multi_empresa = 40
+  AND it.cd_tip_esq = 'ATB'
+  AND a.tp_atendimento = 'I'
+  AND a.dt_alta IS NULL
+  AND it.tp_situacao = 'A'
+  AND it.sn_cancelado = 'N'
+ORDER BY a.cd_atendimento, it.dh_inicial;
+```
+
+### 8.2 Cálculo de DOT (Days of Therapy)
+
+```sql
+WITH horarios_fechados AS (
+    SELECT 
+        it.cd_atendimento,
+        it.cd_produto,
+        prod.ds_produto,
+        COUNT(DISTINCT TRUNC(hf.dh_horario_fechado)) AS dias_terapia
+    FROM dbamv.itpre_med it
+    JOIN dbamv.pw_horario_fechado_checagem hf 
+        ON it.cd_itpre_med = hf.cd_itpre_med
+    JOIN dbamv.produto prod 
+        ON it.cd_produto = prod.cd_produto
+    WHERE it.cd_multi_empresa = 40
+      AND it.cd_tip_esq = 'ATB'
+      AND hf.sn_checado = 'S'
+      AND TRUNC(hf.dh_horario_fechado) BETWEEN :data_inicial AND :data_final
+    GROUP BY it.cd_atendimento, it.cd_produto, prod.ds_produto
+)
+SELECT * FROM horarios_fechados
+ORDER BY cd_atendimento, dias_terapia DESC;
+```
+
+### 8.3 Consumo por Classe de Antimicrobiano
+
+```sql
+SELECT 
+    esp.ds_especie AS classe,
+    prod.ds_produto,
+    COUNT(DISTINCT it.cd_atendimento) AS qtd_pacientes,
+    COUNT(it.cd_itpre_med) AS qtd_prescricoes,
+    SUM(it.qt_itpre_med) AS quantidade_total
+FROM dbamv.itpre_med it
+JOIN dbamv.produto prod ON it.cd_produto = prod.cd_produto
+JOIN dbamv.especie esp ON prod.cd_especie = esp.cd_especie
+JOIN dbamv.pre_med pm ON it.cd_pre_med = pm.cd_pre_med
+WHERE it.cd_multi_empresa = 40
+  AND it.cd_tip_esq = 'ATB'
+  AND pm.dh_criacao BETWEEN :data_inicial AND :data_final
+GROUP BY esp.ds_especie, prod.ds_produto
+ORDER BY quantidade_total DESC;
+```
+
+---
+
+## 9. CAMPOS-CHAVE PARA ANTIMICROBIANOS
+
+### 9.1 Filtros Essenciais
+
+```sql
+-- Filtro básico para qualquer query de ATB:
+WHERE it.cd_multi_empresa = 40           -- Empresa HUGO
+  AND it.cd_tip_esq = 'ATB'             -- Antimicrobianos
+  AND it.tp_situacao = 'A'              -- Ativo
+  AND it.sn_cancelado = 'N'             -- Não cancelado
+  AND a.tp_atendimento = 'I'            -- Internação
+  AND a.dt_alta IS NULL                 -- Paciente internado
+```
+
+### 9.2 Vigência do Antimicrobiano
+
+```sql
+-- Item ainda vigente:
+AND (it.dh_final IS NULL OR it.dh_final >= SYSDATE)
+AND it.dh_inicial <= SYSDATE
+
+-- Item em período específico:
+AND TRUNC(it.dh_inicial) BETWEEN :data_inicial AND :data_final
+```
+
+### 9.3 Identificação de Uso Empírico vs Definitivo
+
+```sql
+-- Presença de cultura/antibiograma:
+SELECT 
+    it.cd_itpre_med,
+    CASE 
+        WHEN EXISTS (
+            SELECT 1 FROM dbamv.ped_lab pl
+            WHERE pl.cd_atendimento = a.cd_atendimento
+              AND pl.cd_set_exa IN (SELECT cd_set_exa 
+                                     FROM dbamv.set_exa 
+                                     WHERE ds_set_exa LIKE '%CULTURA%')
+              AND pl.dh_pedido <= it.dh_inicial
+        ) THEN 'DEFINITIVO'
+        ELSE 'EMPIRICO'
+    END AS tipo_uso
+FROM dbamv.itpre_med it
+JOIN dbamv.atendime a ON it.cd_atendimento = a.cd_atendimento;
+```
+
+---
+
+## 10. TABELAS AUXILIARES IMPORTANTES
+
+### 10.1 SETOR
+**Função:** Setores do hospital (UTI, Enfermaria, etc.).
+
+**Uso:** `pm.cd_setor`
+
+---
+
+### 10.2 UNID_INT
+**Função:** Unidades de internação/leitos.
+
+**Uso:** `a.cd_unid_int`, `pm.cd_unid_int`
+
+---
+
+### 10.3 PRESTADOR
+**Função:** Cadastro de médicos e profissionais.
+
+**Uso:** `pm.cd_prestador`, `it.cd_prestador`
+
+---
+
+### 10.4 PACIENTE
+**Função:** Dados cadastrais dos pacientes.
+
+**Uso:** `a.cd_paciente`
+
+---
+
+### 10.5 ATENDIME
+**Função:** Registro de atendimentos (consultas, internações, etc.).
+
+**Campos Principais:**
+- `CD_ATENDIMENTO` (PK)
+- `CD_PACIENTE` (FK)
+- `TP_ATENDIMENTO` ('I'=Internação, 'U'=Urgência, 'A'=Ambulatorial)
+- `DT_ATENDIMENTO` - Data de entrada
+- `DT_ALTA` - Data de saída
+- `CD_LEITO` - Leito atual
+
+---
+
+## 11. OBSERVAÇÕES IMPORTANTES
+
+### 11.1 Campo CD_TIP_ESQ
+- **Tipo:** VARCHAR2(3)
+- **Valores:** 'ATB', 'QUI', 'HOR', etc.
+- **Fundamental** para identificar antimicrobianos
+- Sempre use `= 'ATB'` (não LIKE)
+
+### 11.2 Campo CD_MULTI_EMPRESA
+- Sempre filtrar por `= 40` (HUGO)
+- Presente em ITPRE_MED e PRE_MED
+
+### 11.3 Campo TP_SITUACAO
+- 'A' = Ativo
+- 'S' = Suspenso
+- 'C' = Cancelado
+
+### 11.4 Campo SN_CANCELADO
+- 'S' = Sim
+- 'N' = Não
+- Diferente de TP_SITUACAO
+
+### 11.5 Datas de Vigência
+- `DH_INICIAL` - Início da vigência
+- `DH_FINAL` - Fim da vigência
+- Se `DH_FINAL IS NULL` = item contínuo/sem prazo
+
+### 11.6 Volume de Dados
+- ITPRE_MED: 171 milhões de registros
+- HRITPRE_MED: 208 milhões
+- LOG_HRITPRE_MED: 569 milhões
+- **Sempre use índices e filtros apropriados**
+
+---
+
+## 12. ÍNDICES RECOMENDADOS
+
+```sql
+-- Principais índices para performance:
+ITPRE_MED:
+    - PK: CD_ITPRE_MED
+    - FK: CD_PRE_MED
+    - Composto: (CD_TIP_ESQ, CD_MULTI_EMPRESA, TP_SITUACAO)
+    - Composto: (CD_PRODUTO, DH_INICIAL)
+
+PRE_MED:
+    - PK: CD_PRE_MED
+    - FK: CD_ATENDIMENTO
+    - Composto: (CD_ATENDIMENTO, DH_CRIACAO)
+
+HRITPRE_MED:
+    - PK: CD_HRITPRE_MED
+    - FK: CD_ITPRE_MED
+    - Composto: (CD_ITPRE_MED, DH_HORARIO)
+```
+
+---
+
+## 13. DIAGRAMA ENTIDADE-RELACIONAMENTO SIMPLIFICADO
+
+```
+┌─────────────┐
+│  PACIENTE   │
+└──────┬──────┘
+       │
+       ↓
+┌─────────────┐      ┌──────────────┐
+│  ATENDIME   │──────│    SETOR     │
+└──────┬──────┘      └──────────────┘
+       │
+       ↓
+┌─────────────┐      ┌──────────────┐
+│   PRE_MED   │──────│  PRESTADOR   │
+└──────┬──────┘      └──────────────┘
+       │
+       ↓
+┌─────────────┐      ┌──────────────┐      ┌──────────────┐
+│ ITPRE_MED   │──────│   PRODUTO    │──────│   ESPECIE    │
+│ CD_TIP_ESQ  │      └──────────────┘      └──────────────┘
+│   = 'ATB'   │               │             ┌──────────────┐
+└──────┬──────┘               └─────────────│    CLASSE    │
+       │                                    └──────────────┘
+       ├─────────────┬──────────────┐
+       ↓             ↓              ↓
+┌─────────────┐ ┌──────────┐ ┌──────────────────────────┐
+│ HRITPRE_MED │ │CITPRE_MED│ │PW_HORARIO_FECHADO_CHECAGEM│
+└─────────────┘ └──────────┘ └──────────────────────────┘
+```
+
+---
+
+**Elaborado por:** Sistema MV/DBAMV  
+**Hospital:** Hugo (CD_MULTI_EMPRESA = 40)  
+**Versão:** 1.0  
+**Data:** Novembro/2025

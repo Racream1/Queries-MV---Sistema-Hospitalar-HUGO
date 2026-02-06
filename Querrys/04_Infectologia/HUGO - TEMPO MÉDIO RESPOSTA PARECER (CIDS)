@@ -1,0 +1,34 @@
+SELECT 
+    TO_CHAR(par_med.dt_solicitacao, 'YYYY-MM') AS mes,
+    TO_CHAR(par_med.dt_solicitacao, 'MM/YYYY') AS mes_formatado,
+    CASE 
+        WHEN unid_momento.cd_unid_int IN (601, 561, 559, 560) THEN 'Emergência'
+        WHEN unid_momento.cd_unid_int IN (558, 562, 563, 570) THEN 'Enfermaria'
+    END AS setor,
+    TO_CHAR(TRUNC((ROUND((SUM(dt_parecer - dt_solicitacao)/COUNT(*)),2) * 86400)/3600),'FM9900') || ':' ||
+    TO_CHAR(TRUNC(MOD((ROUND((SUM(dt_parecer - dt_solicitacao)/COUNT(*)),2) * 86400),3600)/60),'FM00') || ':' ||
+    TO_CHAR(MOD((ROUND((SUM(dt_parecer - dt_solicitacao)/COUNT(*)),2) * 86400),60),'FM00') AS tempo_medio
+FROM par_med
+JOIN atendime ON par_med.cd_atendimento = atendime.cd_atendimento
+LEFT JOIN LATERAL (
+    SELECT l.cd_unid_int
+    FROM dbamv.mov_int m
+    JOIN dbamv.leito l ON l.cd_leito = m.cd_leito
+    WHERE m.cd_atendimento = par_med.cd_atendimento
+      AND m.hr_mov_int <= par_med.dt_solicitacao
+    ORDER BY m.hr_mov_int DESC
+    FETCH FIRST 1 ROWS ONLY
+) unid_momento ON 1=1
+WHERE par_med.ds_situacao = 'Realizado'
+  AND atendime.cd_multi_empresa = 40
+  AND par_med.dt_solicitacao >= TO_DATE('01/01/2025', 'DD/MM/YYYY')
+  AND par_med.dt_solicitacao < TO_DATE('01/01/2026', 'DD/MM/YYYY')
+  AND unid_momento.cd_unid_int IN (601, 561, 559, 560, 558, 562, 563, 570)
+GROUP BY 
+    TO_CHAR(par_med.dt_solicitacao, 'YYYY-MM'), 
+    TO_CHAR(par_med.dt_solicitacao, 'MM/YYYY'),
+    CASE 
+        WHEN unid_momento.cd_unid_int IN (601, 561, 559, 560) THEN 'Emergência'
+        WHEN unid_momento.cd_unid_int IN (558, 562, 563, 570) THEN 'Enfermaria'
+    END
+ORDER BY mes, setor

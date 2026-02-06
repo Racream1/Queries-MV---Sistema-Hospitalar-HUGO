@@ -1,0 +1,44 @@
+SELECT atendime.cd_atendimento AS atendimento,
+       paciente.nm_paciente AS spaciente,
+       aviso_cirurgia.dt_realizacao,                     
+       aviso_cirurgia.cd_aviso_cirurgia AS aviso_cirurgia,
+       cirurgia.ds_cirurgia AS scirurgia,
+       aviso_cirurgia.dt_inicio_cirurgia,
+       aviso_cirurgia.dt_fim_cirurgia,
+       aviso_cirurgia.dt_inicio_anestesia,
+       aviso_cirurgia.dt_fim_anestesia,
+       aviso_cirurgia.dt_inicio_limpeza,
+       aviso_cirurgia.dt_fim_limpeza,
+       -- Tempo de limpeza (corrigido: fim - início)
+       TRUNC(((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400 / 3600)) || ':' || 
+       TRUNC(MOD((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400, 3600) / 60) || ':' || 
+       TRUNC(MOD(MOD((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400, 3600), 60)) AS tp_limpeza,
+       -- Tempo de cirurgia (corrigido: fim - início)
+       TRUNC(((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400 / 3600)) || ':' || 
+       TRUNC(MOD((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400, 3600) / 60) || ':' || 
+       TRUNC(MOD(MOD((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400, 3600), 60)) AS tp_cirurgia,
+       -- Total de horas
+       TRUNC(((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400 / 3600)) +  
+       TRUNC(((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400 / 3600)) AS tot_hora,
+       -- Total de minutos
+       TRUNC(MOD((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400, 3600) / 60) +
+       TRUNC(MOD((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400, 3600) / 60) AS tot_minuto,
+       -- Total de segundos
+       TRUNC(MOD(MOD((aviso_cirurgia.dt_fim_limpeza - aviso_cirurgia.dt_inicio_limpeza) * 86400, 3600), 60)) +
+       TRUNC(MOD(MOD((aviso_cirurgia.dt_fim_cirurgia - aviso_cirurgia.dt_inicio_cirurgia) * 86400, 3600), 60)) AS tot_segundo
+FROM cirurgia, 
+     aviso_cirurgia, 
+     cirurgia_aviso, 
+     atendime, 
+     paciente
+WHERE cirurgia.cd_cirurgia = cirurgia_aviso.cd_cirurgia
+  AND aviso_cirurgia.cd_aviso_cirurgia = cirurgia_aviso.cd_aviso_cirurgia
+  AND atendime.cd_atendimento = aviso_cirurgia.cd_atendimento
+  AND paciente.cd_paciente = atendime.cd_paciente
+  AND atendime.cd_multi_empresa = 40  -- FILTRO PARA HUGO
+  AND aviso_cirurgia.tp_situacao = 'R'  -- Apenas cirurgias realizadas
+  AND TRUNC(aviso_cirurgia.dt_aviso_cirurgia) >= TO_DATE('01/01/2016', 'DD/MM/YYYY')
+  AND TRUNC(aviso_cirurgia.dt_aviso_cirurgia) BETWEEN 
+      NVL(#datainicial#, TRUNC(SYSDATE - 1)) AND 
+      NVL(#datafinal#, TRUNC(SYSDATE))
+ORDER BY aviso_cirurgia.dt_aviso_cirurgia DESC

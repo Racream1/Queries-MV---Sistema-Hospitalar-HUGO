@@ -1,0 +1,134 @@
+SELECT 
+    -- Dados do Paciente
+    p.CD_PACIENTE,
+    p.NM_PACIENTE,
+    TO_CHAR(p.DT_NASCIMENTO, 'DD/MM/YYYY') AS DT_NASCIMENTO,
+    p.TP_SEXO,
+    TRUNC(MONTHS_BETWEEN(SYSDATE, p.DT_NASCIMENTO)/12) AS IDADE,
+    
+    -- Dados do Atendimento
+    a.CD_ATENDIMENTO,
+    a.TP_ATENDIMENTO,
+    TO_CHAR(a.DT_ATENDIMENTO, 'DD/MM/YYYY HH24:MI') AS DT_ATENDIMENTO,
+    l.DS_LEITO,
+    ui.DS_UNID_INT,
+    s.NM_SETOR,
+    
+    -- Dados do Prescritor
+    pres.NM_PRESTADOR AS MEDICO_PRESCRITOR,
+    
+    -- Dados da Prescrição
+    pm.CD_PRE_MED,
+    TO_CHAR(pm.DT_PRE_MED, 'DD/MM/YYYY') || ' ' || pm.HR_PRE_MED AS DH_PRESCRICAO,
+    ROUND((SYSDATE - (pm.DT_PRE_MED + (TO_NUMBER(SUBSTR(pm.HR_PRE_MED,1,2))/24) + (TO_NUMBER(SUBSTR(pm.HR_PRE_MED,4,2))/1440))) * 24, 2) AS HORAS_DESDE_PRESCRICAO,
+    
+    -- Dados do Antibiótico
+    ipm.CD_ITPRE_MED,
+    tp.DS_TIP_PRESC AS ANTIBIOTICO,
+    prod.DS_PRODUTO AS PRODUTO,
+    ipm.QT_ITPRE_MED AS DOSE,
+    up.DS_UNIDADE AS UNIDADE,
+    fa.DS_FOR_APL AS VIA_ADMINISTRACAO,
+    tf.DS_TIP_FRE AS FREQUENCIA,
+    ipm.NR_DIA AS DIA_TRATAMENTO,
+    ipm.QT_DIAS AS DURACAO_TOTAL_DIAS,
+    TO_CHAR(ipm.DH_INICIAL, 'DD/MM/YYYY HH24:MI') AS DH_INICIO,
+    TO_CHAR(ipm.DH_FINAL, 'DD/MM/YYYY HH24:MI') AS DH_FIM,
+    TO_CHAR(ipm.DH_REGISTRO, 'DD/MM/YYYY HH24:MI:SS') AS DH_REGISTRO_ITEM,
+    ipm.DS_ITPRE_MED AS OBSERVACAO,
+    
+    -- Status da Prescrição
+    CASE 
+        WHEN pm.SN_FECHADO = 'S' THEN 'FECHADA'
+        WHEN pm.SN_FECHADO = 'N' THEN 'ABERTA'
+        ELSE 'INDEFINIDO'
+    END AS STATUS_PRESCRICAO,
+    
+    -- Dados da ÚLTIMA Checagem
+    TO_CHAR(chk.DH_CHECAGEM, 'DD/MM/YYYY HH24:MI:SS') AS DH_ULTIMA_CHECAGEM,
+    ROUND((SYSDATE - chk.DH_CHECAGEM) * 24, 2) AS HORAS_DESDE_ULTIMA_CHECAGEM,
+    
+    -- Contagem de checagens
+    (SELECT COUNT(*) 
+     FROM PW_HORARIO_FECHADO_CHECAGEM c2 
+     WHERE c2.CD_ITPRE_MED = ipm.CD_ITPRE_MED) AS QTD_CHECAGENS_TOTAL,
+     
+    (SELECT COUNT(*) 
+     FROM PW_HORARIO_FECHADO_CHECAGEM c3 
+     WHERE c3.CD_ITPRE_MED = ipm.CD_ITPRE_MED 
+     AND c3.DH_CHECAGEM >= SYSDATE - (6/24)) AS QTD_CHECAGENS_6H
+
+FROM 
+    ITPRE_MED ipm
+    
+    -- Prescrição
+    INNER JOIN PRE_MED pm ON pm.CD_PRE_MED = ipm.CD_PRE_MED
+    
+    -- Tipo de Prescrição (antibióticos)
+    INNER JOIN TIP_PRESC tp ON tp.CD_TIP_PRESC = ipm.CD_TIP_PRESC
+    
+    -- Atendimento
+    INNER JOIN ATENDIME a ON a.CD_ATENDIMENTO = pm.CD_ATENDIMENTO
+    
+    -- Paciente
+    INNER JOIN PACIENTE p ON p.CD_PACIENTE = a.CD_PACIENTE
+    
+    -- Checagem (LEFT JOIN para mostrar também itens sem checagem)
+    LEFT JOIN (
+        SELECT 
+            CD_ITPRE_MED,
+            MAX(DH_CHECAGEM) AS DH_CHECAGEM
+        FROM PW_HORARIO_FECHADO_CHECAGEM
+        GROUP BY CD_ITPRE_MED
+    ) chk ON chk.CD_ITPRE_MED = ipm.CD_ITPRE_MED
+    
+    -- Prescritor
+    LEFT JOIN PRESTADOR pres ON pres.CD_PRESTADOR = pm.CD_PRESTADOR
+    
+    -- Leito
+    LEFT JOIN LEITO l ON l.CD_LEITO = a.CD_LEITO
+    LEFT JOIN UNID_INT ui ON ui.CD_UNID_INT = l.CD_UNID_INT
+    LEFT JOIN SETOR s ON s.CD_SETOR = ui.CD_SETOR
+    
+    -- Produto
+    LEFT JOIN PRODUTO prod ON prod.CD_PRODUTO = ipm.CD_PRODUTO
+    
+    -- Tabelas de Domínio
+    LEFT JOIN UNI_PRO up ON up.CD_UNI_PRO = ipm.CD_UNI_PRO
+    LEFT JOIN FOR_APL fa ON fa.CD_FOR_APL = ipm.CD_FOR_APL
+    LEFT JOIN TIP_FRE tf ON tf.CD_TIP_FRE = ipm.CD_TIP_FRE
+
+WHERE 
+    -- Filtro HUGO
+    a.CD_MULTI_EMPRESA = 40
+    
+    -- Apenas ANTIBIÓTICOS
+    AND tp.CD_TIP_ESQ = 'ATB'
+    
+    -- Item não cancelado
+    AND NVL(ipm.SN_CANCELADO, 'N') = 'N'
+    
+    -- Atendimento ativo
+    AND a.DT_ALTA IS NULL
+    
+    -- Prescrição das últimas 48 horas (aumentei o range)
+    AND pm.DT_PRE_MED >= TRUNC(SYSDATE) - 2
+    
+    -- Item de prescrição ainda válido (não expirado)
+    AND (ipm.DH_FINAL IS NULL OR ipm.DH_FINAL >= SYSDATE)
+    
+    -- Filtra por checagens recentes OU sem checagem
+    AND (
+        chk.DH_CHECAGEM >= SYSDATE - (24/24)  -- Checadas nas últimas 24h
+        OR chk.DH_CHECAGEM IS NULL            -- OU nunca checadas
+    )
+
+ORDER BY 
+    CASE 
+        WHEN chk.DH_CHECAGEM IS NULL THEN 0  -- Sem checagem primeiro
+        ELSE 1
+    END,
+    chk.DH_CHECAGEM DESC,
+    ui.DS_UNID_INT,
+    l.DS_LEITO,
+    p.NM_PACIENTE

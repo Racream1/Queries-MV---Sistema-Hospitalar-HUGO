@@ -1,0 +1,162 @@
+-- ============================================================
+-- PORTLET: JORNADA DO PACIENTE - PRONTO SOCORRO
+-- Versão: 1.2 (Sem Erros de Cast)
+-- Data: 2025-01-13
+-- ============================================================
+
+WITH params AS (
+    SELECT
+        TRUNC(SYSDATE - 1) AS data_inicio,
+        SYSDATE AS data_fim
+    FROM DUAL
+),
+
+eventos_atendimento AS (
+    SELECT
+        a.cd_atendimento,
+        a.cd_paciente,
+        a.hr_atendimento AS data_hora_chegada,
+        stp.dh_processo AS data_hora_evento,
+        
+        CASE
+            WHEN stp.cd_tipo_tempo_processo = 1 THEN 'TRIAGEM'
+            WHEN stp.cd_tipo_tempo_processo = 10 THEN 'CLASSIF_CHAMADA'
+            WHEN stp.cd_tipo_tempo_processo = 11 THEN 'CLASSIF_INICIO'
+            WHEN stp.cd_tipo_tempo_processo = 12 THEN 'CLASSIF_FIM'
+            WHEN stp.cd_tipo_tempo_processo = 20 THEN 'CONSULTA_CHAMADA'
+            WHEN stp.cd_tipo_tempo_processo = 21 THEN 'CONSULTA_INICIO_ADM'
+            WHEN stp.cd_tipo_tempo_processo = 31 THEN 'CONSULTA_INICIO_MEDICA'
+            WHEN stp.cd_tipo_tempo_processo = 32 THEN 'CONSULTA_FIM'
+            ELSE 'OUTRO'
+        END AS etapa_processo
+        
+    FROM DBAMV.ATENDIME a
+    CROSS JOIN params p
+    LEFT JOIN DBAMV.TRIAGEM_ATENDIMENTO ta 
+        ON a.cd_atendimento = ta.cd_atendimento
+    LEFT JOIN DBAMV.SACR_TEMPO_PROCESSO stp 
+        ON ta.cd_triagem_atendimento = stp.cd_triagem_atendimento
+    
+    WHERE a.hr_atendimento BETWEEN p.data_inicio AND p.data_fim
+        AND a.tp_atendimento = 'U'
+        AND a.cd_multi_empresa = 40
+        AND stp.dh_processo IS NOT NULL
+),
+
+atendimentos_pivotados AS (
+    SELECT
+        cd_atendimento,
+        cd_paciente,
+        data_hora_chegada,
+        
+        MAX(CASE WHEN etapa_processo = 'TRIAGEM' 
+            THEN data_hora_evento END) AS triagem_inicio,
+        
+        MAX(CASE WHEN etapa_processo = 'CLASSIF_INICIO' 
+            THEN data_hora_evento END) AS classif_inicio,
+        MAX(CASE WHEN etapa_processo = 'CLASSIF_FIM' 
+            THEN data_hora_evento END) AS classif_fim,
+        
+        MAX(CASE WHEN etapa_processo = 'CONSULTA_INICIO_MEDICA' 
+            THEN data_hora_evento END) AS consulta_inicio_medica,
+        MAX(CASE WHEN etapa_processo = 'CONSULTA_FIM' 
+            THEN data_hora_evento END) AS consulta_fim
+        
+    FROM eventos_atendimento
+    GROUP BY cd_atendimento, cd_paciente, data_hora_chegada
+)
+
+SELECT
+    ap.cd_atendimento AS COD_ATEND,
+    pac.cd_paciente AS PRONTUARIO,
+    SUBSTR(pac.nm_paciente, 1, 30) AS PACIENTE,
+    TRUNC(MONTHS_BETWEEN(SYSDATE, pac.dt_nascimento) / 12) AS IDADE,
+    
+    TO_CHAR(ap.data_hora_chegada, 'DD/MM HH24:MI') AS CHEGADA,
+    
+    -- TRIAGEM
+    TO_CHAR(ap.triagem_inicio, 'DD/MM HH24:MI') AS TRIAGEM,
+    CASE 
+        WHEN ap.triagem_inicio IS NOT NULL 
+        THEN TO_CHAR(TRUNC((ap.triagem_inicio - ap.data_hora_chegada) * 1440)) || 'min'
+        ELSE NULL
+    END AS TEMPO_TRIAGEM,
+    
+    -- CLASSIFICACAO
+    TO_CHAR(ap.classif_inicio, 'DD/MM HH24:MI') AS CLASSIF_INI,
+    TO_CHAR(ap.classif_fim, 'DD/MM HH24:MI') AS CLASSIF_FIM,
+    CASE 
+        WHEN ap.classif_inicio IS NOT NULL AND ap.classif_fim IS NOT NULL 
+        THEN TO_CHAR(TRUNC((ap.classif_fim - ap.classif_inicio) * 1440)) || 'min'
+        ELSE NULL
+    END AS DURACAO_CLASSIF,
+    
+    CASE 
+        WHEN atd.tp_prioridade = 'A' THEN 'ALTA'
+        WHEN atd.tp_prioridade = 'M' THEN 'MEDIA'
+        WHEN atd.tp_prioridade = 'B' THEN 'BAIXA'
+        ELSE NULL
+    END AS RISCO,
+    
+    -- CONSULTA
+    TO_CHAR(ap.consulta_inicio_medica, 'DD/MM HH24:MI') AS CONSULT_INI,
+    TO_CHAR(COALESCE(ap.consulta_fim, atd.hr_alta), 'DD/MM HH24:MI') AS CONSULT_FIM,
+    CASE 
+        WHEN ap.consulta_inicio_medica IS NOT NULL 
+        THEN TO_CHAR(TRUNC((ap.consulta_inicio_medica - ap.data_hora_chegada) * 1440)) || 'min'
+        ELSE NULL
+    END AS TEMPO_CONSULT,
+    
+    CASE 
+        WHEN ap.consulta_inicio_medica IS NOT NULL 
+             AND COALESCE(ap.consulta_fim, atd.hr_alta) IS NOT NULL 
+        THEN TO_CHAR(TRUNC((COALESCE(ap.consulta_fim, atd.hr_alta) - ap.consulta_inicio_medica) * 1440)) || 'min'
+        ELSE NULL
+    END AS DURACAO_CONSULT,
+    
+    -- INFORMACOES ADICIONAIS
+    SUBSTR(prest.nm_prestador, 1, 25) AS MEDICO,
+    SUBSTR(esp.ds_especialid, 1, 20) AS ESPECIALIDADE,
+    
+    CASE 
+        WHEN lt.ds_leito IS NOT NULL 
+        THEN SUBSTR(ui.ds_unid_int, 1, 10) || '-' || lt.ds_leito
+        ELSE NULL
+    END AS LEITO,
+    
+    -- STATUS
+    CASE 
+        WHEN atd.hr_alta IS NOT NULL THEN 'ALTA'
+        WHEN ap.consulta_inicio_medica IS NOT NULL THEN 'CONSULTA'
+        WHEN ap.classif_fim IS NOT NULL THEN 'AG_CONSULT'
+        WHEN ap.triagem_inicio IS NOT NULL THEN 'AG_CLASSIF'
+        ELSE 'AG_TRIAGEM'
+    END AS STATUS,
+    
+    -- TEMPO TOTAL
+    TO_CHAR(TRUNC((NVL(atd.hr_alta, SYSDATE) - ap.data_hora_chegada) * 1440)) || 'min' AS TEMPO_TOTAL,
+    
+    ROUND((NVL(atd.hr_alta, SYSDATE) - ap.data_hora_chegada) * 24, 2) AS HORAS_NUM
+
+FROM atendimentos_pivotados ap
+
+INNER JOIN DBAMV.PACIENTE pac 
+    ON ap.cd_paciente = pac.cd_paciente
+
+LEFT JOIN DBAMV.ATENDIME atd 
+    ON ap.cd_atendimento = atd.cd_atendimento
+
+LEFT JOIN DBAMV.PRESTADOR prest 
+    ON atd.cd_prestador = prest.cd_prestador
+
+LEFT JOIN DBAMV.ESPECIALID esp 
+    ON atd.cd_especialid = esp.cd_especialid
+
+LEFT JOIN DBAMV.LEITO lt 
+    ON atd.cd_leito = lt.cd_leito
+
+LEFT JOIN DBAMV.UNID_INT ui 
+    ON lt.cd_unid_int = ui.cd_unid_int
+
+ORDER BY 
+    ap.data_hora_chegada DESC
