@@ -4,6 +4,7 @@
 -- Uma linha por prescricao de "Carro de Parada".
 -- Identificado pelo objeto de prescricao (PAGU_OBJETO).
 -- Drill-out: #PRESCRICAO# -> 2_detalhe_carrinho_parada.sql
+--            #PRESCRICAO# -> 3_reposicao_carrinho_parada.sql
 -- ============================================================
 
 SELECT * FROM (
@@ -19,7 +20,6 @@ SELECT * FROM (
         -- Datas
         p.DH_PRESCRICAO,
         p.DH_CRIACAO,
-        p.DT_VALIDADE,
 
         -- Status
         CASE p.SN_FECHADO
@@ -27,24 +27,11 @@ SELECT * FROM (
             ELSE 'Aberta'
         END                                                 AS STATUS_PRESCRICAO,
 
-        -- Tipo de atendimento
-        CASE a.TP_ATENDIMENTO
-            WHEN 'I' THEN 'Internacao'
-            WHEN 'U' THEN 'Urgencia'
-            WHEN 'A' THEN 'Ambulatorial'
-            WHEN 'E' THEN 'Externo'
-            WHEN 'H' THEN 'Hospital Dia'
-        END                                                 AS TIPO_ATENDIMENTO,
-
         -- Contagens
         COUNT(DISTINCT ip.CD_ITEM_PRESCRICAO)               AS TOTAL_ITENS,
-        SUM(NVL(hr_agg.total_horarios, 0))                  AS TOTAL_HORARIOS,
         SUM(NVL(chk_agg.total_checagens, 0))                AS TOTAL_CHECAGENS,
         SUM(NVL(chk_agg.total_administrado, 0))             AS TOTAL_ADMINISTRADO,
-        SUM(NVL(chk_agg.total_nao_administrado, 0))         AS TOTAL_NAO_ADMINISTRADO,
-
-        -- Urgente / Alto risco
-        CASE WHEN MAX(NVL(ip.SN_URGENTE, 0)) = 1 THEN 'SIM' ELSE 'NAO' END AS URGENTE
+        SUM(NVL(chk_agg.total_nao_administrado, 0))         AS TOTAL_NAO_ADMINISTRADO
 
     FROM MVCPOE.PRESCRICAO p
 
@@ -74,14 +61,6 @@ SELECT * FROM (
         LEFT JOIN DBAMV.SETOR setor
             ON ui.CD_SETOR = setor.CD_SETOR
 
-        -- Aprazamento (contagem)
-        LEFT JOIN (
-            SELECT hr.CD_ITEM_PRESCRICAO, COUNT(*) AS total_horarios
-            FROM MVCPOE.HORARIO_ITEM_PRESCRICAO hr
-            WHERE hr.DH_SUSPENSAO IS NULL
-            GROUP BY hr.CD_ITEM_PRESCRICAO
-        ) hr_agg ON hr_agg.CD_ITEM_PRESCRICAO = ip.CD_ITEM_PRESCRICAO
-
         -- Checagem (contagem)
         LEFT JOIN (
             SELECT chk.CD_ITEM_PRESCRICAO,
@@ -101,6 +80,6 @@ SELECT * FROM (
         p.CD_PRESCRICAO, a.CD_ATENDIMENTO, pac.NM_PACIENTE,
         lei.DS_RESUMO, ui.DS_UNID_INT, setor.NM_SETOR,
         prest.NM_PRESTADOR, p.DH_PRESCRICAO, p.DH_CRIACAO,
-        p.DT_VALIDADE, p.SN_FECHADO, a.TP_ATENDIMENTO
+        p.SN_FECHADO
 )
 ORDER BY DH_PRESCRICAO DESC, UNIDADE, LEITO

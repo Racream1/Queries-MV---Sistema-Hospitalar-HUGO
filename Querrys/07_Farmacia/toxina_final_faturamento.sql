@@ -1,0 +1,81 @@
+-- ==========================================
+-- TOXINA BOTULINICA - Rastreamento COMPLETO
+-- Atendimento → Prescrição → Dispensação → Faturamento
+-- ==========================================
+
+-- Query FINAL: Pegar atendimentos COM toxina e ver FATURAMENTO
+SELECT
+    -- ATENDIMENTO
+    atend.CD_ATENDIMENTO,
+    atend.DT_ATENDIMENTO,
+    atend.TP_ATENDIMENTO,
+    memp.DS_MULTI_EMPRESA,
+    pac.NM_PACIENTE,
+
+    -- PRESCRIÇÃO TOXINA
+    pres.CD_PRESCRICAO,
+    pres.DH_CRIACAO AS DH_PRESCRICAO,
+    itpre.CD_PRODUTO,
+    Initcap(prod.DS_PRODUTO) AS PRODUTO_TOXINA,
+    itpre.QT_ITEM_PRESCRICAO AS QT_PRESCRITA,
+
+    -- DISPENSAÇÃO
+    mv.CD_MVTO_ESTOQUE,
+    mv.DT_MVTO_ESTOQUE,
+    itmv.QT_MOVIMENTACAO AS QT_DISPENSADA,
+
+    -- CONTA/FATURAMENTO
+    regf.CD_REG_FAT,
+    regf.DT_FECHAMENTO,
+    regf.SN_FECHADA,
+    regf.VL_TOTAL_CONTA,
+    conv.NM_CONVENIO,
+
+    -- ITENS FATURADOS (procedimentos)
+    itregf.CD_LANCAMENTO,
+    itregf.CD_PRO_FAT AS COD_PROCEDIMENTO_FATURADO,
+    prof.DS_PRO_FAT AS PROCEDIMENTO_FATURADO,
+    itregf.QT_LANCAMENTO AS QT_FATURADA,
+    itregf.VL_UNITARIO,
+    itregf.VL_TOTAL_CONTA AS VL_ITEM_FATURADO
+
+FROM DBAMV.ATENDIME atend
+    -- EMPRESA
+    INNER JOIN DBAMV.MULTI_EMPRESAS memp
+        ON memp.CD_MULTI_EMPRESA = atend.CD_MULTI_EMPRESA
+    -- PACIENTE
+    INNER JOIN DBAMV.PACIENTE pac
+        ON pac.CD_PACIENTE = atend.CD_PACIENTE
+
+    -- PRESCRICAO COM TOXINA
+    INNER JOIN MVCPOE.PRESCRICAO pres
+        ON pres.CD_ATENDIMENTO = atend.CD_ATENDIMENTO
+    INNER JOIN MVCPOE.ITEM_PRESCRICAO itpre
+        ON itpre.CD_PRESCRICAO = pres.CD_PRESCRICAO
+    INNER JOIN DBAMV.PRODUTO prod
+        ON prod.CD_PRODUTO = itpre.CD_PRODUTO
+
+    -- DISPENSACAO (MVTO_ESTOQUE)
+    LEFT JOIN DBAMV.MVTO_ESTOQUE mv
+        ON mv.CD_ATENDIMENTO = atend.CD_ATENDIMENTO
+        AND mv.TP_MVTO_ESTOQUE = 'P'  -- Dispensação paciente
+    LEFT JOIN DBAMV.ITMVTO_ESTOQUE itmv
+        ON itmv.CD_MVTO_ESTOQUE = mv.CD_MVTO_ESTOQUE
+        AND itmv.CD_PRODUTO = itpre.CD_PRODUTO  -- mesmo produto da prescrição
+
+    -- FATURAMENTO (REG_FAT + ITREG_FAT)
+    LEFT JOIN DBAMV.REG_FAT regf
+        ON regf.CD_ATENDIMENTO = atend.CD_ATENDIMENTO
+    LEFT JOIN DBAMV.CONVENIO conv
+        ON conv.CD_CONVENIO = regf.CD_CONVENIO
+    LEFT JOIN DBAMV.ITREG_FAT itregf
+        ON itregf.CD_REG_FAT = regf.CD_REG_FAT
+    LEFT JOIN DBAMV.PRO_FAT prof
+        ON prof.CD_PRO_FAT = itregf.CD_PRO_FAT
+
+WHERE itpre.CD_PRODUTO IN (2317,44017,14144,2774,14147,2773,11836,11835,8050,90115,48215,79605,14143,766,80237,14145,785)
+  AND pres.DH_CRIACAO >= TO_DATE('2026-02-01', 'YYYY-MM-DD')
+  AND atend.CD_MULTI_EMPRESA = 40  -- Hospital HUGO
+
+ORDER BY atend.CD_ATENDIMENTO DESC, itregf.CD_LANCAMENTO
+FETCH FIRST 100 ROWS ONLY;

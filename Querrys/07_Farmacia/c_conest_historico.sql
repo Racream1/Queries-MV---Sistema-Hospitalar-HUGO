@@ -1,0 +1,46 @@
+-- C_CONEST - Estoque universal HUGO (consolidado todos estoques)
+-- Meses ja fechados pelo MGES | Todos produtos (medicamentos + materiais)
+-- Colunas alinhadas com c_conest_mes_atual.sql para nao gerar divergencia
+SELECT
+    co.CD_PRODUTO,
+    Initcap(prod.DS_PRODUTO)                   AS PRODUTO,
+    esp.CD_ESPECIE,
+    esp.DS_ESPECIE                              AS ESPECIE,
+    uni.DS_UNIDADE                              AS UNIDADE,
+    co.CD_ANO,
+    co.CD_MES,
+    uni.VL_FATOR,
+    ROUND(SUM(co.QT_ESTOQUE_INICIAL) / NVL(uni.VL_FATOR, 1))      AS ESTOQUE_INICIAL,
+    ROUND(SUM(co.QT_ESTOQUE_FINAL) / NVL(uni.VL_FATOR, 1))        AS ESTOQUE_FINAL,
+    ROUND(SUM(co.QT_ENTRADA) / NVL(uni.VL_FATOR, 1))              AS ENTRADAS,
+    ROUND(SUM(co.QT_ENTRADA_TRANSFERIDO) / NVL(uni.VL_FATOR, 1))  AS TRANSF_ENTRADA,
+    ROUND(SUM(co.QT_SAIDA_SETOR) / NVL(uni.VL_FATOR, 1))         AS SAIDA_SETOR,
+    ROUND(SUM(co.QT_SAIDA_PACIENTE) / NVL(uni.VL_FATOR, 1))      AS SAIDA_PACIENTE,
+    ROUND(SUM(co.QT_TRANSFERENCIA_SAIDA) / NVL(uni.VL_FATOR, 1))  AS TRANSF_SAIDA,
+    ROUND(SUM(co.QT_DEVOLUCAO_SETOR) / NVL(uni.VL_FATOR, 1))     AS DEV_SETOR,
+    ROUND(SUM(co.QT_DEVOLUCAO_PACIENTE) / NVL(uni.VL_FATOR, 1))  AS DEV_PACIENTE,
+    ROUND(SUM(co.QT_VENDA) / NVL(uni.VL_FATOR, 1))               AS VENDA,
+    ROUND(SUM(co.QT_BAIXA) / NVL(uni.VL_FATOR, 1))               AS BAIXA,
+    ROUND(SUM(co.QT_EMPRESTIMO) / NVL(uni.VL_FATOR, 1))          AS EMPRESTIMO,
+    ROUND(SUM(co.QT_DOACAO) / NVL(uni.VL_FATOR, 1))              AS DOACAO,
+    ROUND(SUM(co.QT_MANIPULADA_ENTRADA) / NVL(uni.VL_FATOR, 1))  AS MANIP_ENTRADA,
+    ROUND(SUM(co.QT_MANIPULADA_SAIDA) / NVL(uni.VL_FATOR, 1))    AS MANIP_SAIDA,
+    ROUND(SUM(co.QT_DEVOLUCAO_VENDA) / NVL(uni.VL_FATOR, 1))     AS DEV_VENDA,
+    ROUND(SUM(co.QT_CONTAGEM_ENTRADA) / NVL(uni.VL_FATOR, 1))    AS CONTAGEM_ENTRADA,
+    ROUND(SUM(co.QT_CONTAGEM_SAIDA) / NVL(uni.VL_FATOR, 1))      AS CONTAGEM_SAIDA,
+    ROUND(SUM(co.QT_TRANSF_EMP_SAI) / NVL(uni.VL_FATOR, 1))      AS TRANSF_EMP_SAIDA,
+    ROUND(SUM(co.QT_TRANSF_EMP_ENT) / NVL(uni.VL_FATOR, 1))      AS TRANSF_EMP_ENTRADA
+FROM DBAMV.C_CONEST co
+    INNER JOIN DBAMV.ESTOQUE estq
+        ON estq.CD_ESTOQUE = co.CD_ESTOQUE
+    INNER JOIN DBAMV.PRODUTO prod
+        ON prod.CD_PRODUTO = co.CD_PRODUTO
+    INNER JOIN DBAMV.ESPECIE esp
+        ON esp.CD_ESPECIE = prod.CD_ESPECIE
+    LEFT JOIN DBAMV.UNI_PRO uni
+        ON uni.CD_PRODUTO = co.CD_PRODUTO AND uni.TP_RELATORIOS = 'C' AND uni.SN_ATIVO = 'S'
+WHERE estq.CD_MULTI_EMPRESA = 40
+  AND esp.CD_ESPECIE IN (1, 5, 12, 17, 79, 81, 82)
+  AND (co.CD_ANO > 2024 OR (co.CD_ANO = 2024 AND co.CD_MES >= 8))
+GROUP BY co.CD_PRODUTO, prod.DS_PRODUTO, esp.CD_ESPECIE, esp.DS_ESPECIE, uni.DS_UNIDADE, uni.VL_FATOR, co.CD_ANO, co.CD_MES
+ORDER BY esp.CD_ESPECIE, prod.DS_PRODUTO, co.CD_ANO, co.CD_MES
